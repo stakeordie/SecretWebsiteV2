@@ -1,6 +1,8 @@
+![Flare](./flare.png)
+
 # Flare starter
 
-This is the starter code that uses [flare](https://github.com/lkmx/flare) design system to build fast and beautiful web applications.
+This is the starter code that uses [flare](https://github.com/lkmx/flare/tree/0.3.0) design system to build fast and beautiful web applications.
 
 ## Set up
 
