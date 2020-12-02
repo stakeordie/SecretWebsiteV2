@@ -1,0 +1,14 @@
+{
+  "name": "flare-starter",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/vue-remark": "^0.2.6",
+    "@lkmx/flare": "git://github.com/lkmx/flare.git#0.3.0",
+    "gridsome": "^0.7.0"
+  }
+}
