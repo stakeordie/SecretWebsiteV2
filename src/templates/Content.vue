@@ -1,6 +1,6 @@
 <template>
   <default-layout>
-      Hola
+    <VueRemarkContent />
   </default-layout>
 </template>
 

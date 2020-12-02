@@ -1,7 +1,7 @@
 <template>
   <default-layout>
     <h1>Hello world</h1>
-    <p>This the most basic flare page</p>
+    <p>This the most basic flare page. Seriously</p>
   </default-layout>
 </template>
 
