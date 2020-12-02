@@ -1,3 +1,3 @@
 # Hello world
 
-This the most basic flare page...
+This the most basic flare page.
