@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@gridsome/vue-remark": "^0.2.6",
-    "@lkmx/flare": "^0.3.2",
+    "@lkmx/flare": "^0.3.4",
     "gridsome": "^0.7.0"
   }
 }

@@ -5,16 +5,22 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Flare',
+  siteName: "Flare",
   plugins: [
     {
-      use: '@gridsome/vue-remark',
+      use: "@gridsome/vue-remark",
       options: {
-        typeName: 'Content',
-        baseDir: './content',
-        path: '/',
-        template: './src/templates/Content.vue',
+        typeName: "Content",
+        baseDir: "./content",
+        path: "/",
+        template: "./src/templates/Content.vue",
       },
     },
   ],
-}
+
+  configureWebpack: {
+    resolve: {
+      symlinks: false,
+    },
+  },
+};

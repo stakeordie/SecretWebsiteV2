@@ -1,4 +1,4 @@
-![Flare](./flare.png)
+![Flare](./src/assets/flare.png)
 
 # Flare starter
 
