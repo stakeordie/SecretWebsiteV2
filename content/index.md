@@ -24,7 +24,7 @@ With Flare, analysts, designers and stakeholders can prototype a full-blown appl
 
 <!-- Components -->
 
-<columns number="4" number-m="2">
+<columns number="4" number-m="2" number-s="2">
 
 <block>
 
