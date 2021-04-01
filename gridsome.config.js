@@ -5,22 +5,31 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: "Flare",
-  plugins: [
-    {
-      use: "@gridsome/vue-remark",
-      options: {
-        typeName: "Content",
-        baseDir: "./content",
-        path: "/",
-        template: "./src/templates/Content.vue",
-      },
+    siteName: "Flare",
+    plugins: [{
+            use: "@gridsome/vue-remark",
+            options: {
+                typeName: "Content",
+                baseDir: "./content",
+                path: "/",
+                template: "./src/templates/Content.vue",
+            },
+        },
+        {
+            use: '@gridsome/source-ghost',
+            options: {
+                typeName: 'Ghost',
+                baseUrl: 'https://blog-admin.scrt.network',
+                contentKey: '74d989aa8008b1d8e3c9464b65',
+            }
+        },
+    ],
+    templates: {
+        GhostPost: '/blog/:slug'
     },
-  ],
-
-  configureWebpack: {
-    resolve: {
-      symlinks: false,
+    configureWebpack: {
+        resolve: {
+            symlinks: false,
+        },
     },
-  },
 };
