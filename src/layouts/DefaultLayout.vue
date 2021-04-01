@@ -5,7 +5,6 @@
         <img class="header__logo" src="@/assets/flare--white.png">
         <nav>
           <g-link to="/">Index</g-link>
-          <g-link to="/about">About</g-link>
         </nav>
       </simple-header>
     </template>

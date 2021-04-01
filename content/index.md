@@ -1,109 +1,122 @@
+<type title="Hero">
+
+# Welcome to Secret Network
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c70BBVUCxxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</type>
+
+<type title="Introduction">
+
+## Want to build a better internet? Solve for privacy. Secret Network is the first blockchain with 
+
+**privacy-preserving smart contracts.** Applications built on Secret Network utilize encrypted data without exposing it to anyone, even the nodes in the network. Secret Network empowers developers to build **decentralized, permissionless, privacy-preserving applications - Secret Apps.** For blockchain technology to reach global adoption, users and organizations need granular control over their data. Private by default - transparent when needed - Secret Network's programmable privacy delivers this level of control, securing and scaling Web 3.0. [Read more](/about/about-secret-network)
+
+</type>
+
+<type title="Card">
+
+### Learn about Secret Network
+
+![Community](./img/home-card/learn-about-secret-network.png)
+
+[Link](/about/about-secret-network)
+
+</type>
 
 
-<!-- Hero -->
-# Welcome to Flare
+<type title="Card">
 
-<columns number="2" number-s="1">
+### **Join**<br>Our Community
 
-Flare is a design system for front-end agile engineering.
+![Secret App](./img/home-card/join-our-community.png)
 
-Flare describes any application front-end using four simple concepts: layouts, pages, frames and blocks. This abstraction layer shapes a common language between definition and implementation teams.
+[Link](/community)
 
-With Flare, analysts, designers and stakeholders can prototype a full-blown application in seconds sharing wireframes, mock-ups or code with coders and testers in a continuous cycle for a true agile experience.
-
-<block>
-
-![Website wireframe](./img/website.png)
-
-</block>
-
-</columns>
+</type>
 
 
+<type title="Card">
 
+### Build your own Secret App
 
-<!-- Components -->
+![Node Operator](./img/home-card/build-your-own-secret-app.png)
 
-<columns number="4" number-m="2" number-s="2">
+[Link](/developers)
 
-<block>
-
-### Layouts
-
-Layouts decorate the pages.
-
-Learn more
-
-</block>
-
-<block>
-
-### Pages
-
-Pages are the central entity, they organize the frames.
-
-Learn more
-
-</block>
-
-<block>
-
-### Frames
-
-Frames support the blocks.
-
-Learn more
-
-</block>
-
-<block>
-
-### Blocks
-
-Blocks are the actual content.
-
-Learn more
-
-</block>
-
-</columns>
+</type>
 
 
 
+<type title="Card">
+
+### **Explore the**<br>Ecosystem
+
+![Node Operator](./img/home-card/explore-the-ecosystem.png)
+
+[Link](/developers)
+
+</type>
+
+<type title="Announcement">
+
+#### Announcement
+
+### SecretSwap is LIVE!
 
 
-![Forest](./img/forest.jpg)
+Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistance, improved privacy protections, and low cost. Start using SecretSwap now and stay tuned for more info on next step, a native governance token for Secret DeFi, and more rewards.
+
+[Read more](/blog/secretswap-is-live-on-mainnet)
+[Try It Out!](https://bridge.scrt.network/swap#Swap)
+
+![](./img/announcement/secretswap.jpg)
+
+</type>
 
 
+<type title="Latest blog posts">
 
-Flare is a paradigm that breaks down digital content into layouts, pages, frames and blocks
+# Latest Blog Posts
 
+Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
-<columns number="3" number-s="1">
+[Blog](/blog)
 
-<block class="red-box">
+<latest-posts class="latest-blog-cards"></latest-posts>
 
-## Boxed red
-
-Nulla a lectus dictum, iaculis arcu quis, porttitor lorem. Ut ultrices tincidunt congue. Vestibulum et est fringilla, consectetur lacus quis.
-
-</block>
-
-<block class="green-box">
-
-## Boxed green
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum efficitur ultrices. Donec ac sem risus. Praesent vitae lectus velit.
-
-</block>
+</type>
 
 
-<block class="blue-box">
+<type title="Announcement">
 
-## Boxed blue
+#### Announcement
 
-Pellentesque sit amet odio semper, suscipit enim vel, molestie metus. Praesent ullamcorper facilisis lacus, ultricies efficitur nisl laoreet id. Suspendisse.
+### SCRT 2020: Our Secret Vision for<br>Universal Finance
 
-</block>
+Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
 
-</columns>
+[Link](/blog/secret-2020-defi)
+
+</type>
+
+<type title="Featured media">
+
+## Featured Media
+
+[View al media](/media)
+
+
+#### Private Smart Contracts: Anthony Pompliano
+![Private Smart Contracts: Anthony Pompliano](./img/media-card/image1.png)
+[Link](https://www.youtube.com/watch?v=Kx9hb3U7pfs)
+
+#### Secret Network on The Defiant Podcast
+![Secret Network on The Defiant Podcast](./img/media-card/image2.png)
+[Link](https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52)
+
+#### zkp-privacy Summit: Secret Contracts
+![zkp-privacy Summit: Secret Contracts](./img/media-card/privacysummit.png)
+[Link](https://www.crowdcast.io/e/zkp-privacy-summit/5)
+
+</type>
