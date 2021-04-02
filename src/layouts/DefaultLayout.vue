@@ -1,58 +1,61 @@
 <template>
   <simple-layout>
     <template #header>
-      <simple-header>
+      <simple-header mode="full">
         <g-link to="/">
           <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true">
           </g-image>
         </g-link>
-        <nav>
+        <nav class="main-navigation">
           <ul class="header__navigation">
-            <li @mouseover="showAboutTrigger"  class="dropdown-container">
-              <a href="/about">About</a>
+            <li @mouseover="showAbout = true" @mouseleave="showAbout = false" class="dropdown-container">
+              <a href="/about/about-secret-network">About</a>
+            </li>
+            <li @mouseover="showMedia = true" @mouseleave="showMedia = false" class="dropdown-container">
+              <a href="/media/features">Media</a>
               <transition name="fade">
-                <ul v-show="showAbout" class="dropdown">
-                  <li v-for="(link, index) in linksAbout">
+                <ul v-show="showMedia" class="dropdown">
+                  <li v-for="(link, index) in linksMedia">
                     <a :href="link.path"> {{ link.title }}</a>
                   </li>
                 </ul>
               </transition>
             </li>
-            <li @mouseover="showMediaTrigger" class="dropdown-container">
-              <a href="/media/features">Media</a>
-              <ul v-show="showMedia" class="dropdown">
-                <li v-for="(link, index) in linksMedia">
-                  <a :href="link.path"> {{ link.title }}</a>
-                </li>
-              </ul>
-            </li>
-            <li @mouseover="showCommunityTrigger" class="dropdown-container">
+            <li @mouseover="showCommunity = true" @mouseleave="showCommunity = false" class="dropdown-container">
               <a href="/community">Community</a>
-              <ul v-show="showCommunity" class="dropdown">
-                <li v-for="(link, index) in linksCommunity">
-                  <a :href="link.path"> {{ link.title }}</a>
-                </li>
-              </ul>
+              <transition name="fade">
+                <ul v-show="showCommunity" class="dropdown">
+                  <li v-for="(link, index) in linksCommunity">
+                    <a :href="link.path"> {{ link.title }}</a>
+                  </li>
+                </ul>
+              </transition>
             </li>
-            <li @mouseover="showDevelopersTrigger" class="dropdown-container">
+            <li @mouseover="showDevelopers = true" @mouseleave="showDevelopers = false" class="dropdown-container">
               <a href="/developers">Developers</a>
-              <ul v-show="showDevelopers" class="dropdown">
-                <li v-for="(link, index) in linksDevelopers">
-                  <a :href="link.path" :target="link.target"> {{ link.title }}</a>
-                </li>
-              </ul>
+              <transition name="fade">
+                <ul v-show="showDevelopers" class="dropdown">
+                  <li v-for="(link, index) in linksDevelopers">
+                    <a :href="link.path" :target="link.target"> {{ link.title }}</a>
+                  </li>
+                </ul>
+              </transition>
             </li>
             <li class="dropdown-container">
               <a href="/ecosystem/overview">Ecosystem</a>
             </li>
-            <li class="dropdown-container">
-              <a href="https://forum.scrt.network/" target="blank">Forum</a>
-            </li>
           </ul>
         </nav>
-        <!-- <nav>
-          <g-link to="/">Index</g-link>
-        </nav> -->
+        <nav class="social-navigation">
+        
+            <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
+            <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img src="@/assets/icon-social-github.svg" alt=""></a>
+            <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg" alt=""></a>
+            <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg" alt=""></a>
+            <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg" alt=""></a>
+            <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img src="@/assets/icon-social-youtube.svg" alt=""></a>
+
+        </nav>
       </simple-header>
     </template>
 
@@ -144,32 +147,18 @@
           },
         ],
       }
+      
     },
+    watch:{
+    $route (to, from){
+        this.showAbout = false;
+        this.showMedia = false;
+        this.showCommunity = false;
+        this.showDevelopers = false;
+    }
+  } ,
     methods: {
-      showAboutTrigger() {
-        this.showAbout = true;
-        this.showMedia = false;
-        this.showCommunity = false;
-        this.showDevelopers = false;
-      },
-      showMediaTrigger() {
-        this.showMedia = true;
-        this.showAbout = false;
-        this.showCommunity = false;
-        this.showDevelopers = false;
-      },
-      showCommunityTrigger() {
-        this.showCommunity = true;
-        this.showAbout = false;
-        this.showMedia = false;
-        this.showDevelopers = false;
-      },
-      showDevelopersTrigger() {
-        this.showDevelopers = true;
-        this.showAbout = false;
-        this.showMedia = false;
-        this.showCommunity = false;
-      },
+
     }
   }
 
@@ -177,6 +166,8 @@
 
 <style lang="scss">
   .simple-header {
+    display: grid;
+    gap: 50px;
     .header {
       &__logo {
         width: auto;
@@ -185,9 +176,9 @@
       }
     }
 
-    nav {
-      flex: auto;
+    .main-navigation {
       display: flex;
+      flex: auto;
       height: 100%;
 
       .header__navigation {
@@ -195,8 +186,9 @@
         margin: 0;
         display: flex;
         height: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
+
         li.dropdown-container {
           padding-left: 0;
           margin: 0;
@@ -212,36 +204,129 @@
           .dropdown {
             position: absolute;
             left: 0;
-            top: var(--f-gutter-xxl);
-            background: green;
+            top: 64px;
+            background: white;
+            border: 1px solid black;
             display: flex;
             border-radius: var(--f-gutter-xs);
             z-index: 9;
             margin: 0;
             flex-direction: column;
-            width: 300px;
+            min-width: 200px;
+            flex: auto;
+
             li {
               margin: 0;
               flex: auto;
-              padding: var(--f-gutter-s) var(--f-gutter-xxs) ;
+              padding: var(--f-gutter-s) var(--f-gutter-xs);
+              height: 100%;
+              display: flex;
+
+              a {
+                white-space: nowrap;
+                color: black;
+                display: flex;
+                flex: auto;
+                height: 100%;
+
+                &:hover {
+                  color: red;
+                }
+              }
             }
           }
         }
       }
     }
+    .social-navigation {
+      display: flex;
+      gap: var(--f-gutter);
+      a {
+        padding: 0 !important;
+      }
+    }
   }
 
-  .fade-enter-active,
+  .fade-enter-active {
+    -webkit-animation: swing-in-top-fwd 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
+
   .fade-leave-active {
-    transition: opacity .5s;
+    -webkit-animation: swing-out-top-bck 0.2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+    animation: swing-out-top-bck 0.2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
   }
 
-  .fade-enter,
-  .fade-leave-to
+  @-webkit-keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
 
-  /* .fade-leave-active below version 2.1.8 */
-    {
-    opacity: 0;
+    100% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
+
+  @keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes swing-out-top-bck {
+    0% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
+  }
+
+  @keyframes swing-out-top-bck {
+    0% {
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
+    }
   }
 
 </style>
