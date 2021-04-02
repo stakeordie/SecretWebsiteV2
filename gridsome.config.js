@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-    siteName: "Flare",
+    siteName: "Secret Network",
     plugins: [{
             use: "@gridsome/vue-remark",
             options: {
