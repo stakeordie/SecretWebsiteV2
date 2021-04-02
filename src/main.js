@@ -7,6 +7,7 @@ import Flare from "@lkmx/flare";
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 
 import Type from "~/components/Type.vue";
+import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
@@ -29,6 +30,7 @@ export default function(Vue, {
     // Set default layout as a global component
     Vue.component("DefaultLayout", DefaultLayout);
     Vue.component("ThemedImage", ThemedImage);
+    Vue.component("Navigation", Navigation);
     Vue.component("Type", Type);
 
     // Blog
