@@ -42,4 +42,19 @@
     --color-highkey-tertiary-red: rgba(239, 114, 108, 1);
     --color-highkey-tertiary-purple: rgba(210, 190, 237, 1);
     --color-highkey-tertiary-gray: rgba(188, 188, 204, 1);
+    // Neutral
+    --color-neutral-dark-mode-01: rgba(0, 0, 0, 1);
+    --color-neutral-dark-mode-02: rgba(19, 19, 19, 1);
+    --color-neutral-dark-mode-03: rgba(36, 36, 36, 1);
+    --color-neutral-dark-mode-04: rgba(170, 170, 170, 1);
+    --color-neutral-dark-mode-05: rgba(255, 250, 245, 1);
+    --color-neutral-light-mode-01: rgba(245, 235, 214, 1);
+    --color-neutral-light-mode-02: rgba(249, 243, 231, 1);
+    --color-neutral-light-mode-03: rgba(252, 249, 243, 1);
+    --color-neutral-light-mode-04: rgba(133, 133, 133, 1);
+    --color-neutral-light-mode-045: #5F5E5C;
+    // Header dropdown
+    --navigation-dropdown-background: var(--color-neutral-dark-mode-05);
+    // background transition 
+    --color-transition: 0.2s ease;
 }

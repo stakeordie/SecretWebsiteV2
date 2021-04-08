@@ -1,18 +1,18 @@
 <template>
-  <posts-featured :posts="$static.posts.edges"></posts-featured>
+  <blog-posts :posts="$static.posts.edges"></blog-posts>
 </template>
 
 <script>
-import PostsFeatured from '@/components/blog/PostsFeatured'
+import BlogPosts from '@/components/blog/BlogPosts'
 
 export default {
-  components: { PostsFeatured }
+  components: { BlogPosts }
 }
 </script>
 
 <static-query>
 {
-  posts: allGhostPost(filter: { featured: { eq: true }}, sortBy: "published_at", limit: 8) {
+  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3) {
     edges {
       node {
         title

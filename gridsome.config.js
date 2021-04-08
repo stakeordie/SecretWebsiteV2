@@ -27,6 +27,16 @@ module.exports = {
     templates: {
         GhostPost: '/blog/:slug'
     },
+    transformers: {
+        remark: {
+            externalLinksTarget: '_blank',
+            externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+            anchorClassName: 'icon icon-link',
+            plugins: [
+                'gridsome-plugin-remark-prismjs-all',
+            ]
+        },
+    },
     configureWebpack: {
         resolve: {
             symlinks: false,

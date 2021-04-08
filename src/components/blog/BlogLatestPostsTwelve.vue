@@ -1,18 +1,23 @@
 <template>
-  <posts :posts="$static.posts.edges"></posts>
+  <blog-posts :posts="$static.posts.edges" :columns="columns"></blog-posts>
 </template>
 
 <script>
-import Posts from '@/components/blog/Posts'
+import BlogPosts from '@/components/blog/BlogPosts'
 
 export default {
-  components: { Posts }
+  components: { BlogPosts },
+  data () {
+    return {
+      columns: 3
+    }
+  }
 }
 </script>
 
 <static-query>
 {
-  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3) {
+  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 9) {
     edges {
       node {
         title

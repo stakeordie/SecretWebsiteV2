@@ -4,6 +4,13 @@ import "./sass/style.scss";
 
 import Flare from "@lkmx/flare";
 
+import "@fontsource/hind"
+import "@fontsource/hind/600.css"
+import "@fontsource/hind/700.css"
+import "@fontsource/montserrat"
+import "@fontsource/montserrat/600.css"
+import "@fontsource/montserrat/500.css"
+
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 
 import Type from "~/components/Type.vue";
@@ -14,11 +21,24 @@ import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
 import BlogCardFeatured from "~/components/blog/BlogCardFeatured"
 import BlogHero from "~/components/blog/BlogHero"
-import FeaturedPosts from "~/components/blog/FeaturedPosts"
-import LatestPosts from "~/components/blog/LatestPosts"
-import LatestPostsTwelve from "~/components/blog/LatestPostsTwelve"
-import Posts from "~/components/blog/Posts"
-import PostsFeatured from "~/components/blog/PostsFeatured"
+import BlogFeaturedPosts from "~/components/blog/BlogFeaturedPosts"
+import BlogLatestPosts from "~/components/blog/BlogLatestPosts"
+import BlogLatestPostsTwelve from "~/components/blog/BlogLatestPostsTwelve"
+import BlogPosts from "~/components/blog/BlogPosts"
+import BlogPostsFeatured from "~/components/blog/BlogPostsFeatured"
+
+require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
+require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+
+
+function setDefaultTheme() {
+    const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
+    if (!theme) return
+    const [body] = document.getElementsByTagName('body')
+    if (!body) return
+    body.setAttribute('theme', theme.trim())
+}
+
 
 export default function(Vue, {
     router,
@@ -38,11 +58,12 @@ export default function(Vue, {
     Vue.component("BlogCard", BlogCard);
     Vue.component("BlogCardFeatured", BlogCardFeatured);
     Vue.component("BlogHero", BlogHero);
-    Vue.component("FeaturedPosts", FeaturedPosts);
-    Vue.component("LatestPosts", LatestPosts);
-    Vue.component("LatestPostsTwelve", LatestPostsTwelve);
-    Vue.component("Posts", Posts);
-    Vue.component("PostsFeatured", PostsFeatured);
+    Vue.component("BlogFeaturedPosts", BlogFeaturedPosts);
+    Vue.component("BlogLatestPosts", BlogLatestPosts);
+    Vue.component("BlogLatestPostsTwelve", BlogLatestPostsTwelve);
+    Vue.component("BlogPosts", BlogPosts);
+    Vue.component("BlogPostsFeatured", BlogPostsFeatured);
 
     Vue.use(Flare);
+    Vue.$setDefaultTheme = setDefaultTheme;
 }

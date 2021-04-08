@@ -1,10 +1,13 @@
 @import "~@lkmx/flare/src/flare";
+@import "themes";
+@import "text";
+@import "functions/theme";
 @import "color";
-$mid-gray-color: #939EAD;
-$layout-color: $mid-gray-color;
+@import "icon-font";
 :root {
     --f-header-text-color: white;
-    --f-header-background-color: black;
+    --f-header-background-color: var(--theme-bg);
+    --f-text-selection-color: var(--color-analog-tertiary-purple);
 }
 
 ul {
@@ -13,28 +16,44 @@ ul {
     }
 }
 
-.--flare {
-    .red-box,
-    .blue-box,
-    .green-box {
-        .box {
-            border-radius: var(--f-radius);
-            margin: var(--f-gutter);
+button,
+.button {
+    border-radius: var(--f-gutter-s);
+    background-color: var(--theme-button);
+    &.theme {
+        background-color: transparent;
+    }
+}
+
+a {
+    color: var(--theme-links-default);
+    text-decoration: none;
+    &:hover {
+        color: var(--theme-links-hover);
+    }
+    &:visited {
+        color: var(--theme-links-default);
+        &:hover {
+            color: var(--theme-links-hover)
         }
     }
-    .red-box {
-        .box {
-            border: 1px solid red;
-        }
+}
+
+p {
+    color: var(--theme-fg);
+}
+
+input:not(.button) {
+    border-radius: var(--f-gutter-s);
+    padding: var(--f-gutter-xs) var(--f-gutter);
+    @include theme(dark dark-colored) {
+        background: rgba(white, 0.1);
+        border-color: rgba(white, 0.1);
+        color: var(--color-analog-primary-white);
     }
-    .green-box {
-        .box {
-            border: 1px solid green;
-        }
-    }
-    .blue-box {
-        .box {
-            border: 1px solid blue;
-        }
+    @include theme(light light-colored) {
+        background: rgba(black, 0.1);
+        border-color: rgba(black, 0.1);
+        color: var(--color-neutral-light-mode-045);
     }
 }

@@ -1,0 +1,65 @@
+// Themes
+$default-theme: dark;
+$themes: ( 
+    "dark": (
+        "fg": var(--color-analog-primary-white), 
+        "bg": var(--color-analog-primary-black),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-neutral-dark-mode-05),
+        // links
+        "links-default": var(--color-analog-tertiary-blue),
+        "links-hover": var(--color-analog-tertiary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-blue),
+    ), 
+    "light": (
+        "fg": var(--color-analog-primary-black), 
+        "bg": var(--color-analog-primary-white),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-analog-primary-black),
+        // links
+        "links-default": var(--color-analog-secondary-purple),
+        "links-hover": var(--color-analog-secondary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-purple),
+        
+    ), 
+    "dark-colored": (
+        "fg": var(--color-analog-primary-white), 
+        "bg": var(--color-analog-primary-black),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-neutral-dark-mode-05),
+        // links
+        "links-default": var(--color-analog-tertiary-blue),
+        "links-hover": var(--color-analog-tertiary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-blue),
+    ), 
+    "light-colored": (
+        "fg": var(--color-analog-primary-black), 
+        "bg": var(--color-analog-primary-white),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-analog-primary-black),
+        // links
+        "links-default": var(--color-analog-secondary-purple),
+        "links-hover": var(--color-analog-secondary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-purple),
+    )
+);
+body {
+    background-color: var(--theme-bg);
+    color: var(--theme-fg);
+    transition: var(--color-transition);
+    @each $name,
+    $theme in $themes {
+        &[theme=#{$name}] {
+            --theme-fg: #{map-get($theme, "fg")};
+            --theme-bg: #{map-get($theme, "bg")};
+            --theme-dropdown-bg: #{map-get($theme, "dropdown-bg")};
+            --theme-links-default: #{map-get($theme, "links-default")};
+            --theme-links-hover:#{map-get($theme, "links-hover")};
+            --theme-button: #{map-get($theme, "button-bg")};
+        }
+    }
+}

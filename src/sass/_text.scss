@@ -1,0 +1,25 @@
+// Text Flare tokens
+:root {
+    --f-default-text-color: var(--theme-fg);
+    --f-default-text-font: "Montserrat";
+    --f-default-text-size: 16px;
+    --f-default-headers-font: "Hind";
+    --f-default-headers-weight: 600;
+    --f-h1-text-size: 64px;
+    --f-h2-text-size: 40px;
+    --f-h3-text-size: 28px;
+    --f-h4-text-size: 22px;
+    --f-h5-text-size: 18px;
+    --f-h6-text-size: 16px;
+    --f-h1-text-line-height: 77px;
+    --f-h2-text-line-height: 50px;
+    --f-h3-text-line-height: 36.5px;
+    --f-h4-text-line-height: 30px;
+    --f-h5-text-line-height: 25px;
+    --f-h6-text-line-height: 24px;
+}
+
+// Header Flare Tokens
+:root {
+    --f-header-height: 68px;
+}

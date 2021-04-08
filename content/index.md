@@ -83,7 +83,7 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 [Blog](/blog)
 
-<latest-posts class="latest-blog-cards"></latest-posts>
+<blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
 
 </type>
 

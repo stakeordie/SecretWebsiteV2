@@ -6,12 +6,12 @@
     <type title="Featured posts">
 
       <h2>Featured</h2>
-      <featured-posts :posts="$page.posts.edges"></featured-posts>
+      <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
     </type>
 
     <type title="All posts">
       <h2>All posts</h2>
-      <posts :posts="$page.posts.edges"></posts>
+      <blog-posts :posts="$page.posts.edges"></blog-posts>
     </type>
 
   </default-layout>
@@ -19,14 +19,14 @@
 
 <script>
   import DefaultLayout from '../layouts/DefaultLayout'
-  import Posts from '@/components/blog/Posts'
-  import PostsFeatured from '@/components/blog/PostsFeatured'
+  import BlogPosts from '@/components/blog/BlogPosts'
+  import BlogPostsFeatured from '@/components/blog/BlogPostsFeatured'
 
   export default {
     components: {
       DefaultLayout,
-      Posts,
-      PostsFeatured
+      BlogPosts,
+      BlogPostsFeatured
     },
     data() {
       return {
