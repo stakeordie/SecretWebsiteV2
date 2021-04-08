@@ -588,6 +588,12 @@
     padding-top: var(--f-gutter-l);
     padding-bottom: var(--f-gutter-l);
 
+    img:not(.not-invert) {
+      @include theme(light light-colored) {
+        filter: invert(1);
+      }
+    }
+
     .footer-nav {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -611,6 +617,7 @@
           display: flex;
           align-items: center;
           gap: var(--f-gutter-s);
+
           span {
             display: inline-block;
             width: 90%;
@@ -650,6 +657,7 @@
 
       .subscribe {
         align-self: end;
+
         h3 {
           margin-bottom: var(--f-gutter);
 
@@ -657,6 +665,7 @@
             @include theme(dark dark-colored) {
               color: var(--color-analog-secondary-blue);
             }
+
             @include theme(light light-colored) {
               color: var(--color-analog-secondary-purple);
             }
@@ -676,7 +685,9 @@
     @include theme(light light-colored) {
       background: var(--color-neutral-dark-mode-05);
     }
+
     height: 48px;
+
     .content {
       .box {
         p {
@@ -685,11 +696,13 @@
         }
       }
     }
+
     .documents {
       nav {
         display: flex;
         justify-content: flex-end;
         gap: var(--f-gutter);
+
         a:not(:first-child) {
           border-left: 1px solid var(--theme-fg);
           padding-left: var(--f-gutter);
@@ -779,7 +792,5 @@
       opacity: 0;
     }
   }
-
-  
 
 </style>
