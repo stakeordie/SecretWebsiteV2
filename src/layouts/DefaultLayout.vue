@@ -165,7 +165,7 @@
           </div>
         </section>
       </simple-footer>
-      <!-- <column class="legal" mode="normal" number="2">
+      <column class="legal" mode="normal" number="2">
         <block class="rights-reserved">
           <p>© Secret Network. All Rights Reserved.</p>
         </block>
@@ -175,7 +175,7 @@
             <a href="">Privacy Policy</a>
           </nav>
         </block>
-      </column> -->
+      </column>
     </template>
   </simple-layout>
 </template>

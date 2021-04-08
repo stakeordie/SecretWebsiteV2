@@ -66,4 +66,7 @@ export default function(Vue, {
 
     Vue.use(Flare);
     Vue.$setDefaultTheme = setDefaultTheme;
+    Vue.config.errorHandler = function(err, vm, info) {
+        console.log(err, vm.$options);
+    };
 }
