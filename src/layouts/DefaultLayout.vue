@@ -23,7 +23,8 @@
                 <li class="dropdown-container">
                   <a href="/about/about-secret-network">About</a>
                 </li>
-                <li @click.prevent="showMedia = !showMedia" @mouseleave.prevent="showMedia = false" :class="{'on-mobile':isMobile}" class="dropdown-container">
+                <li @click.prevent="showMedia = !showMedia" @mouseleave.prevent="showMedia = false"
+                   class="dropdown-container">
                   <a href="">Media <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
                     <ul v-show="showMedia" @click.stop="showMedia" class="dropdown">
@@ -33,7 +34,8 @@
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showCommunity = !showCommunity" @mouseleave="showCommunity = false" class="dropdown-container">
+                <li @click.prevent="showCommunity = !showCommunity" @mouseleave="showCommunity = false"
+                  class="dropdown-container">
                   <a href="">Community <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
                     <ul v-show="showCommunity" @click.stop="showCommunity" class="dropdown">
@@ -43,7 +45,8 @@
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showDevelopers = !showDevelopers" @mouseleave="showDevelopers = false" class="dropdown-container">
+                <li @click.prevent="showDevelopers = !showDevelopers" @mouseleave="showDevelopers = false"
+                  class="dropdown-container">
                   <a href="/developers">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
                     <ul v-show="showDevelopers" @click.stop="showDevelopers" class="dropdown">
@@ -208,7 +211,6 @@
   export default {
     data: function () {
       return {
-        isMobile: false,
         isNavOpen: false,
         showAbout: false,
         showMedia: false,
@@ -397,16 +399,16 @@
     watch: {
       $route(to, from) {
         this.isNavOpen = false,
-        this.showAbout = false;
+          this.showAbout = false;
         this.showMedia = false;
         this.showCommunity = false;
         this.showDevelopers = false;
       }
     },
     methods: {
-      mq () {
-    	  this.isMobile = window.matchMedia('(max-width: 768px)').matches;
-      },
+      // mq () {
+      //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
+      // },
       toggleNav() {
         this.isNavOpen = !this.isNavOpen
         if (this.isNavOpen) {
@@ -437,12 +439,6 @@
         if (!body) return
         body.setAttribute('theme', theme)
       },
-    },
-    created () {
-  	window.addEventListener('resize', this.mq)
-  },
-    beforeDestroy() {
-      window.removeEventListener('resize', this.mq)
     }
   }
 
@@ -463,6 +459,7 @@
     background: var(--theme-bg);
     transition: var(--color-transition);
     z-index: 20;
+
     &.fixed {
       position: fixed;
       z-index: 9999;
@@ -470,6 +467,7 @@
       left: 0;
       top: 0;
     }
+
     img:not(.not-invert) {
       @include theme(light light-colored) {
         filter: invert(1);
@@ -599,6 +597,7 @@
           @include respond-to(">=l") {
             display: none;
           }
+
           display: flex;
           flex: auto;
           flex-direction: column;
@@ -613,41 +612,50 @@
           gap: var(--f-gutter-xl);
           padding: var(--f-gutter);
           padding-bottom: 150px;
+
           .main-navigation {
             height: auto;
           }
+
           .header__navigation {
             display: flex;
             gap: var(--f-gutter-xl);
             flex-direction: column;
             justify-content: flex-start;
             align-items: baseline;
+
             img {
               display: none;
             }
+
             li.dropdown-container {
               height: auto;
               display: flex;
               flex-direction: column;
               align-items: flex-start;
+
               &.on-mobile {
                 // pointer-events: none;
               }
+
               a {
                 padding: 0;
               }
+
               ul.dropdown {
                 display: flex !important;
                 position: relative;
                 top: 0;
                 background-color: transparent;
                 box-shadow: none;
+
                 a {
                   color: var(--theme-links-default) !important;
                   padding: var(--f-gutter-s) var(--f-gutter-s);
+
                   &:hover {
-        color: var(--theme-links-hover) !important;
-    }
+                    color: var(--theme-links-hover) !important;
+                  }
                 }
               }
             }
@@ -658,6 +666,7 @@
           display: flex;
           gap: var(--f-gutter);
           align-items: center;
+
           a {
             padding: 0 !important;
           }
