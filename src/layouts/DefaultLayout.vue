@@ -29,7 +29,7 @@
                   <transition name="fade">
                     <ul v-show="showMedia" @click.stop="showMedia" class="dropdown">
                       <li v-for="(link, index) in linksMedia">
-                        <a :href="link.path"> {{ link.title }}</a>
+                        <a :href="link.path" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
@@ -40,7 +40,7 @@
                   <transition name="fade">
                     <ul v-show="showCommunity" @click.stop="showCommunity" class="dropdown">
                       <li v-for="(link, index) in linksCommunity">
-                        <a :href="link.path"> {{ link.title }}</a>
+                        <a :href="link.path" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
@@ -51,7 +51,7 @@
                   <transition name="fade">
                     <ul v-show="showDevelopers" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
-                        <a :href="link.path" :target="link.target"> {{ link.title }}</a>
+                        <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
@@ -569,22 +569,29 @@
                     }
 
                     padding: var(--f-gutter-s) var(--f-gutter);
-                    display: flex;
+                    display: inline-block;
                     flex: auto;
                     height: 100%;
                     font-weight: 500;
                     text-decoration: none;
 
                     &:hover {
+                      font-weight:600;
                       @include theme(dark dark-colored) {
                         color: black;
-                        text-shadow: 0px 0px 0.5px var(--theme-bg);
                       }
 
                       @include theme(light light-colored) {
                         color: white;
-                        text-shadow: 0px 0px 1px var(--theme-bg);
                       }
+                    }
+                    &:before {
+                      display: block;
+                      content: attr(title);
+                      font-weight: bold;
+                      height: 0;
+                      overflow: hidden;
+                      visibility: hidden;
                     }
                   }
                 }
