@@ -25,7 +25,7 @@
   margin-bottom: var(--f-gutter);
   padding: var(--f-gutter-xxl) var(--f-gutter) var(--f-gutter) var(--f-gutter);
   position:relative;
-  background: rgba(rgb(26, 26, 31), 0.9);
+  background: var(--theme-card-variant);
   h6 {
     position: absolute;
     left: 0;

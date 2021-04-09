@@ -16,6 +16,7 @@ import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import Type from "~/components/Type.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
+import HeroVideo from "~/components/HeroVideo.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -51,6 +52,7 @@ export default function(Vue, {
     Vue.component("ThemedImage", ThemedImage);
     Vue.component("Navigation", Navigation);
     Vue.component("Type", Type);
+    Vue.component("HeroVideo", HeroVideo);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

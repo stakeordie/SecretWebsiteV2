@@ -37,6 +37,9 @@ module.exports = {
             ]
         },
     },
+    chainWebpack: config => {
+        config.resolve.alias.set('@images', '@/../content/img')
+    },
     configureWebpack: {
         resolve: {
             symlinks: false,

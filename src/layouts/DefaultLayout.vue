@@ -98,9 +98,9 @@
 
     <div class="swirl top">
       <themed-image>
-        <img dark-colored light-colored src="@/assets/hero-color.svg" alt="" />
-        <img dark src="@/assets/hero-black.svg" alt="" />
-        <img light src="@/assets/hero-white.svg" alt="" />
+        <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
+        <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
+        <img light src="@/assets/swirl-lines-light.svg" alt="" />
       </themed-image>
     </div>
     <page>
@@ -705,7 +705,7 @@
     position: absolute;
     z-index: -10;
     width: 100%;
-    height: 500px;
+    height: 335px;
 
     img {
       position: absolute;
@@ -725,7 +725,7 @@
 
     &.bottom {
       left: 0;
-      bottom: 248px;
+      bottom: 413px;
 
       @include respond-to("<=s") {
         bottom: 1268px;
@@ -878,7 +878,7 @@
     height: 48px;
 
     @include theme(light light-colored) {
-      background: var(--color-neutral-dark-mode-05);
+      background: var(--color-neutral-light-mode-01);
     }
 
     @include theme(dark dark-colored) {

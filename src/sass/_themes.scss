@@ -5,12 +5,15 @@ $themes: (
         "fg": var(--color-analog-primary-white), 
         "bg": var(--color-analog-primary-black),
         // main navigation dropdown
-        "dropdown-bg": var(--color-neutral-dark-mode-05),
+        "dropdown-bg": var(--color-neutral-dark-mode-06),
         // links
         "links-default": var(--color-analog-tertiary-blue),
         "links-hover": var(--color-analog-tertiary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
+        // cards
+        "card-default": var(--color-neutral-dark-mode-03),
+        "card-variant-bg": var(--color-neutral-dark-mode-02),
     ), 
     "light": (
         "fg": var(--color-analog-primary-black), 
@@ -22,18 +25,24 @@ $themes: (
         "links-hover": var(--color-analog-secondary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
+        // cards
+        "card-default": var(--color-neutral-light-mode-04),
+        "card-variant-bg": var(--color-neutral-light-mode-03),
         
     ), 
     "dark-colored": (
         "fg": var(--color-analog-primary-white), 
         "bg": var(--color-analog-primary-black),
         // main navigation dropdown
-        "dropdown-bg": var(--color-neutral-dark-mode-05),
+        "dropdown-bg": var(--color-neutral-dark-mode-06),
         // links
         "links-default": var(--color-analog-tertiary-blue),
         "links-hover": var(--color-analog-tertiary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
+        // cards
+        "card-default": var(--color-neutral-dark-mode-03),
+        "card-variant-bg": var(--color-neutral-dark-mode-02),
     ), 
     "light-colored": (
         "fg": var(--color-analog-primary-black), 
@@ -45,6 +54,9 @@ $themes: (
         "links-hover": var(--color-analog-secondary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
+        // cards
+        "card-default": var(--color-neutral-light-mode-04),
+        "card-variant-bg": var(--color-neutral-light-mode-03),
     )
 );
 body {
@@ -60,6 +72,8 @@ body {
             --theme-links-default: #{map-get($theme, "links-default")};
             --theme-links-hover:#{map-get($theme, "links-hover")};
             --theme-button: #{map-get($theme, "button-bg")};
+            --theme-card-default: #{map-get($theme, "card-default")};
+            --theme-card-variant: #{map-get($theme, "card-variant-bg")};
         }
     }
 }

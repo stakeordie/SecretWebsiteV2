@@ -1,10 +1,12 @@
-<type title="Hero">
+<column mode="normal">
+<block>
+<hero-video title="Secret Network" video-thumbnail="hero-thumbnail.jpg" video="https://www.youtube.com/embed/KUNTJSKx4Ik">
 
-# Welcome to Secret Network
+Secret Network is a **blockchain-based**, **open-source** protocol that lets anyone perform computations on encrypted data, bringing **privacy** to **smart contracts** and **public blockchains**.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c70BBVUCxxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</type>
+</hero-video>
+</block>
+</column>
 
 <type title="Introduction">
 

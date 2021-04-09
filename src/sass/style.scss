@@ -18,12 +18,17 @@ body {
 
 main {
     margin-top: 68px;
+    padding-top: var(--f-gutter-xxl);
 }
 
 ul {
     li {
         padding: 0;
     }
+}
+
+strong {
+    font-weight: 600;
 }
 
 button,
