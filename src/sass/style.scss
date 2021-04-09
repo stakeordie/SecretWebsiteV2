@@ -10,6 +10,16 @@
     --f-text-selection-color: var(--color-analog-tertiary-purple);
 }
 
+body {
+    &.modal-open {
+        position: fixed;
+    }
+}
+
+main {
+    margin-top: 68px;
+}
+
 ul {
     li {
         padding: 0;

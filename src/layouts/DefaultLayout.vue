@@ -1,79 +1,94 @@
 <template>
   <simple-layout>
     <template #header>
-      <simple-header mode="full">
+      <simple-header class="fixed" mode="full">
+        <!-- mobile menu toggle -->
+        <a class="mobile-menu-toggle" @click="toggleNav" aria-label="Close">
+          <g-image v-show="!isNavOpen" class="open-menu" src="../assets/icon-menu.svg" :immediate="true">
+          </g-image>
+          <g-image v-show="isNavOpen" class="open-menu" src="../assets/icon-menu-close.svg" :immediate="true">
+          </g-image>
+        </a>
+        <!-- logo -->
         <g-link to="/">
           <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true">
           </g-image>
         </g-link>
-        <nav class="main-navigation">
-          <ul class="header__navigation">
-            <li @mouseover="showAbout = true" @mouseleave="showAbout = false" class="dropdown-container">
-              <a href="/about/about-secret-network">About</a>
-            </li>
-            <li @mouseover="showMedia = true" @mouseleave="showMedia = false" class="dropdown-container">
-              <a href="/media/features">Media <img src="@/assets/icon-chevron-down.svg" alt=""></a>
-              <transition name="fade">
-                <ul v-show="showMedia" class="dropdown">
-                  <li v-for="(link, index) in linksMedia">
-                    <a :href="link.path"> {{ link.title }}</a>
-                  </li>
-                </ul>
-              </transition>
-            </li>
-            <li @mouseover="showCommunity = true" @mouseleave="showCommunity = false" class="dropdown-container">
-              <a href="/community">Community <img src="@/assets/icon-chevron-down.svg" alt=""></a>
-              <transition name="fade">
-                <ul v-show="showCommunity" class="dropdown">
-                  <li v-for="(link, index) in linksCommunity">
-                    <a :href="link.path"> {{ link.title }}</a>
-                  </li>
-                </ul>
-              </transition>
-            </li>
-            <li @mouseover="showDevelopers = true" @mouseleave="showDevelopers = false" class="dropdown-container">
-              <a href="/developers">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
-              <transition name="fade">
-                <ul v-show="showDevelopers" class="dropdown">
-                  <li v-for="(link, index) in linksDevelopers">
-                    <a :href="link.path" :target="link.target"> {{ link.title }}</a>
-                  </li>
-                </ul>
-              </transition>
-            </li>
-            <li class="dropdown-container">
-              <a href="/ecosystem/overview">Ecosystem</a>
-            </li>
-          </ul>
-        </nav>
-        <nav class="social-navigation">
-
-          <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
-          <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-              src="@/assets/icon-social-github.svg" alt=""></a>
-          <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
-              alt=""></a>
-          <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg" alt=""></a>
-          <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
-              alt=""></a>
-          <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
-              src="@/assets/icon-social-youtube.svg" alt=""></a>
-
-        </nav>
-        <div class="toggles">
-          <button class="theme" @click="toggleDarkLightMode">
-            <themed-image>
-              <g-image class="not-invert" dark dark-colored src="@/assets/moon.svg" :immediate="true"></g-image>
-              <g-image class="not-invert" light light-colored src="@/assets/sun.svg" :immediate="true"></g-image>
-            </themed-image>
-          </button>
-          <button class="theme" @click="toggleColoredMode">
-            <themed-image>
-              <g-image class="not-invert" dark light src="@/assets/mono.svg" :immediate="true"></g-image>
-              <g-image class="not-invert" dark-colored light-colored src="@/assets/chromo.svg" :immediate="true">
-              </g-image>
-            </themed-image>
-          </button>
+        <!-- mobile menu wrapper -->
+        <div class="nav-wrapper">
+          <div :class="{ 'is-nav-open' : isNavOpen }" class="mobile-wrapper">
+            <!-- main navigation -->
+            <nav class="main-navigation">
+              <ul class="header__navigation">
+                <li class="dropdown-container">
+                  <a href="/about/about-secret-network">About</a>
+                </li>
+                <li @click.prevent="showMedia = !showMedia" @mouseleave.prevent="showMedia = false" :class="{'on-mobile':isMobile}" class="dropdown-container">
+                  <a href="">Media <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <transition name="fade">
+                    <ul v-show="showMedia" @click.stop="showMedia" class="dropdown">
+                      <li v-for="(link, index) in linksMedia">
+                        <a :href="link.path"> {{ link.title }}</a>
+                      </li>
+                    </ul>
+                  </transition>
+                </li>
+                <li @click.prevent="showCommunity = !showCommunity" @mouseleave="showCommunity = false" class="dropdown-container">
+                  <a href="">Community <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <transition name="fade">
+                    <ul v-show="showCommunity" @click.stop="showCommunity" class="dropdown">
+                      <li v-for="(link, index) in linksCommunity">
+                        <a :href="link.path"> {{ link.title }}</a>
+                      </li>
+                    </ul>
+                  </transition>
+                </li>
+                <li @click.prevent="showDevelopers = !showDevelopers" @mouseleave="showDevelopers = false" class="dropdown-container">
+                  <a href="/developers">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <transition name="fade">
+                    <ul v-show="showDevelopers" @click.stop="showDevelopers" class="dropdown">
+                      <li v-for="(link, index) in linksDevelopers">
+                        <a :href="link.path" :target="link.target"> {{ link.title }}</a>
+                      </li>
+                    </ul>
+                  </transition>
+                </li>
+                <li class="dropdown-container">
+                  <a href="/ecosystem/overview">Ecosystem</a>
+                </li>
+              </ul>
+            </nav>
+            <!-- social navigation -->
+            <nav class="social-navigation">
+              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
+                  src="@/assets/icon-social-github.svg" alt=""></a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
+                  alt=""></a>
+              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
+                  alt=""></a>
+              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
+                  alt=""></a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
+                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+            </nav>
+          </div>
+          <!-- toggles -->
+          <div class="toggles">
+            <button class="theme" @click="toggleDarkLightMode">
+              <themed-image>
+                <g-image class="not-invert" dark dark-colored src="@/assets/moon.svg" :immediate="true"></g-image>
+                <g-image class="not-invert" light light-colored src="@/assets/sun.svg" :immediate="true"></g-image>
+              </themed-image>
+            </button>
+            <button class="theme" @click="toggleColoredMode">
+              <themed-image>
+                <g-image class="not-invert" dark light src="@/assets/mono.svg" :immediate="true"></g-image>
+                <g-image class="not-invert" dark-colored light-colored src="@/assets/chromo.svg" :immediate="true">
+                </g-image>
+              </themed-image>
+            </button>
+          </div>
         </div>
       </simple-header>
     </template>
@@ -102,7 +117,6 @@
       <simple-footer mode="normal">
         <section class="footer-nav">
           <nav>
-
             <h6 class="footer-nav-title">About </h6>
             <a v-for="(link, index) in linksFooterAbout" :href="link.path" :target="link.target"> <span
                 :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
@@ -148,8 +162,10 @@
                   src="@/assets/icon-social-youtube.svg" alt=""></a>
             </nav>
             <div class="contribute-github">
-              <p>Contribute to scrt.network</p>
-              <img src="../assets/icon-github.svg" alt="">
+              <p><a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">Contribute to
+                  scrt.network</a></p>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
+                  src="../assets/icon-github.svg" alt=""></a>
             </div>
           </div>
           <div class="subscribe">
@@ -165,7 +181,7 @@
           </div>
         </section>
       </simple-footer>
-      <column class="legal" mode="normal" number="2">
+      <column class="legal" mode="normal" number="2" number-m="2" number-s="1">
         <block class="rights-reserved">
           <p>© Secret Network. All Rights Reserved.</p>
         </block>
@@ -192,6 +208,8 @@
   export default {
     data: function () {
       return {
+        isMobile: false,
+        isNavOpen: false,
         showAbout: false,
         showMedia: false,
         showCommunity: false,
@@ -201,6 +219,10 @@
           path: '/faq'
         }, ],
         linksMedia: [{
+            title: 'Features',
+            path: '/media/features'
+          },
+          {
             title: 'Blog',
             path: '/blog'
           },
@@ -218,6 +240,10 @@
           },
         ],
         linksCommunity: [{
+            title: 'Overview',
+            path: '/community'
+          },
+          {
             title: 'Become a Secret Agent',
             path: 'https://forms.gle/8NbTmUNVgbUkHY8eA'
           },
@@ -370,6 +396,7 @@
     },
     watch: {
       $route(to, from) {
+        this.isNavOpen = false,
         this.showAbout = false;
         this.showMedia = false;
         this.showCommunity = false;
@@ -377,6 +404,17 @@
       }
     },
     methods: {
+      mq () {
+    	  this.isMobile = window.matchMedia('(max-width: 768px)').matches;
+      },
+      toggleNav() {
+        this.isNavOpen = !this.isNavOpen
+        if (this.isNavOpen) {
+          document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      },
       toggleDarkLightMode() {
         this.darkLightModeState = !this.darkLightModeState
         this.setTheme()
@@ -399,6 +437,12 @@
         if (!body) return
         body.setAttribute('theme', theme)
       },
+    },
+    created () {
+  	window.addEventListener('resize', this.mq)
+  },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.mq)
     }
   }
 
@@ -406,6 +450,7 @@
 
 <style lang="scss">
   @import "../sass/functions/theme";
+  @import "@lkmx/flare/src/functions/respond-to";
 
   .simple-layout {
     position: relative;
@@ -417,7 +462,14 @@
     gap: 50px;
     background: var(--theme-bg);
     transition: var(--color-transition);
-
+    z-index: 20;
+    &.fixed {
+      position: fixed;
+      z-index: 9999;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
     img:not(.not-invert) {
       @include theme(light light-colored) {
         filter: invert(1);
@@ -430,122 +482,207 @@
       padding-bottom: 0px;
     }
 
+    .mobile-menu-toggle {
+      @include respond-to(">=l") {
+        display: none;
+      }
+    }
+
     .header {
       &__logo {
         width: auto;
         height: 58px;
         padding: var(--f-gutter-s) var(--f-gutter) var(--f-gutter-s) 0;
+
+        @include respond-to("<=m") {
+          transform: translateX(var(--f-gutter-l));
+        }
       }
     }
 
-    .main-navigation {
+    .nav-wrapper {
       display: flex;
-      flex: auto;
+      gap: var(--f-gutter);
       height: 100%;
 
-      .header__navigation {
-        flex: auto;
-        margin: 0;
+      .mobile-wrapper {
         display: flex;
-        height: 100%;
-        justify-content: flex-start;
-        align-items: center;
+        gap: var(--f-gutter-xxl);
 
-        li.dropdown-container {
-          padding-left: 0;
-          margin: 0;
-          position: relative;
+        @include respond-to("<=m") {
+          display: none;
+        }
+
+        .main-navigation {
           display: flex;
+          flex: auto;
           height: 100%;
-          align-items: center;
 
-          &>a {
-            text-decoration: none;
-            display: flex;
-            gap: 10px;
-            color: var(--theme-fg);
-          }
-
-          .dropdown {
-            position: absolute;
-            left: 0;
-            top: 56px;
-            background: var(--theme-dropdown-bg);
-            display: flex;
-            border-radius: var(--f-gutter-xs);
-            z-index: 9;
-            margin: 0;
-            flex-direction: column;
-            min-width: 200px;
+          .header__navigation {
             flex: auto;
-            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+            margin: 0;
+            display: flex;
+            height: 100%;
+            justify-content: flex-start;
+            align-items: center;
 
-            li {
+            li.dropdown-container {
+              padding-left: 0;
               margin: 0;
-              flex: auto;
-              padding: 0;
-              height: 100%;
+              position: relative;
               display: flex;
+              height: 100%;
+              align-items: center;
 
-              a {
-                white-space: nowrap;
-                color: var(--theme-bg);
-
-                @include theme(dark dark-colored) {
-                  color: var(--color-neutral-light-mode-045);
-                }
-
-                padding: var(--f-gutter-s) var(--f-gutter);
-                display: flex;
-                flex: auto;
-                height: 100%;
-                font-weight: 500;
+              &>a {
                 text-decoration: none;
+                display: flex;
+                gap: 10px;
+                color: var(--theme-fg);
+              }
 
-                &:hover {
-                  @include theme(dark dark-colored) {
-                    color: black !important;
-                    text-shadow: 0px 0px 0.5px var(--theme-bg);
-                  }
+              .dropdown {
+                position: absolute;
+                left: 0;
+                top: 56px;
+                background: var(--theme-dropdown-bg);
+                display: flex;
+                border-radius: var(--f-gutter-xs);
+                z-index: 9;
+                margin: 0;
+                flex-direction: column;
+                min-width: 200px;
+                flex: auto;
+                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 
-                  @include theme(light light-colored) {
-                    color: white !important;
-                    text-shadow: 0px 0px 1px var(--theme-bg);
+                li {
+                  margin: 0;
+                  flex: auto;
+                  padding: 0;
+                  height: 100%;
+                  display: flex;
+
+                  a {
+                    white-space: nowrap;
+                    color: var(--theme-bg);
+
+                    @include theme(dark dark-colored) {
+                      color: var(--color-neutral-light-mode-045);
+                    }
+
+                    padding: var(--f-gutter-s) var(--f-gutter);
+                    display: flex;
+                    flex: auto;
+                    height: 100%;
+                    font-weight: 500;
+                    text-decoration: none;
+
+                    &:hover {
+                      @include theme(dark dark-colored) {
+                        color: black;
+                        text-shadow: 0px 0px 0.5px var(--theme-bg);
+                      }
+
+                      @include theme(light light-colored) {
+                        color: white;
+                        text-shadow: 0px 0px 1px var(--theme-bg);
+                      }
+                    }
                   }
                 }
               }
             }
           }
         }
-      }
+
+        &.is-nav-open {
+          @include respond-to(">=l") {
+            display: none;
+          }
+          display: flex;
+          flex: auto;
+          flex-direction: column;
+          position: absolute;
+          left: 0;
+          top: 67px;
+          width: 100%;
+          overflow-y: scroll;
+          height: calc(100vh - 67px);
+          min-height: calc(100vh - 67px);
+          background: var(--theme-bg);
+          gap: var(--f-gutter-xl);
+          padding: var(--f-gutter);
+          padding-bottom: 150px;
+          .main-navigation {
+            height: auto;
+          }
+          .header__navigation {
+            display: flex;
+            gap: var(--f-gutter-xl);
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: baseline;
+            img {
+              display: none;
+            }
+            li.dropdown-container {
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              &.on-mobile {
+                // pointer-events: none;
+              }
+              a {
+                padding: 0;
+              }
+              ul.dropdown {
+                display: flex !important;
+                position: relative;
+                top: 0;
+                background-color: transparent;
+                box-shadow: none;
+                a {
+                  color: var(--theme-links-default) !important;
+                  padding: var(--f-gutter-s) var(--f-gutter-s);
+                  &:hover {
+        color: var(--theme-links-hover) !important;
     }
+                }
+              }
+            }
+          }
+        }
 
-    .social-navigation {
-      display: flex;
-      gap: var(--f-gutter);
-
-      a {
-        padding: 0 !important;
+        .social-navigation {
+          display: flex;
+          gap: var(--f-gutter);
+          align-items: center;
+          a {
+            padding: 0 !important;
+          }
+        }
       }
-    }
 
-    .toggles {
-      display: flex;
-      align-items: center;
-      gap: var(--f-gutter);
-      padding-left: var(--f-gutter);
+      .toggles {
+        display: flex;
+        align-items: center;
+        gap: var(--f-gutter);
+        padding-left: var(--f-gutter);
 
-      button {
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
+        button {
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
 
-        img {
-          width: 24px;
-          height: 24px;
+          img {
+            width: 24px;
+            height: 24px;
+          }
         }
       }
     }
+
   }
 
   .swirl {
@@ -574,6 +711,10 @@
       left: 0;
       bottom: 248px;
 
+      @include respond-to("<=s") {
+        bottom: 1268px;
+      }
+
       img {
         transform: rotate(180deg);
       }
@@ -600,11 +741,23 @@
       gap: var(--f-gutter);
       margin-bottom: var(--f-gutter-xl);
 
+      @include respond-to("<=s") {
+        grid-template-columns: 1fr;
+        gap: var(--f-gutter-xxl);
+      }
+
+
       nav {
         display: flex;
         flex-direction: column;
         gap: var(--f-gutter);
         padding-right: var(--f-gutter);
+
+        @include respond-to("<=s") {
+          text-align: center;
+          padding-right: 0;
+          align-items: center;
+        }
 
         .footer-nav-title {
           color: var(--theme-fg);
@@ -621,6 +774,10 @@
           span {
             display: inline-block;
             width: 90%;
+
+            @include respond-to("<=s") {
+              width: 100%;
+            }
           }
         }
       }
@@ -630,13 +787,24 @@
       display: grid;
       grid-template-columns: 1fr 445px;
 
+      @include respond-to("<=s") {
+        grid-template-columns: 1fr;
+        gap: var(--f-gutter-xxl);
+      }
+
       .social {
         display: grid;
         gap: var(--f-gutter);
 
+        @include respond-to("<=s") {
+          text-align: center;
+          justify-content: center;
+        }
+
         .scrt-logo {
           width: 182px;
           height: auto;
+          display: inline-block;
         }
 
         .social-navigation {
@@ -676,17 +844,36 @@
           display: grid;
           gap: var(--f-gutter-s);
           grid-template-columns: 1fr 137px;
+
+          @include respond-to("<=s") {
+            grid-template-columns: 1fr;
+
+            .button,
+            input {
+              margin: 0 !important;
+            }
+          }
         }
       }
     }
   }
 
   .legal {
+    height: 48px;
+
     @include theme(light light-colored) {
       background: var(--color-neutral-dark-mode-05);
     }
 
-    height: 48px;
+    @include theme(dark dark-colored) {
+      background: black;
+    }
+
+    @include respond-to("<=s") {
+      grid-template-columns: 1fr;
+      height: auto;
+      text-align: center;
+    }
 
     .content {
       .box {
@@ -702,6 +889,10 @@
         display: flex;
         justify-content: flex-end;
         gap: var(--f-gutter);
+
+        @include respond-to("<=s") {
+          justify-content: center;
+        }
 
         a:not(:first-child) {
           border-left: 1px solid var(--theme-fg);
