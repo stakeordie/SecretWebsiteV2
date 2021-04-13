@@ -17,6 +17,7 @@ import Type from "~/components/Type.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
+import CardSimple from "~/components/CardSimple.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -53,6 +54,7 @@ export default function(Vue, {
     Vue.component("Navigation", Navigation);
     Vue.component("Type", Type);
     Vue.component("HeroVideo", HeroVideo);
+    Vue.component("CardSimple", CardSimple);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

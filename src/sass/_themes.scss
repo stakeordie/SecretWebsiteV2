@@ -12,8 +12,9 @@ $themes: (
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
         // cards
-        "card-default": var(--color-neutral-dark-mode-03),
-        "card-variant-bg": var(--color-neutral-dark-mode-02),
+        "card-bg-default": var(--color-neutral-dark-mode-03),
+        "card-bg-variant": black,
+        "card-text-color": var(--color-neutral-dark-mode-05),
     ), 
     "light": (
         "fg": var(--color-analog-primary-black), 
@@ -26,8 +27,9 @@ $themes: (
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
         // cards
-        "card-default": var(--color-neutral-light-mode-04),
-        "card-variant-bg": var(--color-neutral-light-mode-03),
+        "card-bg-default": var(--color-neutral-light-mode-04),
+        "card-bg-variant": var(--color-neutral-light-mode-03),
+        "card-text-color": var(--color-neutral-light-mode-05),
         
     ), 
     "dark-colored": (
@@ -41,8 +43,9 @@ $themes: (
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
         // cards
-        "card-default": var(--color-neutral-dark-mode-03),
-        "card-variant-bg": var(--color-neutral-dark-mode-02),
+        "card-bg-default": var(--color-neutral-dark-mode-03),
+        "card-bg-variant": black,
+        "card-text-color": var(--color-neutral-dark-mode-05),
     ), 
     "light-colored": (
         "fg": var(--color-analog-primary-black), 
@@ -55,8 +58,9 @@ $themes: (
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
         // cards
-        "card-default": var(--color-neutral-light-mode-04),
-        "card-variant-bg": var(--color-neutral-light-mode-03),
+        "card-bg-default": var(--color-neutral-light-mode-04),
+        "card-bg-variant": var(--color-neutral-light-mode-03),
+        "card-text-color": var(--color-neutral-light-mode-05),
     )
 );
 body {
@@ -72,8 +76,9 @@ body {
             --theme-links-default: #{map-get($theme, "links-default")};
             --theme-links-hover:#{map-get($theme, "links-hover")};
             --theme-button: #{map-get($theme, "button-bg")};
-            --theme-card-default: #{map-get($theme, "card-default")};
-            --theme-card-variant: #{map-get($theme, "card-variant-bg")};
+            --theme-card-bg-default: #{map-get($theme, "card-bg-default")};
+            --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
+            --theme-card-text-color: #{map-get($theme, "card-text-color")};
         }
     }
 }

@@ -1,11 +1,61 @@
 <column mode="normal">
 <block>
-<hero-video title="Secret Network" video-thumbnail="hero-thumbnail.jpg" video="https://www.youtube.com/embed/KUNTJSKx4Ik">
+<hero-video title="Secret Network" video-thumbnail="hero-thumbnail.jpg">
+<template slot="message">
 
 Secret Network is a **blockchain-based**, **open-source** protocol that lets anyone perform computations on encrypted data, bringing **privacy** to **smart contracts** and **public blockchains**.
 
+</template>
+<template slot="video">
+<video width="100%" height="500" controls>
+<source src="./img/scrt-intro.mp4" type="video/mp4">
+</video>
+</template>
 </hero-video>
 </block>
+</column>
+
+<column>
+<block>
+<card-simple 
+orientation="horizontal" 
+accent="purple" 
+title-first-line="Getting started" 
+title-second-line="with Secret Network" 
+card-message="Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent." card-image="card-build.png" />
+</block>
+</column>
+
+<column number="3">
+
+<block>
+<card-simple
+kind="cta" 
+accent="orange" 
+title-first-line="Learn" 
+title-second-line="about Secret Network" 
+card-message="Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default." 
+card-image="card-hand.png" />
+</block>
+
+<block>
+<card-simple 
+kind="cta"
+accent="green" 
+title-first-line="Getting started" 
+title-second-line="with Secret Network" 
+card-message="Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3." 
+card-image="card-rocket.png" />
+</block>
+
+<block>
+<card-simple 
+accent="blue" 
+title-first-line="Getting started" 
+title-second-line="with Secret Network" 
+card-message="Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network." card-image="card-people.png" />
+</block>
+
 </column>
 
 <type title="Introduction">
