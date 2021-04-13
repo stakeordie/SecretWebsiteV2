@@ -62,6 +62,7 @@
     &.cta {
       cursor: pointer;
       &:hover {
+        background: var(--theme-card-bg-hover);
         box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--custom-color-hover);
       }
     }
