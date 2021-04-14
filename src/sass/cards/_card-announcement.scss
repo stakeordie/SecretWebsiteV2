@@ -1,0 +1,66 @@
+$accent-colors: (
+	"blue",
+	"turquoise",
+	"green",
+	"yellow",
+	"cream",
+	"orange",
+	"red",
+	"purple",
+	"gray",
+);
+// @each $name, $color in $accent-colors {
+// 	&.accent-#{$name} {
+// 		color: var(--accent-#{$name});
+// 	}
+// }
+
+.announcement {
+	// background: var(--theme-card-bg-variant);
+	.--flare-block {
+		background: var(--theme-card-bg-variant);
+		.content {
+			.box {
+			// display: grid;
+			// gap: var(--f-gutter);
+			padding: var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter);
+			h3 {
+				margin-bottom: var(--f-gutter-l);
+			}
+	
+			h4 {
+				margin-bottom: var(--f-gutter-s);
+				color: var(--theme-fg);
+			}
+		}
+	}
+	}
+	@each $name,
+	$color in $accent-colors {
+		&.accent-#{$name} {
+			h3 {
+				color: var(--accent-#{$name});
+			}
+		}
+	}
+}
+
+.announcement-component {
+	// padding: var(--f-gutter-l);
+	transition: .2s ease;
+
+	// 
+	// transform: translateX(- 16px);
+
+	@each $name,
+		$color in $accent-colors {
+			&.accent-#{$name} {
+					box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+			}
+		}
+
+
+
+	
+		
+}

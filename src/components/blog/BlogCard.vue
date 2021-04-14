@@ -73,4 +73,26 @@ export default {
 
 <style lang="scss">
 
+.blog-card {
+  background: var(--theme-card-bg-default);
+  &__body {
+    padding: var(--f-gutter);
+    p {
+      color: var()
+    }
+  }
+}
+.blog-author {
+  padding: var(--f-gutter);
+  display: flex;
+  align-items: center;
+  gap: var(--f-gutter);
+
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+  }
+}
+
 </style>

@@ -5,10 +5,13 @@
 @import "color";
 @import "icon-font";
 @import "cards/card-simple";
+@import "cards/card-announcement";
 :root {
     --f-header-text-color: white;
     --f-header-background-color: var(--theme-bg);
     --f-text-selection-color: var(--color-analog-tertiary-purple);
+    --f-forms-button-radius: 10px;
+    --f-forms-button-padding: 10px 32px;
 }
 
 body {
@@ -16,6 +19,10 @@ body {
         position: fixed;
         // color: $lol;
     }
+}
+
+.box {
+    height: 100%;
 }
 
 main {

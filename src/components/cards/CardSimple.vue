@@ -1,12 +1,7 @@
 <template>
   <div class="card-simple" :class="{ 'cta': url }">
     <a :href="url">
-      <div class="first-block">
-        <slot name="first-block"></slot>
-      </div>
-      <div class="second-block">
-        <slot name="second-block"></slot>
-      </div>
+      <slot></slot>
     </a>
   </div>
 </template>
@@ -24,7 +19,7 @@
 </script>
 
 <style lang="scss">
-  @import "../sass/functions/theme";
+  @import "../../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
   $accent-colors: ("blue",
@@ -66,6 +61,7 @@
 
     &.orientation-horizontal {
       a {
+        color: var(--theme-fg);
         display: grid;
         gap: var(--f-gutter-xxl);
         grid-template-columns: 1fr 60%;
@@ -92,32 +88,6 @@
         }
       }
     }
-
-    .first-block {
-      display: flex;
-      flex-direction: column;
-
-      h3 {
-        margin-bottom: var(--f-gutter-s);
-      }
-
-      h4 {
-        margin-bottom: var(--f-gutter-l);
-        color: var(--theme-fg);
-      }
-
-      p {
-        font-size: 20px;
-        color: var(--theme-card-text-color);
-      }
-    }
-
-
-
-
-
-
-
   }
 
 </style>

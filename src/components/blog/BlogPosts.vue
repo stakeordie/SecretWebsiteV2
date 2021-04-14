@@ -1,5 +1,5 @@
 <template>
-  <type title="Blog cards">
+  <section class="blog-grid">
     <blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''">
       <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
       <h4><g-link :to="`/blog/${node.slug}`">{{ node.title }}</g-link></h4>
@@ -13,7 +13,7 @@
         </div>
       </template>
     </blog-card>
-  </type>
+  </section>
 </template>
 
 <script>
@@ -43,3 +43,16 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss">
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--f-gutter-l);
+  align-items: start;
+  justify-items: center;
+}
+
+</style>

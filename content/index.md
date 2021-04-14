@@ -18,9 +18,10 @@ Secret Network is a **blockchain-based**, **open-source** protocol that lets any
 <column>
 
 <block>
+
 <card-simple class="orientation-horizontal accent-purple" url="/">
 
-<template slot="first-block">
+<card-block>
 
 ### Getting started
 
@@ -28,15 +29,16 @@ Secret Network is a **blockchain-based**, **open-source** protocol that lets any
 
 Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent. 
 
-</template>
+</card-block>
 
-<template slot="second-block">
+<card-block>
 
 ![img](./img/card-build.png)
 
-</template>
+</card-block>
 
 </card-simple>
+
 </block>
 
 </column>
@@ -46,7 +48,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 <block>
 <card-simple class="orientation-vertical accent-orange" url="/">
 
-<template slot="first-block">
+<card-block>
 
 ### Learn
 
@@ -54,13 +56,13 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default.
 
-</template>
+</card-block>
 
-<template slot="second-block">
+<card-block>
 
 ![](./img/card-hand.png)
 
-</template>
+</card-block>
 
 </card-simple>
 </block>
@@ -69,21 +71,21 @@ Find out why Secret Network is a first-of-its-kind, open-source blockchain that 
 
 <card-simple class="orientation-vertical accent-green" url="/">
 
-<template slot="first-block">
+<card-block>
 
-### Getting started
+### Build
 
-#### with Secret Network
+#### on Secret Network
 
 Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3.
 
-</template>
+</card-block>
 
-<template slot="second-block">
+<card-block>
 
 ![](./img/card-rocket.png)
 
-</template>
+</card-block>
 
 </card-simple>
 
@@ -91,23 +93,23 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 <block>
 
-<card-simple class="orientation-vertical accent-blue" url="/">
+<card-simple class="orientation-vertical accent-blue" url="/community">
 
-<template slot="first-block">
+<card-block>
 
-### Getting started
+### Join
 
-#### with Secret Network
+#### the Community
 
 Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network.
 
-</template>
+</card-block>
 
-<template slot="second-block">
+<card-block>
 
 ![](./img/card-people.png)
 
-</template>
+</card-block>
 
 </card-simple>
 
@@ -115,74 +117,59 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 </column>
 
-<type title="Introduction">
 
-## Want to build a better internet? Solve for privacy. 
+<column number="2">
 
-Secret Network is the first blockchain with **privacy-preserving smart contracts.** Applications built on Secret Network utilize encrypted data without exposing it to anyone, even the nodes in the network. Secret Network empowers developers to build **decentralized, permissionless, privacy-preserving applications - Secret Apps.** For blockchain technology to reach global adoption, users and organizations need granular control over their data. Private by default - transparent when needed - Secret Network's programmable privacy delivers this level of control, securing and scaling Web 3.0. [Read more](/about/about-secret-network)
+<block>
 
-</type>
+# Want to build a better internet?
 
-<type title="Card">
+</block>
 
-### Learn about Secret Network
+</column>
 
-![Community](./img/home-card/learn-about-secret-network.png)
+<column number="2" number-m="1" number-s="1">
 
-[Link](/about/about-secret-network)
+<block>
 
-</type>
+Secret Network is the first blockchain with privacy-preserving smart contracts. That means applications built on Secret can utilize encrypted data without revealing it to anyone, even the nodes in the network. For the first time, Secret Network allows developers to build powerful, permissionless, privacy-preserving applications - Secret Apps.
 
+</block>
 
-<type title="Card">
+<block>
 
-### **Join**<br>Our Community
+Blockchains are public by default. That means that all the data used in smart contracts is exposed to everyone. For blockchain technology to achieve global adoption, users and organizations need control over how their data is used – they can’t just expose it to everyone. Secret Network solves the problem of privacy, helping to secure and scale the decentralized web.
 
-![Secret App](./img/home-card/join-our-community.png)
+</block>
 
-[Link](/community)
+</column>
 
-</type>
+<column>
 
+<block>
 
-<type title="Card">
+### Secret solves for privacy
 
-### Build your own Secret App
+</block>
 
-![Node Operator](./img/home-card/build-your-own-secret-app.png)
-
-[Link](/developers)
-
-</type>
+</column>
 
 
+<column class="announcement accent-green" weight="left" number="2">
 
-<type title="Card">
-
-### **Explore the**<br>Ecosystem
-
-![Node Operator](./img/home-card/explore-the-ecosystem.png)
-
-[Link](/developers)
-
-</type>
-
-<type title="Announcement">
+<block>
 
 #### Announcement
 
-### SecretSwap is LIVE!
+### SCRT 2020: Our Secret Vision for Universal Finance
 
+Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
 
-Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistance, improved privacy protections, and low cost. Start using SecretSwap now and stay tuned for more info on next step, a native governance token for Secret DeFi, and more rewards.
+<btn>Read more</btn>
 
-[Read more](/blog/secretswap-is-live-on-mainnet)
-[Try It Out!](https://bridge.scrt.network/swap#Swap)
+</block>
 
-![](./img/announcement/secretswap.jpg)
-
-</type>
-
+</column>
 
 <type title="Latest blog posts">
 
@@ -196,36 +183,89 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 </type>
 
+<column class="announcement accent-green" weight="right" number="2">
 
-<type title="Announcement">
+<block>
 
 #### Announcement
 
-### SCRT 2020: Our Secret Vision for<br>Universal Finance
-
-Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
-
-[Link](/blog/secret-2020-defi)
-
-</type>
-
-<type title="Featured media">
-
-## Featured Media
-
-[View al media](/media)
+### SecretSwap is LIVE!
 
 
-#### Private Smart Contracts: Anthony Pompliano
+Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistance, improved privacy protections, and low cost. Start using SecretSwap now and stay tuned for more info on next step, a native governance token for Secret DeFi, and more rewards.
+
+<btn url="/blog/secretswap-is-live-on-mainnet">Read more</btn> <btn url="https://bridge.scrt.network/swap#Swap">Try It Out!</btn>
+
+</block>
+
+<block>
+
+![](./img/announcement/secretswap.jpg)
+
+</block>
+
+</column>
+
+
+<column number="2" number-s="1">
+
+<block>
+
+### Latest Media Articles
+
+</block>
+
+<block>
+
+<btn url="/blog/secretswap-is-live-on-mainnet">Unveil more secrets</btn>
+
+</block>
+
+</column>
+
+
+<column number="3" number-s="1">
+
+<block>
+
+<card-media class="accent-red"  url="https://www.youtube.com/watch?v=Kx9hb3U7pfs">
+
+Podcast
+
+###### Private Smart Contracts: Anthony Pompliano
+
 ![Private Smart Contracts: Anthony Pompliano](./img/media-card/image1.png)
-[Link](https://www.youtube.com/watch?v=Kx9hb3U7pfs)
 
-#### Secret Network on The Defiant Podcast
+</card-media>
+
+</block>
+
+<block>
+
+<card-media class="accent-red" url="https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52">
+
+Podcast
+
+###### Secret Network on The Defiant Podcast
+
 ![Secret Network on The Defiant Podcast](./img/media-card/image2.png)
-[Link](https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52)
 
-#### zkp-privacy Summit: Secret Contracts
+</card-media>
+
+</block>
+
+<block>
+
+<card-media class="accent-red" url="https://www.crowdcast.io/e/zkp-privacy-summit/5">
+
+Podcast
+
+###### zkp-privacy Summit: Secret Contracts
+
 ![zkp-privacy Summit: Secret Contracts](./img/media-card/privacysummit.png)
-[Link](https://www.crowdcast.io/e/zkp-privacy-summit/5)
 
-</type>
+</card-media>
+
+</block>
+
+</column>

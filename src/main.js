@@ -17,7 +17,10 @@ import Type from "~/components/Type.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
-import CardSimple from "~/components/CardSimple.vue";
+import CardSimple from "~/components/cards/CardSimple.vue";
+import CardBlock from "~/components/cards/CardBlock.vue";
+import CardMedia from "~/components/cards/CardMedia.vue";
+import Btn from "~/components/Btn.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -55,6 +58,9 @@ export default function(Vue, {
     Vue.component("Type", Type);
     Vue.component("HeroVideo", HeroVideo);
     Vue.component("CardSimple", CardSimple);
+    Vue.component("CardBlock", CardBlock);
+    Vue.component("CardMedia", CardMedia);
+    Vue.component("Btn", Btn);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

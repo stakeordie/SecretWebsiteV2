@@ -11,6 +11,7 @@ $themes: (
         "links-hover": var(--color-analog-tertiary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
+        "card-button-bg": var(--color-neutral-dark-mode-04),
         // cards
         "card-bg-default": var(--color-neutral-dark-mode-03),
         "card-bg-hover": var(--color-neutral-dark-mode-02),
@@ -27,6 +28,7 @@ $themes: (
         "links-hover": var(--color-analog-secondary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
+        "card-button-bg": var(--color-neutral-light-mode-01),
         // cards
         "card-bg-default": var(--color-neutral-light-mode-04),
         "card-bg-variant": var(--color-neutral-light-mode-03),
@@ -43,6 +45,7 @@ $themes: (
         "links-hover": var(--color-analog-tertiary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-blue),
+        "card-button-bg": var(--color-neutral-dark-mode-04),
         // cards
         "card-bg-default": var(--color-neutral-dark-mode-03),
         "card-bg-variant": black,
@@ -58,6 +61,7 @@ $themes: (
         "links-hover": var(--color-analog-secondary-orange),
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
+        "card-button-bg": var(--color-neutral-light-mode-01),
         // cards
         "card-bg-default": var(--color-neutral-light-mode-04),
         "card-bg-variant": var(--color-neutral-light-mode-03),
@@ -77,6 +81,7 @@ body {
             --theme-links-default: #{map-get($theme, "links-default")};
             --theme-links-hover:#{map-get($theme, "links-hover")};
             --theme-button: #{map-get($theme, "button-bg")};
+            --theme-card-button-bg: #{map-get($theme, "card-button-bg")};
             --theme-card-bg-default: #{map-get($theme, "card-bg-default")};
             --theme-card-bg-hover: #{map-get($theme, "card-bg-hover")};
             --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
