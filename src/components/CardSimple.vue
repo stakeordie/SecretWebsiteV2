@@ -1,48 +1,23 @@
 <template>
-  <div class="card-simple" :class="[orientation, kind]" :style="{ '--custom-color-hover': `var(--color-analog-secondary-${accent})` }">
-    <div class="first-block">
-      <h3 :style="{ color: `var(--color-analog-secondary-${accent})` }">{{ titleFirstLine }}</h3>
-      <h4>{{ titleSecondLine }}</h4>
-      <p>{{ cardMessage }}</p>
-      <slot></slot>
-    </div>
-    <div class="second-block">
-      <g-image v-if="cardImage" :src="require(`!!assets-loader!@images/${cardImage}`)"></g-image>
-    </div>
+  <div class="card-simple" :class="{ 'cta': url }">
+    <a :href="url">
+      <div class="first-block">
+        <slot name="first-block"></slot>
+      </div>
+      <div class="second-block">
+        <slot name="second-block"></slot>
+      </div>
+    </a>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      kind: {
+      url: {
         type: String,
         required: false
       },
-      orientation: {
-        type: String,
-        required: false
-      },
-      accent: {
-        type: String,
-        required: false
-      },
-      titleFirstLine: {
-        type: String,
-        required: false
-      },
-      titleSecondLine: {
-        type: String,
-        required: false
-      },
-      cardMessage: {
-        type: String,
-        required: false
-      },
-      cardImage: {
-        type: String,
-        required: false
-      }
     }
   }
 
@@ -52,43 +27,97 @@
   @import "../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
+  $accent-colors: ("blue",
+    "turquoise",
+    "green",
+    "yellow",
+    "cream",
+    "orange",
+    "red",
+    "purple",
+    "gray",
+  );
+
+  // @each $name, $color in $accent-colors {
+  // 	&.accent-#{$name} {
+  // 		color: var(--accent-#{$name});
+  // 	}
+  // }
+
   .card-simple {
     border-radius: var(--f-radius);
     padding: var(--f-gutter-l);
     background: var(--theme-card-bg-default);
-    display: grid;
-    gap: var(--f-gutter-xxl);
     transition: .2s ease;
+
     &.cta {
       cursor: pointer;
-      &:hover {
-        background: var(--theme-card-bg-hover);
-        box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--custom-color-hover);
+
+      @each $name,
+      $color in $accent-colors {
+        &.accent-#{$name} {
+          &:hover {
+            background: var(--theme-card-bg-hover);
+            box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+          }
+        }
       }
     }
 
-    &.vertical {
-      grid-template-columns: 1fr;
-      gap: var(--f-gutter-xxl);
+    &.orientation-horizontal {
+      a {
+        display: grid;
+        gap: var(--f-gutter-xxl);
+        grid-template-columns: 1fr 60%;
+        @include respond-to("<=m") {
+          grid-template-columns: 1fr;
+        }
+        
+      }
     }
-    &.horizontal {
-      grid-template-columns: 1fr 60%;
-      gap: var(--f-gutter);
+
+    &.orientation-vertical {
+      a {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--f-gutter-xxl);
+      }
     }
+
+    @each $name,
+    $color in $accent-colors {
+      &.accent-#{$name} {
+        h3 {
+          color: var(--accent-#{$name});
+        }
+      }
+    }
+
     .first-block {
       display: flex;
       flex-direction: column;
+
       h3 {
         margin-bottom: var(--f-gutter-s);
       }
+
       h4 {
         margin-bottom: var(--f-gutter-l);
+        color: var(--theme-fg);
       }
+
       p {
         font-size: 20px;
         color: var(--theme-card-text-color);
       }
     }
+
+
+
+
+
+
+
   }
 
 </style>

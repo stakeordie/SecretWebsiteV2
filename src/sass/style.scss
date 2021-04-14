@@ -4,6 +4,7 @@
 @import "functions/theme";
 @import "color";
 @import "icon-font";
+@import "cards/card-simple";
 :root {
     --f-header-text-color: white;
     --f-header-background-color: var(--theme-bg);
@@ -13,6 +14,7 @@
 body {
     &.modal-open {
         position: fixed;
+        // color: $lol;
     }
 }
 

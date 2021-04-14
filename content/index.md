@@ -1,4 +1,4 @@
-<column mode="normal">
+<column class="card-variant" mode="normal">
 <block>
 <hero-video title="Secret Network" video-thumbnail="hero-thumbnail.jpg">
 <template slot="message">
@@ -16,44 +16,101 @@ Secret Network is a **blockchain-based**, **open-source** protocol that lets any
 </column>
 
 <column>
+
 <block>
-<card-simple 
-orientation="horizontal" 
-accent="purple" 
-title-first-line="Getting started" 
-title-second-line="with Secret Network" 
-card-message="Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent." card-image="card-build.png" />
+<card-simple class="orientation-horizontal accent-purple" url="/">
+
+<template slot="first-block">
+
+### Getting started
+
+#### with Secret Network
+
+Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent. 
+
+</template>
+
+<template slot="second-block">
+
+![img](./img/card-build.png)
+
+</template>
+
+</card-simple>
 </block>
+
 </column>
 
-<column number="3">
+<column number="3" number-m="1" number-s="1">
 
 <block>
-<card-simple
-kind="cta" 
-accent="orange" 
-title-first-line="Learn" 
-title-second-line="about Secret Network" 
-card-message="Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default." 
-card-image="card-hand.png" />
+<card-simple class="orientation-vertical accent-orange" url="/">
+
+<template slot="first-block">
+
+### Learn
+
+#### about Secret Network
+
+Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default.
+
+</template>
+
+<template slot="second-block">
+
+![](./img/card-hand.png)
+
+</template>
+
+</card-simple>
 </block>
 
 <block>
-<card-simple 
-kind="cta"
-accent="green" 
-title-first-line="Getting started" 
-title-second-line="with Secret Network" 
-card-message="Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3." 
-card-image="card-rocket.png" />
+
+<card-simple class="orientation-vertical accent-green" url="/">
+
+<template slot="first-block">
+
+### Getting started
+
+#### with Secret Network
+
+Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3.
+
+</template>
+
+<template slot="second-block">
+
+![](./img/card-rocket.png)
+
+</template>
+
+</card-simple>
+
 </block>
 
 <block>
-<card-simple 
-accent="blue" 
-title-first-line="Getting started" 
-title-second-line="with Secret Network" 
-card-message="Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network." card-image="card-people.png" />
+
+<card-simple class="orientation-vertical accent-blue" url="/">
+
+<template slot="first-block">
+
+### Getting started
+
+#### with Secret Network
+
+Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network.
+
+</template>
+
+<template slot="second-block">
+
+![](./img/card-people.png)
+
+</template>
+
+</card-simple>
+
 </block>
 
 </column>

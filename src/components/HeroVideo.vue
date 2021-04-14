@@ -49,12 +49,11 @@
   @import "@lkmx/flare/src/functions/respond-to";
 
   .hero-video {
-    padding: var(--f-gutter-xl);
+    padding: var(--f-gutter-l);
     background: var(--theme-card-bg-variant);
     display: grid;
     grid-template-columns: 60% 1fr;
     gap: var(--f-gutter-xl);
-
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
     }
