@@ -67,7 +67,7 @@
 
     h6 {
       margin-bottom: var(--f-gutter-l);
-      transform: translateY(-20px);
+      transform: translateY(-40px);
     }
 
     @each $name,

@@ -1,18 +1,23 @@
 <template>
   <default-layout class="blog">
-    <type title="title">
+    <hero-title>
       <h2>Secret Network Blog</h2>
-    </type>
-    <type title="Featured posts">
+    </hero-title>
 
-      <h2>Featured</h2>
+
+    <column class="horizontal-slider" mode="full">
+      <h3>Featured</h3>
       <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
-    </type>
+    </column>
 
-    <type title="All posts">
-      <h2>All posts</h2>
-      <blog-posts :posts="$page.posts.edges"></blog-posts>
-    </type>
+
+    <column class="blog-all-posts">
+      <blog-filter id="left"></blog-filter>
+      <section class="all-posts">
+        <h3>All posts</h3>
+        <blog-posts :posts="$page.posts.edges"></blog-posts>
+      </section>
+    </column>
 
   </default-layout>
 </template>
@@ -115,6 +120,7 @@
           });
         }
       }
+      
     }
   }
 
@@ -157,5 +163,55 @@
 </page-query>
 
 <style lang="scss">
+  .horizontal-slider {
+
+    // overflow: hidden;
+    // display: inline-block;
+    // background: red;
+    .blog-featured-posts {
+      display: block;
+      overflow: auto;
+      width: 100vw;
+      /* gap: var(--f-gutter-l); */
+      padding: 1rem;
+      // background: red;
+      white-space: nowrap;
+      transform: translateX(-16px);
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .blog-card-featured {
+        border-radius: var(--f-radius);
+        background: var(--theme-card-bg-default);
+        transition: .2s ease;
+        cursor: pointer;
+        min-height: 450px;
+        display: inline-block;
+        /* flex-direction: column; */
+        width: 350px;
+        white-space: normal;
+        /* justify-content: space-between; */
+        vertical-align: top;
+        margin-right: var(--f-gutter-l);
+      }
+    }
+  }
+
+  .blog-all-posts {
+    .content {
+      .box {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: var(--f-gutter-xl);
+        .blog-card {
+          svg {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 
 </style>

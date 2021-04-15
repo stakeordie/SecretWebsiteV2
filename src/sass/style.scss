@@ -6,6 +6,7 @@
 @import "icon-font";
 @import "cards/card-simple";
 @import "cards/card-announcement";
+
 :root {
     --f-header-text-color: white;
     --f-header-background-color: var(--theme-bg);
@@ -44,6 +45,7 @@ button,
 .button {
     border-radius: var(--f-gutter-s);
     background-color: var(--theme-button);
+
     &.theme {
         background-color: transparent;
     }
@@ -52,11 +54,14 @@ button,
 a {
     color: var(--theme-links-default);
     text-decoration: none;
+
     &:hover {
         color: var(--theme-links-hover);
     }
+
     &:visited {
         color: var(--theme-links-default);
+
         &:hover {
             color: var(--theme-links-hover)
         }
@@ -70,14 +75,47 @@ p {
 input:not(.button) {
     border-radius: var(--f-gutter-s);
     padding: var(--f-gutter-xs) var(--f-gutter);
+
     @include theme(dark dark-colored) {
         background: rgba(white, 0.1);
         border-color: rgba(white, 0.1);
         color: var(--color-analog-primary-white);
     }
+
     @include theme(light light-colored) {
         background: rgba(black, 0.1);
         border-color: rgba(black, 0.1);
         color: var(--color-neutral-light-mode-045);
+    }
+}
+
+.spacer-s {
+    margin-bottom: 110px;
+}
+
+.spacer-m {
+    margin-bottom: 178px;
+}
+
+.spacer-l {
+    margin-bottom: 288px;
+}
+
+.block-header {
+    .--flare-block {
+        align-items: end;
+        margin-bottom: var(--f-gutter-l);
+        p {
+            color: var(--theme-card-text-color);
+        }
+        &:last-child {
+            .box {
+                display: flex;
+                justify-content: flex-end;
+                a {
+                    margin: 0;
+                }
+            }
+        }
     }
 }

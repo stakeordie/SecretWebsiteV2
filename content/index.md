@@ -1,17 +1,8 @@
 <column class="card-variant" mode="normal">
 <block>
-<hero-video title="Secret Network" video-thumbnail="hero-thumbnail.jpg">
-<template slot="message">
 
-Secret Network is a **blockchain-based**, **open-source** protocol that lets anyone perform computations on encrypted data, bringing **privacy** to **smart contracts** and **public blockchains**.
+<hero-video />
 
-</template>
-<template slot="video">
-<video width="100%" height="500" controls>
-<source src="./img/scrt-intro.mp4" type="video/mp4">
-</video>
-</template>
-</hero-video>
 </block>
 </column>
 
@@ -43,7 +34,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 </column>
 
-<column number="3" number-m="1" number-s="1">
+<column class="spacer-s" number="3" number-m="1" number-s="1">
 
 <block>
 <card-simple class="orientation-vertical accent-orange" url="/">
@@ -128,7 +119,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 </column>
 
-<column number="2" number-m="1" number-s="1">
+<column class="spacer-s" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -144,7 +135,7 @@ Blockchains are public by default. That means that all the data used in smart co
 
 </column>
 
-<column>
+<column class="spacer-s">
 
 <block>
 
@@ -155,7 +146,7 @@ Blockchains are public by default. That means that all the data used in smart co
 </column>
 
 
-<column class="announcement accent-green" weight="left" number="2">
+<column class="announcement accent-green spacer-s" weight="left" number="2">
 
 <block>
 
@@ -171,19 +162,31 @@ Learn about some of the critical applications being built on Secret Network - an
 
 </column>
 
-<type title="Latest blog posts">
+<column class="block-header" number="2">
 
-# Latest Blog Posts
+<block>
 
+### Latest Blog Posts
+  
 Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
-[Blog](/blog)
+</block>
+
+<block>
+
+<btn url="/blog/">Unveil more secrets</btn>
+
+</block>
+
+</column>
+
+<column class="spacer-s">
 
 <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
 
-</type>
+</column>
 
-<column class="announcement accent-green" weight="right" number="2">
+<column class="announcement accent-green spacer-s" weight="right" number="2">
 
 <block>
 
@@ -207,7 +210,7 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 </column>
 
 
-<column number="2" number-s="1">
+<column class="block-header" number="2" number-s="1">
 
 <block>
 
@@ -217,14 +220,14 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 
 <block>
 
-<btn url="/blog/secretswap-is-live-on-mainnet">Unveil more secrets</btn>
+<btn url="/media/features">Unveil more secrets</btn>
 
 </block>
 
 </column>
 
 
-<column number="3" number-s="1">
+<column class="spacer-s" number="3" number-s="1">
 
 <block>
 

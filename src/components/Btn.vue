@@ -39,6 +39,7 @@
       align-items: center;
       gap: var(--f-gutter-xs);
       margin-right: var(--f-gutter);
+      
       img {
       }
     }

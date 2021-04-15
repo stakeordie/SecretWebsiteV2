@@ -17,6 +17,7 @@ import Type from "~/components/Type.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
+import HeroTitle from "~/components/HeroTitle.vue";
 import CardSimple from "~/components/cards/CardSimple.vue";
 import CardBlock from "~/components/cards/CardBlock.vue";
 import CardMedia from "~/components/cards/CardMedia.vue";
@@ -31,9 +32,11 @@ import BlogLatestPosts from "~/components/blog/BlogLatestPosts"
 import BlogLatestPostsTwelve from "~/components/blog/BlogLatestPostsTwelve"
 import BlogPosts from "~/components/blog/BlogPosts"
 import BlogPostsFeatured from "~/components/blog/BlogPostsFeatured"
+import BlogFilter from "~/components/blog/BlogFilter"
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+
 
 
 function setDefaultTheme() {
@@ -42,6 +45,23 @@ function setDefaultTheme() {
     const [body] = document.getElementsByTagName('body')
     if (!body) return
     body.setAttribute('theme', theme.trim())
+
+
+var left = document.getElementById("left");
+var stop = (left.offsetTop - 60);
+
+window.onscroll = function (e) {
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    console.log(scrollTop, left.offsetTop);
+    // left.offsetTop;
+    console.log('lol')
+    if (scrollTop >= stop) {
+        left.className = 'stick';
+    } else {
+        left.className = '';
+    }
+
+}
 }
 
 export default function(Vue, {
@@ -57,6 +77,7 @@ export default function(Vue, {
     Vue.component("Navigation", Navigation);
     Vue.component("Type", Type);
     Vue.component("HeroVideo", HeroVideo);
+    Vue.component("HeroTitle", HeroTitle);
     Vue.component("CardSimple", CardSimple);
     Vue.component("CardBlock", CardBlock);
     Vue.component("CardMedia", CardMedia);
@@ -72,6 +93,7 @@ export default function(Vue, {
     Vue.component("BlogLatestPostsTwelve", BlogLatestPostsTwelve);
     Vue.component("BlogPosts", BlogPosts);
     Vue.component("BlogPostsFeatured", BlogPostsFeatured);
+    Vue.component("BlogFilter", BlogFilter);
 
     Vue.use(Flare);
     Vue.$setDefaultTheme = setDefaultTheme;

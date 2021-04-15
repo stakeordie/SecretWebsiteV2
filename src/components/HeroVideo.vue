@@ -1,16 +1,18 @@
 <template>
   <div class="hero-video">
     <div class="message">
-      <h2>{{ title }}</h2>
-      <slot name="message"></slot>
+      <h2>Secret Network</h2>
+      <p class="message">Secret Network is a <strong>blockchain-based</strong>, <strong>open-source</strong> protocol that lets anyone perform computations on encrypted data, bringing <strong>privacy</strong> to <strong>smart contracts</strong> and <strong>public blockchains</strong>.</p>
     </div>
     <div @click="showVideo = !showVideo" class="video-thumbnail">
-      <g-image v-show="!showVideo" :src="require(`!!assets-loader!@images/${videoThumbnail}`)" :alt="title"></g-image>
+      <img v-show="!showVideo" src="../assets/hero-video-thumbnail.jpg" :alt="title"/>
     </div>
     <div v-if="showVideo" class="video">
       <button class="close-video theme" @click="showVideo = !showVideo"><img src="../assets/icon-menu-close.svg"
           alt=""></button>
-      <slot name="video"></slot>
+      <video width="100%" height="500" controls>
+        <source src="../assets/scrt-intro.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </template>
@@ -54,6 +56,7 @@
     display: grid;
     grid-template-columns: 60% 1fr;
     gap: var(--f-gutter-xl);
+    margin-bottom: var(--f-gutter-xxxl) !important;
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
     }
