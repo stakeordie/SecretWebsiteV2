@@ -1,3 +1,4 @@
+<!-- Hero Video -->
 <column class="card-variant" mode="normal">
 <block>
 
@@ -5,6 +6,16 @@
 
 </block>
 </column>
+
+
+
+
+
+
+
+
+
+<!-- Getting started -->
 
 <column>
 
@@ -34,9 +45,19 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 </column>
 
+
+
+
+
+
+
+
+
+<!-- Card collection -->
 <column class="spacer-s" number="3" number-m="1" number-s="1">
 
 <block>
+
 <card-simple class="orientation-vertical accent-orange" url="/">
 
 <card-block>
@@ -56,6 +77,7 @@ Find out why Secret Network is a first-of-its-kind, open-source blockchain that 
 </card-block>
 
 </card-simple>
+
 </block>
 
 <block>
@@ -109,7 +131,15 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 </column>
 
 
-<column number="2">
+
+
+
+
+
+
+
+<!-- Want to build better internet title -->
+<column number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -119,6 +149,15 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 </column>
 
+
+
+
+
+
+
+
+
+<!-- Want to build better internet paragraphs -->
 <column class="spacer-s" number="2" number-m="1" number-s="1">
 
 <block>
@@ -135,6 +174,16 @@ Blockchains are public by default. That means that all the data used in smart co
 
 </column>
 
+
+
+
+
+
+
+
+
+
+<!-- Solves for privacy -->
 <column class="spacer-s">
 
 <block>
@@ -146,6 +195,14 @@ Blockchains are public by default. That means that all the data used in smart co
 </column>
 
 
+
+
+
+
+
+
+
+<!-- Announcement -->
 <column class="announcement accent-green spacer-s" weight="left" number="2">
 
 <block>
@@ -162,7 +219,16 @@ Learn about some of the critical applications being built on Secret Network - an
 
 </column>
 
-<column class="block-header" number="2">
+
+
+
+
+
+
+
+
+<!-- Block header -->
+<column class="block-header" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -180,13 +246,32 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 </column>
 
+
+
+
+
+
+
+
+
+
+<!-- Blog cards -->
 <column class="spacer-s">
 
 <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
 
 </column>
 
-<column class="announcement accent-green spacer-s" weight="right" number="2">
+
+
+
+
+
+
+
+
+<!-- Announcement -->
+<column class="announcement accent-green spacer-s" weight="right" number="2" number-m="1" number-s="1">
 
 <block>
 

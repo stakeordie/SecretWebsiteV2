@@ -10,7 +10,7 @@
           </g-image>
         </a>
         <!-- logo -->
-        <g-link to="/">
+        <g-link class="link-logo" to="/">
           <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true">
           </g-image>
         </g-link>
@@ -24,7 +24,7 @@
                   <a href="/about/about-secret-network">About</a>
                 </li>
                 <li @click.prevent="showMedia = !showMedia" @mouseleave.prevent="showMedia = false"
-                   class="dropdown-container">
+                  class="dropdown-container">
                   <a href="">Media <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
                     <ul v-show="showMedia" @click.stop="showMedia" class="dropdown">
@@ -78,6 +78,20 @@
           </div>
           <!-- toggles -->
           <div class="toggles">
+            <!-- social navigation -->
+            <nav class="social-navigation">
+              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
+                  src="@/assets/icon-social-github.svg" alt=""></a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
+                  alt=""></a>
+              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
+                  alt=""></a>
+              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
+                  alt=""></a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
+                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+            </nav>
             <button class="theme" @click="toggleDarkLightMode">
               <themed-image>
                 <g-image class="not-invert" dark dark-colored src="@/assets/moon.svg" :immediate="true"></g-image>
@@ -460,6 +474,11 @@
     transition: var(--color-transition);
     z-index: 20;
 
+    .link-logo {
+      justify-content: center;
+      display: flex;
+    }
+
     &.fixed {
       position: fixed;
       z-index: 9999;
@@ -478,6 +497,12 @@
       gap: var(--f-gutter-l);
       padding-top: 0px;
       padding-bottom: 0px;
+      display: grid;
+      grid-template-columns: 124px 1fr;
+
+      @include respond-to("<=m") {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .mobile-menu-toggle {
@@ -493,7 +518,7 @@
         padding: var(--f-gutter-s) var(--f-gutter) var(--f-gutter-s) 0;
 
         @include respond-to("<=m") {
-          transform: translateX(var(--f-gutter-l));
+          // transform: translateX(var(--f-gutter-l));
         }
       }
     }
@@ -502,6 +527,11 @@
       display: flex;
       gap: var(--f-gutter);
       height: 100%;
+      justify-content: space-between;
+
+      @include respond-to("<=m") {
+        justify-content: flex-end;
+      }
 
       .mobile-wrapper {
         display: flex;
@@ -576,7 +606,8 @@
                     text-decoration: none;
 
                     &:hover {
-                      font-weight:600;
+                      font-weight: 600;
+
                       @include theme(dark dark-colored) {
                         color: black;
                       }
@@ -585,6 +616,7 @@
                         color: white;
                       }
                     }
+
                     &:before {
                       display: block;
                       content: attr(title);
@@ -674,10 +706,15 @@
           gap: var(--f-gutter);
           align-items: center;
 
+          @include respond-to(">=l") {
+            display: none;
+          }
+
           a {
             padding: 0 !important;
           }
         }
+
       }
 
       .toggles {
@@ -685,6 +722,21 @@
         align-items: center;
         gap: var(--f-gutter);
         padding-left: var(--f-gutter);
+
+        .social-navigation {
+          display: flex;
+          gap: var(--f-gutter);
+          align-items: center;
+          padding-right: var(--f-gutter);
+
+          @include respond-to("<=m") {
+            display: none;
+          }
+
+          a {
+            padding: 0 !important;
+          }
+        }
 
         button {
           margin: 0;

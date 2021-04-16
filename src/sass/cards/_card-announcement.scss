@@ -1,5 +1,4 @@
-$accent-colors: (
-	"blue",
+$accent-colors: ("blue",
 	"turquoise",
 	"green",
 	"yellow",
@@ -16,25 +15,32 @@ $accent-colors: (
 // }
 
 .announcement {
+
 	// background: var(--theme-card-bg-variant);
 	.--flare-block {
 		background: var(--theme-card-bg-variant);
+
 		.content {
 			.box {
-			// display: grid;
-			// gap: var(--f-gutter);
-			padding: var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter);
-			h3 {
-				margin-bottom: var(--f-gutter-l);
-			}
-	
-			h4 {
-				margin-bottom: var(--f-gutter-s);
-				color: var(--theme-fg);
+				// display: grid;
+				// gap: var(--f-gutter);
+				padding: var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter);
+				@include respond-to("<=m") {
+					padding: var(--f-gutter);
+				}
+
+				h3 {
+					margin-bottom: var(--f-gutter-l);
+				}
+
+				h4 {
+					margin-bottom: var(--f-gutter-s);
+					color: var(--theme-fg);
+				}
 			}
 		}
 	}
-	}
+
 	@each $name,
 	$color in $accent-colors {
 		&.accent-#{$name} {
@@ -53,14 +59,14 @@ $accent-colors: (
 	// transform: translateX(- 16px);
 
 	@each $name,
-		$color in $accent-colors {
-			&.accent-#{$name} {
-					box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
-			}
+	$color in $accent-colors {
+		&.accent-#{$name} {
+			box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
 		}
+	}
 
 
 
-	
-		
+
+
 }

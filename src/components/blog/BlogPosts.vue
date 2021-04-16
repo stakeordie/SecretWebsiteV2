@@ -46,10 +46,15 @@ export default {
 
 
 <style lang="scss">
+@import "@lkmx/flare/src/functions/respond-to";
+
 
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  @include respond-to("<=m") {
+    grid-template-columns: 1fr;
+  }
   gap: var(--f-gutter-l);
   align-items: start;
   justify-items: center;

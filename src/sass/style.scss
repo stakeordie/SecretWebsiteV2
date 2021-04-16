@@ -112,6 +112,9 @@ input:not(.button) {
             .box {
                 display: flex;
                 justify-content: flex-end;
+                @include respond-to("<=m") {
+                    justify-content: flex-start;
+                }
                 a {
                     margin: 0;
                 }
