@@ -47,7 +47,7 @@ export default {
         margin: 0;
         padding: var(--f-gutter-xs) var(--f-gutter-s);
         background: none;
-        color: var(--theme-links-default);
+        color: var(--theme-fg);
         border: 1px solid var(--theme-links-default);
         line-height: 1.5;
         @include respond-to(">=l") {
