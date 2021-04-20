@@ -945,7 +945,7 @@
 
     .content {
       .box {
-        p {
+        p, a {
           margin: 0;
           // color: var(--the);
         }

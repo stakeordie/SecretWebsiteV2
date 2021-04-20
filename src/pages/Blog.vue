@@ -163,11 +163,13 @@
 </page-query>
 
 <style lang="scss">
+@import "@lkmx/flare/src/functions/respond-to";
   .horizontal-slider {
 
     // overflow: hidden;
     // display: inline-block;
     // background: red;
+    margin-bottom: var(--spacer-1);
     .blog-featured-posts {
       display: block;
       overflow: auto;
@@ -200,11 +202,15 @@
   }
 
   .blog-all-posts {
+    margin-bottom: var(--spacer-1);
     .content {
       .box {
         display: grid;
         grid-template-columns: 200px 1fr;
         gap: var(--f-gutter-xl);
+        @include respond-to("<=m") {
+          grid-template-columns: 1fr;
+        }
         .blog-card {
           svg {
             display: none;
