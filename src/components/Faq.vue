@@ -1,15 +1,19 @@
 <template>
   <div class="faq">
     <section class="questions">
-      <ul>
-        <li v-for="(faq, name, index) in faqs">
-          <a :href="'#' + name"><h6>{{faq.question}} {{faq.index}}</h6></a>
+      <ul @click="toggleFaq" :class="{'faq-open' : isFaqOpen}">
+        <img class="chevron" v-show="isFaqOpen" src="../assets/icon-chevron-up.svg" alt=""/>
+        <img class="chevron" v-show="!isFaqOpen" src="../assets/icon-chevron-down.svg" alt=""/>
+        <li v-for="(faq, name, index) in faqs" :class="{active: faq.id === activeFaqId}">
+          <a @click="activeFaqId = faq.id" :href="'#question-' + name" :class="{active: faq.id === activeFaqId}">
+            <h6>{{faq.question}} {{faq.index}}</h6>
+          </a>
         </li>
       </ul>
     </section>
     <section class="answers">
       <ul>
-        <li v-for="(faq, name, index) in faqs" :id="name">
+        <li v-for="(faq, name, index) in faqs" :id="'question-' + name" :class="{active: faq.id === activeFaqId}">
           <h4>{{faq.question}}</h4>
           <div class="answer" v-html="faq.answer"></div>
         </li>
@@ -24,7 +28,10 @@
   export default {
     data: function () {
       return {
+        activeFaqId: 0,
+        isFaqOpen: false,
         faqs: [{
+            id: 0,
             question: `What is the Secret Network?`,
             answer: `<p>The Secret Network is a decentralized network of computers (which we call "secret nodes") that use
     hardware-based and software-based privacy technologies to enable <strong>secure computation.</strong> On top
@@ -33,6 +40,7 @@
     network performing computations.</p>`
           },
           {
+            id: 1,
             question: `What's so special about Secret Network?`,
             answer: `<p>Secret Network combines the best features of decentralized, open-source networks and blockchains with the
     benefits of data privacy and improved usability. These improvements are critical for achieving mass
@@ -46,6 +54,7 @@
     keep data private, helping remove one of the biggest barriers to mass adoption of the decentralized web.</p>`
           },
           {
+            id: 2,
             question: `Why call it Secret?`,
             answer: `<p>A secret is something that you don’t want to share with everyone, but still want to share with people you
     choose to trust. A secret is something that you want to keep protected - not because it’s something bad, but
@@ -54,6 +63,7 @@
     choose. Secret Network is where these important concepts of privacy, freedom, and consent coincide.</p>`
           },
           {
+            id: 3,
             question: `What are secret contracts and Secret Apps?`,
             answer: `<p>"Secret contracts" are privacy-preserving smart contracts built on Secret Network. Smart contracts (in this
     context) are essentially self-executing pieces of code that are managed on a blockchain. Secret contracts
@@ -66,6 +76,7 @@
       href="/developers/introduction/overview">full documentation</a>.</blockquote>`
           },
           {
+            id: 4,
             question: `Why privacy?`,
             answer: `<p>Members of our community, including secret node operators and Secret App developers, believe that privacy
     is a fundamental human right and a public good. Privacy needs to be protected and supported by the
@@ -76,6 +87,7 @@
     are we.</p>`
           },
           {
+            id: 5,
             question: `Why blockchain?`,
             answer: `<p>By using blockchain, a decentralized network of computers can reach consensus on the state of the network
     while remaining open and permissionless. Secret Network is built on <a href="https://tendermint.com/sdk">Cosmos SDK
@@ -85,6 +97,7 @@
     transparent culture, united by the purpose of data dignity for all!</p>`
           },
           {
+            id: 6,
             question: `What is programmable privacy?`,
             answer: `<p>Secret Network is focused on achieving <a href="/blog/programmable-privacy/">programmable privacy</a>. Most
     privacy solutions in the blockchain space today concentrate only on transactional privacy, specifically
@@ -94,6 +107,7 @@
     cases for smart contracts and decentralized applications.</p>`
           },
           {
+            id: 7,
             question: `What does Secret Network help solve?`,
             answer: `<p>Everything! Which applications would you use every day if they could not protect you or your data? When you
     use blockchains today for any purpose, you are forced to compromise on privacy. Any decentralized
@@ -108,6 +122,7 @@
     decentralized finance, gaming, healthcare, and dozens of other industries.</p>`
           },
           {
+            id: 8,
             question: `What is SCRT?`,
             answer: `<p>SCRT (pronounced "Secret") is the native coin of the Secret Network. This means SCRT is used to pay fees
     and transfer value on the network. Secret nodes must stake SCRT in order to operate on the network, and in
@@ -120,6 +135,7 @@
     proposals using SCRT, allowing for decentralized control of the network.</p>`
           },
           {
+            id: 9,
             question: `What are Trusted Execution Environments, and why do we use them?`,
             answer: `<p><a href="https://en.wikipedia.org/wiki/Trusted_execution_environment">Trusted Execution Environments</a>
     (TEEs) are special enclaves inside a computer that function like a "black box", allowing computations to
@@ -134,6 +150,7 @@
     network. We continue to explore and research other solutions!</p>`
           },
           {
+            id: 10,
             question: `What is the relationship between Enigma and Secret Network?`,
             answer: `<p><a href="https://www.enigma.co/">Enigma MPC</a> is a development company that is one of the core
     contributors to <a href="https://scrt.network/">Secret Network</a>. Their work is critical to the Secret
@@ -144,6 +161,7 @@
     education, or many other means!</p>`
           },
           {
+            id: 11,
             question: `What is Cosmos, and why are you using their technologies?`,
             answer: `<p><a href="https://cosmos.network/">Cosmos</a> represents a standard approach to developing scalable and
     interoperable blockchain applications. We believe the Cosmos SDK, Tendermint and Inter-Blockchain
@@ -152,6 +170,7 @@
     solutions to the Cosmos ecosystem. <a href="/blog">Learn more about this on our blog</a>.</p>`
           },
           {
+            id: 12,
             question: `Is Secret Network a "Layer One" or "Layer Two" solution?`,
             answer: `<p>Secret Network has its own consensus and provides privacy for smart contracts deployed on the network,
     without Secret Network needing to interoperate with any other blockchain. We have often referred to this as
@@ -162,7 +181,13 @@
           }
         ]
       }
+    },
+    methods: {
+      toggleFaq() {
+        this.isFaqOpen = !this.isFaqOpen
+      },
     }
+
   }
 
 </script>
@@ -171,17 +196,15 @@
   @import "../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
-
-  @include theme("light") {
-    p {
-      display: none;
-    }
-  }
-
   .faq {
     display: grid;
     grid-template-columns: 30% 1fr;
     gap: var(--f-gutter-xxl);
+
+    @include respond-to("<=m") {
+      grid-template-columns: 1fr;
+      gap: var(--f-gutter);
+    }
 
     ul {
       padding-left: 0;
@@ -199,8 +222,46 @@
         flex-direction: column;
         gap: var(--f-gutter-xxs);
 
+          .chevron {
+            @include respond-to(">=l") {
+          display: none;
+        }
+          @include respond-to("<=m") {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          right: var(--f-gutter);
+          top: 18px;
+        }
+          }
+        
+        @include respond-to("<=m") {
+          background: var(--theme-card-bg-default);
+          padding: var(--f-gutter);
+        }
+
+        &.faq-open {
+          @include respond-to("<=m") {
+            gap: var(--f-gutter-l);
+
+            li {
+              display: block !important;
+            }
+          }
+        }
+
         li {
           margin: 0;
+
+          @include respond-to("<=m") {
+            &:not(.active) {
+              display: none;
+            }
+
+            &.active {
+              padding-right: 2rem;
+            }
+          }
 
           a {
             color: var(--theme-fg);
@@ -209,12 +270,36 @@
             &:hover {
               color: var(--color-analog-secondary-orange);
             }
+
+            h6 {
+              @include respond-to("<=m") {
+                margin: 0;
+              }
+            }
           }
         }
       }
     }
 
-    .answers {}
+    .answers {
+      ul {
+        li:not(.active) {
+          display: none
+        }
+
+        .active {
+          @include respond-to(">=l") {
+            padding-top: 150px;
+            margin-top: -150px;
+          }
+
+          @include respond-to("<=m") {
+            padding-top: 250px;
+            margin-top: -250px;
+          }
+        }
+      }
+    }
   }
 
 </style>
