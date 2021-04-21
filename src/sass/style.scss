@@ -7,6 +7,19 @@
 @import "cards/card-simple";
 @import "cards/card-announcement";
 
+@import "@lkmx/flare/src/functions/respond-to";
+
+$accent-colors: ("blue",
+    "turquoise",
+    "green",
+    "yellow",
+    "cream",
+    "orange",
+    "red",
+    "purple",
+    "gray",
+);
+
 :root {
     --f-header-text-color: white;
     --f-header-height: 68px;
@@ -25,12 +38,13 @@
 body {
     &.modal-open {
         position: fixed;
-        // color: $lol;
     }
+
     pre {
         max-width: var(--blog-content-width);
         width: 100%;
         margin: 0 0 var(--f-gutter-l) 0;
+
         code {
             line-height: 1.7;
             // padding: 3px 5px;
@@ -102,6 +116,35 @@ hr {
     display: inline-block;
     background: var(--color-neutral-dark-mode-05);
     margin-bottom: var(--f-gutter-l);
+    &.swirl-a {
+        position: absolute;
+        right: 0;
+        top: -200px;
+        background: url(../assets/separator-a.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 161px;
+        height: 368px;
+    }
+    &.swirl-b {
+        position: absolute;
+        left: 0;
+        top: -100px;
+        background: url(../assets/separator-b.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 110px;
+        height: 360px;
+    }
+    &.swirl-c {
+        background: url(../assets/separator-c.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 200px;
+        margin-bottom: var(--f-gutter-xxl) !important;
+    }
 }
 
 em {
@@ -140,7 +183,7 @@ a {
 }
 
 p {
-    color: var(--theme-fg);
+    color: var(--theme-card-text-color);
 }
 
 input:not(.button) {
@@ -185,6 +228,7 @@ input:not(.button) {
         &:last-child {
             .box {
                 display: flex;
+                // flex-direction: column;
                 justify-content: flex-end;
 
                 @include respond-to("<=m") {
@@ -193,6 +237,19 @@ input:not(.button) {
 
                 a {
                     margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@each $name,
+$color in $accent-colors {
+    &.accent-#{$name} {
+        .content {
+            .box {
+                span {
+                    color: var(--accent-#{$name});
                 }
             }
         }

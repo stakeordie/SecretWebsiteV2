@@ -464,7 +464,7 @@
 
   .simple-layout {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   .simple-header {

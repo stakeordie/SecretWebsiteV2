@@ -19,9 +19,11 @@ import ThemedImage from "~/components/ThemedImage.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
 import HeroTitle from "~/components/HeroTitle.vue";
 import CardSimple from "~/components/cards/CardSimple.vue";
+import CardMinimal from "~/components/cards/CardMinimal.vue";
 import CardBlock from "~/components/cards/CardBlock.vue";
 import CardMedia from "~/components/cards/CardMedia.vue";
 import Btn from "~/components/Btn.vue";
+import Faq from "~/components/Faq.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -79,9 +81,11 @@ export default function(Vue, {
     Vue.component("HeroVideo", HeroVideo);
     Vue.component("HeroTitle", HeroTitle);
     Vue.component("CardSimple", CardSimple);
+    Vue.component("CardMinimal", CardMinimal);
     Vue.component("CardBlock", CardBlock);
     Vue.component("CardMedia", CardMedia);
     Vue.component("Btn", Btn);
+    Vue.component("Faq", Faq);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

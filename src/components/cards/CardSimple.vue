@@ -44,6 +44,9 @@
     padding: var(--f-gutter-l);
     background: var(--theme-card-bg-default);
     transition: .2s ease;
+    p {
+        color: var(--theme-card-text-color);
+      }
 
     &.cta {
       cursor: pointer;
