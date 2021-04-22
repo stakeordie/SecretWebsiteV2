@@ -10,6 +10,7 @@
         "@fontsource/hind": "^4.2.2",
         "@fontsource/montserrat": "^4.2.2",
         "@gridsome/source-ghost": "^0.4.0",
+        "@gridsome/source-strapi": "^0.2.0",
         "@gridsome/vue-remark": "^0.2.6",
         "@lkmx/flare": "^0.3.5",
         "axios": "^0.21.1",
