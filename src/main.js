@@ -13,7 +13,7 @@ import "@fontsource/montserrat"
 import "@fontsource/montserrat/600.css"
 import "@fontsource/montserrat/500.css"
 
-import InfiniteSlideBar from 'vue-infinite-slide-bar'
+//import InfiniteSlideBar from 'vue-infinite-slide-bar'
 
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 
@@ -112,7 +112,7 @@ export default function(Vue, {
     Vue.component("BlogPostsFeatured", BlogPostsFeatured);
     Vue.component("BlogFilter", BlogFilter);
 
-    Vue.component('InfiniteSlideBar', InfiniteSlideBar)
+    //Vue.component('InfiniteSlideBar', InfiniteSlideBar)
 
     Vue.use(Flare);
     // This is Victor's code

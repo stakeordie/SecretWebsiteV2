@@ -396,20 +396,3 @@ Individuals have a right to their own privacy, their own self-expression, and th
 <faq></faq>
 
 </block>
-
-<<<<<<< HEAD
-</column>
-=======
-</column>
-
-
-<!-- <column>
-
-<block>
-
-<secret-agents></secret-agents>
-
-</block>
-
-</column> -->
->>>>>>> 74583279278ad23da388b7111047dc2ce768aa38

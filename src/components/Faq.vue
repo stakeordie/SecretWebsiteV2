@@ -51,7 +51,7 @@
   
 
   export default {
-    components: { VueMarkdown},
+    // components: { VueMarkdown},
     data: function () {
       return {
         activeFaqId: "1",
