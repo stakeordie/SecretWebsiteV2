@@ -396,3 +396,5 @@ Individuals have a right to their own privacy, their own self-expression, and th
 <faq></faq>
 
 </block>
+
+</column>
