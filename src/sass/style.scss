@@ -209,6 +209,9 @@ input:not(.button) {
 
 .spacer-s {
     margin-bottom: var(--spacer-s);
+    @include respond-to("<=m") {
+        margin-bottom: calc(var(--spacer-s) / 2);
+      }
 }
 
 .spacer-m {
@@ -281,6 +284,45 @@ input:not(.button) {
         }
     }
 }
+
+.filter {
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      gap: var(--f-gutter);
+      @include respond-to("<=m") {
+        flex-direction: row;
+        flex-flow: wrap;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        button {
+          display: flex;
+          flex: auto;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0;
+          padding: var(--f-gutter-xs) var(--f-gutter-s);
+          background: none;
+          color: var(--theme-fg);
+          border: 1px solid var(--theme-links-default);
+          line-height: 1.5;
+          @include respond-to(">=l") {
+            border: 0;
+            padding-left: 0;
+          }
+          @include respond-to("<=m") {
+            img {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
 
 @each $name,
 $color in $accent-colors {
