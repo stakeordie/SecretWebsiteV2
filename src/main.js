@@ -39,6 +39,7 @@ import BlogLatestPostsTwelve from "~/components/blog/BlogLatestPostsTwelve"
 import BlogPosts from "~/components/blog/BlogPosts"
 import BlogPostsFeatured from "~/components/blog/BlogPostsFeatured"
 import BlogFilter from "~/components/blog/BlogFilter"
+import SecretAgents from "~/components/SecretAgents"
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -93,6 +94,9 @@ export default function(Vue, {
     Vue.component("Btn", Btn);
     Vue.component("Faq", Faq);
 
+    //Experimental
+    Vue.component("SecretAgents", SecretAgents);
+
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);
     Vue.component("BlogCard", BlogCard);
@@ -108,5 +112,6 @@ export default function(Vue, {
     Vue.component('InfiniteSlideBar', InfiniteSlideBar)
 
     Vue.use(Flare);
+    // This is Victor's code
     Vue.$setDefaultTheme = setDefaultTheme;
 }
