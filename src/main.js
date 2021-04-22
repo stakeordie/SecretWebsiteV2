@@ -4,6 +4,8 @@ import "./sass/style.scss";
 
 import Flare from "@lkmx/flare";
 
+import VueMarkdown from 'vue-markdown'
+
 import "@fontsource/hind"
 import "@fontsource/hind/600.css"
 import "@fontsource/hind/700.css"
@@ -90,6 +92,7 @@ export default function(Vue, {
 
     //Experimental
     Vue.component("SecretAgents", SecretAgents);
+    Vue.component("VueMarkdown", VueMarkdown);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

@@ -1,10 +1,10 @@
 <template>
   <div class="faq">
-    <section class="questions">
+    <!-- <section class="questions">
       <ul @click="toggleFaq" :class="{'faq-open' : isFaqOpen}">
         <img class="chevron" v-show="isFaqOpen" src="../assets/icon-chevron-up.svg" alt=""/>
         <img class="chevron" v-show="!isFaqOpen" src="../assets/icon-chevron-down.svg" alt=""/>
-        <li v-for="(faq, name, index) in faqs" :class="{active: faq.id === activeFaqId}">
+        <li v-for="(faq, name, index) in faqs" :key="index" :class="{active: faq.id === activeFaqId}">
           <a @click="activeFaqId = faq.id" :href="'#question-' + name" :class="{active: faq.id === activeFaqId}">
             <h6>{{faq.question}} {{faq.index}}</h6>
           </a>
@@ -13,9 +13,31 @@
     </section>
     <section class="answers">
       <ul>
-        <li v-for="(faq, name, index) in faqs" :id="'question-' + name" :class="{active: faq.id === activeFaqId}">
+        <li v-for="(faq, name, index) in faqs" :key="index" :id="'question-' + name" :class="{active: faq.id === activeFaqId}">
           <h4>{{faq.question}}</h4>
           <div class="answer" v-html="faq.answer"></div>
+        </li>
+      </ul>
+      <p><em>Interested in helping expand this guide? <a href="https://github.com/SecretFoundation/SecretWiki">You can
+            contribute to this page!</a></em></p>
+    </section> -->
+
+    <section class="questions">
+      <ul @click="toggleFaq" :class="{'faq-open' : isFaqOpen}">
+        <img class="chevron" v-show="isFaqOpen" src="../assets/icon-chevron-up.svg" alt=""/>
+        <img class="chevron" v-show="!isFaqOpen" src="../assets/icon-chevron-down.svg" alt=""/>
+         <li v-for="(faqItem, index) in $static.faqs.edges" :key="index" :class="{active: faqItem.node.id === activeFaqId}">
+          <a @click="activeFaqId = faqItem.node.id" :href="'#question-' + faqItem.node.id" :class="{active: faqItem.node.id === activeFaqId}">
+            <h6>{{faqItem.node.question}}</h6>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="answers">
+      <ul>
+        <li v-for="(faqItem, index) in $static.faqs.edges" :key="index" :id="'question-' + faqItem.node.id" :class="{active: faqItem.node.id === activeFaqId}">
+          <h4>{{faqItem.node.question}}</h4>
+          <vue-markdown class="answer">{{faqItem.node.answer}}</vue-markdown>
         </li>
       </ul>
       <p><em>Interested in helping expand this guide? <a href="https://github.com/SecretFoundation/SecretWiki">You can
@@ -24,12 +46,16 @@
   </div>
 </template>
 
+
 <script>
+  import VueMarkdown from 'vue-markdown'
+
   export default {
+    components: { VueMarkdown},
     data: function () {
       return {
-        activeFaqId: 0,
-        isFaqOpen: false,
+        activeFaqId: "1",
+        isFaqOpen: true,
         faqs: [{
             id: 0,
             question: `What is the Secret Network?`,
@@ -191,6 +217,25 @@
   }
 
 </script>
+
+<static-query>
+  query{
+    faqs: allStrapiFaqItems (
+      sort: {
+        		by: "sort"
+            order: ASC
+      }
+    ){
+      edges{
+        node{
+          id
+          question
+          answer
+        }
+      }
+    }
+  }
+</static-query>
 
 <style lang="scss">
   @import "../sass/functions/theme";
