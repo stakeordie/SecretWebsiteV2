@@ -295,6 +295,16 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 </column>
 
 
+
+
+
+
+
+
+
+
+
+<!-- Block header -->
 <column class="block-header" number="2" number-s="1">
 
 <block>
@@ -312,6 +322,16 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 </column>
 
 
+
+
+
+
+
+
+
+
+
+<!-- Podcasts -->
 <column class="spacer-s" number="3" number-s="1">
 
 <block>

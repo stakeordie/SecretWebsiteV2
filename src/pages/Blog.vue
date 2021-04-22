@@ -4,19 +4,30 @@
       <h2>Secret Network Blog</h2>
     </hero-title>
 
+<column>
+
+<block><h3>Featured</h3></block>
+
+</column>
 
     <column class="horizontal-slider" mode="full">
-      <h3>Featured</h3>
-      <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
+      <block>
+        <!-- <infinite-slide-bar duration="10s" :barStyle="{ background: '', padding: '0 0' }"> -->
+          <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
+        <!-- </infinite-slide-bar> -->
+
+      </block>
     </column>
 
 
     <column class="blog-all-posts">
-      <blog-filter id="left"></blog-filter>
-      <section class="all-posts">
-        <h3>All posts</h3>
-        <blog-posts :posts="$page.posts.edges"></blog-posts>
-      </section>
+      <block>
+        <blog-filter id="left"></blog-filter>
+        <section class="all-posts">
+          <h3>All posts</h3>
+          <blog-posts :posts="$page.posts.edges"></blog-posts>
+        </section>
+      </block>
     </column>
 
   </default-layout>
@@ -120,7 +131,7 @@
           });
         }
       }
-      
+
     }
   }
 
@@ -163,22 +174,35 @@
 </page-query>
 
 <style lang="scss">
-@import "@lkmx/flare/src/functions/respond-to";
+  @import "@lkmx/flare/src/functions/respond-to";
+
   .horizontal-slider {
 
     // overflow: hidden;
     // display: inline-block;
     // background: red;
-    margin-bottom: var(--spacer-1);
+    // margin-bottom: var(--spacer-1);
+    .content {
+      .box {
+        overflow-x: scroll;
+        max-width: 98vw;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        &::-webkit-scrollbar {
+        display: none;
+      }
+      }
+    }
+
     .blog-featured-posts {
-      display: block;
-      overflow: auto;
-      width: 100vw;
+      // display: block;
+      // overflow: auto;
+      // width: 100vw;
       /* gap: var(--f-gutter-l); */
-      padding: 1rem;
+      // padding: 1rem;
       // background: red;
       white-space: nowrap;
-      transform: translateX(-16px);
+      // transform: translateX(-16px);
 
       &::-webkit-scrollbar {
         display: none;
@@ -203,14 +227,17 @@
 
   .blog-all-posts {
     margin-bottom: var(--spacer-1);
+
     .content {
       .box {
         display: grid;
         grid-template-columns: 200px 1fr;
         gap: var(--f-gutter-xl);
+
         @include respond-to("<=m") {
           grid-template-columns: 1fr;
         }
+
         .blog-card {
           svg {
             display: none;

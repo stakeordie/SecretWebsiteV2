@@ -31,6 +31,7 @@
       }
     }
   body {
+    
     .btn {
       display: inline-flex;
       background: var(--theme-card-button-bg);
@@ -39,8 +40,8 @@
       align-items: center;
       gap: var(--f-gutter-xs);
       margin-right: var(--f-gutter);
-      
       img {
+        
       }
     }
   }

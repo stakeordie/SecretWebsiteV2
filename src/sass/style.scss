@@ -116,6 +116,7 @@ hr {
     display: inline-block;
     background: var(--color-neutral-dark-mode-05);
     margin-bottom: var(--f-gutter-l);
+
     &.swirl-a {
         position: absolute;
         right: 0;
@@ -126,6 +127,7 @@ hr {
         width: 161px;
         height: 368px;
     }
+
     &.swirl-b {
         position: absolute;
         left: 0;
@@ -136,6 +138,7 @@ hr {
         width: 110px;
         height: 360px;
     }
+
     &.swirl-c {
         background: url(../assets/separator-c.svg);
         background-size: contain;
@@ -216,6 +219,14 @@ input:not(.button) {
     margin-bottom: var(--spacer-l);
 }
 
+.text-center {
+    .content {
+        .box {
+            text-align: center;
+        }
+    }
+}
+
 .block-header {
     .--flare-block {
         align-items: end;
@@ -237,6 +248,34 @@ input:not(.button) {
 
                 a {
                     margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.pl-0 {
+    .content {
+        .box {
+            padding-left: 0;
+        }
+    }
+}
+
+.pr-0 {
+    .content {
+        .box {
+            padding-right: 0;
+        }
+    }
+}
+
+.img-invert {
+    .content {
+        .box {
+            @include theme(light light-colored) {
+                img {
+                    filter: invert(1);
                 }
             }
         }

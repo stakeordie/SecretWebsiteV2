@@ -1,3 +1,38 @@
+<!-- Hero -->
+<hero-title>
+
+## Featured Media
+
+</hero-title>
+
+
+
+
+
+
+
+
+
+<!-- All Media -->
+<column>
+
+<block>
+
+<card-media-cms></card-media-cms>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
 <type title="Hero">
 
 ## Media

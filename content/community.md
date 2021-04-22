@@ -1,210 +1,300 @@
-<type title="Hero">
+<!-- Page title -->
+<column>
+<block>
+<hero-title>
 
 ## Secret Network Community
 
-</type>
+</hero-title>
+</block>
+</column>
 
 
-<type title="Content">
+
+
+
+
+
+
+
+<!-- Intro -->
+<column class="spacer-s" number="2" number-m="1" number-s="1" weight="left">
+
+<block>
 
 Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network. Come talk with our community about Secret Network, privacy-preserving applications, and how we can enable a more human-centric, sustainable, decentralized future.
 
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
+<!-- block Header -->
+<column class="text-center">
+
+<block>
+
+### Join the Conversation
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+<!-- Join the conversation -->
+<column class="spacer-s img-invert" number="5" number-m="2" number-s="2">
+
+<block>
+
+<card-simple class="accent-gray text-center cta" url="https://forum.scrt.network/">
+
+![](./img/icon-social-forum-big.svg)
+
+###### Secret Forum
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-purple text-center cta" url="https://discord.com/invite/SJK32GY">
+
+![](./img/icon-social-discord-big.svg)
+
+###### Discord Chat
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-blue text-center cta" url="https://t.me/SCRTcommunity">
+
+![](./img/icon-social-telegram-big.svg)
+
+###### Telegram
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-turquoise text-center cta" url="https://twitter.com/SecretNetwork">
+
+![](./img/icon-social-twitter-big.svg)
+
+###### Twitter
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-red text-center cta" url="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw">
+
+![](./img/icon-social-youtube-big.svg)
+
+###### Youtube Channel
+
+</card-simple>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+<!-- block header -->
+<column>
+
+<block>
+
 ### Secret Agents
 
-Secret Agents are community members who work alongside each other towards Secret's mission of global adoption for open-source, privacy-centric technologies. They are the core of our community and the true secret to our success. Secret Agents are also eligible for project funding and compensated leadership positions. Meet a few of them below - and then...
+</block>
 
-[If you accept the call, become one yourself!](https://forms.gle/8NbTmUNVgbUkHY8eA)
+</column>
 
-</type>
 
-<type title="Secret agents">
 
-##### Mohammed 
-Canada 
 
-![](./img/grid-item/agents/Mohammed-Canada.png)
 
-##### Taariq 
-South Africa 
 
-![](./img/grid-item/agents/Taariq-SouthAfrica.png)
 
-##### Brendan 
-USA 
 
-![](./img/grid-item/agents/Brendan-USA.png)
+<!-- Secret Agents -->
+<column class="pl-0 pr-0" mode="full">
 
-##### Ian 
-Delta Quadrant 
+<block>
 
-![](./img/grid-item/agents/Ian-DeltaQuadrant.png)
+<card-secret-agent>
 
-##### Laura 
-USA 
+</card-secret-agent>
 
-![](./img/grid-item/agents/Laura-USA.png)
+</block>
 
-##### Vlad 
-Russia 
+</column>
 
-![](./img/grid-item/agents/Vlad-Russia.png)
 
-##### Rina 
-Russia 
 
-![](./img/grid-item/agents/Rina-Russia.png)
 
-##### Vladimir 
-Planet Earth 
 
-![](./img/grid-item/agents/Vladimir-PlanetEarth.png)
 
-##### Carter 
-USA 
 
-![](./img/grid-item/agents/Carter-USA.png)
 
-##### Josh 
-UK 
 
-![](./img/grid-item/agents/Josh-UK.png)
+<!-- become a secret agent -->
+<column class="spacer-s text-center">
 
-##### Robin 
-Switzerland 
+<block>
 
-![](./img/grid-item/agents/Robin-Switzerland.png)
+<btn url="https://forms.gle/8NbTmUNVgbUkHY8eA">Become a Secret Agent</btn>
 
-##### Eckhard 
-Norway 
+</block>
 
-![](./img/grid-item/agents/Eckhard-Norway.png)
+</column>
 
-##### Marcel 
-Germany 
 
-![](./img/grid-item/agents/Marcel-Germany.png)
 
-##### Julian 
-Switzerland 
 
-![](./img/grid-item/agents/Julian-Switzerland.png)
 
-##### Zach 
-USA 
 
-![](./img/grid-item/agents/Zach-USA.png)
 
-##### Jangsa 
-Japan 
 
-![](./img/grid-item/agents/Jangsa-Japan.png)
 
-##### Taz 
-Earth 
+<!-- Block header -->
+<column number="2" number-m="1" number-s="1"  weight="left">
 
-![](./img/grid-item/agents/Taz-Earth.png)
+<block>
 
-##### Jan 
-Belgium 
-
-![](./img/grid-item/agents/Jan-Belgium.png)
-
-##### Xavier 
-France 
-
-![](./img/grid-item/agents/Xavier-France.png)
-
-##### Dan 
-Cayman Islands 
-
-![](./img/grid-item/agents/Dan-CaymanIslands.png)
-
-</type>
-
-</slim-column>
-
-<type title="Announcement">
-
-#### Committees
-
-There is no more consequential way to get involved with Secret Network than to [become a Secret Agent](https://forms.gle/8NbTmUNVgbUkHY8eA) and join a community committee. Committees are made up of experts and enthusiasts working together to build our network and ecosystem by executing Secret Missions! From Awareness, to Development, to Education, to Design, there's a committee to fit every community member!
-
-[Join us now](/committees)
-
-</type>
-
-<type title="Podcasts">
-
-## Sharing Secrets Podcast
+### Sharing Secrets Podcast
 
 Sharing Secrets - a new series from the Secret Foundation - explores the biggest secrets of the blockchain and cryptocurrency space. Hosted by Tor Bair, Sharing Secrets features everything from interviews, to monologues, to special guests, to technical explainers, to surprises, and beyond.
 
-[See more](/podcast)
+</block>
 
-#### Private Smart Contracts: Anthony Pompliano
-![Private Smart Contracts: Anthony Pompliano](./img/media-card/image9.png)
-[Listen Now](https://soundcloud.com/sharing-secrets/ep-14-dan-held-kraken)
+</column>
 
-#### Ep 13 - Charlie Lee - Litecoin
+
+
+
+
+
+
+
+
+<!-- Sharing Secret Podcasts -->
+<column class="" number="3" number-s="1">
+
+
+<block>
+
+<card-media class="accent-red"  url="https://soundcloud.com/sharing-secrets/ep-14-dan-held-kraken">
+
+Podcast
+
+###### Ep 14 - Dan Held - Kraken
+
+![Ep 14 - Dan Held - Kraken](./img/media-card/image9.png)
+
+
+</card-media>
+
+</block>
+
+
+<block>
+
+<card-media class="accent-red"  url="https://soundcloud.com/sharing-secrets/ep-13-charlie-lee-litecoin">
+
+Podcast
+
+###### Ep 13 - Charlie Lee - Litecoin
+
 ![Ep 13 - Charlie Lee - Litecoin](./img/media-card/image9.png)
-[Listen Now](https://soundcloud.com/sharing-secrets/ep-13-charlie-lee-litecoin)
 
-#### Ep 12 - Bruce Pon - Ocean Protocol
+
+</card-media>
+
+</block>
+
+<block>
+
+<card-media class="accent-red" url="https://soundcloud.com/sharing-secrets/ep-12-bruce-pon-ocean-protocol">
+
+Podcast
+
+###### Ep 12 - Bruce Pon - Ocean Protocol
+
 ![Ep 12 - Bruce Pon - Ocean Protocol](./img/media-card/image9.png)
-[Listen Now](https://soundcloud.com/sharing-secrets/ep-12-bruce-pon-ocean-protocol)
 
-</type>
+</card-media>
 
-<type title="Join he conversation">
+</block>
 
-## Join the Conversation
+</column>
 
-#### Secret Forum" 
 
-https://forum.scrt.network/"
 
-<g-image src="./img/community-card/forum-black.svg"></g-image>
 
-<g-image src="./img/community-card/forum-white.svg"></g-image>
 
-#### Discord Chat" 
 
-https://discord.com/invite/SJK32GY
 
-<g-image src="./img/community-card/discord-black.svg"></g-image>
 
-<g-image src="./img/community-card/discord-white.svg"></g-image>
 
-#### Telegram" 
+<!-- become a secret agent -->
+<column class="spacer-s text-center">
 
-https://t.me/SCRTCommunity
+<block>
 
-<g-image src="./img/community-card/telegram-black.svg"></g-image>
+<btn url="/media/podcast">See More</btn>
 
-<g-image src="./img/community-card/telegram-white.svg"></g-image>
+</block>
 
-#### Twitter" 
+</column>
 
-https://twitter.com/SecretNetwork
 
-<g-image src="./img/community-card/twitter-black.svg"></g-image>
 
-<g-image src="./img/community-card/twitter-white.svg"></g-image>
 
-#### YouTube Channel" 
 
-https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw
 
-<g-image src="./img/community-card/youtube-black.svg"></g-image>
 
-<g-image src="./img/community-card/youtube-white.svg"></g-image>
 
-#### Github Repository" 
 
-https://github.com/SecretFoundation/SecretWebsite
 
-<g-image src="./img/community-card/github-black.svg"></g-image>
 
-<g-image src="./img/community-card/github-white.svg"></g-image>
 
-</type>
+
+
+
+
+
+
+
+
+
+
+
