@@ -62,6 +62,17 @@
       }
     }
 
+    &.text-center {
+      text-align: center;
+      img {
+        display: inline-block;
+      }
+      h6 {
+        margin: 0;
+        color: var(--theme-fg);
+      }
+    }
+
     &.orientation-horizontal {
       a {
         color: var(--theme-fg);

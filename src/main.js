@@ -11,6 +11,8 @@ import "@fontsource/montserrat"
 import "@fontsource/montserrat/600.css"
 import "@fontsource/montserrat/500.css"
 
+import InfiniteSlideBar from 'vue-infinite-slide-bar'
+
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
 
 import Type from "~/components/Type.vue";
@@ -22,6 +24,8 @@ import CardSimple from "~/components/cards/CardSimple.vue";
 import CardMinimal from "~/components/cards/CardMinimal.vue";
 import CardBlock from "~/components/cards/CardBlock.vue";
 import CardMedia from "~/components/cards/CardMedia.vue";
+import CardSecretAgent from "~/components/cards/CardSecretAgent.vue";
+import CardMediaCms from "~/components/cards/CardMediaCms.vue";
 import Btn from "~/components/Btn.vue";
 import Faq from "~/components/Faq.vue";
 // Blog
@@ -84,6 +88,8 @@ export default function(Vue, {
     Vue.component("CardMinimal", CardMinimal);
     Vue.component("CardBlock", CardBlock);
     Vue.component("CardMedia", CardMedia);
+    Vue.component("CardSecretAgent", CardSecretAgent);
+    Vue.component("CardMediaCms", CardMediaCms);
     Vue.component("Btn", Btn);
     Vue.component("Faq", Faq);
 
@@ -98,6 +104,8 @@ export default function(Vue, {
     Vue.component("BlogPosts", BlogPosts);
     Vue.component("BlogPostsFeatured", BlogPostsFeatured);
     Vue.component("BlogFilter", BlogFilter);
+
+    Vue.component('InfiniteSlideBar', InfiniteSlideBar)
 
     Vue.use(Flare);
     Vue.$setDefaultTheme = setDefaultTheme;

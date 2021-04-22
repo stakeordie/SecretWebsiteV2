@@ -2,8 +2,8 @@
   <div class="faq">
     <section class="questions">
       <ul @click="toggleFaq" :class="{'faq-open' : isFaqOpen}">
-        <img class="chevron" v-show="isFaqOpen" src="../assets/icon-chevron-up.svg" alt=""/>
-        <img class="chevron" v-show="!isFaqOpen" src="../assets/icon-chevron-down.svg" alt=""/>
+        <img class="chevron" v-show="isFaqOpen" src="../assets/icon-chevron-up.svg" alt="" />
+        <img class="chevron" v-show="!isFaqOpen" src="../assets/icon-chevron-down.svg" alt="" />
         <li v-for="(faq, name, index) in faqs" :class="{active: faq.id === activeFaqId}">
           <a @click="activeFaqId = faq.id" :href="'#question-' + name" :class="{active: faq.id === activeFaqId}">
             <h6>{{faq.question}} {{faq.index}}</h6>
@@ -222,19 +222,24 @@
         flex-direction: column;
         gap: var(--f-gutter-xxs);
 
-          .chevron {
-            @include respond-to(">=l") {
-          display: none;
-        }
-          @include respond-to("<=m") {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          right: var(--f-gutter);
-          top: 18px;
-        }
+        .chevron {
+          @include respond-to(">=l") {
+            display: none;
           }
-        
+
+          @include respond-to("<=m") {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: var(--f-gutter);
+            top: 18px;
+          }
+
+          @include theme(light light-colored) {
+            filter: invert(1);
+          }
+        }
+
         @include respond-to("<=m") {
           background: var(--theme-card-bg-default);
           padding: var(--f-gutter);
@@ -267,9 +272,11 @@
             color: var(--theme-fg);
             margin: 0;
 
-            &:hover {
+            &:hover,
+            &:active {
               color: var(--color-analog-secondary-orange);
             }
+
 
             h6 {
               @include respond-to("<=m") {
