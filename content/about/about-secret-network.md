@@ -400,7 +400,7 @@ Individuals have a right to their own privacy, their own self-expression, and th
 </column>
 
 
-<column>
+<!-- <column>
 
 <block>
 
@@ -408,4 +408,4 @@ Individuals have a right to their own privacy, their own self-expression, and th
 
 </block>
 
-</column>
+</column> -->
