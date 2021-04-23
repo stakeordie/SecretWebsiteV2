@@ -15,7 +15,7 @@ $themes: (
         // cards
         "card-bg-default": var(--color-neutral-dark-mode-03),
         "card-bg-hover": var(--color-neutral-dark-mode-02),
-        "card-bg-variant": black,
+        "card-bg-variant": var(--color-neutral-dark-mode-01),
         "card-text-color": var(--color-neutral-dark-mode-05),
     ), 
     "light": (
@@ -48,7 +48,7 @@ $themes: (
         "card-button-bg": var(--color-neutral-dark-mode-04),
         // cards
         "card-bg-default": var(--color-neutral-dark-mode-03),
-        "card-bg-variant": black,
+        "card-bg-variant": var(--color-neutral-dark-mode-01),
         "card-text-color": var(--color-neutral-dark-mode-05),
     ), 
     "light-colored": (

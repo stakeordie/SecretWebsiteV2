@@ -4,7 +4,7 @@ import "./sass/style.scss";
 
 import Flare from "@lkmx/flare";
 
-//import VueMarkdown from 'vue-markdown'
+import VueMarkdown from 'vue-markdown'
 
 import "@fontsource/hind"
 import "@fontsource/hind/600.css"
@@ -30,7 +30,7 @@ import CardSecretAgent from "~/components/cards/CardSecretAgent.vue";
 import Media from "~/components/cards/Media.vue";
 import MediaFeatured from "~/components/cards/MediaFeatured.vue";
 import Btn from "~/components/Btn.vue";
-// import Faq from "~/components/Faq.vue";
+import Faq from "~/components/Faq.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -96,11 +96,11 @@ export default function(Vue, {
     Vue.component("Media", Media);
     Vue.component("MediaFeatured", MediaFeatured);
     Vue.component("Btn", Btn);
-    // Vue.component("Faq", Faq);
+    Vue.component("Faq", Faq);
 
     //Experimental
     // Vue.component("SecretAgents", SecretAgents);
-    // Vue.component("VueMarkdown", VueMarkdown);
+    Vue.component("VueMarkdown", VueMarkdown);
 
     // Blog
     Vue.component("BlogAuthor", BlogAuthor);

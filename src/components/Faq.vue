@@ -37,7 +37,7 @@
       <ul>
         <li v-for="(faqItem, index) in $static.faqs.edges" :key="index" :id="'question-' + faqItem.node.id" :class="{active: faqItem.node.id === activeFaqId}">
           <h4>{{faqItem.node.question}}</h4>
-          <div class="answer" v-html="faqItem.node.answer"></div>
+          <div class="answer" ><vue-markdown>{{faqItem.node.answer}}</vue-markdown></div>
         </li>
       </ul>
       <p><em>Interested in helping expand this guide? <a href="https://github.com/SecretFoundation/SecretWiki">You can
