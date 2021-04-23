@@ -2,8 +2,8 @@
   <a class="btn button" :href="url">
     <slot></slot>
     <themed-image>
-        <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="" />
-        <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="" />
+      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="" />
+      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="" />
     </themed-image>
   </a>
 </template>
@@ -25,13 +25,14 @@
   @import "@lkmx/flare/src/functions/respond-to";
 
 
-    @include theme("light") {
-      p {
-        display: none;
-      }
+  @include theme("light") {
+    p {
+      display: none;
     }
+  }
+
   body {
-    
+
     .btn {
       display: inline-flex;
       background: var(--theme-card-button-bg);
@@ -40,8 +41,18 @@
       align-items: center;
       gap: var(--f-gutter-xs);
       margin-right: var(--f-gutter);
-      img {
-        
+      margin-bottom: 0;
+      padding: var(--f-gutter-s) var(--f-gutter);
+
+      &.no-arrow {
+        img {
+          display: none !important;
+        }
+      }
+
+      &.full {
+        width: 100%;
+        justify-content: space-between;
       }
     }
   }
