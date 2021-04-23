@@ -44,9 +44,34 @@
     padding: var(--f-gutter-l);
     background: var(--theme-card-bg-default);
     transition: .2s ease;
+
     p {
-        color: var(--theme-card-text-color);
+      color: var(--theme-card-text-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--theme-fg);
+    }
+
+    &.vertical-stretch {
+      height: 100%;
+
+      a:not([aria-hidden="true"]):not(.btn) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        .btn {
+          margin-top: auto;
+        }
       }
+    }
 
     &.cta {
       cursor: pointer;
@@ -64,9 +89,11 @@
 
     &.text-center {
       text-align: center;
+
       img {
         display: inline-block;
       }
+
       h6 {
         margin: 0;
         color: var(--theme-fg);
@@ -79,10 +106,11 @@
         display: grid;
         gap: var(--f-gutter-xxl);
         grid-template-columns: 1fr 60%;
+
         @include respond-to("<=m") {
           grid-template-columns: 1fr;
         }
-        
+
       }
     }
 

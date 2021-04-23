@@ -72,8 +72,9 @@
 
 
     button,
-    .button {
+    .button, .btn {
       margin: 0;
+      width: 100%;
     }
 
     @each $name,

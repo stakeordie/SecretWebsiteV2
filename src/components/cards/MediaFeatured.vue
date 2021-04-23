@@ -1,0 +1,174 @@
+<template>
+  <div>
+    <div class="items">
+      <div v-for="(media, index) in mediaItems" class="item" :class="`accent-`+media.type">
+        <a :href="media.url">
+          <p class="type">{{media.type}}</p>
+          <h6>{{media.title}}</h6>
+          <p>{{media.description}}</p>
+          <img :src="require(`@/assets${media.picture}`)" />
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: function () {
+      return {
+        mediaItems: [{
+            type: 'article',
+            title: 'What is Secret Network (SCRT)?',
+            picture: '/media/dycrpt-secret-hero.png',
+            url: 'https://decrypt.co/resources/what-is-secret-network-scrt-formerly-enigma',
+          },
+          {
+            type: 'podcast',
+            title: 'Private Smart Contracts: Pomp Podcast',
+            picture: '/media/image1.png',
+            url: 'https://www.youtube.com/watch?v=Kx9hb3U7pfs',
+          },
+          {
+            type: 'podcast',
+            title: 'Secret Network on The Defiant Podcast',
+            picture: '/media/image2.png',
+            url: 'https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52',
+          },
+          {
+            type: 'video',
+            title: 'zkp-privacy Summit: Secret Contracts',
+            picture: '/media/privacysummit.png',
+            url: 'https://www.crowdcast.io/e/zkp-privacy-summit/5',
+          },
+          {
+            type: 'video',
+            title: 'Defi Privacy Is Here: Ivan on Tech',
+            picture: '/media/image3.png',
+            url: 'https://www.youtube.com/watch?v=rvkMPcMK_7Ah',
+          },
+          {
+            type: 'video',
+            title: 'Sharing Secrets Ep. 2 - Ed Moncada',
+            picture: '/media/image4.png',
+            url: 'https://www.youtube.com/watch?v=7JL5N8R2HKI',
+          },
+          {
+            type: 'video',
+            title: 'Increasing Blockchain Adoption with Privacy',
+            picture: '/media/image5.png',
+            url: 'https://www.youtube.com/watch?v=7-eUMvH84mU',
+          },
+          {
+            type: 'video',
+            title: 'Secret Tokens Explained',
+            picture: '/media/image6.png',
+            url: 'https://www.youtube.com/watch?v=fkgy83Hu8Bc',
+          },
+          {
+            type: 'video',
+            title: 'Introducing Secret Network',
+            picture: '/media/image7.png',
+            url: 'https://www.youtube.com/watch?v=c70BBVUCxxk',
+          },
+          {
+            type: 'video',
+            title: 'Sharing Secrets Ep. 0 - What is a Secret?',
+            picture: '/media/image8.png',
+            url: 'https://www.youtube.com/watch?v=Jk7kV1ph-FQ',
+          },
+        ]
+      }
+    },
+    props: {
+      url: {
+        type: String,
+        required: false
+      },
+    }
+  }
+
+</script>
+
+
+<style lang="scss">
+  @import "../../sass/functions/theme";
+  @import "@lkmx/flare/src/functions/respond-to";
+
+  $accent-colors: (article,
+    podcast,
+    video,
+  );
+
+  // @each $name, $color in $accent-colors {
+  // 	&.accent-#{$name} {
+  // 		color: var(--accent-#{$name});
+  // 	}
+  // }
+
+  .media-featured {
+
+    .content {
+      .box {
+        overflow-x: scroll;
+        max-width: 98vw;
+        @include respond-to("<=m") {
+          max-width: 97vw;
+        }
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    .items {
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .item {
+        background: var(--theme-card-bg-default);
+        transition: .2s ease;
+        cursor: pointer;
+        display: inline-flex;
+        flex-direction: column;
+        width: 350px;
+        height: 300px;
+        white-space: normal;
+        justify-content: space-between;
+        vertical-align: top;
+        margin-right: var(--f-gutter-l);
+        border-radius: var(--f-radius);
+        padding: var(--f-gutter);
+        background: var(--theme-card-bg-default);
+
+        @each $name,
+        $color in $accent-colors {
+          &.accent-#{$name} {
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+            }
+
+            .type {
+              color: var(--accent-#{$name});
+            }
+          }
+        }
+        .type {
+          text-transform: uppercase;
+          margin: 0;
+        }
+        h6 {
+          color: var(--theme-fg);
+        }
+      }
+    }
+  }
+
+</style>

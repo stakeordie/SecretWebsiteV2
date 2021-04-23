@@ -4,16 +4,18 @@
       <h2>Secret Network Blog</h2>
     </hero-title>
 
-<column>
+    <column>
 
-<block><h3>Featured</h3></block>
+      <block>
+        <h3>Featured</h3>
+      </block>
 
-</column>
+    </column>
 
-    <column class="horizontal-slider" mode="full">
+    <column class="horizontal-slider spacer-s" mode="full">
       <block>
         <!-- <infinite-slide-bar duration="10s" :barStyle="{ background: '', padding: '0 0' }"> -->
-          <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
+        <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
         <!-- </infinite-slide-bar> -->
 
       </block>
@@ -178,31 +180,26 @@
 
   .horizontal-slider {
 
-    // overflow: hidden;
-    // display: inline-block;
-    // background: red;
-    // margin-bottom: var(--spacer-1);
     .content {
       .box {
         overflow-x: scroll;
         max-width: 98vw;
-          padding-left: 1rem;
-          padding-right: 1rem;
+
+        @include respond-to("<=m") {
+          max-width: 97vw;
+        }
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+
         &::-webkit-scrollbar {
-        display: none;
-      }
+          display: none;
+        }
       }
     }
 
     .blog-featured-posts {
-      // display: block;
-      // overflow: auto;
-      // width: 100vw;
-      /* gap: var(--f-gutter-l); */
-      // padding: 1rem;
-      // background: red;
       white-space: nowrap;
-      // transform: translateX(-16px);
 
       &::-webkit-scrollbar {
         display: none;
