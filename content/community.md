@@ -1,12 +1,16 @@
 <!-- Page title -->
 <column>
+
 <block>
+
 <hero-title>
 
 ## Secret Network Community
 
 </hero-title>
+
 </block>
+
 </column>
 
 

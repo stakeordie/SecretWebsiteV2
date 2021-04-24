@@ -1,188 +1,208 @@
-<type title="Hero">
+<!-- Page title -->
+<column>
 
-## Secret Network Ecosystem
+<block>
 
-</type>
+<hero-title>
 
-<type title="Intro">
+## Ecosystem
 
-### Contributors
+</hero-title>
 
-Secret Network is currently supported by over 30 active validators as well as a number of key contributors to the ecosystem developing network tooling, core protocol functionality, and more.
+</block>
 
-A few key network contributors are featured below.
-
-</type>
-
-<type title="Grid">
-
-tag="" tagTwo="" name="Secret Foundation" 
-[](https://learn.scrt.network/foundation.html)
-![](../img/grid-item/contributors/image1.png)
+</column>
 
 
-tag="validator" tagTwo="developer" name="Secret Nodes" 
-[](https://secretnodes.org/#/)
-![](../img/grid-item/contributors/image2.png)
 
 
-tag="developer" tagTwo="" name="Enigma"  
-[](https://www.enigma.co/)
-![](../img/grid-item/contributors/image3.png)
 
 
-tag="validator" tagTwo="developer" name="Chain of Secrets" 
-[](https://chainofsecrets.org/)
-![](../img/grid-item/contributors/image4.png)
 
 
-tag="wallet" tagTwo="validator" name="Mathwallet" 
-[](http://mathwallet.org/)
-![](../img/grid-item/contributors/image5.png)
+
+<!-- All Media -->
+<column class="spacer-s">
+
+<block>
+
+<contributors></contributors>
+
+</block>
+
+</column>
 
 
-tag="fund" tagTwo="validator" name="Outlier" 
-[](https://outlierventures.io)
-![](../img/grid-item/contributors/image6.png)
 
 
-tag="validator" tagTwo="" name="Dokia Capital" 
-[](https://dokia.capital/)
-![](../img/grid-item/contributors/image7.png)
 
 
-tag="validator" tagTwo="" name="Citadel.one" 
-[](https://citadel.one)
-![](../img/grid-item/contributors/image8.png)
 
 
-tag="fund" tagTwo="" name="Fenbushi" 
-[](https://fenbushi.vc)
-![](../img/grid-item/contributors/image9.png)
 
+<!-- block header -->
+<column number="2" number-m="1" number-s="1" weight="left">
 
-tag="fund" tagTwo="" name="Hashed" 
-[](https://hashed.com)
-![](../img/grid-item/contributors/image10.png)
-
-
-tag="validator" tagTwo="" name="B-Harvest" 
-[](https://bharvest.io)
-![](../img/grid-item/contributors/image11.png)
-
-
-tag="validator" tagTwo="" name="Chorus One" 
-[](https://chorus.one)
-![](../img/grid-item/contributors/image12.png)
-
-
-[See more](/contributors)
-
-</type>
-
-<type title="Announcement">
-
-#### Announcement
-
-### Secret Network<br>Ecosystem Update:<br>November 2020
-
-As we approach the December launch of our first Secret Bridge, bringing programmable privacy to Ethereum and ERC-20s, here's a look back at an eventful November for Secret Network!
-
-[Read more](/blog/secret-network-ecosystem-update-november-2020)
-
-
-![](../../src/assets/announcement.png)
-
-</type>
-
-<type title="Content">
+<block>
 
 ### Exchange and Wallet Support
 
 Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking:
 
-</type>
+</block>
 
-<type title="Card">
+</column>
+
+
+
+
+
+
+
+
+
+<!-- exchange and wallet support -->
+<column class="spacer-s" number="3" number-m="3" number-s="1">
+
+<block>
+
+<card-minimal>
 
 #### Ledger Nano S and Ledger Nano X
 
-[See documentation](https://build.scrt.network/ledger-nano-s.html)
+<btn url="https://build.scrt.network/ledger-nano-s.html">See Documentation</btn>
 
-</type>
+</card-minimal>
 
-<type title="Card">
+</block>
 
-#### Keplr<br>&nbsp;
+<block>
 
-[Visit website](https://wallet.keplr.app)
+<card-minimal>
 
-</type>
+#### Keplr
 
-<type title="Card">
+<btn url="https://wallet.keplr.app/">Visit Website</btn>
 
-#### Cosmostation<br>Wallet
+</card-minimal>
 
-[Visit website](https://wallet.cosmostation.io/)
+</block>
 
-</type>
+<block>
 
-<type title="Card">
+<card-minimal>
+
+#### Cosmostation Wallet
+
+<btn url="https://wallet.cosmostation.io/">Visit Website</btn>
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal>
 
 #### Citadel.One
 
-[Visit website](https://citadel.one/)
+<btn url="https://citadel.one/">Visit Website</btn>
 
-</type>
+</card-minimal>
 
-<type title="Card">
+</block>
 
-#### Math<br>Wallet
+<block>
 
-[Visit website](https://mathwallet.org/web/secret)
+<card-minimal>
 
-</type>
+#### Math Wallet
 
-<type title="Content">
+<btn url="https://mathwallet.org/web/secret">Visit Website</btn>
 
-### Block Explorers and Staking
+</card-minimal>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+<!-- block header -->
+<column number="2" number-m="2" number-s="1" weight="left">
+
+<block>
+
+#### Block Explorers and Staking
 
 Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
 
-</type>
+</block>
 
-<type title="Card">
+</column>
 
-#### Puzzle by<br>Secretnodes.org
 
-[Visit website](https://puzzle.report)
 
-</type>
 
-<type title="Card">
 
-#### Cashmaney Secret<br>Network Explorer
 
-[Visit website](https://explorer.cashmaney.com/)
 
-</type>
 
-You can find information on staking rewards calculations at:
+<!-- Block Explorers and Staking -->
+<column number="3" number-m="3" number-s="1" class="spacer-s">
 
-<type title="Card">
+<block>
+
+<card-minimal>
+
+#### Puzzle by Secretnodes.org
+
+<btn url="https://puzzle.report/">Visit Website</btn>
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal>
+
+#### Cashmaney Secret Network Explorer
+
+<btn url="https://explorer.cashmaney.com/">Visit Website</btn>
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal>
 
 #### Stake or Die!
 
-[Visit website](https://stakeordie.com/rewards-calculator)
+<btn url="https://stakeordie.com/rewards-calculator">Visit Website</btn>
 
-</type>
+</card-minimal>
 
-<type title="Card">
+</block>
+
+<block>
+
+<card-minimal>
 
 #### Staking Rewards
 
-[Visit website](https://www.stakingrewards.com/earn/secret-network)
+<btn url="https://www.stakingrewards.com/earn/secret-network">Visit Website</btn>
 
-</type>
+</card-minimal>
 
+</block>
 
+</column>

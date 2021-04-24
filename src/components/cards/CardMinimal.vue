@@ -73,7 +73,7 @@
 
     button,
     .button, .btn {
-      margin: 0;
+      margin: var(--f-gutter) 0 0 0;
       width: 100%;
     }
 

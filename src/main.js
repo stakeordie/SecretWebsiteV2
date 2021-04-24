@@ -28,7 +28,9 @@ import CardBlock from "~/components/cards/CardBlock.vue";
 import CardMedia from "~/components/cards/CardMedia.vue";
 import CardSecretAgent from "~/components/cards/CardSecretAgent.vue";
 import Media from "~/components/cards/Media.vue";
+import Contributors from "~/components/cards/Contributors.vue";
 import MediaFeatured from "~/components/cards/MediaFeatured.vue";
+import Committees from "~/components/cards/Committees.vue";
 import Btn from "~/components/Btn.vue";
 import Faq from "~/components/Faq.vue";
 // Blog
@@ -94,7 +96,9 @@ export default function(Vue, {
     Vue.component("CardMedia", CardMedia);
     Vue.component("CardSecretAgent", CardSecretAgent);
     Vue.component("Media", Media);
+    Vue.component("Contributors", Contributors);
     Vue.component("MediaFeatured", MediaFeatured);
+    Vue.component("Committees", Committees);
     Vue.component("Btn", Btn);
     Vue.component("Faq", Faq);
 
