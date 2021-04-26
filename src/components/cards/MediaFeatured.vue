@@ -17,7 +17,8 @@
   export default {
     data: function () {
       return {
-        mediaItems: [{
+        mediaItems: [
+          {
             type: 'article',
             title: 'What is Secret Network (SCRT)?',
             picture: '/media/dycrpt-secret-hero.png',
@@ -26,7 +27,7 @@
           {
             type: 'podcast',
             title: 'Private Smart Contracts: Pomp Podcast',
-            picture: '/media/image1.png',
+            picture: '/media/podcast_1.png',
             url: 'https://www.youtube.com/watch?v=Kx9hb3U7pfs',
           },
           {
@@ -44,7 +45,7 @@
           {
             type: 'video',
             title: 'Defi Privacy Is Here: Ivan on Tech',
-            picture: '/media/image3.png',
+            picture: '/media/video_ivan.png',
             url: 'https://www.youtube.com/watch?v=rvkMPcMK_7Ah',
           },
           {
@@ -62,19 +63,19 @@
           {
             type: 'video',
             title: 'Secret Tokens Explained',
-            picture: '/media/image6.png',
+            picture: '/media/video_tokens.png',
             url: 'https://www.youtube.com/watch?v=fkgy83Hu8Bc',
           },
           {
             type: 'video',
             title: 'Introducing Secret Network',
-            picture: '/media/image7.png',
+            picture: '/media/video_introducing_scrt.png',
             url: 'https://www.youtube.com/watch?v=c70BBVUCxxk',
           },
           {
             type: 'video',
             title: 'Sharing Secrets Ep. 0 - What is a Secret?',
-            picture: '/media/image8.png',
+            picture: '/media/video_whats_scrt.png',
             url: 'https://www.youtube.com/watch?v=Jk7kV1ph-FQ',
           },
         ]
