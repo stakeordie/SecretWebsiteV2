@@ -1,10 +1,26 @@
-<type title="hero">
+
+<!-- Page title -->
+<column mode="slim">
+<block>
+<hero-title>
 
 ## Secret Network: A Privacy-Preserving Secret Contract & Decentralized Application Platform
 
-</type>
+</hero-title>
+</block>
+</column>
 
-<type title="Content">
+
+
+
+
+
+
+
+
+<column mode="slim">
+
+<block>
 
 #### Abstract
 
@@ -284,4 +300,6 @@ com/crypto-front-running-for-dummies-bed2d4682db0
 
 [83] Bair, T. (2020, December 15). The Secret Ethereum Bridge is LIVE on Mainnet! Retrieved December 15, 2020, from https://scrt.network/blog/secret-ethereum-bridge-is-live-on-mainnet
 
-</type>
+</block>
+
+</column>

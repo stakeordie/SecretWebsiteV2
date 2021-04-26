@@ -1,11 +1,20 @@
-<type title="hero">
+
+<!-- Page title -->
+<column mode="slim">
+<block>
+<hero-title>
 
 ## Secret Network Grant Application Process
 
-</type>
+</hero-title>
+</block>
+</column>
 
 
-<type title="Content">
+
+<column mode="slim">
+
+<block>
 
 #### Funding amount
 
@@ -51,4 +60,6 @@ We will review your application and get back to you with next steps (request for
 
 Thank you for your interest in Secret Grants! We cannot wait to work alongside you in building Secret Network into a data privacy hub for all blockchains, helping secure the decentralized internet.
 
-</type>
+</block>
+
+</column>

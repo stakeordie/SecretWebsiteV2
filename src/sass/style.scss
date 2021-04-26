@@ -9,7 +9,8 @@
 
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: ("blue",
+$accent-colors: (
+    "blue",
     "turquoise",
     "green",
     "yellow",
@@ -330,6 +331,22 @@ input:not(.button) {
     }
 }
 
+.thanks {
+    .--flare-block {
+        background-color: var(--color-highkey-tertiary-green);
+        .content {
+            padding-top: var(--f-gutter-xl);
+            padding-bottom: var(--f-gutter-xl);
+            .box {
+                color: var(--color-analog-primary-black);
+                p {
+                    color: var(--color-analog-primary-black);
+                }
+            }
+        }
+    }
+}
+
 @each $name,
 $color in $accent-colors {
     &.accent-#{$name} {
@@ -342,3 +359,16 @@ $color in $accent-colors {
         }
     }
 }
+
+.color-change {
+    .typed, span {
+        animation: color-change 15s infinite alternate;
+    }
+    path {
+        animation: fill-change 15s infinite alternate;
+    }
+}
+
+  
+
+

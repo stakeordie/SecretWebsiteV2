@@ -188,7 +188,8 @@ Blockchains are public by default. That means that all the data used in smart co
 
 <block>
 
-### Secret solves for privacy
+### Secret solves for <vue-typer class="color-change" :text='["privacy", "usability", "people", "security", "sustainability"]' initial-action='erasing' :pre-erase-delay='5000'></vue-typer>.
+
 
 </block>
 

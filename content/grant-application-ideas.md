@@ -1,19 +1,29 @@
 
-<type title="Hero">
+<!-- Page title -->
+<column mode="slim">
+<block>
+<hero-title>
 
 ## Secret Network Grant Application Ideas
 
-</type>
+</hero-title>
+</block>
+</column>
 
 
 
 
-<type title="Content">
 
-## Secret Apps
 
-**Secret DeFi**
-is a privacy-first, front-running resistant DeFi ecosystem. After the release of SNIP-20 (a fungible privacy token standard) and the launch of the Secret Network - Ethereum bridge on mainnet, the community is now getting ready for the launch of SecretSwap, the first front-running resistant, cross-chain DEX!
+
+<!-- content -->
+<column mode="slim">
+
+<block>
+
+### Secret Apps
+
+**Secret DeFi** is a privacy-first, front-running resistant DeFi ecosystem. After the release of SNIP-20 (a fungible privacy token standard) and the launch of the Secret Network - Ethereum bridge on mainnet, the community is now getting ready for the launch of SecretSwap, the first front-running resistant, cross-chain DEX!
 With the building blocks of Secret DeFi ready, we welcome the community to submit grant proposals to build any of the applications below:
 
 **Staking** derivatives to create capital efficiency in the Secret Network. Staking derivatives allow staked SCRT to be used for further yield opportunities in Secret DeFi. Here’s one attempt on a product roadmap.
@@ -45,7 +55,7 @@ Derivatives and Contract for Difference products with SCRT and SNIP20 collateral
 
 **Dead Man Switch:** An event on the Secret Network (such as block numbers / elapsed time or a payment) triggers a secret contract to release a "secret" either to a selected recipient (private output) or the entire network (public state).Note: SecretVaults require whitelisted addresses to prevent offline data leakage attacks. Please get in touch with us to discuss secret contract security models.
 
-**Data Marketplaces**
+#### Data Marketplaces
 
 Trustless private computations for Ocean Protocol data marketplace.
 
@@ -54,14 +64,14 @@ Crowd-sourced signal generation with staking incentives for SNIP20 and synthetic
 Decentralized and privacy preserving machine learning use-cases (image recognition etc.)
 
 
-**Secret NFTs**
+#### Secret NFTs
 
-Finalize SNIP-721 standard that allows for private ownership of NFTs and private metadata in NFTs. **(funded / in process)**
+Finalize SNIP-721 standard that allows for private ownership of NFTs and private metadata in NFTs. __(funded / in process)__
 
 Create SNIP-1155, based on ERC-1155 standard that allows for private ownership of NFTs and private metadata in NFTs
 Secret Lootbox for Ethereum games: Lootbox NFTs used in Ethereum games would be represented with secretNFTs to reveal rewards only after NFT is claimed.
 
-**Decentralized Governance and DAOs**
+#### Decentralized Governance and DAOs
 
 SecretFund: Build a DAO funded by block rewards of delegators participating in the DAO. Delegators receive governance tokens proportional to their contribution. Governance tokens determine how the funds in SecretFund are managed.
 
@@ -69,7 +79,7 @@ SecretLaunchPad: Create a crowdfunding mechanism like Polkastarter, where Secret
 
 Encrypted group messaging: Build a decentralized Signal / Telegram designed for encrypted group messaging. Determine a group admin to manage access rights to group and use secret contracts with encrypted state to host your secret group conversations.
 
-***Ecosystem***
+#### *Ecosystem*
 
 Secret Network - BTC Bridge.
 
@@ -78,7 +88,7 @@ Secret Network - Polkadot Bridge: Either building on Wormhole or a bridge to EVM
 SecretTunnel - Interoperable Secrets: Create a contract to verify state changes and allow asset transfers between Secret Network and L2
 Secret Network forks for big data and high throughput use-cases.
 
-**Oracles**
+#### Oracles
 
 Secret Oracles: Build TLS connection from validator enclaves to certain APIs to create private data feed for secret contracts (i.e. Binance and other exchange balances for decentralized credit scoring / leverage)
 
@@ -88,7 +98,7 @@ Oracle support for Secret Network using Band Protocol
 
 Oracle support for Secret Network using Chainlink
 
-**Developer tools and improvements**
+#### Developer tools and improvements
 
 Tooling for one-click-run-and-deploy of contracts
 
@@ -107,4 +117,10 @@ Light-client validation inside of the enclave in order to validate untrusted dat
 
 Fully Homomorphic encryption backend.
 
-</type>
+</block>
+
+</column>
+
+
+
+

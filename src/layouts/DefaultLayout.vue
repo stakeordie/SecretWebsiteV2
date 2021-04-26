@@ -20,15 +20,12 @@
             <!-- main navigation -->
             <nav class="main-navigation">
               <ul class="header__navigation">
-                <li class="dropdown-container">
-                  <a href="/about/about-secret-network">About</a>
-                </li>
-                <li @click.prevent="showMedia = !showMedia" @mouseleave.prevent="showMedia = false"
+                <li @click.prevent="showLearn = !showLearn" @mouseleave="showLearn = false"
                   class="dropdown-container">
-                  <a href="">Media <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <a href="">Learn <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
-                    <ul v-show="showMedia" @click.stop="showMedia" class="dropdown">
-                      <li v-for="(link, index) in linksMedia">
+                    <ul v-show="showLearn" @click.stop="showLearn" class="dropdown">
+                      <li v-for="(link, index) in linksLearn">
                         <a :href="link.path" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
@@ -47,7 +44,7 @@
                 </li>
                 <li @click.prevent="showDevelopers = !showDevelopers" @mouseleave="showDevelopers = false"
                   class="dropdown-container">
-                  <a href="/developers">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <a href="">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
                     <ul v-show="showDevelopers" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
@@ -56,8 +53,16 @@
                     </ul>
                   </transition>
                 </li>
-                <li class="dropdown-container">
-                  <a href="/ecosystem/overview">Ecosystem</a>
+                <li @click.prevent="showEcosystem = !showEcosystem" @mouseleave="showEcosystem = false"
+                  class="dropdown-container">
+                  <a href="">Ecosystem <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                  <transition name="fade">
+                    <ul v-show="showEcosystem" @click.stop="showEcosystem" class="dropdown">
+                      <li v-for="(link, index) in linksEcosystem">
+                        <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
+                      </li>
+                    </ul>
+                  </transition>
                 </li>
               </ul>
             </nav>
@@ -226,72 +231,69 @@
     data: function () {
       return {
         isNavOpen: false,
+        showLearn: false,
         showAbout: false,
         showMedia: false,
         showCommunity: false,
         showDevelopers: false,
-        linksAbout: [{
-          title: 'FAQ',
-          path: '/faq'
-        }, ],
-        linksMedia: [{
-            title: 'Features',
-            path: '/media/features'
+        showEcosystem: false,
+        linksLearn: [
+          {
+            title: 'About the Network',
+            path: '/about/about-secret-network',
+            target: '',
           },
           {
-            title: 'Blog',
-            path: '/blog'
+            title: 'Secret Blog',
+            path: '/blog',
+            target: '',
           },
           {
-            title: 'Video',
-            path: '/media/video'
-          },
-          {
-            title: 'Podcast',
-            path: '/media/podcast'
-          },
-          {
-            title: 'Brand',
-            path: '/media/brand'
+            title: 'Media Content',
+            path: '/media/features',
+            target: '',
           },
         ],
         linksCommunity: [{
-            title: 'Overview',
+          title: 'About the Community',
             path: '/community'
           },
           {
-            title: 'Become a Secret Agent',
-            path: 'https://forms.gle/8NbTmUNVgbUkHY8eA'
+            title: 'About Secret Agents',
+            path: '/community#secret-agents'
           },
           {
-            title: 'Committees',
+            title: 'About Committees',
             path: '/committees'
           },
         ],
-        linksDevelopers: [{
-            title: 'Learn about Secret Contracts',
-            path: 'https://build.scrt.network/dev/quickstart.html',
-            target: 'blank',
+        linksDevelopers: [
+          {
+            title: 'How to get started?',
+            path: '/developers',
+            target: '',
           },
           {
-            title: 'Secret Contract development guide',
-            path: 'https://github.com/enigmampc/secret-contracts-guide',
-            target: 'blank',
+            title: 'About Secret Contracts',
+            path: '/developers#secret-contracts',
+            target: '',
+          },
+        ],
+         linksEcosystem: [
+          {
+            title: 'Explore the Ecosystem',
+            path: '/ecosystem/overview',
+            target: '',
           },
           {
-            title: 'Secret App Quickstarts',
-            path: 'https://github.com/enigmampc/SecretJS-Templates',
-            target: 'blank',
+            title: 'Know our Contributors',
+            path: '/ecosystem/overview#contributors',
+            target: '',
           },
           {
-            title: 'Node Runner Guide',
-            path: 'https://build.scrt.network/validators-and-full-nodes/join-validator-mainnet.html',
-            target: 'blank',
-          },
-          {
-            title: 'View Source Code',
-            path: 'https://github.com/enigmampc/SecretNetwork',
-            target: 'blank',
+            title: 'About Wallet Support',
+            path: '/ecosystem/overview#wallet-support',
+            target: '',
           },
         ],
         linksFooterAbout: [{
@@ -582,6 +584,7 @@
                 min-width: 200px;
                 flex: auto;
                 box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+                padding-left: 0;
 
                 li {
                   margin: 0;

@@ -5,6 +5,7 @@ import "./sass/style.scss";
 import Flare from "@lkmx/flare";
 
 import VueMarkdown from 'vue-markdown'
+import VueTyperPlugin from 'vue-typer'
 
 import "@fontsource/hind"
 import "@fontsource/hind/600.css"
@@ -120,7 +121,10 @@ export default function(Vue, {
 
     Vue.component('InfiniteSlideBar', InfiniteSlideBar)
 
+
     Vue.use(Flare);
+    Vue.use(VueTyperPlugin)
+
     // This is Victor's code
     Vue.$setDefaultTheme = setDefaultTheme;
 }

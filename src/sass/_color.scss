@@ -87,3 +87,31 @@
     --accent-governance: var(--color-analog-tertiary-red);
     --accent-website: var(--color-analog-tertiary-turquoise);
 }
+
+@keyframes color-change {
+    0% { color: var(--accent-blue); }
+    10% { color: var(--accent-turquoise); }
+    20% { color: var(--accent-green); }
+    30% { color: var(--accent-yellow); }
+    40% { color: var(--accent-cream); }
+    50% { color: var(--accent-orange); }
+    60% { color: var(--color-analog-tertiary-red); }
+    70% { color: var(--accent-purple); }
+    80% { color: var(--accent-green); }
+    90% { color: var(--color-highkey-tertiary-orange); }
+    100% { color: var(--accent-yellow); }
+}
+
+@keyframes fill-change {
+    0% { fill: var(--accent-blue); }
+    10% { fill: var(--accent-turquoise); }
+    20% { fill: var(--accent-green); }
+    30% { fill: var(--accent-yellow); }
+    40% { fill: var(--accent-cream); }
+    50% { fill: var(--accent-orange); }
+    60% { fill: var(--color-analog-tertiary-red); }
+    70% { fill: var(--accent-purple); }
+    80% { fill: var(--accent-green); }
+    90% { fill: var(--color-highkey-tertiary-orange); }
+    100% { fill: var(--accent-yellow); }
+}

@@ -18,7 +18,7 @@
 
 
 <!-- Intro -->
-<column class="spacer-s accent-red" number="2" number-s="1" weight="left">
+<column class="spacer-s color-change" number="2" number-s="1" weight="left">
 <block>
 
 ###### What is Secret Network?

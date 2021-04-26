@@ -28,7 +28,7 @@ module.exports = {
             options: {
               apiURL: 'http://104.217.251.74:1337',
               queryLimit: 1000, // Defaults to 100
-              contentTypes: ['secret-agents', 'faq-items'],
+              contentTypes: ['faq-items'],
               singleTypes: [],
               // Possibility to login with a Strapi user,
               // when content types are not publicly available (optional).

@@ -1,70 +1,136 @@
-<type title="hero">
+<!-- Page title -->
+<column>
 
-### Subscription Confirmed
+<block>
 
-</type>
+<hero-title>
+
+## Subscription Confirmed
+
+</hero-title>
+
+</block>
+
+</column>
 
 
-<type title="Content">
 
-# Thank you for subscribing!
+
+
+
+
+
+
+
+<!-- thanks -->
+<column mode="slim thanks" class="text-center spacer-s">
+
+<block>
+
+## Thank you for subscribing!
 
 You've been added to our mailing list and will now be among the first to hear about new updates. We hope you enjoy being part of our Secret Network.
 
-</type>
+</block>
+
+</column>
 
 
-<type title="Join he conversation">
 
-## Join the Conversation
 
-#### Secret Forum" 
 
-https://forum.scrt.network/"
 
-<g-image src="./img/community-card/forum-black.svg"></g-image>
 
-<g-image src="./img/community-card/forum-white.svg"></g-image>
 
-#### Discord Chat" 
 
-https://discord.com/invite/SJK32GY
+<!-- block Header -->
+<column class="text-center">
 
-<g-image src="./img/community-card/discord-black.svg"></g-image>
+<block>
 
-<g-image src="./img/community-card/discord-white.svg"></g-image>
+### Join the Conversation
 
-#### Telegram" 
+</block>
 
-https://t.me/SCRTCommunity
+</column>
 
-<g-image src="./img/community-card/telegram-black.svg"></g-image>
 
-<g-image src="./img/community-card/telegram-white.svg"></g-image>
 
-#### Twitter" 
 
-https://twitter.com/SecretNetwork
 
-<g-image src="./img/community-card/twitter-black.svg"></g-image>
 
-<g-image src="./img/community-card/twitter-white.svg"></g-image>
 
-#### YouTube Channel" 
 
-https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw
 
-<g-image src="./img/community-card/youtube-black.svg"></g-image>
+<!-- Join the conversation -->
+<column class="spacer-s img-invert" number="5" number-m="2" number-s="2">
 
-<g-image src="./img/community-card/youtube-white.svg"></g-image>
+<block>
 
-#### Github Repository" 
+<card-simple class="accent-gray text-center cta" url="https://forum.scrt.network/">
 
-https://github.com/SecretFoundation/SecretWebsite
+![](./img/icon-social-forum-big.svg)
 
-<g-image src="./img/community-card/github-black.svg"></g-image>
+###### Secret Forum
 
-<g-image src="./img/community-card/github-white.svg"></g-image>
+</card-simple>
 
-</type>
+</block>
+
+<block>
+
+<card-simple class="accent-purple text-center cta" url="https://discord.com/invite/SJK32GY">
+
+![](./img/icon-social-discord-big.svg)
+
+###### Discord Chat
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-blue text-center cta" url="https://t.me/SCRTcommunity">
+
+![](./img/icon-social-telegram-big.svg)
+
+###### Telegram
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-turquoise text-center cta" url="https://twitter.com/SecretNetwork">
+
+![](./img/icon-social-twitter-big.svg)
+
+###### Twitter
+
+</card-simple>
+
+</block>
+
+<block>
+
+<card-simple class="accent-red text-center cta" url="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw">
+
+![](./img/icon-social-youtube-big.svg)
+
+###### Youtube Channel
+
+</card-simple>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
 
