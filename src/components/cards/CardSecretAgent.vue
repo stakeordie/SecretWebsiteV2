@@ -2,7 +2,7 @@
   <div class="secret-agents">
     <infinite-slide-bar duration="450s" :barStyle="{ background: '', padding: '5px 0' }">
       <!-- <span style="color: #fff;">Helo World, I love Vue Infinite Slide Bar</span> -->
-      <div v-for="(secretAgent, index) in secretAgents" class="card-secret-agent">
+      <div v-for="(secretAgent, index) in secretAgents" :key="index" class="card-secret-agent">
         <img :src="require(`@/assets${secretAgent.picture}`)" />
         <div class="meta">
           <h6>{{secretAgent.name}}</h6>
@@ -12,7 +12,7 @@
     </infinite-slide-bar>
     <infinite-slide-bar direction="reverse" duration="250s" :barStyle="{ background: '', padding: '5px 0' }">
       <!-- <span style="color: #fff;">Helo World, I love Vue Infinite Slide Bar</span> -->
-      <div v-for="(secretAgent, index) in secretAgents" class="card-secret-agent">
+      <div v-for="(secretAgent, index) in secretAgents" :key="index" class="card-secret-agent">
         <img :src="require(`@/assets${secretAgent.picture}`)" />
         <div class="meta">
           <h6>{{secretAgent.name}}</h6>

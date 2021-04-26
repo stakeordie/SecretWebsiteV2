@@ -56,7 +56,8 @@
       return {
         activeFaqId: "1",
         isFaqOpen: true,
-        faqs: [{
+        faqs: [
+          {
             id: 0,
             question: `What is the Secret Network?`,
             answer: `<p>The Secret Network is a decentralized network of computers (which we call "secret nodes") that use
