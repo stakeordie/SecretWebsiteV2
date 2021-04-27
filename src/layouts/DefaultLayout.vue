@@ -286,11 +286,6 @@
             target: '',
           },
           {
-            title: 'Know our Contributors',
-            path: '/ecosystem/overview#contributors',
-            target: '',
-          },
-          {
             title: 'About Wallet Support',
             path: '/ecosystem/overview#wallet-support',
             target: '',

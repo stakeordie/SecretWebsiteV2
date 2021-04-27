@@ -41,7 +41,7 @@
 
 
 <!-- block header -->
-<column number="2" number-m="1" number-s="1" weight="left">
+<column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
 
 <block>
 

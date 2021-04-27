@@ -64,7 +64,7 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 
 <!-- how do i get starter -->
-<column class="spacer-s" number="5" number-m="2" number-s="1">
+<column id="secret-contracts" class="spacer-s" number="5" number-m="2" number-s="1">
 
 <block>
 
