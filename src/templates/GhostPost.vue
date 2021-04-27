@@ -214,14 +214,15 @@
       }
 
       .left {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
         gap: var(--f-gutter-s);
         align-items: center;
 
         .author {
           text-align: left;
-          display: flex;
-          flex-direction: column;
+          display: grid;
           gap: var(--f-gutter-xxs);
         }
       }
