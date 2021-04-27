@@ -4,8 +4,11 @@ import "./sass/style.scss";
 
 import Flare from "@lkmx/flare";
 
+import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import VueMarkdown from 'vue-markdown'
-import VueTyperPlugin from 'vue-typer'
+// import VueTyperPlugin from 'vue-typer'
+import InfiniteSlideBar from 'vue-infinite-slide-bar'
+
 
 import "@fontsource/hind"
 import "@fontsource/hind/600.css"
@@ -14,9 +17,7 @@ import "@fontsource/montserrat"
 import "@fontsource/montserrat/600.css"
 import "@fontsource/montserrat/500.css"
 
-import InfiniteSlideBar from 'vue-infinite-slide-bar'
 
-import DefaultLayout from "~/layouts/DefaultLayout.vue";
 
 import Type from "~/components/Type.vue";
 import Navigation from "~/components/Navigation.vue";
@@ -63,18 +64,6 @@ function setDefaultTheme() {
 var left = document.getElementById("left");
 var stop = (left.offsetTop - 60);
 
-window.onscroll = function (e) {
-    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    console.log(scrollTop, left.offsetTop);
-    // left.offsetTop;
-    console.log('lol')
-    if (scrollTop >= stop) {
-        left.className = 'stick';
-    } else {
-        left.className = '';
-    }
-
-}
 }
 
 export default function(Vue, {
@@ -119,11 +108,10 @@ export default function(Vue, {
     Vue.component("BlogPostsFeatured", BlogPostsFeatured);
     Vue.component("BlogFilter", BlogFilter);
 
-    Vue.component('InfiniteSlideBar', InfiniteSlideBar)
-
+    Vue.component('InfiniteSlideBar', InfiniteSlideBar);
 
     Vue.use(Flare);
-    Vue.use(VueTyperPlugin)
+
 
     // This is Victor's code
     Vue.$setDefaultTheme = setDefaultTheme;

@@ -18,7 +18,6 @@
         "gridsome": "^0.7.0",
         "gridsome-plugin-remark-prismjs-all": "^0.3.5",
         "vue-infinite-slide-bar": "^1.1.1",
-        "vue-markdown": "^2.2.4",
-        "vue-typer": "^1.2.0"
+        "vue-markdown": "^2.2.4"
     }
 }

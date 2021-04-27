@@ -415,10 +415,12 @@
     watch: {
       $route(to, from) {
         this.isNavOpen = false,
-          this.showAbout = false;
+        this.showLearn = false;
+        this.showAbout = false;
         this.showMedia = false;
         this.showCommunity = false;
         this.showDevelopers = false;
+        this.showEco = false;
       }
     },
     methods: {
