@@ -702,8 +702,10 @@
         }
 
         .social-navigation {
-          display: flex;
-          gap: var(--f-gutter);
+          display: grid;
+          grid-auto-flow: column;
+          // display: flex;
+          gap: var(--f-gutter-xxs);
           align-items: center;
 
           @include respond-to(">=l") {
@@ -718,13 +720,15 @@
       }
 
       .toggles {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
         align-items: center;
         gap: var(--f-gutter);
         padding-left: var(--f-gutter);
 
         .social-navigation {
-          display: flex;
+          display: grid;
+          grid-auto-flow: column;
           gap: var(--f-gutter);
           align-items: center;
           padding-right: var(--f-gutter);
@@ -816,8 +820,8 @@
 
 
       nav {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        align-content: start;
         gap: var(--f-gutter);
         padding-right: var(--f-gutter);
 
@@ -876,14 +880,18 @@
         }
 
         .social-navigation {
-          display: flex;
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: max-content;
           gap: var(--f-gutter);
         }
 
         .contribute-github {
-          display: flex;
+          display: grid;
+          grid-auto-flow: column;
           gap: var(--f-gutter);
           align-items: center;
+          grid-auto-columns: max-content;
 
           p {
             margin: 0;
@@ -954,7 +962,8 @@
 
     .documents {
       nav {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
         justify-content: flex-end;
         gap: var(--f-gutter);
 
