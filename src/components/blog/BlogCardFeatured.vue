@@ -108,7 +108,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    position: relative;
     &:hover {
       background: var(--theme-card-bg-hover) !important;
       // box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
@@ -150,6 +150,9 @@
     display: flex;
     align-items: center;
     gap: var(--f-gutter);
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
     img {
       width: 44px;

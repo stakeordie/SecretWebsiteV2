@@ -52,7 +52,7 @@
 
   .hero-video {
     padding: var(--f-gutter-l);
-    background: var(--theme-card-bg-variant);
+    background: var(--theme-card-bg-default);
     display: grid;
     grid-template-columns: 60% 1fr;
     gap: var(--f-gutter-xl);

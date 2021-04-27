@@ -244,7 +244,7 @@
             target: '',
           },
           {
-            title: 'Secret Blog',
+            title: 'Secret Network Blog',
             path: '/blog',
             target: '',
           },

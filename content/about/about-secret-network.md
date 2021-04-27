@@ -113,7 +113,7 @@ Allowing research over encrypted data, driving innovation.
 
 #### Want to know some other secret keys?
 
-<btn>Read the FAQ</btn>
+<btn url="#faq">Read the FAQ</btn>
 
 </card-minimal>
 
@@ -370,7 +370,7 @@ Individuals have a right to their own privacy, their own self-expression, and th
 
 
 <!-- block header -->
-<column>
+<column id="faq">
 
 <block>
 

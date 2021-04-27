@@ -104,10 +104,11 @@
     background: var(--theme-card-bg-default);
     transition: .2s ease;
     cursor: pointer;
-    min-height: 400px;
+    min-height: 450px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
 
     @each $name,
     $color in $accent-colors {

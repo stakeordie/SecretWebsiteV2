@@ -210,14 +210,15 @@
         background: var(--theme-card-bg-default);
         transition: .2s ease;
         cursor: pointer;
-        min-height: 450px;
         display: inline-block;
         /* flex-direction: column; */
         width: 350px;
+        min-height: 467px;
         white-space: normal;
         /* justify-content: space-between; */
         vertical-align: top;
         margin-right: var(--f-gutter-l);
+        position: relative;
       }
     }
   }
