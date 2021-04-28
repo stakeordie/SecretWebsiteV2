@@ -1,22 +1,21 @@
 <template>
   <div class="secret-agents">
-    <infinite-slide-bar duration="450s" :barStyle="{ background: '', padding: '5px 0' }">
+    <!-- <infinite-slide-bar duration="450s" :barStyle="{ background: '', padding: '5px 0' }"> -->
       <!-- <span style="color: #fff;">Helo World, I love Vue Infinite Slide Bar</span> -->
-      <div v-for="(secretAgent, index) in secretAgents" :key="index" class="card-secret-agent">
+      <!-- <div v-for="(secretAgent, index) in secretAgents" :key="index" class="card-secret-agent">
         <img :src="require(`@/assets${secretAgent.picture}`)" />
         <div class="meta">
           <h6>{{secretAgent.name}}</h6>
           <p class="location">{{secretAgent.location}}</p>
         </div>
       </div>
-    </infinite-slide-bar>
+    </infinite-slide-bar> -->
     <infinite-slide-bar direction="reverse" duration="250s" :barStyle="{ background: '', padding: '5px 0' }">
-      <!-- <span style="color: #fff;">Helo World, I love Vue Infinite Slide Bar</span> -->
-      <div v-for="(secretAgent, index) in secretAgents" :key="index" class="card-secret-agent">
-        <img :src="require(`@/assets${secretAgent.picture}`)" />
+      <div v-for="(secretAgent, index) in $static.secretAgents.edges" :key="index" class="card-secret-agent">
+        <img :src="'https://strapi.stakeordie.com' + secretAgent.node.image[0].url" />
         <div class="meta">
-          <h6>{{secretAgent.name}}</h6>
-          <p class="location">{{secretAgent.location}}</p>
+          <h6>{{secretAgent.node.name}}</h6>
+          <p class="location">{{secretAgent.node.location}}</p>
         </div>
       </div>
     </infinite-slide-bar>
@@ -27,21 +26,22 @@
   export default {
     data: function () {
       return {
-        secretAgents: [{
-            name: 'Mohammed',
-            location: 'Canada',
-            picture: '/agents/Mohammed-Canada.png'
-          },
-          {
-            name: 'Taariq',
-            location: 'South Africa',
-            picture: '/agents/Taariq-SouthAfrica.png'
-          },
-          {
-            name: 'Brendan',
-            location: 'USA',
-            picture: '/agents/Brendan-USA.png'
-          },
+        secretAgents: [
+          // {
+          //   name: 'Mohammed',
+          //   location: 'Canada',
+          //   picture: '/agents/Mohammed-Canada.png'
+          // },
+          // {
+          //   name: 'Taariq',
+          //   location: 'South Africa',
+          //   picture: '/agents/Taariq-SouthAfrica.png'
+          // },
+          // {
+          //   name: 'Brendan',
+          //   location: 'USA',
+          //   picture: '/agents/Brendan-USA.png'
+          // },
           {
             name: 'Ian',
             location: 'Delta Quadrant',
@@ -139,6 +139,22 @@
   }
 
 </script>
+
+<static-query>
+  query{
+    secretAgents: allStrapiSecretAgents {
+      edges{
+        node{
+          name
+          location
+          image{
+            url
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style lang="scss">
   @import "../../sass/functions/theme";

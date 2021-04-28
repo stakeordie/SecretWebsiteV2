@@ -29,9 +29,9 @@ module.exports = {
         {
             use: '@gridsome/source-strapi',
             options: {
-              apiURL: 'http://104.217.251.74:1337',
+              apiURL: 'http://strapi.stakeordie.com',
               queryLimit: 1000, // Defaults to 100
-              contentTypes: ['faq-items'],
+              contentTypes: ['faq-items', 'secret-agents'],
               singleTypes: [],
               // Possibility to login with a Strapi user,
               // when content types are not publicly available (optional).
