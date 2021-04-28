@@ -20,6 +20,7 @@ import "@fontsource/montserrat/500.css"
 
 
 import Type from "~/components/Type.vue";
+import AlertBar from "~/components/AlertBar.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
@@ -74,6 +75,7 @@ export default function(Vue, {
     openGraph.forEach(item => head.meta.push(item))
 
     // Set default layout as a global component
+    Vue.component("AlertBar", AlertBar);
     Vue.component("DefaultLayout", DefaultLayout);
     Vue.component("ThemedImage", ThemedImage);
     Vue.component("Navigation", Navigation);
@@ -115,4 +117,5 @@ export default function(Vue, {
 
     // This is Victor's code
     Vue.$setDefaultTheme = setDefaultTheme;
+
 }

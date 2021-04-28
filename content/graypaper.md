@@ -1,4 +1,3 @@
-
 <!-- Page title -->
 <column mode="slim">
 <block>

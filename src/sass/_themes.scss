@@ -17,6 +17,8 @@ $themes: (
         "card-bg-hover": var(--color-neutral-dark-mode-02),
         "card-bg-variant": var(--color-neutral-dark-mode-01),
         "card-text-color": var(--color-neutral-dark-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-dark-mode-04),
     ), 
     "light": (
         "fg": var(--color-analog-primary-black), 
@@ -34,6 +36,8 @@ $themes: (
         "card-bg-hover": var(--color-neutral-light-mode-03),
         "card-bg-variant": var(--color-neutral-light-mode-03),
         "card-text-color": var(--color-neutral-light-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-light-mode-01),
         
     ), 
     "dark-colored": (
@@ -52,6 +56,8 @@ $themes: (
         "card-bg-hover": var(--color-neutral-dark-mode-02),
         "card-bg-variant": var(--color-neutral-dark-mode-01),
         "card-text-color": var(--color-neutral-dark-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-dark-mode-04),
     ), 
     "light-colored": (
         "fg": var(--color-analog-primary-black), 
@@ -69,6 +75,8 @@ $themes: (
         "card-bg-hover": var(--color-neutral-light-mode-03),
         "card-bg-variant": var(--color-neutral-light-mode-03),
         "card-text-color": var(--color-neutral-light-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-light-mode-01),
     )
 );
 body {
@@ -89,6 +97,7 @@ body {
             --theme-card-bg-hover: #{map-get($theme, "card-bg-hover")};
             --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
             --theme-card-text-color: #{map-get($theme, "card-text-color")};
+            --theme-alert-bg-color: #{map-get($theme, "alert-bg-color")};
         }
     }
 }

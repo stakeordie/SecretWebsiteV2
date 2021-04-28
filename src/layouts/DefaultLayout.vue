@@ -1,6 +1,7 @@
 <template>
   <simple-layout>
     <template #header>
+      <alert-bar></alert-bar>
       <simple-header class="fixed" mode="full">
         <!-- mobile menu toggle -->
         <a class="mobile-menu-toggle" @click="toggleNav" aria-label="Close">
@@ -115,25 +116,33 @@
       </simple-header>
     </template>
 
-    <div class="swirl top">
-      <themed-image>
-        <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
-        <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
-        <img light src="@/assets/swirl-lines-light.svg" alt="" />
-      </themed-image>
-    </div>
+    <column>
+      <block>
+        <div class="swirl top">
+          <themed-image>
+            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="" />
+          </themed-image>
+        </div>
+      </block>
+    </column>
     <page>
 
       <slot></slot>
 
     </page>
-    <div class="swirl bottom">
-      <themed-image>
-        <img dark-colored light-colored src="@/assets/hero-color.svg" alt="" />
-        <img dark src="@/assets/hero-black.svg" alt="" />
-        <img light src="@/assets/hero-white.svg" alt="" />
-      </themed-image>
-    </div>
+    <column>
+      <block>
+        <div class="swirl bottom">
+          <themed-image>
+            <img dark-colored light-colored src="@/assets/hero-color.svg" alt="" />
+            <img dark src="@/assets/hero-black.svg" alt="" />
+            <img light src="@/assets/hero-white.svg" alt="" />
+          </themed-image>
+        </div>
+      </block>
+    </column>
 
     <template #footer>
       <simple-footer mode="normal">
@@ -775,16 +784,16 @@
     &.top {
       left: 0;
       right: 0;
-      top: -50px;
+      top: 50px;
 
     }
 
     &.bottom {
       left: 0;
-      bottom: 413px;
+      bottom: -400px;
 
       @include respond-to("<=s") {
-        bottom: 1268px;
+        bottom: -483px;
       }
 
       img {

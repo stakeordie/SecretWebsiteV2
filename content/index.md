@@ -204,7 +204,7 @@ Blockchains are public by default. That means that all the data used in smart co
 
 
 <!-- Announcement -->
-<column class="announcement accent-green spacer-s" weight="left" number="2">
+<column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">
 
 <block>
 
