@@ -34,5 +34,9 @@ export default [
       property: 'twitter:image',
       content: 'https://scrt.network/cover.png',
     },
+    {
+      name: 'description',
+      content: `Secret Network is an open-source protocol that let's perform computations on encrypted data, bringing privacy to smart contracts and public blockchains`
+    }
   ]
   
