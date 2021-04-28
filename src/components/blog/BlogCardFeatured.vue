@@ -108,6 +108,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 
     &:hover {
       background: var(--theme-card-bg-hover) !important;
@@ -143,18 +144,26 @@
         color: var(--theme-card-text-color);
       }
     }
-  }
 
-  .blog-author {
-    padding: var(--f-gutter);
-    display: flex;
-    align-items: center;
-    gap: var(--f-gutter);
+    .blog-author {
+      padding: var(--f-gutter);
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      gap: var(--f-gutter);
+      position: absolute;
+      bottom: 0;
+      left: 0;
 
-    img {
-      width: 44px;
-      height: 44px;
-      border-radius: 100px;
+      img {
+        width: 44px;
+        height: 44px;
+        border-radius: 100px;
+      }
+      .author-info {
+        display: grid;
+        gap: var(--f-gutter-xxs);
+      }
     }
   }
 

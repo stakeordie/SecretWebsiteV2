@@ -21,7 +21,7 @@
       .box {
         .hero-title {
           padding: var(--f-gutter-xl);
-          background: var(--theme-card-bg-variant);
+          background: var(--theme-card-bg-default);
           display: inline-block;
           margin-bottom: var(--f-gutter-xxxl);
           gap: var(--f-gutter-xl);

@@ -178,7 +178,8 @@
   // }
 
   .vifnslb-bar {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     gap: var(--f-gutter);
     padding-right: 10px;
   }
@@ -188,7 +189,7 @@
     grid-template-columns: repeat(auto-fill, 200px);
     grid-template-columns: 1fr;
     gap: var(--f-gutter);
-    row-gap: var(--f-gutter-xl);
+    row-gap: var(--f-gutter-s);
 
     .card-secret-agent {
       border-radius: var(--f-radius);

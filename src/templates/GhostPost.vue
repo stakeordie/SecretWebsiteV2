@@ -134,8 +134,7 @@
 
     .blog-post-excerpt {
       text-align: center;
-      display: flex;
-      flex-direction: column;
+      display: grid;
       align-items: center;
       gap: var(--f-gutter-l);
       margin-bottom: var(--f-gutter-xl);
@@ -182,11 +181,31 @@
     }
 
     .blog-author {
-      padding: 0;
-      display: flex;
-      flex: auto;
+      padding: var(--f-gutter);
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      gap: var(--f-gutter);
       width: 100%;
-      justify-content: space-between;
+      padding-left: 0;
+      padding-right: 0;
+      grid-template-columns: repeat(2, 1fr);
+      @include respond-to("<=s") {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+
+      }
+
+
+      img {
+        width: 44px;
+        height: 44px;
+        border-radius: 100px;
+      }
+      .author-info {
+        display: grid;
+        gap: var(--f-gutter-xxs);
+      }
 
       @include respond-to("<=s") {
         flex-direction: column;
@@ -195,21 +214,23 @@
       }
 
       .left {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
         gap: var(--f-gutter-s);
         align-items: center;
 
         .author {
           text-align: left;
-          display: flex;
-          flex-direction: column;
+          display: grid;
           gap: var(--f-gutter-xxs);
         }
       }
 
       .share-icons {
-        display: flex;
+        display: grid; 
         gap: var(--f-gutter-s);
+        grid-auto-flow: column;
 
         sharenetwork {
           padding: var(--f-gutter-xs) var(--f-gutter-s);
@@ -272,8 +293,7 @@
       .kg-image-card {
         // margin-top: var(--spacer-xs);
         margin-bottom: var(--f-gutter-l);
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: var(--f-gutter);
       }
 
@@ -296,8 +316,7 @@
 
           .kg-bookmark-content {
             line-height: 1.5;
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: var(--f-gutter-s);
 
             @include respond-to("<=s") {
@@ -313,8 +332,10 @@
             }
 
             .kg-bookmark-metadata {
-              display: flex;
+              display: grid;
+              grid-auto-flow: column;
               gap: var(--f-gutter-s);
+              grid-auto-columns: max-content;
               color: var(--theme-fg);
 
               .kg-bookmark-icon {

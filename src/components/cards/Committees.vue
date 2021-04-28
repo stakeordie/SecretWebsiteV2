@@ -151,9 +151,9 @@
       background: var(--theme-card-bg-default);
       transition: .2s ease;
       // height: 100%;
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: var(--f-gutter-l);
+      align-content: start;
 
       h6, h4, h3, a {
         margin: 0;
@@ -181,8 +181,7 @@
             }
           }
           .info-set {
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: var(--f-gutter-s);
             li {
               margin-bottom: var(--f-gutter-xs);

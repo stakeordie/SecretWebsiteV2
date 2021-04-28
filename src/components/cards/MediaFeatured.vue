@@ -147,6 +147,7 @@
         border-radius: var(--f-radius);
         padding: var(--f-gutter);
         background: var(--theme-card-bg-default);
+        position: relative;
 
         @each $name,
         $color in $accent-colors {
@@ -168,6 +169,14 @@
         h6 {
           color: var(--theme-fg);
         }
+        img {
+      position: absolute;
+      bottom: 0;
+      padding: var(--f-gutter);
+      border-radius: var(--f-gutter-l);
+      left: 0;
+      right: 0;
+    }
       }
     }
   }

@@ -45,11 +45,13 @@
     background: var(--theme-card-bg-default);
     transition: .2s ease;
     cursor: pointer;
-    height: 100%;
-
+    min-height: 300px;
+    display: grid;
+    align-content: start;
+    position: relative;
     a {
       color: var(--theme-fg);
-      height: 100%;
+      // height: 100%;
       justify-content: space-between;
       display: flex;
       flex-flow: column;
@@ -67,7 +69,7 @@
 
     h6 {
       margin-bottom: var(--f-gutter-l);
-      transform: translateY(-40px);
+      // transform: translateY(-40px);
     }
 
     @each $name,
@@ -87,6 +89,15 @@
           color: var(--accent-#{$name});
         }
       }
+    }
+
+    img {
+      position: absolute;
+      bottom: 0;
+      padding: var(--f-gutter);
+      border-radius: var(--f-gutter-l);
+      left: 0;
+      right: 0;
     }
   }
 
