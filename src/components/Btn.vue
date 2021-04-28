@@ -44,6 +44,10 @@
       margin-bottom: 0;
       padding: var(--f-gutter-s) var(--f-gutter);
 
+      &.text-center {
+        justify-content: center;
+      }
+
       &.no-arrow {
         img {
           display: none !important;
