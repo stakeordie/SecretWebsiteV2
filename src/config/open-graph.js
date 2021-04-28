@@ -35,8 +35,8 @@ export default [
       content: 'https://scrt.network/cover.png',
     },
     {
-      name: 'description',
-      content: `Secret Network is an open-source protocol that let's perform computations on encrypted data, bringing privacy to smart contracts and public blockchains`
+      name: 'keywords',
+      content: 'Secret Network, Blockchain, Open-source protocol, Privacy, Smart Contracts, Public Blockchains, DeFi, Decentralized Finance'
     }
   ]
   
