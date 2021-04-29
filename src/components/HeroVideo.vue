@@ -1,12 +1,16 @@
 <template>
   <div class="hero-video">
-    <div class="message">
-      <h6 class="title">{{$static.homeHero.edges[0].node.title}}</h6>
-      <h1 class="tagline">{{$static.homeHero.edges[0].node.tagline}}</h1>
-      <p class="message"><vue-markdown>{{$static.homeHero.edges[0].node.subtitle}}</vue-markdown></p>
+    <div class="row1">
+      <div class="message">
+        <h6 class="title">{{$static.homeHero.edges[0].node.title}}</h6>
+        <h1 class="tagline">{{$static.homeHero.edges[0].node.tagline}}</h1>
+      </div>
+      <div @click="showVideo = !showVideo" class="video-thumbnail">
+        <img v-show="!showVideo" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video_thumbnail_image.url" :alt="title"/>
+      </div>
     </div>
-    <div @click="showVideo = !showVideo" class="video-thumbnail">
-      <img v-show="!showVideo" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video_thumbnail_image.url" :alt="title"/>
+    <div class="row2">
+      <p class="message"><vue-markdown>{{$static.homeHero.edges[0].node.subtitle}}</vue-markdown></p>
     </div>
     <div v-if="showVideo" class="video">
       <button class="close-video theme" @click="showVideo = !showVideo"><img src="../assets/icon-menu-close.svg"
@@ -75,11 +79,23 @@
     padding: var(--f-gutter-l);
     background: var(--theme-card-bg-default);
     display: grid;
-    grid-template-columns: 60% 1fr;
-    gap: var(--f-gutter-xl);
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: var(--f-gutter-l);
     margin-bottom: var(--f-gutter-xxxl) !important;
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
+    }
+
+    .row1 {
+      display: grid;
+      grid-template-columns: 60% 1fr;
+      gap: var(--f-gutter-xl);
+      grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .row2 {
+      grid-area: 2 / 1 / 3 / 3;
     }
 
     .message {
@@ -87,6 +103,7 @@
       .tagline {
         font-family: Hind;
         font-weight: bold;
+        font-size: 74px;
       }
       .title {
         text-transform: uppercase;
