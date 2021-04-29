@@ -76,7 +76,7 @@
     left: 0;
     top: 0;
     text-align: center;
-    height: calc(--alert-height-desktop);
+    height: var(--alert-height-desktop);
 
     @include respond-to("<=s") {
       text-align: left;
