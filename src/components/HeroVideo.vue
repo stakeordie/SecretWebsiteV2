@@ -1,17 +1,17 @@
 <template>
   <div class="hero-video">
     <div class="message">
-      <h2>Secret Network</h2>
-      <p class="message">Secret Network is a <strong>blockchain-based</strong>, <strong>open-source</strong> protocol that lets anyone perform computations on encrypted data, bringing <strong>privacy</strong> to <strong>smart contracts</strong> and <strong>public blockchains</strong>.</p>
+      <h2>{{$static.homeHero.edges[0].node.title}}</h2>
+      <p class="message"><vue-markdown>{{$static.homeHero.edges[0].node.subtitle}}</vue-markdown></p>
     </div>
     <div @click="showVideo = !showVideo" class="video-thumbnail">
-      <img v-show="!showVideo" src="../assets/hero-video-thumbnail.jpg" :alt="title"/>
+      <img v-show="!showVideo" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video_thumbnail_image.url" :alt="title"/>
     </div>
     <div v-if="showVideo" class="video">
       <button class="close-video theme" @click="showVideo = !showVideo"><img src="../assets/icon-menu-close.svg"
           alt=""></button>
       <video width="100%" height="500" controls>
-        <source src="../assets/scrt-intro.mp4" type="video/mp4">
+        <source :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video.url" type="video/mp4">
       </video>
     </div>
   </div>
@@ -45,6 +45,25 @@
   }
 
 </script>
+
+<static-query>
+  query{
+    homeHero: allStrapiHomeHero {
+      edges{
+        node{
+          title
+          subtitle
+          video {
+            url
+          }
+          video_thumbnail_image {
+            url
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style lang="scss">
   @import "../sass/functions/theme";
