@@ -153,6 +153,7 @@
 
       h1 {
         line-height: 1.1;
+
         @include respond-to("<=m") {
           font-size: var(--f-h2-text-size);
           line-height: var(--f-h2-line-height);
@@ -172,6 +173,7 @@
       p {
         margin: 0;
         color: var(--theme-card-text-color);
+
         &.description {
           font-family: var(--blog-text-font-family);
           font-size: var(--blog-text-font-size);
@@ -190,6 +192,7 @@
       padding-left: 0;
       padding-right: 0;
       grid-template-columns: repeat(2, 1fr);
+
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
         grid-auto-flow: row;
@@ -202,6 +205,7 @@
         height: 44px;
         border-radius: 100px;
       }
+
       .author-info {
         display: grid;
         gap: var(--f-gutter-xxs);
@@ -228,7 +232,7 @@
       }
 
       .share-icons {
-        display: grid; 
+        display: grid;
         gap: var(--f-gutter-s);
         grid-auto-flow: column;
 
@@ -261,7 +265,7 @@
 
       p,
       ol,
-      ul, 
+      ul,
       li {
         max-width: var(--blog-content-width);
         width: 100%;

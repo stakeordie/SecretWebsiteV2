@@ -35,7 +35,8 @@ $accent-colors: (
 
     --blog-content-width: 750px;
 
-    --alert-height: var(--f-header-height);
+    --alert-height-desktop: calc(var(--f-header-height) - 18px);
+    --alert-height-mobile: var(--f-header-height);
 }
 
 body {
@@ -67,8 +68,12 @@ body {
 }
 
 main {
-    margin-top: 68px;
-    padding-top: var(--f-gutter-xxl);
+    // margin-top: 68px;
+    padding-top: var(--alert-height-desktop);
+    @include respond-to("<=s") {
+        margin-top: 0;
+        padding-top: var(--f-gutter-xl);
+    }
 }
 
 ul {

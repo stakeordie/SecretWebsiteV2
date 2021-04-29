@@ -48,16 +48,27 @@
 
   .alert-bar {
     +.simple-header {
-      top: var(--alert-height);
-      +.swirl {
-        &.top {
-          margin-top: calc(var(--alert-height) + var(--f-header-height));
-        }
+      @include respond-to(">=m") {
+        top: var(--alert-height-desktop);
+      }
+
+      @include respond-to("<=s") {
+        top: var(--alert-height-mobile);
+      }
+
+      +.swirl-wrapper {
         +main.--flare-page {
-          margin-top: calc(var(--alert-height) + var(--f-header-height));
+          @include respond-to(">=m") {
+            margin-top: calc(var(--alert-height-desktop));
+          }
+
+          @include respond-to("<=s") {
+            margin-top: calc(var(--alert-height-mobile));
+          }
         }
       }
     }
+
     background: var(--theme-alert-bg-color);
     position: fixed;
     z-index: 99999;
@@ -65,9 +76,11 @@
     left: 0;
     top: 0;
     text-align: center;
-    height: var(--alert-height);
+    height: calc(--alert-height-desktop);
+
     @include respond-to("<=s") {
       text-align: left;
+      height: var(--alert-height-mobile);
     }
 
     .alert-content {
@@ -76,6 +89,7 @@
       align-items: center;
       height: 100%;
       padding: var(--f-gutter);
+
       @include respond-to("<=s") {
         padding-right: var(--f-gutter-xl);
       }
@@ -83,25 +97,34 @@
       p {
         margin: 0;
         color: var(--theme-fg);
+
         @include respond-to ("<=s") {
           font-size: 14px;
           line-height: 1.4;
         }
+
         a {
           text-decoration: underline;
         }
       }
     }
-      .close-alert {
-        position: absolute;
+
+    .close-alert {
+      position: absolute;
+      top: 16px;
+
+      @include respond-to("<=s") {
         top: 22px;
-        right: var(--f-gutter);
-        img {
-          @include theme(light light-colored) {
-            filter: invert(1);
-          }
+      }
+
+      right: var(--f-gutter);
+
+      img {
+        @include theme(light light-colored) {
+          filter: invert(1);
         }
       }
+    }
   }
 
 </style>

@@ -116,7 +116,7 @@
       </simple-header>
     </template>
 
-    <column>
+    <column class="swirl-wrapper">
       <block>
         <div class="swirl top">
           <themed-image>

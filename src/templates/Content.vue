@@ -5,10 +5,23 @@
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    metaInfo() {
+      return {
+        title: this.$page.content.title
+      }
+    }
+  }
 </script>
+
+<page-query>
+
+query($id: ID) {
+  content(id: $id) {
+    title
+  }
+}
+</page-query>
 
 <style>
 
