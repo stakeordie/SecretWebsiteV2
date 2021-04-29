@@ -1,3 +1,14 @@
+---
+title: 'Subscription Confirmed'
+---
+
+
+
+
+
+
+
+
 <!-- Page title -->
 <column>
 

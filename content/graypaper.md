@@ -1,3 +1,14 @@
+---
+title: 'Graypaper'
+---
+
+
+
+
+
+
+
+
 <!-- Page title -->
 <column mode="slim">
 <block>

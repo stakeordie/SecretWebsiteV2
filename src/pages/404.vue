@@ -168,7 +168,7 @@
 
         <card-simple class="accent-gray text-center cta" url="https://forum.scrt.network/">
 
-          <img src="../assets/icon-social-forum-big.svg" alt=""></img>
+          <img src="../assets/icon-social-forum-big.svg" alt=""/>
 
           <h6>Secret Forum</h6>
 
@@ -180,7 +180,7 @@
 
         <card-simple class="accent-purple text-center cta" url="https://discord.com/invite/SJK32GY">
 
-          <img src="../assets/icon-social-discord-big.svg" alt=""></img>
+          <img src="../assets/icon-social-discord-big.svg" alt=""/>
 
           <h6>Discord Chat</h6>
 
@@ -192,7 +192,7 @@
 
         <card-simple class="accent-blue text-center cta" url="https://t.me/SCRTcommunity">
 
-          <img src="../assets/icon-social-telegram-big.svg" alt=""></img>
+          <img src="../assets/icon-social-telegram-big.svg" alt=""/>
 
           <h6>Telegram</h6>
 
@@ -204,7 +204,7 @@
 
         <card-simple class="accent-turquoise text-center cta" url="https://twitter.com/SecretNetwork">
 
-          <img src="../assets/icon-social-twitter-big.svg" alt=""></img>
+          <img src="../assets/icon-social-twitter-big.svg" alt=""/>
 
           <h6>Twitter</h6>
 
@@ -216,7 +216,7 @@
 
         <card-simple class="accent-red text-center cta" url="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw">
 
-          <img src="../assets/icon-social-youtube-big.svg" alt=""></img>
+          <img src="../assets/icon-social-youtube-big.svg" alt=""/>
 
           <h6>Youtube Channel</h6>
 
@@ -231,8 +231,10 @@
 
 <script>
   export default {
-    metaInfo: {
-      title: '404 Page Not found'
+    metaInfo() {
+      return {
+        title: '404 Error'
+      }
     }
   }
 

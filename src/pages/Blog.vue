@@ -133,7 +133,9 @@
           });
         }
       }
-
+    },
+    metaInfo: {
+      title: 'Blog'
     }
   }
 

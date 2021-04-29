@@ -1,3 +1,14 @@
+---
+title: 'About'
+---
+
+
+
+
+
+
+
+
 <!-- Page title -->
 <column>
 <block>
