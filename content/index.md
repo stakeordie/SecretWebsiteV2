@@ -31,7 +31,7 @@ title: 'Secret Network'
 
 <block>
 
-<card-simple class="orientation-horizontal accent-purple" url="/">
+<card-simple class="orientation-horizontal accent-purple" url="/ecosystem/overview">
 
 <card-block>
 
@@ -68,7 +68,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <block>
 
-<card-simple class="orientation-vertical accent-orange" url="/">
+<card-simple class="orientation-vertical accent-orange" url="/about/about-secret-network">
 
 <card-block>
 
@@ -92,7 +92,7 @@ Find out why Secret Network is a first-of-its-kind, open-source blockchain that 
 
 <block>
 
-<card-simple class="orientation-vertical accent-green" url="/">
+<card-simple class="orientation-vertical accent-green" url="/developers">
 
 <card-block>
 

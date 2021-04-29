@@ -9,7 +9,7 @@
     <script>
         (function() {
             let theme = localStorage.getItem('theme')
-            if (!theme) theme = 'dark'
+            if (!theme) theme = 'dark-colored'
             const [body] = document.getElementsByTagName('body')
             if (!body) return
             body.setAttribute('theme', theme.trim())

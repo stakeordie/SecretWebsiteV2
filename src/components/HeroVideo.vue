@@ -92,6 +92,9 @@
       grid-template-columns: 60% 1fr;
       gap: var(--f-gutter-xl);
       grid-area: 1 / 1 / 2 / 3;
+      @include respond-to("<=m") {
+        grid-template-columns: 1fr;
+      }
     }
 
     .row2 {
@@ -103,10 +106,16 @@
       .tagline {
         font-family: Hind;
         font-weight: bold;
-        font-size: 74px;
+        font-size: var(--h1-text-size-hero);
+        @include respond-to("<=m") {
+          font-size: var(--f-h3-text-size);
+          line-height: var(--f-h3-line-height);
+        }
       }
       .title {
         text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--theme-card-text-color);
       }
       
       p {
@@ -135,6 +144,11 @@
           @include theme(light light-colored) {
             filter: invert(1);
           }
+        }
+      }
+      video {
+        @include respond-to("<=s") {
+          height: 250px;
         }
       }
     }

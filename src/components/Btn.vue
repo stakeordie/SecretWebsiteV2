@@ -43,6 +43,12 @@
       margin-right: var(--f-gutter);
       margin-bottom: 0;
       padding: var(--f-gutter-s) var(--f-gutter);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      p {
+        margin-bottom: 0;
+      }
 
       &.text-center {
         justify-content: center;
