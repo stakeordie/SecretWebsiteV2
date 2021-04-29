@@ -1,7 +1,8 @@
 <template>
   <div class="hero-video">
     <div class="message">
-      <h2>{{$static.homeHero.edges[0].node.title}}</h2>
+      <h6 class="title">{{$static.homeHero.edges[0].node.title}}</h6>
+      <h1 class="tagline">{{$static.homeHero.edges[0].node.tagline}}</h1>
       <p class="message"><vue-markdown>{{$static.homeHero.edges[0].node.subtitle}}</vue-markdown></p>
     </div>
     <div @click="showVideo = !showVideo" class="video-thumbnail">
@@ -53,6 +54,7 @@
         node{
           title
           subtitle
+          tagline
           video {
             url
           }
@@ -81,6 +83,15 @@
     }
 
     .message {
+      
+      .tagline {
+        font-family: Hind;
+        font-weight: bold;
+      }
+      .title {
+        text-transform: uppercase;
+      }
+      
       p {
         font-size: var(--paragraph-font-size-big);
         line-height: 1.7;
