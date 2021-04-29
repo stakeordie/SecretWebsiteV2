@@ -136,9 +136,9 @@
       <block>
         <div class="swirl bottom">
           <themed-image>
-            <img dark-colored light-colored src="@/assets/hero-color.svg" alt="" />
-            <img dark src="@/assets/hero-black.svg" alt="" />
-            <img light src="@/assets/hero-white.svg" alt="" />
+            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="" />
           </themed-image>
         </div>
       </block>
@@ -761,7 +761,7 @@
 
     &.bottom {
       left: 0;
-      bottom: -400px;
+      bottom: -300px;
 
       @include respond-to("<=s") {
         bottom: -483px;
