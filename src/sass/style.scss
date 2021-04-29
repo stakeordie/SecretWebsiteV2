@@ -369,10 +369,10 @@ $color in $accent-colors {
 
 .color-change {
     .typed, span {
-        animation: color-change 15s infinite alternate;
+        animation: color-change 25s infinite alternate;
     }
     path {
-        animation: fill-change 15s infinite alternate;
+        animation: fill-change 25s infinite alternate;
     }
 }
 

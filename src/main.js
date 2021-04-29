@@ -8,6 +8,7 @@ import DefaultLayout from "~/layouts/DefaultLayout.vue";
 import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
+import typical from "vue-typical";
 
 
 import "@fontsource/hind"
@@ -111,6 +112,7 @@ export default function(Vue, {
     Vue.component("BlogFilter", BlogFilter);
 
     Vue.component('InfiniteSlideBar', InfiniteSlideBar);
+    Vue.component('typical', typical);
 
     Vue.use(Flare);
 

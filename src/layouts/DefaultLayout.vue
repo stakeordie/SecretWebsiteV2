@@ -148,9 +148,9 @@
       <simple-footer mode="normal">
         <section class="footer-nav">
           <nav>
-            <h6 class="footer-nav-title">About </h6>
-            <a v-for="(link, index) in linksFooterAbout" :href="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
+            <h6 class="footer-nav-title">Learn </h6>
+            <g-link v-for="(link, index) in linksFooterLearn" :to="link.path" :target="link.target"> <span
+                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Community</h6>
@@ -165,11 +165,6 @@
           <nav>
             <h6 class="footer-nav-title">Ecosystem</h6>
             <a v-for="(link, index) in linksFooterEcosystem" :href="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
-          </nav>
-          <nav>
-            <h6 class="footer-nav-title">Media</h6>
-            <a v-for="(link, index) in linksFooterMedia" :href="link.path" :target="link.target"> <span
                 :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
           </nav>
         </section>
@@ -300,9 +295,21 @@
             target: '',
           },
         ],
-        linksFooterAbout: [{
-            title: 'What is Secret Network',
+        linksFooterLearn: [{
+            title: 'About the Network',
             path: '/about/about-secret-network',
+            external: false,
+            target: 'self',
+          },
+          {
+            title: 'Secret Network Blog',
+            path: '/blog',
+            external: false,
+            target: 'self',
+          },
+          {
+            title: 'Media Content',
+            path: '/media/features',
             external: false,
             target: 'self',
           },
@@ -319,47 +326,36 @@
             target: 'self',
           },
         ],
-        linksFooterCommunity: [{
-            title: 'Committees',
-            path: '/committees',
+        linksFooterCommunity: [
+          {
+            title: 'About the Community',
+            path: '/community',
             external: false,
             target: 'self',
           },
           {
-            title: 'Become a Secret Agent',
-            path: 'https://forms.gle/8NbTmUNVgbUkHY8eA',
-            external: true,
-            target: 'blank',
+            title: 'About Secret Agents',
+            path: '/community#secret-agents',
+            external: false,
+            target: 'self',
           },
           {
-            title: 'Forum',
-            path: 'https://forum.scrt.network/',
-            external: true,
-            target: 'blank',
+            title: 'About Committees',
+            path: '/committees',
+            external: false,
+            target: 'self',
           },
         ],
         linksFooterDevelopers: [{
-            title: 'Get started',
+            title: 'Intro for Developers',
             path: '/developers',
             external: false,
             target: 'self',
           },
           {
-            title: 'Quickstart',
+            title: 'Quickstart Guide',
             path: 'https://build.scrt.network/dev/developers.html',
             external: true,
-            target: 'blank',
-          },
-          {
-            title: 'About Secret Contracts',
-            path: '/developers#about',
-            external: true,
-            target: 'blank',
-          },
-          {
-            title: 'Grant Application Ideas',
-            path: '/grant-application-ideas',
-            external: false,
             target: 'blank',
           },
           {
@@ -368,9 +364,15 @@
             external: false,
             target: 'blank',
           },
+          {
+            title: 'Grant Application Ideas',
+            path: '/grant-application-ideas',
+            external: false,
+            target: 'blank',
+          },
         ],
         linksFooterEcosystem: [{
-            title: 'Contributors',
+            title: 'Ecosystem Overview',
             path: '/ecosystem/overview',
             external: false,
             target: 'self',
@@ -380,37 +382,6 @@
             path: '/ecosystem/overview#wallet-support',
             external: false,
             target: 'blank',
-          },
-        ],
-        linksFooterMedia: [{
-            title: 'Features',
-            path: '/media/features',
-            external: false,
-            target: 'self',
-          },
-          {
-            title: 'Blog',
-            path: '/blog',
-            external: false,
-            target: 'self',
-          },
-          {
-            title: 'Video',
-            path: '/media/video',
-            external: false,
-            target: 'self',
-          },
-          {
-            title: 'Podcast',
-            path: '/media/podcast',
-            external: false,
-            target: 'self',
-          },
-          {
-            title: 'Brand',
-            path: '/media/brand',
-            external: false,
-            target: 'self',
           },
         ],
       }
@@ -818,9 +789,9 @@
 
     .footer-nav {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--f-gutter);
-      margin-bottom: var(--f-gutter-xl);
+      margin-bottom: var(--f-gutter-xxl);
 
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
@@ -867,7 +838,6 @@
     .footer-contact {
       display: grid;
       grid-template-columns: 1fr 445px;
-
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
         gap: var(--f-gutter-xxl);
@@ -1070,4 +1040,4 @@
     }
   }
 
-</style>
+</style>  

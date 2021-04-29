@@ -8,8 +8,6 @@ title: 'Secret Network'
 
 
 
-
-
 <!-- Hero Video -->
 <column class="card-variant" mode="normal">
 <block>
@@ -200,7 +198,7 @@ Blockchains are public by default. That means that all the data used in smart co
 
 <block>
 
-### Secret Solves for <span>Privacy</span>.
+### Secret Solves for <typical class="color-change" :steps="['Privacy', 5000, 'Usability', 5000, 'People', 5000, 'Security', 5000, 'Sustainability', 5000]" :loop="Infinity" :wrapper="'span'"></typical>.
 
 
 </block>
