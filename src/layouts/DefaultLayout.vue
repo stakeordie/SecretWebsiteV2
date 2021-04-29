@@ -21,44 +21,44 @@
             <!-- main navigation -->
             <nav class="main-navigation">
               <ul class="header__navigation">
-                <li @click.prevent="showLearn = !showLearn" @mouseleave="showLearn = false"
+                <li @click.prevent="showLearn" @mouseleave="isLearnOpen = false"
                   class="dropdown-container">
                   <a href="">Learn <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
-                    <ul v-show="showLearn" @click.stop="showLearn" class="dropdown">
+                    <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
                       <li v-for="(link, index) in linksLearn">
                         <a :href="link.path" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showCommunity = !showCommunity" @mouseleave="showCommunity = false"
+                <li @click.prevent="showCommunity" @mouseleave="isCommunityOpen = false"
                   class="dropdown-container">
                   <a href="">Community <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
-                    <ul v-show="showCommunity" @click.stop="showCommunity" class="dropdown">
+                    <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
                       <li v-for="(link, index) in linksCommunity">
                         <a :href="link.path" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showDevelopers = !showDevelopers" @mouseleave="showDevelopers = false"
+                <li @click.prevent="showDevelopers" @mouseleave="isDevelopersOpen = false"
                   class="dropdown-container">
                   <a href="">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
-                    <ul v-show="showDevelopers" @click.stop="showDevelopers" class="dropdown">
+                    <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
                         <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
                       </li>
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showEcosystem = !showEcosystem" @mouseleave="showEcosystem = false"
+                <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false"
                   class="dropdown-container">
                   <a href="">Ecosystem <img src="@/assets/icon-chevron-down.svg" alt=""></a>
                   <transition name="fade">
-                    <ul v-show="showEcosystem" @click.stop="showEcosystem" class="dropdown">
+                    <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
                         <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
                       </li>
@@ -231,16 +231,16 @@
 </static-query>
 
 <script>
-  export default {
+
+
+  export default {  
     data: function () {
       return {
         isNavOpen: false,
-        showLearn: false,
-        showAbout: false,
-        showMedia: false,
-        showCommunity: false,
-        showDevelopers: false,
-        showEcosystem: false,
+        isLearnOpen: false,
+        isCommunityOpen: false,
+        isDevelopersOpen: false,
+        isEcosystemOpen: false,
         linksLearn: [
           {
             title: 'About the Network',
@@ -388,20 +388,32 @@
 
     },
     watch: {
+      
       $route(to, from) {
         this.isNavOpen = false,
-        this.showLearn = false;
-        this.showAbout = false;
-        this.showMedia = false;
-        this.showCommunity = false;
-        this.showDevelopers = false;
-        this.showEco = false;
+        this.isLearnOpen = false;
+        this.isCommunityOpen = false;
+        this.isDevelopersOpen = false;
+        this.isEcosystemOpen = false;
       }
     },
     methods: {
+      
       // mq () {
       //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
       // },
+      showLearn() {
+        this.isLearnOpen = !this.isLearnOpen;
+      },
+      showCommunity() {
+        this.isCommunityOpen = !this.isCommunityOpen;
+      },
+      showDevelopers() {
+        this.isDevelopersOpen = !this.isDevelopersOpen;
+      },
+      showEcosystem() {
+        this.isEcosystemOpen = !this.isEcosystemOpen;
+      },
       toggleNav() {
         this.isNavOpen = !this.isNavOpen
         if (this.isNavOpen) {
