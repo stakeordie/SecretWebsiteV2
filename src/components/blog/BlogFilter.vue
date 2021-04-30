@@ -27,8 +27,8 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 .blog-filter {
   ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, auto));
     padding-left: 0;
     gap: var(--f-gutter);
     @include respond-to("<=m") {
