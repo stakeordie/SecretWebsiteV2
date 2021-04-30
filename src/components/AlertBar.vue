@@ -2,7 +2,7 @@
   <div v-if="isAlertOpen" class="alert-bar">
     <vue-markdown class="alert-content">{{ message }}</vue-markdown>
     <a @click="isAlertOpen = false" href="" class="close-alert">
-      <g-image src="../assets/icon-menu-close.svg" :immediate="true"></g-image>
+      <img src="../assets/icon-menu-close.svg" width="24" height="24" alt="close" />
     </a>
   </div>
 </template>

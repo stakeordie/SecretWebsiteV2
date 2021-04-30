@@ -4,8 +4,8 @@
       <slot></slot>
     </span>
     <themed-image>
-      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="" />
-      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="" />
+      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="arrow" width="20" height="20" />
+      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="arrow" width="20" height="20" />
     </themed-image>
   </a>
 </template>
