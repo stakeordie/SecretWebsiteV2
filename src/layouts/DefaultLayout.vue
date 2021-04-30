@@ -49,7 +49,7 @@
                   </transition>
                 </li>
                 <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false" class="dropdown-container">
-                  <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
+                  <a href="">Ecosystem <img v-show="!isEco" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isEco" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
@@ -86,17 +86,24 @@
           <div class="toggles">
             <!-- social navigation -->
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
-              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-                  src="@/assets/icon-social-github.svg" alt=""></a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
-                  alt=""></a>
-              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
-                  alt=""></a>
-              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
-                  alt=""></a>
-              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
-                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+              <a href="https://forum.scrt.network/" target="blank">
+                <img src="@/assets/icon-social-forum.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">
+                <img src="@/assets/icon-social-github.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank">
+                <img src="@/assets/icon-social-discord.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://t.me/SCRTcommunity" target="blank">
+                <img src="@/assets/icon-social-telegram.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://twitter.com/SecretNetwork" target="blank">
+                <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank">
+                <img src="@/assets/icon-social-youtube.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
             </nav>
             <button class="theme" @click="toggleDarkLightMode">
               <themed-image>
@@ -171,8 +178,7 @@
         <section class="footer-contact">
           <div class="social">
             <g-link to="/">
-              <img class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true" width="124"
-                height="58" />
+              <img class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" width="124" height="58" />
             </g-link>
             <nav class="social-navigation">
               <a href="https://forum.scrt.network/" target="blank">
