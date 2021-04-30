@@ -12,6 +12,7 @@ import typical from "vue-typical";
 
 
 import "@fontsource/hind"
+import "@fontsource/hind/300.css"
 import "@fontsource/hind/600.css"
 import "@fontsource/hind/700.css"
 import "@fontsource/montserrat"

@@ -36,7 +36,7 @@
       flex-direction: column;
 
       h3 {
-        margin-bottom: var(--f-gutter-s);
+        margin-bottom: var(--f-gutter-xxs);
       }
 
       h4 {
@@ -46,6 +46,7 @@
 
       p {
         font-size: 20px;
+        font-weight: var(--paragraph-font-weight-big);
         color: var(--theme-card-text-color);
       }
     }
