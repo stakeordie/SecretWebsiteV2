@@ -45,7 +45,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <card-block>
 
-![img](./img/card-build.png)
+<img src="./img/card-build.png" alt="getting started" width="100%" height="auto">
 
 </card-block>
 
