@@ -7,6 +7,10 @@
 @import "cards/card-simple";
 @import "cards/card-announcement";
 
+// pages
+@import "pages/home";
+
+
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: (

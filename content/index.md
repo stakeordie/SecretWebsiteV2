@@ -149,7 +149,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 
 <!-- Want to build better internet title -->
-<column number="2" number-m="1" number-s="1">
+<column class="home--build_better_internet" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -198,7 +198,7 @@ Blockchains are public by default. That means that all the data used in smart co
 
 <block>
 
-### Secret Solves for <typical class="color-change" :steps="['Privacy', 5000, 'Usability', 5000, 'People', 5000, 'Security', 5000, 'Sustainability', 5000]" :loop="Infinity" :wrapper="'span'"></typical>.
+### Secret Solves for <typical class="color-change" :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
 
 
 </block>
