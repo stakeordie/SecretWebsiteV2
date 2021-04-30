@@ -293,6 +293,10 @@ input:not(.button) {
     }
 }
 
+img {
+    aspect-ratio: attr(width) / attr(height);
+  }
+
 .img-invert {
     .content {
         .box {

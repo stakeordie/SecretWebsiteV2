@@ -12,7 +12,7 @@
         </a>
         <!-- logo -->
         <g-link class="link-logo" to="/">
-          <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true" width="100%" height="100%">
+          <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true" width="124" height="58">
           </g-image>
         </g-link>
         <!-- mobile menu wrapper -->
@@ -171,7 +171,7 @@
         <section class="footer-contact">
           <div class="social">
             <g-link to="/">
-              <g-image class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true" width="100%" height="100%">
+              <g-image class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true" width="124" height="58">
               </g-image>
             </g-link>
             <nav class="social-navigation">
