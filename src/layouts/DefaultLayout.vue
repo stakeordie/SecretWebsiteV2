@@ -49,7 +49,7 @@
                   </transition>
                 </li>
                 <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false" class="dropdown-container">
-                  <a href="">Ecosystem <img v-show="!isEco" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEco" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
+                  <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
