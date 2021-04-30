@@ -776,7 +776,7 @@
       bottom: -300px;
 
       @include respond-to("<=s") {
-        bottom: -483px;
+        bottom: -300px;
       }
 
       img {
