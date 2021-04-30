@@ -70,6 +70,7 @@ $themes: (
         // buttons
         "button-bg": var(--color-analog-secondary-purple),
         "card-button-bg": var(--color-neutral-light-mode-01),
+        "card-button-bg-hover": var(--color-neutral-dark-mode-01),
         // cards
         "card-bg-default": var(--color-neutral-light-mode-04),
         "card-bg-hover": var(--color-neutral-light-mode-03),
@@ -93,6 +94,7 @@ body {
             --theme-links-hover:#{map-get($theme, "links-hover")};
             --theme-button: #{map-get($theme, "button-bg")};
             --theme-card-button-bg: #{map-get($theme, "card-button-bg")};
+            --theme-card-button-bg-hover: #{map-get($theme, "card-button-bg-hover")};
             --theme-card-bg-default: #{map-get($theme, "card-bg-default")};
             --theme-card-bg-hover: #{map-get($theme, "card-bg-hover")};
             --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
