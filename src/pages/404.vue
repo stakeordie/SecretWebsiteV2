@@ -2,7 +2,7 @@
   <default-layout>
     <!-- Title -->
     <hero-title>
-      <h2>404 Page not found</h2>
+      <h2>Page Not Found</h2>
     </hero-title>
 
 
@@ -233,7 +233,7 @@
   export default {
     metaInfo() {
       return {
-        title: '404 Error'
+        title: 'Page Not Found'
       }
     }
   }
