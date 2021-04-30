@@ -128,8 +128,8 @@
         <div class="swirl top">
           <themed-image>
             <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
-            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
-            <img light src="@/assets/swirl-lines-light.svg" alt="" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="swirl" width="100" height="100" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="swirl" width="100" height="100" />
           </themed-image>
         </div>
       </block>
@@ -143,9 +143,9 @@
       <block>
         <div class="swirl bottom">
           <themed-image>
-            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
-            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
-            <img light src="@/assets/swirl-lines-light.svg" alt="" />
+            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="swirl" width="100" height="100" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="swirl" width="100" height="100" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="swirl" width="100" height="100" />
           </themed-image>
         </div>
       </block>
