@@ -6,7 +6,7 @@
         <h1 class="tagline">{{$static.homeHero.edges[0].node.tagline}}</h1>
       </div>
       <div @click="showVideo = !showVideo" class="video-thumbnail">
-        <img v-show="!showVideo" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video_thumbnail_image.url" :alt="title"/>
+        <img v-show="!showVideo" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.video_thumbnail_image.url" alt="Thumbnail" width="371" height="209"/>
       </div>
     </div>
     <div class="row2">

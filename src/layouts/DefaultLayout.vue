@@ -19,7 +19,7 @@
             <nav class="main-navigation">
               <ul class="header__navigation">
                 <li @click.prevent="showLearn" @mouseleave="isLearnOpen = false" class="dropdown-container">
-                  <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
+                  <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
                       <li v-for="(link, index) in linksLearn">
@@ -29,7 +29,7 @@
                   </transition>
                 </li>
                 <li @click.prevent="showCommunity" @mouseleave="isCommunityOpen = false" class="dropdown-container">
-                  <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
+                  <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
                       <li v-for="(link, index) in linksCommunity">
@@ -39,7 +39,7 @@
                   </transition>
                 </li>
                 <li @click.prevent="showDevelopers" @mouseleave="isDevelopersOpen = false" class="dropdown-container">
-                  <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isDevelopersOpen" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
+                  <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isDevelopersOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
@@ -49,7 +49,7 @@
                   </transition>
                 </li>
                 <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false" class="dropdown-container">
-                  <a href="">Ecosystem <img v-show="!isEco" src="@/assets/icon-chevron-down.svg" alt="chevron"><img v-show="isEco" src="@/assets/icon-chevron-up.svg" alt="chevron"></a>
+                  <a href="">Ecosystem <img v-show="!isEco" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEco" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
