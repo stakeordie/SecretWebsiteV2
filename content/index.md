@@ -155,7 +155,7 @@ Find out why Secret Network is a first-of-its-kind, open-source blockchain that 
 
 ## Want to build a better internet?
 
-## Secret Solves for <typical :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
+## Solve for <typical :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
 
 </block>
 
