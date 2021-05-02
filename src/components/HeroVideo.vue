@@ -10,7 +10,7 @@
     <div class="column2">
       <img v-if="hasImage" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.image.url" :alt="title"/>
       <div v-else>
-        TEST
+        
       </div>
     </div>
   </div>
