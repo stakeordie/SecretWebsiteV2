@@ -105,6 +105,7 @@
       justify-content: space-around;
       align-content: center;
       text-align: center;
+      cursor: pointer;
       width: 100%;
       height: 100%;
       border: 4px dashed;
