@@ -25,6 +25,7 @@ import Type from "~/components/Type.vue";
 import AlertBar from "~/components/AlertBar.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
+import ImagePlaceholder from "~/components/ImagePlaceholder.vue";
 import HeroVideo from "~/components/HeroVideo.vue";
 import HeroTitle from "~/components/HeroTitle.vue";
 import CardSimple from "~/components/cards/CardSimple.vue";
@@ -80,6 +81,7 @@ export default function(Vue, {
     Vue.component("AlertBar", AlertBar);
     Vue.component("DefaultLayout", DefaultLayout);
     Vue.component("ThemedImage", ThemedImage);
+    Vue.component("ImagePlaceholder", ImagePlaceholder);
     Vue.component("Navigation", Navigation);
     Vue.component("Type", Type);
     Vue.component("HeroVideo", HeroVideo);
