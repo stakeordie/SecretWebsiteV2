@@ -107,7 +107,8 @@
       text-align: center;
       width: 100%;
       height: 100%;
-      border: 4px dashed white;
+      border: 4px dashed;
+      border-color: var(--f-h1-text-color);
       padding: 20px;
       
       .dimensions {
