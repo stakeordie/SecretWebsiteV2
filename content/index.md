@@ -35,7 +35,7 @@ title: 'Secret Network'
 
 <card-block>
 
-### Getting started
+### Get started
 
 #### with Secret Network
 
@@ -45,7 +45,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <card-block>
 
-![img](./img/card-build.png)
+<img src="./img/card-build.png" alt="getting started" width="100%" height="auto">
 
 </card-block>
 
@@ -68,21 +68,21 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <block>
 
-<card-simple class="orientation-vertical accent-orange" url="/about/about-secret-network">
+<card-simple class="orientation-vertical accent-blue" url="/community">
 
 <card-block>
 
-### Learn
+### Join
 
-#### about Secret Network
+#### the Community
 
-Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default.
+Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network.
 
 </card-block>
 
 <card-block>
 
-![](./img/card-hand.png)
+![](./img/card-people.png)
 
 </card-block>
 
@@ -116,21 +116,21 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 <block>
 
-<card-simple class="orientation-vertical accent-blue" url="/community">
+<card-simple class="orientation-vertical accent-orange" url="/ecosystem/overview">
 
 <card-block>
 
-### Join
+### Explore
 
-#### the Community
+#### the Ecosystem
 
-Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network.
+Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default.
 
 </card-block>
 
 <card-block>
 
-![](./img/card-people.png)
+![](./img/card-hand.png)
 
 </card-block>
 
@@ -149,11 +149,13 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 
 <!-- Want to build better internet title -->
-<column class="home--build_better_internet" number="2" number-m="1" number-s="1">
+<column class="home--build_better_internet color-change" number="1" number-m="1" number-s="1">
 
 <block>
 
-# Want to build a better internet?
+## Want to build a better internet?
+
+## Secret Solves for <typical :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
 
 </block>
 
@@ -168,7 +170,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 
 <!-- Want to build better internet paragraphs -->
-<column class="spacer-s" number="2" number-m="1" number-s="1">
+<column class="home--build_better_internet spacer-s" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -182,28 +184,14 @@ Blockchains are public by default. That means that all the data used in smart co
 
 </block>
 
-</column>
-
-
-
-
-
-
-
-
-
-
-<!-- Solves for privacy -->
-<column class="spacer-s color-change">
-
 <block>
 
-### Secret Solves for <typical class="color-change" :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
-
+<btn url="/about/about-secret-network">Learn More</btn>
 
 </block>
 
 </column>
+
 
 
 

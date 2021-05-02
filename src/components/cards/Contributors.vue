@@ -17,8 +17,8 @@
             <img :src="require(`@/assets${secretContributor.picture}`)" />
             <div class="meta">
               <h6>{{secretContributor.name}}</h6>
-              <p v-if="secretContributor.tag" :class="'accent-'+secretContributor.tag">{{secretContributor.tag}}</p>
-              <p v-if="secretContributor.tagTwo" :class="'accent-'+secretContributor.tagTwo">{{secretContributor.tagTwo}}</p>
+              <p class="tag" v-if="secretContributor.tag" :class="'accent-'+secretContributor.tag">{{secretContributor.tag}}</p>
+              <p class="tag" v-if="secretContributor.tagTwo" :class="'accent-'+secretContributor.tagTwo">{{secretContributor.tagTwo}}</p>
             </div>
           </a>
         </div>
@@ -185,6 +185,9 @@
           }
 
           p {
+            &.tag {
+              text-transform: capitalize;
+            }
             @each $name, $color in $accent-colors {
               &.accent-#{$name} {
                 color: var(--accent-#{$name});

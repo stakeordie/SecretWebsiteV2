@@ -5,15 +5,12 @@
       <simple-header class="fixed" mode="full">
         <!-- mobile menu toggle -->
         <a class="mobile-menu-toggle" @click="toggleNav" aria-label="Close">
-          <g-image v-show="!isNavOpen" class="open-menu" src="../assets/icon-menu.svg" :immediate="true">
-          </g-image>
-          <g-image v-show="isNavOpen" class="open-menu" src="../assets/icon-menu-close.svg" :immediate="true">
-          </g-image>
+          <img v-show="!isNavOpen" class="open-menu" src="../assets/icon-menu.svg" width="24" height="24" />
+          <img v-show="isNavOpen" class="open-menu" src="../assets/icon-menu-close.svg" width="24" height="24" />
         </a>
         <!-- logo -->
         <g-link class="link-logo" to="/">
-          <g-image class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true">
-          </g-image>
+          <img class="header__logo" src="../assets/secretnetwork-logo-primary-white.svg" width="124" height="58" />
         </g-link>
         <!-- mobile menu wrapper -->
         <div class="nav-wrapper">
@@ -21,9 +18,8 @@
             <!-- main navigation -->
             <nav class="main-navigation">
               <ul class="header__navigation">
-                <li @click.prevent="showLearn" @mouseleave="isLearnOpen = false"
-                  class="dropdown-container">
-                  <a href="">Learn <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                <li @click.prevent="showLearn" @mouseleave="isLearnOpen = false" class="dropdown-container">
+                  <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
                       <li v-for="(link, index) in linksLearn">
@@ -32,9 +28,8 @@
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showCommunity" @mouseleave="isCommunityOpen = false"
-                  class="dropdown-container">
-                  <a href="">Community <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                <li @click.prevent="showCommunity" @mouseleave="isCommunityOpen = false" class="dropdown-container">
+                  <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
                       <li v-for="(link, index) in linksCommunity">
@@ -43,9 +38,8 @@
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showDevelopers" @mouseleave="isDevelopersOpen = false"
-                  class="dropdown-container">
-                  <a href="">Developers <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                <li @click.prevent="showDevelopers" @mouseleave="isDevelopersOpen = false" class="dropdown-container">
+                  <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isDevelopersOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
@@ -54,9 +48,8 @@
                     </ul>
                   </transition>
                 </li>
-                <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false"
-                  class="dropdown-container">
-                  <a href="">Ecosystem <img src="@/assets/icon-chevron-down.svg" alt=""></a>
+                <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false" class="dropdown-container">
+                  <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
@@ -69,46 +62,60 @@
             </nav>
             <!-- social navigation -->
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
-              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-                  src="@/assets/icon-social-github.svg" alt=""></a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
-                  alt=""></a>
-              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
-                  alt=""></a>
-              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
-                  alt=""></a>
-              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
-                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+              <a href="https://forum.scrt.network/" target="blank">
+                <img src="@/assets/icon-social-forum.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">
+                <img src="@/assets/icon-social-github.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank">
+                <img src="@/assets/icon-social-discord.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://t.me/SCRTcommunity" target="blank">
+                <img src="@/assets/icon-social-telegram.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://twitter.com/SecretNetwork" target="blank">
+                <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank">
+                <img src="@/assets/icon-social-youtube.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
             </nav>
           </div>
           <!-- toggles -->
           <div class="toggles">
             <!-- social navigation -->
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
-              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-                  src="@/assets/icon-social-github.svg" alt=""></a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
-                  alt=""></a>
-              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
-                  alt=""></a>
-              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
-                  alt=""></a>
-              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
-                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+              <a href="https://forum.scrt.network/" target="blank">
+                <img src="@/assets/icon-social-forum.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">
+                <img src="@/assets/icon-social-github.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank">
+                <img src="@/assets/icon-social-discord.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://t.me/SCRTcommunity" target="blank">
+                <img src="@/assets/icon-social-telegram.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://twitter.com/SecretNetwork" target="blank">
+                <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank">
+                <img src="@/assets/icon-social-youtube.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
             </nav>
             <button class="theme" @click="toggleDarkLightMode">
               <themed-image>
-                <g-image class="not-invert" dark dark-colored src="@/assets/moon.svg" :immediate="true"></g-image>
-                <g-image class="not-invert" light light-colored src="@/assets/sun.svg" :immediate="true"></g-image>
+                <img class="not-invert" dark dark-colored src="@/assets/moon.svg" width="24" height="24" />
+                <img class="not-invert" light light-colored src="@/assets/sun.svg" width="24" height="24" />
               </themed-image>
             </button>
             <button class="theme" @click="toggleColoredMode">
               <themed-image>
-                <g-image class="not-invert" dark light src="@/assets/mono.svg" :immediate="true"></g-image>
-                <g-image class="not-invert" dark-colored light-colored src="@/assets/chromo.svg" :immediate="true">
-                </g-image>
+                <img class="not-invert" dark light src="@/assets/mono.svg" width="24" height="24" />
+                <img class="not-invert" dark-colored light-colored src="@/assets/chromo.svg" width="24" height="24" />
+
               </themed-image>
             </button>
           </div>
@@ -121,8 +128,8 @@
         <div class="swirl top">
           <themed-image>
             <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
-            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
-            <img light src="@/assets/swirl-lines-light.svg" alt="" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="swirl" width="100" height="100" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="swirl" width="100" height="100" />
           </themed-image>
         </div>
       </block>
@@ -136,9 +143,9 @@
       <block>
         <div class="swirl bottom">
           <themed-image>
-            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="" />
-            <img dark src="@/assets/swirl-lines-dark.svg" alt="" />
-            <img light src="@/assets/swirl-lines-light.svg" alt="" />
+            <img dark-colored light-colored src="@/assets/swirl-color-dark.svg" alt="swirl" width="100" height="100" />
+            <img dark src="@/assets/swirl-lines-dark.svg" alt="swirl" width="100" height="100" />
+            <img light src="@/assets/swirl-lines-light.svg" alt="swirl" width="100" height="100" />
           </themed-image>
         </div>
       </block>
@@ -171,27 +178,35 @@
         <section class="footer-contact">
           <div class="social">
             <g-link to="/">
-              <g-image class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" :immediate="true">
-              </g-image>
+              <img class="scrt-logo" src="../assets/secretnetwork-logo-primary-white.svg" width="124" height="58" />
             </g-link>
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank"><img src="@/assets/icon-social-forum.svg" alt=""></a>
-              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-                  src="@/assets/icon-social-github.svg" alt=""></a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank"><img src="@/assets/icon-social-discord.svg"
-                  alt=""></a>
-              <a href="https://t.me/SCRTcommunity" target="blank"><img src="@/assets/icon-social-telegram.svg"
-                  alt=""></a>
-              <a href="https://twitter.com/SecretNetwork" target="blank"><img src="@/assets/icon-social-twitter.svg"
-                  alt=""></a>
-              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank"><img
-                  src="@/assets/icon-social-youtube.svg" alt=""></a>
+              <a href="https://forum.scrt.network/" target="blank">
+                <img src="@/assets/icon-social-forum.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">
+                <img src="@/assets/icon-social-github.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://discord.com/invite/SJK32GY" target="blank">
+                <img src="@/assets/icon-social-discord.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://t.me/SCRTcommunity" target="blank">
+                <img src="@/assets/icon-social-telegram.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://twitter.com/SecretNetwork" target="blank">
+                <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank">
+                <img src="@/assets/icon-social-youtube.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
             </nav>
             <div class="contribute-github">
               <p><a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">Contribute to
-                  scrt.network</a></p>
-              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank"><img
-                  src="../assets/icon-github.svg" alt=""></a>
+                  scrt.network
+                </a></p>
+              <a href="https://github.com/SecretFoundation/SecretWebsite" target="blank">
+                <img src="../assets/icon-github.svg" alt="Join the Conversation" width="24" height="24" />
+              </a>
             </div>
           </div>
           <div class="subscribe">
@@ -231,9 +246,7 @@
 </static-query>
 
 <script>
-
-
-  export default {  
+  export default {
     data: function () {
       return {
         isNavOpen: false,
@@ -241,8 +254,7 @@
         isCommunityOpen: false,
         isDevelopersOpen: false,
         isEcosystemOpen: false,
-        linksLearn: [
-          {
+        linksLearn: [{
             title: 'About the Network',
             path: '/about/about-secret-network',
             target: '',
@@ -259,7 +271,7 @@
           },
         ],
         linksCommunity: [{
-          title: 'About the Community',
+            title: 'About the Community',
             path: '/community'
           },
           {
@@ -271,8 +283,7 @@
             path: '/committees'
           },
         ],
-        linksDevelopers: [
-          {
+        linksDevelopers: [{
             title: 'How to get started?',
             path: '/developers',
             target: '',
@@ -283,8 +294,7 @@
             target: '',
           },
         ],
-         linksEcosystem: [
-          {
+        linksEcosystem: [{
             title: 'Explore the Ecosystem',
             path: '/ecosystem/overview',
             target: '',
@@ -326,8 +336,7 @@
             target: 'self',
           },
         ],
-        linksFooterCommunity: [
-          {
+        linksFooterCommunity: [{
             title: 'About the Community',
             path: '/community',
             external: false,
@@ -388,17 +397,17 @@
 
     },
     watch: {
-      
+
       $route(to, from) {
         this.isNavOpen = false,
-        this.isLearnOpen = false;
+          this.isLearnOpen = false;
         this.isCommunityOpen = false;
         this.isDevelopersOpen = false;
         this.isEcosystemOpen = false;
       }
     },
     methods: {
-      
+
       // mq () {
       //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
       // },
@@ -776,7 +785,7 @@
       bottom: -300px;
 
       @include respond-to("<=s") {
-        bottom: -483px;
+        bottom: -300px;
       }
 
       img {
@@ -850,6 +859,7 @@
     .footer-contact {
       display: grid;
       grid-template-columns: 1fr 445px;
+
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
         gap: var(--f-gutter-xxl);
@@ -944,7 +954,9 @@
 
     .content {
       .box {
-        p, a {
+
+        p,
+        a {
           margin: 0;
           // color: var(--the);
         }
@@ -1052,4 +1064,4 @@
     }
   }
 
-</style>  
+</style>

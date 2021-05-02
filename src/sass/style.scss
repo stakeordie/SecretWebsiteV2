@@ -13,8 +13,7 @@
 
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: (
-    "blue",
+$accent-colors: ("blue",
     "turquoise",
     "green",
     "yellow",
@@ -33,7 +32,7 @@ $accent-colors: (
     --f-forms-button-radius: 10px;
     --f-forms-button-padding: 10px 32px;
     --spacer-xs: 64px;
-    --spacer-s: 110px;
+    --spacer-s: 70px;
     --spacer-m: 178px;
     --spacer-l: 288px;
 
@@ -74,6 +73,7 @@ body {
 main {
     // margin-top: 68px;
     padding-top: var(--alert-height-desktop);
+
     @include respond-to("<=s") {
         margin-top: 0;
         padding-top: var(--f-gutter-xl);
@@ -138,6 +138,13 @@ hr {
         background-repeat: no-repeat;
         width: 161px;
         height: 368px;
+        z-index: -1;
+
+        @include respond-to("<=s") {
+            top: -300px;
+            width: 130px;
+            height: 300px;
+        }
     }
 
     &.swirl-b {
@@ -286,6 +293,10 @@ input:not(.button) {
     }
 }
 
+img {
+    aspect-ratio: attr(width) / attr(height);
+  }
+
 .img-invert {
     .content {
         .box {
@@ -300,8 +311,8 @@ input:not(.button) {
 
 .filter {
     ul {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, auto));
         padding-left: 0;
         gap: var(--f-gutter);
 
@@ -345,11 +356,14 @@ input:not(.button) {
 .thanks {
     .--flare-block {
         background-color: var(--color-highkey-tertiary-green);
+
         .content {
             padding-top: var(--f-gutter-xl);
             padding-bottom: var(--f-gutter-xl);
+
             .box {
                 color: var(--color-analog-primary-black);
+
                 p {
                     color: var(--color-analog-primary-black);
                 }
@@ -372,14 +386,13 @@ $color in $accent-colors {
 }
 
 .color-change {
-    .typed, span {
+
+    .typed,
+    span {
         animation: color-change 25s infinite alternate;
     }
+
     path {
         animation: fill-change 25s infinite alternate;
     }
 }
-
-  
-
-

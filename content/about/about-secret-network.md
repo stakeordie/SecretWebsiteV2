@@ -124,7 +124,7 @@ Allowing research over encrypted data, driving innovation.
 
 #### Want to know some other secret keys?
 
-<btn url="#faq">Read the FAQ</btn>
+<btn class="text-center" url="#faq">Read the FAQ</btn>
 
 </card-minimal>
 

@@ -264,8 +264,8 @@
       ul {
         position: sticky;
         top: 100px;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-auto-flow: row;
         gap: var(--f-gutter-xxs);
 
           .chevron {

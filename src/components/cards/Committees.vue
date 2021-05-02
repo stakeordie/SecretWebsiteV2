@@ -8,23 +8,25 @@
           <h4>{{committee.date}}</h4>
         </div>
         <a class="button" target="blank" :href="committee.url">Join</a>
-        <div class="info-set">
-          <h6>Purpose</h6>
-          <p>{{committee.purpose}}</p>
-        </div>
-        <div class="info-set">
-          <h6>Goals</h6>
-          <p>
-            <vue-markdown>{{committee.goals}}</vue-markdown>
-          </p>
-        </div>
-        <div class="info-set">
-          <h6>Responsibilities</h6>
-          <p><vue-markdown>{{committee.responsibilities}}</vue-markdown></p>
-        </div>
-        <div class="info-set" v-if="committee.initiatives">
-          <h6>Initiatives</h6>
-          <p><vue-markdown>{{committee.initiatives}}</vue-markdown></p>
+        <div class="info-wrapper">
+          <div class="info-set">
+            <h6>Purpose</h6>
+            <p>{{committee.purpose}}</p>
+          </div>
+          <div class="info-set">
+            <h6>Goals</h6>
+            <p>
+              <vue-markdown>{{committee.goals}}</vue-markdown>
+            </p>
+          </div>
+          <div class="info-set">
+            <h6>Responsibilities</h6>
+            <p><vue-markdown>{{committee.responsibilities}}</vue-markdown></p>
+          </div>
+          <div class="info-set" v-if="committee.initiatives">
+            <h6>Initiatives</h6>
+            <p><vue-markdown>{{committee.initiatives}}</vue-markdown></p>
+          </div>
         </div>
       </div>
     </div>
@@ -180,11 +182,18 @@
               color: var(--theme-card-text-color);
             }
           }
-          .info-set {
+          .info-wrapper {
             display: grid;
-            gap: var(--f-gutter-s);
-            li {
-              margin-bottom: var(--f-gutter-xs);
+            gap: var(--f-gutter-l);
+            .info-set {
+              display: grid;
+              gap: var(--f-gutter-xxs);
+              p, ul {
+                margin-bottom: 0;
+              }
+              li {
+                margin-bottom: var(--f-gutter-xs);
+              }
             }
           }
         }

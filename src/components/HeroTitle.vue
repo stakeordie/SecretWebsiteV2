@@ -25,7 +25,9 @@
           display: inline-block;
           margin-bottom: var(--f-gutter-xxxl);
           gap: var(--f-gutter-xl);
-
+          @include respond-to("<=s") {
+            margin-bottom: var(--f-gutter-l);
+          }
           h2 {
             margin-bottom: 0;
           }

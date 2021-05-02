@@ -1,9 +1,11 @@
 <template>
   <a class="btn button" :href="url">
-    <slot></slot>
+    <span class="btn-text">
+      <slot></slot>
+    </span>
     <themed-image>
-      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="" />
-      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="" />
+      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="arrow" width="20" height="20" />
+      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="arrow" width="20" height="20" />
     </themed-image>
   </a>
 </template>
@@ -31,7 +33,8 @@
     }
   }
 
-  body {
+.content {
+    .box {
 
     .btn {
       display: inline-flex;
@@ -46,12 +49,31 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
+      font-size: 14px;
       p {
         margin-bottom: 0;
       }
 
       &.text-center {
         justify-content: center;
+      }
+
+      &:hover {
+        background: var(--color-neutral-dark-mode-02);
+        span {
+          transform: translateY(2px);
+          color: var(--color-analog-primary-white);
+        }  
+        img {
+          @include theme(light light-colored) {
+            filter: invert(1);
+          }
+        }
+      }
+
+      .btn-text {
+        transform: translateY(2px);
+        color: var(--theme-fg);
       }
 
       &.no-arrow {
@@ -66,5 +88,6 @@
       }
     }
   }
+}
 
 </style>
