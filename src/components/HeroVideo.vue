@@ -9,7 +9,19 @@
     </div>
     <div class="column2">
       <img v-if="hasImage" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.image.url" :alt="title"/>
-      <div v-else>
+      <div class="insert-image-here" v-else>
+        <h4 class="title">
+          Home Hero Image
+        </h4>
+        <h1 class="dimensions">
+          750 x 750
+        </h1>
+        <div class="upload">
+          <img src="../assets/software-upload.svg" />
+          <p>
+            Click to select an asset or drag & drop a file in this area
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -86,6 +98,37 @@
     .column1 {
       display: flex;
       flex-direction: column;
+    }
+    .insert-image-here {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-content: center;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      border: 4px dashed white;
+      padding: 20px;
+      
+      .dimensions {
+        font-family: hind;
+      }
+      
+      .upload {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: center;
+        img {
+          width: 24px;
+          margin: auto;
+        }
+        p {
+          margin: 0px;
+          padding: 10px;
+          font-size: 18px;
+        }
+      }
     }
 
     .message {
