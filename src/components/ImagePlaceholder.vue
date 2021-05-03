@@ -121,7 +121,7 @@ export default {
     width: 100%;
     height: 100%;
     &:hover {
-      opacity: 50%;
+      opacity: .5;
     }
     .insert-image-here {
       display: flex;
