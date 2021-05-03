@@ -54,11 +54,15 @@ export default {
       if(this.imageDeleted) {
         return false; 
       } else {
-        if(localStorage.getItem(this.title.replace(" ", ""))) {
+        if(this.uploadedImage) {
           return true;
         } else {
-          if(this.uploadedImage) {
-            return true;
+          if(process.isClient) {
+            if(localStorage.getItem(this.title.replace(" ", ""))) {
+              return true;
+            } else {
+              return false;
+            }
           } else {
             return false;
           }
@@ -69,7 +73,9 @@ export default {
       if(this.uploadedImage) {
         return this.uploadedImage;
       } else {
-        return localStorage.getItem(this.title.replace(" ", ""));
+        if(process.isClient) {
+          return localStorage.getItem(this.title.replace(" ", ""));
+        }
       };
     }
   },
@@ -82,24 +88,28 @@ export default {
       this.onFilePicked(droppedFiles[0]);
     },
     onFilePicked (event) {
-      let theFile;
-      if(event.target?.files[0]) {
-        theFile = event.target.files[0];
-      } else {
-        theFile = event;
-      }
-      console.log(theFile);
-      const reader = new FileReader()
-      reader.addEventListener('load', () => {
-        this.uploadedImage = reader.result
-        localStorage.setItem(this.title.replace(" ", ""), reader.result);
-        this.imageDeleted = false;
-      })
-      reader.readAsDataURL(theFile)
+        let theFile;
+        if(event.target?.files[0]) {
+          theFile = event.target.files[0];
+        } else {
+          theFile = event;
+        }
+        console.log(theFile);
+        const reader = new FileReader()
+        reader.addEventListener('load', () => {
+          this.uploadedImage = reader.result
+          if(process.isClient) {
+            localStorage.setItem(this.title.replace(" ", ""), reader.result);
+          }
+          this.imageDeleted = false;
+        })
+        reader.readAsDataURL(theFile)
     },
     deleteImage() {
       this.imageDeleted = true;
-      localStorage.removeItem(this.title.replace(" ", ""));
+      if(process.isClient) {
+        localStorage.removeItem(this.title.replace(" ", ""));
+      }
       this.uploadedImage = null;
     }
   }
