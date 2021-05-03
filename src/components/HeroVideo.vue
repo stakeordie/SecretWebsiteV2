@@ -9,7 +9,7 @@
     </div>
     <div class="column2">
       <img v-if="hasImage" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.image.url" :alt="title"/>
-      <image-placeholder v-else width="750" height="750"/>
+      <image-placeholder v-else width="750" height="750" title="Hero Home Image"/>
     </div>
   </div>
 </template>
@@ -41,7 +41,11 @@
     },
     computed: {
       hasImage() {
-        this.$static.homeHero.edges[0].node.image.caption == 'no-image'
+        if(this.$static.homeHero.edges[0].node.image.caption == "no-image") {
+          return false;
+        } else {
+          return true;
+        }
       }
     }
   }
