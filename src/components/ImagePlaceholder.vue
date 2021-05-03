@@ -20,8 +20,8 @@
       accept="image/*"
       @change="onFilePicked" />
     </div>
-    <div v-else>
-      <img :src="localImage" @click="deleteImage()"/>
+    <div class="image" v-else @click="deleteImage()">
+      <img :src="localImage" />
     </div>
   </div>
   
@@ -123,6 +123,18 @@ export default {
     &:hover {
       opacity: .5;
     }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      img {
+        margin: auto;
+      }
+    }
+
     .insert-image-here {
       display: flex;
       flex-direction: column;
