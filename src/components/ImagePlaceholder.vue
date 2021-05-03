@@ -119,7 +119,10 @@ export default {
 <style lang="scss">
   .wrapper {
     width: 100%;
-      height: 100%;
+    height: 100%;
+    &:hover {
+      opacity: 50%;
+    }
     .insert-image-here {
       display: flex;
       flex-direction: column;
@@ -132,10 +135,6 @@ export default {
       border: 4px dashed;
       border-color: var(--f-h1-text-color);
       padding: 20px;
-
-      &:hover {
-        opacity: 50%;
-      }
       
       .dimensions {
         font-family: hind;
