@@ -19,7 +19,7 @@ title: 'Secret Network'
 
 <block>
 
-<card-simple-dynamic class="orientation-horizontal accent-purple" cardId="card_1"/>
+<card-simple-dynamic class="orientation-horizontal accent-purple" cardId="card_1" imageWidth="1200" imageHeight="500"/>
 
 </block>
 
@@ -30,19 +30,19 @@ title: 'Secret Network'
 
 <block>
 
-<card-simple-dynamic class="orientation-vertical accent-blue" cardId="card_2"/>
+<card-simple-dynamic class="orientation-vertical accent-blue" cardId="card_2" imageWidth="630" imageHeight="500"/>
 
 </block>
 
 <block>
 
-<card-simple-dynamic class="orientation-vertical accent-green" cardId="card_3"/>
+<card-simple-dynamic class="orientation-vertical accent-green" cardId="card_3" imageWidth="630" imageHeight="500"/>
 
 </block>
 
 <block>
 
-<card-simple-dynamic class="orientation-vertical accent-orange" cardId="card_4"/>
+<card-simple-dynamic class="orientation-vertical accent-orange" cardId="card_4" imageWidth="630" imageHeight="500"/>
 
 </block>
 

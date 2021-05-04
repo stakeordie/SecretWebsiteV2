@@ -1,16 +1,18 @@
 <template>
   <div class="card-simple" :class="{ 'cta': $static.homeCtaCards.edges[0].node[cardId].link }">
-    <a :href="'https://strapi.stakeordie.com' + $static.homeCtaCards.edges[0].node[cardId].link">
+    <a :href="$static.homeCtaCards.edges[0].node[cardId].link">
       <card-block>
         <h3>{{$static.homeCtaCards.edges[0].node[cardId].title}}</h3>
         <h4>{{$static.homeCtaCards.edges[0].node[cardId].subtitle}}</h4>
         <p>{{$static.homeCtaCards.edges[0].node[cardId].text}}</p>
       </card-block>
-      <card-block>
-        <img v-if="hasImage" :src="'https://strapi.stakeordie.com' + $static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
-        <image-placeholder v-else width="630" height="500" title="Build Card Image"/>
+      <card-block v-if="hasImage">
+        <img :src="'https://strapi.stakeordie.com' + $static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
       </card-block>
     </a>
+    <card-block>
+      <image-placeholder v-if="!hasImage" :width="imageWidth" :height="imageHeight" title="Build Card Image" />
+    </card-block>
   </div>
 </template>
 
@@ -18,6 +20,14 @@
   export default {
     props: {
       cardId: {
+        type: String,
+        required: true
+      },
+      imageWidth: {
+        type: String,
+        required: true
+      },
+      imageHeight: {
         type: String,
         required: true
       }
