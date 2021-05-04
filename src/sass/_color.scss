@@ -115,3 +115,17 @@
     90% { fill: var(--color-highkey-tertiary-orange); }
     100% { fill: var(--accent-yellow); }
 }
+
+@keyframes bg-change {
+    0% { background: var(--accent-blue); }
+    10% { background: var(--accent-turquoise); }
+    20% { background: var(--accent-green); }
+    30% { background: var(--accent-yellow); }
+    40% { background: var(--accent-cream); }
+    50% { background: var(--accent-orange); }
+    60% { background: var(--color-analog-tertiary-red); }
+    70% { background: var(--accent-purple); }
+    80% { background: var(--accent-green); }
+    90% { background: var(--color-highkey-tertiary-orange); }
+    100% { background: var(--accent-yellow); }
+}

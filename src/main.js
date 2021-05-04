@@ -40,6 +40,7 @@ import MediaFeatured from "~/components/cards/MediaFeatured.vue";
 import Committees from "~/components/cards/Committees.vue";
 import Btn from "~/components/Btn.vue";
 import Faq from "~/components/Faq.vue";
+import Colors from "~/components/cards/Colors.vue";
 // Blog
 import BlogAuthor from "~/components/blog/BlogAuthor"
 import BlogCard from "~/components/blog/BlogCard"
@@ -96,6 +97,7 @@ export default function(Vue, {
     Vue.component("Committees", Committees);
     Vue.component("Btn", Btn);
     Vue.component("Faq", Faq);
+    Vue.component("Colors", Colors);
 
     //Experimental
     // Vue.component("SecretAgents", SecretAgents);
