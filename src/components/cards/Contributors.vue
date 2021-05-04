@@ -16,6 +16,15 @@
     <div class="contributors-container">
       <h3>Contributors</h3>
       <div class="contributors-grid">
+        <div class="card-contributor">
+          <a href="https://learn.scrt.network/foundation.html" target="blank">
+            <img :src="require(`@/assets/contributors/image1.png`)" />
+            <div class="meta">
+              <h6>Secret Foundation</h6>
+              <p class='accent-1'>&nbsp;</p>
+            </div>
+          </a>
+        </div>
         <div class="card-contributor" v-for="contributor in filteredContributors">
           <a :href="contributor.url" target="blank">
             <img :src="require(`@/assets${contributor.picture}`)" />
@@ -35,7 +44,7 @@
   export default {
     data: function () {
       return {
-        checkedContributorCategories: [],
+        checkedContributorCategories: [1,2,3,4],
         contributorCategories: [{
           id: 1,
           title: 'validators',

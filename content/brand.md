@@ -1,3 +1,82 @@
+---
+title: 'Brand'
+---
+
+
+
+
+
+
+
+
+<!-- Page title -->
+<column mode="normal">
+<block>
+<hero-title>
+
+## Secret Brand
+
+</hero-title>
+</block>
+</column>
+
+
+
+
+
+
+
+
+
+<!-- content -->
+<column class="spacer-s" number="2" number-m="2" number-s="1">
+
+<block>
+
+### Mission Statement
+
+We build groundbreaking privacy technologies with a focus on increasing usability and adoption. We empower our own community to contribute directly to the success of our network and its applications, and we enable them to directly benefit from its growth. We are passionate and inclusive. We maintain a global presence. We work hard towards driving usage and awareness. We educate and cultivate our community. We build relationships and partnerships across the world so that people everywhere can benefit from privacy.
+
+</block>
+
+<block>
+
+#### Vision Statement
+
+By solving for data privacy, Secret Network will become a foundational pillar of a more decentralized, more democratic, and more empowering internet.
+Providing privacy and protecting data is critical for empowering people, protecting their freedoms, and unlocking value for users all around the world. We strive to build a sustainable network, ecosystem, and community that will work towards global adoption of our technologies.
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
+<!-- our visual brand is... -->
+<column class="spacer-s text-center color-change">
+
+<block>
+
+## Our Visual Brand is <typical :steps="['Humanist', 2000, 'Organic', 2000, 'Illustrated', 2000, 'Flowing', 2000, 'Striking', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
 <type title="Hero">
 
 ## Secret Brand
@@ -29,9 +108,9 @@ striking
 
 ### Icon
 
-<g-image src="../../src/assets/logo-seal-outline-black.svg"></g-image>
+<g-image src="../src/assets/logo-seal-outline-black.svg"></g-image>
 
-<g-image src="../../src/assets/logo-seal-outline-white.svg"></g-image>
+<g-image src="../src/assets/logo-seal-outline-white.svg"></g-image>
 
 The Secret S evokes a flowing network and the duality of secrets: **privacy** and **transparency**.
 
@@ -42,25 +121,25 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 
 ### Primary Logo
 
-![Primary logo - White](../../src/assets/brandbook/primary-logo-white.png)
+![Primary logo - White](../src/assets/brandbook/primary-logo-white.png)
 
 <a href="/secretnetwork-logo-primary-black.svg">SVG</a>
 <a href="/secretnetwork-logo-primary-black.png">PNG</a>
 
 
-![Primary logo - Black](../../src/assets/brandbook/primary-logo-black.png)
+![Primary logo - Black](../src/assets/brandbook/primary-logo-black.png)
 
 <a href="/secretnetwork-logo-primary-white.svg">SVG</a>
 <a href="/secretnetwork-logo-primary-white.png">PNG</a>
 
 ### Secondary Logo
 
-![Secondary logo - White](../../src/assets/brandbook/secondary-logo-white.png)
+![Secondary logo - White](../src/assets/brandbook/secondary-logo-white.png)
 
 <a href="/secretnetwork-logo-secondary-black.svg">SVG</a>
 <a href="/secretnetwork-logo-secondary-black.png">PNG</a>
 
-![Secondary logo - Black](../../src/assets/brandbook/secondary-logo-black.png)
+![Secondary logo - Black](../src/assets/brandbook/secondary-logo-black.png)
 
 <a href="/secretnetwork-logo-secondary-white.svg">SVG</a>
 <a href="/secretnetwork-logo-secondary-white.png">PNG</a>
@@ -81,26 +160,26 @@ Hind Regular (400) is used body copy, and **Hind Bold (700) is used for bold bod
 
 ### Analog Colors
 
-![Analog Colors](../../src/assets/brandbook/analog.png)
+![Analog Colors](../src/assets/brandbook/analog.png)
 
 <a href="/analog.svg">SVG</a>
 <a href="/analog.png">PNG</a>
 
 ### High Key Colors
 
-![High Key Colors](../../src/assets/brandbook/high-key.png)
+![High Key Colors](../src/assets/brandbook/high-key.png)
 
 <a href="/high-key.svg">SVG</a>
 <a href="/high-key.png">PNG</a>
 
 ### Topographical Map
 
-![Topographical Map - White background](../../src/assets/brandbook/topographical-white.png)
+![Topographical Map - White background](../src/assets/brandbook/topographical-white.png)
 
 <a href="/topographical-white.svg">SVG</a>
 <a href="/topographical-white.png">PNG</a>
 
-![Topographical Map - Black Background](../../src/assets/brandbook/topographical-black.png)
+![Topographical Map - Black Background](../src/assets/brandbook/topographical-black.png)
 
 <a href="/topographical-black.svg">SVG</a>
 <a href="/topographical-black.png">PNG</a>
