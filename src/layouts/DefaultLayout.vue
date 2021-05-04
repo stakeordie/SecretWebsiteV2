@@ -23,7 +23,7 @@
                   <transition name="fade">
                     <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
                       <li v-for="(link, index) in linksLearn">
-                        <a :href="link.path" :title="link.title"> {{ link.title }}</a>
+                        <g-link :to="link.path" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
                   </transition>
@@ -426,9 +426,9 @@
       toggleNav() {
         this.isNavOpen = !this.isNavOpen
         if (this.isNavOpen) {
-          document.body.classList.add('modal-open');
+          document.body.classList.add('');
         } else {
-          document.body.classList.remove('modal-open');
+          document.body.classList.remove('');
         }
       },
       toggleDarkLightMode() {
