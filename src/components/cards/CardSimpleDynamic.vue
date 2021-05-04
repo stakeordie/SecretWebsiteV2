@@ -1,6 +1,6 @@
 <template>
-  <div class="card-simple" :class="{ 'cta': $static.homeCtaCards.edges[0].node[cardId].link }">
-    <a :href="$static.homeCtaCards.edges[0].node[cardId].link">
+  <div class="card-simple" :class="{ 'cta': $static.homeCtaCards.edges[0].node[cardId].page.route }">
+    <a :href="$static.homeCtaCards.edges[0].node[cardId].page.route">
       <card-block>
         <h3>{{$static.homeCtaCards.edges[0].node[cardId].title}}</h3>
         <h4>{{$static.homeCtaCards.edges[0].node[cardId].subtitle}}</h4>
@@ -59,7 +59,9 @@
               caption
               alternativeText
             }
-            link
+            page {
+              route
+            }
           }
           card_2 {
             title
@@ -70,7 +72,9 @@
               caption
               alternativeText
             }
-            link
+            page {
+              route
+            }
           }
           card_3 {
             title
@@ -81,7 +85,9 @@
               caption
               alternativeText
             }
-            link
+            page {
+              route
+            }
           }
           card_4 {
             title
@@ -92,7 +98,9 @@
               caption
               alternativeText
             }
-            link
+            page {
+              route
+            }
           }
         }
       }

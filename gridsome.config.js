@@ -32,7 +32,12 @@ module.exports = {
               apiURL: 'http://strapi.stakeordie.com',
               queryLimit: 1000, // Defaults to 100
               contentTypes: ['faq-items', 'secret-agents'],
-              singleTypes: ['home-hero', 'home-announcement-one', 'home-cta-cards'],
+              singleTypes: [
+                  'home-hero',
+                  'home-announcement-one',
+                  'home-cta-cards',
+                  'home-explainer'
+              ],
               // Possibility to login with a Strapi user,
               // when content types are not publicly available (optional).
               loginData: {
