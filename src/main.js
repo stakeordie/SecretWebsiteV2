@@ -57,16 +57,13 @@ require("prismjs/plugins/line-numbers/prism-line-numbers.css");
 
 
 
+
 function setDefaultTheme() {
     const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
     if (!theme) return
     const [body] = document.getElementsByTagName('body')
     if (!body) return
     body.setAttribute('theme', theme.trim())
-
-
-var left = document.getElementById("left");
-var stop = (left.offsetTop - 60);
 
 }
 

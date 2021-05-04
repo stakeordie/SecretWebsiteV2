@@ -295,7 +295,7 @@ input:not(.button) {
 
 img {
     aspect-ratio: attr(width) / attr(height);
-  }
+}
 
 .img-invert {
     .content {
@@ -319,6 +319,72 @@ img {
         @include respond-to("<=m") {
             flex-direction: row;
             flex-flow: wrap;
+        }
+
+        &.custom-checkbox {
+            margin-bottom: var(--f-gutter-l);
+            li {
+                label {
+                    display: grid;
+                    grid-auto-flow: column;
+                    width: 100%;
+                    justify-content: space-between;
+                    margin-bottom: 0;
+
+                    span {
+                        text-transform: capitalize;
+                    }
+                    
+                    @include respond-to("<=m") {
+                        border-radius: var(--f-forms-button-radius);
+                        padding: var(--f-gutter-xs) var(--f-gutter-s);
+                        color: var(--theme-fg);
+                        border: 1px solid var(--color-neutral-dark-mode-05);
+                        line-height: 1.5;
+                        text-align: center;
+                        justify-content: normal;
+                        &:hover {
+                            border: 1px solid var(--color-analog-secondary-blue);
+                            color: var(--color-analog-secondary-blue);
+                        }
+    
+                        img {
+                            display: none !important;
+                        }
+                    }
+    
+                    img {
+                        order: 2;
+                    }
+    
+                    input {
+                        display: none;
+    
+                        &:checked {
+                            ~.unchecked {
+                                display: none;
+                            }
+    
+                            ~.checked {
+                                display: block;
+                                @include theme(light light-colored) {
+                                    filter: invert(1);
+                                }
+                            }
+                        }
+    
+                        &:not(:checked) {
+                            ~.unchecked {
+                                display: block;
+                            }
+    
+                            ~.checked {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         li {
