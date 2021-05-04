@@ -31,7 +31,9 @@ title: 'Secret Network'
 
 <block>
 
-<card-simple class="orientation-horizontal accent-purple" url="/ecosystem/overview">
+<card-simple-dynamic class="orientation-horizontal accent-purple" cardId="card_1"/>
+
+<!-- <card-simple class="orientation-horizontal accent-purple" url="/ecosystem/overview">
 
 <card-block>
 
@@ -49,7 +51,7 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 </card-block>
 
-</card-simple>
+</card-simple> -->
 
 </block>
 
@@ -68,7 +70,9 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <block>
 
-<card-simple class="orientation-vertical accent-blue" url="/community">
+<card-simple-dynamic class="orientation-vertical accent-blue" cardId="card_2"/>
+
+<!-- <card-simple class="orientation-vertical accent-blue" url="/community">
 
 <card-block>
 
@@ -86,13 +90,15 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 </card-block>
 
-</card-simple>
+</card-simple> -->
 
 </block>
 
 <block>
 
-<card-simple class="orientation-vertical accent-green" url="/developers">
+<card-simple-dynamic class="orientation-vertical accent-green" cardId="card_3"/>
+
+<!-- <card-simple class="orientation-vertical accent-green" url="/developers">
 
 <card-block>
 
@@ -110,13 +116,15 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 </card-block>
 
-</card-simple>
+</card-simple> -->
 
 </block>
 
 <block>
 
-<card-simple class="orientation-vertical accent-orange" url="/ecosystem/overview">
+<card-simple-dynamic class="orientation-vertical accent-orange" cardId="card_4"/>
+
+<!-- <card-simple class="orientation-vertical accent-orange" url="/ecosystem/overview">
 
 <card-block>
 
@@ -134,7 +142,7 @@ Find out why Secret Network is a first-of-its-kind, open-source blockchain that 
 
 </card-block>
 
-</card-simple>
+</card-simple> -->
 
 </block>
 
