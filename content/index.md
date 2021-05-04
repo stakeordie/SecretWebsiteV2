@@ -3,11 +3,6 @@ title: 'Secret Network'
 ---
 
 
-
-
-
-
-
 <!-- Hero Video -->
 <column class="card-variant" mode="normal">
 <block>
@@ -18,13 +13,6 @@ title: 'Secret Network'
 </column>
 
 
-
-
-
-
-
-
-
 <!-- Getting started -->
 
 <column>
@@ -33,37 +21,9 @@ title: 'Secret Network'
 
 <card-simple-dynamic class="orientation-horizontal accent-purple" cardId="card_1"/>
 
-<!-- <card-simple class="orientation-horizontal accent-purple" url="/ecosystem/overview">
-
-<card-block>
-
-### Get started
-
-#### with Secret Network
-
-Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent. 
-
-</card-block>
-
-<card-block>
-
-<img src="./img/card-build.png" alt="getting started" width="100%" height="auto">
-
-</card-block>
-
-</card-simple> -->
-
 </block>
 
 </column>
-
-
-
-
-
-
-
-
 
 <!-- Card collection -->
 <column class="spacer-s" number="3" number-m="1" number-s="1">
@@ -72,51 +32,11 @@ Get SCRT, install a Wallet, explore Secret DeFi, become a Secret Agent.
 
 <card-simple-dynamic class="orientation-vertical accent-blue" cardId="card_2"/>
 
-<!-- <card-simple class="orientation-vertical accent-blue" url="/community">
-
-<card-block>
-
-### Join
-
-#### the Community
-
-Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you to contribute to Secret Network.
-
-</card-block>
-
-<card-block>
-
-![](./img/card-people.png)
-
-</card-block>
-
-</card-simple> -->
-
 </block>
 
 <block>
 
 <card-simple-dynamic class="orientation-vertical accent-green" cardId="card_3"/>
-
-<!-- <card-simple class="orientation-vertical accent-green" url="/developers">
-
-<card-block>
-
-### Build
-
-#### on Secret Network
-
-Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3.
-
-</card-block>
-
-<card-block>
-
-![](./img/card-rocket.png)
-
-</card-block>
-
-</card-simple> -->
 
 </block>
 
@@ -124,36 +44,9 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 <card-simple-dynamic class="orientation-vertical accent-orange" cardId="card_4"/>
 
-<!-- <card-simple class="orientation-vertical accent-orange" url="/ecosystem/overview">
-
-<card-block>
-
-### Explore
-
-#### the Ecosystem
-
-Find out why Secret Network is a first-of-its-kind, open-source blockchain that provides data privacy by default.
-
-</card-block>
-
-<card-block>
-
-![](./img/card-hand.png)
-
-</card-block>
-
-</card-simple> -->
-
 </block>
 
 </column>
-
-
-
-
-
-
-
 
 
 <!-- Want to build better internet title -->
