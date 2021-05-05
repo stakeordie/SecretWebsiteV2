@@ -55,7 +55,7 @@ import BlogPostsFeatured from "~/components/blog/BlogPostsFeatured"
 import BlogFilter from "~/components/blog/BlogFilter"
 
 // Page Specific
-import HomeExplainer from "~/components/HomeExplainer.vue"
+import HomeExplainer from "~/components/page/HomeExplainer.vue"
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
