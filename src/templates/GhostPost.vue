@@ -236,8 +236,9 @@
         gap: var(--f-gutter-s);
         grid-auto-flow: column;
 
-        sharenetwork {
+        a {
           padding: var(--f-gutter-xs) var(--f-gutter-s);
+          color: var(--color-analog-primary-white);
         }
       }
     }

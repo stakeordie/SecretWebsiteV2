@@ -9,6 +9,7 @@ import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from "vue-typical";
+import VueSocialSharing from 'vue-social-sharing'
 
 
 import "@fontsource/hind"
@@ -125,6 +126,7 @@ export default function(Vue, {
     Vue.component('typical', typical);
 
     Vue.use(Flare);
+    Vue.use(VueSocialSharing);
 
 
     // This is Victor's code
