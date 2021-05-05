@@ -52,7 +52,9 @@ import BlogLatestPostsTwelve from "~/components/blog/BlogLatestPostsTwelve"
 import BlogPosts from "~/components/blog/BlogPosts"
 import BlogPostsFeatured from "~/components/blog/BlogPostsFeatured"
 import BlogFilter from "~/components/blog/BlogFilter"
-// import SecretAgents from "~/components/SecretAgents"
+
+// Page Specific
+import HomeExplainer from "~/components/HomeExplainer.vue"
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -115,6 +117,10 @@ export default function(Vue, {
     Vue.component("BlogPostsFeatured", BlogPostsFeatured);
     Vue.component("BlogFilter", BlogFilter);
 
+    //Page Specific
+    Vue.component("HomeExplainer", HomeExplainer);
+
+    //External Libraries
     Vue.component('InfiniteSlideBar', InfiniteSlideBar);
     Vue.component('typical', typical);
 
