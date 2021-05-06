@@ -397,7 +397,13 @@
 
     },
     watch: {
-
+      isNavOpen: function(){
+        if (this.isNavOpen) {
+          document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      },
       $route(to, from) {
         this.isNavOpen = false,
           this.isLearnOpen = false;
@@ -425,11 +431,6 @@
       },
       toggleNav() {
         this.isNavOpen = !this.isNavOpen
-        if (this.isNavOpen) {
-          document.body.classList.add('');
-        } else {
-          document.body.classList.remove('');
-        }
       },
       toggleDarkLightMode() {
         this.darkLightModeState = !this.darkLightModeState
