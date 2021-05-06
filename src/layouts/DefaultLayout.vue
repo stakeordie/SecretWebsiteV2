@@ -33,7 +33,7 @@
                   <transition name="fade">
                     <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
                       <li v-for="(link, index) in linksCommunity">
-                        <a :href="link.path" :title="link.title"> {{ link.title }}</a>
+                        <g-link :to="link.path" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
                   </transition>
@@ -43,7 +43,7 @@
                   <transition name="fade">
                     <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
                       <li v-for="(link, index) in linksDevelopers">
-                        <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
+                        <g-link :to="link.path" :target="link.target" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
                   </transition>
@@ -53,7 +53,7 @@
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-for="(link, index) in linksEcosystem">
-                        <a :href="link.path" :target="link.target" :title="link.title"> {{ link.title }}</a>
+                        <g-link :to="link.path" :target="link.target" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
                   </transition>
