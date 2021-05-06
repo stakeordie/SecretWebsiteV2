@@ -330,6 +330,12 @@
             target: 'self',
           },
           {
+            title: 'Secret Brand',
+            path: '/brand',
+            external: false,
+            target: 'self',
+          },
+          {
             title: 'Graypaper',
             path: '/graypaper',
             external: false,

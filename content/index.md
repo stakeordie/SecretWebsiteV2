@@ -48,59 +48,8 @@ title: 'Secret Network'
 
 </column>
 
-
-<!-- Want to build better internet title -->
-<column class="home--build_better_internet color-change" number="1" number-m="1" number-s="1">
-
-<block>
-
-## Want to build a better internet?
-
-## Solve for <typical :steps="['Privacy', 2000, 'Usability', 2000, 'People', 2000, 'Security', 2000, 'Sustainability', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-<!-- Want to build better internet paragraphs -->
-<column class="home--build_better_internet spacer-s" number="2" number-m="1" number-s="1">
-
-<block>
-
-Secret Network is the first blockchain with privacy-preserving smart contracts. That means applications built on Secret can utilize encrypted data without revealing it to anyone, even the nodes in the network. For the first time, Secret Network allows developers to build powerful, permissionless, privacy-preserving applications - Secret Apps.
-
-</block>
-
-<block>
-
-Blockchains are public by default. That means that all the data used in smart contracts is exposed to everyone. For blockchain technology to achieve global adoption, users and organizations need control over how their data is used – they can’t just expose it to everyone. Secret Network solves the problem of privacy, helping to secure and scale the decentralized web.
-
-</block>
-
-<block>
-
-<btn url="/about/about-secret-network">Learn More</btn>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
+<!-- Want to build a better internet -->
+<home-explainer />
 
 <!-- Announcement -->
 <column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">

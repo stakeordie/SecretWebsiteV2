@@ -80,6 +80,10 @@ main {
     }
 }
 
+h1, h2 {
+    font-family: 'Hind';
+}
+
 ul {
     li {
         padding: 0;
@@ -246,6 +250,16 @@ input:not(.button) {
     .content {
         .box {
             text-align: center;
+        }
+    }
+}
+
+.header-left {
+    .content {
+        .box {
+            h1, h2, h3, h4, h5, h6 {
+                text-align: left;
+            }
         }
     }
 }

@@ -57,7 +57,18 @@
       &.text-center {
         justify-content: center;
       }
-
+      &.bg-invert {
+        background: var(--theme-fg);
+        &:hover {
+          background: var(--color-neutral-dark-mode-01);
+          @include theme(light light-colored) {
+            background: var(--color-neutral-dark-mode-04);
+          }
+        }
+        span {
+          color: var(--theme-bg);
+        }
+      }
       &:hover {
         background: var(--color-neutral-dark-mode-02);
         span {

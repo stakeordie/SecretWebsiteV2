@@ -1,7 +1,20 @@
 <template>
-  <div class="announcement-component" :class="{ 'cta': url }">
-    <slot></slot>
-  </div>
+  <column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">
+
+    <block>
+
+    #### Announcement
+
+    ### SCRT 2020: Our Secret Vision for Universal Finance
+
+    Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
+
+    <btn>Read more</btn>
+
+    </block>
+
+  </column>
+
 </template>
 
 <script>
@@ -16,27 +29,10 @@
 
 </script>
 
+<static-query>
+</static-query>
+
+
 <style lang="scss">
-  @import "../sass/functions/theme";
-  @import "@lkmx/flare/src/functions/respond-to";
-
-  $accent-colors: ("blue",
-    "turquoise",
-    "green",
-    "yellow",
-    "cream",
-    "orange",
-    "red",
-    "purple",
-    "gray",
-  );
-
-  // @each $name, $color in $accent-colors {
-  // 	&.accent-#{$name} {
-  // 		color: var(--accent-#{$name});
-  // 	}
-  // }
-
-  
 
 </style>
