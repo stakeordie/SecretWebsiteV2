@@ -217,7 +217,7 @@
               target="_blank" novalidate>
               <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email"
                 required>
-              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+              <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
             </form>
           </div>
         </section>
@@ -935,6 +935,9 @@
             .button,
             input {
               margin: 0 !important;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
             }
           }
         }

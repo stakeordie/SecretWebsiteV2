@@ -10,7 +10,7 @@ title: 'Graypaper'
 
 
 <!-- Page title -->
-<column mode="slim">
+<column class="spacer-s" mode="slim">
 <block>
 <hero-title>
 

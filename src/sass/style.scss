@@ -194,6 +194,8 @@ button,
 a {
     color: var(--theme-links-default);
     text-decoration: none;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
 
     &:hover {
         color: var(--theme-links-hover);

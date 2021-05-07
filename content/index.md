@@ -226,3 +226,21 @@ Podcast
 </block>
 
 </column>
+
+
+
+
+
+
+
+
+<!-- media channels -->
+<column class="spacer-s">
+
+<block>
+
+<media-channels></media-channels>
+
+</block>
+
+</column>
