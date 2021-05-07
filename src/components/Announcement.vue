@@ -1,15 +1,13 @@
 <template>
   <column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">
-
     <block>
+      <h4>Announcement</h4>
 
-    #### Announcement
+      <h3>{{ announcement.title }}</h3>
 
-    ### SCRT 2020: Our Secret Vision for Universal Finance
+      <p>{{ announcement.text }}</p>
 
-    Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
-
-    <btn>Read more</btn>
+      <btn :url="announcement.button_one_page_manual">{{ buttonOneTitle }}</btn>
 
     </block>
 
@@ -20,16 +18,49 @@
 <script>
   export default {
     props: {
-      url: {
-        type: String,
+      announcementId: {
+        type: Number,
         required: false
       },
+    },
+    computed: {
+      announcement() {
+        const x = this.$static.announcements.edges.find((edge) => {
+          console.log(edge.node.id,this.announcementId);
+          return edge.node.id == this.announcementId;
+        })
+        return x.node;
+      },
+      buttonOneTitle() {
+        if(this.announcement.button_one_title) {
+          return this.announcement.button_one_title;
+        } else {
+          return "Read Me";
+        }
+      }
     }
   }
 
 </script>
 
 <static-query>
+  query{
+    announcements: allStrapiAnnouncements {
+      edges{
+        node{
+          id
+          name
+          title
+          text
+          button_one_title
+          button_one_page {
+            route
+          }
+          button_one_page_manual
+        }
+      }
+    }
+  }
 </static-query>
 
 

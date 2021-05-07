@@ -42,6 +42,7 @@ module.exports = {
                   'home-announcement-one',
                   'home-cta-cards',
                   'home-explainer',
+                  'home-announcements',
                   'home-announcement-one',
                   'home-announcement-two',
               ],

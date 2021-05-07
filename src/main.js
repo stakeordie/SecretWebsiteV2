@@ -24,6 +24,7 @@ import "@fontsource/montserrat/500.css"
 
 import Type from "~/components/Type.vue";
 import AlertBar from "~/components/AlertBar.vue";
+import Announcement from "~/components/Announcement.vue";
 import Navigation from "~/components/Navigation.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
 import ImagePlaceholder from "~/components/ImagePlaceholder.vue";
@@ -57,6 +58,7 @@ import BlogFilter from "~/components/blog/BlogFilter"
 
 // Page Specific
 import HomeExplainer from "~/components/page/HomeExplainer.vue"
+import HomeAnnouncements from "~/components/page/HomeAnnouncements.vue"
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -82,6 +84,7 @@ export default function(Vue, {
 
     // Set default layout as a global component
     Vue.component("AlertBar", AlertBar);
+    Vue.component("Announcement", Announcement);
     Vue.component("DefaultLayout", DefaultLayout);
     Vue.component("ThemedImage", ThemedImage);
     Vue.component("ImagePlaceholder", ImagePlaceholder);
@@ -122,6 +125,7 @@ export default function(Vue, {
 
     //Page Specific
     Vue.component("HomeExplainer", HomeExplainer);
+    Vue.component("HomeAnnouncements", HomeAnnouncements);
 
     //External Libraries
     Vue.component('InfiniteSlideBar', InfiniteSlideBar);

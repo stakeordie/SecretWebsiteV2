@@ -5,13 +5,14 @@ title: 'Secret Network'
 
 <!-- Hero Video -->
 <column class="card-variant" mode="normal">
+
 <block>
 
 <hero-video />
 
 </block>
-</column>
 
+</column>
 
 <!-- Getting started -->
 
@@ -52,29 +53,7 @@ title: 'Secret Network'
 <home-explainer />
 
 <!-- Announcement -->
-<column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">
-
-<block>
-
-#### Announcement
-
-### SCRT 2020: Our Secret Vision for Universal Finance
-
-Learn about some of the critical applications being built on Secret Network - and how you can get involved. Help us drive adoption of decentralized finance with security, privacy, and fairness!
-
-<btn>Read more</btn>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
+<home-announcements location="top" />
 
 <!-- Block header -->
 <column class="block-header" number="2" number-m="1" number-s="1">
@@ -95,15 +74,6 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 </column>
 
-
-
-
-
-
-
-
-
-
 <!-- Blog cards -->
 <column class="spacer-s">
 
@@ -111,16 +81,12 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 </column>
 
-
-
-
-
-
-
-
+<!-- Announcement -->
 
 <!-- Announcement -->
-<column class="announcement accent-green spacer-s" weight="right" number="2" number-m="1" number-s="1">
+<home-announcements location="bottom" />
+
+<!-- <column class="announcement accent-green spacer-s" weight="right" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -141,7 +107,7 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 
 </block>
 
-</column>
+</column> -->
 
 
 
