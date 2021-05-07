@@ -143,7 +143,7 @@ export default {
       width: 100%;
       height: 100%;
       border: 4px dashed;
-      border-color: var(--f-header-text-color);
+      border-color: var(--f-text-color);
       padding: 20px;
       
       .dimensions {
