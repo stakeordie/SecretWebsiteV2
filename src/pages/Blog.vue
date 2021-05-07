@@ -8,16 +8,15 @@
 
       <block>
         <h3>Featured</h3>
+        <button class="theme padding-small" @click="scroll_left"><img src="../assets/icon-circle-left.svg" alt="left"></button>
+        <button class="theme padding-small" @click="scroll_right"><img src="../assets/icon-circle-right.svg" alt="right"></button>
       </block>
 
     </column>
 
     <column class="horizontal-slider spacer-s" mode="full">
       <block>
-        <!-- <infinite-slide-bar duration="10s" :barStyle="{ background: '', padding: '0 0' }"> -->
         <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
-        <!-- </infinite-slide-bar> -->
-
       </block>
     </column>
 
@@ -134,6 +133,16 @@
         }
       }
     },
+    methods: {
+      scroll_left() {
+        let content = document.querySelector(".horizontal-slider > .--flare-block > .content > .box");
+        content.scrollLeft -= 390;
+      },
+      scroll_right() {
+        let content = document.querySelector(".horizontal-slider > .--flare-block > .content > .box");
+        content.scrollLeft += 390;
+      }
+    },
     metaInfo: {
       title: 'Blog'
     }
@@ -184,16 +193,23 @@
 
     .content {
       overflow: hidden;
+
       .box {
         overflow-x: scroll;
+        overflow: auto;
         max-width: 99vw;
+        scroll-behavior: smooth;
 
         @include respond-to("<=m") {
-          max-width: 97vw;
+          max-width: 100vw;
         }
 
         padding-left: 1rem;
         padding-right: 1rem;
+
+        @include respond-to(">=l") {
+          padding-left: 9vw;
+        }
 
         &::-webkit-scrollbar {
           display: none;
