@@ -183,9 +183,10 @@
   .horizontal-slider {
 
     .content {
+      overflow: hidden;
       .box {
         overflow-x: scroll;
-        max-width: 98vw;
+        max-width: 99vw;
 
         @include respond-to("<=m") {
           max-width: 97vw;
@@ -214,13 +215,14 @@
         cursor: pointer;
         display: inline-block;
         /* flex-direction: column; */
-        width: 350px;
+        width: 400px;
         min-height: 467px;
         white-space: normal;
         /* justify-content: space-between; */
         vertical-align: top;
         margin-right: var(--f-gutter-l);
         position: relative;
+        overflow: hidden;
       }
     }
   }
