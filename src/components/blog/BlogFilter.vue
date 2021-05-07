@@ -31,9 +31,12 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(110px, auto));
     padding-left: 0;
     gap: var(--f-gutter);
-    @include respond-to("<=m") {
-      flex-direction: row;
-      flex-flow: wrap;
+    @include respond-to("m") {
+      // flex-direction: row;
+      // flex-flow: wrap;
+      grid-template-columns: min-content auto;
+      display: grid;
+      grid-template-columns: repeat(6,auto);
     }
     li {
       display: flex;
@@ -55,6 +58,7 @@ export default {
           padding-left: 0;
         }
         @include respond-to("<=m") {
+          justify-content: center;
           img {
             display: none;
           }

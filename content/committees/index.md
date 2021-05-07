@@ -50,7 +50,7 @@ We are collectively exploring ways for Secret Network participants (Secret Agent
 
 
 <!-- Committees -->
-<column>
+<column class="spacer-s">
 
 <block>
 

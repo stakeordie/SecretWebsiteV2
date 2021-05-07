@@ -90,6 +90,11 @@
       height: 100%;
       padding: var(--f-gutter);
 
+      @include respond-to("m") {
+        padding-right: var(--f-gutter-xxl);
+        padding-left: var(--f-gutter-xxl);
+      }
+
       @include respond-to("<=s") {
         padding-right: var(--f-gutter-xl);
       }

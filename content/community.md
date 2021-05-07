@@ -70,7 +70,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 
 <!-- Join the conversation -->
-<column class="spacer-s img-invert" number="5" number-m="2" number-s="2">
+<column class="spacer-s img-invert" number="5" number-m="3" number-s="2">
 
 <block>
 

@@ -57,7 +57,7 @@ By supporting encrypted inputs, encrypted outputs, and encrypted state for smart
 
 
 <!-- Industries -->
-<column class="spacer-s" number="3" number-m="1" number-s="1">
+<column class="spacer-s" number="3" number-m="2" number-s="1">
 <block>
 
 <card-minimal class="accent-green">
@@ -157,7 +157,7 @@ Allowing research over encrypted data, driving innovation.
 
 
 <!-- How Secret Network Operates -->
-<column class="spacer-s" weight="right" number="2" number-m="1" number-s="1">
+<column class="spacer-s" weight="right" number="2" number-m="2" number-s="1">
 
 <block>
 
@@ -226,7 +226,7 @@ The following process describes, step by step, how a contract is submitted and a
 
 
 <!-- Network Flow -->
-<column class="spacer-s" number="4" number-m="1" number-s="1">
+<column class="spacer-s" number="4" number-m="2" number-s="1">
 
 <block>
 
@@ -314,7 +314,7 @@ The Secret Network community is dedicated to building privacy-first solutions an
 
 
 <!-- Values -->
-<column class="spacer-s" number="3" number-m="1" number-s="1">
+<column class="spacer-s" number="3" number-m="2" number-s="1">
 
 <block>
 

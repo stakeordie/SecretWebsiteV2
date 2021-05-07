@@ -53,6 +53,9 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   @include respond-to("<=m") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-to("<=s") {
     grid-template-columns: 1fr;
   }
   gap: var(--f-gutter-l);

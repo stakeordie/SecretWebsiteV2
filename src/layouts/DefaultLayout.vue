@@ -722,6 +722,8 @@
 
           a {
             padding: 0 !important;
+            display: grid;
+            justify-content: center;
           }
         }
 
