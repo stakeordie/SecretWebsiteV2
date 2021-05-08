@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     shareButtons: function() {
-      console.log(this.includeShareButtons);
+      //console.log(this.includeShareButtons);
       return this.includeShareButtons ? "share-buttons": ""
     }
   }

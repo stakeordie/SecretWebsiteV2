@@ -68,7 +68,7 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 <block>
 
-<btn url="/blog/">Unveil more secrets</btn>
+<btn url="/blog/">All Posts</btn>
 
 </block>
 
@@ -130,7 +130,7 @@ Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistan
 
 <block>
 
-<btn url="/media/features">Unveil more secrets</btn>
+<btn url="/media/features">All Media</btn>
 
 </block>
 

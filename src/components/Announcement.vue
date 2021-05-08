@@ -7,13 +7,25 @@
 
       <p>{{ announcement.text }}</p>
 
-      <btn :url="announcement.button_one_page_manual">{{ buttonOneTitle }}</btn>
-
+      <btn v-if="buttonOne.is" :url="buttonOne.route">{{ buttonOne.title }}</btn>
+      <btn v-if="buttonTwo.is" :url="buttonTwo.route">{{ buttonTwo.title }}</btn>
     </block>
 
   </column>
 
 </template>
+
+// <btn url="/blog/secretswap-is-live-on-mainnet">Read more</btn> <btn url="https://bridge.scrt.network/swap#Swap">Try It Out!</btn>
+
+// </block>
+
+// <block>
+
+// ![](./img/announcement/secretswap.jpg)
+
+// </block>
+
+// </column>
 
 <script>
   export default {
@@ -26,18 +38,49 @@
     computed: {
       announcement() {
         const x = this.$static.announcements.edges.find((edge) => {
-          console.log(edge.node.id,this.announcementId);
           return edge.node.id == this.announcementId;
         })
         return x.node;
       },
-      buttonOneTitle() {
-        if(this.announcement.button_one_title) {
-          return this.announcement.button_one_title;
+      buttonOne() {
+        const button = {}
+        button.is = true;
+        if(!this.announcement.button_one_page?.route && !this.announcement.button_one_page_manual) {
+          button.is = false;
         } else {
-          return "Read Me";
+          if(this.announcement.button_one_title) {
+            button.title = this.announcement.button_one_title;
+          } else {
+            button.title = "Read Me";
+          }
+          if(!this.announcement.button_one_page?.route) {
+            button.route = this.announcement.button_one_page_manual
+          } else {
+            button.route = this.announcement.button_one_page.route
+          }
         }
-      }
+        return button;
+      },
+      buttonTwo() {
+        const button = {}
+        button.is = true;
+        //console.log(this.announcement.button_two_page_manual);
+        if(!this.announcement.button_two_page?.route && !this.announcement.button_two_page_manual) {
+          button.is = false;
+        } else {
+          if(this.announcement.button_two_title) {
+            button.title = this.announcement.button_two_title;
+          } else {
+            button.title = "Read Me";
+          }
+          if(!this.announcement.button_two_page?.route) {
+            button.route = this.announcement.button_two_page_manual
+          } else {
+            button.route = this.announcement.button_two_page.route
+          }
+        }
+        return button;
+      },
     }
   }
 
@@ -57,6 +100,11 @@
             route
           }
           button_one_page_manual
+          button_two_title
+          button_two_page {
+            route
+          }
+          button_two_page_manual
         }
       }
     }

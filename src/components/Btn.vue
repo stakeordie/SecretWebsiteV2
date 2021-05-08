@@ -1,11 +1,11 @@
 <template>
-  <a class="btn button" :href="url">
+  <a class="btn button" :href="url" :target="isExternal ? '_blank': ''" >
     <span class="btn-text">
       <slot></slot>
     </span>
     <themed-image>
-      <img dark-colored dark src="../assets/icon-arrow-right-light.svg" alt="arrow" width="20" height="20" />
-      <img light light-colored src="../assets/icon-arrow-right-dark.svg" alt="arrow" width="20" height="20" />
+      <img dark-colored dark :src="lightArrow" alt="arrow" width="20" height="20" />
+      <img light light-colored :src="darkArrow" alt="arrow" width="20" height="20" />
     </themed-image>
   </a>
 </template>
@@ -17,9 +17,31 @@
         type: String,
         required: false
       }
+    },
+    computed: {
+      isExternal() {
+        const urlSplit = this.url.split(":");
+        if(urlSplit[0] == "https" || urlSplit[0] == "http") {
+          return true
+        }
+        return false;
+      },
+      darkArrow() {
+        let darkArrow = "/assets/img/icon-arrow-right-dark.svg";
+        if(this.isExternal) {
+          darkArrow = "/assets/img/icon-arrow-external-dark.svg";
+        }
+        return darkArrow;
+      },
+      lightArrow() {
+        let darkArrow = "/assets/img/icon-arrow-right-light.svg";
+        if(this.isExternal) {
+          darkArrow = "/assets/img/icon-arrow-external-light.svg";
+        }
+        return darkArrow;
+      }
     }
   }
-
 </script>
 
 <style lang="scss">
