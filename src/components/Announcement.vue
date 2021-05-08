@@ -1,5 +1,5 @@
 <template>
-  <column class="announcement accent-green spacer-s" weight="left" number="2" number-s="1">
+  <column class="announcement accent-green spacer-s" :weight="media.is == true ? 'right' : 'left'" number="2" number-s="1">
     <block>
       <h4>Announcement</h4>
 
