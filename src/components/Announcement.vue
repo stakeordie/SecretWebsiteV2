@@ -10,22 +10,14 @@
       <btn v-if="buttonOne.is" :url="buttonOne.route">{{ buttonOne.title }}</btn>
       <btn v-if="buttonTwo.is" :url="buttonTwo.route">{{ buttonTwo.title }}</btn>
     </block>
+    <block v-show="media.is">
 
+      <img :src="'https://strapi.stakeordie.com' + media.url" />
+
+    </block>
   </column>
 
 </template>
-
-// <btn url="/blog/secretswap-is-live-on-mainnet">Read more</btn> <btn url="https://bridge.scrt.network/swap#Swap">Try It Out!</btn>
-
-// </block>
-
-// <block>
-
-// ![](./img/announcement/secretswap.jpg)
-
-// </block>
-
-// </column>
 
 <script>
   export default {
@@ -81,6 +73,17 @@
         }
         return button;
       },
+      media() {
+        const media = {}
+        if(!this.announcement.media?.url) {
+          media.is = false;
+          media.url= "";
+        } else {
+          media.is = true;
+          media.url = this.announcement.media.url;
+        }
+        return media;
+      }
     }
   }
 
@@ -105,6 +108,9 @@
             route
           }
           button_two_page_manual
+          media {
+            url
+          }
         }
       }
     }
