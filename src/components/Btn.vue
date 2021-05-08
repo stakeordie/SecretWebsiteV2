@@ -4,8 +4,8 @@
       <slot></slot>
     </span>
     <themed-image>
-      <img dark-colored dark :src="lightArrow" alt="arrow" width="20" height="20" />
-      <img light light-colored :src="darkArrow" alt="arrow" width="20" height="20" />
+      <img dark-colored dark :src="require(`@/assets${lightArrow}`)" alt="arrow" width="20" height="20" />
+      <img light light-colored :src="require(`@/assets${darkArrow}`)" alt="arrow" width="20" height="20" />
     </themed-image>
   </a>
 </template>
@@ -27,16 +27,16 @@
         return false;
       },
       darkArrow() {
-        let darkArrow = "../assets/img/icon-arrow-right-dark.svg";
+        let darkArrow = "/icon-arrow-right-dark.svg";
         if(this.isExternal) {
-          darkArrow = "../assets/img/icon-arrow-external-dark.svg";
+          darkArrow = "/icon-arrow-external-dark.svg";
         }
         return darkArrow;
       },
       lightArrow() {
-        let darkArrow = "../assets/img/icon-arrow-right-light.svg";
+        let darkArrow = "/icon-arrow-right-light.svg";
         if(this.isExternal) {
-          darkArrow = "../assets/img/icon-arrow-external-light.svg";
+          darkArrow = "/icon-arrow-external-light.svg";
         }
         return darkArrow;
       }
