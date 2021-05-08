@@ -27,16 +27,16 @@
         return false;
       },
       darkArrow() {
-        let darkArrow = "/assets/img/icon-arrow-right-dark.svg";
+        let darkArrow = "../assets/img/icon-arrow-right-dark.svg";
         if(this.isExternal) {
-          darkArrow = "/assets/img/icon-arrow-external-dark.svg";
+          darkArrow = "../assets/img/icon-arrow-external-dark.svg";
         }
         return darkArrow;
       },
       lightArrow() {
-        let darkArrow = "/assets/img/icon-arrow-right-light.svg";
+        let darkArrow = "../assets/img/icon-arrow-right-light.svg";
         if(this.isExternal) {
-          darkArrow = "/assets/img/icon-arrow-external-light.svg";
+          darkArrow = "../assets/img/icon-arrow-external-light.svg";
         }
         return darkArrow;
       }
