@@ -80,7 +80,8 @@ main {
     }
 }
 
-h1, h2 {
+h1,
+h2 {
     font-family: 'Hind';
 }
 
@@ -186,11 +187,14 @@ button,
     border-radius: var(--f-gutter-s);
     background-color: var(--theme-button);
     cursor: pointer;
+
     &.theme {
         background-color: transparent;
     }
+
     &.padding-small {
         padding: 0 .5rem;
+
         @include theme(light light-colored) {
             filter: invert(1);
         }
@@ -265,7 +269,13 @@ input:not(.button) {
 .header-left {
     .content {
         .box {
-            h1, h2, h3, h4, h5, h6 {
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
                 text-align: left;
             }
         }
@@ -345,6 +355,7 @@ img {
 
         &.custom-checkbox {
             margin-bottom: var(--f-gutter-l);
+
             li {
                 label {
                     display: grid;
@@ -356,7 +367,7 @@ img {
                     span {
                         text-transform: capitalize;
                     }
-                    
+
                     @include respond-to("<=m") {
                         border-radius: var(--f-forms-button-radius);
                         padding: var(--f-gutter-xs) var(--f-gutter-s);
@@ -365,41 +376,43 @@ img {
                         line-height: 1.5;
                         text-align: center;
                         justify-content: normal;
+
                         &:hover {
                             border: 1px solid var(--color-analog-secondary-blue);
                             color: var(--color-analog-secondary-blue);
                         }
-    
+
                         img {
                             display: none !important;
                         }
                     }
-    
+
                     img {
                         order: 2;
                     }
-    
+
                     input {
                         display: none;
-    
+
                         &:checked {
                             ~.unchecked {
                                 display: none;
                             }
-    
+
                             ~.checked {
                                 display: block;
+
                                 @include theme(light light-colored) {
                                     filter: invert(1);
                                 }
                             }
                         }
-    
+
                         &:not(:checked) {
                             ~.unchecked {
                                 display: block;
                             }
-    
+
                             ~.checked {
                                 display: none;
                             }
@@ -482,5 +495,15 @@ $color in $accent-colors {
 
     path {
         animation: fill-change 25s infinite alternate;
+    }
+}
+
+.justify-right {
+    .content {
+        .box {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: right;
+        }
     }
 }
