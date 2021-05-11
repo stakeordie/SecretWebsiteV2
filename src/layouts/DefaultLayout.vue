@@ -257,17 +257,17 @@
         linksLearn: [{
             title: 'About the Network',
             path: '/about/about-secret-network',
-            target: '',
+            target: 'self',
           },
           {
             title: 'Secret Network Blog',
             path: '/blog',
-            target: '',
+            target: 'self',
           },
           {
             title: 'Media Content',
             path: '/media/features',
-            target: '',
+            target: 'self',
           },
         ],
         linksCommunity: [{
@@ -412,7 +412,7 @@
       },
       $route(to, from) {
         this.isNavOpen = false,
-          this.isLearnOpen = false;
+        this.isLearnOpen = false;
         this.isCommunityOpen = false;
         this.isDevelopersOpen = false;
         this.isEcosystemOpen = false;
@@ -948,7 +948,7 @@
   }
 
   .legal {
-    height: 48px;
+    // height: 48px;
 
     @include theme(light light-colored) {
       background: var(--color-neutral-light-mode-01);
@@ -966,7 +966,8 @@
 
     .content {
       .box {
-
+        display: grid;
+        align-content: end;
         p,
         a {
           margin: 0;
@@ -976,6 +977,12 @@
     }
 
     .documents {
+      .content {
+        .box {
+          display: grid;
+          align-content: end;
+        }
+      }
       nav {
         display: grid;
         grid-auto-flow: column;
