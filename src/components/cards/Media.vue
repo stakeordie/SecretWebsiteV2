@@ -244,13 +244,16 @@
           cursor: pointer;
           min-height: 300px;
           position: relative;
+          &:hover {
+            transform: translate(- 12px, - 12px);
+          }
 
           @each $name,
           $color in $accent-colors {
             &.accent-#{$name} {
               &:hover {
                 background: var(--theme-card-bg-hover);
-                box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+                box-shadow: 12px 12px 0 0 var(--accent-#{$name});
               }
 
               .type {

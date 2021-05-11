@@ -4,12 +4,17 @@
       <h2>Secret Network Blog</h2>
     </hero-title>
 
-    <column>
+    <column number="2">
 
       <block>
         <h3>Featured</h3>
-        <button class="theme padding-small" @click="scroll_left"><img src="../assets/icon-circle-left.svg" alt="left"></button>
-        <button class="theme padding-small" @click="scroll_right"><img src="../assets/icon-circle-right.svg" alt="right"></button>
+      </block>
+
+      <block class="justify-right">
+        <button class="theme padding-small" @click="scroll_left"><img src="../assets/icon-circle-left.svg"
+            alt="left"></button>
+        <button class="theme padding-small" @click="scroll_right"><img src="../assets/icon-circle-right.svg"
+            alt="right"></button>
       </block>
 
     </column>

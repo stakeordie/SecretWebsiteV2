@@ -366,10 +366,13 @@
           display: flex;
           flex-direction: column;
           text-align: center;
+          &:hover {
+            transform: translate(- 12px, - 12px);
+          }
 
           &:hover {
             background: var(--theme-card-bg-hover);
-            box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-gray);
+            box-shadow: 12px 12px 0 0 var(--accent-gray);
           }
 
           * {

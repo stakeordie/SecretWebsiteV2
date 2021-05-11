@@ -49,6 +49,9 @@
     display: grid;
     align-content: start;
     position: relative;
+    &:hover {
+      transform: translate(- 12px, - 12px);
+    }
     a {
       color: var(--theme-fg);
       // height: 100%;
@@ -77,7 +80,7 @@
       &.accent-#{$name} {
         &:hover {
           background: var(--theme-card-bg-hover);
-          box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+          box-shadow: 12px 12px 0 0 var(--accent-#{$name});
         }
       }
     }

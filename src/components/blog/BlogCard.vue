@@ -102,20 +102,22 @@
   .blog-card {
     border-radius: var(--f-radius);
     background: var(--theme-card-bg-default);
-    transition: .2s ease;
+    transition: .3s ease-in-out;
     cursor: pointer;
     min-height: 450px;
     position: relative;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+    &:hover {
+      transform: translate(- 12px, - 12px);
+    }
 
     @each $name,
     $color in $accent-colors {
       &.accent-#{$name} {
         &:hover {
           background: var(--theme-card-bg-hover);
-          box-shadow: var(--f-gutter-s) var(--f-gutter-s) 0 0 var(--accent-#{$name});
+          box-shadow: 12px 12px 0 0 var(--accent-#{$name});
         }
 
         svg {
