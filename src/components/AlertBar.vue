@@ -1,6 +1,6 @@
 <template>
   <div v-if="isAlertOpen" class="alert-bar">
-    <vue-markdown class="alert-content">{{ message }}</vue-markdown>
+    <vue-markdown class="alert-content">{{ alertMessage }}</vue-markdown>
     <a @click="isAlertOpen = false" href="" class="close-alert">
       <img src="../assets/icon-menu-close.svg" width="24" height="24" alt="close" />
     </a>
@@ -20,10 +20,28 @@
         isAlertOpen: true,
         message: 'SecretSwap - the first front-running resistant, cross-chain DEX - is now LIVE on mainnet. [CLICK HERE](https://scrt.network/blog/secretswap-is-live-on-mainnet) to learn more.',
       }
+    },
+    computed: {
+      alertMessage() {
+        return this.$static.alertBar.edges[0].node.text;
+      }
     }
   }
 
 </script>
+
+<static-query>
+  query{
+    alertBar: allStrapiAlertBar {
+      edges{
+        node{
+          text
+        }
+      }
+    }
+  }
+</static-query>
+
 
 <style lang="scss">
   @import "../sass/functions/theme";
