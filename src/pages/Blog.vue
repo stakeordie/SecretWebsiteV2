@@ -28,10 +28,10 @@
 
     <column class="blog-all-posts">
       <block>
-        <blog-filter id="left"></blog-filter>
+        <blog-filter id="left" @blog-filter:filter-applied="onFilterApplied"></blog-filter>
         <section class="all-posts">
           <h3>All posts</h3>
-          <blog-posts :posts="$page.posts.edges"></blog-posts>
+          <blog-posts :posts="posts"></blog-posts>
         </section>
       </block>
     </column>
@@ -52,6 +52,8 @@
     },
     data() {
       return {
+        filters: [],
+
         categories: [{
             name: 'All',
             content: 'All'
@@ -121,7 +123,8 @@
             content: 'Staking'
           }
         ],
-        selectedContent: "All"
+        selectedContent: "All",
+        appliedFilters: []
       }
     },
     computed: {
@@ -136,6 +139,17 @@
             return category.content === content;
           });
         }
+      },
+
+      posts() {
+        const { edges: posts } = this.$page.posts;
+        return posts.filter(({ node: post }) => {
+          if (this.appliedFilters.length === 0) return true;
+
+          if (!post.primary_tag) return false;
+
+          return this.appliedFilters.includes(post.primary_tag.slug);
+        });
       }
     },
     methods: {
@@ -146,6 +160,10 @@
       scroll_right() {
         let content = document.querySelector(".horizontal-slider > .--flare-block > .content > .box");
         content.scrollLeft += 390;
+      },
+
+      onFilterApplied(filters) {
+        this.appliedFilters = filters;
       }
     },
     metaInfo: {
