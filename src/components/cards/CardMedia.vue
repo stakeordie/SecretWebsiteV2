@@ -50,7 +50,7 @@
     align-content: start;
     position: relative;
     &:hover {
-      transform: translate(- 12px, - 12px);
+      transform: var(--card-hover-transform);
     }
     a {
       color: var(--theme-fg);
@@ -80,7 +80,7 @@
       &.accent-#{$name} {
         &:hover {
           background: var(--theme-card-bg-hover);
-          box-shadow: 12px 12px 0 0 var(--accent-#{$name});
+          box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
         }
       }
     }

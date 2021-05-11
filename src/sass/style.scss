@@ -40,6 +40,9 @@ $accent-colors: ("blue",
 
     --alert-height-desktop: calc(var(--f-header-height) - 18px);
     --alert-height-mobile: var(--f-header-height);
+
+    --card-hover-transform: translate(-12px, -12px);
+    --card-hover-shadow: 16px 16px 0 0;
 }
 
 body {
