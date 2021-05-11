@@ -237,8 +237,24 @@
         grid-auto-flow: column;
 
         a {
-          padding: var(--f-gutter-xs) var(--f-gutter-s);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 0;
+          padding: var(--f-gutter-s) var(--f-gutter);
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          font-size: 14px;
           color: var(--color-analog-primary-white);
+          border-radius: var(--f-forms-button-radius);
+          transition: 0.2s ease;
+          &:hover {
+            filter: contrast(1.5);
+          }
+          span {
+            transform: translateY(2px);
+          }
         }
       }
     }

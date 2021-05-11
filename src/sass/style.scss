@@ -202,7 +202,17 @@ button,
             filter: invert(1);
         }
     }
+    &.control {
+        &:hover {
+            img {
+                filter: brightness(1.5);
+            }
+        }
+    }
+
 }
+
+
 
 a {
     color: var(--theme-links-default);

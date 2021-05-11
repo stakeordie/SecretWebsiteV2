@@ -11,9 +11,9 @@
       </block>
 
       <block class="justify-right">
-        <button class="theme padding-small" @click="scroll_left"><img src="../assets/icon-circle-left.svg"
+        <button class="theme padding-small control" @click="scroll_left"><img src="../assets/icon-circle-left.svg"
             alt="left"></button>
-        <button class="theme padding-small" @click="scroll_right"><img src="../assets/icon-circle-right.svg"
+        <button class="theme padding-small control" @click="scroll_right"><img src="../assets/icon-circle-right.svg"
             alt="right"></button>
       </block>
 
