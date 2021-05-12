@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="items">
-      <div v-for="(media, index) in mediaItems" class="item" :class="`accent-`+media.type">
+      <div v-for="(media, index) in filterMediaItems" class="item" :class="`accent-`+media.type">
         <a :href="media.url">
           <p class="type">{{media.type}}</p>
           <h6>{{media.title}}</h6>
@@ -23,12 +23,14 @@
             title: 'What is Secret Network (SCRT)?',
             picture: '/media/dycrpt-secret-hero.png',
             url: 'https://decrypt.co/resources/what-is-secret-network-scrt-formerly-enigma',
+            isFeatured:true,
           },
           {
             type: 'podcast',
             title: 'Private Smart Contracts: Pomp Podcast',
             picture: '/media/podcast_1.png',
             url: 'https://www.youtube.com/watch?v=Kx9hb3U7pfs',
+            isFeatured:true,
           },
           {
             type: 'podcast',
@@ -47,6 +49,7 @@
             title: 'Defi Privacy Is Here: Ivan on Tech',
             picture: '/media/video_ivan.png',
             url: 'https://www.youtube.com/watch?v=rvkMPcMK_7Ah',
+            isFeatured:true,
           },
           {
             type: 'video',
@@ -86,7 +89,12 @@
         type: String,
         required: false
       },
-    }
+    },
+    computed:{
+      filterMediaItems: function(){
+        return this.mediaItems.filter((mediaItem)=>mediaItem.isFeatured == true)
+      }
+    },
   }
 
 </script>
