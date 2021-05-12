@@ -81,6 +81,7 @@ export default {
 
 
 <style lang="scss">
+@import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 .blog-filter {
   ul {
@@ -118,6 +119,9 @@ export default {
 
           &:checked + label {
             background-image: url("../../assets/icon-checkbox-checked.svg");
+            @include theme(light light-colored) {
+              filter: invert(1);
+            }
           }
         }
       }
