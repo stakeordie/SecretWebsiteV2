@@ -2,23 +2,80 @@
   <div class="blog-filter">
     <h4>Filters</h4>
     <ul>
-      <li><button @click="checked = !checked">Announcement <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Blockchain <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Collaboration <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Community <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Dev <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Ecosystem <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Nodes <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Secret Apps <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Staking <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
-      <li><button @click="checked = !checked">Solutions <img src="../../assets/icon-checkbox-unchecked.svg" alt=""></button></li>
+      <li v-for="filter in theFilters"
+          :key="filter.slug"
+          @click="applyFilter">
+        {{ filter.label }}
+
+        <div class="checkbox">
+          <input type="checkbox" :id="filter.slug" :value="filter.slug">
+          <label :for="filter.slug"></label>
+        </div>
+
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+const filters = [
+  { slug: 'wallet', label: 'Wallet' },
+  { slug: 'voting', label: 'Voting' },
+  { slug: 'tutorial', label: 'Tutorial' },
+  { slug: 'testnet', label: 'Testnet' },
+  { slug: 'staking', label: 'Staking' },
+  { slug: 'solutions', label: 'Solutions' },
+  { slug: 'security', label: 'Security' },
+  { slug: 'secret-games', label: 'Secret' },
+  { slug: 'secret-apps', label: 'Secret' },
+  { slug: 'privacy', label: 'Privacy' },
+  { slug: 'nodes', label: 'Nodes' },
+  { slug: 'nft', label: 'Nft' },
+  { slug: 'introduction', label: 'Introduction' },
+  { slug: 'governance', label: 'Governance' },
+  { slug: 'ethereum', label: 'Ethereum' },
+  { slug: 'ecosystem', label: 'Ecosystem' },
+  { slug: 'dev', label: 'Dev' },
+  { slug: 'design', label: 'Design' },
+  { slug: 'defi', label: 'Defi' },
+  { slug: 'cosmos', label: 'Cosmos' },
+  { slug: 'community', label: 'Community' },
+  { slug: 'collaboration', label: 'Collaboration' },
+  { slug: 'blockchain', label: 'Blockchain' },
+  { slug: 'announcement', label: 'Announcement' }
+];
+
 export default {
-  
+  data() {
+    return {
+      filters,
+
+      appliedFilters: []
+    }
+  },
+
+  methods: {
+    applyFilter(event) {
+      const { value, checked } = event.target;
+
+      if (checked) {
+        this.appliedFilters.push(value);
+      } else {
+        const index = this.appliedFilters.findIndex(it => it === value);
+        if (index != -1) {
+          this.appliedFilters.splice(index, 1);
+        }
+      }
+
+      this.$emit('blog-filter:filter-applied', this.appliedFilters);
+    }
+  },
+
+  computed: {
+    theFilters() {
+      return this.filters.sort((f1, f2) => f1.label === f2.label ? 0 : f1.label > f2.label ? 1 : -1)
+    }
+  }
 }
 </script>
 
@@ -42,25 +99,25 @@ export default {
       display: flex;
       justify-content: space-between;
       margin: 0;
-      button {
-        display: flex;
-        flex: auto;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0;
-        padding: var(--f-gutter-xs) var(--f-gutter-s);
-        background: none;
-        color: var(--theme-fg);
-        border: 1px solid var(--theme-links-default);
-        line-height: 1.5;
-        @include respond-to(">=l") {
-          border: 0;
-          padding-left: 0;
+
+      // Custom checkbox
+      .checkbox {
+        display: grid;
+        grid-auto-flow: column;
+
+        label {
+          display: block;
+          width: 24px;
+          height: 24px;
+
+          background-image: url("../../assets/icon-checkbox-unchecked.svg");
         }
-        @include respond-to("<=m") {
-          justify-content: center;
-          img {
-            display: none;
+
+        input[type=checkbox] {
+          visibility: hidden;
+
+          &:checked + label {
+            background-image: url("../../assets/icon-checkbox-checked.svg");
           }
         }
       }

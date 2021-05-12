@@ -39,12 +39,9 @@ module.exports = {
               singleTypes: [
                   'alert-bar',
                   'home-hero',
-                  'home-announcement-one',
                   'home-cta-cards',
                   'home-explainer',
                   'home-announcements',
-                  'home-announcement-one',
-                  'home-announcement-two',
               ],
               // Possibility to login with a Strapi user,
               // when content types are not publicly available (optional).
