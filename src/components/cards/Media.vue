@@ -4,35 +4,11 @@
       <div class="media-filter">
         <div class="filter">
           <h4>Filters</h4>
-          <ul class="custom-checkbox" :class="'selected-' + selectedCategory">
-            <li>
+          <ul class="custom-checkbox" :class="'selected-' + selectedCategories">
+            <li v-for="cat in categories">
               <label>
-                <input id="all" type="radio" v-model="selectedCategory" value="All" />
-                All
-                <img class="unchecked" src="../../assets/icon-checkbox-unchecked.svg" alt="unchecked">
-                <img class="checked" src="../../assets/icon-checkbox-checked.svg" alt="checked">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" v-model="selectedCategory" value="article" />
-                Article
-                <img class="unchecked" src="../../assets/icon-checkbox-unchecked.svg" alt="unchecked">
-                <img class="checked" src="../../assets/icon-checkbox-checked.svg" alt="checked">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" v-model="selectedCategory" value="podcast" />
-                Podcast
-                <img class="unchecked" src="../../assets/icon-checkbox-unchecked.svg" alt="unchecked">
-                <img class="checked" src="../../assets/icon-checkbox-checked.svg" alt="checked">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" v-model="selectedCategory" value="video" />
-                Video
+                <input type="checkbox" v-model="selectedCategories" :value="cat.id" />
+                  {{cat.name | capitalize }}
                 <img class="unchecked" src="../../assets/icon-checkbox-unchecked.svg" alt="unchecked">
                 <img class="checked" src="../../assets/icon-checkbox-checked.svg" alt="checked">
               </label>
@@ -41,12 +17,12 @@
         </div>
       </div>
       <div class="media-items">
-        <h3>{{selectedCategory}}</h3>
+        <h3>{{selectedCategoriesToString}}</h3>
 
         <div class="items">
-          <div v-for="media in filteredType" class="item" :class="`accent-`+media.category">
+          <div v-bind:key="`${media.title}`" v-for="media in filteredCategories" class="item" :class="`accent-`+getCategoryName(media.category)">
             <a :href="media.url">
-              <p class="type">{{media.category}}</p>
+              <p class="type">{{getCategoryName(media.category)}}</p>
               <h6>{{media.title}}</h6>
               <p>{{media.description}}</p>
               <img :src="require(`@/assets${media.picture}`)" />
@@ -63,81 +39,106 @@
     data: function () {
       return {
         mediaItems: [{
-            category: 'article',
+            category: 1,
             title: 'What is Secret Network (SCRT)?',
             picture: '/media/dycrpt-secret-hero.png',
             url: 'https://decrypt.co/resources/what-is-secret-network-scrt-formerly-enigma',
           },
           {
-            category: 'podcast',
+            category: 2,
             title: 'Private Smart Contracts: Pomp Podcast',
             picture: '/media/podcast_1.png',
             url: 'https://www.youtube.com/watch?v=Kx9hb3U7pfs',
           },
           {
-            category: 'podcast',
+            category: 2,
             title: 'Secret Network on The Defiant Podcast',
             picture: '/media/image2.png',
             url: 'https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'zkp-privacy Summit: Secret Contracts',
             picture: '/media/privacysummit.png',
             url: 'https://www.crowdcast.io/e/zkp-privacy-summit/5',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Defi Privacy Is Here: Ivan on Tech',
             picture: '/media/video_ivan.png',
             url: 'https://www.youtube.com/watch?v=rvkMPcMK_7Ah',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Sharing Secrets Ep. 2 - Ed Moncada',
             picture: '/media/image4.png',
             url: 'https://www.youtube.com/watch?v=7JL5N8R2HKI',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Increasing Blockchain Adoption with Privacy',
             picture: '/media/image5.png',
             url: 'https://www.youtube.com/watch?v=7-eUMvH84mU',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Secret Tokens Explained',
             picture: '/media/video_tokens.png',
             url: 'https://www.youtube.com/watch?v=fkgy83Hu8Bc',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Introducing Secret Network',
             picture: '/media/video_introducing_scrt.png',
             url: 'https://www.youtube.com/watch?v=c70BBVUCxxk',
           },
           {
-            category: 'video',
+            category: 3,
             title: 'Sharing Secrets Ep. 0 - What is a Secret?',
             picture: '/media/video_whats_scrt.png',
             url: 'https://www.youtube.com/watch?v=Jk7kV1ph-FQ',
           },
         ],
-        selectedCategory: "All"
+        categories:[
+          {
+            name:'article',
+            id:1
+          },
+          {
+            name:'podcast',
+            id:2
+          },
+          {
+            name:'video',
+            id:3
+          },
+        ],
+        selectedCategories:[1,2,3],
       }
     },
     computed: {
-      filteredType: function () {
-        var vm = this;
-        var category = vm.selectedCategory;
-
-        if (category === "All") {
-          return vm.mediaItems;
-        } else {
-          return vm.mediaItems.filter(function (type) {
-            return type.category === category;
-          });
-        }
+      filteredCategories: function () {
+        return this.mediaItems.filter(media =>
+            this.selectedCategories.includes(media.category)
+        )
+      },
+      selectedCategoriesToString:function(){
+        const names = this.selectedCategories.map(v => this.getCategoryName(v))
+        return names.toString().replace(/,/g,' + ');
+      }
+      
+    },
+    methods:{
+      getCategoryName:function(id){
+        const category = this.categories.find(cat=> cat.id === id)
+        return category.name;
+      }
+    },
+    filters:{
+      capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
       }
     },
     props: {
