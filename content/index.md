@@ -86,28 +86,7 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 <!-- Announcement -->
 <home-announcements location="bottom" />
 
-<!-- <column class="announcement accent-green spacer-s" weight="right" number="2" number-m="1" number-s="1">
-
-<block>
-
-#### Announcement
-
-### SecretSwap is LIVE!
-
-
-Secret #DeFi is here. Now you can trade secret tokens with frontrunning resistance, improved privacy protections, and low cost. Start using SecretSwap now and stay tuned for more info on next step, a native governance token for Secret DeFi, and more rewards.
-
-<btn url="/blog/secretswap-is-live-on-mainnet">Read more</btn> <btn url="https://bridge.scrt.network/swap#Swap">Try It Out!</btn>
-
-</block>
-
-<block>
-
-![](./img/announcement/secretswap.jpg)
-
-</block>
-
-</column> -->
+<!--  -->
 
 
 
