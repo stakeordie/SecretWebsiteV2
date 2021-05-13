@@ -404,13 +404,9 @@
     },
     watch: {
       isNavOpen: function(){
-        if (this.isNavOpen) {
-          document.body.classList.add('modal-open');
-        } else {
-          document.body.classList.remove('modal-open');
-        }
+        this.toggleNavOpen();
       },
-      $route(to, from) {
+      $route() {
         this.isNavOpen = false,
         this.isLearnOpen = false;
         this.isCommunityOpen = false;
@@ -418,7 +414,21 @@
         this.isEcosystemOpen = false;
       }
     },
+
+    mounted() {
+      // Hacking the system :(
+      this.isNavOpen = false;
+      this.toggleNavOpen();
+    },
+
     methods: {
+      toggleNavOpen() {
+        if (this.isNavOpen) {
+          document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      },
 
       // mq () {
       //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
