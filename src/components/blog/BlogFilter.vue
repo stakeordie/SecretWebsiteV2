@@ -2,14 +2,13 @@
   <div class="blog-filter">
     <h4>Filters</h4>
     <ul>
-      <li v-for="filter in theFilters"
-          :key="filter.slug"
+      <li v-for="{node:filter} in theFilters"
+          :key="filter.name | lowerCase"
           @click="applyFilter">
-        {{ filter.label }}
-
+        {{ filter.name | capitalize}}
         <div class="checkbox">
-          <input type="checkbox" :id="filter.slug" :value="filter.slug">
-          <label :for="filter.slug"></label>
+          <input type="checkbox" :id="filter.name | lowerCase" :value="filter.name | lowerCase">
+          <label :for="filter.name | lowerCase"></label>
         </div>
 
       </li>
@@ -18,42 +17,16 @@
 </template>
 
 <script>
-const filters = [
-  { slug: 'wallet', label: 'Wallet' },
-  { slug: 'voting', label: 'Voting' },
-  { slug: 'tutorial', label: 'Tutorial' },
-  { slug: 'testnet', label: 'Testnet' },
-  { slug: 'staking', label: 'Staking' },
-  { slug: 'solutions', label: 'Solutions' },
-  { slug: 'security', label: 'Security' },
-  { slug: 'secret-games', label: 'Secret' },
-  { slug: 'secret-apps', label: 'Secret' },
-  { slug: 'privacy', label: 'Privacy' },
-  { slug: 'nodes', label: 'Nodes' },
-  { slug: 'nft', label: 'Nft' },
-  { slug: 'introduction', label: 'Introduction' },
-  { slug: 'governance', label: 'Governance' },
-  { slug: 'ethereum', label: 'Ethereum' },
-  { slug: 'ecosystem', label: 'Ecosystem' },
-  { slug: 'dev', label: 'Dev' },
-  { slug: 'design', label: 'Design' },
-  { slug: 'defi', label: 'Defi' },
-  { slug: 'cosmos', label: 'Cosmos' },
-  { slug: 'community', label: 'Community' },
-  { slug: 'collaboration', label: 'Collaboration' },
-  { slug: 'blockchain', label: 'Blockchain' },
-  { slug: 'announcement', label: 'Announcement' }
-];
 
 export default {
   data() {
     return {
-      filters,
-
       appliedFilters: []
     }
   },
-
+  props:{
+    tags:undefined
+  },
   methods: {
     applyFilter(event) {
       const { value, checked } = event.target;
@@ -73,9 +46,21 @@ export default {
 
   computed: {
     theFilters() {
-      return this.filters.sort((f1, f2) => f1.label === f2.label ? 0 : f1.label > f2.label ? 1 : -1)
+      return this.tags.sort((f1, f2) => f1.node.name === f2.node.name ? 0 : f1.node.name > f2.node.name ? 1 : -1)
     }
-  }
+  },
+  filters:{
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    },
+    lowerCase: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.toLowerCase();
+    }
+  },
 }
 </script>
 

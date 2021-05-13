@@ -28,7 +28,7 @@
 
     <column class="blog-all-posts">
       <block>
-        <blog-filter id="left" @blog-filter:filter-applied="onFilterApplied"></blog-filter>
+        <blog-filter :tags="tags" id="left" @blog-filter:filter-applied="onFilterApplied"></blog-filter>
         <section class="all-posts">
           <h3>All posts</h3>
           <blog-posts :posts="posts"></blog-posts>
@@ -149,6 +149,13 @@
           if (!post.primary_tag) return false;
 
           return this.appliedFilters.includes(post.primary_tag.slug);
+        });
+      },
+      tags() {
+        const { edges: tags } = this.$page.tags; 
+        const { edges: posts } = this.$page.posts;
+        return tags.filter(({ node: tag }) => {
+          return posts.some(({node:post})=> post.primary_tag?.id == tag.id);
         });
       }
     },
