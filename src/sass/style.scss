@@ -520,3 +520,9 @@ $color in $accent-colors {
         }
     }
 }
+
+// TODO(luis) this is where the hack starts
+.no-padding {
+  --f-block-default-padding: 0;
+  margin-bottom: var(--f-gutter-xxl);
+}

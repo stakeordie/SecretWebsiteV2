@@ -49,11 +49,23 @@ title: 'Secret Network'
 
 </column>
 
+<column>
+<block>
 <!-- Want to build a better internet -->
 <home-explainer />
+</block>
+</column>
+
+<column mode="full">
+
+<block class="no-padding">
 
 <!-- Announcement -->
 <home-announcements location="top" />
+
+</block>
+
+</column>
 
 <!-- Block header -->
 <column class="block-header" number="2" number-m="1" number-s="1">
@@ -77,16 +89,26 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 <!-- Blog cards -->
 <column class="spacer-s">
 
+<block>
+
 <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
+
+</block>
 
 </column>
 
 <!-- Announcement -->
 
+<column mode="full">
+
+<block class="no-padding">
+
 <!-- Announcement -->
 <home-announcements location="bottom" />
 
-<!--  -->
+</block>
+
+</column>
 
 
 
