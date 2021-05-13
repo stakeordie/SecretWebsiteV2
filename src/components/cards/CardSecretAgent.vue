@@ -12,7 +12,7 @@
     </infinite-slide-bar> -->
     <infinite-slide-bar direction="reverse" duration="50s" :barStyle="{ background: '', padding: '5px 0' }">
       <div v-for="(secretAgent, index) in $static.secretAgents.edges" :key="index" class="card-secret-agent">
-        <img :src="strapiUrl + secretAgent.node.image[0].url" />
+        <g-image :src="strapiUrl + secretAgent.node.image[0].url"/>
         <div class="meta">
           <h6>{{secretAgent.node.name}}</h6>
           <p class="location">{{secretAgent.node.location}}</p>
@@ -148,8 +148,26 @@
         node{
           name
           location
-          image{
+          image {
+            id
+            name
+            alternativeText
+            caption
+            width
+            height
+            formats {
+              thumbnail {
+                url
+              }
+            }
+            hash
+            ext
+            mime
+            size
             url
+            provider
+            created_at
+            updated_at
           }
         }
       }

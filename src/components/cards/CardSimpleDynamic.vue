@@ -7,7 +7,7 @@
         <p>{{$static.homeCtaCards.edges[0].node[cardId].text}}</p>
       </card-block>
       <card-block v-if="hasImage">
-        <img :src="'https://strapi.stakeordie.com' + $static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
+        <img :src="strapiUrl + $static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
       </card-block>
     </a>
     <card-block>
@@ -30,6 +30,11 @@
       imageHeight: {
         type: String,
         required: true
+      }
+    },
+    data() {
+      return {
+        strapiUrl: process.env.GRIDSOME_STRAPI_URL
       }
     },
     computed: {

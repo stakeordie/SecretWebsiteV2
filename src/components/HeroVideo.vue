@@ -8,7 +8,7 @@
       <p class="message"><vue-markdown>{{$static.homeHero.edges[0].node.subtitle}}</vue-markdown></p>
     </div>
     <div class="column2">
-      <img v-if="hasImage" :src="'https://strapi.stakeordie.com' + $static.homeHero.edges[0].node.image.url" :alt="title"/>
+      <img v-if="hasImage" :src="strapiUrl + $static.homeHero.edges[0].node.image.url" :alt="title"/>
       <image-placeholder v-else width="750" height="750" title="Hero Home Image"/>
     </div>
   </div>
@@ -19,6 +19,7 @@
     data: function () {
       return {
         showVideo: false,
+        strapiUrl: process.env.GRIDSOME_STRAPI_URL
       }
     },
     props: {
