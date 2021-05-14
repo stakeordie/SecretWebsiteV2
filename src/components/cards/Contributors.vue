@@ -22,7 +22,7 @@
             <img :src="require(`@/assets${contributor.picture}`)" />
             <div class="meta">
               <h6>{{ contributor.title }}</h6>
-              <p v-for="category in contributor.contributor_categories" :key="category.id" :class="'accent-'+category.title">
+              <p v-for="category in contributor.contributor_categories" :key="category.id" :class="'accent-'+ category.title">
                 {{category.title}}</p>
             </div>
           </a>
@@ -221,10 +221,10 @@
   @import "../../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
-  $accent-colors: ("validator",
-    "developer",
-    "fund",
-    "wallet",
+  $accent-colors: ("Validator",
+    "Developer",
+    "Fund",
+    "Wallet",
   );
 
   // @each $name, $color in $accent-colors {
@@ -266,60 +266,70 @@
           flex-direction: column;
           text-align: center;
 
-          &.left {
-            &:hover {
-              transform: var(--card-hover-transform-left-2);
+          &:hover {
+              transform: var(--card-hover-transform);
+              box-shadow: var(--card-hover-shadow) var(--accent-gray);
             }
             
-            &:hover {
-              background: var(--theme-card-bg-hover);
-              box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
-            }
-          }
+            // &:hover {
+            //   background: var(--theme-card-bg-hover);
+            //   box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
+            // }
 
-          &.center-left {
-            &:hover {
-              transform: var(--card-hover-transform-left-1);
-            }
+          // &.left {
+          //   &:hover {
+          //     transform: var(--card-hover-transform-left-2);
+          //   }
             
-            &:hover {
-              background: var(--theme-card-bg-hover);
-              box-shadow: var(--card-hover-shadow-left-1) var(--accent-gray);
-            }
-          }
+          //   &:hover {
+          //     background: var(--theme-card-bg-hover);
+          //     box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
+          //   }
+          // }
 
-          &.center {
-            &:hover {
-              transform: var(--card-hover-transform-center);
-            }
+          // &.center-left {
+          //   &:hover {
+          //     transform: var(--card-hover-transform-left-1);
+          //   }
             
-            &:hover {
-              background: var(--theme-card-bg-hover);
-              box-shadow: var(--card-hover-shadow-center) var(--accent-gray);
-            }
-          }
+          //   &:hover {
+          //     background: var(--theme-card-bg-hover);
+          //     box-shadow: var(--card-hover-shadow-left-1) var(--accent-gray);
+          //   }
+          // }
 
-          &.center-right {
-            &:hover {
-              transform: var(--card-hover-transform-right-1);
-            }
+          // &.center {
+          //   &:hover {
+          //     transform: var(--card-hover-transform-center);
+          //   }
             
-            &:hover {
-              background: var(--theme-card-bg-hover);
-              box-shadow: var(--card-hover-shadow-right-1) var(--accent-gray);
-            }
-          }
+          //   &:hover {
+          //     background: var(--theme-card-bg-hover);
+          //     box-shadow: var(--card-hover-shadow-center) var(--accent-gray);
+          //   }
+          // }
 
-          &.right {
-            &:hover {
-              transform: var(--card-hover-transform-right-2);
-            }
+          // &.center-right {
+          //   &:hover {
+          //     transform: var(--card-hover-transform-right-1);
+          //   }
             
-            &:hover {
-              background: var(--theme-card-bg-hover);
-              box-shadow: var(--card-hover-shadow-right-2) var(--accent-gray);
-            }
-          }
+          //   &:hover {
+          //     background: var(--theme-card-bg-hover);
+          //     box-shadow: var(--card-hover-shadow-right-1) var(--accent-gray);
+          //   }
+          // }
+
+          // &.right {
+          //   &:hover {
+          //     transform: var(--card-hover-transform-right-2);
+          //   }
+            
+          //   &:hover {
+          //     background: var(--theme-card-bg-hover);
+          //     box-shadow: var(--card-hover-shadow-right-2) var(--accent-gray);
+          //   }
+          // }
 
           * {
             margin: 0;
