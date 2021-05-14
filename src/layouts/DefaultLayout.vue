@@ -22,7 +22,7 @@
                   <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
-                      <li v-for="(link, index) in linksLearn">
+                      <li v-bind:key="index+link" v-for="(link, index) in linksLearn">
                         <g-link :to="link.path" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
@@ -32,7 +32,7 @@
                   <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
-                      <li v-for="(link, index) in linksCommunity">
+                      <li v-bind:key="index+link" v-for="(link, index) in linksCommunity">
                         <g-link :to="link.path" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
@@ -42,7 +42,7 @@
                   <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isDevelopersOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
-                      <li v-for="(link, index) in linksDevelopers">
+                      <li v-bind:key="index+link" v-for="(link, index) in linksDevelopers">
                         <g-link :to="link.path" :target="link.target" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
@@ -52,7 +52,7 @@
                   <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
-                      <li v-for="(link, index) in linksEcosystem">
+                      <li v-bind:key="index+link" v-for="(link, index) in linksEcosystem">
                         <g-link :to="link.path" :target="link.target" :title="link.title"> {{ link.title }}</g-link>
                       </li>
                     </ul>
@@ -156,23 +156,27 @@
         <section class="footer-nav">
           <nav>
             <h6 class="footer-nav-title">Learn </h6>
-            <g-link v-for="(link, index) in linksFooterLearn" :to="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></g-link>
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterLearn" :to="link.path" :target="link.target"> 
+              <span :class="{ 'icon icon-icon-arrow-external':link.external }"> {{ link.title }} </span>
+            </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Community</h6>
-            <a v-for="(link, index) in linksFooterCommunity" :href="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterCommunity" :to="link.path" :target="link.target"> 
+              <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
+            </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Developers</h6>
-            <a v-for="(link, index) in linksFooterDevelopers" :href="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterDevelopers" :to="link.path" :target="link.target"> 
+              <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
+            </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Ecosystem</h6>
-            <a v-for="(link, index) in linksFooterEcosystem" :href="link.path" :target="link.target"> <span
-                :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span></a>
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterEcosystem" :to="link.path" :target="link.target"> 
+              <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
+            </g-link>
           </nav>
         </section>
         <section class="footer-contact">
