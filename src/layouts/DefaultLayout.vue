@@ -524,7 +524,7 @@
       // @include respond-to("<=m") {
       //   grid-template-columns: repeat(3, 1fr);
       // }
-      @media only screen and (max-width: 1084px) {
+      @media only screen and (max-width: (1084px - 1px)) {
         grid-template-columns: repeat(3, 1fr);
       }   
     }
@@ -560,7 +560,7 @@
       //   justify-content: flex-end;
       // }
 
-      @media only screen and (max-width: 1084px) {
+      @media only screen and (max-width: (1084px - 1px)) {
           justify-content: flex-end;  
       } 
 
@@ -572,7 +572,7 @@
         //   display: none;
         // }
 
-        @media only screen and (max-width: 1084px) {
+        @media only screen and (max-width: (1084px - 1px)) {
           display: none;  
         }   
 
@@ -775,7 +775,7 @@
           //   display: none;
           // }
 
-          @media only screen and (max-width: 1084px) {
+          @media only screen and (max-width: (1084px - 1px)) {
             display: none;    
           } 
 
