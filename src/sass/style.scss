@@ -43,6 +43,21 @@ $accent-colors: ("blue",
 
     --card-hover-transform: translate(-12px, -12px);
     --card-hover-shadow: 16px 16px 0 0;
+
+    --card-hover-transform-left-2: translate(-12px, -12px);
+    --card-hover-shadow-left-2: 16px 16px 0 0;
+
+    --card-hover-transform-left-1: translate(-6px, -12px);
+    --card-hover-shadow-left-1: 8px 16px 0 0;
+
+    --card-hover-transform-center: translate(0px, -12px);
+    --card-hover-shadow-center: 0 16px 0 0;
+
+    --card-hover-transform-right-1: translate(6px, -12px);
+    --card-hover-shadow-right-1: -8px 16px 0 0;
+
+    --card-hover-transform-right-2: translate(12px, -12px);
+    --card-hover-shadow-right-2: -16px 16px 0 0;
 }
 
 body {

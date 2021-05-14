@@ -285,7 +285,7 @@ Podcast
 
 <block>
 
-<btn url="/media">See More</btn>
+<btn url="/media/features">See More</btn>
 
 </block>
 

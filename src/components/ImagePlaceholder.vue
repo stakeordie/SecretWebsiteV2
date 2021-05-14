@@ -8,7 +8,7 @@
         {{width}} x {{height}}
       </h1>
       <div class="upload">
-        <img src="../assets/software-upload.svg" />
+        <img src="../assets/software-upload.svg" width="24" height="24" />
         <p>
           Click to select an asset or drag & drop a file in this area
         </p>
