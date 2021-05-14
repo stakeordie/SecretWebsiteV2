@@ -521,15 +521,21 @@
       display: grid;
       grid-template-columns: 124px 1fr;
 
-      @include respond-to("<=m") {
+      // @include respond-to("<=m") {
+      //   grid-template-columns: repeat(3, 1fr);
+      // }
+      @media only screen and (max-width: 1084px) {
         grid-template-columns: repeat(3, 1fr);
-      }
+      }   
     }
 
     .mobile-menu-toggle {
-      @include respond-to(">=l") {
+      // @include respond-to(">=l") {
+      //   display: none;
+      // }
+      @media only screen and (min-width: 1084px) {
         display: none;
-      }
+      } 
     }
 
     .header {
@@ -549,18 +555,26 @@
       gap: var(--f-gutter);
       height: 100%;
       justify-content: space-between;
+    
+      // @include respond-to("<=m") {
+      //   justify-content: flex-end;
+      // }
 
-      @include respond-to("<=m") {
-        justify-content: flex-end;
-      }
+      @media only screen and (max-width: 1084px) {
+          justify-content: flex-end;  
+      } 
 
       .mobile-wrapper {
         display: flex;
         gap: var(--f-gutter-xxl);
 
-        @include respond-to("<=m") {
-          display: none;
-        }
+        // @include respond-to("<=m") {
+        //   display: none;
+        // }
+
+        @media only screen and (max-width: 1084px) {
+          display: none;  
+        }   
 
         .main-navigation {
           display: flex;
@@ -757,9 +771,13 @@
           align-items: center;
           padding-right: var(--f-gutter);
 
-          @include respond-to("<=m") {
-            display: none;
-          }
+          // @include respond-to("<=m") {
+          //   display: none;
+          // }
+
+          @media only screen and (max-width: 1084px) {
+            display: none;    
+          } 
 
           a {
             padding: 0 !important;
