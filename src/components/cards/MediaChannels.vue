@@ -2,7 +2,7 @@
   <div class="media-channels-wrapper">
     <div v-for="mediaChannel in mediaChannels" class="media-channel">
       <a :href="mediaChannel.url" target="blank"><img :src="require(`@/assets${mediaChannel.picture}`)"
-          :alt="mediaChannel.name" /></a>
+          :alt="mediaChannel.name" width="200" height="60"/></a>
     </div>
   </div>
 </template>

@@ -236,10 +236,23 @@
 
         padding-left: 1rem;
         padding-right: 1rem;
-
+        
         @include respond-to(">=l") {
+          padding-left: 3vw;
+        }
+
+        @include respond-to(">=xl") {
           padding-left: 9vw;
         }
+
+        @include respond-to(">=xxl") {
+          padding-left: 13vw;
+        }
+        
+        @include respond-to("xxxl") {
+          padding-left: 19vw;
+        }
+
 
         &::-webkit-scrollbar {
           display: none;

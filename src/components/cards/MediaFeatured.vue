@@ -37,6 +37,7 @@
             title: 'Secret Network on The Defiant Podcast',
             picture: '/media/image2.png',
             url: 'https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52',
+            isFeatured:true,
           },
           {
             type: 'video',
@@ -124,8 +125,24 @@
         @include respond-to("<=m") {
           max-width: 97vw;
         }
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+
+        @include respond-to(">=l") {
+          padding-left: 3vw;
+        }
+
+        @include respond-to(">=xl") {
+          padding-left: 9vw;
+        }
+
+        @include respond-to(">=xxl") {
+          padding-left: 13vw;
+        }
+        
+        @include respond-to("xxxl") {
+          padding-left: 19vw;
+        }
 
         &::-webkit-scrollbar {
           display: none;
