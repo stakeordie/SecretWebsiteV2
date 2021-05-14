@@ -5,7 +5,7 @@
         <div class="filter">
           <h4>Filters</h4>
           <ul class="custom-checkbox" :class="'selected-' + selectedCategories">
-            <li v-for="cat in categories">
+            <li v-for="cat in categories" :key="cat.ig">
               <label>
                 <input type="checkbox" v-model="selectedCategories" :value="cat.id" />
                   {{cat.name | capitalize }}
@@ -16,8 +16,9 @@
           </ul>
         </div>
       </div>
+
       <div class="media-items">
-        <h3>{{selectedCategoriesToString}}</h3>
+        <h3>Media</h3>
 
         <div class="items">
           <div v-bind:key="`${media.title}`" v-for="media in filteredCategories" class="item" :class="`accent-`+getCategoryName(media.category)">
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -113,20 +115,20 @@
             id:3
           },
         ],
-        selectedCategories:[1,2,3],
+        selectedCategories:[],
       }
     },
     computed: {
       filteredCategories: function () {
-        return this.mediaItems.filter(media =>
-            this.selectedCategories.includes(media.category)
-        )
+        if(!this.selectedCategories.length){
+          return this.mediaItems;
+        }
+        return this.mediaItems.filter( media => this.selectedCategories.includes(media.category) )
       },
       selectedCategoriesToString:function(){
         const names = this.selectedCategories.map(v => this.getCategoryName(v))
         return names.toString().replace(/,/g,' + ');
-      }
-      
+      },
     },
     methods:{
       getCategoryName:function(id){

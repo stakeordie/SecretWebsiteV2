@@ -30,7 +30,7 @@
       <block>
         <blog-filter :tags="tags" id="left" @blog-filter:filter-applied="onFilterApplied"></blog-filter>
         <section class="all-posts">
-          <h3>All posts</h3>
+          <h3>Posts</h3>
           <blog-posts :posts="posts"></blog-posts>
         </section>
       </block>
