@@ -12,7 +12,7 @@
     </block>
     <block v-show="media.is">
 
-      <img :src="'https://strapi.stakeordie.com' + media.url" />
+      <img :src="media.url" />
 
     </block>
   </column>
@@ -80,7 +80,7 @@
           media.url= "";
         } else {
           media.is = true;
-          media.url = this.announcement.media.url;
+          media.url = process.env.GRIDSOME_STRAPI_URL + this.announcement.media.url;
         }
         return media;
       }

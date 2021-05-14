@@ -16,7 +16,7 @@
     <div class="contributors-container">
       <h3>Contributors</h3>
       <div class="contributors-grid">
-        <div class="card-contributor">
+        <div class="card-contributor left">
           <a href="https://learn.scrt.network/foundation.html" target="blank">
             <img :src="require(`@/assets/contributors/image1.png`)" />
             <div class="meta">
@@ -25,7 +25,7 @@
             </div>
           </a>
         </div>
-        <div class="card-contributor" v-for="contributor in filteredContributors">
+        <div class="card-contributor left" v-for="contributor in filteredContributors">
           <a :href="contributor.url" target="blank">
             <img :src="require(`@/assets${contributor.picture}`)" />
             <div class="meta">
@@ -366,13 +366,60 @@
           display: flex;
           flex-direction: column;
           text-align: center;
-          &:hover {
-            transform: var(--card-hover-transform);
+
+          &.left {
+            &:hover {
+              transform: var(--card-hover-transform-left-2);
+            }
+            
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
+            }
           }
 
-          &:hover {
-            background: var(--theme-card-bg-hover);
-            box-shadow: var(--card-hover-shadow) var(--accent-gray);
+          &.center-left {
+            &:hover {
+              transform: var(--card-hover-transform-left-1);
+            }
+            
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--card-hover-shadow-left-1) var(--accent-gray);
+            }
+          }
+
+          &.center {
+            &:hover {
+              transform: var(--card-hover-transform-center);
+            }
+            
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--card-hover-shadow-center) var(--accent-gray);
+            }
+          }
+
+          &.center-right {
+            &:hover {
+              transform: var(--card-hover-transform-right-1);
+            }
+            
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--card-hover-shadow-right-1) var(--accent-gray);
+            }
+          }
+
+          &.right {
+            &:hover {
+              transform: var(--card-hover-transform-right-2);
+            }
+            
+            &:hover {
+              background: var(--theme-card-bg-hover);
+              box-shadow: var(--card-hover-shadow-right-2) var(--accent-gray);
+            }
           }
 
           * {
