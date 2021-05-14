@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="media-items">
-        <h3>{{selectedCategoriesToString}}</h3>
+        <h3>Media</h3>
+        <!-- <h3>{{selectedCategoriesToString}}</h3> -->
 
         <div class="items">
           <div v-bind:key="`${media.title}`" v-for="media in filteredCategories" class="item" :class="`accent-`+getCategoryName(media.category)">
