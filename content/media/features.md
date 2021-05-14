@@ -2,12 +2,9 @@
 title: 'Featured Media'
 ---
 
+<column>
 
-
-
-
-
-
+<block>
 
 <!-- Hero -->
 <hero-title>
@@ -16,9 +13,9 @@ title: 'Featured Media'
 
 </hero-title>
 
+</block>
 
-
-
+</column>
 
 
 
