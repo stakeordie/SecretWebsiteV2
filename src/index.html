@@ -6,6 +6,64 @@
 </head>
 
 <body ${bodyAttrs}>
+<div data-widget="overlay">
+  <script type="application/json">
+    {
+      "endpoint": "//jsonapi-us-valkyrie.sajari.net",
+      "account": "1621277147916972425",
+      "collection": "scrt-webiste",
+      "pipeline": "website",
+      "filters": [],
+      "options": {
+        "mode": "overlay",
+        "sorting": {
+          "options": [
+            {
+              "name": "Most relevant",
+              "value": ""
+            },
+            {
+              "name": "Alphabetical: A to Z",
+              "value": "title"
+            },
+            {
+              "name": "Alphabetical: Z to A",
+              "value": "-title"
+            },
+            {
+              "name": "Date: Oldest to Newest",
+              "value": "created_at"
+            },
+            {
+              "name": "Date: Newest to Oldest",
+              "value": "-created_at"
+            }
+          ]
+        },
+        "input": {
+          "hide": false
+        },
+        "results": {
+          "viewType": "list",
+          "showImage": false
+        },
+        "syncURL": "replace"
+      },
+      "theme": {
+        "color": {
+          "primary": {
+            "base": "#667eea",
+            "text": "#ffffff",
+            "active": "#5a67d8"
+          }
+        }
+      }
+    }
+  </script>
+  <noscript>This page requires JavaScript</noscript>
+</div>
+<script async src="https://cdn.sajari.com/embed/1/loader.js"></script>
+
     <script>
         (function() {
             let theme = localStorage.getItem('theme')
@@ -16,6 +74,7 @@
         })();
     </script>
     ${app} ${scripts}
+
 </body>
 
 </html>
