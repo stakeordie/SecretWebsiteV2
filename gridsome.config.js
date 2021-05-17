@@ -29,7 +29,7 @@ module.exports = {
         {
             use: '@gridsome/source-strapi',
             options: {
-              apiURL: 'http://strapi.stakeordie.com',
+              apiURL: process.env.GRIDSOME_STRAPI_URL,
               queryLimit: 1000, // Defaults to 100
               contentTypes: [
                   'faq-items',
