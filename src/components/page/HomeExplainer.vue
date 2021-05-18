@@ -1,46 +1,46 @@
 <template>
-  <div>
+  <div class="home--build_better_internet">
 
     <!-- Want to build better internet title -->
-    <column class="home--build_better_internet color-change" number="1" number-m="1" number-s="1">
-      <block>
-        <h2>{{ $static.homeExplainer.edges[0].node.title }}</h2>
-        <h2>
-          {{ $static.homeExplainer.edges[0].node.subtitle }} <typical :steps="steps" :loop="Infinity" :wrapper="'span'"></typical>.
-        </h2>
-      </block>
-    </column>
+    <div class="color-change" number="1" number-m="1" number-s="1">
+      <h2 class="first-heading">{{ $static.homeExplainer.edges[0].node.title }}</h2>
+      <h2>
+        {{ $static.homeExplainer.edges[0].node.subtitle }} <typical :steps="steps" :loop="Infinity" :wrapper="'span'">
+        </typical>.
+      </h2>
+    </div>
 
     <!-- Want to build better internet paragraphs -->
-    <column class="home--build_better_internet spacer-s" number="2" number-m="1" number-s="1">
-      <block>
+    <div class="description spacer-s">
+      <div>
         <p>{{ $static.homeExplainer.edges[0].node.column_1 }}</p>
-      </block>
-      <block>
+      </div>
+      <div>
         <p>{{ $static.homeExplainer.edges[0].node.column_2 }}</p>
-      </block>
-      <block>
-        <btn :url="$static.homeExplainer.edges[0].node.page.route">{{ $static.homeExplainer.edges[0].node.button_title }}</btn>
-      </block>
-    </column>
+      </div>
+      <div>
+        <btn :url="$static.homeExplainer.edges[0].node.page.route">
+          {{ $static.homeExplainer.edges[0].node.button_title }}</btn>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  computed: {
-    steps() {
-      let stepsArray = Array();
-      const words = this.$static.homeExplainer.edges[0].node.changing_words;
-      words.forEach((word) => {
+  export default {
+    computed: {
+      steps() {
+        let stepsArray = Array();
+        const words = this.$static.homeExplainer.edges[0].node.changing_words;
+        words.forEach((word) => {
           stepsArray.push(word.word);
           stepsArray.push(word.seconds * 1000);
-        }
-      );
-      return stepsArray;
+        });
+        return stepsArray;
+      }
     }
   }
-}
+
 </script>
 
 <static-query>
@@ -66,6 +66,26 @@ export default {
   }
 </static-query>
 
-<style>
+<style lang="scss">
+
+@import "../../sass/functions/theme";
+@import "@lkmx/flare/src/functions/respond-to";
+
+.home--build_better_internet {
+  .first-heading {
+    margin-bottom: 0;
+  }
+  .description {
+    display: grid;
+    grid-column-gap: var(--f-gutter-xxl);
+    grid-row-gap: var(--f-gutter);
+    @include respond-to(">=l") {
+      grid-auto-flow: column;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: dense;
+      grid-row-gap: var(--f-gutter);
+    }
+  }
+}
 
 </style>
