@@ -574,7 +574,8 @@
     }
 
     .nav-wrapper {
-      display: flex;
+      display: grid;
+      grid-auto-flow: column;
       gap: var(--f-gutter);
       height: 100%;
       justify-content: space-between;
@@ -582,6 +583,10 @@
       // @include respond-to("<=m") {
       //   justify-content: flex-end;
       // }
+
+      @media only screen and (min-width: (1160px - 1px)) {
+        grid-template-columns: auto 1fr auto;
+      }
 
       @media only screen and (max-width: (1160px - 1px)) {
         justify-content: flex-end;
@@ -784,6 +789,14 @@
         display: grid;
         align-items: center;
 
+        @media only screen and (min-width: (1340px - 1px)) {
+          justify-items: end;
+        }
+
+        @media only screen and (max-width: (1340px - 1px)) {
+          justify-items: center;
+        }
+
         .fake-input {
           display: grid;
           grid-auto-flow: column;
@@ -798,10 +811,17 @@
             background: transparent
           }
 
+          @media only screen and (min-width: (1340px - 1px)) {
+            grid-template-columns: 24px 1fr;
+            width: 100%;
+            max-width: 400px;
+          }
+
           img {
             width: 20px;
             height: 20px;
             opacity: 0.6;
+
             @include theme(light light-colored) {
               filter: invert(1);
             }

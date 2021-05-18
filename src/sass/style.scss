@@ -65,6 +65,17 @@ $accent-colors: ("blue",
     --card-hover-shadow-right-2: -16px 16px 0 0;
 }
 
+::selection {
+    @include theme(dark dark-colored) {
+        background-color: var(--color-analog-tertiary-purple);
+        color: var(--color-analog-primary-black);
+    }
+    @include theme(light light-colored) {
+        background-color: var(--color-analog-tertiary-orange);
+        color: var(--color-analog-primary-black);
+    }
+  }
+
 body {
     &.modal-open {
         position: fixed;
