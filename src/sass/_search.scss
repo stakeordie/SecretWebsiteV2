@@ -16,6 +16,9 @@
     }
     .css-109h4aa-container {
         z-index: 100000;
+        @include respond-to("<=m") {
+            padding: var(--f-gutter);
+        }
         input {
             padding-left: 54px;
             transform: translateY(3px);
@@ -50,6 +53,12 @@
                 line-height: 2;
             }
         }
+    }
+
+    .css-10ud5xh {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
     }
 
 }
