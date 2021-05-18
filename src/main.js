@@ -148,4 +148,19 @@ export default function(Vue, {
         },
       })
 
+    router.beforeEach((from, to, next) => {
+        if (process.isClient) {
+            const el = document.querySelector('button[aria-label=Close]');
+            if (el) {
+                const clickEvent = new MouseEvent('click', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': false
+                });
+                el.dispatchEvent(clickEvent);
+            }
+        }
+        next();
+    });
+
 }
