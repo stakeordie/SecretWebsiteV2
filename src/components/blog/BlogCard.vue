@@ -101,6 +101,7 @@
 
   .blog-card {
     border-radius: var(--f-radius);
+    overflow: hidden;
     background: var(--theme-card-bg-default);
     transition: .3s ease-in-out;
     cursor: pointer;

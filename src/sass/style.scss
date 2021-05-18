@@ -66,11 +66,19 @@ $accent-colors: ("blue",
 }
 
 ::selection {
-    @include theme(dark dark-colored) {
+    @include theme(dark) {
+        background-color: var(--color-analog-primary-white);
+        color: var(--color-analog-primary-black);
+    }
+    @include theme(light) {
+        background-color: var(--color-analog-primary-black);
+        color: var(--color-analog-primary-white);
+    }
+    @include theme(dark-colored) {
         background-color: var(--color-analog-tertiary-purple);
         color: var(--color-analog-primary-black);
     }
-    @include theme(light light-colored) {
+    @include theme(light-colored) {
         background-color: var(--color-analog-tertiary-orange);
         color: var(--color-analog-primary-black);
     }
