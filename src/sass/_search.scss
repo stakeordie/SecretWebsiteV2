@@ -1,0 +1,55 @@
+@import "themes";
+@import "functions/theme";
+@import "@lkmx/flare/src/functions/respond-to";
+
+.search-trigger {
+    display: none;
+}
+
+.search-overlay {
+    background: red;   
+}
+
+.css-0 {
+    .css-1d3et1r-overlay {
+        z-index: 100000;
+    }
+    .css-109h4aa-container {
+        z-index: 100000;
+        input {
+            padding-left: 54px;
+            transform: translateY(3px);
+            color: var(--theme-card-text-color) !important;
+            background-color: transparent !important;
+        }
+
+        .css-cvyc76 {
+            max-width: 50vw;
+            @include respond-to("<=l") {
+                max-width: 95vw;
+            }
+            
+        }
+
+        .css-ikay5w {
+            justify-content: start;
+        }
+        .css-kllpaz {
+            button {
+                margin: 0;
+            }
+            .css-1ygd6b0-ViewOption {
+                transform: translateY(-5px);
+            }
+        }
+        article {
+            background: var(--color-neutral-light-mode-04);
+            padding: var(--f-gutter);
+            border-radius: var(--f-gutter);
+            h1 {
+                line-height: 2;
+            }
+        }
+    }
+
+}

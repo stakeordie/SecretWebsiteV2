@@ -1,5 +1,6 @@
 @import "~@lkmx/flare/src/flare";
 @import "themes";
+@import "search";
 @import "text";
 @import "functions/theme";
 @import "color";
@@ -40,6 +41,10 @@ $accent-colors: ("blue",
 
     --alert-height-desktop: calc(var(--f-header-height) - 18px);
     --alert-height-mobile: var(--f-header-height);
+
+    --header-menu-mq: (1160px - 1px);
+
+
 
     --card-hover-transform: translate(-12px, -12px);
     --card-hover-shadow: 16px 16px 0 0;

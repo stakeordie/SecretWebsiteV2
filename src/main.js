@@ -66,6 +66,8 @@ require("prismjs/plugins/line-numbers/prism-line-numbers.css");
 
 
 
+
+
 function setDefaultTheme() {
     const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
     if (!theme) return
@@ -137,5 +139,13 @@ export default function(Vue, {
 
     // This is Victor's code
     Vue.$setDefaultTheme = setDefaultTheme;
+
+    Vue.mixin({
+        methods: {
+          searchTrigger: function () {
+            document.querySelector(".search-trigger").click();
+          },
+        },
+      })
 
 }

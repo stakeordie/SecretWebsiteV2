@@ -19,7 +19,9 @@
             <nav class="main-navigation">
               <ul class="header__navigation">
                 <li @click.prevent="showLearn" @mouseleave="isLearnOpen = false" class="dropdown-container">
-                  <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
+                  <a href="">Learn <img v-show="!isLearnOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"
+                      width="24" height="24"><img v-show="isLearnOpen" src="@/assets/icon-chevron-up.svg" alt="chevron"
+                      width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isLearnOpen" @click.stop="showLearn" class="dropdown">
                       <li v-bind:key="index+link" v-for="(link, index) in linksLearn">
@@ -29,7 +31,9 @@
                   </transition>
                 </li>
                 <li @click.prevent="showCommunity" @mouseleave="isCommunityOpen = false" class="dropdown-container">
-                  <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
+                  <a href="">Community <img v-show="!isCommunityOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"
+                      width="24" height="24"><img v-show="isCommunityOpen" src="@/assets/icon-chevron-up.svg"
+                      alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isCommunityOpen" @click.stop="showCommunity" class="dropdown">
                       <li v-bind:key="index+link" v-for="(link, index) in linksCommunity">
@@ -39,7 +43,9 @@
                   </transition>
                 </li>
                 <li @click.prevent="showDevelopers" @mouseleave="isDevelopersOpen = false" class="dropdown-container">
-                  <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isDevelopersOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
+                  <a href="">Developers <img v-show="!isDevelopersOpen" src="@/assets/icon-chevron-down.svg"
+                      alt="chevron" width="24" height="24"><img v-show="isDevelopersOpen"
+                      src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isDevelopersOpen" @click.stop="showDevelopers" class="dropdown">
                       <li v-bind:key="index+link" v-for="(link, index) in linksDevelopers">
@@ -49,7 +55,9 @@
                   </transition>
                 </li>
                 <li @click.prevent="showEcosystem" @mouseleave="isEcosystemOpen = false" class="dropdown-container">
-                  <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron" width="24" height="24"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg" alt="chevron" width="24" height="24"></a>
+                  <a href="">Ecosystem <img v-show="!isEcosystemOpen" src="@/assets/icon-chevron-down.svg" alt="chevron"
+                      width="24" height="24"><img v-show="isEcosystemOpen" src="@/assets/icon-chevron-up.svg"
+                      alt="chevron" width="24" height="24"></a>
                   <transition name="fade">
                     <ul v-show="isEcosystemOpen" @click.stop="showEcosystem" class="dropdown">
                       <li v-bind:key="index+link" v-for="(link, index) in linksEcosystem">
@@ -81,6 +89,12 @@
                 <img src="@/assets/icon-social-youtube.svg" alt="Join the Conversation" width="24" height="24" />
               </a>
             </nav>
+          </div>
+          <div v-on:click="searchTrigger" class="search">
+            <div class="fake-input">
+              <img src="@/assets/icon-search.svg" alt="Search" width="24" height="24" />
+              <p>What are you looking for?</p>
+            </div>
           </div>
           <!-- toggles -->
           <div class="toggles">
@@ -156,25 +170,29 @@
         <section class="footer-nav">
           <nav>
             <h6 class="footer-nav-title">Learn </h6>
-            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterLearn" :to="link.path" :target="link.target"> 
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterLearn" :to="link.path"
+              :target="link.target">
               <span :class="{ 'icon icon-icon-arrow-external':link.external }"> {{ link.title }} </span>
             </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Community</h6>
-            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterCommunity" :to="link.path" :target="link.target"> 
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterCommunity" :to="link.path"
+              :target="link.target">
               <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
             </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Developers</h6>
-            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterDevelopers" :to="link.path" :target="link.target"> 
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterDevelopers" :to="link.path"
+              :target="link.target">
               <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
             </g-link>
           </nav>
           <nav>
             <h6 class="footer-nav-title">Ecosystem</h6>
-            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterEcosystem" :to="link.path" :target="link.target"> 
+            <g-link v-bind:key="index+link" v-for="(link, index) in linksFooterEcosystem" :to="link.path"
+              :target="link.target">
               <span :class="{ 'icon icon-icon-arrow-external':link.external }">{{ link.title }}</span>
             </g-link>
           </nav>
@@ -221,7 +239,8 @@
               target="_blank" novalidate>
               <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email"
                 required>
-              <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
+              <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                class="button">Subscribe</button>
             </form>
           </div>
         </section>
@@ -407,12 +426,12 @@
 
     },
     watch: {
-      isNavOpen: function(){
+      isNavOpen: function () {
         this.toggleNavOpen();
       },
       $route() {
         this.isNavOpen = false,
-        this.isLearnOpen = false;
+          this.isLearnOpen = false;
         this.isCommunityOpen = false;
         this.isDevelopersOpen = false;
         this.isEcosystemOpen = false;
@@ -433,6 +452,9 @@
           document.body.classList.remove('modal-open');
         }
       },
+
+
+
 
       // mq () {
       //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -524,18 +546,19 @@
       // @include respond-to("<=m") {
       //   grid-template-columns: repeat(3, 1fr);
       // }
-      @media only screen and (max-width: (1084px - 1px)) {
+      @media only screen and (max-width: (1160px - 1px)) {
         grid-template-columns: repeat(3, 1fr);
-      }   
+      }
     }
 
     .mobile-menu-toggle {
+
       // @include respond-to(">=l") {
       //   display: none;
       // }
-      @media only screen and (min-width: 1084px) {
+      @media only screen and (min-width: (1160px - 1px)) {
         display: none;
-      } 
+      }
     }
 
     .header {
@@ -555,14 +578,14 @@
       gap: var(--f-gutter);
       height: 100%;
       justify-content: space-between;
-    
+
       // @include respond-to("<=m") {
       //   justify-content: flex-end;
       // }
 
-      @media only screen and (max-width: (1084px - 1px)) {
-          justify-content: flex-end;  
-      } 
+      @media only screen and (max-width: (1160px - 1px)) {
+        justify-content: flex-end;
+      }
 
       .mobile-wrapper {
         display: flex;
@@ -572,9 +595,9 @@
         //   display: none;
         // }
 
-        @media only screen and (max-width: (1084px - 1px)) {
-          display: none;  
-        }   
+        @media only screen and (max-width: (1160px - 1px)) {
+          display: none;
+        }
 
         .main-navigation {
           display: flex;
@@ -757,12 +780,60 @@
 
       }
 
+      .search {
+        display: grid;
+        align-items: center;
+
+        .fake-input {
+          display: grid;
+          grid-auto-flow: column;
+          gap: var(--f-gutter-xs);
+          align-items: center;
+          background: var(--theme-card-bg-variant);
+          padding: var(--f-gutter-s) var(--f-gutter);
+          border-radius: var(--f-radius);
+
+          @media only screen and (max-width: (1340px - 1px)) {
+            padding: 0;
+            background: transparent
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+            @include theme(light light-colored) {
+              filter: invert(1);
+            }
+
+            @media only screen and (max-width: (1340px - 1px)) {
+              opacity: 1;
+              filter: brightness(2);
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          p {
+            margin: 0;
+
+            @media only screen and (max-width: (1340px - 1px)) {
+              display: none;
+            }
+          }
+        }
+      }
+
       .toggles {
         display: grid;
         grid-auto-flow: column;
         align-items: center;
         gap: var(--f-gutter);
         padding-left: var(--f-gutter);
+
+        @media only screen and (max-width: (1340px - 1px)) {
+          padding-left: 0;
+        }
 
         .social-navigation {
           display: grid;
@@ -775,9 +846,9 @@
           //   display: none;
           // }
 
-          @media only screen and (max-width: (1084px - 1px)) {
-            display: none;    
-          } 
+          @media only screen and (max-width: (1160px - 1px)) {
+            display: none;
+          }
 
           a {
             padding: 0 !important;
@@ -1000,6 +1071,7 @@
       .box {
         display: grid;
         align-content: end;
+
         p,
         a {
           margin: 0;
@@ -1015,6 +1087,7 @@
           align-content: end;
         }
       }
+
       nav {
         display: grid;
         grid-auto-flow: column;
@@ -1116,89 +1189,93 @@
   }
 
   .fade-enter-active {
-	-webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
+    -webkit-animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
 
   .fade-leave-active {
--webkit-animation: fade-out-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: fade-out-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
+    -webkit-animation: fade-out-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: fade-out-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 
-/* ----------------------------------------------
+  /* ----------------------------------------------
  * Generated by Animista on 2021-5-14 15:13:33
  * Licensed under FreeBSD License.
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
-/**
+  /**
  * ----------------------------------------
  * animation fade-in-top
  * ----------------------------------------
  */
-@-webkit-keyframes fade-in-top {
-  0% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes fade-in-top {
-  0% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
+  @-webkit-keyframes fade-in-top {
+    0% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+      opacity: 0;
+    }
 
-/* ----------------------------------------------
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-top {
+    0% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* ----------------------------------------------
  * Generated by Animista on 2021-5-14 15:20:41
  * Licensed under FreeBSD License.
  * See http://animista.net/license for more info. 
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
-/**
+  /**
  * ----------------------------------------
  * animation fade-out-top
  * ----------------------------------------
  */
-@-webkit-keyframes fade-out-top {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-    opacity: 0;
-  }
-}
-@keyframes fade-out-top {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-    opacity: 0;
-  }
-}
+  @-webkit-keyframes fade-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
 
+    100% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+  }
 
+  @keyframes fade-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+  }
 
 </style>
