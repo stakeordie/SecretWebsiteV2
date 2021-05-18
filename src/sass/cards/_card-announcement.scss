@@ -24,7 +24,8 @@ $accent-colors: ("blue",
 			.box {
 				// display: grid;
 				// gap: var(--f-gutter);
-				padding: var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter-xxl) var(--f-gutter);
+				padding: var(--f-gutter-xxl) var(--f-gutter-xl) var(--f-gutter-xxl) var(--f-gutter);
+
 				@include respond-to("<=m") {
 					padding: var(--f-gutter);
 				}
@@ -36,6 +37,10 @@ $accent-colors: ("blue",
 				h4 {
 					margin-bottom: var(--f-gutter-s);
 					color: var(--theme-fg);
+				}
+
+				.btn {
+					margin-bottom: var(--f-gutter);
 				}
 			}
 		}

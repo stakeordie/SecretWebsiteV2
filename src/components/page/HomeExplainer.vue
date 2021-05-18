@@ -11,7 +11,7 @@
     </div>
 
     <!-- Want to build better internet paragraphs -->
-    <div class="description spacer-s">
+    <div class="description">
       <div>
         <p>{{ $static.homeExplainer.edges[0].node.column_1 }}</p>
       </div>

@@ -49,7 +49,7 @@ title: 'Secret Network'
 
 </column>
 
-<column>
+<column class="spacer-s">
 <block>
 <!-- Want to build a better internet -->
 <home-explainer />
