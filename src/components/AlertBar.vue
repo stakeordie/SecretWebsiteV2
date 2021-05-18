@@ -134,7 +134,7 @@
 
     .close-alert {
       position: absolute;
-      top: 16px;
+      top: 12px;
 
       @include respond-to("<=s") {
         top: 22px;
