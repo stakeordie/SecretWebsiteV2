@@ -80,7 +80,7 @@
           media.url= "";
         } else {
           media.is = true;
-          media.url = process.env.GRIDSOME_STRAPI_URL + this.announcement.media.url;
+          media.url = this.announcement.media.url;
         }
         return media;
       }

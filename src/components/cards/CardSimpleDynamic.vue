@@ -7,7 +7,7 @@
         <p>{{$static.homeCtaCards.edges[0].node[cardId].text}}</p>
       </card-block>
       <card-block v-if="hasImage">
-        <img :src="strapiUrl + $static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
+        <img :src="$static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
       </card-block>
     </a>
     <card-block>
@@ -34,7 +34,7 @@
     },
     data() {
       return {
-        strapiUrl: process.env.GRIDSOME_STRAPI_URL
+        strapiUrl: process.env.GRIDSOME_CLOUDINARY_URL
       }
     },
     computed: {
