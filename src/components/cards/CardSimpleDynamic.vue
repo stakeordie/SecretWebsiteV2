@@ -34,7 +34,7 @@
     },
     data() {
       return {
-        strapiUrl: process.env.GRIDSOME_CLOUDINARY_URL
+        strapiUrl: process.env.GRIDSOME_STRAPI_URL
       }
     },
     computed: {

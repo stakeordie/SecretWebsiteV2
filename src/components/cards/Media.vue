@@ -40,7 +40,7 @@
   export default {
     data: function () {
       return {
-        mediaItems: [{
+        mediaItemsAlt: [{
             category: 1,
             title: 'What is Secret Network (SCRT)?',
             picture: '/media/dycrpt-secret-hero.png',
@@ -119,11 +119,22 @@
       }
     },
     computed: {
+      mediaItems() {
+          // {
+          //   category: 1,
+          //   title: 'What is Secret Network (SCRT)?',
+          //   picture: '/media/dycrpt-secret-hero.png',
+          //   url: 'https://decrypt.co/resources/what-is-secret-network-scrt-formerly-enigma',
+          // }
+          return this.$static.mediaEntries.edges.map(({node}) => {
+            
+          });
+      },
       filteredCategories: function () {
         if(!this.selectedCategories.length){
           return this.mediaItems;
         }
-        return this.mediaItems.filter( media => this.selectedCategories.includes(media.category) )
+        return this.mediaItems.filter(media => this.selectedCategories.includes(media.category))
       },
       selectedCategoriesToString:function(){
         const names = this.selectedCategories.map(v => this.getCategoryName(v))
@@ -153,6 +164,27 @@
 
 </script>
 
+<static-query>
+query {
+ 	mediaEntries: allStrapiExternalMedias{
+   	edges {
+      node {
+        title
+        type
+        link
+        cover_image {
+          url
+        }
+        is_featured
+        external_media_source{
+          name
+          link
+        }
+      }
+    } 
+  }
+}
+</static-query>
 
 <style lang="scss">
   @import "../../sass/functions/theme";

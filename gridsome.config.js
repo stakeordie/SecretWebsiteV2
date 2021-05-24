@@ -34,7 +34,9 @@ module.exports = {
               contentTypes: [
                   'faq-items',
                   'secret-agents',
-                  'announcements'
+                  'announcements',
+                  'external-medias',
+                  'external-media-sources'
               ],
               singleTypes: [
                   'alert-bar',
