@@ -110,8 +110,16 @@ Read, watch and absorb the secrets that we publish in<br/>our official blog.
 
 </column>
 
+<column mode="full">
+
+<block>
+
 <!-- Home featured media -->
 <home-featured-media></home-featured-media>
+
+</block>
+
+</column>
 
 <!-- media channels -->
 <column class="spacer-s">
