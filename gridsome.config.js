@@ -35,7 +35,7 @@ module.exports = {
                   'faq-items',
                   'secret-agents',
                   'announcements',
-                  'external-media',
+                  'external-media-alts',
                   'external-media-sources'
               ],
               singleTypes: [
@@ -56,6 +56,12 @@ module.exports = {
           },
           {
             use: '@gridsome/plugin-sitemap',
+          },
+          {
+            use: '@gridsome/plugin-google-analytics',
+            options: {
+              id: 'UA-173950488-3'
+            }
           }
     ],
     templates: {

@@ -44,7 +44,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia(filter: { is_featured: { eq: true } }){
+  mediaEntries: allStrapiExternalMediaAlts(filter: { is_featured: { eq: true } }){
     edges {
       node {
         title
