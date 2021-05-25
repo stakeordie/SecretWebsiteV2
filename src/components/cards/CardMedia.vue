@@ -60,6 +60,10 @@
       flex-flow: column;
     }
 
+    span {
+      text-transform: uppercase;
+    }
+
     p {
       &:first-child {
         text-transform: uppercase;

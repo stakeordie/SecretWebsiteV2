@@ -7,7 +7,7 @@
         <p>{{$static.homeCtaCards.edges[0].node[cardId].text}}</p>
       </card-block>
       <card-block v-if="hasImage">
-        <img :src="$static.homeCtaCards.edges[0].node[cardId].image.url" :alt="title"/>
+        <img :src="$static.homeCtaCards.edges[0].node[cardId].image.url" :alt="$static.homeCtaCards.edges[0].node[cardId].image.alternativeText"/>
       </card-block>
     </a>
     <card-block>

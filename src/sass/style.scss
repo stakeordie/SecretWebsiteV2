@@ -565,3 +565,24 @@ $color in $accent-colors {
   --f-block-default-padding: 0;
   margin-bottom: var(--f-gutter-xxl);
 }
+
+
+$accent-colors: (
+  "Article",
+  "Podcast",
+  "Video",
+);
+
+@each $name,
+$color in $accent-colors {
+  &.accent-#{$name} {
+    &:hover {
+      background: var(--theme-card-bg-hover);
+      box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
+    }
+
+    .type {
+      color: var(--accent-#{$name});
+    }
+  }
+}

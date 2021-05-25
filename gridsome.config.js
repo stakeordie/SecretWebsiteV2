@@ -44,6 +44,7 @@ module.exports = {
                   'home-cta-cards',
                   'home-explainer',
                   'home-announcements',
+                  'home-featured-media'
               ],
               // Possibility to login with a Strapi user,
               // when content types are not publicly available (optional).

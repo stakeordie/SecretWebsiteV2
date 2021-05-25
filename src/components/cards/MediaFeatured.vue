@@ -1,12 +1,11 @@
 <template>
   <div>
     <div class="items">
-      <div v-for="(media, index) in filterMediaItems" class="item" :class="`accent-`+media.type">
+      <div v-for="(media, index) in filterMediaItems" class="item" :class="`accent-${media.type}`">
         <a :href="media.url">
-          <p class="type">{{media.type}}</p>
-          <h6>{{media.title}}</h6>
-          <p>{{media.description}}</p>
-          <img :src="require(`@/assets${media.picture}`)" />
+          <p class="type">{{ media.type }}</p>
+          <h6>{{ media.title }}</h6>
+          <img :src="media.picture" :alt="media.title" />
         </a>
       </div>
     </div>
@@ -14,100 +13,64 @@
 </template>
 
 <script>
-  export default {
-    data: function () {
-      return {
-        mediaItems: [
-          {
-            type: 'article',
-            title: 'What is Secret Network (SCRT)?',
-            picture: '/media/dycrpt-secret-hero.png',
-            url: 'https://decrypt.co/resources/what-is-secret-network-scrt-formerly-enigma',
-            isFeatured:true,
-          },
-          {
-            type: 'podcast',
-            title: 'Private Smart Contracts: Pomp Podcast',
-            picture: '/media/podcast_1.png',
-            url: 'https://www.youtube.com/watch?v=Kx9hb3U7pfs',
-            isFeatured:true,
-          },
-          {
-            type: 'podcast',
-            title: 'Secret Network on The Defiant Podcast',
-            picture: '/media/image2.png',
-            url: 'https://anchor.fm/thedefiant/episodes/Privacy-Might-be-the-Only-Thing-Left-That-Makes-Web-3-0-a-Viable-Alternative-Tor-Bair-of-Secret-Foundation-el9n52',
-            isFeatured:true,
-          },
-          {
-            type: 'video',
-            title: 'zkp-privacy Summit: Secret Contracts',
-            picture: '/media/privacysummit.png',
-            url: 'https://www.crowdcast.io/e/zkp-privacy-summit/5',
-          },
-          {
-            type: 'video',
-            title: 'Defi Privacy Is Here: Ivan on Tech',
-            picture: '/media/video_ivan.png',
-            url: 'https://www.youtube.com/watch?v=rvkMPcMK_7Ah',
-            isFeatured:true,
-          },
-          {
-            type: 'video',
-            title: 'Sharing Secrets Ep. 2 - Ed Moncada',
-            picture: '/media/image4.png',
-            url: 'https://www.youtube.com/watch?v=7JL5N8R2HKI',
-          },
-          {
-            type: 'video',
-            title: 'Increasing Blockchain Adoption with Privacy',
-            picture: '/media/image5.png',
-            url: 'https://www.youtube.com/watch?v=7-eUMvH84mU',
-          },
-          {
-            type: 'video',
-            title: 'Secret Tokens Explained',
-            picture: '/media/video_tokens.png',
-            url: 'https://www.youtube.com/watch?v=fkgy83Hu8Bc',
-          },
-          {
-            type: 'video',
-            title: 'Introducing Secret Network',
-            picture: '/media/video_introducing_scrt.png',
-            url: 'https://www.youtube.com/watch?v=c70BBVUCxxk',
-          },
-          {
-            type: 'video',
-            title: 'Sharing Secrets Ep. 0 - What is a Secret?',
-            picture: '/media/video_whats_scrt.png',
-            url: 'https://www.youtube.com/watch?v=Jk7kV1ph-FQ',
-          },
-        ]
-      }
+export default {
+  props: {
+    url: {
+      type: String,
+      required: false
     },
-    props: {
-      url: {
-        type: String,
-        required: false
-      },
-    },
-    computed:{
-      filterMediaItems: function(){
-        return this.mediaItems.filter((mediaItem)=>mediaItem.isFeatured == true)
-      }
+  },
+
+  data() {
+    return {
+      mediaItems: []
+    }
+  },
+
+  computed:{
+    filterMediaItems() {
+      return this.$static.mediaEntries.edges.map(({ node: it }) => {
+        return {
+          type: it.type,
+          title: it.title,
+          url: it.link,
+          picture: it.cover_image.url
+        }
+      });
     },
   }
-
+}
 </script>
 
+<static-query>
+query {
+  mediaEntries: allStrapiExternalMedias(filter: { is_featured: { eq: true } }){
+    edges {
+      node {
+        title
+        type
+        link
+        cover_image {
+          url
+        }
+        is_featured
+        external_media_source{
+          name
+          link
+        }
+      }
+    }
+  }
+}
+</static-query>
 
 <style lang="scss">
   @import "../../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
-  $accent-colors: (article,
-    podcast,
-    video,
+  $accent-colors: (Article,
+    Podcast,
+    Video,
   );
 
   // @each $name, $color in $accent-colors {
