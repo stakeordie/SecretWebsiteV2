@@ -182,37 +182,37 @@
 
 <page-query>
   {
-  posts: allGhostPost(sortBy: "published_at", order: DESC) {
-  edges {
-  node {
-  title
-  description: excerpt
-  date: published_at (format: "D MMM YYYY")
-  id
-  slug
-  reading_time
-  primary_tag {
-  name
-  id
-  slug
-  }
-  primary_author {
-  name
-  profile_image
-  }
-  }
-  }
-  }
+    posts: allGhostPost(sortBy: "published_at", order: DESC) {
+      edges {
+        node {
+          title
+          description: excerpt
+          date: published_at (format: "D MMM YYYY")
+          id
+          slug
+          reading_time
+          primary_tag {
+            name
+            id
+            slug
+          }
+          primary_author {
+            name
+            profile_image
+          }
+        }
+      }
+    }
 
-  tags: allGhostTag {
-  edges {
-  node {
-  name
-  id
-  ghostId
-  }
-  }
-  }
+    tags: allGhostTag {
+      edges {
+        node {
+          name
+          id
+          ghostId
+        }
+      }
+    }
   }
 </page-query>
 

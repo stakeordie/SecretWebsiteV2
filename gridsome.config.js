@@ -22,8 +22,8 @@ module.exports = {
             use: '@gridsome/source-ghost',
             options: {
                 typeName: 'Ghost',
-                baseUrl: 'https://blog-admin.scrt.network',
-                contentKey: '74d989aa8008b1d8e3c9464b65',
+                baseUrl: 'https://ghost.scrt.network',
+                contentKey: '4149959fe32b2af9a94038da54',
             }
         },
         {
@@ -35,7 +35,7 @@ module.exports = {
                   'faq-items',
                   'secret-agents',
                   'announcements',
-                  'external-medias',
+                  'external-media',
                   'external-media-sources'
               ],
               singleTypes: [

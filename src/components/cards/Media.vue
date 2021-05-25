@@ -97,7 +97,7 @@
 
 <static-query>
 query {
- 	mediaEntries: allStrapiExternalMedias{
+ 	mediaEntries: allStrapiExternalMedia {
    	edges {
       node {
         title
