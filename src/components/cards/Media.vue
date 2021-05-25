@@ -183,7 +183,7 @@ query {
       grid-template-columns: 1fr;
     }
 
-    .media-filter {}
+    //.media-filter {}
 
     .media-items {
       h3 {
