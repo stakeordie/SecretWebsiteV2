@@ -10,7 +10,7 @@
         </div>
       </div>
     </infinite-slide-bar> -->
-    <infinite-slide-bar direction="reverse" duration="50s" :barStyle="{ background: '', padding: '5px 0' }">
+    <infinite-slide-bar direction="reverse" duration="150s" :barStyle="{ background: '', padding: '5px 0' }">
       <div v-for="(secretAgent, index) in $static.secretAgents.edges" :key="index" class="card-secret-agent">
         <g-image :src="secretAgent.node.image.url"/>
         <div class="meta">
