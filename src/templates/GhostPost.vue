@@ -70,12 +70,12 @@
           {
             key: 'og:image',
             property: 'og:image',
-            content: this.$page.post.coverImage
+            content: this.coverImage
           },
           {
             key: 'twitter:image',
             property: 'twitter:image',
-            content: this.$page.post.coverImage
+            content: this.coverImage
           }
         ],
       }
