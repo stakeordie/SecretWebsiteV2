@@ -5,10 +5,10 @@
         <p class="tag" tag v-if="$page.post.primary_tag">{{ $page.post.primary_tag.name }}</p>
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="description">{{ $page.post.description }}</p>
-        <g-image class="cover-image" picture :src="$page.post.coverImage"></g-image>
+        <g-image class="cover-image" picture :src="coverImage"></g-image>
         <blog-author class="info" :includeShareButtons="true">
           <div class="left">
-            <g-image picture :src="coverImage"></g-image>
+            <g-image picture :src="profileImage"></g-image>
             <div class="author" info>
               <div>{{ $page.post.primary_author.name }}</div>
               <div>{{ $page.post.date }} &#8226; {{ $page.post.reading_time }} min read</div>
@@ -99,14 +99,37 @@
       }
     },
     computed: {
-      coverImage: function () {
+      profileImage: function () {
         return this.$page.post.primary_author.profile_image ? this.$page.post.primary_author.profile_image :
           '@/assets/scrt-logo.png';
+      },
+      coverImage() {
+        return "https://ghost.scrt.network/" + this.$page.post.feature_image;
       }
     },
   }
 
 </script>
+
+<page-query>
+  query Post ($path: String!) {
+    post: ghostPost (path: $path) {
+      title
+      path
+      date: published_at (format: "D MMM YYYY")
+      description: excerpt
+      content: html
+      feature_image
+      primary_tag {
+        name
+      }
+      primary_author {
+        name
+        profile_image
+      }
+    }
+  }
+</page-query>
 
 <style lang="scss">
   @import "@lkmx/flare/src/functions/respond-to";
@@ -386,23 +409,3 @@
   }
 
 </style>
-
-<page-query>
-  query Post ($path: String!) {
-  post: ghostPost (path: $path) {
-  title
-  path
-  date: published_at (format: "D MMM YYYY")
-  description: excerpt
-  content: html
-  coverImage: feature_image
-  primary_tag {
-  name
-  }
-  primary_author {
-  name
-  profile_image
-  }
-  }
-  }
-</page-query>
