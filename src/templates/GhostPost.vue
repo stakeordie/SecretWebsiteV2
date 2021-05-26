@@ -70,12 +70,12 @@
           {
             key: 'og:image',
             property: 'og:image',
-            content: this.$page.post.coverImage
+            content: this.coverImage
           },
           {
             key: 'twitter:image',
             property: 'twitter:image',
-            content: this.$page.post.coverImage
+            content: this.coverImage
           }
         ],
       }
@@ -108,7 +108,7 @@
         if(urlSplit[0] == "https" || urlSplit[0] == "http") {
           return this.$page.post.feature_image;
         }
-        return "https://ghost.scrt.network/" + this.$page.post.feature_image;
+        return "https://ghost.scrt.network" + this.$page.post.feature_image;
       }
     },
   }
