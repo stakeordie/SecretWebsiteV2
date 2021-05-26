@@ -24,7 +24,7 @@
           </div>
         </blog-author>
       </section>
-      <div class="post-content" v-html="$page.post.content"></div>
+      <div class="post-content" v-html="postContent"></div>
     </section>
   </default-layout>
 </template>
@@ -109,6 +109,10 @@
           return this.$page.post.feature_image;
         }
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
+      },
+      postContent() {
+        const transformedPost = this.$page.post.content.replace('src="/', 'src="https://ghost.scrt.network/')
+        return transformedPost
       }
     },
   }
