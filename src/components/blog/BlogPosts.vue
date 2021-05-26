@@ -1,8 +1,8 @@
 <template>
   <section class="blog-grid">
-    <blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''">
+    <blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
       <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
-      <h4><g-link :to="`/blog/${node.slug}`">{{ node.title }}</g-link></h4>
+      <h4>{{ node.title }}</h4>
       <p>{{ node.description | truncate }}</p>
       <template #footer>
         <g-image picture v-if="node.primary_author.profile_image" :src="node.primary_author.profile_image"></g-image>
