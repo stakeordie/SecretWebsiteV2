@@ -159,6 +159,10 @@
       padding: var(--f-gutter);
     }
 
+    img {
+      height: auto;
+    }
+
     .blog-post-excerpt {
       text-align: center;
       display: grid;
