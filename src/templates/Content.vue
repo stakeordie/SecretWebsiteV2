@@ -14,11 +14,6 @@
             key: 'og:title',
             property: 'og:title',
             content: 'Secret Network - ' + this.$page.content.title
-          },
-          {
-            key: 'og:url',
-            property: 'og:url',
-            content: 'https://scrt.network' + this.$route.fullPath
           }
         ]
       }
