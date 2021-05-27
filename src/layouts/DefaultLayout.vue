@@ -741,9 +741,9 @@
               flex-direction: column;
               align-items: flex-start;
 
-              &.on-mobile {
-                // pointer-events: none;
-              }
+              // &.on-mobile {
+              //   // pointer-events: none;
+              // }
 
               a {
                 padding: 0;
