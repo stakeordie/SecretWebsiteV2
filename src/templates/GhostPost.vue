@@ -111,7 +111,8 @@
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
       },
       postContent() {
-        const transformedPost = this.$page.post.content.replaceAll('src="/', 'src="https://ghost.scrt.network/')
+        const transformedPost = this.$page.post.content.replace(/src="\//g, 'src="https://ghost.scrt.network/')
+        //const transformedPost = this.$page.post.content.split('src="/').join('src="https://ghost.scrt.network/');
         return transformedPost
       }
     },
