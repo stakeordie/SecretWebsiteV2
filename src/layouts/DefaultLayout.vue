@@ -1120,17 +1120,6 @@ export default {
               padding: 0;
             }
 
-<<<<<<< HEAD
-            li.dropdown-container {
-              height: auto;
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-
-              // &.on-mobile {
-              //   // pointer-events: none;
-              // }
-=======
             ul.dropdown {
               display: flex !important;
               position: relative;
@@ -1138,7 +1127,6 @@ export default {
               background-color: transparent;
               box-shadow: none;
               animation: none;
->>>>>>> dev
 
               a {
                 color: var(--theme-links-default) !important;
