@@ -1130,6 +1130,7 @@ export default {
               top: 0;
               background-color: transparent;
               box-shadow: none;
+              animation: none;
 
               a {
                 color: var(--theme-links-default) !important;
