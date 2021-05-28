@@ -96,12 +96,8 @@
           picture: logo {
           	url
           },
-          is_validator,
-          is_developer,
-          is_fund,
-          is_wallet
-        	contributor_categories: type {
-            title:type
+        	contributor_categories: types {
+            title: type
           }
         }
       }
