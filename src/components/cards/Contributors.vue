@@ -34,179 +34,186 @@
 
 <script>
   export default {
-
-    data: function () {
-    return {
-
-      contributorCategories: [{
-        id: 1,
-        title: 'validators',
-      }, {
-        id: 2,
-        title: 'developers',
-      }, {
-        id: 3,
-        title: 'fund',
-      }, {
-        id: 4,
-        title: 'wallets',
-      }, ],
-
-      contributors: [{
+    data() {
+      return {
+        contributorCategories: [{
           id: 1,
-          title: 'Secret Foundation',
-          picture: '/contributors/image1.png',
-          url: 'https://learn.scrt.network/foundation.html',
-          contributor_categories: [{
-
-          }]
-        },
-        {
+          title: 'validators',
+          cms: 'is_validator'
+        }, {
           id: 2,
-          title: 'Secret Nodes',
-          picture: '/contributors/secret-nodes.png',
-          url: 'https://secretnodes.org/#/',
-          contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            },
-            {
-              id: 2,
-              title: 'Developer',
-            },
-          ]
-        },
-        {
+          title: 'developers',
+          cms: 'is_developer'
+        }, {
           id: 3,
-          title: 'Enigma',
-          picture: '/contributors/image3.png',
-          url: 'https://www.enigma.co/',
-          contributor_categories: [{
-            id: 2,
-            title: 'Developer',
-          }, ]
-        },
-        {
+          title: 'fund',
+          cms: 'is_fund'
+        }, {
           id: 4,
-          title: 'Chain of Secrets',
-          picture: '/contributors/chain-secrets.png',
-          url: 'https://chainofsecrets.org/',
-          contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            },
-            {
+          title: 'wallets',
+          cms: 'is_wallet'
+        }, ],
+
+        contributors: [
+          {
+            id: 1,
+            title: 'Secret Foundation',
+            picture: '/contributors/image1.png',
+            url: 'https://learn.scrt.network/foundation.html',
+            contributor_categories: [{
+
+            }]
+          },
+          {
+            id: 2,
+            title: 'Secret Nodes',
+            picture: '/contributors/secret-nodes.png',
+            url: 'https://secretnodes.org/#/',
+            contributor_categories: [{
+                id: 1,
+                title: 'Validator',
+              },
+              {
+                id: 2,
+                title: 'Developer',
+              },
+            ]
+          },
+          {
+            id: 3,
+            title: 'Enigma',
+            picture: '/contributors/image3.png',
+            url: 'https://www.enigma.co/',
+            contributor_categories: [{
               id: 2,
               title: 'Developer',
-            },
-          ]
-        },
-        {
-          id: 5,
-          title: 'Math Wallet',
-          picture: '/contributors/mathwallet.png',
-          url: 'http://mathwallet.org/',
-          contributor_categories: [{
-              id: 4,
-              title: 'Wallet',
-            },
-            {
+            }, ]
+          },
+          {
+            id: 4,
+            title: 'Chain of Secrets',
+            picture: '/contributors/chain-secrets.png',
+            url: 'https://chainofsecrets.org/',
+            contributor_categories: [{
+                id: 1,
+                title: 'Validator',
+              },
+              {
+                id: 2,
+                title: 'Developer',
+              },
+            ]
+          },
+          {
+            id: 5,
+            title: 'Math Wallet',
+            picture: '/contributors/mathwallet.png',
+            url: 'http://mathwallet.org/',
+            contributor_categories: [{
+                id: 4,
+                title: 'Wallet',
+              },
+              {
+                id: 1,
+                title: 'Validator',
+              },
+            ]
+          },
+          {
+            id: 6,
+            title: 'Outlier',
+            picture: '/contributors/image6.png',
+            url: 'https://outlierventures.io',
+            contributor_categories: [{
+                id: 3,
+                title: 'Fund',
+              },
+              {
+                id: 1,
+                title: 'Validator',
+              }
+            ]
+          },
+          {
+            id: 7,
+            title: 'Dokia Capital',
+            picture: '/contributors/image7.png',
+            url: 'https://dokia.capital/',
+            contributor_categories: [{
               id: 1,
               title: 'Validator',
-            },
-          ]
-        },
-        {
-          id: 6,
-          title: 'Outlier',
-          picture: '/contributors/image6.png',
-          url: 'https://outlierventures.io',
-          contributor_categories: [{
+            }]
+          },
+          {
+            id: 8,
+            title: 'Citadel.one',
+            picture: '/contributors/image8.png',
+            url: 'https://citadel.one',
+            contributor_categories: [{
+              id: 1,
+              title: 'Validator',
+            }]
+          }, 
+          {
+            id: 9,
+            title: 'Fenbushi',
+            picture: '/contributors/image9.png',
+            url: 'https://fenbushi.vc',
+            contributor_categories: [{
               id: 3,
               title: 'Fund',
-            },
-            {
+            }]
+          },
+          {
+            id: 10,
+            title: 'Hashed',
+            picture: '/contributors/image10.png',
+            url: 'https://hashed.com',
+            contributor_categories: [{
+              id: 3,
+              title: 'Fund',
+            }]
+          },
+          {
+            id: 11,
+            title: 'B-Harvest',
+            picture: '/contributors/image11.png',
+            url: 'https://bharvest.io',
+            contributor_categories: [{
               id: 1,
               title: 'Validator',
-            }
-          ]
-        }, {
-          id: 7,
-          title: 'Dokia Capital',
-          picture: '/contributors/image7.png',
-          url: 'https://dokia.capital/',
-          contributor_categories: [{
-            id: 1,
-            title: 'Validator',
-          }]
-        }, {
-          id: 8,
-          title: 'Citadel.one',
-          picture: '/contributors/image8.png',
-          url: 'https://citadel.one',
-          contributor_categories: [{
-            id: 1,
-            title: 'Validator',
-          }]
-        }, {
-          id: 9,
-          title: 'Fenbushi',
-          picture: '/contributors/image9.png',
-          url: 'https://fenbushi.vc',
-          contributor_categories: [{
-            id: 3,
-            title: 'Fund',
-          }]
-        }, {
-          id: 10,
-          title: 'Hashed',
-          picture: '/contributors/image10.png',
-          url: 'https://hashed.com',
-          contributor_categories: [{
-            id: 3,
-            title: 'Fund',
-          }]
-        }, {
-          id: 11,
-          title: 'B-Harvest',
-          picture: '/contributors/image11.png',
-          url: 'https://bharvest.io',
-          contributor_categories: [{
-            id: 1,
-            title: 'Validator',
-          }]
-        }, {
-          id: 12,
-          title: 'Chorus One',
-          picture: '/contributors/image12.png',
-          url: 'https://chorus.one',
-          contributor_categories: [{
-            id: 1,
-            title: 'Validator',
-          }]
-        }
-      ],
+            }]
+          },
+          {
+            id: 12,
+            title: 'Chorus One',
+            picture: '/contributors/image12.png',
+            url: 'https://chorus.one',
+            contributor_categories: [{
+              id: 1,
+              title: 'Validator',
+            }]
+          }
+        ],
 
-      checkedContributorCategories: [],
+        checkedContributorCategories: [],
 
-      selectedTag: "All",
+        selectedTag: "All",
 
-    }
-  },
-
-  computed: {
-    filteredContributors: function () {
-      if(!this.checkedContributorCategories.length){
-        return this.contributors;
       }
-      return this.contributors.filter(post =>
+    },
+    computed: {
+      filteredContributors: function () {
+        if(!this.checkedContributorCategories.length) {
+          return this.contributors;
+        }
+        return this.contributors.filter(post =>
           post.contributor_categories.some(tag =>
             this.checkedContributorCategories.includes(tag.id)
           )
         )
-      }
+      },
     },
-    
     props: {
       url: {
         type: String,
@@ -214,8 +221,31 @@
       },
     }
   }
-
 </script>
+
+<static-query>
+  query {
+  	ecosystemContributors: allStrapiContributors {
+      edges {
+        node {
+          id,
+          title: name,
+          url: link,
+          picture: logo {
+          	url
+          },
+          is_validator,
+          is_developer,
+          is_fund,
+          is_wallet
+        	contributor_categories: type {
+            title:type
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style lang="scss">
   @import "../../sass/functions/theme";
@@ -267,14 +297,14 @@
           text-align: center;
 
           &:hover {
-              transform: var(--card-hover-transform);
-              box-shadow: var(--card-hover-shadow) var(--accent-gray);
-            }
+            transform: var(--card-hover-transform);
+            box-shadow: var(--card-hover-shadow) var(--accent-gray);
+          }
             
-            // &:hover {
-            //   background: var(--theme-card-bg-hover);
-            //   box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
-            // }
+          // &:hover {
+          //   background: var(--theme-card-bg-hover);
+          //   box-shadow: var(--card-hover-shadow-left-2) var(--accent-gray);
+          // }
 
           // &.left {
           //   &:hover {

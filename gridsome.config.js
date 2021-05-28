@@ -36,7 +36,8 @@ module.exports = {
                   'secret-agents',
                   'announcements',
                   'external-media-alts',
-                  'external-media-sources'
+                  'external-media-sources',
+                  'contributors'
               ],
               singleTypes: [
                   'alert-bar',
