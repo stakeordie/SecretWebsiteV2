@@ -139,7 +139,7 @@
 
         h4 {
           margin-bottom: var(--f-gutter-l);
-
+          color: var(--theme-fg);
           a {
             color: var(--theme-fg);
           }
@@ -175,6 +175,7 @@
       .author-info {
         display: grid;
         gap: var(--f-gutter-xxs);
+        color: var(--theme-fg);
       }
     }
   }
