@@ -3,9 +3,9 @@
     <div class="filter">
       <h4>Filters</h4>
       <ul class="custom-checkbox" :class="'selected-' + selectedTag">
-        <li v-for="contributorCategory in contributorCategories" :key="contributorCategory.id">
+        <li v-for="contributorCategory in contributorCategories" :key="contributorCategory.type">
           <label>
-            <input type="checkbox" :value="contributorCategory.id" v-model="checkedContributorCategories">
+            <input type="checkbox" :value="contributorCategory.type" v-model="checkedContributorCategories">
             <span class="title">{{contributorCategory.title}}</span>
             <img class="unchecked" src="../../assets/icon-checkbox-unchecked.svg" alt="unchecked">
             <img class="checked" src="../../assets/icon-checkbox-checked.svg" alt="checked">
@@ -16,10 +16,10 @@
     <div class="contributors-container">
       <h3>Contributors</h3>
       <div class="contributors-grid">
-        
+
         <div class="card-contributor" v-for="contributor in filteredContributors" :key="contributor.id">
           <a :href="contributor.url" target="blank">
-            <img :src="require(`@/assets${contributor.picture}`)" />
+            <img :src="contributor.picture.url" alt="picture" />
             <div class="meta">
               <h6>{{ contributor.title }}</h6>
               <p v-for="category in contributor.contributor_categories" :key="category.id" :class="'accent-'+ category.title">
@@ -39,162 +39,20 @@
         contributorCategories: [{
           id: 1,
           title: 'validators',
-          cms: 'is_validator'
+          type: 'Validator'
         }, {
           id: 2,
           title: 'developers',
-          cms: 'is_developer'
+          type: 'Developer'
         }, {
           id: 3,
           title: 'fund',
-          cms: 'is_fund'
+          type: 'Fund'
         }, {
           id: 4,
           title: 'wallets',
-          cms: 'is_wallet'
+          type: 'Wallet'
         }, ],
-
-        contributors: [
-          {
-            id: 1,
-            title: 'Secret Foundation',
-            picture: '/contributors/image1.png',
-            url: 'https://learn.scrt.network/foundation.html',
-            contributor_categories: [{
-
-            }]
-          },
-          {
-            id: 2,
-            title: 'Secret Nodes',
-            picture: '/contributors/secret-nodes.png',
-            url: 'https://secretnodes.org/#/',
-            contributor_categories: [{
-                id: 1,
-                title: 'Validator',
-              },
-              {
-                id: 2,
-                title: 'Developer',
-              },
-            ]
-          },
-          {
-            id: 3,
-            title: 'Enigma',
-            picture: '/contributors/image3.png',
-            url: 'https://www.enigma.co/',
-            contributor_categories: [{
-              id: 2,
-              title: 'Developer',
-            }, ]
-          },
-          {
-            id: 4,
-            title: 'Chain of Secrets',
-            picture: '/contributors/chain-secrets.png',
-            url: 'https://chainofsecrets.org/',
-            contributor_categories: [{
-                id: 1,
-                title: 'Validator',
-              },
-              {
-                id: 2,
-                title: 'Developer',
-              },
-            ]
-          },
-          {
-            id: 5,
-            title: 'Math Wallet',
-            picture: '/contributors/mathwallet.png',
-            url: 'http://mathwallet.org/',
-            contributor_categories: [{
-                id: 4,
-                title: 'Wallet',
-              },
-              {
-                id: 1,
-                title: 'Validator',
-              },
-            ]
-          },
-          {
-            id: 6,
-            title: 'Outlier',
-            picture: '/contributors/image6.png',
-            url: 'https://outlierventures.io',
-            contributor_categories: [{
-                id: 3,
-                title: 'Fund',
-              },
-              {
-                id: 1,
-                title: 'Validator',
-              }
-            ]
-          },
-          {
-            id: 7,
-            title: 'Dokia Capital',
-            picture: '/contributors/image7.png',
-            url: 'https://dokia.capital/',
-            contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            }]
-          },
-          {
-            id: 8,
-            title: 'Citadel.one',
-            picture: '/contributors/image8.png',
-            url: 'https://citadel.one',
-            contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            }]
-          }, 
-          {
-            id: 9,
-            title: 'Fenbushi',
-            picture: '/contributors/image9.png',
-            url: 'https://fenbushi.vc',
-            contributor_categories: [{
-              id: 3,
-              title: 'Fund',
-            }]
-          },
-          {
-            id: 10,
-            title: 'Hashed',
-            picture: '/contributors/image10.png',
-            url: 'https://hashed.com',
-            contributor_categories: [{
-              id: 3,
-              title: 'Fund',
-            }]
-          },
-          {
-            id: 11,
-            title: 'B-Harvest',
-            picture: '/contributors/image11.png',
-            url: 'https://bharvest.io',
-            contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            }]
-          },
-          {
-            id: 12,
-            title: 'Chorus One',
-            picture: '/contributors/image12.png',
-            url: 'https://chorus.one',
-            contributor_categories: [{
-              id: 1,
-              title: 'Validator',
-            }]
-          }
-        ],
 
         checkedContributorCategories: [],
 
@@ -209,10 +67,14 @@
         }
         return this.contributors.filter(post =>
           post.contributor_categories.some(tag =>
-            this.checkedContributorCategories.includes(tag.id)
+            this.checkedContributorCategories.includes(tag.title)
           )
         )
       },
+
+      contributors() {
+        return this.$static.contributors.edges.map(it => it.node);
+      }
     },
     props: {
       url: {
@@ -225,7 +87,7 @@
 
 <static-query>
   query {
-  	ecosystemContributors: allStrapiContributors {
+  	contributors: allStrapiContributors {
       edges {
         node {
           id,
