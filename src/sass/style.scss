@@ -85,6 +85,12 @@ $accent-colors: ("blue",
   }
 
 body {
+    &.body-init {
+        opacity: 0;
+    }
+    &.body-visible {
+        opacity: 1;
+    }
     &.modal-open {
         position: fixed;
     }
