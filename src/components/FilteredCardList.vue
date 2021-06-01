@@ -6,8 +6,8 @@
       <ul class="custom-checkbox" :class="'selected-' + selectedTag">
         <li v-for="category in categories" :key="category.type">
           <label>
-            <input type="checkbox" :value="category.type" v-model="checkedCategories"><!-- categories/Caegory - type-->
-            <span class="title">{{category.title}}</span> <!-- categories/Caegory - title-->
+            <input type="checkbox" :value="category.type" v-model="checkedCategories">
+            <span class="title">{{category.title}}</span> 
             <img class="unchecked" src="../assets/icon-checkbox-unchecked.svg" alt="unchecked">
             <img class="checked" src="../assets/icon-checkbox-checked.svg" alt="checked">
           </label>
@@ -20,11 +20,11 @@
       <div class="elements-grid">
         <div class="card-element" v-for="element in filteredElements" :key="element.id">
           <a :href="element.url" target="blank"> 
-            <img :src="element.picture.url" alt="picture" /> <!-- Picture - url-->
+            <img :src="element.picture.url" alt="picture" />
             <div class="meta">
-              <h6>{{ element.title }}</h6> <!-- Element - title-->
+              <h6>{{ element.title }}</h6> 
               <p v-for="category in element.contributor_categories" :key="category.id" :class="'accent-'+ category.title">
-                {{category.title}}</p> <!-- Category - title-->
+                {{category.title}}</p> 
             </div>
           </a>
         </div>
@@ -38,23 +38,6 @@
   export default {
     data() {
       return {
-       categories: [{
-          id: 1,
-          title: 'validators',
-          type: 'Validator'
-        }, {
-          id: 2,
-          title: 'developers',
-          type: 'Developer'
-        }, {
-          id: 3,
-          title: 'fund',
-          type: 'Fund'
-        }, {
-          id: 4,
-          title: 'wallets',
-          type: 'Wallet'
-        }, ],
 
         checkedCategories: [],
 
@@ -65,50 +48,26 @@
 
     props:{
        title: {type: String, required: true},
+       categories: {type: Array, required: true},
        elements:{ type: Array, required: true},
-       categoriess: {type: Array, required: true},
-       url: {tupe: String, required: false},
+       url: {type: String, required: false},
     },
 
     computed: {
       filteredElements: function () {
         if(!this.checkedCategories.length) {
-          return this.contributors;
+          return this.elements;
         }
-        return this.contributors.filter(post =>
+        return this.elements.filter(post =>
           post.contributor_categories.some(tag =>
             this.checkedCategories.includes(tag.title)
           )
         )
       },
-
-      contributors() {
-        return this.$static.contributors.edges.map(item => item.node);
-      }
     },
 
   }
 </script>
-
-<static-query>
-  query {
-  	contributors: allStrapiContributors {
-      edges {
-        node {
-          id,
-          title: name,
-          url: link,
-          picture: logo {
-          	url
-          },
-        	contributor_categories: types {
-            title: type
-          }
-        }
-      }
-    }
-  }
-</static-query>
 
 <style lang="scss">
   @import "../sass/functions/theme";
