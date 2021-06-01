@@ -13,13 +13,15 @@
         </li>
       </ul>
     </div>
+
     <div class="contributors-container">
+      
       <h3>Contributors</h3>
       <div class="contributors-grid">
 
         <div class="card-contributor" v-for="contributor in filteredContributors" :key="contributor.id">
           <a :href="contributor.url" target="blank">
-            <img :src="contributor.picture.url" alt="picture" />
+            <img :src="contributor.picture.url" alt="picture" /> 
             <div class="meta">
               <h6>{{ contributor.title }}</h6>
               <p v-for="category in contributor.contributor_categories" :key="category.id" :class="'accent-'+ category.title">
@@ -28,12 +30,29 @@
           </a>
         </div>
       </div>
+
+
+      <filtered-card-list
+        title="Contributors"
+        :elements="contributors"
+        :categoriess="contributorCategories"
+      >
+
+      </filtered-card-list>
     </div>
+
   </div>
+
+
 </template>
 
 <script>
+
+  // import FilteredCardList from '../../components/FilteredCardList'; 
+  import FilteredCardList from '../FilteredCardList.vue';
+
   export default {
+  components: { FilteredCardList },
     data() {
       return {
         contributorCategories: [{
@@ -76,12 +95,7 @@
         return this.$static.contributors.edges.map(it => it.node);
       }
     },
-    props: {
-      url: {
-        type: String,
-        required: false
-      },
-    }
+    
   }
 </script>
 
