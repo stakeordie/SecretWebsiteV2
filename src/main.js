@@ -38,6 +38,7 @@ import CardMedia from '~/components/cards/CardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
 import Media from '~/components/cards/Media.vue';
 import Contributors from '~/components/cards/Contributors.vue';
+import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
 import Btn from '~/components/Btn.vue';
@@ -78,7 +79,7 @@ function setDefaultTheme() {
 
 }
 
-export default function(Vue, {
+export default function (Vue, {
     router,
     head,
     isClient
@@ -103,6 +104,7 @@ export default function(Vue, {
     Vue.component('CardSecretAgent', CardSecretAgent);
     Vue.component('Media', Media);
     Vue.component('Contributors', Contributors);
+    Vue.component('Nodes', Nodes);
     Vue.component('MediaFeatured', MediaFeatured);
     Vue.component('Committees', Committees);
     Vue.component('Btn', Btn);
@@ -144,11 +146,11 @@ export default function(Vue, {
 
     Vue.mixin({
         methods: {
-          searchTrigger: function () {
-            document.querySelector('.search-trigger').click();
-          },
+            searchTrigger: function () {
+                document.querySelector('.search-trigger').click();
+            },
         },
-      })
+    })
 
     router.beforeEach((from, to, next) => {
         if (process.isClient) {
