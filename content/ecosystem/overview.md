@@ -1,13 +1,6 @@
 ---
-title: 'Ecosystem'
+title: "Ecosystem"
 ---
-
-
-
-
-
-
-
 
 <!-- Page title -->
 <column>
@@ -24,14 +17,6 @@ title: 'Ecosystem'
 
 </column>
 
-
-
-
-
-
-
-
-
 <!-- All Media -->
 <column class="spacer-s">
 
@@ -43,13 +28,16 @@ title: 'Ecosystem'
 
 </column>
 
+<!-- New Component -->
+<column class="spacer-s">
 
+<block>
 
+<nodes></nodes>
 
+</block>
 
-
-
-
+</column>
 
 <!-- block header -->
 <column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
@@ -63,14 +51,6 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 </block>
 
 </column>
-
-
-
-
-
-
-
-
 
 <!-- exchange and wallet support -->
 <column class="spacer-s" number="3" number-m="3" number-s="1">
@@ -137,14 +117,6 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 </column>
 
-
-
-
-
-
-
-
-
 <!-- block header -->
 <column number="2" number-m="2" number-s="1" weight="left">
 
@@ -157,13 +129,6 @@ Use the following Secret Network block explorers for staking, governance proposa
 </block>
 
 </column>
-
-
-
-
-
-
-
 
 <!-- Block Explorers and Staking -->
 <column number="3" number-m="3" number-s="1" class="spacer-s">

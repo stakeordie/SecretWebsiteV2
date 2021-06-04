@@ -14,7 +14,7 @@ title: 'About'
 <block>
 <hero-title>
 
-## What is Secret Network?
+## About Secret Network
 
 </hero-title>
 </block>
@@ -32,7 +32,7 @@ title: 'About'
 <column class="spacer-s color-change" number="2" number-s="1" weight="left">
 <block>
 
-###### What is Secret Network?
+###### WHAT IS SECRET NETWORK?
 
 #### A <span>blockchain-based</span>, <span>open-source protocol</span> that lets anyone perform computations on encrypted data, bringing <span>privacy to smart contracts</span> and <span>public blockchains</span>.
 
@@ -186,6 +186,92 @@ Secret Apps - powered by “secret”, privacy-preserving smart contracts - are 
 
 
 
+<!-- About SCRT-->
+<column  weight="left" number="2" number-m="2" number-s="1">
+
+
+<block>
+
+### About SCRT
+
+#### SCRT is the native coin of the Secret Network
+
+#### You can buy SCRT from exchanges or from wallets directly.
+
+Unlike the network, the native coin SCRT is not a privacy coin, and all transactions made with SCRT are publicly viewable. It is used to pay fees and to transact on the network and is essential to run secret contracts.
+
+</block>
+
+<block>
+
+![](../img/eye-illustration.png)
+
+</block>
+
+</column>
+
+
+
+
+
+<!-- Cards Data -->
+
+<column class="spacer-s" number="4" number-m="2" number-s="1">
+<block>
+
+<card-minimal class="accent-green">
+
+### $3.09
+
+#### SCRT Price
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal class="accent-green">
+
+### $41.9M
+
+#### Liquidity
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal class="accent-green">
+
+### $2.37M
+
+#### Daily Volume
+
+</card-minimal>
+
+</block>
+
+<block>
+
+<card-minimal class="accent-green">
+
+### 28
+
+#### Pairs
+
+</card-minimal>
+
+</block>
+
+
+</column>
+
+
+
+
+
 
 
 <!-- separator -->
@@ -196,9 +282,6 @@ Secret Apps - powered by “secret”, privacy-preserving smart contracts - are 
 
 </block>
 </column>
-
-
-
 
 
 
