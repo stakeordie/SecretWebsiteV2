@@ -253,6 +253,9 @@ query {
             border-radius: var(--f-gutter-l);
             left: 0;
             right: 0;
+            height: 182px;
+            width: 100%;
+            object-fit: cover;
           }
         }
       }
