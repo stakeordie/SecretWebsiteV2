@@ -1,46 +1,45 @@
 <template>
-
+  <div>
     <filtered-card-list
-        title="Nodes"
-        :categories="nodeCategories"
-        :elements="nodes"
+      title="Nodes"
+      :categories="nodeCategories"
+      :elements="nodes"
     >
-
     </filtered-card-list>
-
+  </div>
 </template>
 
 <script>
-import FilteredCardList from '../FilteredCardList.vue'
-
+import FilteredCardList from "../FilteredCardList.vue";
+import Navigations from "../Navigations.vue";
+import Pagination from "../Pagination.vue";
 
 export default {
-  components: { FilteredCardList },
+  components: { FilteredCardList, Navigations, Pagination },
 
-  data(){
-
-      return{
-        nodeCategories: [{
-            id: 1,
-            title: 'active',
-            type: 'Active',
-        },{
-            id: 2,
-            title: 'inactive',
-            type: 'Inactive',
-        }]
-      }
+  data() {
+    return {
+      nodeCategories: [
+        {
+          id: 1,
+          title: "active",
+          type: "Active",
+        },
+        {
+          id: 2,
+          title: "inactive",
+          type: "Inactive",
+        },
+      ],
+    };
   },
 
-  computed:{ 
-
+  computed: {
     nodes() {
-    return this.$static.nodes.edges.map(it => it.node);
-    }
-
-  }
-}
-
+      return this.$static.nodes.edges.map((it) => it.node);
+    },
+  },
+};
 </script>
 
 <static-query>

@@ -1,55 +1,59 @@
 <template>
+  <div>
+    <filtered-card-list
+      title="Contributors"
+      :categories="contributorCategories"
+      :elements="contributors"
+    >
+    </filtered-card-list>
 
-      <filtered-card-list
-        title="Contributors"
-        :categories="contributorCategories"
-        :elements="contributors"
-      >
-
-      </filtered-card-list>
-
+    <!-- <pagination
+              :items="contributors"
+        >
+        </pagination> -->
+  </div>
 </template>
 
 <script>
-  import FilteredCardList from '../FilteredCardList.vue';
+import FilteredCardList from "../FilteredCardList.vue";
+import Pagination from "../Pagination.vue";
 
-  export default {
+export default {
+  components: { FilteredCardList, Pagination },
 
-  components: { FilteredCardList },
-
-    data() {
-
-      return {
-        contributorCategories: [{
+  data() {
+    return {
+      contributorCategories: [
+        {
           id: 1,
-          title: 'validators',
-          type: 'Validator'
-        }, {
+          title: "validators",
+          type: "Validator",
+        },
+        {
           id: 2,
-          title: 'developers',
-          type: 'Developer'
-        }, {
+          title: "developers",
+          type: "Developer",
+        },
+        {
           id: 3,
-          title: 'fund',
-          type: 'Fund'
-        }, {
+          title: "fund",
+          type: "Fund",
+        },
+        {
           id: 4,
-          title: 'wallets',
-          type: 'Wallet'
-        }, ],
+          title: "wallets",
+          type: "Wallet",
+        },
+      ],
+    };
+  },
 
-      }
+  computed: {
+    contributors() {
+      return this.$static.contributors.edges.map((it) => it.node);
     },
-
-    computed: {
-
-      contributors() {
-        return this.$static.contributors.edges.map(it => it.node);
-      }
-
-    },
-    
-  }
+  },
+};
 </script>
 
 <static-query>
