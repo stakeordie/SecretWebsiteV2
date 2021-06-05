@@ -38,7 +38,9 @@ module.exports = {
                 'external-media-alts',
                 'external-media-sources',
                 'contributors',
-                'nodes'
+                'nodes',
+                'contributors-alt',
+                'd-apps',
             ],
             singleTypes: [
                 'alert-bar',

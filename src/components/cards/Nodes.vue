@@ -54,7 +54,8 @@ export default {
           	url
           },
         	node_categories: types {
-            title: type
+            title:,
+            type
           }
         }
       }

@@ -22,18 +22,20 @@ title: "Ecosystem"
 
 <block>
 
-<contributors></contributors>
+<filtered-card-list title="Contributors" collectionName="contributors" categoryName="contributor_categories"></filtered-card-list>
 
 </block>
 
 </column>
 
+
 <!-- New Component -->
 <column class="spacer-s">
 
+<!-- <filtered-card-list title="DApps" collectionName="dapps" categoryName="dapps_categories"></filtered-card-list> -->
+
 <block>
 
-<nodes></nodes>
 
 </block>
 

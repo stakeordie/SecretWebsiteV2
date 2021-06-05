@@ -2,16 +2,17 @@
   <div>
     <div class="elements">
       <div class="filter">
+        <h3>{{ title }}</h3>
         <h4>Filters</h4>
         <ul class="custom-checkbox" :class="'selected-' + selectedTag">
-          <li v-for="category in categories" :key="category.type">
+          <li v-for="(category, index) of categories" :key="index">
             <label>
               <input
                 type="checkbox"
-                :value="category.type"
+                :value="category.titleCategory"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ category.title }}</span>
+              <span class="title">{{ category.titleCategory }}</span>
               <img
                 class="unchecked"
                 src="../assets/icon-checkbox-unchecked.svg"
@@ -28,7 +29,6 @@
       </div>
 
       <div class="elements-container">
-        <h3>{{ title }}</h3>
         <div class="elements-grid">
           <div
             class="card-element"
@@ -63,8 +63,10 @@
 
 <script>
 import Pagination from "./Pagination.vue";
+
 export default {
   components: { Pagination },
+
   data() {
     return {
       currentPage: 0,
@@ -79,25 +81,27 @@ export default {
 
   props: {
     title: { type: String, required: true },
-    categories: { type: Array, required: true },
-    elements: { type: Array, required: true },
-    url: { type: String, required: false },
+    collectionName: { type: String, required: true },
+    categoryName: { type: String, required: true },
   },
 
   methods: {
     setPagesFather(number) {
-      // console.log("Hello");
       this.currentPage = number;
     },
+  },
+
+  created() {
+    console.log(this.categories);
   },
 
   computed: {
     filteredElements: function () {
       if (!this.checkedCategories.length) {
-        return this.elements;
+        return this.collection;
       }
-      return this.elements.filter((post) =>
-        post.contributor_categories.some((tag) =>
+      return this.collection.filter((post) =>
+        post[this.categoryName].some((tag) =>
           this.checkedCategories.includes(tag.title)
         )
       );
@@ -108,9 +112,63 @@ export default {
       const end = start + this.pageSize;
       return this.filteredElements.slice(start, end);
     },
+
+    collection() {
+      return this.$static[this.collectionName].edges.map((it) => it.node);
+    },
+
+    categories() {
+      // SKip Undifened Elements
+      const data = this.$static[this.collectionName].edges.filter((element) => {
+        return element.node[this.categoryName][0] !== undefined;
+      });
+
+      const categoryData = data.map((item) => {
+        return {
+          titleCategory: item.node[this.categoryName][0]?.title,
+          type: item.node[this.categoryName][0]?.type,
+          // titleCategory: item.node[this.categoryName].map((cat) => cat?.title),
+        };
+      });
+
+      let uniqueCategories = [];
+
+      categoryData.filter((cat) => {
+        if (
+          !uniqueCategories.find(
+            (cat_some) => cat_some.titleCategory == cat.titleCategory
+          )
+        ) {
+          uniqueCategories.push(cat);
+        }
+      });
+
+      return uniqueCategories;
+    },
   },
 };
 </script>
+
+<static-query>
+  query {
+  	contributors: allStrapiContributors {
+      edges {
+        node {
+          id,
+          title: name,
+          url: link,
+          picture: logo {
+          	url
+          },
+        	contributor_categories: types { 
+            title: type,
+            type
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style lang="scss">
 @import "../sass/functions/theme";
