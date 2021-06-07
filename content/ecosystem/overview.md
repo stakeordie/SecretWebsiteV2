@@ -18,6 +18,8 @@ title: "Ecosystem"
 </column>
 
 <!-- All Media -->
+
+<!-- Contributors -->
 <column class="spacer-s">
 
 <block>
@@ -29,17 +31,24 @@ title: "Ecosystem"
 </column>
 
 
-<!-- New Component -->
-<column class="spacer-s">
 
-<!-- <filtered-card-list title="DApps" collectionName="dapps" categoryName="dapps_categories"></filtered-card-list> -->
+
+<!-- DApps -->
+
+<!-- <column class="spacer-s">
 
 <block>
 
+<filtered-card-list title="dApps" collectionName="dApps" categoryName="dApps_categories"></filtered-card-list>
 
 </block>
 
-</column>
+</column> -->
+
+
+
+
+
 
 <!-- block header -->
 <column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">

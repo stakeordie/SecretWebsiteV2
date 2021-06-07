@@ -19,7 +19,7 @@ export default {
 
   methods: {
     setPage(page) {
-      console.log(page);
+      // console.log(page);
       this.$emit("page", page - 1);
     },
   },
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .pagination {
   margin-top: 20px;
   display: grid;
@@ -43,15 +43,19 @@ export default {
   grid-auto-columns: max-content;
   grid-column-gap: 12px;
   justify-content: center;
-}
 
-hr {
-  cursor: pointer;
-  border: none;
-  border-top: 1px;
-  color: #fff;
-  background-color: #c4c4c4;
-  height: 8px;
-  width: 27px;
+  hr {
+    cursor: pointer;
+    border: none;
+    border-top: 1px;
+    background-color: #c4c4c4;
+    height: 8px;
+    width: 27px;
+    opacity: 0.2;
+
+    &:active {
+      opacity: 1;
+    }
+  }
 }
 </style>

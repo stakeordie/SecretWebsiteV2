@@ -3,7 +3,10 @@
     <div class="elements">
       <div class="filter">
         <h3>{{ title }}</h3>
-        <h4>Filters</h4>
+        <div class="filter-auction">
+          <h4>Filters</h4>
+          <button class="btn-clear" v-on:click="resetCheck">Clear</button>
+        </div>
         <ul class="custom-checkbox" :class="'selected-' + selectedTag">
           <li v-for="(category, index) of categories" :key="index">
             <label>
@@ -89,10 +92,9 @@ export default {
     setPagesFather(number) {
       this.currentPage = number;
     },
-  },
-
-  created() {
-    console.log(this.categories);
+    resetCheck() {
+      this.checkedCategories = [];
+    },
   },
 
   computed: {
@@ -180,9 +182,30 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: var(--f-gutter-xl);
+  background-color: var(--color-neutral-dark-mode-02);
+  padding: 32px;
 
   @include respond-to("<=m") {
     grid-template-columns: 1fr;
+  }
+
+  h4 {
+    color: var(--color-neutral-dark-mode-05);
+  }
+
+  .filter-auction {
+    display: flex;
+    justify-content: space-between;
+
+    @include respond-to(">=s") {
+      margin: 48px 0px 20px 0px;
+    }
+
+    button {
+      padding: 0px;
+      background: none;
+      color: var(--color-analog-secondary-blue);
+    }
   }
 
   .elements-container {
@@ -237,6 +260,25 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           display: flex;
           flex-direction: column;
           gap: var(--f-gutter-xxs);
+          height: 112px;
+          overflow-y: auto;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+            background-color: var(#1a2128);
+          }
+
+          &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #f5f5f5;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #c4c4c4;
+          }
 
           .location {
             color: var(--color-analog-secondary-blue);
