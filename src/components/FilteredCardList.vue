@@ -69,7 +69,7 @@ export default {
     return {
       currentPage: 0,
 
-      pageSize: 6,
+      pageSize: 15,
 
       checkedCategories: [],
 
