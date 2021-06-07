@@ -41,6 +41,9 @@ module.exports = {
                 'nodes',
                 'contributors-alt',
                 'd-apps',
+                'card-grids',
+                'cards',
+                'card-types'
             ],
             singleTypes: [
                 'alert-bar',

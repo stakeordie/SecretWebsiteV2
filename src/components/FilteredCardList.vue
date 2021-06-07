@@ -43,7 +43,7 @@
               <div class="meta">
                 <h6>{{ element.title }}</h6>
                 <p
-                  v-for="category in element.contributor_categories"
+                  v-for="category in element.types"
                   :key="category.id"
                   :class="'accent-' + category.title"
                 >
@@ -87,6 +87,10 @@ export default {
     collectionName: { type: String, required: true },
     categoryName: { type: String, required: true },
   },
+
+  // created() {
+  //   console.log(this.collection);
+  // },
 
   methods: {
     setPagesFather(number) {
@@ -153,7 +157,7 @@ export default {
 
 <static-query>
   query {
-  	contributors: allStrapiContributors {
+  	allStrapiContributors {
       edges {
         node {
           id,
@@ -162,14 +166,32 @@ export default {
           picture: logo {
           	url
           },
-        	contributor_categories: types { 
+        	types { 
             title: type,
             type
           }
         }
       }
     }
+    allStrapiDApps {
+    edges {
+      node {
+        id,
+        title: name,
+        url: link,
+        picture: logo {
+          url
+        },
+        types { 
+          title: type,
+          type
+        }
+      }
+    }
   }
+  },
+  
+
 </static-query>
 
 <style lang="scss">
