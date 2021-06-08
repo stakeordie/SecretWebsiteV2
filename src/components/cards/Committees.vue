@@ -96,11 +96,13 @@
             name: 'Design',
             date: 'Tuesday, 5-6pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
-            purpose: 'The Design Committee is a space for interested community members, designers, and other creatives to gather, discuss, collaborate on, and contribute to design for Secret Network and projects, efforts, and initiatives within it.',
-            goals: `- Encourage collaboration between committee members and Secret Network projects, efforts, and initiatives with design needs.
-  - Promote design best practices within the Secret Network ecosystem, including user-friendliness, usability, inclusivity, and design which supports Secret Network’s mission and vision.
-  - Share design assets, knowledge, and resources with other members and the larger community to foster a decentralized, collaborative, and iterative design environment Provide a structured format for the community provide constructive feedback on design, as-needed. 
-  - Recommend new design-related initiatives for funding.`,
+            purpose: 'A space for discussing, collaborating on, and contributing to design for Secret Network and the projects within it.',
+            goals: `- Connect designers in the community with available design opportunities.
+- Create a collaborative and open-source design environment that benefits the entire network.`,
+responsibilities: `- Foster and promote design best practices in Secret Network.
+- Encourage collaboration between committee members and community projects.
+- Share design assets, knowledge, and resources with other members and the larger community.
+- Recommend new design-related initiatives for funding.`,
           },
         ]
       }
