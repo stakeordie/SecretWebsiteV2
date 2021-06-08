@@ -41,7 +41,7 @@
             name: 'Devs',
             date: 'Mondays, 4-5pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
-            purpose: 'Engineering a secret source of truth.',
+            purpose: 'Engineering a secret source of truth for developers across the ecosystem.',
             goals: `- Onboarding valuable contributors
   - Building useful secret apps together`,
             responsibilities: `- Improving documentation for developers.`,
@@ -75,7 +75,7 @@
             name: 'Business Development',
             date: 'Mondays 6-7PM UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
-            purpose: 'to provide research and intelligence to the secret community, to leadership as well as committees on constantly evolving crypto world and where Secret Network fits in. ',
+            purpose: 'To provide research and intelligence to the secret community, to leadership as well as committees on constantly evolving crypto world and where Secret Network fits in. ',
             goals: `- serve as a liaison between the larger crypto ecosystem outside of Secret Network and the internal organizations, committees, and products within Secret Network.`,
             responsibilities: `- Secure cross promotion channels with other crypto projects
   - Work with the dev committee and large Secret Network contributors on partner & product integrations
