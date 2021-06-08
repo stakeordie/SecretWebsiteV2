@@ -39,7 +39,7 @@
       return {
         committees: [{
             name: 'Devs',
-            date: 'Mondays, 5pm UTC',
+            date: 'Mondays, 4-5pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
             purpose: 'Engineering a secret source of truth.',
             goals: `- Onboarding valuable contributors
@@ -49,7 +49,7 @@
           },
           {
             name: 'Education',
-            date: 'Thursdays, 4pm UTC',
+            date: 'Thursdays, 3-4pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
             purpose: 'Helping anyone understand the importance of programmable privacy.',
             goals: `- Producing relevant and accessible content.
@@ -60,7 +60,7 @@
           },
           {
             name: 'Awareness',
-            date: 'Mondays, 4pm UTC',
+            date: 'Mondays, 3-4pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
             purpose: 'Amplifying our network and our materials in order to drive adoption and community growth.',
             goals: `- Increasing Secret awareness.
@@ -72,18 +72,18 @@
   - Supporting Sharing Secrets and other content initiatives.`
           },
           {
-            name: 'Puzzle',
-            date: 'Tuesdays 4PM UTC',
+            name: 'Business Development',
+            date: 'Mondays 6-7PM UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
-            purpose: 'To facilitate opportunities for collaboration between the community and Puzzle. ',
-            goals: `- Collect feedback and feature requests for Puzzle.
-  - Determine the biggest pain points users are having with Puzzle.
-  - Implement features that empower users, committees, and other ecosystem participants.`,
-            responsibilities: `- Making sure Puzzle development continues to fullfil community needs.`,
+            purpose: 'to provide research and intelligence to the secret community, to leadership as well as committees on constantly evolving crypto world and where Secret Network fits in. ',
+            goals: `- serve as a liaison between the larger crypto ecosystem outside of Secret Network and the internal organizations, committees, and products within Secret Network.`,
+            responsibilities: `- Secure cross promotion channels with other crypto projects
+  - Work with the dev committee and large Secret Network contributors on partner & product integrations
+  -  Work with new products in the Secret Network ecosystem on creating their unique selling points and brand strategy`,
           },
           {
             name: 'Governance',
-            date: 'Wednesdays, 4pm UTC',
+            date: 'Wednesdays, 3-4pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
             purpose: 'Facilitating coordination of Secret Network participants.',
             goals: `- Promoting transparent collaboration.
@@ -93,17 +93,14 @@
             initiatives: `- Discussing project updates and governance issues.`
           },
           {
-            name: 'Website / Design',
-            date: 'Fridays, 4pm UTC',
+            name: 'Design',
+            date: 'Tuesday, 5-6pm UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
-            purpose: 'To oversee ongoing build and maintainence of scrt.network',
-            goals: `- An ongoing website and design roadmap.
-  - Weekly reviews of current build and of latest Figma's.
-  - An engaged group of members that represents the community as a whole.`,
-            responsibilities: `- Provide a link between the broader community and the website developers and designers. 
-  - Provide ideation and feedback for developers and designers.
-  - Provide community endorsement for website and design initiatives, both volunteer and paid.
-  - Provide oversight of community fund spends for the website.`,
+            purpose: 'The Design Committee is a space for interested community members, designers, and other creatives to gather, discuss, collaborate on, and contribute to design for Secret Network and projects, efforts, and initiatives within it.',
+            goals: `- Encourage collaboration between committee members and Secret Network projects, efforts, and initiatives with design needs.
+  - Promote design best practices within the Secret Network ecosystem, including user-friendliness, usability, inclusivity, and design which supports Secret Network’s mission and vision.
+  - Share design assets, knowledge, and resources with other members and the larger community to foster a decentralized, collaborative, and iterative design environment Provide a structured format for the community provide constructive feedback on design, as-needed. 
+  - Recommend new design-related initiatives for funding.`,
           },
         ]
       }
