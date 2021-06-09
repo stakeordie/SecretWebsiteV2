@@ -39,12 +39,18 @@
             :key="element.id"
           >
             <a :href="element.url" target="blank">
-              <img :src="element.picture.url" alt="picture" />
+              <div class="image-container">
+                <img :src="element.picture.url" alt="picture" />
+              </div>
               <div class="meta">
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
-                <div class="m-elements">
+                <!-- <div class="m-elements"> -->
+                <div
+                  class="m-elements"
+                  :class="evaluateTags(element.types.length)"
+                >
                   <p
                     v-for="category in element.types"
                     :key="category.id"
@@ -70,7 +76,10 @@
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
-                <div class="m-elements">
+                <div
+                  class="m-elements"
+                  :class="evaluateTags(element.types.length)"
+                >
                   <p
                     v-for="category in element.types"
                     :key="category.id"
@@ -115,7 +124,7 @@ export default {
   props: {
     title: { type: String, required: true },
     collection: { type: String, required: true },
-    pageSize: { type: Number, required: false, default: 5 },
+    pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
   },
 
@@ -125,6 +134,16 @@ export default {
     },
     resetCheck() {
       this.checkedCategories = [];
+    },
+
+    evaluateTags(size) {
+      if (!size) return;
+
+      if (size < 5) {
+        return "tag-card-" + size;
+      } else {
+        return "tag-card-5";
+      }
     },
   },
 
@@ -176,6 +195,10 @@ export default {
       });
 
       return uniqueCategories;
+    },
+
+    getTagByPage() {
+      return this.pagedArray;
     },
   },
 };
@@ -230,7 +253,7 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: var(--f-gutter-xl);
-  background-color: var(--color-neutral-dark-mode-02);
+  background-color: var(--theme-card-grid-bg-color);
   padding: 32px;
 
   @include respond-to("<=m") {
@@ -303,6 +326,14 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           }
         }
 
+        .image-container {
+          img {
+            object-fit: cover;
+            width: 160px;
+            height: 160px;
+          }
+        }
+
         .meta {
           padding: var(--f-gutter);
           display: flex;
@@ -315,14 +346,38 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           }
 
           .m-elements {
-            margin-top: 15px;
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            place-content: center center;
+            height: 100%;
 
-            /* display: grid;
-            grid-template-columns: 50% 50%;
-            grid-template-rows: 50% 50%; */
+            &.tag-card-1,
+            &.tag-card-2 {
+              place-content: center center;
+            }
+
+            &.tag-card-2 {
+              flex-direction: column;
+            }
+
+            &.tag-card-3 {
+              flex-direction: column;
+              flex-basis: 50%;
+              flex: 1;
+            }
+
+            &.tag-card-4 {
+              display: inline-flex;
+              flex-wrap: wrap;
+              justify-content: space-around;
+            }
+
+            &.tag-card-5 {
+              display: inline-flex;
+              overflow-y: hidden;
+              overflow-x: scroll;
+            }
 
             p {
               font-size: 12px;

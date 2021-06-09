@@ -24,7 +24,7 @@ title: "Ecosystem"
 
 <block>
 
-<card-grid title="Contributors" collection="contributors" :pageSize="5" :isPaginated="true"></card-grid>
+<card-grid title="Contributors" collection="contributors" :pageSize="15" :isPaginated="true"></card-grid>
 
 </block>
 

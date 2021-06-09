@@ -19,6 +19,7 @@ $themes: (
         "card-text-color": var(--color-neutral-dark-mode-05),
         // alert
         "alert-bg-color": var(--color-neutral-dark-mode-04),
+        "card-grid-bg-color": var(--color-neutral-dark-mode-02),
     ), 
     "light": (
         "fg": var(--color-analog-primary-black), 
@@ -38,6 +39,7 @@ $themes: (
         "card-text-color": var(--color-neutral-light-mode-05),
         // alert
         "alert-bg-color": var(--color-neutral-light-mode-01),
+        "card-grid-bg-color": var(--color-neutral-light-mode-02),
         
     ), 
     "dark-colored": (
@@ -58,6 +60,7 @@ $themes: (
         "card-text-color": var(--color-neutral-dark-mode-05),
         // alert
         "alert-bg-color": var(--color-neutral-dark-mode-04),
+        "card-grid-bg-color": var(--color-neutral-dark-mode-02),
     ), 
     "light-colored": (
         "fg": var(--color-analog-primary-black), 
@@ -78,6 +81,7 @@ $themes: (
         "card-text-color": var(--color-neutral-light-mode-05),
         // alert
         "alert-bg-color": var(--color-neutral-light-mode-01),
+        "card-grid-bg-color": var(--color-neutral-light-mode-02),
     )
 );
 body {
@@ -100,6 +104,7 @@ body {
             --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
             --theme-card-text-color: #{map-get($theme, "card-text-color")};
             --theme-alert-bg-color: #{map-get($theme, "alert-bg-color")};
+            --theme-card-grid-bg-color: #{map-get($theme, "card-grid-bg-color")}; 
         }
     }
 }
