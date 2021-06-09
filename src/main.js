@@ -37,7 +37,7 @@ import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
 import Media from '~/components/cards/Media.vue';
-import FilteredCardList from '~/components/FilteredCardList.vue';
+import CardGrid from '~/components/CardGrid.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
@@ -104,7 +104,7 @@ export default function (Vue, {
     Vue.component('CardMedia', CardMedia);
     Vue.component('CardSecretAgent', CardSecretAgent);
     Vue.component('Media', Media);
-    Vue.component('FilteredCardList', FilteredCardList);
+    Vue.component('CardGrid', CardGrid);
     Vue.component('Contributors', Contributors);
     Vue.component('Nodes', Nodes);
     Vue.component('MediaFeatured', MediaFeatured);

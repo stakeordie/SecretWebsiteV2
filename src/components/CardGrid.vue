@@ -32,7 +32,7 @@
       </div>
 
       <div class="elements-container">
-        <div class="elements-grid">
+        <div class="elements-grid" v-if="isPaginated">
           <div
             class="card-element"
             v-for="element in pagedArray"
@@ -41,19 +41,51 @@
             <a :href="element.url" target="blank">
               <img :src="element.picture.url" alt="picture" />
               <div class="meta">
-                <h6>{{ element.title }}</h6>
-                <p
-                  v-for="category in element.types"
-                  :key="category.id"
-                  :class="'accent-' + category.title"
-                >
-                  {{ category.title }}
-                </p>
+                <div class="m-title">
+                  <h6>{{ element.title }}</h6>
+                </div>
+                <div class="m-elements">
+                  <p
+                    v-for="category in element.types"
+                    :key="category.id"
+                    :class="'accent-' + category.title"
+                  >
+                    {{ category.title }}
+                  </p>
+                </div>
               </div>
             </a>
           </div>
         </div>
+
+        <div class="elements-grid" v-else>
+          <div
+            class="card-element"
+            v-for="element in filteredElements"
+            :key="element.id"
+          >
+            <a :href="element.url" target="blank">
+              <img :src="element.picture.url" alt="picture" />
+              <div class="meta">
+                <div class="m-title">
+                  <h6>{{ element.title }}</h6>
+                </div>
+                <div class="m-elements">
+                  <p
+                    v-for="category in element.types"
+                    :key="category.id"
+                    :class="'accent-' + category.title"
+                  >
+                    {{ category.title }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <pagination
+          v-if="isPaginated"
           @page="setPagesFather"
           :pageSize="pageSize"
           :items="filteredElements"
@@ -74,8 +106,6 @@ export default {
     return {
       currentPage: 0,
 
-      pageSize: 15,
-
       checkedCategories: [],
 
       selectedTag: "All",
@@ -84,13 +114,10 @@ export default {
 
   props: {
     title: { type: String, required: true },
-    collectionName: { type: String, required: true },
-    categoryName: { type: String, required: true },
+    collection: { type: String, required: true },
+    pageSize: { type: Number, required: false, default: 5 },
+    isPaginated: { type: Boolean, required: false, default: false },
   },
-
-  // created() {
-  //   console.log(this.collection);
-  // },
 
   methods: {
     setPagesFather(number) {
@@ -102,14 +129,12 @@ export default {
   },
 
   computed: {
-    filteredElements: function () {
+    filteredElements() {
       if (!this.checkedCategories.length) {
-        return this.collection;
+        return this.collections;
       }
-      return this.collection.filter((post) =>
-        post[this.categoryName].some((tag) =>
-          this.checkedCategories.includes(tag.title)
-        )
+      return this.collections.filter((post) =>
+        post.types.some((tag) => this.checkedCategories.includes(tag.title))
       );
     },
 
@@ -119,20 +144,21 @@ export default {
       return this.filteredElements.slice(start, end);
     },
 
-    collection() {
-      return this.$static[this.collectionName].edges.map((it) => it.node);
+    collections() {
+      return this.$static[this.collection].edges.map((it) => it.node);
     },
 
     categories() {
       // SKip Undifened Elements
-      const data = this.$static[this.collectionName].edges.filter((element) => {
-        return element.node[this.categoryName][0] !== undefined;
+      const data = this.$static[this.collection].edges.filter((element) => {
+        return element.node.types[0] !== undefined;
       });
 
       const categoryData = data.map((item) => {
         return {
-          titleCategory: item.node[this.categoryName][0]?.title,
-          type: item.node[this.categoryName][0]?.type,
+          titleCategory: item.node.types[0]?.title,
+          type: item.node.types[0]?.type,
+          // type: item.node[this.categoryName][0]?.type,
           // titleCategory: item.node[this.categoryName].map((cat) => cat?.title),
         };
       });
@@ -157,7 +183,7 @@ export default {
 
 <static-query>
   query {
-  	allStrapiContributors {
+  	contributors: allStrapiContributors {
       edges {
         node {
           id,
@@ -173,7 +199,7 @@ export default {
         }
       }
     }
-    allStrapiDApps {
+    dApps: allStrapiDApps {
     edges {
       node {
         id,
@@ -283,7 +309,27 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           flex-direction: column;
           gap: var(--f-gutter-xxs);
           height: 112px;
-          overflow-y: auto;
+
+          h6 {
+            font-size: 14px;
+          }
+
+          .m-elements {
+            margin-top: 15px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            /* display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%; */
+
+            p {
+              font-size: 12px;
+            }
+          }
+
+          /* overflow-y: auto;
 
           &::-webkit-scrollbar {
             width: 5px;
@@ -300,7 +346,7 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             background-color: #c4c4c4;
-          }
+          } */
 
           .location {
             color: var(--color-analog-secondary-blue);

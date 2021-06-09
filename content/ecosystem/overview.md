@@ -24,7 +24,7 @@ title: "Ecosystem"
 
 <block>
 
-<filtered-card-list title="Contributors" collectionName="allStrapiContributors" categoryName="types"></filtered-card-list>
+<card-grid title="Contributors" collection="contributors" :pageSize="5" :isPaginated="true"></card-grid>
 
 </block>
 
@@ -39,7 +39,7 @@ title: "Ecosystem"
 
 <block>
 
-<filtered-card-list title="dApps" collectionName="allStrapiDApps" categoryName="types"></filtered-card-list>
+<card-grid title="dApps" collection="dApps" :pageSize="5" :isPaginated="false"></card-grid>
 
 </block>
 
@@ -53,7 +53,7 @@ title: "Ecosystem"
 
 <block>
 
-<filtered-card-list title="Nodes" collectionName="allStrapiNodes" categoryName="types"></filtered-card-list>
+<card-grid title="Nodes" collectionName="allStrapiNodes" </card-grid>
 
 </block>
 
