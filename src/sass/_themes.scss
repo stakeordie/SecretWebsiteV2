@@ -20,7 +20,11 @@ $themes: (
         // alert
         "alert-bg-color": var(--color-neutral-dark-mode-04),
         "card-grid-bg-color": var(--color-neutral-dark-mode-02),
-    ), 
+
+        "scroll-bar-bg-color": var(--color-neutral-light-mode-05),
+        "scroll-bar-track-bg-color": var(--color-neutral-light-mode-05),
+        "scroll-bar-thumb-bg-color": var(--color-neutral-light-mode-01)
+    ),
     "light": (
         "fg": var(--color-analog-primary-black), 
         "bg": var(--color-analog-primary-white),
@@ -40,8 +44,11 @@ $themes: (
         // alert
         "alert-bg-color": var(--color-neutral-light-mode-01),
         "card-grid-bg-color": var(--color-neutral-light-mode-02),
-        
-    ), 
+
+        "scroll-bar-bg-color": var(--color-neutral-light-mode-01),
+        "scroll-bar-track-bg-color": var(--color-neutral-light-mode-01),
+        "scroll-bar-thumb-bg-color": var(--color-neutral-light-mode-05)
+    ),
     "dark-colored": (
         "fg": var(--color-analog-primary-white), 
         "bg": var(--color-analog-primary-black),
@@ -61,7 +68,11 @@ $themes: (
         // alert
         "alert-bg-color": var(--color-neutral-dark-mode-04),
         "card-grid-bg-color": var(--color-neutral-dark-mode-02),
-    ), 
+
+        "scroll-bar-bg-color": var(--color-neutral-light-mode-05),
+        "scroll-bar-track-bg-color": var(--color-neutral-light-mode-05),
+        "scroll-bar-thumb-bg-color": var(--color-neutral-light-mode-01)
+    ),
     "light-colored": (
         "fg": var(--color-analog-primary-black), 
         "bg": var(--color-analog-primary-white),
@@ -82,6 +93,10 @@ $themes: (
         // alert
         "alert-bg-color": var(--color-neutral-light-mode-01),
         "card-grid-bg-color": var(--color-neutral-light-mode-02),
+
+        "scroll-bar-bg-color": red,
+        "scroll-bar-track-bg-color": green,
+        "scroll-bar-thumb-bg-color": yellow
     )
 );
 body {
@@ -104,7 +119,11 @@ body {
             --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
             --theme-card-text-color: #{map-get($theme, "card-text-color")};
             --theme-alert-bg-color: #{map-get($theme, "alert-bg-color")};
-            --theme-card-grid-bg-color: #{map-get($theme, "card-grid-bg-color")}; 
+            --theme-card-grid-bg-color: #{map-get($theme, "card-grid-bg-color")};
+
+            --theme-scroll-bar-bg-color: #{map-get($theme, "scroll-bar-bg-color")};
+            --theme-scroll-bar-track-bg-color: #{map-get($theme, "scroll-bar-track-bg-color")};
+            --theme-scroll-bar-thumb-bg-color: #{map-get($theme, "scroll-bar-thumb-bg-color")};
         }
     }
 }

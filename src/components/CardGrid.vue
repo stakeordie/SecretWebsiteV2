@@ -3,11 +3,11 @@
     <div class="elements">
       <div class="filter">
         <h3>{{ title }}</h3>
-        <div class="filter-auction">
+        <div class="filter-auction" v-if="hasCategories">
           <h4>Filters</h4>
           <button class="btn-clear" v-on:click="resetCheck">Clear</button>
         </div>
-        <ul class="custom-checkbox" :class="'selected-' + selectedTag">
+        <ul class="custom-checkbox" :class="'selected-' + selectedTag" v-if="hasCategories">
           <li v-for="(category, index) of categories" :key="index">
             <label>
               <input
@@ -42,7 +42,7 @@
               <div class="image-container">
                 <img :src="element.picture.url" alt="picture" />
               </div>
-              <div class="meta">
+              <div class="meta" :class="{ 'meta--with-categories': hasCategories }">
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
@@ -50,6 +50,7 @@
                 <div
                   class="m-elements"
                   :class="evaluateTags(element.types.length)"
+                  v-if="hasCategories"
                 >
                   <p
                     v-for="category in element.types"
@@ -72,13 +73,14 @@
           >
             <a :href="element.url" target="blank">
               <img :src="element.picture.url" alt="picture" />
-              <div class="meta">
+              <div class="meta" :class="{ 'meta--with-categories': hasCategories }">
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
                 <div
                   class="m-elements"
                   :class="evaluateTags(element.types.length)"
+                  v-if="hasCategories"
                 >
                   <p
                     v-for="category in element.types"
@@ -126,6 +128,7 @@ export default {
     collection: { type: String, required: true },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
+    hasCategories: { type: Boolean, default: true }
   },
 
   methods: {
@@ -339,69 +342,57 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           display: flex;
           flex-direction: column;
           gap: var(--f-gutter-xxs);
-          height: 112px;
+
+          &--with-categories {
+            height: 112px;
+          }
 
           h6 {
             font-size: 14px;
           }
 
           .m-elements {
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            place-content: center center;
+            display: grid;
             height: 100%;
 
-            &.tag-card-1,
-            &.tag-card-2 {
+            &.tag-card-1, &.tag-card-2, &.tag-card-3, &.tag-card-4 {
               place-content: center center;
             }
 
-            &.tag-card-2 {
-              flex-direction: column;
-            }
-
-            &.tag-card-3 {
-              flex-direction: column;
-              flex-basis: 50%;
-              flex: 1;
-            }
-
-            &.tag-card-4 {
-              display: inline-flex;
-              flex-wrap: wrap;
-              justify-content: space-around;
+            &.tag-card-3, &.tag-card-4 {
+              grid-template-columns: repeat(2, 1fr);
             }
 
             &.tag-card-5 {
-              display: inline-flex;
-              overflow-y: hidden;
+              grid-auto-flow: column;
+              grid-auto-columns: max-content;
+              grid-column-gap: var(--f-gutter-s);
+              grid-template-rows: 1fr 1fr;
+              justify-items: start;
               overflow-x: scroll;
+              overflow-y: hidden;
+            }
+
+            &::-webkit-scrollbar {
+              width: 2px;
+              height: 4px;
+              background-color: var(--theme-scroll-bar-bg-color);
+            }
+
+            &::-webkit-scrollbar-track {
+              border-radius: 10px;
+              background-color: var(--theme-scroll-bar-track-bg-color);
+            }
+
+            &::-webkit-scrollbar-thumb {
+              border-radius: 10px;
+              background-color: var(--theme-scroll-bar-thumb-bg-color);
             }
 
             p {
               font-size: 12px;
             }
           }
-
-          /* overflow-y: auto;
-
-          &::-webkit-scrollbar {
-            width: 5px;
-            background-color: var(#1a2128);
-          }
-
-          &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            background-color: #f5f5f5;
-          }
-
-          &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            background-color: #c4c4c4;
-          } */
 
           .location {
             color: var(--color-analog-secondary-blue);
