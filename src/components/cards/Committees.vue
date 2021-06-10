@@ -72,7 +72,7 @@
   - Supporting Sharing Secrets and other content initiatives.`
           },
           {
-            name: 'Business Development',
+            name: 'BizDev',
             date: 'Mondays 6-7PM UTC',
             url: 'https://airtable.com/shr6FPA7SW6p2gDTY',
             purpose: 'To provide research and intelligence to the secret community, to leadership as well as committees on constantly evolving crypto world and where Secret Network fits in. ',
@@ -126,9 +126,9 @@ responsibilities: `- Foster and promote design best practices in Secret Network.
     devs,
     education,
     awareness,
-    puzzle,
+    bizdev,
     governance,
-    website,
+    design,
   );
 
   // @each $name, $color in $accent-colors {
