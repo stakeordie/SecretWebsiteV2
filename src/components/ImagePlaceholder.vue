@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :style="cssProps">
     <div v-if="!haveLocalImage" class="insert-image-here" @click="onPickFile" v-cloak  @drop.prevent="onDroppedFile" @dragover.prevent>
       <h4 class="title">
         {{title}}
@@ -77,6 +77,12 @@ export default {
           return localStorage.getItem(this.title.replace(" ", ""));
         }
       };
+    },
+    cssProps() {
+      return {
+        '--wrapper-width': (this.width / 2) + "px",
+        '--wrapper-height': (this.height / 2) + "px",
+      }
     }
   },
   methods: {
@@ -116,10 +122,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .wrapper {
-    width: 100%;
-    height: 100%;
+    width: var(--wrapper-width);
+    height: var(--wrapper-height);
     &:hover {
       opacity: .5;
     }
