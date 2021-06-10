@@ -258,6 +258,7 @@ export default {
 
 <style lang="scss">
 @import "../sass/functions/theme";
+@import "../sass/_text.scss";
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
@@ -365,17 +366,33 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
             display: grid;
             height: 100%;
 
-            &.tag-card-1,
-            &.tag-card-2,
+            &.tag-card-1 {
+              place-content: center center;
+              p {
+                font-size: var(--f-tags-general);
+              }
+            }
+            &.tag-card-2 {
+              p {
+                place-content: center center;
+                font-size: var(--f-tags-normal);
+              }
+            }
             &.tag-card-3,
             &.tag-card-4 {
               place-content: center center;
+              p {
+                font-size: var(--f-tags-s);
+              }
             }
 
             &.tag-card-3,
             &.tag-card-4,
             &.tag-card-5 {
               grid-template-columns: repeat(2, 1fr);
+              p {
+                font-size: var(--f-tags-s);
+              }
             }
 
             p {
