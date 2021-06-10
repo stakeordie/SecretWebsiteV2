@@ -299,11 +299,20 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
       grid-template-columns: repeat(5, 1fr);
       gap: var(--f-gutter);
 
-      @include respond-to("<=m") {
-        grid-template-columns: repeat(3, 1fr);
-      }
       @include respond-to("<=s") {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to(">=m") {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include respond-to(">=l") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include respond-to(">=xl") {
+        grid-template-columns: repeat(5, 1fr);
       }
 
       .card-element {
@@ -343,7 +352,7 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
         .image-container {
           img {
             object-fit: cover;
-            width: 160px;
+            width: 100%;
             height: 160px;
           }
         }
