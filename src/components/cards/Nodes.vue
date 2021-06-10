@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import FilteredCardList from "../FilteredCardList.vue";
+import FilteredCardList from "../CardGrid.vue";
 import Navigations from "../Navigations.vue";
 import Pagination from "../Pagination.vue";
 

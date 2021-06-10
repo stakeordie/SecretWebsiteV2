@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import FilteredCardList from "../FilteredCardList.vue";
+import FilteredCardList from "../CardGrid.vue";
 import Pagination from "../Pagination.vue";
 
 export default {
