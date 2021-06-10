@@ -32,7 +32,7 @@ import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
 // import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
-import CardHomeCTA from '~/components/cards/CardHomeCTA.vue';
+import CardCTA from '~/components/cards/CardCTA.vue';
 import CardMinimal from '~/components/cards/CardMinimal.vue';
 import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
@@ -100,7 +100,7 @@ export default function (Vue, {
     Vue.component('HeroTitle', HeroTitle);
     Vue.component('CardSimple', CardSimple);
     // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
-    Vue.component('card-home-cta', CardHomeCTA);
+    Vue.component('card-cta', CardCTA);
     Vue.component('CardMinimal', CardMinimal);
     Vue.component('CardBlock', CardBlock);
     Vue.component('CardMedia', CardMedia);

@@ -14,20 +14,20 @@ title: 'Secret Network'
 <!-- Getting started -->
 <column>
 <block>
-<card-home-cta class="orientation-horizontal accent-purple" cardId="card_1" imageWidth="1200" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
+<card-cta class="orientation-horizontal accent-purple" cardId="card_1" imageWidth="1200" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
 </block>
 </column>
 
 <!-- Card collection -->
 <column class="spacer-s" number="3" number-m="1" number-s="1">
 <block>
-<card-home-cta class="orientation-vertical accent-blue" cardId="card_2" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
+<card-cta class="orientation-vertical accent-blue" cardId="card_2" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
 </block>
 <block>
-<card-home-cta class="orientation-vertical accent-green" cardId="card_3" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
+<card-cta class="orientation-vertical accent-green" cardId="card_3" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
 </block>
 <block>
-<card-home-cta class="orientation-vertical accent-orange" cardId="card_4" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
+<card-cta class="orientation-vertical accent-orange" cardId="card_4" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
 </block>
 </column>
 
