@@ -30,8 +30,12 @@ const links =[
         link:'/docs/'
       },
       {
-        title:'Click here',
-        link:'/docs/something-else'
+        title:'Concepts',
+        link:'/docs/concepts'
+      },
+      {
+        title:'Structure',
+        link:'/docs/Structure'
       },
     ]
   },
