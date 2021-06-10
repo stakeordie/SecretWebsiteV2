@@ -1,13 +1,6 @@
 ---
-title: 'Ecosystem'
+title: "Ecosystem"
 ---
-
-
-
-
-
-
-
 
 <!-- Page title -->
 <column>
@@ -24,20 +17,14 @@ title: 'Ecosystem'
 
 </column>
 
-
-
-
-
-
-
-
-
 <!-- All Media -->
+
+<!-- Contributors -->
 <column class="spacer-s">
 
 <block>
 
-<contributors></contributors>
+<card-grid title="Contributors" collection="contributors" :pageSize="15" :isPaginated="true"></card-grid>
 
 </block>
 
@@ -45,6 +32,32 @@ title: 'Ecosystem'
 
 
 
+
+<!-- DApps -->
+
+<column class="spacer-s">
+
+<block>
+
+<card-grid title="dApps" collection="dApps" :pageSize="5" :isPaginated="false" :has-categories="false"></card-grid>
+
+</block>
+
+</column>
+
+
+
+<!-- Nodes -->
+
+<!-- <column class="spacer-s">
+
+<block>
+
+<card-grid title="Nodes" collectionName="allStrapiNodes" </card-grid>
+
+</block>
+
+</column> -->
 
 
 
@@ -63,14 +76,6 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 </block>
 
 </column>
-
-
-
-
-
-
-
-
 
 <!-- exchange and wallet support -->
 <column class="spacer-s" number="3" number-m="3" number-s="1">
@@ -137,14 +142,6 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 </column>
 
-
-
-
-
-
-
-
-
 <!-- block header -->
 <column number="2" number-m="2" number-s="1" weight="left">
 
@@ -157,13 +154,6 @@ Use the following Secret Network block explorers for staking, governance proposa
 </block>
 
 </column>
-
-
-
-
-
-
-
 
 <!-- Block Explorers and Staking -->
 <column number="3" number-m="3" number-s="1" class="spacer-s">

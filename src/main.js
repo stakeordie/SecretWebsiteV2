@@ -31,13 +31,16 @@ import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
-import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
+// import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
+import CardCTA from '~/components/cards/CardCTA.vue';
 import CardMinimal from '~/components/cards/CardMinimal.vue';
 import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
 import Media from '~/components/cards/Media.vue';
+import CardGrid from '~/components/CardGrid.vue';
 import Contributors from '~/components/cards/Contributors.vue';
+import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
 import Btn from '~/components/Btn.vue';
@@ -78,7 +81,7 @@ function setDefaultTheme() {
 
 }
 
-export default function(Vue, {
+export default function (Vue, {
     router,
     head,
     isClient
@@ -96,13 +99,16 @@ export default function(Vue, {
     Vue.component('HeroVideo', HeroVideo);
     Vue.component('HeroTitle', HeroTitle);
     Vue.component('CardSimple', CardSimple);
-    Vue.component('CardSimpleDynamic', CardSimpleDynamic);
+    // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
+    Vue.component('card-cta', CardCTA);
     Vue.component('CardMinimal', CardMinimal);
     Vue.component('CardBlock', CardBlock);
     Vue.component('CardMedia', CardMedia);
     Vue.component('CardSecretAgent', CardSecretAgent);
     Vue.component('Media', Media);
+    Vue.component('CardGrid', CardGrid);
     Vue.component('Contributors', Contributors);
+    Vue.component('Nodes', Nodes);
     Vue.component('MediaFeatured', MediaFeatured);
     Vue.component('Committees', Committees);
     Vue.component('Btn', Btn);
@@ -144,11 +150,11 @@ export default function(Vue, {
 
     Vue.mixin({
         methods: {
-          searchTrigger: function () {
-            document.querySelector('.search-trigger').click();
-          },
+            searchTrigger: function () {
+                document.querySelector('.search-trigger').click();
+            },
         },
-      })
+    })
 
     router.beforeEach((from, to, next) => {
         if (process.isClient) {
