@@ -7,7 +7,11 @@
           <h4>Filters</h4>
           <button class="btn-clear" v-on:click="resetCheck">Clear</button>
         </div>
-        <ul class="custom-checkbox" :class="'selected-' + selectedTag" v-if="hasCategories">
+        <ul
+          class="custom-checkbox"
+          :class="'selected-' + selectedTag"
+          v-if="hasCategories"
+        >
           <li v-for="(category, index) of categories" :key="index">
             <label>
               <input
@@ -42,7 +46,10 @@
               <div class="image-container">
                 <img :src="element.picture.url" alt="picture" />
               </div>
-              <div class="meta" :class="{ 'meta--with-categories': hasCategories }">
+              <div
+                class="meta"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
@@ -73,7 +80,10 @@
           >
             <a :href="element.url" target="blank">
               <img :src="element.picture.url" alt="picture" />
-              <div class="meta" :class="{ 'meta--with-categories': hasCategories }">
+              <div
+                class="meta"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
@@ -128,7 +138,7 @@ export default {
     collection: { type: String, required: true },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
-    hasCategories: { type: Boolean, default: true }
+    hasCategories: { type: Boolean, default: true },
   },
 
   methods: {
@@ -355,38 +365,17 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
             display: grid;
             height: 100%;
 
-            &.tag-card-1, &.tag-card-2, &.tag-card-3, &.tag-card-4 {
+            &.tag-card-1,
+            &.tag-card-2,
+            &.tag-card-3,
+            &.tag-card-4 {
               place-content: center center;
             }
 
-            &.tag-card-3, &.tag-card-4 {
-              grid-template-columns: repeat(2, 1fr);
-            }
-
+            &.tag-card-3,
+            &.tag-card-4,
             &.tag-card-5 {
-              grid-auto-flow: column;
-              grid-auto-columns: max-content;
-              grid-column-gap: var(--f-gutter-s);
-              grid-template-rows: 1fr 1fr;
-              justify-items: start;
-              overflow-x: scroll;
-              overflow-y: hidden;
-            }
-
-            &::-webkit-scrollbar {
-              width: 2px;
-              height: 4px;
-              background-color: var(--theme-scroll-bar-bg-color);
-            }
-
-            &::-webkit-scrollbar-track {
-              border-radius: 10px;
-              background-color: var(--theme-scroll-bar-track-bg-color);
-            }
-
-            &::-webkit-scrollbar-thumb {
-              border-radius: 10px;
-              background-color: var(--theme-scroll-bar-thumb-bg-color);
+              grid-template-columns: repeat(2, 1fr);
             }
 
             p {
