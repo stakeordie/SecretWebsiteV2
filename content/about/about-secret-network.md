@@ -204,7 +204,8 @@ Unlike the network, the native coin SCRT is not a privacy coin, and all transact
 
 <block>
 
-![](../img/eye-illustration.png)
+<image-placeholder :width="750" :height="750" title="SCRT Coin Image" />
+<!-- ![](../img/eye-illustration.png) -->
 
 </block>
 
@@ -216,7 +217,7 @@ Unlike the network, the native coin SCRT is not a privacy coin, and all transact
 
 <!-- Cards Data -->
 
-<column class="spacer-s" number="4" number-m="2" number-s="1">
+<!-- <column class="spacer-s" number="4" number-m="2" number-s="1">
 <block>
 
 <card-minimal class="accent-green">
@@ -266,7 +267,7 @@ Unlike the network, the native coin SCRT is not a privacy coin, and all transact
 </block>
 
 
-</column>
+</column> -->
 
 
 
