@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ${htmlAttrs}>
+
+<head>
+    ${head}
+</head>
+
+<body class="body-init" ${bodyAttrs}>
+
+    <button class="search-trigger" style="visibility: hidden;"></button>
+    <div class="search-overlay" data-widget="overlay">
+        <script type="application/json">
+            {
+                "endpoint": "//jsonapi-us-valkyrie.sajari.net",
+                "account": "1621619911663738940",
+                "collection": "secret-network-website-v2",
+                "pipeline": "website",
+                "filters": [],
+                "options": {
+                    "mode": "overlay",
+                    "sorting": {
+                        "options": [{
+                                "name": "Most relevant",
+                                "value": ""
+                            },
+                            {
+                                "name": "Alphabetical: A to Z",
+                                "value": "title"
+                            },
+                            {
+                                "name": "Alphabetical: Z to A",
+                                "value": "-title"
+                            },
+                            {
+                                "name": "Date: Oldest to Newest",
+                                "value": "created_at"
+                            },
+                            {
+                                "name": "Date: Newest to Oldest",
+                                "value": "-created_at"
+                            }
+                        ]
+                    },
+                    "input": {
+                        "hide": false
+                    },
+                    "results": {
+                        "viewType": "list",
+                        "showImage": false
+                    },
+                    "syncURL": "replace",
+                    "buttonSelector": ".search-trigger"
+                },
+                "theme": {
+                    "color": {
+                        "primary": {
+                            "base": "#816da8",
+                            "text": "#ffffff",
+                            "active": "#816da8"
+                        }
+                    }
+                }
+            }
+
+        </script>
+        <noscript>This page requires JavaScript</noscript>
+    </div>
+    <script async src="https://cdn.sajari.com/embed/1/loader.js"></script>
+    <script>
+        (function () {
+            let theme = localStorage.getItem('theme')
+            if (!theme) theme = 'dark-colored'
+            const [body] = document.getElementsByTagName('body')
+            if (!body) return
+            body.setAttribute('theme', theme.trim())
+        })();
+
+    </script>
+
+    ${app} ${scripts}
+
+</body>
+
+</html>

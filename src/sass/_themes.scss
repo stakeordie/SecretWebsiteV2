@@ -1,0 +1,114 @@
+// Themes 
+$default-theme: dark;
+$themes: ( 
+    "dark": (
+        "fg": var(--color-analog-primary-white), 
+        "bg": var(--color-analog-primary-black),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-neutral-dark-mode-06),
+        // links
+        "links-default": var(--color-analog-tertiary-blue),
+        "links-hover": var(--color-analog-tertiary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-blue),
+        "card-button-bg": var(--color-neutral-dark-mode-04),
+        // cards
+        "card-bg-default": var(--color-neutral-dark-mode-03),
+        "card-bg-hover": var(--color-neutral-dark-mode-02),
+        "card-bg-variant": var(--color-neutral-dark-mode-01),
+        "card-text-color": var(--color-neutral-dark-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-dark-mode-04),
+        //docs
+        "docs-highlighted-color":var(--color-docs-highlighted-dark-mode)
+    ), 
+    "light": (
+        "fg": var(--color-analog-primary-black), 
+        "bg": var(--color-analog-primary-white),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-analog-primary-black),
+        // links
+        "links-default": var(--color-analog-secondary-purple),
+        "links-hover": var(--color-analog-secondary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-purple),
+        "card-button-bg": var(--color-neutral-light-mode-01),
+        // cards
+        "card-bg-default": var(--color-neutral-light-mode-04),
+        "card-bg-hover": var(--color-neutral-light-mode-03),
+        "card-bg-variant": var(--color-neutral-light-mode-03),
+        "card-text-color": var(--color-neutral-light-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-light-mode-01),
+        //docs
+        "docs-highlighted-color":var(--color-docs-highlighted-light-mode)
+        
+    ), 
+    "dark-colored": (
+        "fg": var(--color-analog-primary-white), 
+        "bg": var(--color-analog-primary-black),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-neutral-dark-mode-06),
+        // links
+        "links-default": var(--color-analog-tertiary-blue),
+        "links-hover": var(--color-analog-tertiary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-blue),
+        "card-button-bg": var(--color-neutral-dark-mode-04),
+        // cards
+        "card-bg-default": var(--color-neutral-dark-mode-03),
+        "card-bg-hover": var(--color-neutral-dark-mode-02),
+        "card-bg-variant": var(--color-neutral-dark-mode-01),
+        "card-text-color": var(--color-neutral-dark-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-dark-mode-04),
+        //docs
+        "docs-highlighted-color":var(--color-docs-highlighted-dark-mode)
+    ), 
+    "light-colored": (
+        "fg": var(--color-analog-primary-black), 
+        "bg": var(--color-analog-primary-white),
+        // main navigation dropdown
+        "dropdown-bg": var(--color-analog-primary-black),
+        // links
+        "links-default": var(--color-analog-secondary-purple),
+        "links-hover": var(--color-analog-secondary-orange),
+        // buttons
+        "button-bg": var(--color-analog-secondary-purple),
+        "card-button-bg": var(--color-neutral-light-mode-01),
+        "card-button-bg-hover": var(--color-neutral-dark-mode-01),
+        // cards
+        "card-bg-default": var(--color-neutral-light-mode-04),
+        "card-bg-hover": var(--color-neutral-light-mode-03),
+        "card-bg-variant": var(--color-neutral-light-mode-03),
+        "card-text-color": var(--color-neutral-light-mode-05),
+        // alert
+        "alert-bg-color": var(--color-neutral-light-mode-01),
+        //docs
+        "docs-highlighted-color":var(--color-docs-highlighted-light-mode)
+    )
+);
+body {
+    background-color: var(--theme-bg);
+    color: var(--theme-fg);
+    transition: var(--color-transition);
+    @each $name,
+    $theme in $themes {
+        &[theme=#{$name}] {
+            --theme-fg: #{map-get($theme, "fg")};
+            --theme-bg: #{map-get($theme, "bg")};
+            --theme-dropdown-bg: #{map-get($theme, "dropdown-bg")};
+            --theme-links-default: #{map-get($theme, "links-default")};
+            --theme-links-hover:#{map-get($theme, "links-hover")};
+            --theme-button: #{map-get($theme, "button-bg")};
+            --theme-card-button-bg: #{map-get($theme, "card-button-bg")};
+            --theme-card-button-bg-hover: #{map-get($theme, "card-button-bg-hover")};
+            --theme-card-bg-default: #{map-get($theme, "card-bg-default")};
+            --theme-card-bg-hover: #{map-get($theme, "card-bg-hover")};
+            --theme-card-bg-variant: #{map-get($theme, "card-bg-variant")};
+            --theme-card-text-color: #{map-get($theme, "card-text-color")};
+            --theme-alert-bg-color: #{map-get($theme, "alert-bg-color")};
+            --theme-docs-highlighted:#{map-get($theme, "docs-highlighted-color")};
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "flare-starter",
+    "private": true,
+    "scripts": {
+        "build": "gridsome build",
+        "develop": "gridsome develop",
+        "explore": "gridsome explore"
+    },
+    "dependencies": {
+        "@fontsource/hind": "^4.2.2",
+        "@fontsource/montserrat": "^4.2.2",
+        "@gridsome/plugin-google-analytics": "^0.1.2",
+        "@gridsome/plugin-sitemap": "^0.4.0",
+        "@gridsome/remark-prismjs": "^0.5.0",
+        "@gridsome/source-ghost": "^0.4.0",
+        "@gridsome/source-strapi": "^0.2.0",
+        "@gridsome/vue-remark": "^0.2.6",
+        "@lkmx/flare": "^0.3.5",
+        "axios": "^0.21.1",
+        "babel-runtime": "^6.26.0",
+        "gridsome": "^0.7.0",
+        "gridsome-plugin-remark-prismjs-all": "^0.3.5",
+        "vue-infinite-slide-bar": "^1.1.1",
+        "vue-markdown": "^2.2.4",
+        "vue-social-sharing": "^3.0.7",
+        "vue-typical": "^1.6.2"
+    }
+}

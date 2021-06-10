@@ -1,0 +1,7 @@
+@mixin theme($themes) {
+    @each $theme in $themes {
+        body[theme=#{$theme}] & {
+            @content;
+        }
+    }
+}
