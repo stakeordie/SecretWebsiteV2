@@ -35,7 +35,7 @@ const links =[
       },
       {
         title:'Structure',
-        link:'/docs/Structure'
+        link:'/docs/structure'
       },
     ]
   },
