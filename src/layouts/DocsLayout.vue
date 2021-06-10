@@ -21,13 +21,17 @@
         </p> -->
         <nav class="docs-nav">
           <div class="docs-nav__previous">
-            <g-link v-if="previousPage" exact class="button  button--small docs-nav__link" :to="previousPage.link">
-              &larr; {{ previousPage.title }}
+            <g-link v-if="previousPage" exact class="button btn" :to="previousPage.link">
+              <span>
+                &larr; {{ previousPage.title }}
+              </span> 
             </g-link>
           </div>
           <div class="docs-nav__next">
-            <g-link v-if="nextPage" exact class="button  button--small docs-nav__link" :to="nextPage.link">
-              {{ nextPage.title }} &rarr;
+            <g-link v-if="nextPage" exact class="button btn" :to="nextPage.link">
+              <span> 
+                {{ nextPage.title }} &rarr;
+              </span>
             </g-link>
           </div>
         </nav>
@@ -84,7 +88,7 @@ export default {
 </script>
 <style >
 .section--inner{
-  padding:0 25px;
+  padding:0 25px 20px;
   margin: 0 45px !important;
 }
 </style>

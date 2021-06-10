@@ -125,3 +125,7 @@
   .docs-content{
     background: var(--theme-card-bg-default);
   }
+  .docs-nav__link {
+    background: var(--theme-card-button-bg) !important;
+    color: var(--theme-fg) !important;
+  }

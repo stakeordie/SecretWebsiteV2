@@ -83,20 +83,21 @@
     &.active {
       color: var(--theme-docs-highlighted);
       position: relative;
-      padding-left: .8rem;
+      font-weight: 700;
+      // padding-left: .8rem;
 
-      &:before {
-        content: " ";
-        width: 8px;
-        height: 8px;
-        border-radius: 10px;
-        position: absolute;
-        left: -1px;
-        top: 50%;
-        margin-top: -5px;
-        background-color: var(--theme-docs-highlighted);
-        animation: scaleIn .7s forwards;
-      }
+      // &:before {
+      //   content: " ";
+      //   width: 8px;
+      //   height: 8px;
+      //   border-radius: 10px;
+      //   position: absolute;
+      //   left: -1px;
+      //   top: 50%;
+      //   margin-top: -5px;
+      //   background-color: var(--theme-docs-highlighted);
+      //   animation: scaleIn .7s forwards;
+      // }
     }
   }
 
