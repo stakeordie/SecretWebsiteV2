@@ -209,6 +209,22 @@ export default {
 
 <static-query>
   query {
+     dApps: allStrapiDApps {
+      edges {
+        node {
+          id,
+          title: name,
+          url: link,
+          picture: logo {
+            url
+          },
+          types { 
+            title: type,
+            type
+          }
+        }
+      }
+    }
   	contributors: allStrapiContributors {
       edges {
         node {
@@ -225,22 +241,6 @@ export default {
         }
       }
     }
-    dApps: allStrapiDApps {
-    edges {
-      node {
-        id,
-        title: name,
-        url: link,
-        picture: logo {
-          url
-        },
-        types { 
-          title: type,
-          type
-        }
-      }
-    }
-  }
   },
   
 
