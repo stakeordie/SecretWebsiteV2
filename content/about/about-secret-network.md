@@ -161,7 +161,8 @@ Allowing research over encrypted data, driving innovation.
 
 <block>
 
-![](../img/card-invaders.png)
+<image-placeholder :width="850" :height="500" title="Coin Image" />
+<!-- ![](../img/card-invaders.png) -->
 
 </block>
 
