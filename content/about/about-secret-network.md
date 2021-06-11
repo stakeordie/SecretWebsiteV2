@@ -161,6 +161,7 @@ Allowing research over encrypted data, driving innovation.
 
 <block>
 
+
 ![](../img/card-invaders.png)
 
 </block>
@@ -204,7 +205,7 @@ Unlike the network, the native coin SCRT is not a privacy coin, and all transact
 
 <block>
 
-<image-placeholder :width="850" :height="700" title="SCRT Coin Image" />
+<image-placeholder :width="750" :height="750" title="SCRT Coin Image" />
 <!-- ![](../img/eye-illustration.png) -->
 
 </block>

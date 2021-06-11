@@ -1,0 +1,26 @@
+{
+  "sidebar": [
+    {
+      "section": "Introduction",
+      "topics": [
+        {
+          "title": "Introduction",
+          "path": "/docs/"
+        }
+      ]
+    },
+    {
+      "section": "Old Docs",
+      "topics": [
+        {
+          "title": "Main Repo",
+          "path": "/docs/old-docs/main-repo"
+        },
+        {
+          "title": "Content Repo",
+          "path": "/docs/old-docs/content-repo"
+        }
+      ]
+    }
+  ]
+}

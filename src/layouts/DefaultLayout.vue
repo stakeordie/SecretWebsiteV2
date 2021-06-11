@@ -47,7 +47,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24"/><img
+                      height="24" /><img
                       v-show="isLearnOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -84,7 +84,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24"/><img
+                      height="24" /><img
                       v-show="isCommunityOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -121,7 +121,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24"/><img
+                      height="24" /><img
                       v-show="isDevelopersOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -162,7 +162,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24"/><img
+                      height="24" /><img
                       v-show="isEcosystemOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -238,6 +238,14 @@
                   height="24"
                 />
               </a>
+              <a href="https://www.instagram.com/scrtnetwork/" target="blank">
+                <img
+                  src="@/assets/icon-social-instagram.svg"
+                  alt="Join the Conversation"
+                  width="24"
+                  height="24"
+                />
+              </a>
               <a
                 href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
                 target="blank"
@@ -304,6 +312,14 @@
               <a href="https://twitter.com/SecretNetwork" target="blank">
                 <img
                   src="@/assets/icon-social-twitter.svg"
+                  alt="Join the Conversation"
+                  width="24"
+                  height="24"
+                />
+              </a>
+              <a href="https://www.instagram.com/scrtnetwork/" target="blank">
+                <img
+                  src="@/assets/icon-social-instagram.svg"
                   alt="Join the Conversation"
                   width="24"
                   height="24"
@@ -541,6 +557,14 @@
                   height="24"
                 />
               </a>
+              <a href="https://www.instagram.com/scrtnetwork/" target="blank">
+                <img
+                  src="@/assets/icon-social-instagram.svg"
+                  alt="Join the Conversation"
+                  width="24"
+                  height="24"
+                />
+              </a>
               <a
                 href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
                 target="blank"
@@ -571,6 +595,22 @@
                   width="24"
                   height="24"
                 />
+              </a>
+            </div>
+            <div class="submit-issue">
+              <p>
+                <a
+                  href="https://github.com/stakeordie/SecretWebsiteV2/issues "
+                  target="blank"
+                  >Submit an issue
+                </a>
+              </p>
+              <a
+                href="https://github.com/stakeordie/SecretWebsiteV2/issues "
+                target="blank"
+              >
+                <img src="../assets/icon-arrow-external.svg" alt="icon Arror"
+                width:="24" height:="24" />
               </a>
             </div>
           </div>
@@ -635,7 +675,7 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
       isNavOpen: false,
       isLearnOpen: false,
@@ -734,6 +774,12 @@ export default {
           external: false,
           target: "self",
         },
+        {
+          title: "Run a Node",
+          path: "https://docs.scrt.network/node-guides/secret-nodes.html",
+          external: true,
+          target: "blank",
+        }
       ],
       linksFooterCommunity: [
         {
@@ -798,7 +844,7 @@ export default {
     };
   },
   watch: {
-    isNavOpen: function() {
+    isNavOpen: function () {
       this.toggleNavOpen();
     },
     $route() {
@@ -858,9 +904,9 @@ export default {
       if (!body) return;
       body.setAttribute("theme", theme);
     },
-    callFunction: function(className) {
+    callFunction: function (className) {
       if ((window.onload = "load")) {
-        setTimeout(function() {
+        setTimeout(function () {
           const el = document.body;
           el.classList.add(className);
         }, 700);
@@ -1237,7 +1283,7 @@ export default {
       .social-navigation {
         display: grid;
         grid-auto-flow: column;
-        gap: var(--f-gutter);
+        gap: var(--f-gutter-s);
         align-items: center;
         padding-right: var(--f-gutter);
 
@@ -1396,6 +1442,18 @@ export default {
       }
 
       .contribute-github {
+        display: grid;
+        grid-auto-flow: column;
+        gap: var(--f-gutter);
+        align-items: center;
+        grid-auto-columns: max-content;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .submit-issue {
         display: grid;
         grid-auto-flow: column;
         gap: var(--f-gutter);

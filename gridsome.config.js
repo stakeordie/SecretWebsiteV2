@@ -3,6 +3,17 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const path = require('path')
+
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/sass/docs/config/*.scss')
+      ],
+    })
+}
 
 module.exports = {
     siteName: 'Secret Network',
@@ -69,10 +80,19 @@ module.exports = {
         options: {
             id: 'UA-173950488-3'
         }
-    }
+    },
+    {
+        use: '@gridsome/vue-remark',
+        options: {
+          baseDir: './docs',
+          pathPrefix: '/docs',
+          typeName: 'Doc',
+          template: './src/templates/Docs.vue',
+        }
+      },
     ],
     templates: {
-        GhostPost: '/blog/:slug'
+        GhostPost: '/blog/:slug',
     },
     transformers: {
         remark: {

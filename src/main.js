@@ -1,10 +1,13 @@
 import openGraph from './config/open-graph'
 
 import './sass/style.scss';
+import './sass/docs/globals.scss'
 
 import Flare from '@lkmx/flare';
+import Vuex from 'vuex'
 
 import DefaultLayout from '~/layouts/DefaultLayout.vue';
+import DocsLayout from '~/layouts/DocsLayout.vue';
 import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
@@ -72,6 +75,7 @@ require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
 
 
+
 function setDefaultTheme() {
     const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
     if (!theme) return
@@ -84,7 +88,8 @@ function setDefaultTheme() {
 export default function (Vue, {
     router,
     head,
-    isClient
+    isClient,
+    appOptions
 }) {
     openGraph.forEach(item => head.meta.push(item))
 
@@ -92,6 +97,7 @@ export default function (Vue, {
     Vue.component('AlertBar', AlertBar);
     Vue.component('Announcement', Announcement);
     Vue.component('DefaultLayout', DefaultLayout);
+    Vue.component('DocsLayout', DocsLayout);
     Vue.component('ThemedImage', ThemedImage);
     Vue.component('ImagePlaceholder', ImagePlaceholder);
     Vue.component('Navigation', Navigation);
@@ -170,5 +176,24 @@ export default function (Vue, {
         }
         next();
     });
+
+    // State
+    Vue.use(Vuex)
+    appOptions.store = new Vuex.Store({
+        state: {
+            sidebarOpen: false
+        },
+        mutations: {
+            toggleSidebar(state) {
+                state.sidebarOpen = !state.sidebarOpen
+            },
+            closeSidebar(state) {
+                state.sidebarOpen = false
+            },
+            openSidebar(state) {
+                state.sidebarOpen = true
+            }
+        }
+    })
 
 }
