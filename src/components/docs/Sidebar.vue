@@ -241,6 +241,10 @@ ul {
 }
 .section-sub-subtitle {
   padding-left: 1rem;
+  li{
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .git {
