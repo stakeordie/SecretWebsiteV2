@@ -4,6 +4,7 @@
     <main class="main">
       <slot/>
     </main>
+    <SidebarRight/>
   </div>
 </template>
 
@@ -17,10 +18,12 @@ query {
 
 <script>
 import Sidebar from '../components/docs/Sidebar.vue'
+import SidebarRight from '../components/docs/SidebarRight.vue'
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    SidebarRight
   }
 }
 </script>
@@ -33,12 +36,14 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .site {
+  width: 80vw;
+  margin-left: -50px;
   background-color: var(--theme-card-bg-default);
   display: grid;
 
   @include respond-to(">=m") {
     grid-auto-flow: column;
-    grid-template-columns: 30% 65%;
+    grid-template-columns: 20% 60% 20%;
     grid-auto-columns: max-content;
   }
 
@@ -62,7 +67,7 @@ export default {
 }
 
 .main {
-  padding: 30px 30px 30px 30px;
+  // padding: 30px 0;
   max-width: 800px;
   transition: transform .15s ease-in-out;
 
@@ -72,7 +77,7 @@ export default {
   }
 
   @include respond-above(md) {
-    padding: 30px 80px 30px;
+    padding: 40px 10px;
   }
 }
 </style>

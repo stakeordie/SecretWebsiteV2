@@ -14,22 +14,6 @@
           <ul class="section-subtitle">
             <li v-for="item in node.topics" :key="item.title">
               <g-link :to="item.path">{{ item.title }}</g-link>
-              <ul
-                class="section-sub-subtitle"
-                v-if="checkAnchors(node.path, item.path)"
-                v-for="{ node } in $static.docs.edges"
-                :key="node.id"
-              >
-                <li v-for="heading in node.headings" :key="heading.value">
-                  <a
-                    :class="
-                      'sub-topic ' + isItemActive(item.path + heading.anchor)
-                    "
-                    :href="item.path + heading.anchor"
-                    >{{ heading.value }}</a
-                  >
-                </li>
-              </ul>
             </li>
           </ul>
         </li>
@@ -78,11 +62,6 @@ export default {
     },
   },
   methods: {
-    checkAnchors(slug, item) {
-      if (slug == item) {
-        return true;
-      }
-    },
     stateFromSize: function () {
       if (
         window.getComputedStyle(document.body, ":before").content == '"small"'
@@ -113,13 +92,6 @@ export default {
         }
       });
     },
-    isItemActive(itemPath) {
-      if (this.$route.fullPath == itemPath) {
-        return "active";
-      } else {
-        return "";
-      }
-    },
   },
   beforeMount() {
     this.stateFromSize();
@@ -142,7 +114,9 @@ export default {
   // transform: translateX(-300px);
   border-right: 1px solid transparent;
   overflow: auto;
-
+  position: sticky;
+  height: fit-content;
+  top:130px;
   @include respond-above(sm) {
     transform: translateX(0);
   }
