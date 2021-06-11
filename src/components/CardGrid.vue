@@ -296,19 +296,40 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
   .elements-container {
     .elements-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: var(--f-gutter);
 
-      @include respond-to("<=s") {
+      @include respond-to(">=s") {
         grid-template-columns: repeat(2, 1fr);
+
+        img {
+          width: 100%;
+          height: 160px;
+        }
+        .meta {
+          height: 112px;
+        }
       }
 
       @include respond-to(">=m") {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        img {
+          width: 100%;
+          height: 160px;
+        }
+        .meta {
+          height: 80px;
+        }
       }
 
       @include respond-to(">=l") {
         grid-template-columns: repeat(4, 1fr);
+        img {
+          height: 160px;
+        }
+        .meta {
+          height: 80px;
+        }
       }
 
       @include respond-to(">=xl") {
