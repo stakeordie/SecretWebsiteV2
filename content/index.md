@@ -48,9 +48,11 @@ title: 'Secret Network'
 <!-- Block header -->
 <column class="block-header" number="2" number-m="1" number-s="1">
 <block>
+
 ### Latest Blog Posts
-  
+
 Read, watch and absorb the secrets that we publish in<br/>our official blog.
+
 </block>
 <block>
 <btn url="/blog/">All Posts</btn>
