@@ -114,12 +114,6 @@ export default {
       });
     },
     isItemActive(itemPath) {
-      // console.log(this.$route)
-      // const location = window.location
-      // const pathName = location.pathname+location.hash
-      console.log(
-        `Current path= ${this.$route.fullPath} vs itemPath = ${itemPath}`
-      );
       if (this.$route.fullPath == itemPath) {
         return "active";
       } else {
@@ -145,7 +139,7 @@ export default {
   padding: 30px 30px 30px;
   width: 300px;
   will-change: transform;
-  transform: translateX(-300px);
+  // transform: translateX(-300px);
   border-right: 1px solid transparent;
   overflow: auto;
 

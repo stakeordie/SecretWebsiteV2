@@ -6,14 +6,19 @@
         {
           "title": "Introduction",
           "path": "/docs/"
+        }
+      ]
+    },
+    {
+      "section": "Old Docs",
+      "topics": [
+        {
+          "title": "Main Repo",
+          "path": "/docs/old-docs/main-repo"
         },
         {
-          "title": "Old Docs",
-          "path": "/docs/old"
-        },
-        {
-          "title": "Old Docs - Content",
-          "path": "/docs/old-content"
+          "title": "Content Repo",
+          "path": "/docs/old-docs/content-repo"
         }
       ]
     }
