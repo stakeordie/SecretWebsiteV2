@@ -1,69 +1,57 @@
 <template>
-  <DocsLayout :subtitles="subtitles" :links="links">
-      <VueRemarkContent class="post mb"/>
-  </DocsLayout>
+  <default-layout>
+    <docs-layout>
+      <VueRemarkContent />
+    </docs-layout>
+  </default-layout>
 </template>
 
 <page-query>
-query ($id: ID!) {
-  doc: docPage (id: $id) {
+query Doc ($path: String!) {
+  doc: doc (path: $path) {
     title
-    headings (depth: h1) {
-      value
-    }
-    subtitles: headings {
-      depth
-      value
-      anchor
-    }
+    content
   }
 }
 </page-query>
 
 <script>
-const links =[
-  {
-    title:'prologue',
-    items:[
-      {
-        title:'Intro',
-        link:'/docs/'
-      },
-      {
-        title:'Concepts',
-        link:'/docs/concepts'
-      },
-      {
-        title:'Structure',
-        link:'/docs/structure'
-      },
-    ]
-  },
-]
 export default {
-  computed: {
-    links () {
-      return links
-    },
-    subtitles() {
-      // Remove h1, h4, h5, h6 titles
-      let subtitles = this.$page.doc.subtitles.filter(function(value, index, arr){
-        return [2,3].includes(value.depth)
-      })
-      return subtitles
-    }
-  },
   metaInfo() {
-      return {
-        title: this.$page.doc.title,
-        meta: [
-          {
-            key: 'og:title',
-            property: 'og:title',
-            content: 'Secret Network - ' + this.$page.doc.title
-          }
-        ]
-      }
+    return {
+      title: this.$page.doc.title,
+      meta: [
+        { key: 'description', name: 'description', content: this.$page.doc.description }
+      ]
     }
+  }
 }
 </script>
+
+
+<style lang="scss" scoped>
+@import "../sass/docs/config/_maps.scss";
+@import "../sass/docs/config/_colors.scss";
+@import "../sass/docs/config/_mixins.scss";
+@import "../sass/docs/config/_functions.scss";
+/deep/ > p {
+  opacity: .8;
+}
+
+/deep/ > h2 {
+  padding-top: 100px;
+  margin-top: -80px;
+
+  @include respond-above(md) {
+    font-size: 2rem;
+  }
+}
+
+/deep/ > p > img {
+    max-width: 100%;
+  }
+
+.markdown {
+  padding-bottom: 50vh;
+}
+</style>

@@ -1,0 +1,13 @@
+{
+  "sidebar": [
+    {
+      "section": "Introduction",
+      "topics": [
+        {
+          "title": "Introduction",
+          "path": "/docs/"
+        }
+      ]
+    }
+  ]
+}

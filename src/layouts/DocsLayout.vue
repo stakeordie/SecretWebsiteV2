@@ -1,94 +1,64 @@
 <template>
-  <default-layout>
-    <div class="container flex flex-align-top">
-      <div class="sidebar">
-          <template v-if="links" v-for="(group, i1) in links">
-            <h3 class="menu-item" :key="`title-${i1}`">{{ group.title }}</h3>
-            <template v-for="(item, i2) in group.items">
-              <g-link :exact="item.link == '/docs/'" class="menu-item menu-link" :to="item.link" :key="`link-${i1}-${i2}`">
-                {{ item.title }}
-              </g-link>
-            </template>
-          </template>
-      </div>
-      <Section class="docs-content section--inner container container-base" container="base">
-        <slot></slot>
-        <!-- <p>
-          <a :href="editLink" target="_blank" class="github-edit-link">
-            <Github />
-            <span>Edit this page on GitHub</span>
-          </a>
-        </p> -->
-        <nav class="docs-nav">
-          <div class="docs-nav__previous">
-            <g-link v-if="previousPage" exact class="button btn" :to="previousPage.link">
-              <span>
-                &larr; {{ previousPage.title }}
-              </span> 
-            </g-link>
-          </div>
-          <div class="docs-nav__next">
-            <g-link v-if="nextPage" exact class="button btn" :to="nextPage.link">
-              <span> 
-                {{ nextPage.title }} &rarr;
-              </span>
-            </g-link>
-          </div>
-        </nav>
-      </Section>
-      <div v-if="subtitles.length > 0 && subtitles[0].depth !== 3" class="sidebar sidebar--right hide-for-small">
-        <h3>On this page</h3>
-        <ul v-if="subtitles.length" class="menu-item submenu">
-          <li class="submenu__item" :class="'submenu__item-depth-' + subtitle.depth" v-for="subtitle in subtitles" :key="subtitle.value">
-            <g-link class="submenu__link" :to="subtitle.anchor">
-              {{ subtitle.value }}
-            </g-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </default-layout>
+  <div class="site">
+    <Sidebar />
+    <main class="main">
+      <slot/>
+    </main>
+  </div>
 </template>
 
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
+
 <script>
-import Github from '~/assets/github-white.svg'
+import Sidebar from '../components/docs/Sidebar.vue'
+
 export default {
   components: {
-    Github
-  },
-  props: {
-    subtitles: { type: Array, default: () => [] },
-    links: { type: Array, default: () => [] }
-  },
-  computed: {
-    currentPath () {
-      return this.$route.matched[0].path
-    },
-    editLink () {
-      let path = this.currentPath
-      if((path.match(new RegExp("/", "g")) || []).length == 1) path = path + '/README'
-      return `https://github.com/gridsome/gridsome.org/blob/master${path}.md`
-    },
-    items () {
-      return this.links.reduce((acc, group) => (acc.push(...group.items), acc), [])
-    },
-    currentIndex () {
-      return this.items.findIndex(item => {
-        return item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
-      })
-    },
-    nextPage () {
-      return this.items[this.currentIndex + 1]
-    },
-    previousPage () {
-      return this.items[this.currentIndex - 1]
-    }
+    Sidebar
   }
 }
 </script>
-<style >
-.section--inner{
-  padding:0 25px 20px;
-  margin: 0 45px !important;
+
+<style lang="scss" scoped>
+@import "../sass/docs/config/_maps.scss";
+@import "../sass/docs/config/_colors.scss";
+@import "../sass/docs/config/_mixins.scss";
+@import "../sass/docs/config/_functions.scss";
+@import "@lkmx/flare/src/functions/respond-to";
+
+.site {
+  background-color: var(--theme-card-bg-default);
+  display: grid;
+
+  @include respond-to(">=m") {
+    grid-auto-flow: column;
+    grid-template-columns: 300px 1fr;
+    grid-auto-columns: max-content;
+  }
+
+  @include respond-to("<=m") {
+    grid-auto-flow: row;
+  }
+}
+
+.main {
+  padding: 30px 30px 30px 30px;
+  max-width: 800px;
+  transition: transform .15s ease-in-out;
+
+  @include respond-above(sm) {
+    padding: 30px 30px 30px;
+    width: 100%;
+  }
+
+  @include respond-above(md) {
+    padding: 30px 80px 30px;
+  }
 }
 </style>

@@ -3,6 +3,17 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const path = require('path')
+
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/sass/docs/config/*.scss')
+      ],
+    })
+}
 
 module.exports = {
     siteName: 'Secret Network',
@@ -75,7 +86,7 @@ module.exports = {
         options: {
           baseDir: './docs',
           pathPrefix: '/docs',
-          typeName: 'DocPage',
+          typeName: 'Doc',
           template: './src/templates/Docs.vue',
         }
       },
