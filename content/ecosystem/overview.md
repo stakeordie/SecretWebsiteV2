@@ -19,20 +19,6 @@ title: "Ecosystem"
 
 <!-- All Media -->
 
-<!-- Contributors -->
-<column class="spacer-s">
-
-<block>
-
-<card-grid title="Contributors" collection="contributors" :pageSize="15" :isPaginated="true"></card-grid>
-
-</block>
-
-</column>
-
-
-
-
 <!-- DApps -->
 
 <column class="spacer-s">
@@ -46,22 +32,16 @@ title: "Ecosystem"
 </column>
 
 
-
-<!-- Nodes -->
-
-<!-- <column class="spacer-s">
+<!-- Contributors -->
+<column class="spacer-s">
 
 <block>
 
-<card-grid title="Nodes" collectionName="allStrapiNodes" </card-grid>
+<card-grid title="Contributors" collection="contributors" :pageSize="15" :isPaginated="true"></card-grid>
 
 </block>
 
-</column> -->
-
-
-
-
+</column>
 
 
 <!-- block header -->
