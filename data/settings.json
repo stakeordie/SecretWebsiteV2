@@ -6,6 +6,14 @@
         {
           "title": "Introduction",
           "path": "/docs/"
+        },
+        {
+          "title": "Old Docs",
+          "path": "/docs/old"
+        },
+        {
+          "title": "Old Docs - Content",
+          "path": "/docs/old-content"
         }
       ]
     }
