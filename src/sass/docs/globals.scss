@@ -2,6 +2,7 @@
 @import "config/_maps.scss";
 @import "config/_mixins.scss";
 @import "config/_functions.scss";
+@import "@lkmx/flare/src/functions/respond-to";
 @import 'prism';
 
 html {
@@ -56,6 +57,26 @@ h1 {
   }
 }
 
-a {
+.site a {
   color: $brandPrimary;
+}
+
+@include respond-to("<=m") {
+  .main{
+    h1{
+      font-size: var(--f-h2-text-size);
+    }
+    h2{
+      font-size: var(--f-h3-text-size);
+    }
+    h3{
+      font-size: var(--f-h4-text-size);
+    }
+    h4{
+      font-size: var(--f-h5-text-size);
+    } 
+    h5{
+      font-size: var(--f-h6-text-size);
+    } 
+  }
 }

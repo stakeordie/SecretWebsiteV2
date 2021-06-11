@@ -38,12 +38,26 @@ export default {
 
   @include respond-to(">=m") {
     grid-auto-flow: column;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 30% 65%;
     grid-auto-columns: max-content;
   }
 
   @include respond-to("<=m") {
     grid-auto-flow: row;
+    grid-template-columns: 90vw;
+    width: 100%;
+    .sidebar{
+      grid-row: 2;
+    }
+    .main{ 
+      width: calc(100% - 60px);
+      padding:20px;
+    }
+  }
+    @include respond-to("<=s") {
+    .main{ 
+      width: 100%;
+    }
   }
 }
 
