@@ -303,6 +303,7 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
         grid-template-columns: repeat(2, 1fr);
 
         img {
+          object-fit: cover;
           width: 100%;
           height: 160px;
         }
@@ -313,23 +314,10 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
 
       @include respond-to(">=m") {
         grid-template-columns: repeat(4, 1fr);
-        img {
-          width: 100%;
-          height: 160px;
-        }
-        .meta {
-          height: 80px;
-        }
       }
 
       @include respond-to(">=l") {
         grid-template-columns: repeat(4, 1fr);
-        img {
-          height: 160px;
-        }
-        .meta {
-          height: 80px;
-        }
       }
 
       @include respond-to(">=xl") {
