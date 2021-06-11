@@ -605,6 +605,13 @@
                   >Submit an issue
                 </a>
               </p>
+              <a
+                href="https://github.com/stakeordie/SecretWebsiteV2/issues "
+                target="blank"
+              >
+                <img src="../assets/icon-arrow-external.svg" alt="icon Arror"
+                width:="24" height:="24" />
+              </a>
             </div>
           </div>
           <div class="subscribe">
@@ -1441,8 +1448,13 @@ export default {
       }
 
       .submit-issue {
+        display: grid;
+        grid-auto-flow: column;
+        gap: var(--f-gutter);
+        align-items: center;
+        grid-auto-columns: max-content;
+
         p {
-          text-align: left;
           margin: 0;
         }
       }

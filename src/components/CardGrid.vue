@@ -110,6 +110,7 @@
           @page="setPagesFather"
           :pageSize="pageSize"
           :items="filteredElements"
+          :currentPage="currentPage"
         >
         </pagination>
       </div>
