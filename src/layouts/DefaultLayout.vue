@@ -767,6 +767,12 @@ export default {
           external: false,
           target: "self",
         },
+        {
+          title: "Run a Node",
+          path: "https://docs.scrt.network/node-guides/secret-nodes.html",
+          external: true,
+          target: "blank",
+        }
       ],
       linksFooterCommunity: [
         {
