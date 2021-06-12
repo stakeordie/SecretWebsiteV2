@@ -597,22 +597,17 @@
                 />
               </a>
             </div>
-            <div class="submit-issue">
-              <p>
-                <a
-                  href="https://github.com/stakeordie/SecretWebsiteV2/issues "
-                  target="blank"
-                  >Submit an issue
-                </a>
-              </p>
-              <a
-                href="https://github.com/stakeordie/SecretWebsiteV2/issues "
-                target="blank"
+            <g-link
+              v-bind:key="index + link"
+              v-for="(link, index) in linksForSocial"
+              :to="link.path"
+              :target="link.target"
+            >
+              <span
+                :class="{ 'icon icon-icon-arrow-external': link.external }"
+                >{{ link.title }}</span
               >
-                <img src="../assets/icon-arrow-external.svg" alt="icon Arror"
-                width:="24" height:="24" />
-              </a>
-            </div>
+            </g-link>
           </div>
           <div class="subscribe">
             <h3>
@@ -779,7 +774,7 @@ export default {
           path: "https://docs.scrt.network/node-guides/secret-nodes.html",
           external: true,
           target: "blank",
-        }
+        },
       ],
       linksFooterCommunity: [
         {
@@ -838,6 +833,14 @@ export default {
           title: "Wallet Support",
           path: "/ecosystem/overview#wallet-support",
           external: false,
+          target: "blank",
+        },
+      ],
+      linksForSocial: [
+        {
+          title: "Submit an issue",
+          path: "https://github.com/stakeordie/SecretWebsiteV2/issues",
+          external: true,
           target: "blank",
         },
       ],
