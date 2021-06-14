@@ -50,9 +50,23 @@ export default {
   @include respond-to("<=m") {
     grid-auto-flow: row;
     grid-template-columns: 90vw;
+    margin: 0;
     width: 100%;
     .sidebar{
-      grid-row: 2;
+      grid-row: 3;
+    }
+    .sidebar,.sidebar-right{
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      grid-column: 1;
+    }
+    .sidebar-right{
+      grid-row: 1;
+      padding: 2rem;
+      width: fit-content;
     }
     .main{ 
       width: calc(100% - 60px);
