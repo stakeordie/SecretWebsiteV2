@@ -53,9 +53,6 @@ export default {
         }
     },
   },
-  beforeMount:function(){
-    console.log(this.$static.menu.edges)
-  }
 };
 </script>
 

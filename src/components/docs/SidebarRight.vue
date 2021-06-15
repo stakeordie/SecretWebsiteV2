@@ -14,18 +14,7 @@
 </template>
 
 <static-query>
-query Menu {
-  menu: allMenu(order:ASC) {
-    edges {
-      node {
-        section
-        topics {
-          title
-          path
-        }
-      }
-    }
-  }
+query Docs {
   docs: allDoc {
     edges {
       node {

@@ -14,11 +14,11 @@
       "topics": [
         {
           "title": "Main Repo",
-          "path": "/docs/old-docs/main-repo"
+          "path": "/docs/old-docs/main-repo/"
         },
         {
           "title": "Content Repo",
-          "path": "/docs/old-docs/content-repo"
+          "path": "/docs/old-docs/content-repo/"
         }
       ]
     }
