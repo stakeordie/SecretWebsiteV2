@@ -12,7 +12,7 @@
           <h3 class="section-title">{{ node.section }}</h3>
           <ul class="section-subtitle">
             <li v-for="item in node.topics" :key="item.title">
-              <g-link :to="item.path">{{ item.title }}</g-link>
+              <a :class="isItemActive(item.path)" :href="item.path">{{ item.title }}</a>
             </li>
           </ul>
         </li>
@@ -44,6 +44,18 @@ export default {
   components: {
     GitLink,
   },
+  methods:{
+    isItemActive(itemPath) {
+        if (this.$route.path == itemPath) {
+            return "active";
+        } else {
+            return "";
+        }
+    },
+  },
+  beforeMount:function(){
+    console.log(this.$static.menu.edges)
+  }
 };
 </script>
 
