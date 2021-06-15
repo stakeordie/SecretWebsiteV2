@@ -65,7 +65,7 @@ export default {
 .sidebar {
   transition: background 0.15s ease-in-out, transform 0.15s ease-in-out,
   border-color 0.15s linear;
-  padding: 50px 20px;
+  padding: 50px 10px 50px 20px;
   // will-change: transform;
   border-right: 1px solid transparent;
   overflow: auto;
@@ -100,7 +100,6 @@ nav {
 
 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
 
   a {
@@ -159,17 +158,14 @@ ul {
     }
   }
 }
-.section-subtitle {
-  padding-left: 1.5rem;
-}
-.section-sub-subtitle {
-  padding-left: 1rem;
-}
-  li{
-    margin: 0;
-    padding: 0;
-  }
 
+li{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  padding: 0;
+}
 .git {
   position: absolute;
   bottom: 0;

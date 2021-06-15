@@ -70,7 +70,7 @@ export default {
 }
 .sidebar-right{
     transition: background 0.15s ease-in-out, transform 0.15s ease-in-out, border-color 0.15s linear;
-    padding: 50px 10px;
+    padding: 50px 25px 50px  10px;
     will-change: transform;
     border-right: 1px solid transparent;
     overflow: auto;
