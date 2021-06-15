@@ -65,12 +65,12 @@ export default {
     font-weight: 700; 
 }
 .active{
-      color: #10c186;
+      color: var(--color-analog-tertiary-orange);
     font-weight: 600;
 }
 .sidebar-right{
     transition: background 0.15s ease-in-out, transform 0.15s ease-in-out, border-color 0.15s linear;
-    padding: 40px 10px;
+    padding: 50px 10px;
     will-change: transform;
     border-right: 1px solid transparent;
     overflow: auto;
@@ -82,7 +82,8 @@ export default {
     grid-column: 3;
 }
 li{
-  padding: 0;
+  line-height: 1.1;
+  padding: 7px 0;
   margin: 0;
 }
 </style>

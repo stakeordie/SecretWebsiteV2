@@ -65,7 +65,7 @@ export default {
 .sidebar {
   transition: background 0.15s ease-in-out, transform 0.15s ease-in-out,
   border-color 0.15s linear;
-  padding: 40px 20px;
+  padding: 50px 20px;
   // will-change: transform;
   border-right: 1px solid transparent;
   overflow: auto;
@@ -110,7 +110,7 @@ ul {
     display: block;
 
     &.active {
-      color: $brandPrimary;
+      color: var(--color-analog-tertiary-orange);
       font-weight: 600;
     }
   }
