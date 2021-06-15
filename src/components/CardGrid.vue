@@ -43,9 +43,7 @@
             :key="element.id"
           >
             <a :href="element.url" target="blank">
-              <div class="image-container">
-                <img :src="element.picture.url" alt="picture" />
-              </div>
+              <img :src="element.picture.url" alt="picture" />
               <div
                 class="meta"
                 :class="{ 'meta--with-categories': hasCategories }"
@@ -302,15 +300,6 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
 
       @include respond-to(">=s") {
         grid-template-columns: repeat(2, 1fr);
-
-        img {
-          object-fit: cover;
-          width: 100%;
-          height: 160px;
-        }
-        .meta {
-          height: 112px;
-        }
       }
 
       @include respond-to(">=m") {
@@ -333,6 +322,12 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
         display: flex;
         flex-direction: column;
         text-align: center;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        }
 
         &:hover {
           transform: var(--card-hover-transform);
@@ -359,19 +354,12 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
           }
         }
 
-        .image-container {
-          img {
-            object-fit: cover;
-            width: 100%;
-            height: 160px;
-          }
-        }
-
         .meta {
           padding: var(--f-gutter);
           display: flex;
           flex-direction: column;
           gap: var(--f-gutter-xxs);
+          height: 112px;
 
           &--with-categories {
             height: 112px;
