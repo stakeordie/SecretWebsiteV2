@@ -63,6 +63,9 @@ h1 {
 
 @include respond-to("<=m") {
   .main{
+    *{
+      font-family: 'Hind';
+    }
     h1{
       font-size: var(--f-h2-text-size);
     }

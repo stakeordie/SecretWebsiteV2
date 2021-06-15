@@ -1,7 +1,6 @@
 <template>
   <aside
     class="sidebar"
-    :class="{ 'sidebar--open': this.$store.state.sidebarOpen }"
   >
     <nav>
       <ul>
@@ -35,17 +34,6 @@ query Menu {
       }
     }
   }
-  docs: allDoc {
-    edges {
-      node {
-        path
-        headings {
-          value
-          anchor
-        }
-      }
-    }
-  }
 }
 </static-query>
 
@@ -55,46 +43,6 @@ import GitLink from "./GitLink.vue";
 export default {
   components: {
     GitLink,
-  },
-  watch: {
-    $route() {
-      this.$store.commit("closeSidebar");
-    },
-  },
-  methods: {
-    stateFromSize: function () {
-      if (
-        window.getComputedStyle(document.body, ":before").content == '"small"'
-      ) {
-        this.$store.commit("closeSidebar");
-      } else {
-        this.$store.commit("openSidebar");
-      }
-    },
-    sidebarScroll: function () {
-      let mainNavLinks = document.querySelectorAll(
-        ".topic.active + ul .sub-topic"
-      );
-      let fromTop = window.scrollY;
-
-      mainNavLinks.forEach((link) => {
-        let section = document.querySelector(link.hash);
-        let allCurrent = document.querySelectorAll(".current"),
-          i;
-
-        if (section.offsetTop <= fromTop) {
-          for (i = 0; i < allCurrent.length; ++i) {
-            allCurrent[i].classList.remove("current");
-          }
-          link.classList.add("current");
-        } else {
-          link.classList.remove("current");
-        }
-      });
-    },
-  },
-  beforeMount() {
-    this.stateFromSize();
   },
 };
 </script>
@@ -107,11 +55,9 @@ export default {
 
 .sidebar {
   transition: background 0.15s ease-in-out, transform 0.15s ease-in-out,
-    border-color 0.15s linear;
-  padding: 30px 30px 30px;
-  width: 300px;
-  will-change: transform;
-  // transform: translateX(-300px);
+  border-color 0.15s linear;
+  padding: 40px 20px;
+  // will-change: transform;
   border-right: 1px solid transparent;
   overflow: auto;
   position: sticky;
@@ -209,11 +155,11 @@ ul {
 }
 .section-sub-subtitle {
   padding-left: 1rem;
+}
   li{
     margin: 0;
     padding: 0;
   }
-}
 
 .git {
   position: absolute;

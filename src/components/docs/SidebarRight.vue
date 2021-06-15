@@ -81,7 +81,7 @@ export default {
 }
 .sidebar-right{
     transition: background 0.15s ease-in-out, transform 0.15s ease-in-out, border-color 0.15s linear;
-    padding: 10px;
+    padding: 40px 10px;
     will-change: transform;
     border-right: 1px solid transparent;
     overflow: auto;
@@ -89,7 +89,7 @@ export default {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    top: 250px;
+    top: 130px;
     grid-column: 3;
 }
 li{

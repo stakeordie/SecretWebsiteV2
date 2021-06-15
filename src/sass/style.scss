@@ -95,7 +95,7 @@ body {
     }
 
     pre {
-        max-width: var(--blog-content-width);
+        // max-width: var(--blog-content-width);
         width: 100%;
         margin: 0 0 var(--f-gutter-l) 0;
 
@@ -154,7 +154,6 @@ ul {
     padding-left: var(--f-gutter);
 
     li {
-        list-style: circle;
 
         &::marker {
             color: var(--theme-card-text-color);
