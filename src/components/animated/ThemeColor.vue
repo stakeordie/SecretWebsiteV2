@@ -169,85 +169,7 @@ export default {
             }, 10
           );
       }
-      // } else if (checkBodyThemeMode === "dark-colored") {
-      //   const timeline = this.$anime
-      //     .timeline()
-      //     .add(
-      //       {
-      //         targets: ".circle-purple",
-      //         easing: "spring(1, 80, 10, 0)",
-      //         translateX: -5,
-      //         translateY: -1,
-      //         stroke: "#ffffff",
-      //         strokeWidth: "2",
-      //         fill: "#000",
-      //       },
-      //       400
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".circle-yellow",
-      //         easing: "spring(1, 80, 10, 0)",
-      //         fill: "#fff",
-      //       },
-      //       400
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".superposition",
-      //         opacity: 0,
-      //       },
-      //       50
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".circle-red",
-      //         easing: "easeInElastic(3, .3)",
-      //         translateX: 5,
-      //       },
-      //       10
-      //     );
-      // }
-      // if (checkThemeColor.classList.contains("dark")) {
-
-      //   const timeline = this.$anime
-      //     .timeline()
-      //     .add(
-      //       {
-      //         targets: ".circle-purple",
-      //         easing: "spring(1, 80, 10, 0)",
-      //         translateX: -5,
-      //         translateY: -1,
-      //         stroke: "#ffffff",
-      //         strokeWidth: "2",
-      //         fill: "#000",
-      //       },
-      //       400
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".circle-yellow",
-      //         easing: "spring(1, 80, 10, 0)",
-      //         fill: "#fff",
-      //       },
-      //       400
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".superposition",
-      //         opacity: 0,
-      //       },
-      //       50
-      //     )
-      //     .add(
-      //       {
-      //         targets: ".circle-red",
-      //         easing: "easeInElastic(3, .3)",
-      //         translateX: 5,
-      //       },
-      //       10
-      //     );
-      // }
+     
     });
   },
 };
@@ -258,13 +180,8 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .animate-color {
-  // background: red !important;
+
   display: grid;
 
-  // svg {
-  //   @include theme(dark dark-colored) {
-  //     filter: invert(1);
-  //   }
-  // }
 }
 </style>
