@@ -41,10 +41,11 @@ export default {
   grid-auto-flow: column;
   grid-template-columns: 20% 60% 20%;
   grid-auto-columns: max-content;
+  
   @media only screen and (max-width: 1339px){
     // background: red !important;
     grid-auto-flow: row;
-      grid-template-columns: 100%;
+      grid-template-columns: 90vw;
       margin: 0;
       .sidebar{
         grid-row: 3;
@@ -63,7 +64,7 @@ export default {
         width: fit-content;
       }
       .main{
-        padding:20px;
+        padding:10px;
         width: 100%;
       }
   }
