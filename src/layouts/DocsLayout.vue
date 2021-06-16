@@ -45,7 +45,7 @@ export default {
   @media only screen and (max-width: 1339px){
     // background: red !important;
     grid-auto-flow: row;
-      grid-template-columns: 90vw;
+      grid-template-columns: 100%;
       margin: 0;
       .sidebar{
         grid-row: 3;
@@ -67,6 +67,9 @@ export default {
         padding:10px;
         width: 100%;
       }
+  }
+  @include respond-to("<=s") { 
+    grid-template-columns: 90vw;
   }
 }
 </style>
