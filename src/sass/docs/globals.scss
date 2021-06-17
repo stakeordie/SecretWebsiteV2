@@ -40,7 +40,11 @@ body {
 * {
   box-sizing: border-box;
 }
-
+body[theme=light]{
+  .invert{
+    filter: invert(1);
+  }
+}
 h1,
 h2,
 h3,
@@ -57,8 +61,11 @@ h1 {
   margin-top: 0; 
 }
 
-.site .main a {
-  color: $brandPrimary;
+.site .main {
+  // color: $brandPrimary;
+  ul{
+    list-style: outside;
+  }
 }
 
 h1{

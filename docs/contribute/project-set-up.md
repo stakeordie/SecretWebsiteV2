@@ -1,4 +1,4 @@
-### Getting Started
+# Getting Started
 This section will help you run the Secret Website from ground up.
 
 #### Prerequisites
@@ -17,7 +17,7 @@ Clone this repository in your local machine
 degit https://github.com/stakeordie/SecretWebsiteV2
 ```
 
-#### Scaafold your project
+#### Scaffold your project
 
 Once you have the repo in your local machine you need to install all the dependencies.
 

@@ -1,4 +1,4 @@
-### Open Development
+# Open Development
 
 All work on Secret Website happens directly on GitHub. Team members and external contributors send pull requests which go through the same review process.
 

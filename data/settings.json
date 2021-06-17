@@ -6,6 +6,23 @@
         {
           "title": "Introduction",
           "path": "/docs/"
+        },
+        {
+          "title": "Project overview",
+          "path": "/docs/overview/"
+        }
+      ]
+    },
+    {
+      "section": "How to contribute",
+      "topics": [
+        {
+          "title": "Project set up",
+          "path": "/docs/contribute/project-set-up/"
+        },
+        {
+          "title": "Submit a change",
+          "path": "/docs/contribute/submit-a-change/"
         }
       ]
     },
@@ -19,14 +36,6 @@
         {
           "title": "Content Repo",
           "path": "/docs/old-docs/content-repo/"
-        },
-        {
-          "title": "Submit a Change",
-          "path": "/docs/old-docs/submit-a-change/"
-        },
-        {
-          "title": "Project Set Up",
-          "path": "/docs/old-docs/project-set-up/"
         }
       ]
     }
