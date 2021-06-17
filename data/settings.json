@@ -19,6 +19,14 @@
         {
           "title": "Content Repo",
           "path": "/docs/old-docs/content-repo/"
+        },
+        {
+          "title": "Submit a Change",
+          "path": "/docs/old-docs/submit-a-change/"
+        },
+        {
+          "title": "Project Set Up",
+          "path": "/docs/old-docs/project-set-up/"
         }
       ]
     }
