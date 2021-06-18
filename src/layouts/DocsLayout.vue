@@ -66,6 +66,7 @@ export default {
       .main{
         padding:10px;
         width: 100%;
+        border: 0;
       }
   }
   @include respond-to("<=s") { 

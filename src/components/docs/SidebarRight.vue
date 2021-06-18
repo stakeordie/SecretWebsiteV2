@@ -78,7 +78,7 @@ export default {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    top: 130px;
+    top: 180px;
     grid-column: 3;
 }
 li{
