@@ -13,10 +13,10 @@
     <!-- Want to build better internet paragraphs -->
     <div class="description">
       <div>
-        <p>{{ $static.homeExplainer.edges[0].node.column_1 }}</p>
+        <p><vue-markdown>{{ $static.homeExplainer.edges[0].node.column_1 }}</vue-markdown></p>
       </div>
       <div>
-        <p>{{ $static.homeExplainer.edges[0].node.column_2 }}</p>
+        <p><vue-markdown>{{ $static.homeExplainer.edges[0].node.column_2 }}</vue-markdown></p>
       </div>
       <div>
         <btn :url="$static.homeExplainer.edges[0].node.page.route">
@@ -71,11 +71,16 @@
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
+strong {
+      font-weight: 900;
+    }
+
 .home--build_better_internet {
   .first-heading {
     margin-bottom: 0;
   }
   .description {
+    
     display: grid;
     grid-column-gap: var(--f-gutter-xxl);
     grid-row-gap: var(--f-gutter);

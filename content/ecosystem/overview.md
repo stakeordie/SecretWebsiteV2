@@ -25,7 +25,7 @@ title: "Ecosystem"
 
 <block>
 
-<card-grid title="dApps" collection="dApps" :pageSize="5" :isPaginated="false" :has-categories="false"></card-grid>
+<card-grid title="Secret Apps" collection="dApps" :pageSize="5" :isPaginated="false" :has-categories="false"></card-grid>
 
 </block>
 
