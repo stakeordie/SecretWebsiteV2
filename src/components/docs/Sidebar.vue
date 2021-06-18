@@ -1,7 +1,6 @@
 <template>
   <aside
     class="sidebar"
-    :class="{ 'sidebar--open': this.$store.state.sidebarOpen }"
   >
     <nav>
       <ul>
@@ -13,23 +12,7 @@
           <h3 class="section-title">{{ node.section }}</h3>
           <ul class="section-subtitle">
             <li v-for="item in node.topics" :key="item.title">
-              <g-link :to="item.path">{{ item.title }}</g-link>
-              <ul
-                class="section-sub-subtitle"
-                v-if="checkAnchors(node.path, item.path)"
-                v-for="{ node } in $static.docs.edges"
-                :key="node.id"
-              >
-                <li v-for="heading in node.headings" :key="heading.value">
-                  <a
-                    :class="
-                      'sub-topic ' + isItemActive(item.path + heading.anchor)
-                    "
-                    :href="item.path + heading.anchor"
-                    >{{ heading.value }}</a
-                  >
-                </li>
-              </ul>
+              <a :class="isItemActive(item.path)" :href="item.path">{{ item.title }}</a>
             </li>
           </ul>
         </li>
@@ -51,17 +34,6 @@ query Menu {
       }
     }
   }
-  docs: allDoc {
-    edges {
-      node {
-        path
-        headings {
-          value
-          anchor
-        }
-      }
-    }
-  }
 }
 </static-query>
 
@@ -72,57 +44,14 @@ export default {
   components: {
     GitLink,
   },
-  watch: {
-    $route() {
-      this.$store.commit("closeSidebar");
-    },
-  },
-  methods: {
-    checkAnchors(slug, item) {
-      if (slug == item) {
-        return true;
-      }
-    },
-    stateFromSize: function () {
-      if (
-        window.getComputedStyle(document.body, ":before").content == '"small"'
-      ) {
-        this.$store.commit("closeSidebar");
-      } else {
-        this.$store.commit("openSidebar");
-      }
-    },
-    sidebarScroll: function () {
-      let mainNavLinks = document.querySelectorAll(
-        ".topic.active + ul .sub-topic"
-      );
-      let fromTop = window.scrollY;
-
-      mainNavLinks.forEach((link) => {
-        let section = document.querySelector(link.hash);
-        let allCurrent = document.querySelectorAll(".current"),
-          i;
-
-        if (section.offsetTop <= fromTop) {
-          for (i = 0; i < allCurrent.length; ++i) {
-            allCurrent[i].classList.remove("current");
-          }
-          link.classList.add("current");
-        } else {
-          link.classList.remove("current");
-        }
-      });
-    },
+  methods:{
     isItemActive(itemPath) {
-      if (this.$route.fullPath == itemPath) {
-        return "active";
-      } else {
-        return "";
-      }
+        if (this.$route.path == itemPath) {
+            return "active";
+        } else {
+            return "";
+        }
     },
-  },
-  beforeMount() {
-    this.stateFromSize();
   },
 };
 </script>
@@ -135,14 +64,14 @@ export default {
 
 .sidebar {
   transition: background 0.15s ease-in-out, transform 0.15s ease-in-out,
-    border-color 0.15s linear;
-  padding: 30px 30px 30px;
-  width: 300px;
-  will-change: transform;
-  // transform: translateX(-300px);
+  border-color 0.15s linear;
+  padding: 20px;
+  // will-change: transform;
   border-right: 1px solid transparent;
   overflow: auto;
-
+  position: sticky;
+  height: fit-content;
+  top:130px;
   @include respond-above(sm) {
     transform: translateX(0);
   }
@@ -171,7 +100,6 @@ nav {
 
 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
 
   a {
@@ -181,7 +109,7 @@ ul {
     display: block;
 
     &.active {
-      color: $brandPrimary;
+      color: var(--color-analog-tertiary-orange);
       font-weight: 600;
     }
   }
@@ -230,17 +158,14 @@ ul {
     }
   }
 }
-.section-subtitle {
-  padding-left: 1.5rem;
-}
-.section-sub-subtitle {
-  padding-left: 1rem;
-  li{
-    margin: 0;
-    padding: 0;
-  }
-}
 
+li{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  padding: 0;
+}
 .git {
   position: absolute;
   bottom: 0;
