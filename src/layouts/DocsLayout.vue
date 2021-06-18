@@ -41,7 +41,12 @@ export default {
   grid-auto-flow: column;
   grid-template-columns: 20% 60% 20%;
   grid-auto-columns: max-content;
-  
+
+  .main {
+    padding: var(--f-gutter-xl) 20px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+  }
   @media only screen and (max-width: 1339px){
     // background: red !important;
     grid-auto-flow: row;
