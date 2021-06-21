@@ -12,7 +12,8 @@ import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from 'vue-typical';
-import VueSocialSharing from 'vue-social-sharing'
+import VueSocialSharing from 'vue-social-sharing';
+import VueAnime from 'vue-animejs';
 
 
 import '@fontsource/hind'
@@ -25,6 +26,8 @@ import '@fontsource/montserrat/500.css'
 
 
 
+import ThemeMode from '~/components/animated/ThemeMode.vue';
+import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
 import Announcement from '~/components/Announcement.vue';
@@ -94,6 +97,8 @@ export default function (Vue, {
     openGraph.forEach(item => head.meta.push(item))
 
     // Set default layout as a global component
+    Vue.component('ThemeMode', ThemeMode);
+    Vue.component('ThemeColor', ThemeColor);
     Vue.component('AlertBar', AlertBar);
     Vue.component('Announcement', Announcement);
     Vue.component('DefaultLayout', DefaultLayout);
@@ -137,6 +142,7 @@ export default function (Vue, {
     Vue.component('BlogPosts', BlogPosts);
     Vue.component('BlogPostsFeatured', BlogPostsFeatured);
     Vue.component('BlogFilter', BlogFilter);
+    
 
     //Page Specific
     Vue.component('HomeExplainer', HomeExplainer);
@@ -146,6 +152,7 @@ export default function (Vue, {
     //External Libraries
     Vue.component('InfiniteSlideBar', InfiniteSlideBar);
     Vue.component('typical', typical);
+    Vue.use(VueAnime);
 
     Vue.use(Flare);
     Vue.use(VueSocialSharing);
