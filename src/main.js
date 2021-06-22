@@ -43,6 +43,9 @@ import CardMinimal from '~/components/cards/CardMinimal.vue';
 import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
+import CardStats from '~/components/cards/CardStats.vue';
+import CardStructure from '~/components/cards/CardStructure.vue';
+import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import Contributors from '~/components/cards/Contributors.vue';
@@ -116,6 +119,9 @@ export default function (Vue, {
     Vue.component('CardBlock', CardBlock);
     Vue.component('CardMedia', CardMedia);
     Vue.component('CardSecretAgent', CardSecretAgent);
+    Vue.component('CardStats', CardStats);
+    Vue.component('CardStructure', CardStructure);
+    Vue.component('CardCurrentPrice', CardCurrentPrice);
     Vue.component('Media', Media);
     Vue.component('CardGrid', CardGrid);
     Vue.component('Contributors', Contributors);
@@ -142,7 +148,7 @@ export default function (Vue, {
     Vue.component('BlogPosts', BlogPosts);
     Vue.component('BlogPostsFeatured', BlogPostsFeatured);
     Vue.component('BlogFilter', BlogFilter);
-    
+
 
     //Page Specific
     Vue.component('HomeExplainer', HomeExplainer);

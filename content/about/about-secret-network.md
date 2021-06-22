@@ -14,7 +14,7 @@ title: 'About'
 <block>
 <hero-title>
 
-## About Secret Network
+# About Secret Network
 
 </hero-title>
 </block>
@@ -29,102 +29,18 @@ title: 'About'
 
 
 <!-- Intro -->
-<column class="spacer-s color-change" number="2" number-s="1" weight="left">
+<column class="spacer-s" number="2" number-s="1" weight="left">
 <block>
 
-###### WHAT IS SECRET NETWORK?
+<card-minimal class="no-bg accent-yellow">
 
-#### A <span>blockchain-based</span>, <span>open-source protocol</span> that lets anyone perform computations on encrypted data, bringing <span>privacy to smart contracts</span> and <span>public blockchains</span>.
+##### WHAT IS SECRET NETWORK?
 
-By supporting encrypted inputs, encrypted outputs, and encrypted state for smart contracts, Secret Network allows for new kinds of powerful decentralized applications to be built. This can unlock substantial value across multiple verticals and industries, including the following:
+### A blockchain-based, open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.
 
-</block>
+Secret Network combines the best features of decentralized, open-source networks and blockchains with the benefits of data privacy and improved usability. These improvements are critical for achieving mass adoption. By supporting encrypted inputs, encrypted outputs, and encrypted state for smart contracts, Secret Network allows for new kinds of powerful decentralized applications to be built. 
 
-<block>
-
-![](../img/hand.png)
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-<!-- Industries -->
-<column class="spacer-s" number="3" number-m="2" number-s="1">
-<block>
-
-<card-minimal class="accent-green">
-
-#### Decentralized <br>Finance
-
-Support for privacy-preserving asset transfers, lending, and more.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Data <br>Sharing
-
-Sharing and monetizing data while keeping it secure.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Machine <br>Learning
-
-Discovering powerful insights while protecting underlying data.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Gaming <br>Industry
-
-Enabling more open and more usable gaming experiences.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Healthcare <br>Industry
-
-Allowing research over encrypted data, driving innovation.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="no-bg">
-
-#### Want to know some other secret keys?
-
-<btn class="text-center" url="#faq">Read the FAQ</btn>
+The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the network has its own independent consensus, on-chain governance, and features like slashing and delegation.
 
 </card-minimal>
 
@@ -140,13 +56,64 @@ Allowing research over encrypted data, driving innovation.
 
 
 
-<!-- separator -->
-<column>
-<block>
 
-<hr class="swirl-a"/>
+<!-- Etherium, Monero´s, Cosmos, SCRT Network -->
+<column class="spacer-s" number="1" number-s="1">
+
+<card-structure>
+
+</card-structure>
+
+<!-- <block>
+
+![](../img/logo-etherium.svg)
+
+##### Etherium's smart contacts
 
 </block>
+
+<block>
+
+![](../img/icon-plus.svg)
+
+</block>
+
+<block>
+
+![](../img/logo-monero.svg)
+
+##### Monero's privacy by default design
+
+</block>
+
+<block>
+
+![](../img/icon-plus.svg)
+
+</block>
+
+<block>
+
+![](../img/logo-cosmos.svg)
+
+##### Cosmos' scalability and interoperability
+
+</block>
+
+<block>
+
+![](../img/icon-equal.svg)
+
+</block>
+
+<block>
+
+![](../img/logo-secret-network.svg)
+
+##### Secret Network: the first & only privacy-preserving smart contract blockchain.
+
+</block> -->
+
 </column>
 
 
@@ -156,27 +123,54 @@ Allowing research over encrypted data, driving innovation.
 
 
 
-<!-- How Secret Network Operates -->
-<column class="spacer-s" weight="right" number="2" number-m="2" number-s="1">
+
+
+
+
+
+
+<!-- Privacy Important -->
+<column class="spacer-s color-change" number="2" number-s="1">
 
 <block>
 
+<card-minimal class="no-bg accent-yellow">
 
-![](../img/card-invaders.png)
+##### WHY IS PRIVACY IMPORTANT?
+
+
+#### Protect your data with viewing keys. Choose what is revealed to the public and what stays private by default. 
+
+SCRT is the native coin of the Secret Network blockchain. It is used to for staking and governance on the Secret Network. SCRT can be purchased on exchanges and stored on wallets that support Secret Tokens. Wallets are required to interact with the Secret ecosystem.
+
+ <a>Learn more about SCRT</a>
+
+</card-minimal>
 
 </block>
 
 <block>
 
-### How Secret Network Operates
+<card-current-price>
 
-The Secret Network is a decentralized network of computers (secret nodes) that utilize trusted execution environments (TEEs) to enable secure, private computation over encrypted data. TEEs function like a “black box” for data processing, and they are utilized in all types of everyday platforms such as smartphones and video game consoles.
+</card-current-price>
 
-The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the network has its own independent consensus, on-chain governance, and features like slashing and delegation. It is secured by the native coin Secret (SCRT), which must be staked by network validators and is used for transaction fees as well as governance.
+<!-- <card-minimal class="accent-green text-center">
 
-Secret Apps - powered by “secret”, privacy-preserving smart contracts - are built with CosmWasm smart contracts that are written in the Rust programming language and deployed on the Secret Network.
+###### Current SCRT Price 
+
+# $2.89
+
+0.12%  ↗  (Last 24 hours)
+
+<btn class="text-center" url="#faq">SUPPORTED WALLETS</btn>
+<btn class="text-center" url="#faq">GET SCRT</btn>
+
+</card-minimal> -->
+
 
 </block>
+
 
 </column>
 
@@ -186,31 +180,6 @@ Secret Apps - powered by “secret”, privacy-preserving smart contracts - are 
 
 
 
-
-<!-- About SCRT-->
-<column  weight="left" number="2" number-m="2" number-s="1">
-
-
-<block>
-
-### About SCRT
-
-#### SCRT is the native coin of the Secret Network
-
-#### You can buy SCRT from exchanges or from wallets directly.
-
-Unlike the network, the native coin SCRT is not a privacy coin, and all transactions made with SCRT are publicly viewable. It is used to pay fees and to transact on the network and is essential to run secret contracts.
-
-</block>
-
-<block>
-
-<image-placeholder :width="750" :height="750" title="SCRT Coin Image" />
-<!-- ![](../img/eye-illustration.png) -->
-
-</block>
-
-</column>
 
 
 
@@ -218,87 +187,71 @@ Unlike the network, the native coin SCRT is not a privacy coin, and all transact
 
 <!-- Cards Data -->
 
-<!-- <column class="spacer-s" number="4" number-m="2" number-s="1">
-<block>
-
-<card-minimal class="accent-green">
-
-### $3.09
-
-#### SCRT Price
-
-</card-minimal>
-
-</block>
+<column class="spacer-s" number="5" number-m="2" number-s="1">
 
 <block>
 
-<card-minimal class="accent-green">
+<card-stats class="accent-blue">
 
-### $41.9M
+### $41.9M 
 
 #### Liquidity
 
-</card-minimal>
+</card-stats>
 
 </block>
 
 <block>
 
-<card-minimal class="accent-green">
+
+<card-stats class="accent-turquoise">
 
 ### $2.37M
 
 #### Daily Volume
 
-</card-minimal>
+</card-stats>
 
 </block>
 
+
 <block>
 
-<card-minimal class="accent-green">
+<card-stats class="accent-red">
+
+### $6.07K
+
+#### Daily Fees
+
+</card-stats>
+
+</block>
+
+
+<block>
+
+<card-stats class="accent-orange">
 
 ### 28
 
 #### Pairs
 
-</card-minimal>
+</card-stats>
 
 </block>
-
-
-</column> -->
-
-
-
-
-
-
-
-<!-- separator -->
-<column>
-<block>
-
-<hr class="swirl-b"/>
-
-</block>
-</column>
-
-
-
-
-
-<!-- Block Header -->
-<column number="2" number-m="1" number-s="1">
 
 <block>
 
-### Network Flow
+<card-stats class="accent-purple">
 
-The following process describes, step by step, how a contract is submitted and a computation performed on the Secret Network:
+### 7.45K
+
+#### Users
+
+</card-stats>
 
 </block>
+
 
 </column>
 
@@ -309,138 +262,27 @@ The following process describes, step by step, how a contract is submitted and a
 
 
 
-
-<!-- Network Flow -->
-<column class="spacer-s" number="4" number-m="2" number-s="1">
-
-<block>
-
-<card-minimal class="accent-orange icon-next">
-
-#### 01
-#### Writing
-
-A developer writes "secret" smart contracts and deploys them to the Secret Network.
-
-</card-minimal>
-
-</block>
+<!-- What Is Secret(SCRT)? -->
+<column class="spacer-s" number="2" number-s="1" weight="left">
 
 <block>
 
-<card-minimal class="accent-blue icon-next">
+<card-minimal class="no-bg accent-yellow">
 
-#### 02
-#### Submission
+##### WHAT IS SECRET (SCRT)?
 
-Users submit encrypted data to Secret Network that can’t be read by anyone else — including the node doing the computation.
+### SCRT is digital, global money.<br>It's the currency of Secret Network apps.
 
-</card-minimal>
+Privacy needs to be protected and supported by the technologies we use in daily life. However, an overly centralized internet and large data monopolies have put our privacy, our security, and our society at risk. That’s why we are dedicated to building solutions with privacy at their core, empowering users to take and keep control of their valuable information. Privacy makes the applications we rely on more usable and more secure - and when privacy is not protected, neither are we.
 
-</block>
-
-<block>
-
-<card-minimal class="accent-yellow icon-next">
-
-#### 03
-#### Computation
-
-A "secret node" in the network performs the computation, and returns the result.
+The Secret Network is a decentralized network of computers (secret nodes) that utilize trusted execution environments (TEEs) to enable secure, private computation over encrypted data. TEEs function like a “black box” for data processing, and they are utilized in all types of everyday platforms such as smartphones and video game consoles.
 
 </card-minimal>
 
-</block>
-
-<block>
-
-<card-minimal class="accent-red">
-
-#### 04
-#### Verification
-
-The work is verified as correct, and payment is released to the secret node that performed the work.
-
-</card-minimal>
 
 </block>
 
 </column>
-
-
-
-
-
-
-
-
-
-
-<!-- Block Header -->
-<column>
-
-<block>
-
-### About Our Values
-
-The Secret Network community is dedicated to building privacy-first solutions and applications for the benefit of all, because we believe that privacy is a public good. Here are our primary values.
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-
-<!-- Values -->
-<column class="spacer-s" number="3" number-m="2" number-s="1">
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Usability and Sustainability
-
-We focus on usability of our network and applications to create meaningful value that is sustainable for the long-term.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Optimze for Impact
-
-We prioritize adoption - applications that will make the greatest difference for the most people.
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal class="accent-green">
-
-#### Individual Empowerment
-
-Individuals have a right to their own privacy, their own self-expression, and their own data.
-
-</card-minimal>
-
-</block>
-
-
-</column>
-
-
 
 
 
@@ -453,11 +295,119 @@ Individuals have a right to their own privacy, their own self-expression, and th
 <column>
 <block>
 
-<hr class="swirl-c"/>
+<hr class="swirl-d"/>
 
 </block>
 </column>
 
+
+
+
+
+
+
+<!-- WHAT CAN SECRET CONTRACTS DO? -->
+<column class="spacer-s accent-green" number="2" number-s="1" weight="left">
+
+<block>
+
+<card-minimal class="no-bg accent-yellow">
+
+##### WHAT CAN SECRET CONTRACTS DO?
+
+### Programmable privacy for blockchains allow decentralized applications to be built with privacy by design.
+
+"Secret contracts" are privacy-preserving smart contracts built on Secret Network. Smart contracts are essentially self-executing pieces of code that are managed on a blockchain. Secret contracts improve on regular smart contracts in that they not only solve for correctness, but also for data privacy. Secret contracts are written in the Rust programming language. Secret Apps utilize the capabilities of secret contracts to enable unique use cases that empower users and increase opportunities for growth and impact.
+
+</card-minimal>
+
+</block>
+
+</column>
+
+
+
+
+<!--SCRT Details -->
+
+<column class="spacer-s accent-green" number="2" number-s="1">
+
+<block>
+
+<card-minimal class="no-bg accent-orange">
+
+##### SECRET TOKENS?
+
+#### Convert existing public assets into privacy Secret Tokens.
+
+Secret Tokens (SNIP-20) are smart contract interactions on Secret Network that mint tokens that are private by default, encrypted to ensure both anonymity and confidentiality. Viewing keys are required to view token balances, transaction details, and token metadata. Secret Tokens can be used in various use cases, most notably in "Secret Defi" and in a new NFT standard for "SecretNFTs".
+
+</card-minimal>
+
+</block>
+
+
+
+<block>
+
+<card-minimal class="no-bg accent-turquoise">
+
+##### SECRET BRIDGES
+
+#### Secret Network brings programmable privacy to all major blockchains.
+
+Secret Bridges transfers assets on other blockchain networks (Ethereum, Binance Smart Chain, etc) to Secret Network. Once assets are transferred across a Secret Bridge, a Secret Token contract is executed and the asset is encrypted to be only viewable to address owners or holders of their viewing key. These Secret Tokens can then be used across the Secret Network ecosystem. Secret Bridges enable Secret Network to become the cross-chain privacy hub for all major blockchains.
+
+</card-minimal>
+
+</block>
+
+<block>
+
+
+
+<card-minimal class="no-bg accent-green">
+
+##### SECRET DECENTRALIZED FINANCE
+
+#### Privacy for sensitive financial data.
+
+Secret Finance encompasses all privacy-preserving decentralized financial applications enabled by smart contracts built on Secret Network. Secret DeFi applications are cross-chain interoperable, front-running and MEV resistant, private by default, and utilize low fees.  Secret Finance also offers high-yield opportunities for incentivizing growth.
+
+</card-minimal>
+
+</block>
+
+
+
+<block>
+
+<card-minimal class="no-bg accent-cream">
+
+##### SECRET NFTs
+
+#### Non-Fungible tokens with private metadata.
+
+SecretNFTs are non-fungible Secret Tokens, which enable verifiable representation of unique items and events, such that ownership and transactions are private by default. These unique items can be used for a variety of purposes, but generally, we believe tokens ought to be private if they represent our personal goods and experiences. Secret NFTs are perfect for these types of use cases.
+
+</card-minimal>
+
+</block>
+
+</column>
+
+<!-- End SCRT Details -->
+
+
+
+<!-- separator -->
+<column>
+<block>
+
+<hr class="swirl-e"/>
+
+</block>
+</column>
 
 
 
