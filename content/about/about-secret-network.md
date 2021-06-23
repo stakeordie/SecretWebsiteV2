@@ -58,61 +58,11 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 <!-- Etherium, Monero´s, Cosmos, SCRT Network -->
-<column class="spacer-s" number="1" number-s="1">
+<column number="1" number-s="1">
 
 <card-structure>
 
 </card-structure>
-
-<!-- <block>
-
-![](../img/logo-etherium.svg)
-
-##### Etherium's smart contacts
-
-</block>
-
-<block>
-
-![](../img/icon-plus.svg)
-
-</block>
-
-<block>
-
-![](../img/logo-monero.svg)
-
-##### Monero's privacy by default design
-
-</block>
-
-<block>
-
-![](../img/icon-plus.svg)
-
-</block>
-
-<block>
-
-![](../img/logo-cosmos.svg)
-
-##### Cosmos' scalability and interoperability
-
-</block>
-
-<block>
-
-![](../img/icon-equal.svg)
-
-</block>
-
-<block>
-
-![](../img/logo-secret-network.svg)
-
-##### Secret Network: the first & only privacy-preserving smart contract blockchain.
-
-</block> -->
 
 </column>
 
@@ -121,8 +71,14 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 
+<!-- separator -->
+<column>
+<block>
 
+<hr class="swirl-a"/>
 
+</block>
+</column>
 
 
 
@@ -130,7 +86,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 <!-- Privacy Important -->
-<column class="spacer-s color-change" number="2" number-s="1">
+<column class="color-change" number="2" number-s="1">
 
 <block>
 
@@ -155,31 +111,21 @@ SCRT is the native coin of the Secret Network blockchain. It is used to for stak
 
 </card-current-price>
 
-<!-- <card-minimal class="accent-green text-center">
-
-###### Current SCRT Price 
-
-# $2.89
-
-0.12%  ↗  (Last 24 hours)
-
-<btn class="text-center" url="#faq">SUPPORTED WALLETS</btn>
-<btn class="text-center" url="#faq">GET SCRT</btn>
-
-</card-minimal> -->
-
-
 </block>
-
 
 </column>
 
 
 
 
+<!-- separator -->
+<column>
+<block>
 
+<hr class="swirl-b"/>
 
-
+</block>
+</column>
 
 
 
@@ -187,7 +133,7 @@ SCRT is the native coin of the Secret Network blockchain. It is used to for stak
 
 <!-- Cards Data -->
 
-<column class="spacer-s" number="5" number-m="2" number-s="1">
+<column  number="5" number-m="2" number-s="1">
 
 <block>
 
@@ -263,7 +209,7 @@ SCRT is the native coin of the Secret Network blockchain. It is used to for stak
 
 
 <!-- What Is Secret(SCRT)? -->
-<column class="spacer-s" number="2" number-s="1" weight="left">
+<column number="2" number-s="1" weight="left">
 
 <block>
 
@@ -307,7 +253,7 @@ The Secret Network is a decentralized network of computers (secret nodes) that u
 
 
 <!-- WHAT CAN SECRET CONTRACTS DO? -->
-<column class="spacer-s accent-green" number="2" number-s="1" weight="left">
+<column class="accent-green" number="2" number-s="1" weight="left">
 
 <block>
 
@@ -330,7 +276,7 @@ The Secret Network is a decentralized network of computers (secret nodes) that u
 
 <!--SCRT Details -->
 
-<column class="spacer-s accent-green" number="2" number-s="1">
+<column class="accent-green" number="2" number-s="1">
 
 <block>
 

@@ -59,19 +59,24 @@ export default {};
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 16px;
 
-  @include respond-to("<=s") {
+  @include respond-to("<=m") {
     grid-template-columns: 1fr;
   }
 
   button {
     width: 100%;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: var(--f-forms-button-radius);
   }
 
   .btn-support {
     button {
       background-color: var(--theme-card-button-bg);
       color: var(--theme-fg);
-      font-weight: 700;
     }
   }
 
@@ -79,7 +84,6 @@ export default {};
     button {
       background-color: var(--theme-fg);
       color: var(--theme-bg);
-      font-weight: 700;
     }
   }
 }
