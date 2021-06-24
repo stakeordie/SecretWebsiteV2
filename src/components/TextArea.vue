@@ -13,9 +13,7 @@
 <script>
 export default {
   data() {
-    return {
-      info: this.getContent,
-    };
+    return {};
   },
 
   props: {

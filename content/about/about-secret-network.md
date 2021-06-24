@@ -87,9 +87,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <text-area section="middle_first" color="accent-yellow"></text-area>
 
-
 <!-- <a>Learn more about SCRT</a> -->
-
 
 </block>
 
