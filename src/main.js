@@ -36,6 +36,7 @@ import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
+import TextArea from '~/components/TextArea.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
 // import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
 import CardCTA from '~/components/cards/CardCTA.vue';
@@ -112,6 +113,7 @@ export default function (Vue, {
     Vue.component('Type', Type);
     Vue.component('HeroVideo', HeroVideo);
     Vue.component('HeroTitle', HeroTitle);
+    Vue.component('TextArea', TextArea);
     Vue.component('CardSimple', CardSimple);
     // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
     Vue.component('card-cta', CardCTA);

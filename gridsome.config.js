@@ -5,14 +5,14 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const path = require('path')
 
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        path.resolve(__dirname, './src/sass/docs/config/*.scss')
-      ],
-    })
+function addStyleResource(rule) {
+    rule.use('style-resource')
+        .loader('style-resources-loader')
+        .options({
+            patterns: [
+                path.resolve(__dirname, './src/sass/docs/config/*.scss')
+            ],
+        })
 }
 
 module.exports = {
@@ -62,7 +62,8 @@ module.exports = {
                 'home-cta-cards',
                 'home-explainer',
                 'home-announcements',
-                'home-featured-media'
+                'home-featured-media',
+                'about-content'
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
@@ -84,13 +85,13 @@ module.exports = {
     {
         use: '@gridsome/vue-remark',
         options: {
-          baseDir: './docs',
-          pathPrefix: '/docs',
-          typeName: 'Doc',
-          template: './src/templates/Docs.vue',
-          plugins: ['@gridsome/remark-prismjs']
+            baseDir: './docs',
+            pathPrefix: '/docs',
+            typeName: 'Doc',
+            template: './src/templates/Docs.vue',
+            plugins: ['@gridsome/remark-prismjs']
         }
-      },
+    },
     ],
     templates: {
         GhostPost: '/blog/:slug',
