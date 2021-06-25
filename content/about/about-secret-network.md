@@ -32,26 +32,6 @@ title: "About"
 
 </column>
 
-<!-- <column number="2" number-s="1" weight="left">
-<block> -->
-
-<!-- <card-minimal class="no-bg accent-yellow">
-
-##### WHAT IS SECRET NETWORK?
-
-### A blockchain-based, open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.
-
-Secret Network combines the best features of decentralized, open-source networks and blockchains with the benefits of data privacy and improved usability. These improvements are critical for achieving mass adoption. By supporting encrypted inputs, encrypted outputs, and encrypted state for smart contracts, Secret Network allows for new kinds of powerful decentralized applications to be built.
-
-The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the network has its own independent consensus, on-chain governance, and features like slashing and delegation.
-
-</card-minimal>
-
-</block>
-
-</column> -->
-
-
 
 
 
@@ -81,23 +61,21 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 <!-- Privacy Important -->
-<column class="color-change" number="2" number-s="1">
+<column class="color-change" number="2" number-s="1" weight="left">
 
 <block>
 
 <text-area section="middle_first" color="accent-yellow"></text-area>
 
-<!-- <a>Learn more about SCRT</a> -->
-
 </block>
 
-<block>
+<!-- <block>
 
 <card-current-price>
 
 </card-current-price>
 
-</block>
+</block> -->
 
 </column>
 
@@ -112,7 +90,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <!-- Cards Data -->
 
-<column  number="5" number-l="2" number-m="2"  number-s="1">
+<!-- <column  number="5" number-l="3" number-m="2"  number-s="1">
 
 <block>
 
@@ -174,7 +152,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 </block>
 
-</column>
+</column> -->
 
 
 
