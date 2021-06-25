@@ -47,8 +47,11 @@ export default {};
   grid-column-gap: 28px;
   margin-bottom: 51px;
 
-  @include respond-to("<=s") {
+  @include respond-to("<=l") {
     grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+    grid-row-gap: var(--f-gutter);
 
     h5 {
       margin-bottom: 0;
@@ -66,6 +69,7 @@ export default {};
     h5 {
       max-width: 160px;
       text-align: left;
+      margin: 0;
     }
 
     &:last-child {
@@ -90,7 +94,6 @@ export default {};
   img {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 16px;
   }
 }
 </style>

@@ -14,6 +14,7 @@ export default {};
 
 .--flare {
   --f-h2-text-size: 54px;
+  --f-h2-text-size-s: 22px;
   --f-h2-text-line-height: 50px;
 
   .content {
@@ -26,6 +27,11 @@ export default {};
         gap: var(--f-gutter-xl);
         @include respond-to("<=s") {
           margin-bottom: var(--f-gutter-l);
+          padding: var(--f-gutter);
+
+          h2 {
+            font-size: var(--f-h2-text-size-s);
+          }
         }
         h1,
         h2 {

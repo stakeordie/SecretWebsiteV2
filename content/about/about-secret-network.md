@@ -112,7 +112,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <!-- Cards Data -->
 
-<column  number="5" number-m="2" number-s="1">
+<column  number="5" number-l="2" number-m="2"  number-s="1">
 
 <block>
 
