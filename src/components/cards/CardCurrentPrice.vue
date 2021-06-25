@@ -2,7 +2,7 @@
   <div>
     <div class="card-current-price">
       <h6 class="current">Current SCRT Price</h6>
-      <p class="price">$ 2.89</p>
+      <p class="price">$ 1.05</p>
       <h4 class="percentage">0.12% &#8599; (Last 24 hours)</h4>
     </div>
 
@@ -71,6 +71,7 @@ export default {};
     font-size: 14px;
     text-transform: uppercase;
     border-radius: var(--f-forms-button-radius);
+    padding: 15px 0;
   }
 
   .btn-support {

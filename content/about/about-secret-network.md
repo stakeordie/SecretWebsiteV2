@@ -15,7 +15,7 @@ title: "About"
 
 
 
-# About Secret Network
+## About Secret Network
 
 </hero-title>
 </block>
@@ -118,9 +118,9 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <card-stats class="accent-blue">
 
-### $41.9M
+### $72M
 
-#### Liquidity
+#### Market Cap
 
 </card-stats>
 
@@ -130,9 +130,9 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <card-stats class="accent-turquoise">
 
-### $2.37M
+### $1.12M
 
-#### Daily Volume
+#### Volume
 
 </card-stats>
 
@@ -142,9 +142,9 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <card-stats class="accent-red">
 
-### $6.07K
+### $39.2M
 
-#### Daily Fees
+#### Total Value Locked
 
 </card-stats>
 
@@ -154,9 +154,9 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <card-stats class="accent-orange">
 
-### 28
+### 1.5B
 
-#### Pairs
+#### Gas Used
 
 </card-stats>
 
@@ -166,9 +166,9 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <card-stats class="accent-purple">
 
-### 7.45K
+### 3.5K
 
-#### Users
+#### Transactions
 
 </card-stats>
 
@@ -236,7 +236,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 <column class="accent-green" number="2" number-s="1">
 
-<block>
+<block class="bottom-second">
 
 <text-area section="bottom_second" color="accent-orange"></text-area>
 
@@ -244,7 +244,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 
-<block>
+<block class="bottom-third">
 
 <text-area section="bottom_third" color="accent-turquoise"></text-area>
 
@@ -252,7 +252,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 
-<block>
+<block class="bottom-fourth">
 
 <text-area section="bottom_fourth" color="accent-green"></text-area>
 
@@ -260,7 +260,7 @@ The Secret Network blockchain is based on Cosmos SDK / Tendermint, meaning the n
 
 
 
-<block>
+<block class="bottom-fifth">
 
 <text-area section="bottom_fifth" color="accent-cream"></text-area>
 

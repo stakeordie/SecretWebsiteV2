@@ -13,6 +13,9 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .--flare {
+  --f-h2-text-size: 54px;
+  --f-h2-text-line-height: 50px;
+
   .content {
     .box {
       .hero-title {
