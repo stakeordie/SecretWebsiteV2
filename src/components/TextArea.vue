@@ -3,7 +3,7 @@
     <div v-for="(element, index) in sectionContent" :key="index">
       <h5>{{ element.title }}</h5>
       <h4>{{ element.subtitle }}</h4>
-      <p>{{ element.body }}</p>
+      <vue-markdown :source="element.body"></vue-markdown>
     </div>
 
     <!-- <slot></slot> -->
