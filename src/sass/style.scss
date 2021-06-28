@@ -282,6 +282,7 @@ a {
     text-decoration: none;
     word-wrap: break-word;
     overflow-wrap: anywhere;
+    font-family: var(--f-default-text-font);
 
     &:hover {
         color: var(--theme-links-hover);

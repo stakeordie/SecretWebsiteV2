@@ -105,7 +105,7 @@
       }
 
       .btn-text {
-        transform: translateY(2px);
+        transform: translateY(1px);
         color: var(--theme-fg);
       }
 

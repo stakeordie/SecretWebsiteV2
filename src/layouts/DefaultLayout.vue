@@ -612,9 +612,6 @@
             </g-link>
           </div>
           <div class="subscribe">
-            <button @click="toggleDarkLightMode">
-              <theme-mode></theme-mode>
-            </button>
             <h3>
               <span>Subscribe</span> for <br />
               Secret Network updates
