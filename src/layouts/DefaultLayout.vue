@@ -47,7 +47,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24" /><img
+                      height="24"/><img
                       v-show="isLearnOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -84,7 +84,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24" /><img
+                      height="24"/><img
                       v-show="isCommunityOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -121,7 +121,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24" /><img
+                      height="24"/><img
                       v-show="isDevelopersOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -162,7 +162,7 @@
                       src="@/assets/icon-chevron-down.svg"
                       alt="chevron"
                       width="24"
-                      height="24" /><img
+                      height="24"/><img
                       v-show="isEcosystemOpen"
                       src="@/assets/icon-chevron-up.svg"
                       alt="chevron"
@@ -338,7 +338,8 @@
               </a>
             </nav>
             <button class="theme" @click="toggleDarkLightMode">
-              <themed-image>
+              <theme-mode></theme-mode>
+              <!-- <themed-image>
                 <img
                   class="not-invert"
                   dark
@@ -355,10 +356,11 @@
                   width="24"
                   height="24"
                 />
-              </themed-image>
+              </themed-image> -->
             </button>
             <button class="theme" @click="toggleColoredMode">
-              <themed-image>
+              <theme-color></theme-color>
+              <!-- <themed-image>
                 <img
                   class="not-invert"
                   dark
@@ -375,7 +377,7 @@
                   width="24"
                   height="24"
                 />
-              </themed-image>
+              </themed-image> -->
             </button>
           </div>
         </div>
@@ -610,6 +612,9 @@
             </g-link>
           </div>
           <div class="subscribe">
+            <button @click="toggleDarkLightMode">
+              <theme-mode></theme-mode>
+            </button>
             <h3>
               <span>Subscribe</span> for <br />
               Secret Network updates
@@ -670,7 +675,7 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       isNavOpen: false,
       isLearnOpen: false,
@@ -847,7 +852,7 @@ export default {
     };
   },
   watch: {
-    isNavOpen: function () {
+    isNavOpen: function() {
       this.toggleNavOpen();
     },
     $route() {
@@ -907,9 +912,9 @@ export default {
       if (!body) return;
       body.setAttribute("theme", theme);
     },
-    callFunction: function (className) {
+    callFunction: function(className) {
       if ((window.onload = "load")) {
-        setTimeout(function () {
+        setTimeout(function() {
           const el = document.body;
           el.classList.add(className);
         }, 700);

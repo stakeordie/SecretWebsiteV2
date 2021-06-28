@@ -1,5 +1,5 @@
 <template>
-  <div class="card-minimal" :class="{ cta: url }">
+  <div class="card-stats" :class="{ cta: url }">
     <slot></slot>
   </div>
 </template>
@@ -37,17 +37,13 @@ $accent-colors: (
 // 	}
 // }
 
-.card-minimal {
+.card-stats {
   border-radius: var(--f-radius);
   padding: var(--f-gutter-l);
   background: var(--theme-card-bg-default);
   transition: 0.2s ease;
   display: grid;
   height: 100%;
-
-  @include respond-to("<=s") {
-    padding: 0;
-  }
 
   h1,
   h2,
@@ -59,8 +55,12 @@ $accent-colors: (
     margin-bottom: 0;
 
     &:first-child {
-      margin: 0;
+      margin-bottom: 10px;
     }
+  }
+
+  h4 {
+    color: var(--theme-card-text-color);
   }
 
   p {

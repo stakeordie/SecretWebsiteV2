@@ -12,7 +12,8 @@ import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from 'vue-typical';
-import VueSocialSharing from 'vue-social-sharing'
+import VueSocialSharing from 'vue-social-sharing';
+import VueAnime from 'vue-animejs';
 
 
 import '@fontsource/hind'
@@ -25,6 +26,8 @@ import '@fontsource/montserrat/500.css'
 
 
 
+import ThemeMode from '~/components/animated/ThemeMode.vue';
+import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
 import Announcement from '~/components/Announcement.vue';
@@ -33,6 +36,7 @@ import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
+import TextArea from '~/components/TextArea.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
 // import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
 import CardCTA from '~/components/cards/CardCTA.vue';
@@ -40,6 +44,9 @@ import CardMinimal from '~/components/cards/CardMinimal.vue';
 import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
+import CardStats from '~/components/cards/CardStats.vue';
+import CardStructure from '~/components/cards/CardStructure.vue';
+import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import Contributors from '~/components/cards/Contributors.vue';
@@ -94,6 +101,8 @@ export default function (Vue, {
     openGraph.forEach(item => head.meta.push(item))
 
     // Set default layout as a global component
+    Vue.component('ThemeMode', ThemeMode);
+    Vue.component('ThemeColor', ThemeColor);
     Vue.component('AlertBar', AlertBar);
     Vue.component('Announcement', Announcement);
     Vue.component('DefaultLayout', DefaultLayout);
@@ -104,6 +113,7 @@ export default function (Vue, {
     Vue.component('Type', Type);
     Vue.component('HeroVideo', HeroVideo);
     Vue.component('HeroTitle', HeroTitle);
+    Vue.component('TextArea', TextArea);
     Vue.component('CardSimple', CardSimple);
     // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
     Vue.component('card-cta', CardCTA);
@@ -111,6 +121,9 @@ export default function (Vue, {
     Vue.component('CardBlock', CardBlock);
     Vue.component('CardMedia', CardMedia);
     Vue.component('CardSecretAgent', CardSecretAgent);
+    Vue.component('CardStats', CardStats);
+    Vue.component('CardStructure', CardStructure);
+    Vue.component('CardCurrentPrice', CardCurrentPrice);
     Vue.component('Media', Media);
     Vue.component('CardGrid', CardGrid);
     Vue.component('Contributors', Contributors);
@@ -138,6 +151,7 @@ export default function (Vue, {
     Vue.component('BlogPostsFeatured', BlogPostsFeatured);
     Vue.component('BlogFilter', BlogFilter);
 
+
     //Page Specific
     Vue.component('HomeExplainer', HomeExplainer);
     Vue.component('HomeAnnouncements', HomeAnnouncements);
@@ -146,6 +160,7 @@ export default function (Vue, {
     //External Libraries
     Vue.component('InfiniteSlideBar', InfiniteSlideBar);
     Vue.component('typical', typical);
+    Vue.use(VueAnime);
 
     Vue.use(Flare);
     Vue.use(VueSocialSharing);

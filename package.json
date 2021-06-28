@@ -20,6 +20,7 @@
         "babel-runtime": "^6.26.0",
         "gridsome": "^0.7.0",
         "gridsome-plugin-remark-prismjs-all": "^0.3.5",
+        "vue-animejs": "^2.1.1",
         "vue-infinite-slide-bar": "^1.1.1",
         "vue-markdown": "^2.2.4",
         "vue-social-sharing": "^3.0.7",
