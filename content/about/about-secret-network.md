@@ -58,36 +58,6 @@ title: "About"
 
 
 
-
-
-<!-- Privacy Important -->
-<column class="color-change" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="middle_first" color="accent-yellow"></text-area>
-
-</block>
-
-<!-- <block>
-
-<card-current-price>
-
-</card-current-price>
-
-</block> -->
-
-</column>
-
-
-
-
-
-
-
-
-
-
 <!-- Cards Data -->
 
 <!-- <column  number="5" number-l="3" number-m="2"  number-s="1">
@@ -224,7 +194,7 @@ title: "About"
 
 <block class="bottom-third">
 
-<text-area section="bottom_third" color="accent-turquoise"></text-area>
+<text-area section="bottom_third" color="accent-blue"></text-area>
 
 </block>
 
@@ -266,6 +236,33 @@ title: "About"
 <hr class="swirl-e"/>
 
 </block>
+</column>
+
+
+
+
+
+
+
+
+
+<!-- Privacy Important -->
+<column class="" number="2" number-s="1" weight="left">
+
+<block>
+
+<text-area section="middle_first" color="accent-yellow"></text-area>
+
+</block>
+
+<!-- <block>
+
+<card-current-price>
+
+</card-current-price>
+
+</block> -->
+
 </column>
 
 
