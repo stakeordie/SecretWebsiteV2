@@ -121,6 +121,12 @@
 <script>
 import Pagination from "./Pagination.vue";
 
+const sortBySorting = (first, second) => {
+  if (first.sorting == null) return 1;
+  if (second.sorting == null) return -1;
+  return first.sorting - second.sorting;
+};
+
 export default {
   components: { Pagination },
 
@@ -163,28 +169,21 @@ export default {
 
   computed: {
     filteredElements() {
+      this.collections.sort(sortBySorting);
       if (!this.checkedCategories.length) {
         return this.collections;
       }
-      return this.collections.filter((post) =>
+      const collection =  this.collections.filter((post) =>
         post.types.some((tag) => this.checkedCategories.includes(tag.title))
       );
+      return collection;
     },
-
-    // ORIGINAL FUNCTION
-    // pagedArray() {
-    //   const start = this.currentPage * this.pageSize;
-    //   const end = start + this.pageSize;
-      
-    //   return this.filteredElements.slice(start, end);
-    // },
 
     // SORTED ARRAY
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      const sliced = this.filteredElements.slice(start, end);
-      return sliced.sort((a, b) => a.order - b.order );
+      return this.filteredElements.slice(start, end);
     },
 
     collections() {
@@ -220,10 +219,6 @@ export default {
 
       return uniqueCategories;
     },
-
-    getTagByPage() {
-      return this.pagedArray;
-    },
   },
 };
 </script>
@@ -234,6 +229,7 @@ export default {
       edges {
         node {
           id,
+          sorting
           title: name,
           url: link,
           picture: logo {
@@ -250,7 +246,7 @@ export default {
       edges {
         node {
           id,
-          order,
+          sorting
           title: name,
           url: link,
           picture: logo {
