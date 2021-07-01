@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="elements">
+      <!-- FILTER -->
       <div class="filter">
         <h3>{{ title }}</h3>
         <div class="filter-auction" v-if="hasCategories">
@@ -36,6 +37,7 @@
       </div>
 
       <div class="elements-container">
+        <!-- GRID -->
         <div class="elements-grid" v-if="isPaginated">
           <div
             class="card-element"
@@ -169,10 +171,20 @@ export default {
       );
     },
 
+    // ORIGINAL FUNCTION
+    // pagedArray() {
+    //   const start = this.currentPage * this.pageSize;
+    //   const end = start + this.pageSize;
+      
+    //   return this.filteredElements.slice(start, end);
+    // },
+
+    // SORTED ARRAY
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      return this.filteredElements.slice(start, end);
+      const sliced = this.filteredElements.slice(start, end);
+      return sliced.sort((a, b) => a.order - b.order );
     },
 
     collections() {
@@ -238,6 +250,7 @@ export default {
       edges {
         node {
           id,
+          order,
           title: name,
           url: link,
           picture: logo {
