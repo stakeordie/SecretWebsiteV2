@@ -100,7 +100,6 @@ export default {
         } else {
           theFile = event;
         }
-        //console.log(theFile);
         const reader = new FileReader()
         reader.addEventListener('load', () => {
           this.uploadedImage = reader.result

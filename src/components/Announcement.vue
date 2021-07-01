@@ -56,7 +56,6 @@
       buttonTwo() {
         const button = {}
         button.is = true;
-        //console.log(this.announcement.button_two_page_manual);
         if(!this.announcement.button_two_page?.route && !this.announcement.button_two_page_manual) {
           button.is = false;
         } else {
