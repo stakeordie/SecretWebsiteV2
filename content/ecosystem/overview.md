@@ -74,7 +74,7 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 <block>
 
-<card-grid title="Tools & Wallets" collection="toolsAndWallets" :pageSize="15" :isPaginated="true"></card-grid>
+<card-grid title="Tools & Wallets" collection="toolsAndWallets" :pageSize="15" :isPaginated="false"></card-grid>
 
 </block>
 
@@ -85,7 +85,7 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 <block>
 
-<card-grid title="Exchanges" collection="exchanges" :pageSize="15" :isPaginatd="true"></card-grid>
+<card-grid title="Exchanges" collection="exchanges" :pageSize="15" :isPaginatd="false"></card-grid>
 
 </block>
 

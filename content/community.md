@@ -201,7 +201,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 <block>
 
-<card-grid title="International Communities" collection="internationalCommunities" :pageSize="15" :isPaginated="true"></card-grid>
+<card-grid title="International Communities" collection="internationalCommunities" :pageSize="15" :isPaginated="false"></card-grid>
 
 </block>
 
