@@ -304,7 +304,7 @@ title: "About"
 
 </block>
 
-<block>
+<block class="learn-more">
 
 <p><a href="/blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p>
 

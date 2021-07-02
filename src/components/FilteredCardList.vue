@@ -88,10 +88,6 @@ export default {
     categoryName: { type: String, required: true },
   },
 
-  // created() {
-  //   console.log(this.collection);
-  // },
-
   methods: {
     setPagesFather(number) {
       this.currentPage = number;

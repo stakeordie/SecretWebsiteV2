@@ -85,7 +85,6 @@
     },
     methods: {
       getColor() {
-        console.log(this.slug);
         return colors[this.tag.toLowerCase()]
 
       }

@@ -59,6 +59,10 @@
     .box {
 
     .btn {
+      font-weight: bold;
+      width: 100%;
+      max-width: 285px;
+      place-content: center center;
       display: inline-flex;
       background: var(--theme-card-button-bg);
       color: var(--theme-fg);

@@ -170,7 +170,6 @@ export default {
           contributorsContainer.scrollIntoView();
           contributorsContainer.style.scrollMargin = 150+'px';
         }, 1000);
-        console.log(path);
       } 
     },
 
