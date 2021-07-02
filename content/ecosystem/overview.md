@@ -44,19 +44,6 @@ title: "Ecosystem"
 </column>
 
 <!-- block header -->
-<column number="2" number-m="2" number-s="1" weight="left">
-
-<block>
-
-#### Block Explorers and Staking
-
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
-
-</block>
-
-</column>
-
-<!-- block header -->
 <column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
 
 <block>
@@ -64,6 +51,19 @@ Use the following Secret Network block explorers for staking, governance proposa
 ### Exchange and Wallet Support
 
 Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking:
+
+</block>
+
+</column>
+
+<!-- block header -->
+<column number="2" number-m="2" number-s="1" weight="left">
+
+<block>
+
+#### Block Explorers and Staking
+
+Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
 
 </block>
 
