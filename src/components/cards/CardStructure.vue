@@ -1,30 +1,30 @@
 <template>
   <div>
     <div class="scrt-structure">
-      <div class="scrt-network bc">
-        <img src="../../../content/img/logo-secret-network.svg" alt="" />
-        <h5>Secret Network</h5>
+      <div class="ethereum bc">
+        <img src="../../../content/img/logo-ethereum.svg" alt="" />
+        <h5>Ethereum's smart contacts</h5>
       </div>
-      <div class="equal icon">
-        <img src="../../../content/img/icon-equal.svg" alt="" />
-      </div>
-      <div class="etherium bc">
-        <img src="../../../content/img/logo-etherium.svg" alt="" />
-        <h5>Etherium's smart contacts</h5>
-      </div>
-      <div class="plus-1 icon">
+      <div class="plus icon">
         <img src="../../../content/img/icon-plus.svg" alt="" />
       </div>
       <div class="monero bc">
         <img src="../../../content/img/logo-monero.svg" alt="" />
         <h5>Monero’s Privacy by Default</h5>
       </div>
-      <div class="plus-2 icon">
+      <div class="plus icon">
         <img src="../../../content/img/icon-plus.svg" alt="" />
       </div>
       <div class="cosmos bc">
         <img src="../../../content/img/logo-cosmos.svg" alt="" />
         <h5>Cosmos' scalability and interoperability</h5>
+      </div>
+      <div class="equal icon">
+        <img src="../../../content/img/icon-equal.svg" alt="" />
+      </div>
+      <div class="scrt-network bc">
+        <img src="../../../content/img/logo-secret-network.svg" alt="" />
+        <h5 class="scrt">Secret Network</h5>
       </div>
     </div>
   </div>
@@ -70,6 +70,9 @@ export default {};
       max-width: 160px;
       text-align: left;
       margin: 0;
+      &:not(.scrt) {
+        opacity: 0.75;
+      }
     }
 
     &:last-child {
@@ -89,6 +92,9 @@ export default {};
   .icon {
     width: 29px;
     align-self: center;
+    &.plus {
+    
+    }
   }
 
   img {

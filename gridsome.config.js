@@ -50,11 +50,13 @@ module.exports = {
                 'external-media-sources',
                 'contributors',
                 'nodes',
-                'contributors-alt',
                 'd-apps',
                 'card-grids',
                 'cards',
-                'card-types'
+                'card-types',
+                'tools-and-wallets',
+                'exchanges',
+                'international-communities'
             ],
             singleTypes: [
                 'alert-bar',

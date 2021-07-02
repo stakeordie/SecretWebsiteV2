@@ -26,7 +26,7 @@ title: "About"
 
 <block>
 
-<text-area section="top" color="accent-yellow"></text-area>
+<text-area section="top" color="accent-yellow" class="homogenize-headings"></text-area>
 
 </block>
 
@@ -39,7 +39,7 @@ title: "About"
 
 
 
-<!-- Etherium, Monero´s, Cosmos, SCRT Network -->
+<!-- Ethereum, Monero´s, Cosmos, SCRT Network -->
 <column number="1" number-s="1">
 
 <card-structure>
@@ -60,101 +60,6 @@ title: "About"
 
 
 
-<!-- Privacy Important -->
-<column class="color-change" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="middle_first" color="accent-yellow"></text-area>
-
-</block>
-
-<!-- <block>
-
-<card-current-price>
-
-</card-current-price>
-
-</block> -->
-
-</column>
-
-
-
-
-
-
-
-
-
-
-<!-- Cards Data -->
-
-<!-- <column  number="5" number-l="3" number-m="2"  number-s="1">
-
-<block>
-
-<card-stats class="accent-blue">
-
-### $72M
-
-#### Market Cap
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-turquoise">
-
-### $1.12M
-
-#### Volume
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-red">
-
-### $39.2M
-
-#### Total Value Locked
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-orange">
-
-### 1.5B
-
-#### Gas Used
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-purple">
-
-### 3.5K
-
-#### Transactions
-
-</card-stats>
-
-</block>
-
-</column> -->
-
-
 
 
 
@@ -165,15 +70,35 @@ title: "About"
 
 
 <!-- What Is Secret(SCRT)? -->
-<column number="2" number-s="1" weight="left">
+<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
 
 <block>
 
-<text-area section="middle_second" color="accent-yellow"></text-area>
+<text-area section="middle_second" color="accent-yellow" class="homogenize-headings"></text-area>
 
 </block>
 
 </column>
+
+
+
+
+
+
+
+
+<!-- Button Read Graypaper -->
+<column class="no-padding-box--top">
+
+<block>
+
+<btn class="no-arrow" url="/graypaper">Read the Graypaper</btn>
+
+</block>
+
+</column>
+
+
 
 
 
@@ -199,7 +124,7 @@ title: "About"
 
 <block>
 
-<text-area section="bottom_first" color="accent-yellow"></text-area>
+<text-area section="bottom_first" color="accent-yellow" class="homogenize-headings"></text-area>
 
 </block>
 
@@ -224,7 +149,7 @@ title: "About"
 
 <block class="bottom-third">
 
-<text-area section="bottom_third" color="accent-turquoise"></text-area>
+<text-area section="bottom_third" color="accent-blue"></text-area>
 
 </block>
 
@@ -274,6 +199,58 @@ title: "About"
 
 
 
+
+
+<!-- Privacy Important -->
+<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
+
+<block>
+
+<text-area section="middle_first" color="accent-yellow" class="homogenize-headings"></text-area>
+
+</block>
+
+<!-- <block>
+
+<card-current-price>
+
+</card-current-price>
+
+</block> -->
+
+</column>
+
+
+
+
+
+
+
+
+
+<!-- Buttons Get SCRTs - Supported Wallets -->
+<column class="no-padding-box--top spacer-s supported-wallets">
+
+<block>
+
+<btn class="no-arrow bg-invert" url="/ecosystem/overview#exchange-and-wallet-support">Get SCRT</btn>
+
+<btn class="" url="/ecosystem/overview#exchange-and-wallet-support">Suported Wallets</btn>
+
+</block>
+
+<block class="learn-more">
+
+<p><a href="/blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p>
+
+</block>
+
+</column>
+
+
+
+<!-- Card stats -->
+<card-stats></card-stats>
 
 
 

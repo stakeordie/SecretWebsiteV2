@@ -88,10 +88,6 @@ export default {
     categoryName: { type: String, required: true },
   },
 
-  // created() {
-  //   console.log(this.collection);
-  // },
-
   methods: {
     setPagesFather(number) {
       this.currentPage = number;
@@ -198,7 +194,7 @@ export default {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: ("Validator", "Developer", "Fund", "Wallet");
+$accent-colors: ("validator", "developer", "fund", "wallet");
 
 .elements {
   display: grid;

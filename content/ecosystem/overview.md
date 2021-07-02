@@ -25,7 +25,7 @@ title: "Ecosystem"
 
 <block>
 
-<card-grid title="Secret Apps" collection="dApps" :pageSize="5" :isPaginated="false" :has-categories="false"></card-grid>
+<card-grid title="Secret Apps" collection="dApps" :pageSize="5" :isPaginated="false"></card-grid>
 
 </block>
 
@@ -33,7 +33,7 @@ title: "Ecosystem"
 
 
 <!-- Contributors -->
-<column class="spacer-s">
+<column class="spacer-s contributors-container">
 
 <block>
 
@@ -42,7 +42,6 @@ title: "Ecosystem"
 </block>
 
 </column>
-
 
 <!-- block header -->
 <column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
@@ -57,7 +56,42 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 
 </column>
 
-<!-- exchange and wallet support -->
+<!-- block header -->
+<column number="2" number-m="2" number-s="1" weight="left">
+
+<block>
+
+#### Block Explorers and Staking
+
+Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
+
+</block>
+
+</column>
+
+<!-- Tools and Wallets -->
+<column class="spacer-s tools-and-wallets-container">
+
+<block>
+
+<card-grid title="Tools & Wallets" collection="toolsAndWallets" :pageSize="15" :isPaginated="false"></card-grid>
+
+</block>
+
+</column>
+
+<!-- Exchanges -->
+<column class="spacer-s">
+
+<block>
+
+<card-grid title="Exchanges" collection="exchanges" :pageSize="15" :isPaginatd="false"></card-grid>
+
+</block>
+
+</column>
+
+<!-- exchange and wallet support
 <column class="spacer-s" number="3" number-m="3" number-s="1">
 
 <block>
@@ -121,21 +155,9 @@ Secret Network is secured by the SCRT coin (Secret), which is used for fees, sta
 </block>
 
 </column>
+-->
 
-<!-- block header -->
-<column number="2" number-m="2" number-s="1" weight="left">
-
-<block>
-
-#### Block Explorers and Staking
-
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
-
-</block>
-
-</column>
-
-<!-- Block Explorers and Staking -->
+<!-- Block Explorers and Staking
 <column number="3" number-m="3" number-s="1" class="spacer-s">
 
 <block>
@@ -187,3 +209,5 @@ Use the following Secret Network block explorers for staking, governance proposa
 </block>
 
 </column>
+
+-->

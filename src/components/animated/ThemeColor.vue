@@ -76,8 +76,6 @@ export default {
         checkBodyThemeMode() === "light-colored"
       ) {
         // From COLOR to NON-COLOR
-        console.log(checkBodyThemeMode());
-        console.log("2 Mode es: " + checkBodyThemeMode());
         const timeline = this.$anime
           .timeline()
           .add(
@@ -123,8 +121,6 @@ export default {
           );
       } else {
          // From COLOR to NON-COLOR
-        console.log(checkBodyThemeMode());
-        console.log("2 Mode es: " + checkBodyThemeMode());
         const timeline = this.$anime
           .timeline()
           .add(

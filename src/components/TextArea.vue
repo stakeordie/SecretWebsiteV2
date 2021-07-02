@@ -149,7 +149,27 @@ $accent-colors: (
   .button,
   .btn {
     margin: var(--f-gutter) 0 0 0;
-    width: 100%;
+    // width: 100%;
+
+    &.strapi-btn {
+      width: max-content;
+      min-width: 200px;
+      justify-content: center;
+
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+    }
+  }
+
+  a {
+    &.strapi-link {
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+    }
   }
 
   @each $name, $color in $accent-colors {

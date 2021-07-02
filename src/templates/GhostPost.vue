@@ -10,8 +10,8 @@
           <div class="left">
             <g-image picture :src="profileImage"></g-image>
             <div class="author" info>
-              <div>{{ $page.post.primary_author.name }}</div>
-              <div>{{ $page.post.date }} &#8226; {{ $page.post.reading_time }} min read</div>
+              <p>{{ $page.post.primary_author.name }}</p>
+              <p>{{ $page.post.date }} &#8226; {{ $page.post.reading_time }} min read</p>
             </div>
           </div>
           <div class="share-icons">
@@ -264,6 +264,11 @@
           text-align: left;
           display: grid;
           gap: var(--f-gutter-xxs);
+          p {
+            font-family: var(--f-default-text-font);
+            line-height: var(--f-paragraph-line-height);
+            color: white;
+          }
         }
       }
 

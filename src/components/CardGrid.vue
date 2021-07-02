@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="elements">
+      <!-- FILTER -->
       <div class="filter">
         <h3>{{ title }}</h3>
         <div class="filter-auction" v-if="hasCategories">
@@ -15,11 +16,12 @@
           <li v-for="(category, index) of categories" :key="index">
             <label>
               <input
+                :id="category.name"
                 type="checkbox"
-                :value="category.titleCategory"
+                :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ category.titleCategory }}</span>
+              <span class="title">{{ formatCategory(category.name) }}</span>
               <img
                 class="unchecked"
                 src="../assets/icon-checkbox-unchecked.svg"
@@ -36,6 +38,7 @@
       </div>
 
       <div class="elements-container">
+        <!-- GRID -->
         <div class="elements-grid" v-if="isPaginated">
           <div
             class="card-element"
@@ -58,11 +61,11 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="category in element.types"
-                    :key="category.id"
-                    :class="'accent-' + category.title"
+                    v-for="(category, idx) in element.types"
+                    :key="idx"
+                    :class="'accent-' + category.name"
                   >
-                    {{ category.title }}
+                    {{ formatCategory(category.name) }}
                   </p>
                 </div>
               </div>
@@ -91,11 +94,11 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="category in element.types"
-                    :key="category.id"
-                    :class="'accent-' + category.title"
+                    v-for="(category, idx) in element.types"
+                    :key="idx"
+                    :class="'accent-' + category.name"
                   >
-                    {{ category.title }}
+                    {{ formatCategory(category.name) }}
                   </p>
                 </div>
               </div>
@@ -119,6 +122,13 @@
 <script>
 import Pagination from "./Pagination.vue";
 
+const sortBySorting = (first, second) => {
+  if (first.sort == null) return 1;
+  if (second.sort == null) return -1;
+  return first.sort - second.sort;
+};
+
+
 export default {
   components: { Pagination },
 
@@ -141,11 +151,27 @@ export default {
   },
 
   methods: {
+    formatCategory(category) {
+      if (!category) return '';
+      return category.includes('_') ? category.replace('_', ' ') : category;
+    },
     setPagesFather(number) {
       this.currentPage = number;
     },
     resetCheck() {
       this.checkedCategories = [];
+    },
+    walletCheck() {
+      if(window.location.hash) {
+        if (this.collection === 'toolsAndWallets') {
+          const container = document.querySelector('.tools-and-wallets-container');
+          setTimeout(() => {
+            this.checkedCategories = ["wallet"];
+            container.style.scrollMargin = 100+'px';
+            container.scrollIntoView();
+          }, 1);
+        }
+      }
     },
 
     evaluateTags(size) {
@@ -160,13 +186,16 @@ export default {
   },
 
   computed: {
+    
     filteredElements() {
+      this.collections.sort(sortBySorting);
       if (!this.checkedCategories.length) {
         return this.collections;
       }
-      return this.collections.filter((post) =>
-        post.types.some((tag) => this.checkedCategories.includes(tag.title))
+      const collection =  this.collections.filter((post) =>
+        post.types.some((tag) => this.checkedCategories.includes(tag.name))
       );
+      return collection;
     },
 
     pagedArray() {
@@ -180,17 +209,13 @@ export default {
     },
 
     categories() {
-      // SKip Undifened Elements
       const data = this.$static[this.collection].edges.filter((element) => {
-        return element.node.types[0] !== undefined;
+        return element.node.types.length > 0;
       });
 
       const categoryData = data.map((item) => {
         return {
-          titleCategory: item.node.types[0]?.title,
-          type: item.node.types[0]?.type,
-          // type: item.node[this.categoryName][0]?.type,
-          // titleCategory: item.node[this.categoryName].map((cat) => cat?.title),
+          name: item.node.types[0]?.name,
         };
       });
 
@@ -199,7 +224,7 @@ export default {
       categoryData.filter((cat) => {
         if (
           !uniqueCategories.find(
-            (cat_some) => cat_some.titleCategory == cat.titleCategory
+            (cat_some) => cat_some.name == cat.name
           )
         ) {
           uniqueCategories.push(cat);
@@ -208,51 +233,97 @@ export default {
 
       return uniqueCategories;
     },
+  },
 
-    getTagByPage() {
-      return this.pagedArray;
-    },
+  mounted() {
+    this.walletCheck();
   },
 };
 </script>
 
 <static-query>
-  query {
-     dApps: allStrapiDApps {
-      edges {
-        node {
-          id,
-          title: name,
-          url: link,
-          picture: logo {
-            url
-          },
-          types { 
-            title: type,
-            type
-          }
+query {
+  dApps: allStrapiDApps {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
         }
       }
     }
-  	contributors: allStrapiContributors {
-      edges {
-        node {
-          id,
-          title: name,
-          url: link,
-          picture: logo {
-          	url
-          },
-        	types { 
-            title: type,
-            type
-          }
+  }
+  contributors: allStrapiContributors {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
         }
       }
     }
-  },
-  
-
+  }
+  toolsAndWallets: allStrapiToolsAndWallets {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  internationalCommunities: allStrapiInternationalCommunities {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  exchanges: allStrapiExchanges {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+}
 </static-query>
 
 <style lang="scss">
@@ -260,7 +331,7 @@ export default {
 @import "../sass/_text.scss";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: ("Validator", "Developer", "Fund", "Wallet");
+$accent-colors: ("validator", "developer", "fund", "wallet");
 
 .elements {
   display: grid;
@@ -404,6 +475,7 @@ $accent-colors: ("Validator", "Developer", "Fund", "Wallet");
 
             p {
               font-size: 12px;
+              text-transform: capitalize;
             }
           }
 
