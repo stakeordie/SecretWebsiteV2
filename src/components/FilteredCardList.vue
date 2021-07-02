@@ -198,7 +198,7 @@ export default {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: ("Validator", "Developer", "Fund", "Wallet");
+$accent-colors: ("validator", "developer", "fund", "wallet");
 
 .elements {
   display: grid;

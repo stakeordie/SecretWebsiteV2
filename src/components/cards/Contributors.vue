@@ -27,22 +27,22 @@ export default {
         {
           id: 1,
           title: "validators",
-          type: "Validator",
+          type: "validator",
         },
         {
           id: 2,
           title: "developers",
-          type: "Developer",
+          type: "developer",
         },
         {
           id: 3,
           title: "fund",
-          type: "Fund",
+          type: "fund",
         },
         {
           id: 4,
           title: "wallets",
-          type: "Wallet",
+          type: "wallet",
         },
       ],
     };
@@ -68,7 +68,7 @@ export default {
           	url
           },
         	contributor_categories: types {
-            title: type
+            name
           }
         }
       }
