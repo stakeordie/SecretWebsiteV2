@@ -33,7 +33,7 @@ title: "Ecosystem"
 
 
 <!-- Contributors -->
-<column class="spacer-s">
+<column class="spacer-s contributors-container">
 
 <block>
 

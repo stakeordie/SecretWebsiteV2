@@ -16,6 +16,7 @@
           <li v-for="(category, index) of categories" :key="index">
             <label>
               <input
+                :id="category.titleCategory.toLowerCase()"
                 type="checkbox"
                 :value="category.titleCategory"
                 v-model="checkedCategories"
@@ -127,6 +128,7 @@ const sortBySorting = (first, second) => {
   return first.sorting - second.sorting;
 };
 
+
 export default {
   components: { Pagination },
 
@@ -155,6 +157,20 @@ export default {
     resetCheck() {
       this.checkedCategories = [];
     },
+    walletCheck() {
+      const path = window.location.hash
+      let contributorsContainer = document.querySelector('.contributors-container');
+      if(window.location.hash) {
+        setTimeout(() => {
+          this.checkedCategories = ["Wallet"];
+          contributorsContainer.scrollIntoView();
+          contributorsContainer.style.scrollMargin = 150+'px';
+        }, 1000);
+        console.log(path);
+      } 
+    },
+
+    
 
     evaluateTags(size) {
       if (!size) return;
@@ -168,6 +184,7 @@ export default {
   },
 
   computed: {
+    
     filteredElements() {
       this.collections.sort(sortBySorting);
       if (!this.checkedCategories.length) {
@@ -219,6 +236,10 @@ export default {
 
       return uniqueCategories;
     },
+  },
+
+  mounted() {
+    this.walletCheck();
   },
 };
 </script>
