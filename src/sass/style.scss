@@ -638,3 +638,9 @@ $accent-colors: ("Article", "Podcast", "Video");
 .learn-more {
   margin-top: 10px;
 }
+
+.supported-wallets {
+  @include respond-to(">=l") {
+    --spacer-s: 36px;
+  }
+}

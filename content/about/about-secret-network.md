@@ -58,71 +58,6 @@ title: "About"
 
 
 
-<!-- Cards Data -->
-
-<!-- <column  number="5" number-l="3" number-m="2"  number-s="1">
-
-<block>
-
-<card-stats class="accent-blue">
-
-### $72M
-
-#### Market Cap
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-turquoise">
-
-### $1.12M
-
-#### Volume
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-red">
-
-### $39.2M
-
-#### Total Value Locked
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-orange">
-
-### 1.5B
-
-#### Gas Used
-
-</card-stats>
-
-</block>
-
-<block>
-
-<card-stats class="accent-purple">
-
-### 3.5K
-
-#### Transactions
-
-</card-stats>
-
-</block>
-
-</column> -->
 
 
 
@@ -294,7 +229,7 @@ title: "About"
 
 
 <!-- Buttons Get SCRTs - Supported Wallets -->
-<column class="no-padding-box--top spacer-s">
+<column class="no-padding-box--top spacer-s supported-wallets">
 
 <block>
 
@@ -314,10 +249,8 @@ title: "About"
 
 
 
-
-
-
-
+<!-- Card stats -->
+<card-stats></card-stats>
 
 
 

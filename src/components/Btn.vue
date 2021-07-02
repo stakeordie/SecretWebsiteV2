@@ -61,7 +61,6 @@
     .btn {
       font-weight: bold;
       width: 100%;
-      max-width: 285px;
       place-content: center center;
       display: inline-flex;
       background: var(--theme-card-button-bg);
@@ -78,6 +77,14 @@
       font-size: 14px;
       p {
         margin-bottom: 0;
+      }
+
+      @include respond-to(">=l") {
+        max-width: 285px;
+      }
+
+      @include respond-to("<=m") {
+        margin-top: var(--f-gutter);
       }
 
       &.text-center {
