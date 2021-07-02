@@ -61,6 +61,10 @@ function abbreviate(n) {
       'quint'
   ][(exp[1] - mod) / 3];
 
+  if (exp[1] === '') {
+    return Math.round(exp[0]).toFixed(2);
+  }
+
   return Math.round(exp[0]).toFixed(0) + exp[1];
 }
 
