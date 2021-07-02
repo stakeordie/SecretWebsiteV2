@@ -1,5 +1,5 @@
 <template>
-  <column number="6" number-s="1">
+  <column number="5" number-s="1">
     <block>
       <div class="card-stats" :class="{ cta: url }">
         <h3>{{ formatNumber(price) }}</h3>
@@ -18,12 +18,12 @@
         <h4>Volume</h4>
       </div>
     </block>
-    <block>
+    <!--block>
       <div class="card-stats" :class="{ cta: url }">
         <h3>{{ formatNumber(totalValueLocked) }}</h3>
         <h4>TVL</h4>
       </div>
-    </block>
+    </block-->
     <block>
       <div class="card-stats" :class="{ cta: url }">
         <h3>{{ formatNumber(totalSupply) }}</h3>
@@ -43,7 +43,7 @@
 import { getScrtInfo } from '@/clients/coingecko';
 
 function abbreviate(n) {
-  if (n < 1) return Math.round(n).toFixed(2)
+  if (n < 1) return n.toFixed(2)
   var exp = n
       .toExponential()
       .split('e+')
@@ -62,10 +62,10 @@ function abbreviate(n) {
   ][(exp[1] - mod) / 3];
 
   if (exp[1] === '') {
-    return Math.round(exp[0]).toFixed(2);
+    return exp[0].toFixed(2);
   }
 
-  return Math.round(exp[0]).toFixed(0) + exp[1];
+  return exp[0].toFixed(0) + exp[1];
 }
 
 export default {
