@@ -162,18 +162,17 @@ export default {
       this.checkedCategories = [];
     },
     walletCheck() {
-      const path = window.location.hash
-      let contributorsContainer = document.querySelector('.contributors-container');
       if(window.location.hash) {
-        setTimeout(() => {
-          this.checkedCategories = ["Wallet"];
-          contributorsContainer.scrollIntoView();
-          contributorsContainer.style.scrollMargin = 150+'px';
-        }, 1000);
-      } 
+        if (this.collection === 'toolsAndWallets') {
+          const container = document.querySelector('.tools-and-wallets-container');
+          setTimeout(() => {
+            this.checkedCategories = ["wallet"];
+            container.style.scrollMargin = 100+'px';
+            container.scrollIntoView();
+          }, 1);
+        }
+      }
     },
-
-    
 
     evaluateTags(size) {
       if (!size) return;

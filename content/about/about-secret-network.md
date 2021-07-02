@@ -298,9 +298,9 @@ title: "About"
 
 <block>
 
-<btn class="no-arrow bg-invert" url="/graypaper">Get SCRT</btn>
+<btn class="no-arrow bg-invert" url="/ecosystem/overview#exchange-and-wallet-support">Get SCRT</btn>
 
-<btn class="" url="/ecosystem/overview#wallets">Suported Wallets</btn>
+<btn class="" url="/ecosystem/overview#exchange-and-wallet-support">Suported Wallets</btn>
 
 </block>
 

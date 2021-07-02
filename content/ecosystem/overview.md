@@ -70,7 +70,7 @@ Use the following Secret Network block explorers for staking, governance proposa
 </column>
 
 <!-- Tools and Wallets -->
-<column class="spacer-s">
+<column class="spacer-s tools-and-wallets-container">
 
 <block>
 
