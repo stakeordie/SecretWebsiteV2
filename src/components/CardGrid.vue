@@ -21,7 +21,7 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ category.name }}</span>
+              <span class="title">{{ formatCategory(category.name) }}</span>
               <img
                 class="unchecked"
                 src="../assets/icon-checkbox-unchecked.svg"
@@ -65,7 +65,7 @@
                     :key="idx"
                     :class="'accent-' + category.name"
                   >
-                    {{ category.name }}
+                    {{ formatCategory(category.name) }}
                   </p>
                 </div>
               </div>
@@ -98,7 +98,7 @@
                     :key="idx"
                     :class="'accent-' + category.name"
                   >
-                    {{ category.name }}
+                    {{ formatCategory(category.name) }}
                   </p>
                 </div>
               </div>
@@ -151,6 +151,10 @@ export default {
   },
 
   methods: {
+    formatCategory(category) {
+      if (!category) return '';
+      return category.includes('_') ? category.replace('_', ' ') : category;
+    },
     setPagesFather(number) {
       this.currentPage = number;
     },
@@ -274,6 +278,38 @@ query {
     }
   }
   toolsAndWallets: allStrapiToolsAndWallets {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  internationalCommunities: allStrapiInternationalCommunities {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  exchanges: allStrapiExchanges {
     edges {
       node {
         id

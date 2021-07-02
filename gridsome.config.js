@@ -54,7 +54,9 @@ module.exports = {
                 'card-grids',
                 'cards',
                 'card-types',
-                'tools-and-wallets'
+                'tools-and-wallets',
+                'exchanges',
+                'international-communities'
             ],
             singleTypes: [
                 'alert-bar',

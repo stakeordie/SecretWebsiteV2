@@ -21,6 +21,14 @@ module.exports = function(api) {
         id: Int
         name: String
       }
+      type StrapiInternationalCommunities_Types {
+        id: Int
+        name: String
+      }
+      type StrapiExchanges_Types {
+        id: Int
+        name: String
+      }
       type StrapiContributors implements Node @infer {
         sort: Int
         types: [StrapiContributors_Types]
@@ -32,6 +40,14 @@ module.exports = function(api) {
       type StrapiToolsAndWallets implements Node @infer {
         sort: Int
         types: [StrapiToolsAndWallets_Types]
+      }
+      type StrapiExchanges implements Node @infer {
+        sort: Int
+        types: [StrapiExchanges_Types]
+      }
+      type StrapiInternationalCommunities implements Node @infer {
+        sort: Int
+        types: [StrapiInternationalCommunities_Types]
       }
     `)
 

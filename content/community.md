@@ -196,7 +196,16 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 
 
+<!-- Contributors -->
+<column class="spacer-s contributors-container">
 
+<block>
+
+<card-grid title="International Communities" collection="internationalCommunities" :pageSize="15" :isPaginated="true"></card-grid>
+
+</block>
+
+</column>
 
 
 

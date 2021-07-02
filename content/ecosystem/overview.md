@@ -43,21 +43,7 @@ title: "Ecosystem"
 
 </column>
 
-<!-- block header
-<column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
-
-<block>
-
-### Exchange and Wallet Support
-
-Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking:
-
-</block>
-
-</column>
--->
-
-<!-- block header
+<!-- block header -->
 <column number="2" number-m="2" number-s="1" weight="left">
 
 <block>
@@ -69,7 +55,19 @@ Use the following Secret Network block explorers for staking, governance proposa
 </block>
 
 </column>
--->
+
+<!-- block header -->
+<column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
+
+<block>
+
+### Exchange and Wallet Support
+
+Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking:
+
+</block>
+
+</column>
 
 <!-- Tools and Wallets -->
 <column class="spacer-s">
@@ -77,6 +75,17 @@ Use the following Secret Network block explorers for staking, governance proposa
 <block>
 
 <card-grid title="Tools & Wallets" collection="toolsAndWallets" :pageSize="15" :isPaginated="true"></card-grid>
+
+</block>
+
+</column>
+
+<!-- Exchanges -->
+<column class="spacer-s">
+
+<block>
+
+<card-grid title="Exchanges" collection="exchanges" :pageSize="15" :isPaginatd="true"></card-grid>
 
 </block>
 
