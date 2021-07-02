@@ -6,6 +6,24 @@
         <h4>Price</h4>
       </div>
     </block>
+    <!--block>
+      <div class="card-stats" :class="{ cta: url }">
+        <h3>{{ formatNumber(totalValueLocked) }}</h3>
+        <h4>TVL</h4>
+      </div>
+    </block-->
+    <block>
+      <div class="card-stats" :class="{ cta: url }">
+        <h3>{{ formatNumber(circulatingSupply) }}</h3>
+        <h4>Circ. Supply</h4>
+      </div>
+    </block>
+    <block>
+      <div class="card-stats" :class="{ cta: url }">
+        <h3>{{ formatNumber(totalSupply) }}</h3>
+        <h4>Total Supply</h4>
+      </div>
+    </block>
     <block>
       <div class="card-stats" :class="{ cta: url }">
         <h3>{{ formatNumber(marketCap) }}</h3>
@@ -16,24 +34,6 @@
       <div class="card-stats" :class="{ cta: url }">
         <h3>{{ formatNumber(volume) }}</h3>
         <h4>Volume</h4>
-      </div>
-    </block>
-    <!--block>
-      <div class="card-stats" :class="{ cta: url }">
-        <h3>{{ formatNumber(totalValueLocked) }}</h3>
-        <h4>TVL</h4>
-      </div>
-    </block-->
-    <block>
-      <div class="card-stats" :class="{ cta: url }">
-        <h3>{{ formatNumber(totalSupply) }}</h3>
-        <h4>Total Supply</h4>
-      </div>
-    </block>
-    <block>
-      <div class="card-stats" :class="{ cta: url }">
-        <h3>{{ formatNumber(circulatingSupply) }}</h3>
-        <h4>Circulating Supply</h4>
       </div>
     </block>
   </column>
