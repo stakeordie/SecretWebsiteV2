@@ -905,16 +905,17 @@ export default {
         localStorage.setItem("theme", theme);
       }
     },
-    //* NEW SET THEME
     setTheme() {
+      let themeSwitched;
       const colorMode = this.coloredModeState ? "" : "-colored";
       const darkLightMode = this.darkLightModeState ? "light" : "dark";
-      theme = `${darkLightMode}${colorMode}`;
-      this.setBodyAttr(theme);
+      themeSwitched = `${darkLightMode}${colorMode}`;
+      this.setBodyAttr(themeSwitched);
       if (process.isClient) {
-        localStorage.setItem("theme", theme);
+        localStorage.setItem("theme", themeSwitched);
       }
     },
+    //* NEW SET THEME
     //! ORIGINAL SET THEME
     // setTheme() {
     //   const colorMode = this.coloredModeState ? "-colored" : "";
