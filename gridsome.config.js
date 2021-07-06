@@ -51,9 +51,6 @@ module.exports = {
                 'contributors',
                 'nodes',
                 'd-apps',
-                'card-grids',
-                'cards',
-                'card-types',
                 'tools-and-wallets',
                 'exchanges',
                 'international-communities'
