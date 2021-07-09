@@ -21,7 +21,7 @@
           />
         </a>
         <!-- logo -->
-        <g-link class="link-logo" to="/">
+        <g-link class="link-logo" to="/about/secret-tokens-bridges">
           <img
             class="header__logo"
             src="../assets/secretnetwork-logo-primary-white.svg"
@@ -673,7 +673,9 @@
 </static-query>
 
 <script>
+
 export default {
+  
   data: function() {
     return {
       isNavOpen: false,
@@ -859,10 +861,15 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
+      this.removeMainMarginHeroMixed();
     },
   },
 
   methods: {
+    removeMainMarginHeroMixed() {
+      const mainEl = document.querySelector('main.--flare-page');
+      mainEl.classList.remove('hero-mixed-margin');
+    },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");

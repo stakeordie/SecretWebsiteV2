@@ -82,6 +82,8 @@ $accent-colors: (
   }
 }
 
+
+
 body {
   &.body-init {
     opacity: 0;
@@ -119,6 +121,9 @@ body {
 main {
   // margin-top: 68px;
   padding-top: var(--alert-height-desktop);
+  &.hero-mixed-margin {
+    padding-top: 36px;
+  }
 
   @include respond-to("<=s") {
     margin-top: 0;

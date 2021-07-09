@@ -33,7 +33,7 @@ Using Npm
 npm install
 ```
 
-#### Add an enviroment variable to your machine 
+#### Add an enviroment variable to your machine
 
 You need to configurate enviroment variable to manage and access the data content that is located on our Strappi CMS.
 

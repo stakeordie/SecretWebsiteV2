@@ -8,6 +8,7 @@ import Vuex from 'vuex'
 
 import DefaultLayout from '~/layouts/DefaultLayout.vue';
 import DocsLayout from '~/layouts/DocsLayout.vue';
+import DocsHeroLayout from '~/layouts/DocsHeroLayout.vue';
 import VueMarkdown from 'vue-markdown'
 // import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from 'vue-infinite-slide-bar'
@@ -36,6 +37,7 @@ import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
+import HeroMixed from '~/components/HeroMixed.vue';
 import TextArea from '~/components/TextArea.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
 // import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
@@ -57,6 +59,8 @@ import Btn from '~/components/Btn.vue';
 import Faq from '~/components/Faq.vue';
 import Colors from '~/components/cards/Colors.vue';
 import MediaChannels from '~/components/cards/MediaChannels.vue';
+import ContentNavigator from '~/components/ContentNavigator.vue';
+import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -84,131 +88,135 @@ require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
 
 function setDefaultTheme() {
-    const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
-    if (!theme) return
-    const [body] = document.getElementsByTagName('body')
-    if (!body) return
-    body.setAttribute('theme', theme.trim())
+  const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
+  if (!theme) return
+  const [body] = document.getElementsByTagName('body')
+  if (!body) return
+  body.setAttribute('theme', theme.trim())
 
 }
 
 export default function (Vue, {
-    router,
-    head,
-    isClient,
-    appOptions
+  router,
+  head,
+  isClient,
+  appOptions
 }) {
-    openGraph.forEach(item => head.meta.push(item))
+  openGraph.forEach(item => head.meta.push(item))
 
-    // Set default layout as a global component
-    Vue.component('ThemeMode', ThemeMode);
-    Vue.component('ThemeColor', ThemeColor);
-    Vue.component('AlertBar', AlertBar);
-    Vue.component('Announcement', Announcement);
-    Vue.component('DefaultLayout', DefaultLayout);
-    Vue.component('DocsLayout', DocsLayout);
-    Vue.component('ThemedImage', ThemedImage);
-    Vue.component('ImagePlaceholder', ImagePlaceholder);
-    Vue.component('Navigation', Navigation);
-    Vue.component('Type', Type);
-    Vue.component('HeroVideo', HeroVideo);
-    Vue.component('HeroTitle', HeroTitle);
-    Vue.component('TextArea', TextArea);
-    Vue.component('CardSimple', CardSimple);
-    // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
-    Vue.component('card-cta', CardCTA);
-    Vue.component('CardMinimal', CardMinimal);
-    Vue.component('CardBlock', CardBlock);
-    Vue.component('CardMedia', CardMedia);
-    Vue.component('CardSecretAgent', CardSecretAgent);
-    Vue.component('CardStats', CardStats);
-    Vue.component('CardStructure', CardStructure);
-    Vue.component('CardCurrentPrice', CardCurrentPrice);
-    Vue.component('Media', Media);
-    Vue.component('CardGrid', CardGrid);
-    Vue.component('Contributors', Contributors);
-    Vue.component('Nodes', Nodes);
-    Vue.component('MediaFeatured', MediaFeatured);
-    Vue.component('Committees', Committees);
-    Vue.component('Btn', Btn);
-    Vue.component('Faq', Faq);
-    Vue.component('Colors', Colors);
-    Vue.component('MediaChannels', MediaChannels);
+  // Set default layout as a global component
+  Vue.component('ThemeMode', ThemeMode);
+  Vue.component('ThemeColor', ThemeColor);
+  Vue.component('AlertBar', AlertBar);
+  Vue.component('Announcement', Announcement);
+  Vue.component('DefaultLayout', DefaultLayout);
+  Vue.component('DocsLayout', DocsLayout);
+  Vue.component('DocsHeroLayout', DocsHeroLayout);
+  Vue.component('ThemedImage', ThemedImage);
+  Vue.component('ImagePlaceholder', ImagePlaceholder);
+  Vue.component('Navigation', Navigation);
+  Vue.component('Type', Type);
+  Vue.component('HeroVideo', HeroVideo);
+  Vue.component('HeroTitle', HeroTitle);
+  Vue.component('HeroMixed', HeroMixed);
+  Vue.component('TextArea', TextArea);
+  Vue.component('CardSimple', CardSimple);
+  // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
+  Vue.component('card-cta', CardCTA);
+  Vue.component('CardMinimal', CardMinimal);
+  Vue.component('CardBlock', CardBlock);
+  Vue.component('CardMedia', CardMedia);
+  Vue.component('CardSecretAgent', CardSecretAgent);
+  Vue.component('CardStats', CardStats);
+  Vue.component('CardStructure', CardStructure);
+  Vue.component('CardCurrentPrice', CardCurrentPrice);
+  Vue.component('Media', Media);
+  Vue.component('CardGrid', CardGrid);
+  Vue.component('Contributors', Contributors);
+  Vue.component('Nodes', Nodes);
+  Vue.component('MediaFeatured', MediaFeatured);
+  Vue.component('Committees', Committees);
+  Vue.component('Btn', Btn);
+  Vue.component('Faq', Faq);
+  Vue.component('Colors', Colors);
+  Vue.component('MediaChannels', MediaChannels);
+  Vue.component('ContentNavigator', ContentNavigator);
+  Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
 
-    //Experimental
-    // Vue.component('SecretAgents', SecretAgents);
-    Vue.component('VueMarkdown', VueMarkdown);
+  //Experimental
+  // Vue.component('SecretAgents', SecretAgents);
+  Vue.component('VueMarkdown', VueMarkdown);
 
-    // Blog
-    Vue.component('BlogAuthor', BlogAuthor);
-    Vue.component('BlogCard', BlogCard);
-    Vue.component('BlogCardFeatured', BlogCardFeatured);
-    Vue.component('BlogHero', BlogHero);
-    Vue.component('BlogFeaturedPosts', BlogFeaturedPosts);
-    Vue.component('BlogLatestPosts', BlogLatestPosts);
-    Vue.component('BlogLatestPostsTwelve', BlogLatestPostsTwelve);
-    Vue.component('BlogPosts', BlogPosts);
-    Vue.component('BlogPostsFeatured', BlogPostsFeatured);
-    Vue.component('BlogFilter', BlogFilter);
-
-
-    //Page Specific
-    Vue.component('HomeExplainer', HomeExplainer);
-    Vue.component('HomeAnnouncements', HomeAnnouncements);
-    Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
-
-    //External Libraries
-    Vue.component('InfiniteSlideBar', InfiniteSlideBar);
-    Vue.component('typical', typical);
-    Vue.use(VueAnime);
-
-    Vue.use(Flare);
-    Vue.use(VueSocialSharing);
+  // Blog
+  Vue.component('BlogAuthor', BlogAuthor);
+  Vue.component('BlogCard', BlogCard);
+  Vue.component('BlogCardFeatured', BlogCardFeatured);
+  Vue.component('BlogHero', BlogHero);
+  Vue.component('BlogFeaturedPosts', BlogFeaturedPosts);
+  Vue.component('BlogLatestPosts', BlogLatestPosts);
+  Vue.component('BlogLatestPostsTwelve', BlogLatestPostsTwelve);
+  Vue.component('BlogPosts', BlogPosts);
+  Vue.component('BlogPostsFeatured', BlogPostsFeatured);
+  Vue.component('BlogFilter', BlogFilter);
 
 
-    // This is Victor's code
-    Vue.$setDefaultTheme = setDefaultTheme;
+  //Page Specific
+  Vue.component('HomeExplainer', HomeExplainer);
+  Vue.component('HomeAnnouncements', HomeAnnouncements);
+  Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
 
-    Vue.mixin({
-        methods: {
-            searchTrigger: function () {
-                document.querySelector('.search-trigger').click();
-            },
-        },
-    })
+  //External Libraries
+  Vue.component('InfiniteSlideBar', InfiniteSlideBar);
+  Vue.component('typical', typical);
+  Vue.use(VueAnime);
 
-    router.beforeEach((from, to, next) => {
-        if (process.isClient) {
-            const el = document.querySelector('button[aria-label=Close]');
-            if (el) {
-                const clickEvent = new MouseEvent('click', {
-                    'view': window,
-                    'bubbles': true,
-                    'cancelable': false
-                });
-                el.dispatchEvent(clickEvent);
-            }
-        }
-        next();
-    });
+  Vue.use(Flare);
+  Vue.use(VueSocialSharing);
 
-    // State
-    Vue.use(Vuex)
-    appOptions.store = new Vuex.Store({
-        state: {
-            sidebarOpen: false
-        },
-        mutations: {
-            toggleSidebar(state) {
-                state.sidebarOpen = !state.sidebarOpen
-            },
-            closeSidebar(state) {
-                state.sidebarOpen = false
-            },
-            openSidebar(state) {
-                state.sidebarOpen = true
-            }
-        }
-    })
+
+  // This is Victor's code
+  Vue.$setDefaultTheme = setDefaultTheme;
+
+  Vue.mixin({
+    methods: {
+      searchTrigger: function () {
+        document.querySelector('.search-trigger').click();
+      },
+    },
+  })
+
+  router.beforeEach((from, to, next) => {
+    if (process.isClient) {
+      const el = document.querySelector('button[aria-label=Close]');
+      if (el) {
+        const clickEvent = new MouseEvent('click', {
+          'view': window,
+          'bubbles': true,
+          'cancelable': false
+        });
+        el.dispatchEvent(clickEvent);
+      }
+    };
+    next();
+  });
+
+  // State
+  Vue.use(Vuex)
+  appOptions.store = new Vuex.Store({
+    state: {
+      sidebarOpen: false
+    },
+    mutations: {
+      toggleSidebar(state) {
+        state.sidebarOpen = !state.sidebarOpen
+      },
+      closeSidebar(state) {
+        state.sidebarOpen = false
+      },
+      openSidebar(state) {
+        state.sidebarOpen = true
+      }
+    }
+  })
 
 }

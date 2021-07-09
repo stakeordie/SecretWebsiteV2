@@ -1,7 +1,5 @@
 <template>
-  <aside
-    class="sidebar"
-  >
+  <aside class="sidebar">
     <nav>
       <ul>
         <li
@@ -12,7 +10,9 @@
           <h3 class="section-title">{{ node.section }}</h3>
           <ul class="section-subtitle">
             <li v-for="item in node.topics" :key="item.title">
-              <a :class="isItemActive(item.path)" :href="item.path">{{ item.title }}</a>
+              <a :class="isItemActive(item.path)" :href="item.path">{{
+                item.title
+              }}</a>
             </li>
           </ul>
         </li>
@@ -42,17 +42,17 @@ import GitLink from "./GitLink.vue";
 
 export default {
   components: {
-    GitLink,
+    GitLink
   },
-  methods:{
+  methods: {
     isItemActive(itemPath) {
-        if (this.$route.path == itemPath) {
-            return "active";
-        } else {
-            return "";
-        }
-    },
-  },
+      if (this.$route.path == itemPath) {
+        return "active";
+      } else {
+        return "";
+      }
+    }
+  }
 };
 </script>
 
@@ -61,17 +61,18 @@ export default {
 @import "../../sass/docs/config/_colors.scss";
 @import "../../sass/docs/config/_mixins.scss";
 @import "../../sass/docs/config/_functions.scss";
+@import "../../sass/functions/theme";
 
 .sidebar {
   transition: background 0.15s ease-in-out, transform 0.15s ease-in-out,
-  border-color 0.15s linear;
+    border-color 0.15s linear;
   padding: 20px;
   // will-change: transform;
   border-right: 1px solid transparent;
   overflow: auto;
   position: sticky;
   height: fit-content;
-  top:130px;
+  top: 130px;
   @include respond-above(sm) {
     transform: translateX(0);
   }
@@ -101,16 +102,20 @@ nav {
 ul {
   list-style: none;
   margin: 0;
+  display: grid;
+  gap: var(--f-gutter);
 
   a {
-    text-decoration: none;
-    color: inherit;
-    padding: 5px 0;
-    display: block;
-
-    &.active {
-      color: var(--color-analog-tertiary-orange);
-      font-weight: 600;
+    font-family: var(--f-default-headers-font);
+    font-weight: 600;
+    @include theme(dark dark-colored) {
+      color: var(--color-analog-primary-white);
+      &:hover {
+        color: var(--color-analog-secondary-orange);
+      }
+    }
+    &:hover {
+      color: var(--color-analog-secondary-orange);
     }
   }
 }
@@ -159,11 +164,11 @@ ul {
   }
 }
 
-li{
+li {
   margin: 0;
   padding: 0;
 }
-ul{
+ul {
   padding: 0;
 }
 .git {
@@ -172,5 +177,3 @@ ul{
   left: 0;
 }
 </style>
-
-
