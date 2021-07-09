@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="committees">
-      <div v-for="(committee, index) in committees" class="committee" :class="`accent-`+committee.name.toLowerCase()">
+      <div v-for="(committee, index) in committees" class="committee" :class="`accent-`+committee.name.toLowerCase()" :key="index">
         <h3>{{committee.name}}</h3>
         <div class="date-set">
           <h6>Meetings</h6>
@@ -9,6 +9,10 @@
         </div>
         <a class="button" target="blank" :href="committee.url">Join</a>
         <div class="info-wrapper">
+          <div class="info-set">
+            <h6>Lead</h6>
+            <p>{{committee.lead}}</p>
+          </div>
           <div class="info-set">
             <h6>Purpose</h6>
             <p>{{committee.purpose}}</p>
@@ -45,7 +49,8 @@
             goals: `- Onboarding valuable contributors
   - Building useful secret apps together`,
             responsibilities: `- Improving documentation for developers.`,
-            initiatives: `- Hackathons.`
+            initiatives: `- Hackathons.`,
+            lead: 'John Doe'
           },
           {
             name: 'Education',
@@ -56,7 +61,8 @@
   - Clarifying Secret Network and our technologies.
   - Advancing privacy as a public good.`,
             responsibilities: `- Creating effective content efficiently.`,
-            initiatives: `- Secret Foundation Wiki.`
+            initiatives: `- Secret Foundation Wiki.`,
+            lead: 'John Doe'
           },
           {
             name: 'Awareness',
@@ -69,7 +75,9 @@
             responsibilities: `- Disseminating and amplifying relevant content.`,
             initiatives: `- Secret branding.
   - Community outreach.
-  - Supporting Sharing Secrets and other content initiatives.`
+  - Supporting Sharing Secrets and other content initiatives.`,
+            lead: 'John Doe'
+
           },
           {
             name: 'BizDev',
@@ -80,6 +88,7 @@
             responsibilities: `- Secure cross promotion channels with other crypto projects
   - Work with the dev committee and large Secret Network contributors on partner & product integrations
   -  Work with new products in the Secret Network ecosystem on creating their unique selling points and brand strategy`,
+            lead: 'John Doe'
           },
           {
             name: 'Governance',
@@ -90,7 +99,8 @@
   - Inviting everyone to join our community.
   - Communicating about proposals, voting, etc.`,
             responsibilities: `- Making decisions cooperatively.`,
-            initiatives: `- Discussing project updates and governance issues.`
+            initiatives: `- Discussing project updates and governance issues.`,
+            lead: 'John Doe'
           },
           {
             name: 'Design',
@@ -103,6 +113,7 @@ responsibilities: `- Foster and promote design best practices in Secret Network.
 - Encourage collaboration between committee members and community projects.
 - Share design assets, knowledge, and resources with other members and the larger community.
 - Recommend new design-related initiatives for funding.`,
+            lead: 'John Doe'
           },
         ]
       }
