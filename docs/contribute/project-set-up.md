@@ -1,4 +1,33 @@
-# Getting Started
+---
+title: "Getting Started"
+---
+
+
+<hero-mixed bg-color="#FFEB97" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+
+<template v-slot:title>
+
+
+###### Documentation
+
+### Getting Started
+
+</template>
+
+<template v-slot:body>
+
+- A global, open alternative to the current financial system.
+- Products that let you borrow, save, invest, trade, and more.
+- Based on open-source technology that anyone can program with.
+
+</template>
+
+</hero-mixed>
+
+<content-navigator-docs>
+
+### Getting Started
+
 This section will help you run the Secret Website from ground up.
 
 #### Prerequisites
@@ -57,3 +86,5 @@ GRIDSOME_STRAPI_URL=http://strapi-77rt:10000
 yarn develop
 ```
 Secret website will start a development server at http://localhost:8080/
+
+</content-navigator-docs>

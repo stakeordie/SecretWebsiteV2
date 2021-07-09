@@ -1,4 +1,32 @@
-# Project structure
+---
+title: "Project structure"
+---
+
+
+<hero-mixed bg-color="#7A5CD6" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+
+<template v-slot:title>
+
+
+###### Documentation
+
+### Project structure
+
+</template>
+
+<template v-slot:body>
+
+- A global, open alternative to the current financial system.
+- Products that let you borrow, save, invest, trade, and more.
+- Based on open-source technology that anyone can program with.
+
+</template>
+
+</hero-mixed>
+
+<content-navigator-docs>
+
+### Project structure
 
 This is the folder structure we currently have.
 
@@ -17,33 +45,35 @@ This is the folder structure we currently have.
 > This project uses [Gridsome.org](https://gridsome.org/docs/) 
 
 
+------
 
-## Configuration files
+### Configuration files
 
-### gridsome.config.js
+#### gridsome.config.js
 
 In this config file we have all the configuration for gridsome, as you can seen in the [Secret Network Data Diagram](#data-diagram) we have some information in 2 folders ` content/ ` and ` docs/ `, in this gridsome.config.js is where we determinated which folders are going to be used.
 
-### data/
+#### data/
 This contains a ` settings.json ` wich is use for the sidebar of this Documentation
 
 
+------
 
+### Content Folders
 
-## Content Folders
-
-### static/
+#### static/
 In this folder is static files such as ` images `, those that can be optimazed for Gridsome.
 
-### content/
+#### content/
 This folder contains all the ` .md ` for Secret Network content
 
 
-### docs/
+#### docs/
 This folder contains all the ` .md ` for this documentation
 
+---
 
-## Source
+### Source
 Here is we're magic happens. What `src/` structure looks like:
 
 ```text
@@ -75,8 +105,9 @@ The `components/` folder contains all shared Vue components.
 
 `sass/` where styles live.
 
+---
 
-# Data Diagram
+#### Data Diagram
 
 <img alt ='Data entries SecretNetwork' src='./images/data-SecretNetwork-white.svg'  class='invert'/>
 
@@ -86,3 +117,5 @@ All the content of Secret Network is coming from differents ends.
 - `Ghost` 
 - `Content/` ~ here we have stored all the files for the Secret Network content
 - `Docs/` ~ where this documentation live
+
+</content-navigator-docs>

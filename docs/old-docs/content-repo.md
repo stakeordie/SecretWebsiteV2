@@ -7,7 +7,7 @@ title: "Secret Website Content Repository"
 
 <template v-slot:title>
 
-###### Secret Apps
+###### Documentation
 
 ## Secret Website Content Repository
 
