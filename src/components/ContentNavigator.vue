@@ -41,13 +41,14 @@ export default {
     getTitles() {
       let titles = [];
       let matches = document.querySelectorAll(
-        ".content-body > .content > .box > h4"
+        ".content-body > .content > .box > h3, .content-body > .content > .box > h4"
       );
       titles = [...matches];
       for (let i = 0; i < titles.length; i++) {
         let newNavItem = document.createElement("a");
         let newNavItemContent = document.createTextNode(titles[i].innerText);
         newNavItem.setAttribute("href", `#${titles[i].id}`);
+        newNavItem.setAttribute("class", `${titles[i].nodeName.toLowerCase()}`);
         newNavItem.appendChild(newNavItemContent);
 
         const parent = document.getElementById("content-navigator-items");
@@ -92,6 +93,15 @@ export default {
         &:hover {
           color: var(--color-analog-secondary-orange);
         }
+        &.h3 {
+          margin-bottom: var(--f-gutter-s);
+          margin-top: var(--f-gutter-l);
+          text-transform: uppercase;
+          color: var(--color-neutral-dark-mode-05) !important;
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
       }
 
       .chevron {
@@ -113,7 +123,7 @@ export default {
       }
       &.content-navigator-items-is-open {
         @include respond-to("<=m") {
-          gap: var(--f-gutter-l);
+        gap: 10px;
 
           li {
             display: block !important;
@@ -128,13 +138,15 @@ export default {
       .box {
         h3 {
           margin-bottom: var(--f-gutter-l);
+          padding-top: 6em;
+          margin-top: -6em;
         }
         h4 {
-          scroll-margin-top: 200px;
-          top: 200px;
-          &:first-of-type {
-            color: var(--color-analog-secondary-yellow);
-          }
+          padding-top: 6em;
+          margin-top: -6em;
+          // &:first-of-type {
+          //   color: var(--color-analog-secondary-yellow);
+          // }
         }
         hr {
           width: 120px;

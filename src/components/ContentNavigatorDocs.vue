@@ -115,9 +115,9 @@ export default {
         h4 {
           scroll-margin-top: 200px;
           top: 200px;
-          &:first-of-type {
-            color: var(--color-analog-secondary-yellow);
-          }
+          // &:first-of-type {
+          //   color: var(--color-analog-secondary-yellow);
+          // }
         }
         hr {
           width: 120px;

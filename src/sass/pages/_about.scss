@@ -1,0 +1,32 @@
+.about-cards {
+  .content {
+    .box {
+      display: grid;
+      gap: var(--f-gutter-l);
+      grid-template-columns: repeat(2, 1fr);
+      @include respond-to("<=m") {
+        grid-template-columns: 1fr;
+      }
+      .card-about-content {
+        border-radius: var(--f-radius);
+        padding: var(--f-gutter-l);
+        background: var(--theme-card-bg-variant);
+        transition: .2s ease;
+        &:hover {
+          transform: var(--card-hover-transform);
+        }
+        @each $name, $color in $accent-colors {
+          &.accent-#{$name} {
+            &:hover {
+              box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
+            }
+
+            .type {
+              color: var(--accent-#{$name});
+            }
+          }
+        }
+      }
+    }
+  }
+}
