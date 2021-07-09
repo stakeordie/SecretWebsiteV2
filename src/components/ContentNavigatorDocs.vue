@@ -61,7 +61,7 @@ export default {
       position: sticky;
       top: 150px;
       display: grid;
-      gap: var(--f-gutter);
+      gap: 10px;
 
       a {
         font-family: var(--f-default-headers-font);
