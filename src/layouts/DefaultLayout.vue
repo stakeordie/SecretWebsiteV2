@@ -21,7 +21,7 @@
           />
         </a>
         <!-- logo -->
-        <g-link class="link-logo" to="/about/secret-tokens-bridges">
+        <g-link class="link-logo" to="/">
           <img
             class="header__logo"
             src="../assets/secretnetwork-logo-primary-white.svg"
