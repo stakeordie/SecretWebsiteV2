@@ -141,7 +141,7 @@ title: "About"
 
 <block class="bottom-second">
 
-<text-area section="bottom_second" color="accent-orange"></text-area>
+<text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
 
 </block>
 
@@ -149,7 +149,7 @@ title: "About"
 
 <block class="bottom-third">
 
-<text-area section="bottom_third" color="accent-blue"></text-area>
+<text-area section="bottom_third" color="accent-blue" link="/about/secret-tokens-bridges"></text-area>
 
 </block>
 
@@ -157,7 +157,7 @@ title: "About"
 
 <block class="bottom-fourth">
 
-<text-area section="bottom_fourth" color="accent-green"></text-area>
+<text-area section="bottom_fourth" color="accent-green" link="/about/secret-finance"></text-area>
 
 </block>
 
@@ -165,7 +165,7 @@ title: "About"
 
 <block class="bottom-fifth">
 
-<text-area section="bottom_fifth" color="accent-cream"></text-area>
+<text-area section="bottom_fifth" color="accent-cream" link="/about/secret-nfts"></text-area>
 
 </block>
 
