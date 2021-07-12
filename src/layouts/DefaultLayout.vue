@@ -1349,6 +1349,10 @@ export default {
   }
 }
 
+.swirl-wrapper {
+  height: var(--f-header-height);
+}
+
 .swirl {
   position: absolute;
   z-index: -10;

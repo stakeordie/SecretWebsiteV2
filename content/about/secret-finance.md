@@ -4,7 +4,7 @@ title: "Secret Finance"
 
 <!-- Test HERO MIXED -->
 
-<hero-mixed bg-color="#FFCE99" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+<hero-mixed bg-color="#FFCE99" bg-image="https://ik.imagekit.io/secretnetwork/images/secret_finance_hero_572ee7463d_T6GMtVe8I.png">
 
 <template v-slot:title>
 

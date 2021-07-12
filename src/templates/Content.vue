@@ -1,5 +1,5 @@
 <template>
-  <default-layout class="content">
+  <default-layout class="content" :class="pageClass">
     <VueRemarkContent />
   </default-layout>
 </template>
@@ -17,6 +17,14 @@
           }
         ]
       }
+    },
+
+    computed: {
+      pageClass() {
+        const dir = this.$page.content.fileInfo.directory;
+        const name = this.$page.content.fileInfo.name;
+        return `${dir}-${name}`;
+      }
     }
   }
 </script>
@@ -26,6 +34,10 @@
     content(id: $id) {
       title
       path
+      fileInfo {
+        name
+        directory
+      }
     }
   }
 </page-query>

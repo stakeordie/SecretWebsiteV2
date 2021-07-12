@@ -10,7 +10,7 @@
           class="hero-mixed-side-right-img"
           v-if="bgImage"
           :src="bgImage"
-          alt=""
+          alt="hero image"
         />
       </div>
     </block>

@@ -40,10 +40,10 @@ $accent-colors: (
 
   --blog-content-width: 750px;
 
+  --header-menu-mq: (1160px - 1px);
+
   --alert-height-desktop: calc(var(--f-header-height) - 18px);
   --alert-height-mobile: var(--f-header-height);
-
-  --header-menu-mq: (1160px - 1px);
 
   --card-hover-transform: translate(-12px, -12px);
   --card-hover-shadow: 16px 16px 0 0;
@@ -119,16 +119,24 @@ body {
   height: 100%;
 }
 
-main {
-  // margin-top: 68px;
-  padding-top: var(--alert-height-desktop);
-  &.hero-mixed-margin {
-    padding-top: 36px;
-  }
+.content {
 
-  @include respond-to("<=s") {
-    margin-top: 0;
-    padding-top: var(--f-gutter-xl);
+  &.index {
+    main { padding-top: 52px; }
+  }
+  &:not(.index) {
+    main { padding-top: 44px; }
+  }
+  // TODO Lets try to make this for all pages that requires to handle this.
+  // We should be able to mark them as "pages-with-heros" or something.
+  &.secret-tokens-bridges, &.secret-finance, &.secret-nfts {
+    main { padding-top: 0; }
+  }
+  main {
+    @include respond-to("<=s") {
+      margin-top: 0;
+      padding-top: var(--f-gutter-xl);
+    }
   }
 }
 

@@ -4,7 +4,7 @@ title: "Secret Tokens / Bridges"
 
 <!-- Test HERO MIXED -->
 
-<hero-mixed bg-color="#FFCE99" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+<hero-mixed bg-color="#fcdf5d" bg-image="https://ik.imagekit.io/secretnetwork/images/secret_bridge_hero_98d2b0695b_4Z0NelcX1.png">
 
 <template v-slot:title>
 

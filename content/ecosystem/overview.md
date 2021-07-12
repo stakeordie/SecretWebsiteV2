@@ -24,7 +24,9 @@ title: "Ecosystem"
 
 ### DApps
 
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more.
+Secret Apps are made from powerful, privacy-preserving smart contracts (i.e. secret contracts). Leveraging the
+computational privacy of Trusted Execution Environments (TEEs) and secret contracts, users have privacy by default
+when interacting with Secret Apps - unlocking the full value of decentralized applications.
 
 </block>
 
@@ -48,7 +50,9 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 ### Contributors
 
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more.
+Secret Network is made possible by a range of decentralized contributors that make Secret Network what it is today.
+This includes developers, validators, wallet and tool creators, funds, and more. All of these contributors have played
+a key role in the success of Secret Network!
 
 </block>
 
@@ -72,7 +76,10 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 ### Tools & Wallets
 
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more.
+Tools, wallets, and block explorers empower users to interact with Secret Network and the Secret DeFi ecosystem.
+Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. Multiple wallets
+provide support for SCRT transactions and stakings. Additionally, block explorers help with staking, governance
+proposals, viewing transactions, active validators, and more.
 
 </block>
 
@@ -94,9 +101,11 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 <block>
 
-### Exchange and Wallet Support
+### Exchanges
 
-Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking.
+Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade
+Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT
+transactions and staking.
 
 </block>
 

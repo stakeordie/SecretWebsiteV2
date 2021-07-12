@@ -139,7 +139,7 @@ title: "About"
 
 <column class="about-cards" number="1" number-s="1">
 
-<block class="">
+<block>
 
 <text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
 

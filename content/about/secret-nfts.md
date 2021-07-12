@@ -4,13 +4,13 @@ title: "Secret NFTs"
 
 <!-- Test HERO MIXED -->
 
-<hero-mixed bg-color="#FFCE99" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+<hero-mixed bg-color="#809AB3" bg-image="https://ik.imagekit.io/secretnetwork/images/secret_nfts_hero_3fb4d321e6_GkvxS1F5a.png">
 
 <template v-slot:title>
 
 ###### Secret Apps
 
-## Secret Finance
+## Secret NFTs
 
 </template>
 
