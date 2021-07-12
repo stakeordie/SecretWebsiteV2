@@ -17,10 +17,22 @@ title: "Ecosystem"
 
 </column>
 
-<!-- All Media -->
+<!-- block header -->
+<column number="2" number-m="2" number-s="1" weight="left">
+
+<block>
+
+### DApps
+
+Secret Apps are made from powerful, privacy-preserving smart contracts (i.e. secret contracts). Leveraging the
+computational privacy of Trusted Execution Environments (TEEs) and secret contracts, users have privacy by default
+when interacting with Secret Apps - unlocking the full value of decentralized applications.
+
+</block>
+
+</column>
 
 <!-- DApps -->
-
 <column class="spacer-s">
 
 <block>
@@ -31,6 +43,20 @@ title: "Ecosystem"
 
 </column>
 
+<!-- block header -->
+<column number="2" number-m="2" number-s="1" weight="left">
+
+<block>
+
+### Contributors
+
+Secret Network is made possible by a range of decentralized contributors that make Secret Network what it is today.
+This includes developers, validators, wallet and tool creators, funds, and more. All of these contributors have played
+a key role in the success of Secret Network!
+
+</block>
+
+</column>
 
 <!-- Contributors -->
 <column class="spacer-s contributors-container">
@@ -44,26 +70,16 @@ title: "Ecosystem"
 </column>
 
 <!-- block header -->
-<column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
-
-<block>
-
-### Exchange and Wallet Support
-
-Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT transactions and staking:
-
-</block>
-
-</column>
-
-<!-- block header -->
 <column number="2" number-m="2" number-s="1" weight="left">
 
 <block>
 
-#### Block Explorers and Staking
+### Tools & Wallets
 
-Use the following Secret Network block explorers for staking, governance proposals, viewing transactions and active validators, and much more:
+Tools, wallets, and block explorers empower users to interact with Secret Network and the Secret DeFi ecosystem.
+Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. Multiple wallets
+provide support for SCRT transactions and stakings. Additionally, block explorers help with staking, governance
+proposals, viewing transactions, active validators, and more.
 
 </block>
 
@@ -80,6 +96,21 @@ Use the following Secret Network block explorers for staking, governance proposa
 
 </column>
 
+<!-- block header -->
+<column id="wallet-support" number="2" number-m="1" number-s="1" weight="left">
+
+<block>
+
+### Exchanges
+
+Secret Network is secured by the SCRT coin (Secret), which is used for fees, staking, and governance. You can trade
+Secret (SCRT) on Binance. See also: CoinMarketCap and CoinGecko. Multiple wallets already provide support for SCRT
+transactions and staking.
+
+</block>
+
+</column>
+
 <!-- Exchanges -->
 <column class="spacer-s">
 
@@ -90,124 +121,3 @@ Use the following Secret Network block explorers for staking, governance proposa
 </block>
 
 </column>
-
-<!-- exchange and wallet support
-<column class="spacer-s" number="3" number-m="3" number-s="1">
-
-<block>
-
-<card-minimal>
-
-#### Ledger Nano S and Ledger Nano X
-
-<btn url="https://build.scrt.network/ledger-nano-s.html">See Documentation</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Keplr
-
-<btn url="https://wallet.keplr.app/">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Cosmostation Wallet
-
-<btn url="https://wallet.cosmostation.io/">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Citadel.One
-
-<btn url="https://citadel.one/">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Math Wallet
-
-<btn url="https://mathwallet.org/web/secret">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-</column>
--->
-
-<!-- Block Explorers and Staking
-<column number="3" number-m="3" number-s="1" class="spacer-s">
-
-<block>
-
-<card-minimal>
-
-#### Puzzle by Secretnodes.org
-
-<btn url="https://puzzle.report/">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Cashmaney Secret Network Explorer
-
-<btn url="https://explorer.cashmaney.com/">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Stake or Die!
-
-<btn url="https://stakeordie.com/rewards-calculator">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-<block>
-
-<card-minimal>
-
-#### Staking Rewards
-
-<btn url="https://www.stakingrewards.com/earn/secret-network">Visit Website</btn>
-
-</card-minimal>
-
-</block>
-
-</column>
-
--->

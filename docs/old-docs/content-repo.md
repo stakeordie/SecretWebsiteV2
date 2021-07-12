@@ -1,3 +1,30 @@
+---
+title: "Secret Website Content Repository"
+---
+
+
+<hero-mixed bg-color="#FFCE99" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+
+<template v-slot:title>
+
+###### Documentation
+
+## Secret Website Content Repository
+
+</template>
+
+<template v-slot:body>
+
+- A global, open alternative to the current financial system.
+- Products that let you borrow, save, invest, trade, and more.
+- Based on open-source technology that anyone can program with.
+
+</template>
+
+</hero-mixed>
+
+<content-navigator-docs>
+
 ### Welcome to the Secret Website Content Repository.
 
 This Repository is a companion to the Secret Website Repository. Think of this as a sort of content management system or content database for the Secret Website.
@@ -57,5 +84,7 @@ Setting up a local environment to make content changes is an involved process. T
 -- In the upper right hand side of the github click `Form Me`. This will generate repository in your personal github.
 - Clone the repository to your local machine
 - Add an environment variable to your machine
-  ```export REPO=<your forked repo here>```
-  Example `export REPO=https://github.com/stakeordie/SecretWebsiteContent.git`
+```export REPO=<your forked repo here>```
+Example `export REPO=https://github.com/stakeordie/SecretWebsiteContent.git`
+
+</content-navigator-docs>

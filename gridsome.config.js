@@ -47,10 +47,9 @@ module.exports = {
                 'secret-agents',
                 'announcements',
                 'external-media-alts',
-                'external-media-sources',
                 'contributors',
-                'nodes',
                 'd-apps',
+                'nodes',
                 'tools-and-wallets',
                 'exchanges',
                 'international-communities'

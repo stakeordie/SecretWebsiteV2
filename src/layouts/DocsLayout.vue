@@ -1,10 +1,11 @@
 <template>
-  <div class="site">
-    <Sidebar />
-    <main class="main">
+  <div class="">
+    <!-- <Sidebar /> -->
+    <content-navigator-docs>
+      <slot name="newblock"></slot>
       <slot/>
-    </main>
-    <SidebarRight/>
+    </content-navigator-docs>
+    <!-- <SidebarRight/> -->
   </div>
 </template>
 

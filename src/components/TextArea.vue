@@ -1,12 +1,14 @@
 <template>
-  <div class="card-about-content no-bg" :class="color">
-    <div v-for="(element, index) in sectionContent" :key="index">
-      <h5>{{ element.title }}</h5>
-      <h3 v-if="section === 'top'">{{ element.subtitle }}</h3>
-      <h4 v-else>{{ element.subtitle }}</h4>
-      <vue-markdown :source="element.body"></vue-markdown>
+  <g-link class="card-about-content no-bg" :class="color" :to="link">
+    <div>
+      <div v-for="(element, index) in sectionContent" :key="index">
+          <h5>{{ element.title }}</h5>
+        <h3 v-if="section === 'top'">{{ element.subtitle }}</h3>
+        <h4 v-else>{{ element.subtitle }}</h4>
+        <vue-markdown :source="element.body"></vue-markdown>
+      </div>
     </div>
-  </div>
+  </g-link>
 </template>
 
 <script>
@@ -18,6 +20,7 @@ export default {
   props: {
     section: { type: String, required: true },
     color: { type: String, required: true },
+    link: { type: String, default: '' },
   },
 
   computed: {

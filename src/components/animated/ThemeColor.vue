@@ -69,8 +69,9 @@ export default {
       let result = document.body.getAttribute("theme");
       return result;
     };
+    checkBodyThemeMode();
     activateAnimation.addEventListener("click", () => {
-      // checkBodyThemeMode();
+      checkBodyThemeMode();
       if (
         checkBodyThemeMode() === "dark-colored" ||
         checkBodyThemeMode() === "light-colored"
@@ -82,9 +83,9 @@ export default {
             {
               targets: ".circle-purple",
               easing: "spring(1, 80, 10, 0)",
-              strokeWidth: "2",
-              stroke: "#000000",
-              fill: "#000000",
+              strokeWidth: "1.5",
+              stroke: "#35424F",
+              fill: "rgba(21, 26, 32, 1)",
               translateX: -5,
               translateY: -1,
             },
@@ -95,8 +96,8 @@ export default {
               targets: ".circle-yellow",
               easing: "spring(1, 80, 10, 0)",
               fill: "#ffffff",
-              strokeWidth: "2",
-              stroke: "#000000",
+              strokeWidth: "1.5",
+              stroke: "#35424F",
               translateX: 0,
               translateY: 1,
             },

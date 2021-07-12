@@ -1,10 +1,40 @@
-# Open Development
+---
+title: "Open Development"
+---
+
+
+<hero-mixed bg-color="#00DDBE" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+
+<template v-slot:title>
+
+
+###### Documentation
+
+### Open Development
+
+</template>
+
+<template v-slot:body>
+
+- A global, open alternative to the current financial system.
+- Products that let you borrow, save, invest, trade, and more.
+- Based on open-source technology that anyone can program with.
+
+</template>
+
+</hero-mixed>
+
+<content-navigator-docs>
+
+### Open Development
 
 All work on Secret Website happens directly on GitHub. Team members and external contributors send pull requests which go through the same review process.
 
 ### Branch Organization
 
 We have two difderents branches `main` and `dev`. If you want to contriubute on this project, submit all changes directly to the dev branch. 
+
+---
 
 ### Steps To Contribute
 
@@ -40,3 +70,4 @@ In a pull request, you propose that changes you've made on a head branch should 
 
 If youproposal is accepted by a team member your changes are going to be available in the official website.
 
+</content-navigator-docs>

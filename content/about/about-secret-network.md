@@ -137,35 +137,17 @@ title: "About"
 
 <!--SCRT Details -->
 
-<column class="accent-green" number="2" number-s="1">
+<column class="about-cards" number="1" number-s="1">
 
-<block class="bottom-second">
+<block>
 
-<text-area section="bottom_second" color="accent-orange"></text-area>
+<text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
 
-</block>
+<text-area section="bottom_third" color="accent-blue" link="/about/secret-tokens-bridges"></text-area>
 
+<text-area section="bottom_fourth" color="accent-green" link="/about/secret-finance"></text-area>
 
-
-<block class="bottom-third">
-
-<text-area section="bottom_third" color="accent-blue"></text-area>
-
-</block>
-
-
-
-<block class="bottom-fourth">
-
-<text-area section="bottom_fourth" color="accent-green"></text-area>
-
-</block>
-
-
-
-<block class="bottom-fifth">
-
-<text-area section="bottom_fifth" color="accent-cream"></text-area>
+<text-area section="bottom_fifth" color="accent-purple" link="/about/secret-nfts"></text-area>
 
 </block>
 

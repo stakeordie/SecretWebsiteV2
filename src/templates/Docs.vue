@@ -1,8 +1,6 @@
 <template>
-  <default-layout>
-    <docs-layout>
-      <VueRemarkContent />
-    </docs-layout>
+  <default-layout class="content">
+    <VueRemarkContent />
   </default-layout>
 </template>
 

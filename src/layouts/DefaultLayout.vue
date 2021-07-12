@@ -337,6 +337,7 @@
                 />
               </a>
             </nav>
+            <!-- * THEME SELECTION -->
             <button class="theme" @click="toggleDarkLightMode">
               <theme-mode></theme-mode>
               <!-- <themed-image>
@@ -358,6 +359,7 @@
                 />
               </themed-image> -->
             </button>
+            <!-- * THEME SELECTION -->
             <button class="theme" @click="toggleColoredMode">
               <theme-color></theme-color>
               <!-- <themed-image>
@@ -671,7 +673,9 @@
 </static-query>
 
 <script>
+
 export default {
+  
   data: function() {
     return {
       isNavOpen: false,
@@ -857,10 +861,15 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
+      this.removeMainMarginHeroMixed();
     },
   },
 
   methods: {
+    removeMainMarginHeroMixed() {
+      const mainEl = document.querySelector('main.--flare-page');
+      mainEl.classList.remove('hero-mixed-margin');
+    },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");
@@ -895,15 +904,35 @@ export default {
       this.coloredModeState = !this.coloredModeState;
       this.setTheme();
     },
-    setTheme() {
-      const colorMode = this.coloredModeState ? "-colored" : "";
-      const darkLightMode = this.darkLightModeState ? "light" : "dark";
-      const theme = `${darkLightMode}${colorMode}`;
+    //* SET INITIAL THEME
+    setInitialTheme() {
+      let theme = `dark-colored`;
       this.setBodyAttr(theme);
       if (process.isClient) {
         localStorage.setItem("theme", theme);
       }
     },
+    setTheme() {
+      let themeSwitched;
+      const colorMode = this.coloredModeState ? "" : "-colored";
+      const darkLightMode = this.darkLightModeState ? "light" : "dark";
+      themeSwitched = `${darkLightMode}${colorMode}`;
+      this.setBodyAttr(themeSwitched);
+      if (process.isClient) {
+        localStorage.setItem("theme", themeSwitched);
+      }
+    },
+    //* NEW SET THEME
+    //! ORIGINAL SET THEME
+    // setTheme() {
+    //   const colorMode = this.coloredModeState ? "-colored" : "";
+    //   const darkLightMode = this.darkLightModeState ? "light" : "dark";
+    //   const theme = `${darkLightMode}${colorMode}`;
+    //   this.setBodyAttr(theme);
+    //   if (process.isClient) {
+    //     localStorage.setItem("theme", theme);
+    //   }
+    // },
     setBodyAttr(theme) {
       const [body] = document.getElementsByTagName("body");
       if (!body) return;
@@ -924,6 +953,7 @@ export default {
     this.isNavOpen = false;
     this.toggleNavOpen();
     this.callFunction("body-visible");
+    this.setInitialTheme();
   },
 };
 </script>
@@ -1317,6 +1347,10 @@ export default {
       }
     }
   }
+}
+
+.swirl-wrapper {
+  height: var(--f-header-height);
 }
 
 .swirl {
