@@ -23,7 +23,7 @@
       pageClass() {
         const dir = this.$page.content.fileInfo.directory;
         const name = this.$page.content.fileInfo.name;
-        return `${dir}-${name}`;
+        return dir ? `${dir}-${name}` : name;
       }
     }
   }
