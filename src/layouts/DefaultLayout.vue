@@ -338,27 +338,9 @@
               </a>
             </nav>
             <!-- * THEME SELECTION -->
-            <button class="theme" @click="toggleDarkLightMode">
+            <!-- <button class="theme" @click="toggleDarkLightMode">
               <theme-mode></theme-mode>
-              <!-- <themed-image>
-                <img
-                  class="not-invert"
-                  dark
-                  dark-colored
-                  src="@/assets/moon.svg"
-                  width="24"
-                  height="24"
-                />
-                <img
-                  class="not-invert"
-                  light
-                  light-colored
-                  src="@/assets/sun.svg"
-                  width="24"
-                  height="24"
-                />
-              </themed-image> -->
-            </button>
+            </button> -->
             <!-- * THEME SELECTION -->
             <button class="theme" @click="toggleColoredMode">
               <theme-color></theme-color>

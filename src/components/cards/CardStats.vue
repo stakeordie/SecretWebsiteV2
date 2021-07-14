@@ -14,13 +14,13 @@
     </block-->
     <block>
       <div class="card-stats" :class="{ cta: url }">
-        <h3>{{ formatNumber(circulatingSupply) }}</h3>
+        <h3 class="no-sign">{{ formatNumber(circulatingSupply) }}</h3>
         <h4>Circ. Supply</h4>
       </div>
     </block>
     <block>
       <div class="card-stats" :class="{ cta: url }">
-        <h3>{{ formatNumber(totalSupply) }}</h3>
+        <h3 class="no-sign">{{ formatNumber(totalSupply) }}</h3>
         <h4>Total Supply</h4>
       </div>
     </block>
@@ -91,7 +91,7 @@ export default {
     formatNumber(value) {
       if (typeof value === 'undefined') return '';
       return `$${abbreviate(value)}`;
-    }
+    },
   },
 
   async mounted() {
@@ -136,6 +136,11 @@ $accent-colors: (
   display: grid;
   height: 100%;
   align-items: center;
+
+  .no-sign {
+    text-indent: -1ch;
+    overflow: hidden;
+  }
 
   h1,
   h2,

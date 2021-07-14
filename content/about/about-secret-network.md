@@ -223,7 +223,7 @@ title: "About"
 
 <block class="learn-more">
 
-<p><a href="/blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p>
+<!-- <p><a href="http://localhost:8080//blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p> -->
 
 </block>
 
@@ -232,7 +232,7 @@ title: "About"
 
 
 <!-- Card stats -->
-<card-stats></card-stats>
+<!-- <card-stats class="spacer-s"></card-stats> -->
 
 
 
