@@ -103,10 +103,10 @@ export default {
               heroMessageEl.offsetWidth / 2 +
               "px"} 1fr;`
           );
-          bottomLayerSideRightImg.setAttribute(
-            "style",
-            `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
-          );
+          // bottomLayerSideRightImg.setAttribute(
+          //   "style",
+          //   `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
+          // );
         }
       };
       window.addEventListener("resize", function() {
