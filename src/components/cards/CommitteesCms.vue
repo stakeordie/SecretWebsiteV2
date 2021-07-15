@@ -129,7 +129,6 @@
         return this.$static.committees.edges.map(({
           node: committee
         }) => {
-          console.log(committee);
           return {
             id: committee.id,
             name: committee.name,
