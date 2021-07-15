@@ -62,7 +62,8 @@ module.exports = {
                 'home-explainer',
                 'home-announcements',
                 'home-featured-media',
-                'about-content'
+                'about-content',
+                'about-secret-tokens-bridges'
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
