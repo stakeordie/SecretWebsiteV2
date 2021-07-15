@@ -53,7 +53,8 @@ module.exports = {
                 'tools-and-wallets',
                 'exchanges',
                 'international-communities',
-                'card-grid-headers'
+                'card-grid-headers',
+                'committees'
             ],
             singleTypes: [
                 'alert-bar',

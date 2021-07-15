@@ -54,7 +54,7 @@ We are collectively exploring ways for Secret Network participants (Secret Agent
 
 <block>
 
-<committees></committees>
+<committees-cms></committees-cms>
 
 </block>
 

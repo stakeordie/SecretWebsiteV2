@@ -56,6 +56,7 @@ import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
+import CommitteesCms from '~/components/cards/CommitteesCms.vue';
 import Btn from '~/components/Btn.vue';
 import Faq from '~/components/Faq.vue';
 import Colors from '~/components/cards/Colors.vue';
@@ -139,6 +140,7 @@ export default function (Vue, {
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
   Vue.component('Committees', Committees);
+  Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
   Vue.component('Faq', Faq);
   Vue.component('Colors', Colors);

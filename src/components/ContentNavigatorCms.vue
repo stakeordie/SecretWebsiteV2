@@ -6,7 +6,7 @@
     </block>
     <block class="content-body">
 
-        <vue-markdown v-for="(element, index) in sectionContent" :key="index" :source="element.mainContent"></vue-markdown>
+        <vue-markdown v-for="(element, index) in sectionContent" :key="index" :source="element.mainContent" :toc="true" :toc-anchor-link="false"></vue-markdown>
 
     </block>
   </column>
