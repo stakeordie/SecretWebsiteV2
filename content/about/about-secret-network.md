@@ -141,13 +141,13 @@ title: "About"
 
 <block>
 
-<text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
+<text-area section="bottom_second" color="accent-orange"></text-area>
 
-<text-area section="bottom_third" color="accent-blue" link="/about/secret-tokens-bridges"></text-area>
+<text-area section="bottom_third" color="accent-blue"></text-area>
 
-<text-area section="bottom_fourth" color="accent-green" link="/about/secret-finance"></text-area>
+<text-area section="bottom_fourth" color="accent-green"></text-area>
 
-<text-area section="bottom_fifth" color="accent-purple" link="/about/secret-nfts"></text-area>
+<text-area section="bottom_fifth" color="accent-purple"></text-area>
 
 </block>
 
