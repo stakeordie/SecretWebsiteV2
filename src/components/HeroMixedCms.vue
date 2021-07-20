@@ -163,6 +163,16 @@ query {
           heroBody
           mainContent
         }
+        faq {
+          heroColor
+          heroImage {
+            url
+          }
+          heroSubtitle
+          heroTitle
+          heroBody
+          mainContent
+        }
       }
     }
   }
