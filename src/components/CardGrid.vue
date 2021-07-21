@@ -73,6 +73,7 @@
                     {{ formatCategory(category.name) }}
                   </p>
                 </div>
+                <p class="language" v-if="element.language">{{ element.language }}</p>
               </div>
             </a>
           </div>
@@ -332,13 +333,14 @@ query {
       }
     }
   }
-  internationalCommunities: allStrapiInternationalCommunities {
+    internationalCommunities: allStrapiInternationalCommunities {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        language: language
         picture: logo {
           url
         }

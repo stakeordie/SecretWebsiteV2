@@ -843,15 +843,15 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
-      this.removeMainMarginHeroMixed();
+      // this.removeMainMarginHeroMixed();
     },
   },
 
   methods: {
-    removeMainMarginHeroMixed() {
-      const mainEl = document.querySelector('main.--flare-page');
-      mainEl.classList.remove('hero-mixed-margin');
-    },
+    // removeMainMarginHeroMixed() {
+    //   const mainEl = document.querySelector('main.--flare-page');
+    //   mainEl.classList.remove('hero-mixed-margin');
+    // },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");
@@ -936,6 +936,7 @@ export default {
     this.toggleNavOpen();
     this.callFunction("body-visible");
     this.setInitialTheme();
+    // this.removeMainMarginHeroMixed();
   },
 };
 </script>

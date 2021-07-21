@@ -237,7 +237,7 @@ title: "About"
 
 
 <!-- block header -->
-<column id="faq">
+<!-- <column id="faq">
 
 <block>
 
@@ -245,10 +245,10 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 <!-- FAQ -->
-<column>
+<!-- <column>
 
 <block>
 
@@ -256,4 +256,4 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->

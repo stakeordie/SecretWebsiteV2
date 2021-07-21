@@ -59,7 +59,7 @@
         faqs: [
           {
             id: 0,
-            question: `What is the Secret Network?`,
+            question: `What is the Secret Network?🍔`,
             answer: `<p>The Secret Network is a decentralized network of computers (which we call "secret nodes") that use
     hardware-based and software-based privacy technologies to enable <strong>secure computation.</strong> On top
     of this network, developers can build <strong>Secret Apps</strong> - unstoppable, permissionless

@@ -115,9 +115,12 @@ export default {
 
 <static-query>
 query {
- 	mediaEntries: allStrapiExternalMediaAlts {
-   	edges {
+  mediaEntries: allStrapiExternalMediaAlts(
+    sort: { by: "order", order: ASC }) {
+    edges {
       node {
+        id: id
+        order
         title
         type
         link
@@ -125,12 +128,12 @@ query {
           url
         }
         is_featured
-        external_media_source{
+        external_media_source {
           name
           link
         }
       }
-    } 
+    }
   }
 }
 </static-query>
