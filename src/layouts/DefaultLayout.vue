@@ -681,6 +681,11 @@ export default {
           path: "/media/features",
           target: "self",
         },
+        {
+          title: "FAQ",
+          path: "/about/faq",
+          target: "self",
+        },
       ],
       linksCommunity: [
         {
@@ -741,7 +746,7 @@ export default {
         },
         {
           title: "FAQ",
-          path: "/about/about-secret-network#faq",
+          path: "/about/faq",
           external: false,
           target: "self",
         },
