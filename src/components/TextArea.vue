@@ -82,6 +82,11 @@ query{
           subtitle
           body
         }
+        choose_privacy{
+          title
+          subtitle
+          body
+        }
       }
     }
   }

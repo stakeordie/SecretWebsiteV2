@@ -230,6 +230,27 @@ title: "About"
 </column>
 
 
+<!-- Privacy Important -->
+<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
+
+<block>
+
+<text-area section="choose_privacy" color="accent-yellow" class="homogenize-headings"></text-area>
+
+</block>
+
+<!-- <block>
+
+<card-current-price>
+
+</card-current-price>
+
+</block> -->
+
+</column>
+
+
+
 
 <!-- Card stats -->
 <!-- <card-stats class="spacer-s"></card-stats> -->
