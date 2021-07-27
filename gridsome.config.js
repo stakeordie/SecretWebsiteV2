@@ -61,6 +61,7 @@ module.exports = {
                 'home-hero',
                 'home-cta-cards',
                 'home-explainer',
+                'home-explainer-i-18-n',
                 'home-announcements',
                 'home-featured-media',
                 'about-content',
