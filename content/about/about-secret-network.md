@@ -141,13 +141,13 @@ title: "About"
 
 <block>
 
-<text-area section="bottom_second" color="accent-orange"></text-area>
+<text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
 
-<text-area section="bottom_third" color="accent-blue"></text-area>
+<text-area section="bottom_third" color="accent-blue" link="/about/secret-tokens-bridges"></text-area>
 
-<text-area section="bottom_fourth" color="accent-green"></text-area>
+<text-area section="bottom_fourth" color="accent-green" link="/about/secret-finance"></text-area>
 
-<text-area section="bottom_fifth" color="accent-purple"></text-area>
+<text-area section="bottom_fifth" color="accent-purple" link="/about/secret-nfts"></text-area>
 
 </block>
 
@@ -223,21 +223,42 @@ title: "About"
 
 <block class="learn-more">
 
-<p><a href="/blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p>
+<!-- <p><a href="http://localhost:8080//blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p> -->
 
 </block>
 
 </column>
 
 
+<!-- Privacy Important -->
+<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
+
+<block>
+
+<text-area section="choose_privacy" color="accent-yellow" class="homogenize-headings"></text-area>
+
+</block>
+
+<!-- <block>
+
+<card-current-price>
+
+</card-current-price>
+
+</block> -->
+
+</column>
+
+
+
 
 <!-- Card stats -->
-<card-stats></card-stats>
+<!-- <card-stats class="spacer-s"></card-stats> -->
 
 
 
 <!-- block header -->
-<column id="faq">
+<!-- <column id="faq">
 
 <block>
 
@@ -245,10 +266,10 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 <!-- FAQ -->
-<column>
+<!-- <column>
 
 <block>
 
@@ -256,4 +277,4 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->

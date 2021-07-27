@@ -338,27 +338,9 @@
               </a>
             </nav>
             <!-- * THEME SELECTION -->
-            <button class="theme" @click="toggleDarkLightMode">
+            <!-- <button class="theme" @click="toggleDarkLightMode">
               <theme-mode></theme-mode>
-              <!-- <themed-image>
-                <img
-                  class="not-invert"
-                  dark
-                  dark-colored
-                  src="@/assets/moon.svg"
-                  width="24"
-                  height="24"
-                />
-                <img
-                  class="not-invert"
-                  light
-                  light-colored
-                  src="@/assets/sun.svg"
-                  width="24"
-                  height="24"
-                />
-              </themed-image> -->
-            </button>
+            </button> -->
             <!-- * THEME SELECTION -->
             <button class="theme" @click="toggleColoredMode">
               <theme-color></theme-color>
@@ -699,6 +681,11 @@ export default {
           path: "/media/features",
           target: "self",
         },
+        {
+          title: "FAQ",
+          path: "/about/faq",
+          target: "self",
+        },
       ],
       linksCommunity: [
         {
@@ -759,7 +746,7 @@ export default {
         },
         {
           title: "FAQ",
-          path: "/about/about-secret-network#faq",
+          path: "/about/faq",
           external: false,
           target: "self",
         },
@@ -861,15 +848,15 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
-      this.removeMainMarginHeroMixed();
+      // this.removeMainMarginHeroMixed();
     },
   },
 
   methods: {
-    removeMainMarginHeroMixed() {
-      const mainEl = document.querySelector('main.--flare-page');
-      mainEl.classList.remove('hero-mixed-margin');
-    },
+    // removeMainMarginHeroMixed() {
+    //   const mainEl = document.querySelector('main.--flare-page');
+    //   mainEl.classList.remove('hero-mixed-margin');
+    // },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");
@@ -954,6 +941,7 @@ export default {
     this.toggleNavOpen();
     this.callFunction("body-visible");
     this.setInitialTheme();
+    // this.removeMainMarginHeroMixed();
   },
 };
 </script>

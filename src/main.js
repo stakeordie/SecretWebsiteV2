@@ -38,6 +38,7 @@ import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
 import HeroMixed from '~/components/HeroMixed.vue';
+import HeroMixedCms from '~/components/HeroMixedCms.vue';
 import TextArea from '~/components/TextArea.vue';
 import CardSimple from '~/components/cards/CardSimple.vue';
 // import CardSimpleDynamic from '~/components/cards/CardSimpleDynamic.vue';
@@ -55,12 +56,14 @@ import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
+import CommitteesCms from '~/components/cards/CommitteesCms.vue';
 import Btn from '~/components/Btn.vue';
 import Faq from '~/components/Faq.vue';
 import Colors from '~/components/cards/Colors.vue';
 import MediaChannels from '~/components/cards/MediaChannels.vue';
 import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
+import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -119,6 +122,7 @@ export default function (Vue, {
   Vue.component('HeroVideo', HeroVideo);
   Vue.component('HeroTitle', HeroTitle);
   Vue.component('HeroMixed', HeroMixed);
+  Vue.component('HeroMixedCms', HeroMixedCms);
   Vue.component('TextArea', TextArea);
   Vue.component('CardSimple', CardSimple);
   // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
@@ -136,12 +140,14 @@ export default function (Vue, {
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
   Vue.component('Committees', Committees);
+  Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
   Vue.component('Faq', Faq);
   Vue.component('Colors', Colors);
   Vue.component('MediaChannels', MediaChannels);
   Vue.component('ContentNavigator', ContentNavigator);
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
+  Vue.component('ContentNavigatorCms', ContentNavigatorCms);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);

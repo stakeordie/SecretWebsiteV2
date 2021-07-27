@@ -1,9 +1,14 @@
 <template>
   <div>
+    <!-- GRID HEADER -->
+    <div class="grid-header">
+        <h3>{{ gridHeaderTitle(header) }}</h3>
+        <p>{{ gridHeaderSubtitle(header) }}</p>
+    </div>
     <div class="elements">
       <!-- FILTER -->
       <div class="filter">
-        <h3>{{ title }}</h3>
+        <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3>
         <div class="filter-auction" v-if="hasCategories">
           <h4>Filters</h4>
           <button class="btn-clear" v-on:click="resetCheck">Clear</button>
@@ -68,6 +73,7 @@
                     {{ formatCategory(category.name) }}
                   </p>
                 </div>
+                <p class="language" v-if="element.language">{{ element.language }}</p>
               </div>
             </a>
           </div>
@@ -120,6 +126,7 @@
 </template>
 
 <script>
+import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
 
 const sortBySorting = (first, second) => {
@@ -127,7 +134,6 @@ const sortBySorting = (first, second) => {
   if (second.sort == null) return -1;
   return first.sort - second.sort;
 };
-
 
 export default {
   components: { Pagination },
@@ -138,22 +144,51 @@ export default {
 
       checkedCategories: [],
 
-      selectedTag: "All",
+      selectedTag: "All"
     };
   },
 
   props: {
     title: { type: String, required: true },
     collection: { type: String, required: true },
+    header: { type: String, required: false, default: "" },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
-    hasCategories: { type: Boolean, default: true },
+    hasCategories: { type: Boolean, default: true }
   },
 
   methods: {
+    gridHeaderTitle(x) {
+      let headers = this.$static.gridHeaders.edges;
+      for (let i = 0; i < headers.length; i++) {
+        let headerEdge = headers[i];
+        let headerTitle = headerEdge.node.title;
+        let headerSubtitle = headerEdge.node.subtitle;
+        if (headerTitle == x) {
+          console.log(i);
+          headerTitle = this.$static.gridHeaders.edges[i].node.title;
+          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
+          return headerTitle;
+        }
+      }
+    },
+    gridHeaderSubtitle(x) {
+      let headers = this.$static.gridHeaders.edges;
+      for (let i = 0; i < headers.length; i++) {
+        let headerEdge = headers[i];
+        let headerTitle = headerEdge.node.title;
+        let headerSubtitle = headerEdge.node.subtitle;
+        if (headerTitle == x) {
+          console.log(i);
+          headerTitle = this.$static.gridHeaders.edges[i].node.title;
+          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
+          return headerSubtitle;
+        }
+      }
+    },
     formatCategory(category) {
-      if (!category) return '';
-      return category.includes('_') ? category.replace('_', ' ') : category;
+      if (!category) return "";
+      return category.includes("_") ? category.replace("_", " ") : category;
     },
     setPagesFather(number) {
       this.currentPage = number;
@@ -162,12 +197,14 @@ export default {
       this.checkedCategories = [];
     },
     walletCheck() {
-      if(window.location.hash) {
-        if (this.collection === 'toolsAndWallets') {
-          const container = document.querySelector('.tools-and-wallets-container');
+      if (window.location.hash) {
+        if (this.collection === "toolsAndWallets") {
+          const container = document.querySelector(
+            ".tools-and-wallets-container"
+          );
           setTimeout(() => {
             this.checkedCategories = ["wallet"];
-            container.style.scrollMargin = 100+'px';
+            container.style.scrollMargin = 100 + "px";
             container.scrollIntoView();
           }, 1);
         }
@@ -182,18 +219,17 @@ export default {
       } else {
         return "tag-card-5";
       }
-    },
+    }
   },
 
   computed: {
-    
     filteredElements() {
       this.collections.sort(sortBySorting);
       if (!this.checkedCategories.length) {
         return this.collections;
       }
-      const collection =  this.collections.filter((post) =>
-        post.types.some((tag) => this.checkedCategories.includes(tag.name))
+      const collection = this.collections.filter(post =>
+        post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
       return collection;
     },
@@ -205,44 +241,50 @@ export default {
     },
 
     collections() {
-      return this.$static[this.collection].edges.map((it) => it.node);
+      return this.$static[this.collection].edges.map(it => it.node);
     },
 
     categories() {
-      const data = this.$static[this.collection].edges.filter((element) => {
+      const data = this.$static[this.collection].edges.filter(element => {
         return element.node.types.length > 0;
       });
 
-      const categoryData = data.map((item) => {
+      const categoryData = data.map(item => {
         return {
-          name: item.node.types[0]?.name,
+          name: item.node.types[0]?.name
         };
       });
 
       let uniqueCategories = [];
 
-      categoryData.filter((cat) => {
-        if (
-          !uniqueCategories.find(
-            (cat_some) => cat_some.name == cat.name
-          )
-        ) {
+      categoryData.filter(cat => {
+        if (!uniqueCategories.find(cat_some => cat_some.name == cat.name)) {
           uniqueCategories.push(cat);
         }
       });
 
       return uniqueCategories;
-    },
+    }
   },
 
   mounted() {
     this.walletCheck();
-  },
+    // this.gridHeader();
+  }
 };
 </script>
 
 <static-query>
 query {
+  gridHeaders: allStrapiCardGridHeaders {
+    edges {
+      node {
+        id
+        title,
+        subtitle
+      }
+    }
+  }
   dApps: allStrapiDApps {
     edges {
       node {
@@ -291,13 +333,14 @@ query {
       }
     }
   }
-  internationalCommunities: allStrapiInternationalCommunities {
+    internationalCommunities: allStrapiInternationalCommunities {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        language: language
         picture: logo {
           url
         }
@@ -333,6 +376,15 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
+.grid-header {
+  display: grid;
+  max-width: 60%;
+  margin-bottom: var(--f-gutter-l);
+  @include respond-to("<=s") {      
+    max-width: 100%;
+  }
+}
+
 .elements {
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -344,6 +396,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     grid-template-columns: 1fr;
   }
 
+  h3 {
+    margin-bottom: 48px;
+  }
+
   h4 {
     color: var(--color-neutral-dark-mode-05);
   }
@@ -353,7 +409,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     justify-content: space-between;
 
     @include respond-to(">=s") {
-      margin: 48px 0px 20px 0px;
+      margin: 0px 0px 20px 0px;
     }
 
     button {
