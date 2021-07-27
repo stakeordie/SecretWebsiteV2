@@ -93,6 +93,21 @@ module.exports = {
             plugins: ['@gridsome/remark-prismjs']
         }
     },
+    {
+      use: "gridsome-plugin-i18n",
+      options: {
+        defaultLocale: 'en-us',
+        locales: [
+          'en-us',
+          'es-mx'
+        ],
+        messages: {
+          'es-mx': require('./src/locales/es-mx.json')
+        },
+        //rewriteDefaultLanguage: false,
+        //enablePathRewrite: true
+      }
+    },
     ],
     templates: {
         GhostPost: '/blog/:slug',
