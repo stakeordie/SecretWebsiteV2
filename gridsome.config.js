@@ -56,6 +56,9 @@ module.exports = {
                 'card-grid-headers',
                 'committees'
             ],
+            localizedTypes: [
+              'home-explainer-i-18-n'
+            ],
             singleTypes: [
                 'alert-bar',
                 'home-hero',
@@ -72,7 +75,7 @@ module.exports = {
             loginData: {
                 identifier: '',
                 password: ''
-            }
+            },
         }
     },
     {
