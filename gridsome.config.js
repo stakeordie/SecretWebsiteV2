@@ -97,15 +97,17 @@ module.exports = {
     {
       use: "gridsome-plugin-i18n",
       options: {
-        defaultLocale: 'en-us',
+        defaultLocale: 'en',
         locales: [
-          'en-us',
-          'es-mx'
+          'en',
+          'es',
+          'jp'
         ],
         messages: {
-          'es-mx': require('./src/locales/es-mx.json')
+          'es': require('./src/locales/es.json'),
+          'jp': require('./src/locales/jp.json')
         },
-        //rewriteDefaultLanguage: false,
+        rewriteDefaultLanguage: false
         //enablePathRewrite: true
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <g-link class="card-about-content no-bg" :class="color" :to="link">
+  <g-link class="card-about-content no-bg" :class="color" :to="$tp(link)">
     <div v-for="(element, index) in sectionContent" :key="index">
         <h5>{{ element.title }}</h5>
       <h3 v-if="section === 'top'">{{ element.subtitle }}</h3>

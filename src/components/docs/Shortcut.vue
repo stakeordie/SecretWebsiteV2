@@ -1,7 +1,7 @@
 <template>
   <article>
     <h2>
-      <g-link :to="link">
+      <g-link :to="$tp(link)">
         {{ text }}
       </g-link>
     </h2>
