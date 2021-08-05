@@ -942,15 +942,6 @@
     "@tryghost/content-api" "^1.3.4"
     camelcase "^5.0.0"
 
-"@gridsome/source-strapi@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@gridsome/source-strapi/-/source-strapi-0.2.0.tgz#e57401f7fc5f1ec6b046cb831abca68e9d5bd10e"
-  integrity sha512-LSPu3am/TqIgW6BCj4DWFbRbaLOR2kpnxM+2RIuL6dWE9h9XMNUFVfUSGuI4WOwwPDJEw2l6QYJJYvtBXBJ7Jw==
-  dependencies:
-    axios "^0.19.0"
-    lodash "^4.17.11"
-    pluralize "^7.0.0"
-
 "@gridsome/transformer-remark@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@gridsome/transformer-remark/-/transformer-remark-0.6.4.tgz#e2b5319fc021379730cfd86b4f1c1276d8677b5e"
@@ -1103,6 +1094,15 @@
   dependencies:
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
+
+"@stakeordie/source-strapi@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@stakeordie/source-strapi/-/source-strapi-0.2.0.tgz#7087820da3699c18c7fe060cd19551a4b688efc3"
+  integrity sha512-D90/b7Se2RdbM7mWCjHiBkY04gLhP8C1nnNYu8xd8gGtuZrgKe0AvkC9ydqW6xJJzjCe89BegtfCW7ZsG3YMTQ==
+  dependencies:
+    axios "^0.19.0"
+    lodash "^4.17.11"
+    pluralize "^7.0.0"
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
