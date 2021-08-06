@@ -38,7 +38,7 @@ module.exports = {
         }
     },
     {
-        use: '@gridsome/source-strapi',
+        use: '@stakeordie/source-strapi',
         options: {
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
@@ -56,11 +56,15 @@ module.exports = {
                 'card-grid-headers',
                 'committees'
             ],
+            localizedTypes: [
+              'home-explainer-i-18-n'
+            ],
             singleTypes: [
                 'alert-bar',
                 'home-hero',
                 'home-cta-cards',
                 'home-explainer',
+                'home-explainer-i-18-n',
                 'home-announcements',
                 'home-featured-media',
                 'about-content',
@@ -71,7 +75,7 @@ module.exports = {
             loginData: {
                 identifier: '',
                 password: ''
-            }
+            },
         }
     },
     {
@@ -92,6 +96,23 @@ module.exports = {
             template: './src/templates/Docs.vue',
             plugins: ['@gridsome/remark-prismjs']
         }
+    },
+    {
+      use: "gridsome-plugin-i18n",
+      options: {
+        defaultLocale: 'en',
+        locales: [
+          'en',
+          'es',
+          'jp'
+        ],
+        messages: {
+          'es': require('./src/locales/es.json'),
+          'jp': require('./src/locales/jp.json')
+        },
+        rewriteDefaultLanguage: false
+        //enablePathRewrite: true
+      }
     },
     ],
     templates: {

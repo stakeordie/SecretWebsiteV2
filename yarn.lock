@@ -942,15 +942,6 @@
     "@tryghost/content-api" "^1.3.4"
     camelcase "^5.0.0"
 
-"@gridsome/source-strapi@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@gridsome/source-strapi/-/source-strapi-0.2.0.tgz#e57401f7fc5f1ec6b046cb831abca68e9d5bd10e"
-  integrity sha512-LSPu3am/TqIgW6BCj4DWFbRbaLOR2kpnxM+2RIuL6dWE9h9XMNUFVfUSGuI4WOwwPDJEw2l6QYJJYvtBXBJ7Jw==
-  dependencies:
-    axios "^0.19.0"
-    lodash "^4.17.11"
-    pluralize "^7.0.0"
-
 "@gridsome/transformer-remark@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@gridsome/transformer-remark/-/transformer-remark-0.6.4.tgz#e2b5319fc021379730cfd86b4f1c1276d8677b5e"
@@ -1103,6 +1094,15 @@
   dependencies:
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
+
+"@stakeordie/source-strapi@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@stakeordie/source-strapi/-/source-strapi-0.2.0.tgz#7087820da3699c18c7fe060cd19551a4b688efc3"
+  integrity sha512-D90/b7Se2RdbM7mWCjHiBkY04gLhP8C1nnNYu8xd8gGtuZrgKe0AvkC9ydqW6xJJzjCe89BegtfCW7ZsG3YMTQ==
+  dependencies:
+    axios "^0.19.0"
+    lodash "^4.17.11"
+    pluralize "^7.0.0"
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -4581,6 +4581,14 @@ gray-matter@^4.0.2:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+gridsome-plugin-i18n@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-i18n/-/gridsome-plugin-i18n-1.6.0.tgz#6bb1456fa60a1be856a7bd0a04bea41f753db3e0"
+  integrity sha512-p7jNEk5RwhQlAVMPZyCvw7HxrheRfbXf7w4wXm0NJdxj9FD9r61voEDVlUGirdt+Rt2lJ5HDowzg3qsumnWM6w==
+  dependencies:
+    core-js "^3.6.4"
+    vue-i18n "^8.15.5"
 
 gridsome-plugin-remark-prismjs-all@^0.3.5:
   version "0.3.5"
@@ -9971,6 +9979,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-i18n@^8.15.5:
+  version "8.25.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.25.0.tgz#1037d9295fa2845a230b771de473481edb2cfc4c"
+  integrity sha512-ynhcL+PmTxuuSE1T10htiSXzjBozxYIE3ffbM1RfgAkVbr/v1SP+9Mi/7/uv8ZVV1yGuKjFAYp9BXq+X7op6MQ==
 
 vue-infinite-slide-bar@^1.1.1:
   version "1.1.1"

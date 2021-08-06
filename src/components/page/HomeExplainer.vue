@@ -3,9 +3,9 @@
 
     <!-- Want to build better internet title -->
     <div class="color-change" number="1" number-m="1" number-s="1">
-      <h2 class="first-heading">{{ $static.homeExplainer.edges[0].node.title }}</h2>
+      <h2 class="first-heading">{{ homeExplainer.title }}</h2>
       <h2>
-        {{ $static.homeExplainer.edges[0].node.subtitle }} <typical :steps="steps" :loop="Infinity" :wrapper="'span'">
+        {{ homeExplainer.subtitle }} <typical :steps="steps" :loop="Infinity" :wrapper="'span'">
         </typical>.
       </h2>
     </div>
@@ -13,14 +13,14 @@
     <!-- Want to build better internet paragraphs -->
     <div class="description">
       <div>
-        <p><vue-markdown>{{ $static.homeExplainer.edges[0].node.column_1 }}</vue-markdown></p>
+        <p><vue-markdown>{{ homeExplainer.column_1 }}</vue-markdown></p>
       </div>
       <div>
-        <p><vue-markdown>{{ $static.homeExplainer.edges[0].node.column_2 }}</vue-markdown></p>
+        <p><vue-markdown>{{ homeExplainer.column_2 }}</vue-markdown></p>
       </div>
       <div>
-        <btn :url="$static.homeExplainer.edges[0].node.page.route">
-          {{ $static.homeExplainer.edges[0].node.button_title }}</btn>
+        <btn :url="homeExplainer.page.route">
+          {{ homeExplainer.button_title }}</btn>
       </div>
     </div>
   </div>
@@ -29,9 +29,22 @@
 <script>
   export default {
     computed: {
+      homeExplainer() {
+        const locale = this.$context.locale;
+        const homeExplainer = this.$static.homeExplainer.edges
+          .find(({ node }) => node.locale === locale);
+        if (!homeExplainer) {
+          const { node } =  this.$static.homeExplainer.edges
+            .find(({ node }) => node.locale === 'en');
+          return node;
+        } else {
+          return homeExplainer.node;
+        }
+      },
+
       steps() {
         let stepsArray = Array();
-        const words = this.$static.homeExplainer.edges[0].node.changing_words;
+        const words = this.homeExplainer.changing_words;
         words.forEach((word) => {
           stepsArray.push(word.word);
           stepsArray.push(word.seconds * 1000);
@@ -44,26 +57,27 @@
 </script>
 
 <static-query>
-  query {
-    homeExplainer: allStrapiHomeExplainer {
-      edges {
-        node {
-          title
-          subtitle
-          column_1
-          column_2
-          changing_words {
-            word
-            seconds
-          },
-          button_title
-          page {
-            route
-          }
+query {
+  homeExplainer: allStrapiHomeExplainerI18N {
+    edges {
+      node {
+        title
+        subtitle
+        column_1
+        column_2
+        changing_words {
+          word
+          seconds
         }
+        button_title
+        page {
+          route
+        }
+        locale
       }
     }
   }
+}
 </static-query>
 
 <style lang="scss">

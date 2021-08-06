@@ -1,0 +1,18 @@
+{
+  "common": {
+    "learn_more": "etudes plus"
+  },
+  "committees": {
+    "intro": "Estamos explorando formas para que Secret Network."
+  },
+  "developers": {
+    "how_do_i_get": {
+      "learn_about_secret_contracts": "Estamos explorando formas para que Secret Nerk.",
+      "build_contracts_with_encrypted": "Somehting Else"
+    },
+    "about_secret_contracts": {
+      "smart_contracts_with_data": "Estamos explorando formas para que Secret Nerk.",
+      "build_contracts_with_encrypted": "Somehting Else"
+    }
+  }
+}

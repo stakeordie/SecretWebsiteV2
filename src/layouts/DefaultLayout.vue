@@ -21,7 +21,7 @@
           />
         </a>
         <!-- logo -->
-        <g-link class="link-logo" to="/">
+        <g-link class="link-logo" :to="$tp(`/`)">
           <img
             class="header__logo"
             src="../assets/secretnetwork-logo-primary-white.svg"
@@ -65,7 +65,7 @@
                         v-bind:key="index + link"
                         v-for="(link, index) in linksLearn"
                       >
-                        <g-link :to="link.path" :title="link.title">
+                        <g-link :to="$tp(link.path)" :title="link.title">
                           {{ link.title }}</g-link
                         >
                       </li>
@@ -102,7 +102,7 @@
                         v-bind:key="index + link"
                         v-for="(link, index) in linksCommunity"
                       >
-                        <g-link :to="link.path" :title="link.title">
+                        <g-link :to="$tp(link.path)" :title="link.title">
                           {{ link.title }}</g-link
                         >
                       </li>
@@ -140,7 +140,7 @@
                         v-for="(link, index) in linksDevelopers"
                       >
                         <g-link
-                          :to="link.path"
+                          :to="$tp(link.path)"
                           :target="link.target"
                           :title="link.title"
                         >
@@ -181,7 +181,7 @@
                         v-for="(link, index) in linksEcosystem"
                       >
                         <g-link
-                          :to="link.path"
+                          :to="$tp(link.path)"
                           :target="link.target"
                           :title="link.title"
                         >
@@ -438,7 +438,7 @@
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterLearn"
-              :to="link.path"
+              :to="$tp(link.path)"
               :target="link.target"
             >
               <span :class="{ 'icon icon-icon-arrow-external': link.external }">
@@ -451,7 +451,7 @@
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterCommunity"
-              :to="link.path"
+              :to="$tp(link.path)"
               :target="link.target"
             >
               <span
@@ -465,7 +465,7 @@
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterDevelopers"
-              :to="link.path"
+              :to="$tp(link.path)"
               :target="link.target"
             >
               <span
@@ -479,7 +479,7 @@
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterEcosystem"
-              :to="link.path"
+              :to="$tp(link.path)"
               :target="link.target"
             >
               <span
@@ -491,7 +491,7 @@
         </section>
         <section class="footer-contact">
           <div class="social">
-            <g-link to="/">
+            <g-link :to="$tp(`/`)">
               <img
                 class="scrt-logo"
                 src="../assets/secretnetwork-logo-primary-white.svg"
@@ -586,7 +586,7 @@
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksForSocial"
-              :to="link.path"
+              :to="$tp(link.path)"
               :target="link.target"
             >
               <span
@@ -648,9 +648,9 @@
 
 <static-query>
   query {
-  metadata {
-  siteName
-  }
+    metadata {
+      siteName
+    }
   }
 </static-query>
 
