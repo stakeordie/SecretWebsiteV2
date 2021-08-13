@@ -2,7 +2,7 @@
   <g-link
     class="blog-card cta"
     :class="`accent-` + color"
-    :to="`/blog/${slug}`"
+    :to="$tp(`/blog/${slug}`)"
   >
     <svg
       width="100%"
