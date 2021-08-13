@@ -227,4 +227,6 @@ export default function (Vue, {
     }
   })
 
+  const $tp = (value) => value;
+  Vue.prototype.$tp = !Vue.prototype.$tp ? $tp : Vue.prototype.$tp;
 }
