@@ -347,8 +347,8 @@
         max-width: var(--blog-content-width);
         width: 100%;
         line-height: var(--blog-text-font-line-height);
-        font-size: var(--blog-text-font-size);
         font-family: var(--blog-text-font-family);
+        font-size: var(--blog-text-font-size);
 
         code {
           padding: 0 var(--f-gutter-xs);
