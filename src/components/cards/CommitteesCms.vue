@@ -180,6 +180,9 @@ query {
     bizdev,
     governance,
     design,
+    secretswap,
+    analytics,
+    international,
   );
 
   // @each $name, $color in $accent-colors {
