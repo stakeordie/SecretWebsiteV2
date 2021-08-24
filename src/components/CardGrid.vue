@@ -44,7 +44,7 @@
 
       <div class="elements-container">
         <!-- GRID -->
-        <div class="elements-grid" v-if="isPaginated">
+        <div class="elements-grid PAGINATED" v-if="isPaginated">
           <div
             class="card-element"
             v-for="element in pagedArray"
@@ -79,7 +79,7 @@
           </div>
         </div>
 
-        <div class="elements-grid" v-else>
+        <div class="elements-grid NOPAGINATED" v-else>
           <div
             class="card-element"
             v-for="element in filteredElements"
@@ -132,6 +132,7 @@ import Pagination from "./Pagination.vue";
 const sortBySorting = (first, second) => {
   if (first.sort == null) return 1;
   if (second.sort == null) return -1;
+  console.log('SORT');
   return first.sort - second.sort;
 };
 
@@ -285,7 +286,7 @@ query {
       }
     }
   }
-  dApps: allStrapiDApps {
+    dApps: allStrapiDApps(sort: { by: "sort", order: DESC }) {
     edges {
       node {
         id
