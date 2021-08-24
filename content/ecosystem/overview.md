@@ -22,7 +22,7 @@ title: "Ecosystem"
 
 <block>
 
-<card-grid title="Secret Apps" header="DApps" collection="dApps" :isPaginated="false"></card-grid>
+<card-grid title="Secret Apps" header="DApps" collection="dApps" :isPaginated="true"></card-grid>
 
 </block>
 
