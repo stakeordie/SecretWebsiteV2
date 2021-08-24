@@ -83,7 +83,7 @@
           <div
             class="card-element"
             v-for="element in filteredElements"
-            :key="element.id"
+            :key="element.name"
           >
             <a :href="element.url" target="blank">
               <img :src="element.picture.url" alt="picture" />
@@ -132,7 +132,6 @@ import Pagination from "./Pagination.vue";
 const sortBySorting = (first, second) => {
   if (first.sort == null) return 1;
   if (second.sort == null) return -1;
-  console.log('SORT');
   return first.sort - second.sort;
 };
 
@@ -232,6 +231,7 @@ export default {
       const collection = this.collections.filter(post =>
         post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
+      console.log('COMPUTED');
       return collection;
     },
 
