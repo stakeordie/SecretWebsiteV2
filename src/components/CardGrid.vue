@@ -237,7 +237,7 @@ export default {
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      console.log('🐝');
+      console.log('🍔');
       return this.filteredElements.slice(start, end);
     },
 
