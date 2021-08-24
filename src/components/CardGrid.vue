@@ -82,8 +82,8 @@
         <div class="elements-grid NOPAGINATED" v-else>
           <div
             class="card-element"
-            v-for="element in filteredElements"
-            :key="element.name"
+            v-for="element in pagedArray"
+            :key="element.id"
           >
             <a :href="element.url" target="blank">
               <img :src="element.picture.url" alt="picture" />
@@ -231,13 +231,13 @@ export default {
       const collection = this.collections.filter(post =>
         post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
-      console.log('COMPUTED');
       return collection;
     },
 
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
+      console.log('🐝');
       return this.filteredElements.slice(start, end);
     },
 
