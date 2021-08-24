@@ -66,8 +66,8 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="(category, idx) in element.types"
-                    :key="idx"
+                    v-for="(category, id) in element.types"
+                    :key="id"
                     :class="'accent-' + category.name"
                   >
                     {{ formatCategory(category.name) }}
@@ -100,8 +100,8 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="(category, idx) in element.types"
-                    :key="idx"
+                    v-for="(category, id) in element.types"
+                    :key="id"
                     :class="'accent-' + category.name"
                   >
                     {{ formatCategory(category.name) }}
