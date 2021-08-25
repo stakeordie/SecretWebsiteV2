@@ -217,7 +217,7 @@ title: "About"
 
 <btn class="no-arrow bg-invert" url="/ecosystem/overview#exchange-and-wallet-support">Get SCRT</btn>
 
-<btn class="" url="/ecosystem/overview#exchange-and-wallet-support">Suported Wallets</btn>
+<btn class="" url="/ecosystem/overview#exchange-and-wallet-support">Supported Wallets</btn>
 
 </block>
 
