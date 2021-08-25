@@ -82,7 +82,7 @@
         <div class="elements-grid NOPAGINATED" v-else>
           <div
             class="card-element"
-            v-for="element in pagedArray"
+            v-for="element in filteredElements"
             :key="element.id"
           >
             <a :href="element.url" target="blank">
@@ -93,6 +93,8 @@
               >
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
+                  <small>{{ element.sort }}</small>
+                  <!-- <small>{{ element.id }}</small> -->
                 </div>
                 <div
                   class="m-elements"
@@ -130,10 +132,12 @@ import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
 
 const sortBySorting = (first, second) => {
-  if (first.sort == null) return 1;
-  if (second.sort == null) return -1;
+  if (first.sort === null) return 1;
+  if (second.sort === null) return -1;
   return first.sort - second.sort;
 };
+
+
 
 export default {
   components: { Pagination },
@@ -165,7 +169,7 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          console.log(i);
+          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -179,7 +183,7 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          console.log(i);
+          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -223,21 +227,49 @@ export default {
   },
 
   computed: {
+    // TODO
     filteredElements() {
-      this.collections.sort(sortBySorting);
+      const sortedCollection = this.collections;
+      for(const [i, element] of sortedCollection.entries()) {
+        // console.log(element.sort);
+        if (element.sort == null) {
+          element.sort = 99999;
+          // console.log(element.sort);
+        }
+      };
+
+      sortedCollection.sort(function(a, b) {
+        return a.sort - b.sort;
+      });
+      console.log(sortedCollection);
+      // sort((firstEl, secondEl) => { ... } )
       if (!this.checkedCategories.length) {
-        return this.collections;
-      }
-      const collection = this.collections.filter(post =>
+        return sortedCollection;
+      };
+      const collection = sortedCollection.filter(post =>
         post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
+      // console.log(collection);
+      console.log('🌶');
       return collection;
     },
+    // TODO
+    // filteredElements() {
+    //   this.collections.sort(sortBySorting);
+    //   if (!this.checkedCategories.length) {
+    //     return this.collections;
+    //   }
+    //   const collection = this.collections.filter(post =>
+    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
+    //   );
+    //   console.log(collection);
+    //   console.log('🌮');
+    //   return collection;
+    // },
 
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      console.log('🍔');
       return this.filteredElements.slice(start, end);
     },
 
@@ -286,7 +318,7 @@ query {
       }
     }
   }
-    dApps: allStrapiDApps(sort: { by: "sort", order: DESC }) {
+    dApps: allStrapiDApps {
     edges {
       node {
         id
