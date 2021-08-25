@@ -2,8 +2,8 @@
   <div>
     <!-- GRID HEADER -->
     <div class="grid-header">
-        <h3>{{ gridHeaderTitle(header) }}</h3>
-        <p>{{ gridHeaderSubtitle(header) }}</p>
+      <h3>{{ gridHeaderTitle(header) }}</h3>
+      <p>{{ gridHeaderSubtitle(header) }}</p>
     </div>
     <div class="elements">
       <!-- FILTER -->
@@ -73,7 +73,9 @@
                     {{ formatCategory(category.name) }}
                   </p>
                 </div>
-                <p class="language" v-if="element.language">{{ element.language }}</p>
+                <p class="language" v-if="element.language">
+                  {{ element.language }}
+                </p>
               </div>
             </a>
           </div>
@@ -93,7 +95,7 @@
               >
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
-                  <small>{{ element.sort }}</small>
+                  <!-- <small>{{ element.sort }}</small> -->
                   <!-- <small>{{ element.id }}</small> -->
                 </div>
                 <div
@@ -227,33 +229,27 @@ export default {
   },
 
   computed: {
-    // TODO
+    // WALTER WAS HERE
     filteredElements() {
       const sortedCollection = this.collections;
       for(const [i, element] of sortedCollection.entries()) {
-        // console.log(element.sort);
         if (element.sort == null) {
           element.sort = 99999;
-          // console.log(element.sort);
         }
       };
-
       sortedCollection.sort(function(a, b) {
         return a.sort - b.sort;
       });
-      console.log(sortedCollection);
-      // sort((firstEl, secondEl) => { ... } )
       if (!this.checkedCategories.length) {
         return sortedCollection;
       };
       const collection = sortedCollection.filter(post =>
         post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
-      // console.log(collection);
-      console.log('🌶');
       return collection;
     },
-    // TODO
+
+    // OLD FUNCTION
     // filteredElements() {
     //   this.collections.sort(sortBySorting);
     //   if (!this.checkedCategories.length) {
@@ -413,7 +409,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   display: grid;
   max-width: 60%;
   margin-bottom: var(--f-gutter-l);
-  @include respond-to("<=s") {      
+  @include respond-to("<=s") {
     max-width: 100%;
   }
 }
