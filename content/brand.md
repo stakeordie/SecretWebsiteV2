@@ -41,7 +41,7 @@ We build groundbreaking privacy technologies with a focus on increasing usabilit
 
 <block>
 
-#### Vision Statement
+### Vision Statement
 
 By solving for data privacy, Secret Network will become a foundational pillar of a more decentralized, more democratic, and more empowering internet.
 Providing privacy and protecting data is critical for empowering people, protecting their freedoms, and unlocking value for users all around the world. We strive to build a sustainable network, ecosystem, and community that will work towards global adoption of our technologies.
@@ -64,7 +64,7 @@ Providing privacy and protecting data is critical for empowering people, protect
 
 <block>
 
-## Our Visual Brand is <typical :steps="['Humanist', 2000, 'Organic', 2000, 'Illustrated', 2000, 'Flowing', 2000, 'Striking', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.
+## Our Visual Brand is <span class="breakpoint-control"><typical :steps="['Humanist', 2000, 'Organic', 2000, 'Illustrated', 2000, 'Flowing', 2000, 'Striking', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.</span>
 
 </block>
 

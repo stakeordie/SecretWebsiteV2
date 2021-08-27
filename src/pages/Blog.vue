@@ -225,6 +225,7 @@
       overflow: hidden;
 
       .box {
+        scrollbar-width: none;
         overflow-x: scroll;
         overflow: auto;
         max-width: 99vw;
