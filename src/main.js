@@ -64,6 +64,7 @@ import MediaChannels from '~/components/cards/MediaChannels.vue';
 import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
+import ScrollHorizontal from '~/components/ScrollHorizontal.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -149,6 +150,7 @@ export default function (Vue, {
   Vue.component('ContentNavigator', ContentNavigator);
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
+  Vue.component('ScrollHorizontal', ScrollHorizontal);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);
@@ -227,4 +229,6 @@ export default function (Vue, {
     }
   })
 
+  const $tp = (value) => value;
+  Vue.prototype.$tp = !Vue.prototype.$tp ? $tp : Vue.prototype.$tp;
 }

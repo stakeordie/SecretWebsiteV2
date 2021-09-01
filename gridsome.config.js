@@ -5,6 +5,30 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 const path = require('path')
 
+const i18nPlugin = {
+  use: "gridsome-plugin-i18n",
+  options: {
+    defaultLocale: 'en',
+    locales: [
+      'en',
+      'es',
+      'jp'
+    ],
+    messages: {
+      'es': require('./src/locales/es.json'),
+      'jp': require('./src/locales/jp.json')
+    },
+    rewriteDefaultLanguage: false
+  }
+};
+
+const optionalPlugins = [];
+const isI18nEnabled = process.env.ENABLE_I18N === 'true' || false;
+
+if (isI18nEnabled) {
+  optionalPlugins.push(i18nPlugin);
+}
+
 function addStyleResource(rule) {
     rule.use('style-resource')
         .loader('style-resources-loader')
@@ -96,23 +120,7 @@ module.exports = {
             plugins: ['@gridsome/remark-prismjs']
         }
     },
-    {
-      use: "gridsome-plugin-i18n",
-      options: {
-        defaultLocale: 'en',
-        locales: [
-          'en',
-          'es',
-          'jp'
-        ],
-        messages: {
-          'es': require('./src/locales/es.json'),
-          'jp': require('./src/locales/jp.json')
-        },
-        rewriteDefaultLanguage: false
-        //enablePathRewrite: true
-      }
-    },
+      ...optionalPlugins
     ],
     templates: {
         GhostPost: '/blog/:slug',

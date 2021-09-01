@@ -11,6 +11,7 @@
 // pages
 @import "pages/home";
 @import "pages/about";
+@import "pages/secret-brand";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -84,6 +85,11 @@ $accent-colors: (
 }
 
 
+@media screen and (max-device-width: 480px){
+  body{
+    -webkit-text-size-adjust: none;
+  }
+}
 
 body {
   &.body-init {

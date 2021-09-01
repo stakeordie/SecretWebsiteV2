@@ -2,8 +2,8 @@
   <div>
     <!-- GRID HEADER -->
     <div class="grid-header">
-        <h3>{{ gridHeaderTitle(header) }}</h3>
-        <p>{{ gridHeaderSubtitle(header) }}</p>
+      <h3>{{ gridHeaderTitle(header) }}</h3>
+      <p>{{ gridHeaderSubtitle(header) }}</p>
     </div>
     <div class="elements">
       <!-- FILTER -->
@@ -44,7 +44,7 @@
 
       <div class="elements-container">
         <!-- GRID -->
-        <div class="elements-grid" v-if="isPaginated">
+        <div class="elements-grid PAGINATED" v-if="isPaginated">
           <div
             class="card-element"
             v-for="element in pagedArray"
@@ -66,20 +66,22 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="(category, idx) in element.types"
-                    :key="idx"
+                    v-for="(category, id) in element.types"
+                    :key="id"
                     :class="'accent-' + category.name"
                   >
                     {{ formatCategory(category.name) }}
                   </p>
                 </div>
-                <p class="language" v-if="element.language">{{ element.language }}</p>
+                <p class="language" v-if="element.language">
+                  {{ element.language }}
+                </p>
               </div>
             </a>
           </div>
         </div>
 
-        <div class="elements-grid" v-else>
+        <div class="elements-grid NOPAGINATED" v-else>
           <div
             class="card-element"
             v-for="element in filteredElements"
@@ -93,6 +95,8 @@
               >
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
+                  <!-- <small>{{ element.sort }}</small> -->
+                  <!-- <small>{{ element.id }}</small> -->
                 </div>
                 <div
                   class="m-elements"
@@ -100,8 +104,8 @@
                   v-if="hasCategories"
                 >
                   <p
-                    v-for="(category, idx) in element.types"
-                    :key="idx"
+                    v-for="(category, id) in element.types"
+                    :key="id"
                     :class="'accent-' + category.name"
                   >
                     {{ formatCategory(category.name) }}
@@ -130,10 +134,12 @@ import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
 
 const sortBySorting = (first, second) => {
-  if (first.sort == null) return 1;
-  if (second.sort == null) return -1;
+  if (first.sort === null) return 1;
+  if (second.sort === null) return -1;
   return first.sort - second.sort;
 };
+
+
 
 export default {
   components: { Pagination },
@@ -165,7 +171,7 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          console.log(i);
+          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -179,7 +185,7 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          console.log(i);
+          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -223,16 +229,39 @@ export default {
   },
 
   computed: {
+    // WALTER WAS HERE
     filteredElements() {
-      this.collections.sort(sortBySorting);
+      const sortedCollection = this.collections;
+      for(const [i, element] of sortedCollection.entries()) {
+        if (element.sort == null) {
+          element.sort = 99999;
+        }
+      };
+      sortedCollection.sort(function(a, b) {
+        return a.sort - b.sort;
+      });
       if (!this.checkedCategories.length) {
-        return this.collections;
-      }
-      const collection = this.collections.filter(post =>
+        return sortedCollection;
+      };
+      const collection = sortedCollection.filter(post =>
         post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
       return collection;
     },
+
+    // OLD FUNCTION
+    // filteredElements() {
+    //   this.collections.sort(sortBySorting);
+    //   if (!this.checkedCategories.length) {
+    //     return this.collections;
+    //   }
+    //   const collection = this.collections.filter(post =>
+    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
+    //   );
+    //   console.log(collection);
+    //   console.log('🌮');
+    //   return collection;
+    // },
 
     pagedArray() {
       const start = this.currentPage * this.pageSize;
@@ -285,7 +314,7 @@ query {
       }
     }
   }
-  dApps: allStrapiDApps {
+    dApps: allStrapiDApps {
     edges {
       node {
         id
@@ -380,7 +409,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   display: grid;
   max-width: 60%;
   margin-bottom: var(--f-gutter-l);
-  @include respond-to("<=s") {      
+  @include respond-to("<=s") {
     max-width: 100%;
   }
 }

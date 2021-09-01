@@ -105,7 +105,7 @@
       },
       coverImage() {
         const urlSplit = this.$page.post.feature_image.split(":");
-        if(urlSplit[0] == "https" || urlSplit[0] == "http") {
+        if (urlSplit[0] == "https" || urlSplit[0] == "http") {
           return this.$page.post.feature_image;
         }
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
@@ -116,27 +116,43 @@
         return transformedPost
       }
     },
+    methods: {
+      getMetaInfoLength() {
+        const metadataContainerEl = document.querySelectorAll('.kg-bookmark-metadata');
+        setTimeout(() => {
+          for (const [i, meta] of metadataContainerEl.entries()) {
+            const metaLength = meta.innerText.length;
+            if (metaLength >= 32) {
+              meta.classList.add('row-mode');
+            }
+          }
+        }, 500);
+      }
+    },
+    mounted() {
+      this.getMetaInfoLength();
+    }
   }
 
 </script>
 
 <page-query>
   query Post ($path: String!) {
-    post: ghostPost (path: $path) {
-      title
-      path
-      date: published_at (format: "D MMM YYYY")
-      description: excerpt
-      content: html
-      feature_image
-      primary_tag {
-        name
-      }
-      primary_author {
-        name
-        profile_image
-      }
-    }
+  post: ghostPost (path: $path) {
+  title
+  path
+  date: published_at (format: "D MMM YYYY")
+  description: excerpt
+  content: html
+  feature_image
+  primary_tag {
+  name
+  }
+  primary_author {
+  name
+  profile_image
+  }
+  }
   }
 </page-query>
 
@@ -264,6 +280,7 @@
           text-align: left;
           display: grid;
           gap: var(--f-gutter-xxs);
+
           p {
             font-family: var(--f-default-text-font);
             line-height: var(--f-paragraph-line-height);
@@ -290,9 +307,11 @@
           color: var(--color-analog-primary-white);
           border-radius: var(--f-forms-button-radius);
           transition: 0.2s ease;
+
           &:hover {
             filter: contrast(1.5);
           }
+
           span {
             transform: translateY(2px);
           }
@@ -328,8 +347,8 @@
         max-width: var(--blog-content-width);
         width: 100%;
         line-height: var(--blog-text-font-line-height);
-        font-size: var(--blog-text-font-size);
         font-family: var(--blog-text-font-family);
+        font-size: var(--blog-text-font-size);
 
         code {
           padding: 0 var(--f-gutter-xs);
@@ -399,6 +418,24 @@
               gap: var(--f-gutter-s);
               grid-auto-columns: max-content;
               color: var(--theme-fg);
+
+              &.row-mode {
+                @include respond-to("<=m") {
+                  grid-auto-flow: row;
+                  grid-auto-columns: auto;
+                  // row-gap: var(--f-gutter-xxs);
+                }
+
+                @include respond-to(">=l") {
+                  grid-template-columns: 24px 1fr;
+                  grid-auto-flow: row;
+
+                  // row-gap: var(--f-gutter-xxs);
+                  .kg-bookmark-publisher {
+                    grid-column: 2;
+                  }
+                }
+              }
 
               .kg-bookmark-icon {
                 width: 24px;
