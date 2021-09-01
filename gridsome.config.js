@@ -57,14 +57,13 @@ module.exports = {
                 'committees'
             ],
             localizedTypes: [
-              'home-explainer-i-18-n'
+              'home-explainer'
             ],
             singleTypes: [
                 'alert-bar',
                 'home-hero',
                 'home-cta-cards',
                 'home-explainer',
-                'home-explainer-i-18-n',
                 'home-announcements',
                 'home-featured-media',
                 'about-content',
