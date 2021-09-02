@@ -65,6 +65,8 @@ import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
 import ScrollHorizontal from '~/components/ScrollHorizontal.vue';
+import ContentColumns from '~/components/ContentColumns.vue';
+import ContentSwitcher from '~/components/ContentSwitcher.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -151,6 +153,8 @@ export default function (Vue, {
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
   Vue.component('ScrollHorizontal', ScrollHorizontal);
+  Vue.component('ContentColumns', ContentColumns);
+  Vue.component('ContentSwitcher', ContentSwitcher);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);

@@ -91,7 +91,11 @@ module.exports = {
                 'home-announcements',
                 'home-featured-media',
                 'about-content',
-                'about-secret-tokens-bridges'
+                'about-secret-tokens-bridges',
+                'agent-landing-brochure',
+                'agent-landing-email-form',
+                'agent-landing-hero',
+                'agent-landing-intro-rows'
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
