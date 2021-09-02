@@ -78,7 +78,7 @@
                   class="dropdown-container"
                 >
                   <a href=""
-                    >Community
+                    >Get Involved
                     <img
                       v-show="!isCommunityOpen"
                       src="@/assets/icon-chevron-down.svg"
@@ -688,13 +688,21 @@ export default {
         },
       ],
       linksCommunity: [
+        // {
+        //   title: "About the Community",
+        //   path: "/community",
+        // },
+        // {
+        //   title: "About Secret Agents",
+        //   path: "/community#secret-agents",
+        // },
         {
-          title: "About the Community",
-          path: "/community",
+          title: "Become a Secret Agent",
+          path: "/get-involved/become-secret-agent",
         },
         {
-          title: "About Secret Agents",
-          path: "/community#secret-agents",
+          title: "International Communities",
+          path: "/get-involved/international-communities",
         },
         {
           title: "About Committees",
