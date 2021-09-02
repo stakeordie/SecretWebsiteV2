@@ -615,6 +615,9 @@ img {
   }
 }
 
+
+
+
 // TEMP FIX TO INCONCISTENT HEADINGS IN ABOUT PAGE
 .--flare-frame {
     .content {
@@ -632,6 +635,14 @@ img {
             }
         }
     }
+}
+.--flare-frame {
+  &.bg-black {
+    background: #0E1216;
+  }
+  &.bg-black-gradient {
+    background: linear-gradient(0deg, #151A20 43.72%, rgba(21, 26, 32, 0.47) 60.35%, rgba(21, 26, 33, 0) 69.78%);
+  }
 }
 
 // TODO(luis) this is where the hack starts

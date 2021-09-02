@@ -4,7 +4,8 @@
       <h3 class="content-switcher__sidebar__header">What You’ll Do:</h3>
       <nav class="content-switcher__sidebar__navigation">
         <a :class="{active: selectedAnchor == index}" href="" v-on:click="getContentID(index)" v-for="(nav, index) in navigationBrochure" :key="index">
-          {{nav.card_title}}
+          <span class="content-switcher__sidebar__navigation--desktop">{{nav.card_title}}</span>
+          <span class="content-switcher__sidebar__navigation--mobile">{{nav.title_short}}</span>
         </a>
       </nav>
     </aside>
@@ -91,6 +92,7 @@ query {
           anchor_title
           card_title
           subtitle
+          title_short
           image {
             url
           }
@@ -120,11 +122,14 @@ query {
 
     &__sidebar {
       display: grid;
-      gap: var(--f-gutter);
+      gap: var(--f-gutter-l);
       align-items: center;
 
       &__header {
         margin: 0;
+        @include respond-to("<=m") {
+           text-align: center;
+         } 
       }
 
       &__navigation {
@@ -136,7 +141,18 @@ query {
           grid-auto-flow: column;
           justify-items: start;
         }
-
+        &--mobile {
+          display: none;       
+         @include respond-to("<=m") {
+           display: grid;       
+         } 
+        }
+        &--desktop {
+          display: none;  
+         @include respond-to(">=l") {
+            display: grid;       
+         } 
+        }
         a {
           font-size: var(--f-gutter);
           font-family: var(--f-default-headers-font);

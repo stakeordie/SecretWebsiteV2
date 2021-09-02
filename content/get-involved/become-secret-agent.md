@@ -9,6 +9,22 @@ title: 'Become a Secret Agent'
 
 
 
+<column class="spacer-s bg-black-gradient">
+
+<block>
+
+<secret-agent-hero />
+
+</block>
+
+</column>
+
+
+
+
+
+
+
 <column class="spacer-s">
 
 <block>
@@ -96,11 +112,29 @@ title: 'Become a Secret Agent'
 
 
 
-<column>
+<column class="spacer-s bg-black">
+
+<block>
+
+<secret-agent-email-form-banner />
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+<column class="spacer-s">
 
 <block>
 
 <content-switcher></content-switcher>
 
 </block>
+
 </column>

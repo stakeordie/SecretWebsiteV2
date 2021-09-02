@@ -31,19 +31,6 @@ export default {
       type: String,
       default: ""
     },
-    // FIXME BORRAR DESDE AQUI
-    firstColumn: {
-      type: String,
-      default: "",
-      required: false
-    },
-
-    secondColumn: {
-      type: String,
-      default: "",
-      required: false
-    },
-    // FIXME BORRAR HASTA AQUI
     invertedColumnMobile: Boolean,
     weightLeft: Boolean,
     weightRight: Boolean
