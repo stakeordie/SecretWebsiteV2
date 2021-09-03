@@ -9,8 +9,9 @@
         <h2>{{ element.CTA }}</h2>
       </div>
       <div class="secret-agent-email-banner__container--right">
-         <form v-if="!formSubmitted"
-          action="https://network.us2.list-manage.com/subscribe/post?u=7a05e306cd4c801a88ddcb060&amp;id=889f1a33bc"
+         <form
+          v-if="!formSubmitted"
+          action="https://gmail.us5.list-manage.com/subscribe/post?u=e992e9924d9fc9486b5d9bbc4&amp;id=24712d05e7"
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
@@ -27,6 +28,10 @@
             :placeholder="element.placeholder_text"
             required
           />
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_e992e9924d9fc9486b5d9bbc4_24712d05e7" tabindex="-1" value="">
+          </div>
           <button
             type="submit"
             value="Subscribe"
