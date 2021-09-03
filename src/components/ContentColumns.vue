@@ -10,7 +10,7 @@
     >
       <div class="content-columns__container--left">
         <h3>{{ element.title }}</h3>
-        <p>{{ element.paragraph }}</p>
+        <vue-markdown>{{ element.paragraph }}</vue-markdown>
       </div>
       <div class="content-columns__container--right">
         <img :src="element.image.url" :alt="element.title" />

@@ -32,10 +32,10 @@
             value="Subscribe"
             name="subscribe"
             id="mc-embedded-subscribe"
-            class="button"
+            class="btn button"
             v-on:click="submitForm"
           >
-            {{ element.submit_button_text }}
+            <span class="btn-text">{{ element.submit_button_text }}</span>
           </button>
         </form>
         <h5 class="success" v-if="formSubmitted">

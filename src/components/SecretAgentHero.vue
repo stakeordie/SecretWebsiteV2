@@ -8,7 +8,8 @@
       <div class="secret-agent-hero__container--left">
         <h2>{{ hero.title }} Become a <span>Secret Agent</span>.</h2>
         <p>{{ hero.subtitle }}</p>
-        <form v-if="!formSubmitted"
+        <form
+          v-if="!formSubmitted"
           action="https://network.us2.list-manage.com/subscribe/post?u=7a05e306cd4c801a88ddcb060&amp;id=889f1a33bc"
           method="post"
           id="mc-embedded-subscribe-form"
@@ -23,7 +24,7 @@
             name="EMAIL"
             class="required email secret-agent-form__input"
             id="mce-EMAIL"
-            placeholder="Your email"
+            placeholder="enter your email"
             required
           />
           <button
@@ -31,10 +32,10 @@
             value="Subscribe"
             name="subscribe"
             id="mc-embedded-subscribe"
-            class="button"
+            class="btn button"
             v-on:click="submitForm"
           >
-            {{ hero.form_button_text }}
+            <span class="btn-text">{{ hero.form_button_text }}</span>
           </button>
         </form>
         <h5 class="success" v-if="formSubmitted">
@@ -58,10 +59,10 @@
         </h5>
       </div>
       <div class="secret-agent-hero__container--right">
-         <video width="100%" height="300" controls>
-          <source :src="hero.video.url" type="video/mp4">
-        Your browser does not support the video tag.
-        </video> 
+        <video width="100%" height="334" controls>
+          <source :src="hero.video.url" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
@@ -69,10 +70,10 @@
 
 <script>
 export default {
-  data: function(){
+  data: function() {
     return {
-      formSubmitted: false,
-    }
+      formSubmitted: false
+    };
   },
   methods: {
     submitForm() {
@@ -94,22 +95,22 @@ export default {
 </script>
 
 <static-query>
-query {
-  secretAgentHero: allStrapiAgentLandingHero {
-    edges {
-      node {
-        id
-        title
-        subtitle
-        form_button_text
-        successful_submission_text
-        video {
-          url
+  query {
+    secretAgentHero: allStrapiAgentLandingHero {
+      edges {
+        node {
+          id
+          title
+          subtitle
+          form_button_text
+          successful_submission_text
+          video {
+            url
+          }
         }
       }
     }
   }
-}
 </static-query>
 
 <style lang="scss">
@@ -121,19 +122,15 @@ query {
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 502px;
     align-items: center;
-    gap: var(--f-gutter-xxl);
-    &--weight-left {
-      grid-template-columns: 1fr 40%;
-    }
-    &--weight-right {
-      grid-template-columns: 40% 1fr;
-    }
+    gap: 36px;
+
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
       grid-auto-flow: row;
     }
+
     &--img-position--left {
       .secret-agent-hero__container--right {
         @include respond-to(">=m") {
@@ -141,49 +138,63 @@ query {
         }
       }
     }
+
     &--left {
       display: grid;
       align-items: center;
       justify-content: center;
       gap: var(--f-gutter);
+
       * {
-          margin: 0;
-        }
+        margin: 0;
+      }
+
       h2 {
+        font-family: var(--f-default-headers-font);
         font-size: 48px;
+        font-weight: 600;
         span {
-          color: var(--color-analog-secondary-yellow);
+          color: #edc92b;
         }
       }
+
       h3 {
         @include respond-to("<=s") {
           text-align: center;
         }
       }
+
       .secret-agent-form {
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 1fr 149px;
         gap: var(--f-gutter-s);
+
         @include respond-to("<=s") {
           grid-auto-flow: row;
-         grid-template-columns: 1fr;       
+          grid-template-columns: 1fr;
         }
+
         &__input {
           background: transparent !important;
           border: 1px solid var(--color-analog-primary-white) !important;
         }
+
         button {
+          width: 149px !important;
+          margin: 0 !important;
           height: 100%;
           background: var(--color-neutral-dark-mode-04);
+
           &:hover {
             background: var(--color-analog-secondary-blue);
           }
         }
       }
+
       .success {
         display: grid;
-        color: #5AA361;
+        color: #5aa361;
         align-items: center;
         grid-auto-flow: column;
         gap: var(--f-gutter-xs);
@@ -195,11 +206,12 @@ query {
       display: grid;
       align-items: center;
       justify-content: center;
+
       video {
         border-radius: var(--f-gutter);
         overflow: hidden;
-        width: 100%    !important;
-        height: auto   !important;
+        width: 100% !important;
+        height: auto !important;
       }
     }
   }

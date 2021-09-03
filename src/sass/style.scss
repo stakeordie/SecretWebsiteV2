@@ -12,6 +12,7 @@
 @import "pages/home";
 @import "pages/about";
 @import "pages/secret-brand";
+@import "pages/become-secret-agent";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -641,7 +642,7 @@ img {
     background: #0E1216;
   }
   &.bg-black-gradient {
-    background: linear-gradient(0deg, #151A20 43.72%, rgba(21, 26, 32, 0.47) 60.35%, rgba(21, 26, 33, 0) 69.78%);
+    background: linear-gradient(180deg, rgba(21, 26, 32, 0) 0%, #151A20 30.31%);
   }
 }
 
