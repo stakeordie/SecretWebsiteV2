@@ -171,6 +171,11 @@ query {
           background: transparent !important;
           border: 1px solid var(--color-analog-primary-white) !important;
         }
+        input {
+          &::placeholder {
+            color: white;
+          }
+        }
         button {
           height: 100%;
           background: var(--color-neutral-dark-mode-04);

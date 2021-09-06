@@ -9,7 +9,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s bg-black-gradient">
+<column class="get-involved-become-secret-agent__hero bg-black-gradient">
 
 <block>
 
@@ -25,7 +25,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__briefing">
 
 <block>
 
@@ -44,7 +44,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__mission">
 
 <block>
 
@@ -61,7 +61,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__rise">
 
 <block>
 
@@ -78,7 +78,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__access">
 
 <block>
 
@@ -95,7 +95,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__earn">
 
 <block>
 
@@ -112,7 +112,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s bg-black">
+<column class="bg-black get-involved-become-secret-agent__join-mission">
 
 <block>
 
@@ -129,7 +129,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="spacer-s">
+<column class="get-involved-become-secret-agent__brochure">
 
 <block>
 

@@ -184,6 +184,11 @@ export default {
           border: 1px solid var(--color-analog-primary-white) !important;
         }
 
+        input {
+          &::placeholder {
+            color: white;
+          }
+        }
         button {
           width: 149px !important;
           margin: 0 !important;
@@ -212,7 +217,7 @@ export default {
       justify-content: center;
 
       video {
-        border-radius: var(--f-gutter);
+        border-radius: 10px;
         overflow: hidden;
         width: 100% !important;
         height: auto !important;
