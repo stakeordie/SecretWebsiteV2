@@ -1242,8 +1242,12 @@ export default {
     }
 
     .search {
-      display: grid;
+      // Fixme
+      // display: grid;
       align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      // Fixme
 
       @media only screen and (min-width: (1340px - 1px)) {
         justify-items: end;
