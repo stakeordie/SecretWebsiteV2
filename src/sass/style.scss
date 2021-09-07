@@ -7,6 +7,7 @@
 @import "icon-font";
 @import "cards/card-simple";
 @import "cards/card-announcement";
+@import "sajari";
 
 // pages
 @import "pages/home";
@@ -93,6 +94,9 @@ $accent-colors: (
 }
 
 body {
+  * {
+    box-sizing: border-box;
+}
   &.body-init {
     opacity: 0;
   }
