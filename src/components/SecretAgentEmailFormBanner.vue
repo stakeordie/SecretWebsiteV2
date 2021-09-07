@@ -11,34 +11,24 @@
       <div class="secret-agent-email-banner__container--right">
          <form
           v-if="!formSubmitted"
-          action="https://gmail.us5.list-manage.com/subscribe/post?u=e992e9924d9fc9486b5d9bbc4&amp;id=24712d05e7"
-          method="post"
-          id="mc-embedded-subscribe-form"
-          name="mc-embedded-subscribe-form"
+          @submit.prevent="submitForm"
           class="validate secret-agent-form"
-          target="_blank"
-          novalidate
         >
           <input
             type="email"
+            v-model="email"
             value=""
-            name="EMAIL"
+            name="email"
             class="required email secret-agent-form__input"
-            id="mce-EMAIL"
-            :placeholder="element.placeholder_text"
+            placeholder="enter your email"
             required
           />
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true">
-            <input type="text" name="b_e992e9924d9fc9486b5d9bbc4_24712d05e7" tabindex="-1" value="">
-          </div>
           <button
             type="submit"
             value="Subscribe"
             name="subscribe"
-            id="mc-embedded-subscribe"
             class="btn button"
-            v-on:click="submitForm"
+            :disabled="loading"
           >
             <span class="btn-text">{{ element.submit_button_text }}</span>
           </button>
@@ -68,20 +58,32 @@
 </template>
 
 <script>
+import mailchimp from '@/apis/mailchimp';
+
 export default {
-  data: function(){
+  data: function() {
     return {
+      loading: false,
       formSubmitted: false,
-    }
+      email: ''
+    };
   },
   methods: {
-    submitForm() {
-      setTimeout(() => {
+    async submitForm() {
+      if (!this.email) return;
+
+      this.loading = true;
+
+      try {
+        await mailchimp.subscribe(this.email);
         this.formSubmitted = true;
-        setTimeout(() => {
-          this.formSubmitted = false;
-        }, 5000);
-      }, 1000);
+      } catch (e) {
+        // ignore
+        // TODO remove this
+        console.error(e);
+      } finally {
+        this.loading = false;
+      }
     }
   },
   computed: {
