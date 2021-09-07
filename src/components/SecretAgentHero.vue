@@ -157,7 +157,7 @@ export default {
         font-family: var(--f-default-headers-font);
         font-size: 48px;
         font-weight: 600;
-        letter-spacing: -0.9px;
+        letter-spacing: -0.9px !important;
         span {
           color: #edc92b;
         }
