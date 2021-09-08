@@ -114,6 +114,7 @@ query {
     grid-auto-flow: column;
     gap: var(--f-gutter);
     grid-template-columns: 30% 1fr;
+    margin-bottom: 70px !important;
 
     @include respond-to("<=m") {
       grid-auto-flow: row;
