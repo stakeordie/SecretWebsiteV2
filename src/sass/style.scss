@@ -647,6 +647,9 @@ img {
   }
   &.bg-black-gradient {
     background: linear-gradient(180deg, rgba(21, 26, 32, 0) 0%, #151A20 30.31%);
+    @include respond-to("<=s") {
+      background: linear-gradient(180deg, rgba(21, 26, 32, 0) 2%, #151A20 10.31%);       
+    }
   }
 }
 
