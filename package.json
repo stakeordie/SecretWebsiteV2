@@ -1,31 +1,42 @@
 {
-    "name": "flare-starter",
-    "private": true,
-    "scripts": {
-        "build": "gridsome build",
-        "develop": "gridsome develop",
-        "explore": "gridsome explore"
-    },
-    "dependencies": {
-        "@fontsource/hind": "^4.2.2",
-        "@fontsource/montserrat": "^4.2.2",
-        "@gridsome/plugin-google-analytics": "^0.1.2",
-        "@gridsome/plugin-sitemap": "^0.4.0",
-        "@gridsome/remark-prismjs": "^0.5.0",
-        "@gridsome/source-ghost": "^0.4.0",
-        "@gridsome/vue-remark": "^0.2.6",
-        "@lkmx/flare": "^0.3.5",
-        "@stakeordie/source-strapi": "^0.2.0",
-        "axios": "^0.21.1",
-        "babel-runtime": "^6.26.0",
-        "gridsome": "^0.7.0",
-        "gridsome-plugin-i18n": "^1.6.0",
-        "gridsome-plugin-remark-prismjs-all": "^0.3.5",
-        "vue-animejs": "^2.1.1",
-        "vue-infinite-slide-bar": "^1.1.1",
-        "vue-markdown": "^2.2.4",
-        "vue-social-sharing": "^3.0.7",
-        "vue-typical": "^1.6.2",
-        "vuex": "^3.6.2"
-    }
+  "name": "flare-starter",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "storybook": "start-storybook -s ./src/stories/assets -p 6006",
+    "build-storybook": "build-storybook -s ./src/stories/assets"
+  },
+  "dependencies": {
+    "@fontsource/hind": "^4.2.2",
+    "@fontsource/montserrat": "^4.2.2",
+    "@gridsome/plugin-google-analytics": "^0.1.2",
+    "@gridsome/plugin-sitemap": "^0.4.0",
+    "@gridsome/remark-prismjs": "^0.5.0",
+    "@gridsome/source-ghost": "^0.4.0",
+    "@gridsome/vue-remark": "^0.2.6",
+    "@lkmx/flare": "^0.3.5",
+    "@stakeordie/source-strapi": "^0.2.0",
+    "axios": "^0.21.1",
+    "babel-runtime": "^6.26.0",
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-i18n": "^1.6.0",
+    "gridsome-plugin-remark-prismjs-all": "^0.3.5",
+    "vue-animejs": "^2.1.1",
+    "vue-infinite-slide-bar": "^1.1.1",
+    "vue-markdown": "^2.2.4",
+    "vue-social-sharing": "^3.0.7",
+    "vue-typical": "^1.6.2",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.4",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/vue": "^6.3.8",
+    "babel-loader": "^8.2.2",
+    "vue-loader": "^15.9.8"
+  }
 }
