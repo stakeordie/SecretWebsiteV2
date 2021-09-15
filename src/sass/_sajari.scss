@@ -1,0 +1,9 @@
+.search-results-overlay-1fkkhcm-container {
+  input[type=search] {
+    color: var(--color-analog-primary-black) !important;
+    padding-left: 64px;
+    &::placeholder {
+      // padding-left: var(--f-gutter-xl);
+    }
+  }
+}

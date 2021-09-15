@@ -78,7 +78,7 @@
                   class="dropdown-container"
                 >
                   <a href=""
-                    >Community
+                    >Get Involved
                     <img
                       v-show="!isCommunityOpen"
                       src="@/assets/icon-chevron-down.svg"
@@ -115,7 +115,7 @@
                   class="dropdown-container"
                 >
                   <a href=""
-                    >Developers
+                    >Develop
                     <img
                       v-show="!isDevelopersOpen"
                       src="@/assets/icon-chevron-down.svg"
@@ -156,7 +156,7 @@
                   class="dropdown-container"
                 >
                   <a href=""
-                    >Ecosystem
+                    >Explore
                     <img
                       v-show="!isEcosystemOpen"
                       src="@/assets/icon-chevron-down.svg"
@@ -447,7 +447,7 @@
             </g-link>
           </nav>
           <nav>
-            <h6 class="footer-nav-title">Community</h6>
+            <h6 class="footer-nav-title">Get Involved</h6>
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterCommunity"
@@ -461,7 +461,7 @@
             </g-link>
           </nav>
           <nav>
-            <h6 class="footer-nav-title">Developers</h6>
+            <h6 class="footer-nav-title">Develop</h6>
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterDevelopers"
@@ -475,7 +475,7 @@
             </g-link>
           </nav>
           <nav>
-            <h6 class="footer-nav-title">Ecosystem</h6>
+            <h6 class="footer-nav-title">Explore</h6>
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksFooterEcosystem"
@@ -688,13 +688,21 @@ export default {
         },
       ],
       linksCommunity: [
+        // {
+        //   title: "About the Community",
+        //   path: "/community",
+        // },
+        // {
+        //   title: "About Secret Agents",
+        //   path: "/community#secret-agents",
+        // },
         {
-          title: "About the Community",
-          path: "/community",
+          title: "Become a Secret Agent",
+          path: "/get-involved/become-secret-agent",
         },
         {
-          title: "About Secret Agents",
-          path: "/community#secret-agents",
+          title: "International Communities",
+          path: "/get-involved/international-communities",
         },
         {
           title: "About Committees",

@@ -7,10 +7,13 @@
 @import "icon-font";
 @import "cards/card-simple";
 @import "cards/card-announcement";
+@import "sajari";
 
 // pages
 @import "pages/home";
 @import "pages/about";
+@import "pages/secret-brand";
+@import "pages/become-secret-agent";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -91,6 +94,9 @@ $accent-colors: (
 }
 
 body {
+  * {
+    box-sizing: border-box;
+}
   &.body-init {
     opacity: 0;
   }
@@ -614,6 +620,9 @@ img {
   }
 }
 
+
+
+
 // TEMP FIX TO INCONCISTENT HEADINGS IN ABOUT PAGE
 .--flare-frame {
     .content {
@@ -631,6 +640,17 @@ img {
             }
         }
     }
+}
+.--flare-frame {
+  &.bg-black {
+    background: #0E1216;
+  }
+  &.bg-black-gradient {
+    background: linear-gradient(180deg, rgba(21, 26, 32, 0) 0%, #151A20 30.31%);
+    @include respond-to("<=s") {
+      background: linear-gradient(180deg, rgba(21, 26, 32, 0) 2%, #151A20 10.31%);       
+    }
+  }
 }
 
 // TODO(luis) this is where the hack starts

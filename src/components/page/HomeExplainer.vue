@@ -58,7 +58,7 @@
 
 <static-query>
 query {
-  homeExplainer: allStrapiHomeExplainerI18N {
+  homeExplainer: allStrapiHomeExplainer {
     edges {
       node {
         title

@@ -24,6 +24,7 @@ import '@fontsource/hind/700.css'
 import '@fontsource/montserrat'
 import '@fontsource/montserrat/600.css'
 import '@fontsource/montserrat/500.css'
+import '@fontsource/montserrat/700.css'
 
 
 
@@ -64,6 +65,11 @@ import MediaChannels from '~/components/cards/MediaChannels.vue';
 import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
+import ScrollHorizontal from '~/components/ScrollHorizontal.vue';
+import ContentColumns from '~/components/ContentColumns.vue';
+import ContentSwitcher from '~/components/ContentSwitcher.vue';
+import SecretAgentHero from '~/components/SecretAgentHero.vue';
+import SecretAgentEmailFormBanner from '~/components/SecretAgentEmailFormBanner.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -149,6 +155,11 @@ export default function (Vue, {
   Vue.component('ContentNavigator', ContentNavigator);
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
+  Vue.component('ScrollHorizontal', ScrollHorizontal);
+  Vue.component('ContentColumns', ContentColumns);
+  Vue.component('ContentSwitcher', ContentSwitcher);
+  Vue.component('SecretAgentHero', SecretAgentHero);
+  Vue.component('SecretAgentEmailFormBanner', SecretAgentEmailFormBanner);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);
