@@ -1,0 +1,181 @@
+.about-new-about-secret-network {
+  .about {
+    &__separator {
+      text-align: center;
+      margin-bottom: var(--f-gutter);
+      img {
+        display: inline-block;
+      }
+    }
+    &__get-started {
+      margin-top: 44px;
+      margin-bottom: 48px;
+    }
+    &__major-functions {
+      &__title {
+        margin-bottom: 36px;
+        .content {
+          .box {
+            h6 {
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 25px;
+              text-align: center;
+              color: var(--color-neutral-dark-mode-05);
+            }
+          }
+        }
+      }
+      &__content {
+        margin-bottom: 56px;
+        .content {
+          .box {
+            display: grid;
+            gap: 6px;
+            align-content: start;
+            * {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    &__purchase-scrt {
+      &__title {
+        margin-bottom: 36px;
+        h6 {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 25px;
+          color: var(--color-highkey-secondary-yellow);
+        }
+        h2 {
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 36.5px;
+        }
+        p {
+          max-width: 768px;
+        }
+      }
+    }
+    &__community-support {
+      background: var(--color-neutral-dark-mode-02);
+      text-align: center;
+      padding-top: 82px;
+      padding-bottom: 82px;
+      margin-bottom: 102px;
+      .content {
+        .box {
+          display: grid;
+          gap: 36px;
+          justify-items: center;
+          *{margin: 0;}
+        }
+      }
+    }
+    &__what-wallets-use {
+      margin-bottom: 86px;
+      .content {
+        .box {
+          display: grid;
+          gap: var(--f-gutter);
+          // justify-content: center;
+          * {
+            margin: 0;
+          }
+          p {
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          h6 {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: var(--color-highkey-secondary-yellow);
+            text-align: center;
+          }
+          h3 {
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 48px;
+            text-align: center;
+          }
+          h5 {
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 30px;
+            text-align: center;
+            color: var(--color-neutral-dark-mode-05);
+          }
+        }
+      }
+    }
+    &__stake-governance {
+      padding-top: 86px;
+      padding-bottom: 86px;
+      .content {
+        .box {
+          margin-bottom: var(--f-gutter);
+          h6 {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: var(--color-highkey-secondary-yellow);
+          }
+          h3 {
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 30px;
+          }
+        }
+      }
+      &__btn-cluster {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--f-gutter);
+        * {
+          margin: 0;
+        }
+        @include respond-to("<=m") {
+          grid-template-columns: 1fr;
+          gap: var(--f-gutter-xxs);
+        }
+      }
+    }
+    &__secret-applications {
+      padding-top: 56px;
+      padding-bottom: 56px;
+      .content {
+        .box {
+          display: grid;
+          justify-items: center;
+          gap: var(--f-gutter);
+          * {
+            margin: 0;
+          }
+          p {
+            max-width: 768px;
+            font-size: 20px;
+            line-height: 28px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      h6 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        color: var(--color-highkey-secondary-yellow);
+        text-align: center;
+      }
+      h3 {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 48px;
+        text-align: center;
+      }
+    }
+  }
+}

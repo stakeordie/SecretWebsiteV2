@@ -70,6 +70,9 @@ import ContentColumns from '~/components/ContentColumns.vue';
 import ContentSwitcher from '~/components/ContentSwitcher.vue';
 import SecretAgentHero from '~/components/SecretAgentHero.vue';
 import SecretAgentEmailFormBanner from '~/components/SecretAgentEmailFormBanner.vue';
+import AboutGetStarted from '~/components/page/AboutGetStarted.vue';
+import AboutPurchaseScrt from '~/components/page/AboutPurchaseScrt.vue';
+import AboutWallets from '~/components/page/AboutWallets.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -160,6 +163,9 @@ export default function (Vue, {
   Vue.component('ContentSwitcher', ContentSwitcher);
   Vue.component('SecretAgentHero', SecretAgentHero);
   Vue.component('SecretAgentEmailFormBanner', SecretAgentEmailFormBanner);
+  Vue.component('AboutGetStarted', AboutGetStarted);
+  Vue.component('AboutPurchaseScrt', AboutPurchaseScrt);
+  Vue.component('AboutWallets', AboutWallets);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);
