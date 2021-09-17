@@ -24,7 +24,35 @@
 
 <script>
 export default {
-
+  data: function() {
+    return {
+      swirlSpecialIsOn: false,
+    }
+  },
+  methods: {
+    specialSwirl(isOn) {
+      this.swirlSpecialIsOn = isOn;
+      const swirlSpecialTop = document.querySelector('.swirl.top>.themed-image>img');
+      const swirlSpecialBottom = document.querySelector('.swirl.bottom>.themed-image>img');
+      if(this.swirlSpecialIsOn){
+        swirlSpecialTop.classList.add('special-mod');
+        swirlSpecialBottom.classList.add('special-mod');
+        swirlSpecialTop.src = '/assets/img/swirl-special-color.svg';
+        swirlSpecialBottom.src = '/assets/img/swirl-special-color-inverted.svg';
+      } else if (!this.swirlSpecialIsOn) {
+        swirlSpecialTop.classList.remove('special-mod');
+        swirlSpecialBottom.classList.remove('special-mod');
+        swirlSpecialTop.src = '/assets/img/swirl-color-dark.svg';
+        swirlSpecialBottom.src = '/assets/img/swirl-color-dark.svg';
+      }
+    }
+  },
+  beforeMount() {
+    this.specialSwirl(true);
+  },
+  destroyed() {
+    this.specialSwirl(false);
+  }
 }
 </script>
 
@@ -40,6 +68,8 @@ export default {
   align-items: center;
   padding-top: 36px;
   padding-top: 56px;
+  // padding-left:0;
+  // padding-left:0;
   &__left {
     display: grid;
     gap: 8px;
@@ -51,21 +81,24 @@ export default {
       font-weight: 600;
       font-size: 18px;
       line-height: 25px;
-      color: var(--color-highkey-secondary-yellow)
+      color: var(--color-highkey-secondary-yellow);
+      text-transform: uppercase;
     }
     h2 {
       font-weight: 600;
       font-size: 36px;
       line-height: 48px;
+      font-family: var(--f-default-headers-font);
     }
     p {
       font-size: 20px;
       line-height: 28px;
+      max-width: 768px;
     }
     nav {
       display: grid;
       grid-auto-flow: column;
-      gap: 10px;
+      gap: var(--f-gutter);
       width: max-content;
       @include respond-to("<=m") {
         display: flex;

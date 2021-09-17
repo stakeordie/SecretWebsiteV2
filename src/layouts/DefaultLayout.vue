@@ -668,7 +668,7 @@ export default {
       linksLearn: [
         {
           title: "About the Network",
-          path: "/about/about-secret-network",
+          path: "/about/new-about-secret-network",
           target: "self",
         },
         {
@@ -1367,7 +1367,17 @@ export default {
   &.top {
     left: 0;
     right: 0;
-    top: 50px;
+    top: 0;
+    img {
+      &.special-mod {
+        height: 255px;
+        object-fit: cover;
+        object-position: center bottom;
+        @include respond-to("<=m") {
+          // height: 222px;
+        }
+      }
+    }
   }
 
   &.bottom {
@@ -1380,6 +1390,17 @@ export default {
 
     img {
       transform: rotate(180deg);
+    }
+    img {
+      &.special-mod {
+        height: 274px;
+        object-fit: fill;
+        object-position: center bottom;
+        transform: rotate(0);
+        @include respond-to("<=m") {
+          // height: 222px;
+        }
+      }
     }
   }
 }

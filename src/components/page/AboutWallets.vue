@@ -54,7 +54,7 @@ export default {
     // max-height: 174px;
     * {margin: 0}
     &__wallet {
-      padding: 26px;
+      padding: 25px;
       background: var(--color-neutral-dark-mode-03);
       display: grid;
       row-gap: var(--f-gutter);
@@ -63,9 +63,21 @@ export default {
       justify-content: center;
       border-radius: 10px;
       transition: 0.2s ease;
+      position: relative;
+      *{margin: 0;}
       h6 {
         color: white !important;
         font-weight: 600;
+        line-height: 24px;
+        font-family: var(--f-default-headers-font);
+        font-size: 16px !important;
+      }
+      p {
+        font-size: 16px !important;
+        position: absolute;
+         left: 50%;
+        bottom: -20%;
+        transform: translate(-50%,-50%);
       }
       &:hover {
         transform: var(--card-hover-transform);
@@ -75,6 +87,7 @@ export default {
   }
   &__note {
     color: #748BA5;
+    font-size: 16px !important;
   }
 }
 </style>

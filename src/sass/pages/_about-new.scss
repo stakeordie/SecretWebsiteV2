@@ -1,19 +1,27 @@
-.about-new-about-secret-network {
+.about-about-SCRT {
   .about {
     &__separator {
       text-align: center;
-      margin-bottom: var(--f-gutter);
+      margin-bottom: 0;
       img {
         display: inline-block;
       }
     }
     &__get-started {
-      margin-top: 44px;
-      margin-bottom: 48px;
+      margin-top: 60px;
+      margin-bottom: 16px;
+      .content {
+        .box {
+          @include respond-to(">=l") {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
     }
     &__major-functions {
       &__title {
-        margin-bottom: 36px;
+        margin-bottom: 0px;
         .content {
           .box {
             h6 {
@@ -27,14 +35,39 @@
         }
       }
       &__content {
-        margin-bottom: 56px;
+        margin-bottom: 25px;
+        @include respond-to(">=l") {
+          .--flare-block {
+            &:nth-of-type(2) {
+              .content {
+                .box {
+                  padding-left: 13px;
+                }
+              }
+            }
+            &:nth-of-type(3) {
+              .content {
+                .box {
+                  padding-left: 25px;
+                }
+              }
+            }
+          }
+        }
         .content {
           .box {
             display: grid;
             gap: 6px;
             align-content: start;
+            @include respond-to(">=l") {
+              padding-left: 0;
+              padding-right: 0;
+            }
             * {
               margin: 0;
+            }
+            p {
+              max-width: 376px;
             }
           }
         }
@@ -42,7 +75,21 @@
     }
     &__purchase-scrt {
       &__title {
-        margin-bottom: 36px;
+        margin-bottom: -11px;
+        transform: translateY(-20px);
+        * {
+          margin: 0;
+        }
+        .content {
+          .box {
+            @include respond-to(">=l") {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            display: grid;
+            gap: 6px;
+          }
+        }
         h6 {
           font-weight: 600;
           font-size: 18px;
@@ -53,33 +100,48 @@
           font-weight: 600;
           font-size: 28px;
           line-height: 36.5px;
+          font-family: var(--f-default-headers-font);
         }
         p {
           max-width: 768px;
         }
       }
+      &__content {
+        margin-bottom: -16px;
+        .content {
+          .box {
+            @include respond-to(">=l") {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
+      }
     }
     &__community-support {
+      // background: red;
       background: var(--color-neutral-dark-mode-02);
       text-align: center;
-      padding-top: 82px;
-      padding-bottom: 82px;
-      margin-bottom: 102px;
+      padding-top: 65px;
+      padding-bottom: 65px;
+      margin-bottom: 90px;
       .content {
         .box {
           display: grid;
           gap: 36px;
           justify-items: center;
-          *{margin: 0;}
+          * {
+            margin: 0;
+          }
         }
       }
     }
     &__what-wallets-use {
-      margin-bottom: 86px;
+      margin-bottom: 54px;
       .content {
         .box {
           display: grid;
-          gap: var(--f-gutter);
+          gap: 5px;
           // justify-content: center;
           * {
             margin: 0;
@@ -88,6 +150,9 @@
             max-width: 768px;
             margin-left: auto;
             margin-right: auto;
+            font-size: 20px;
+            line-height: 28px;
+            margin-bottom: 12px;
           }
           h6 {
             font-weight: 600;
@@ -101,6 +166,8 @@
             font-size: 36px;
             line-height: 48px;
             text-align: center;
+            font-family: var(--f-default-text-font);
+            margin-bottom: var(--f-gutter-s);
           }
           h5 {
             font-weight: 600;
@@ -108,16 +175,44 @@
             line-height: 30px;
             text-align: center;
             color: var(--color-neutral-dark-mode-05);
+            margin-bottom: 8px;
           }
         }
       }
     }
     &__stake-governance {
-      padding-top: 86px;
+      padding-top: 48px;
       padding-bottom: 86px;
+      @include respond-to(">=l") {
+        .--flare-block {
+          &:nth-of-type(1) {
+            .content {
+              .box {
+                padding-left: 0;
+                padding-right: 25px;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            .content {
+              .box {
+                padding-left: 25px;
+              }
+            }
+          }
+        }
+      }
       .content {
         .box {
           margin-bottom: var(--f-gutter);
+          // padding-left: 0;
+          // padding-right: 0;
+          display: grid;
+          place-content: start;
+          gap: var(--f-gutter-xxs);
+          * {
+            margin: 0;
+          }
           h6 {
             font-weight: 600;
             font-size: 18px;
@@ -128,6 +223,7 @@
             font-weight: 600;
             font-size: 22px;
             line-height: 30px;
+            margin-bottom: 12px;
           }
         }
       }
@@ -135,6 +231,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--f-gutter);
+        padding-top: var(--f-gutter-xl);
         * {
           margin: 0;
         }
@@ -145,8 +242,9 @@
       }
     }
     &__secret-applications {
-      padding-top: 56px;
+      padding-top: 28px;
       padding-bottom: 56px;
+      margin-bottom: -65px;
       .content {
         .box {
           display: grid;
@@ -173,7 +271,7 @@
       h3 {
         font-weight: 600;
         font-size: 36px;
-        line-height: 48px;
+        line-height: 30px;
         text-align: center;
       }
     }

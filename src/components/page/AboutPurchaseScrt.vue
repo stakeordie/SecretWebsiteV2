@@ -61,7 +61,7 @@
         <nav>
           <h6>On Ethereum</h6>
           <a href="https://sushi.com/" target="blank"><img src="@/assets/icon-sushiSwap.svg" alt=""><span>SushiSwap</span></a>
-          <a href="https://uniswap.org/" target="blank"><img src="@/assets/icon-uniswap.svg" alt=""><span>Uniswap (Tutorial)</span></a>
+          <a href="https://uniswap.org/" target="blank"><img src="@/assets/icon-uniswap.svg" alt=""><span>Uniswap</span></a>
         </nav>
       </section>
     </div>
@@ -97,8 +97,8 @@ export default {};
   }
   &__method {
     display: grid;
-    gap: var(--f-gutter);
-    margin-bottom: 116px;
+    gap: 14px;
+    margin-bottom: 121px;
     *{margin: 0;}
     .resources {
       display: grid;
