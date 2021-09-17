@@ -1,4 +1,8 @@
 .about-about-SCRT {
+  #purchase,#store, #stake-scrt, #scrt-governance, #apps {
+    padding-top: 8em;
+    margin-top: -8em;
+  }
   .about {
     &__separator {
       text-align: center;
@@ -204,7 +208,7 @@
       }
       .content {
         .box {
-          margin-bottom: var(--f-gutter);
+          margin-bottom: var(--f-gutter-xl);
           // padding-left: 0;
           // padding-right: 0;
           display: grid;
