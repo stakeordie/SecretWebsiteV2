@@ -59,6 +59,7 @@
 
 <script>
 import mailchimp from '@/apis/mailchimp';
+import md5 from 'md5';
 
 export default {
   data: function() {
@@ -75,7 +76,8 @@ export default {
       this.loading = true;
 
       try {
-        await mailchimp.subscribe(this.email);
+        const emailMd5 = md5(this.email);
+        await mailchimp.subscribe(this.email, emailMd5);
         this.formSubmitted = true;
       } catch (e) {
         // ignore
