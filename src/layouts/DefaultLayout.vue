@@ -884,7 +884,16 @@ export default {
     },
     $route: {
         handler(to, from) {
-          this.checkPath();
+          // this.checkPath();
+          const path = to.fullPath;
+          if(path === '/about/about-scrt') {
+            this.swirlSpecial = true;
+          } else {
+            this.swirlSpecial = false;
+          }
+          console.log(path);
+          // console.log(path === '/about/about-scrt');
+          return;
         },
         immediate: true,
       },
@@ -892,14 +901,15 @@ export default {
 
   methods: {
     checkPath(){
-      const path = window.location.pathname;
-      if(path === '/about/about-scrt') {
-        this.swirlSpecial = true;
-      } else {
-        this.swirlSpecial = false;
-      }
-      // console.log(path === '/about/about-scrt');
-      return;
+      // const path = to.fullPath;
+      // if(path === '/about/about-scrt') {
+      //   this.swirlSpecial = true;
+      // } else {
+      //   this.swirlSpecial = false;
+      // }
+      // console.log(path);
+      // // console.log(path === '/about/about-scrt');
+      // return;
     },
     // removeMainMarginHeroMixed() {
     //   const mainEl = document.querySelector('main.--flare-page');
