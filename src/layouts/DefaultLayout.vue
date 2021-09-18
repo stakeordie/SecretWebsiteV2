@@ -884,15 +884,7 @@ export default {
     },
     $route: {
         handler(to, from) {
-          // this.checkPath();
-          const path = to.fullPath;
-          if(path === '/about/about-scrt') {
-            this.swirlSpecial = true;
-          } else {
-            this.swirlSpecial = false;
-          }
-          console.log(path);
-          // console.log(path === '/about/about-scrt');
+          this.checker();
           return;
         },
         immediate: true,
@@ -900,21 +892,17 @@ export default {
   },
 
   methods: {
-    checkPath(){
-      // const path = to.fullPath;
-      // if(path === '/about/about-scrt') {
-      //   this.swirlSpecial = true;
-      // } else {
-      //   this.swirlSpecial = false;
-      // }
-      // console.log(path);
-      // // console.log(path === '/about/about-scrt');
-      // return;
+    checker() {
+      if(process.isClient) {
+        const path = window.location.pathname;
+        if(path === '/about/about-scrt') {
+          this.swirlSpecial = true;
+        } else {
+          this.swirlSpecial = false;
+        }
+        console.log(path);
+      }
     },
-    // removeMainMarginHeroMixed() {
-    //   const mainEl = document.querySelector('main.--flare-page');
-    //   mainEl.classList.remove('hero-mixed-margin');
-    // },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");
@@ -991,12 +979,6 @@ export default {
         }, 700);
       }
     },
-  },
-  beforeMount(){
-    // this.checkPath();
-  },
-  destroyed(){
-    // this.checkPath();
   },
   mounted() {
     // Hacking the system :(

@@ -29,30 +29,6 @@ export default {
       swirlSpecialIsOn: false,
     }
   },
-  // methods: {
-  //   specialSwirl(isOn) {
-  //     this.swirlSpecialIsOn = isOn;
-  //     const swirlSpecialTop = document.querySelector('.swirl.top>.themed-image>img');
-  //     const swirlSpecialBottom = document.querySelector('.swirl.bottom>.themed-image>img');
-  //     if(this.swirlSpecialIsOn){
-  //       swirlSpecialTop.classList.add('special-mod');
-  //       swirlSpecialBottom.classList.add('special-mod');
-  //       swirlSpecialTop.src = '/assets/img/swirl-special-color.svg';
-  //       swirlSpecialBottom.src = '/assets/img/swirl-special-color-inverted.svg';
-  //     } else if (!this.swirlSpecialIsOn) {
-  //       swirlSpecialTop.classList.remove('special-mod');
-  //       swirlSpecialBottom.classList.remove('special-mod');
-  //       swirlSpecialTop.src = '/assets/img/swirl-color-dark.svg';
-  //       swirlSpecialBottom.src = '/assets/img/swirl-color-dark.svg';
-  //     }
-  //   }
-  // },
-  // beforeMount() {
-  //   this.specialSwirl(true);
-  // },
-  // destroyed() {
-  //   this.specialSwirl(false);
-  // }
 }
 </script>
 
