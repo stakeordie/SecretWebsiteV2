@@ -895,11 +895,12 @@ export default {
     checker() {
       if(process.isClient) {
         const path = window.location.pathname;
-        if(path === '/about/about-scrt') {
+        if(path.includes('/about/about-scrt')) {
           this.swirlSpecial = true;
         } else {
           this.swirlSpecial = false;
         }
+        console.log(this.swirlSpecial)
         console.log(path);
       }
     },
@@ -986,6 +987,7 @@ export default {
     this.toggleNavOpen();
     this.callFunction("body-visible");
     this.setInitialTheme();
+    this.checker();
     // this.removeMainMarginHeroMixed();
   },
 };
