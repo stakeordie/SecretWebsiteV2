@@ -887,7 +887,7 @@ export default {
           this.checker();
           return;
         },
-        immediate: true,
+        // immediate: true,
       },
   },
 
