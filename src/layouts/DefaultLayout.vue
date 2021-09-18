@@ -373,6 +373,15 @@
         <div class="swirl top">
           <themed-image>
             <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-special-color.svg"
+              alt=""
+            />
+            <img
+            v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="@/assets/swirl-color-dark.svg"
@@ -404,6 +413,15 @@
         <div class="swirl bottom">
           <themed-image>
             <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-special-color-inverted.svg"
+              alt=""
+            />
+            <img
+              v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="@/assets/swirl-color-dark.svg"
@@ -665,10 +683,16 @@ export default {
       isCommunityOpen: false,
       isDevelopersOpen: false,
       isEcosystemOpen: false,
+      swirlSpecial: false,
       linksLearn: [
         {
           title: "About the Network",
-          path: "/about/new-about-secret-network",
+          path: "/about/about-secret-network",
+          target: "self",
+        },
+        {
+          title: "About SCRT",
+          path: "/about/about-scrt",
           target: "self",
         },
         {
@@ -736,7 +760,7 @@ export default {
       linksFooterLearn: [
         {
           title: "About the Network",
-          path: "/about/about-secret-network",
+          path: "/about/about-scrt",
           external: false,
           target: "self",
         },
@@ -858,9 +882,25 @@ export default {
       this.isEcosystemOpen = false;
       // this.removeMainMarginHeroMixed();
     },
+    $route: {
+        handler(to, from) {
+          this.checkPath();
+        },
+        immediate: true,
+      },
   },
 
   methods: {
+    checkPath(){
+      const path = window.location.pathname;
+      if(path === '/about/about-scrt') {
+        this.swirlSpecial = true;
+      } else {
+        this.swirlSpecial = false;
+      }
+      // console.log(path === '/about/about-scrt');
+      return;
+    },
     // removeMainMarginHeroMixed() {
     //   const mainEl = document.querySelector('main.--flare-page');
     //   mainEl.classList.remove('hero-mixed-margin');
@@ -942,7 +982,12 @@ export default {
       }
     },
   },
-
+  beforeMount(){
+    // this.checkPath();
+  },
+  destroyed(){
+    // this.checkPath();
+  },
   mounted() {
     // Hacking the system :(
     this.isNavOpen = false;
