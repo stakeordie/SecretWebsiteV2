@@ -373,6 +373,15 @@
         <div class="swirl top">
           <themed-image>
             <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-special-color.svg"
+              alt=""
+            />
+            <img
+            v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="@/assets/swirl-color-dark.svg"
@@ -404,6 +413,15 @@
         <div class="swirl bottom">
           <themed-image>
             <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-special-color-inverted.svg"
+              alt=""
+            />
+            <img
+              v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="@/assets/swirl-color-dark.svg"
@@ -665,10 +683,16 @@ export default {
       isCommunityOpen: false,
       isDevelopersOpen: false,
       isEcosystemOpen: false,
+      swirlSpecial: false,
       linksLearn: [
         {
           title: "About the Network",
           path: "/about/about-secret-network",
+          target: "self",
+        },
+        {
+          title: "About SCRT",
+          path: "/about/about-scrt",
           target: "self",
         },
         {
@@ -736,7 +760,7 @@ export default {
       linksFooterLearn: [
         {
           title: "About the Network",
-          path: "/about/about-secret-network",
+          path: "/about/about-scrt",
           external: false,
           target: "self",
         },
@@ -858,13 +882,28 @@ export default {
       this.isEcosystemOpen = false;
       // this.removeMainMarginHeroMixed();
     },
+    $route: {
+        handler(to, from) {
+          this.checker();
+          return;
+        },
+        // immediate: true,
+      },
   },
 
   methods: {
-    // removeMainMarginHeroMixed() {
-    //   const mainEl = document.querySelector('main.--flare-page');
-    //   mainEl.classList.remove('hero-mixed-margin');
-    // },
+    checker() {
+      if(process.isClient) {
+        const path = window.location.pathname;
+        if(path.includes('/about/about-scrt')) {
+          this.swirlSpecial = true;
+        } else {
+          this.swirlSpecial = false;
+        }
+        console.log(this.swirlSpecial)
+        console.log(path);
+      }
+    },
     toggleNavOpen() {
       if (this.isNavOpen) {
         document.body.classList.add("modal-open");
@@ -942,13 +981,13 @@ export default {
       }
     },
   },
-
   mounted() {
     // Hacking the system :(
     this.isNavOpen = false;
     this.toggleNavOpen();
     this.callFunction("body-visible");
     this.setInitialTheme();
+    this.checker();
     // this.removeMainMarginHeroMixed();
   },
 };
@@ -1367,7 +1406,17 @@ export default {
   &.top {
     left: 0;
     right: 0;
-    top: 50px;
+    top: 0;
+    img {
+      &.special-mod {
+        height: 255px;
+        object-fit: cover;
+        object-position: center bottom;
+        @include respond-to("<=m") {
+          // height: 222px;
+        }
+      }
+    }
   }
 
   &.bottom {
@@ -1380,6 +1429,17 @@ export default {
 
     img {
       transform: rotate(180deg);
+    }
+    img {
+      &.special-mod {
+        height: 274px;
+        object-fit: fill;
+        object-position: center bottom;
+        transform: rotate(0);
+        @include respond-to("<=m") {
+          // height: 222px;
+        }
+      }
     }
   }
 }
