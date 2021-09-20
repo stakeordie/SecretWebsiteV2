@@ -885,6 +885,7 @@ export default {
     $route: {
         handler(to, from) {
           this.checker();
+          this.isNavOpen = false;
           return;
         },
         // immediate: true,
@@ -900,8 +901,6 @@ export default {
         } else {
           this.swirlSpecial = false;
         }
-        console.log(this.swirlSpecial)
-        console.log(path);
       }
     },
     toggleNavOpen() {
@@ -917,15 +916,19 @@ export default {
     // },
     showLearn() {
       this.isLearnOpen = !this.isLearnOpen;
+      this.isNavOpen = false;
     },
     showCommunity() {
       this.isCommunityOpen = !this.isCommunityOpen;
+      this.isNavOpen = false;
     },
     showDevelopers() {
       this.isDevelopersOpen = !this.isDevelopersOpen;
+      this.isNavOpen = false;
     },
     showEcosystem() {
       this.isEcosystemOpen = !this.isEcosystemOpen;
+      this.isNavOpen = false;
     },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
