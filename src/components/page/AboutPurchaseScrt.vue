@@ -7,6 +7,7 @@
       class="about-purchase-scrt-wrapper__title"
       v-for="(element, index) in contentAboutScrtPurchase"
       :key="index"
+      :class="element.subtitle"
     >
       <h6>{{ element.subtitle }}</h6>
       <h2>{{ element.title }}</h2>
@@ -36,9 +37,7 @@
                   :src="image"
                   alt=""
                 />
-                <span>{{
-                  link.title
-                }}</span>
+                <span>{{ link.title }}</span>
               </a>
             </li>
           </ul>
@@ -51,30 +50,46 @@
                   :src="image"
                   alt=""
                 />
-                <span>{{
-                  link.title
-                }}</span>
+                <span>{{ link.title }}</span>
               </a>
             </li>
           </ul>
           <ul class="v-checker">
             <li v-for="(link, index) in element.linkWithImage" :key="index">
-              <a :href="link.url" v-if="link.clusterTitle === 'On Secret Network'">
+              <h6
+                v-if="link.clusterTitle === 'On Secret Network'"
+                class="cluster-title"
+                :class="link.clusterTitle.replaceAll(' ', '-').toLowerCase()"
+              >
+                {{ link.clusterTitle }}
+              </h6>
+              <a
+                :href="link.url"
+                v-if="link.clusterTitle === 'On Secret Network'"
+              >
                 <img
                   v-for="(image, index) in link.image"
                   :key="index"
                   :src="image"
                   alt=""
                 />
-                <span>{{
-                  link.title
-                }}</span>
+                <span>{{ link.title }}</span>
               </a>
             </li>
           </ul>
           <ul class="v-checker">
-            <li class="li-check" v-for="(link, index) in element.linkWithImage" :key="index">
-              <!-- <h6 class="cluster-title">On Ethereum</h6> -->
+            <li
+              class="li-check"
+              v-for="(link, index) in element.linkWithImage"
+              :key="index"
+            >
+              <h6
+                v-if="link.clusterTitle === 'On Ethereum'"
+                class="cluster-title"
+                :class="link.clusterTitle.replaceAll(' ', '-').toLowerCase()"
+              >
+                {{ link.clusterTitle }}
+              </h6>
               <a :href="link.url" v-if="link.clusterTitle === 'On Ethereum'">
                 <img
                   v-for="(image, index) in link.image"
@@ -82,9 +97,7 @@
                   :src="image"
                   alt=""
                 />
-                <span>{{
-                  link.title
-                }}</span>
+                <span>{{ link.title }}</span>
               </a>
             </li>
           </ul>
@@ -92,9 +105,6 @@
         <vue-markdown class="note" :source="element.note"></vue-markdown>
       </div>
     </div>
-
-    <!-- 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 -->
-    
   </section>
 </template>
 
@@ -102,33 +112,30 @@
 export default {
   methods: {
     checker() {
-      const emptyUl = document.querySelectorAll('.v-checker')
-      const emptyLi = document.querySelectorAll('.v-checker > li')
-      // const clusterTitle = document.querySelectorAll(',cluster-title')
-        console.log(emptyUl);
-      const checker = function() {
-        for(const element of emptyLi) {
-          if(element.innerText === '') {
+      const emptyUl = document.querySelectorAll(".v-checker");
+      const emptyLi = document.querySelectorAll(".v-checker > li");
+      const clusterTitleScrtEl = document.querySelectorAll(".cluster-title.on-secret-network");
+      const clusterTitleEthEl = document.querySelectorAll(".cluster-title.on-ethereum");
+      const checker = function () {
+        for (const element of emptyLi) {
+          if (element.innerText === "") {
             element.remove();
-            
-
           }
         }
-            for(const ul of emptyUl) {
-              if(ul.childNodes === 0) {
-                ul.remove();
-              }
-                console.log(ul);
-            }
-            // for(const ul of emptyUl) {
-            //   if(ul.childNodes.length <= 0) {
-            //     ul.remove();
-            //   }
-            // }
+        for(const [index, el] of clusterTitleScrtEl.entries()) {
+          if(index > 0) {
+            el.remove();
+          }
+        }
+        for(const [index, el] of clusterTitleEthEl.entries()) {
+          if(index > 0) {
+            el.remove();
+          }
+        }
         
-      }
-      checker();  
-    }
+      };
+      checker();
+    },
   },
   computed: {
     contentAboutScrtPurchase() {
@@ -139,20 +146,17 @@ export default {
       return contentIntro;
     },
     contentPurchaseMehtodCluster() {
-      const content2 = this.$static.aboutScrtPurchase.edges.map(
-        (it) => it.node.purchaseMehtodCluster
-        .filter(el => {
-          // console.log(el.linkWithImage)
-          return el.linkWithImage 
+      const content2 = this.$static.aboutScrtPurchase.edges.map((it) =>
+        it.node.purchaseMehtodCluster.filter((el) => {
+          return el.linkWithImage;
         })
       );
-      // console.log(content2);
       return content2;
     },
   },
   mounted() {
     this.checker();
-  }
+  },
 };
 </script>
 
@@ -198,7 +202,7 @@ query {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 .about-purchase-scrt-wrapper {
   &__title {
-    margin-bottom: -11px;
+    margin-bottom: 26px;
     transform: translateY(-20px);
     display: grid;
     gap: 6px;
@@ -224,15 +228,15 @@ query {
 }
 .about-purchase-scrt {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
+  gap: 36px;
   @include respond-to("<=m") {
     grid-template-columns: 1fr 1fr;
   }
   @include respond-to("<=s") {
     grid-template-columns: 1fr;
   }
-  gap: 36px;
   h6 {
     color: #748ba5;
     text-transform: uppercase;
@@ -264,14 +268,18 @@ query {
         row-gap: var(--f-gutter);
         padding: 0;
         align-items: start;
+        align-content: start;
         li {
           display: grid;
           width: max-content;
           align-content: start;
           row-gap: var(--f-gutter);
-          grid-auto-flow: column;
+          // grid-auto-flow: column;
           h6 {
             color: #d4dce3;
+            font-size: 16px;
+            line-height: 24px;
+            text-transform:capitalize;
           }
           a {
             display: grid;
