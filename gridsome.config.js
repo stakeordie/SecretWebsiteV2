@@ -95,7 +95,8 @@ module.exports = {
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
-                'agent-landing-intro-rows'
+                'agent-landing-intro-rows',
+                'about-scrt',
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).

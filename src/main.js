@@ -73,6 +73,10 @@ import SecretAgentEmailFormBanner from '~/components/SecretAgentEmailFormBanner.
 import AboutGetStarted from '~/components/page/AboutGetStarted.vue';
 import AboutPurchaseScrt from '~/components/page/AboutPurchaseScrt.vue';
 import AboutWallets from '~/components/page/AboutWallets.vue';
+import AboutScrtMajorFunctions from '~/components/page/AboutScrtMajorFunctions.vue';
+import AboutScrtCommunitySupport from '~/components/page/AboutScrtCommunitySupport.vue';
+import AboutScrtStakeGovApps from '~/components/page/AboutScrtStakeGovApps.vue';
+import AboutScrtApps from '~/components/page/AboutScrtApps.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -166,6 +170,10 @@ export default function (Vue, {
   Vue.component('AboutGetStarted', AboutGetStarted);
   Vue.component('AboutPurchaseScrt', AboutPurchaseScrt);
   Vue.component('AboutWallets', AboutWallets);
+  Vue.component('AboutScrtMajorFunctions', AboutScrtMajorFunctions);
+  Vue.component('AboutScrtCommunitySupport', AboutScrtCommunitySupport);
+  Vue.component('AboutScrtStakeGovApps', AboutScrtStakeGovApps);
+  Vue.component('AboutScrtApps', AboutScrtApps);
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);

@@ -1,82 +1,231 @@
 <template>
-  <section class="about-purchase-scrt">
-    <!-- Beginner -->
-    <div class="about-purchase-scrt__method">
-      <img src="@/assets/icon-beginner.svg" alt="">
-      <div class="about-purchase-scrt__title">
-        <h6>BEGINNER</h6>
-        <h3>Buy Directly</h3>
+  <section
+    class="about-purchase-scrt-wrapper"
+    :class="{ contentAboutScrtPurchase, contentPurchaseMehtodCluster }"
+  >
+    <div
+      class="about-purchase-scrt-wrapper__title"
+      v-for="(element, index) in contentAboutScrtPurchase"
+      :key="index"
+    >
+      <h6>{{ element.subtitle }}</h6>
+      <h2>{{ element.title }}</h2>
+      <p>{{ element.message }}</p>
+    </div>
+    <!-- 🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄 -->
+    <div class="about-purchase-scrt">
+      <!-- Beginner -->
+      <div
+        class="about-purchase-scrt__method"
+        v-for="(element, index) in contentPurchaseMehtodCluster[0]"
+        :key="index"
+      >
+        <img :src="element.image.url" alt="" />
+        <div class="about-purchase-scrt__title">
+          <h6>{{ element.level }}</h6>
+          <h3>{{ element.clusterTitle }}</h3>
+        </div>
+        <vue-markdown :source="element.description"></vue-markdown>
+        <section class="resources">
+          <ul class="v-checker">
+            <li v-for="(link, index) in element.linkWithImage" :key="index">
+              <a :href="link.url" v-if="link.clusterTitle === 'col1'">
+                <img
+                  v-for="(image, index) in link.image"
+                  :key="index"
+                  :src="image"
+                  alt=""
+                />
+                <span>{{
+                  link.title
+                }}</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="v-checker">
+            <li v-for="(link, index) in element.linkWithImage" :key="index">
+              <a :href="link.url" v-if="link.clusterTitle === 'col2'">
+                <img
+                  v-for="(image, index) in link.image"
+                  :key="index"
+                  :src="image"
+                  alt=""
+                />
+                <span>{{
+                  link.title
+                }}</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="v-checker">
+            <li v-for="(link, index) in element.linkWithImage" :key="index">
+              <a :href="link.url" v-if="link.clusterTitle === 'On Secret Network'">
+                <img
+                  v-for="(image, index) in link.image"
+                  :key="index"
+                  :src="image"
+                  alt=""
+                />
+                <span>{{
+                  link.title
+                }}</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="v-checker">
+            <li class="li-check" v-for="(link, index) in element.linkWithImage" :key="index">
+              <!-- <h6 class="cluster-title">On Ethereum</h6> -->
+              <a :href="link.url" v-if="link.clusterTitle === 'On Ethereum'">
+                <img
+                  v-for="(image, index) in link.image"
+                  :key="index"
+                  :src="image"
+                  alt=""
+                />
+                <span>{{
+                  link.title
+                }}</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <vue-markdown class="note" :source="element.note"></vue-markdown>
       </div>
-      <p>
-        Depending on your jurisdiction, you may be able to buy SCRT using your
-        bank account or credit card with this service:
-      </p>
-      <section class="resources">
-        <nav>
-          <a href="https://global.transak.com/" target="blank"><img src="@/assets/icon-transak.svg" alt=""><span>Transak</span></a>
-        </nav>
-      </section>
-      <p class="note">
-        Note: Direct purchase is currently unavaible in the U.S. Make sure you
-        are aware of restrictions and waiting periods.
-      </p>
     </div>
-    <!-- Intermediate -->
-    <div class="about-purchase-scrt__method">
-      <img src="@/assets/icon-intermediate.svg" alt="">
-      <div class="about-purchase-scrt__title">
-        <h6>INTERMEDIATE</h6>
-        <h3>Centralized Exchanges</h3>
-      </div> 
-      <p>
-        Depending on your jurisdiction, you can buy SCRT on these centralized
-        exchanges operated by traditional businesses:
-      </p>
-      <section class="resources">
-        <nav>
-          <a href="https://www.binance.com/en" target="blank"><img src="@/assets/icon-binance.svg" alt=""><span>Binance</span></a>
-          <a href="https://www.bitmart.com/" target="blank"><img src="@/assets/icon-bitmart.svg" alt=""><span>Bitmart</span></a>
-          <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwil6O2C1f3yAhVxCn0KHSJ5AgwYABAAGgJwdg&ae=2&ohost=www.google.com&cid=CAESQeD2OvgDb5p4MSCspu5Sz5m48C9jMQLSamCA4M4vBMEcudIGv6ZN1gk20P315f3nsAlUTsvO74R22KbzKNhLK3ky&sig=AOD64_1bFMEKjThuAY41LrKWdnr9qi2fzw&q&adurl&ved=2ahUKEwiNl-WC1f3yAhXP7Z4KHT83CEAQ0Qx6BAgCEAE" target="blank"><img src="@/assets/icon-coinex.svg" alt=""><span>CoinEx</span></a>
-        </nav>
-        <nav>
-          <a href="https://www.mexc.com/" target="blank"><img src="@/assets/icon-mexc.svg" alt=""><span>MEXC</span></a>
-          <a href="https://www.gate.io/" target="blank"><img src="@/assets/icon-gateio.svg" alt=""><span>Gate.io</span></a>
-        </nav>
-      </section>
-    </div>
-    <!-- Decentralized -->
-    <div class="about-purchase-scrt__method">
-      <img src="@/assets/icon-advanced.svg" alt="">
-      <div class="about-purchase-scrt__title">
-        <h6>ADVANCED</h6>
-        <h3>Decentralized Exchanges</h3>
-      </div>
-      <p>You can buy mainnet SCRT from DEXes on Secret Network or a wrapped version of Secret from DEXes on Ethereum.</p>
-      <section class="resources">
-        <nav>
-          <h6>On Secret Network</h6>
-          <a href="https://secretswap.io/" target="blank"><img src="@/assets/icon-secretSwap.svg" alt=""><span>Secret Swap</span></a>
-          <a href="https://sienna.network/" target="blank"><img src="@/assets/icon-sienna.svg" alt=""><span>Sienna</span></a>
-        </nav>
-        <nav>
-          <h6>On Ethereum</h6>
-          <a href="https://sushi.com/" target="blank"><img src="@/assets/icon-sushiSwap.svg" alt=""><span>SushiSwap</span></a>
-          <a href="https://uniswap.org/" target="blank"><img src="@/assets/icon-uniswap.svg" alt=""><span>Uniswap</span></a>
-        </nav>
-      </section>
-    </div>
+
+    <!-- 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 -->
+    
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    checker() {
+      const emptyUl = document.querySelectorAll('.v-checker')
+      const emptyLi = document.querySelectorAll('.v-checker > li')
+      // const clusterTitle = document.querySelectorAll(',cluster-title')
+        console.log(emptyUl);
+      const checker = function() {
+        for(const element of emptyLi) {
+          if(element.innerText === '') {
+            element.remove();
+            
+
+          }
+        }
+            for(const ul of emptyUl) {
+              if(ul.childNodes === 0) {
+                ul.remove();
+              }
+                console.log(ul);
+            }
+            // for(const ul of emptyUl) {
+            //   if(ul.childNodes.length <= 0) {
+            //     ul.remove();
+            //   }
+            // }
+        
+      }
+      checker();  
+    }
+  },
+  computed: {
+    contentAboutScrtPurchase() {
+      const contentIntro = this.$static.aboutScrtPurchase.edges.map(
+        (it) => it.node.aboutScrtPurchase[0]
+      );
+      // console.log(contentIntro);
+      return contentIntro;
+    },
+    contentPurchaseMehtodCluster() {
+      const content2 = this.$static.aboutScrtPurchase.edges.map(
+        (it) => it.node.purchaseMehtodCluster
+        .filter(el => {
+          // console.log(el.linkWithImage)
+          return el.linkWithImage 
+        })
+      );
+      // console.log(content2);
+      return content2;
+    },
+  },
+  mounted() {
+    this.checker();
+  }
+};
 </script>
+
+<static-query>
+
+query {
+  aboutScrtPurchase: allStrapiAboutScrt {
+    edges {
+      node {
+				aboutScrtPurchase {
+          subtitle
+          title
+          message
+        }
+        purchaseMehtodCluster {
+          id
+          level
+          clusterTitle
+          description
+          note
+          image {
+            id
+						url
+          }
+          linkWithImage {
+            id
+            clusterTitle
+            title
+            url
+            image {
+              url
+            }
+          }
+        }
+      }
+    }
+  } 
+}
+
+</static-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
+.about-purchase-scrt-wrapper {
+  &__title {
+    margin-bottom: -11px;
+    transform: translateY(-20px);
+    display: grid;
+    gap: 6px;
+    * {
+      margin: 0;
+    }
+    h6 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 25px;
+      color: var(--color-highkey-secondary-yellow);
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 36.5px;
+      font-family: var(--f-default-headers-font);
+    }
+    p {
+      max-width: 768px;
+    }
+  }
+}
 .about-purchase-scrt {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: start;
   @include respond-to("<=m") {
     grid-template-columns: 1fr 1fr;
   }
@@ -85,7 +234,8 @@ export default {};
   }
   gap: 36px;
   h6 {
-    color: #748BA5;
+    color: #748ba5;
+    text-transform: uppercase;
   }
   h3 {
     font-weight: 600;
@@ -93,33 +243,46 @@ export default {};
     line-height: 30px;
   }
   .note {
-    color: #748BA5;
+    p {
+      color: #748ba5;
+    }
   }
   &__method {
     display: grid;
     gap: 14px;
     margin-bottom: 121px;
-    *{margin: 0;}
+    * {
+      margin: 0;
+    }
     .resources {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 48px;
       width: max-content;
-      nav {
+      ul {
         display: grid;
-        width: max-content;
-        align-content: start;
         row-gap: var(--f-gutter);
-        h6 {
-          color: #D4DCE3;
-        }
-        a {
+        padding: 0;
+        align-items: start;
+        li {
           display: grid;
+          width: max-content;
+          align-content: start;
+          row-gap: var(--f-gutter);
           grid-auto-flow: column;
-          align-items: self-start;
-          justify-content: start;
-          gap: 6px;
-          *{margin: 0;}
+          h6 {
+            color: #d4dce3;
+          }
+          a {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: self-start;
+            justify-content: start;
+            gap: 6px;
+            * {
+              margin: 0;
+            }
+          }
         }
       }
     }
