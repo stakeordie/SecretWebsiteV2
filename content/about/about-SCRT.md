@@ -93,7 +93,7 @@ title: "About"
 
 
 
-<column class="about__purchase-scrt__content">
+<column id="purchase" class="about__purchase-scrt__content">
 
 <block>
 
@@ -171,14 +171,14 @@ title: "About"
 
 <column class="about__stake-governance" number="2" number-m="1" number-s="1">
 
-<block>
+<block id="stake-scrt">
 
 <!-- stake -->
 <about-scrt-stake-gov-apps block="STAKE SCRT"></about-scrt-stake-gov-apps>
 
 </block>
 
-<block>
+<block id="scrt-governance">
 
 <!-- governance -->
 <about-scrt-stake-gov-apps block="SCRT GOVERNANCE"></about-scrt-stake-gov-apps>
@@ -193,8 +193,8 @@ title: "About"
 
 
 
-<!-- 🔥🔥🔥 🍔 🔥🔥🔥 -->
-<column id="apps" class="about__secret-applications" mode="slim">
+
+<column id="scrt-apps" class="about__secret-applications" mode="slim">
 
 <block>
 
