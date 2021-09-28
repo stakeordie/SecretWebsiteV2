@@ -94,6 +94,7 @@ import HomeExplainer from '~/components/page/HomeExplainer'
 import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
 import i18n from '~/components/i18n'
+import Deploy from '~/components/Deploy'
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
@@ -201,6 +202,7 @@ export default function (Vue, {
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
   Vue.component('typical', typical);
   Vue.component('i18n', i18n);
+  Vue.component('Deploy', Deploy);
   Vue.use(VueAnime);
 
   Vue.use(Flare);
