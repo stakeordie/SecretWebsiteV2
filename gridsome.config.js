@@ -81,7 +81,8 @@ module.exports = {
                 'committees'
             ],
             localizedTypes: [
-              'home-explainer'
+                'alert-bar',
+                'home-explainer'
             ],
             singleTypes: [
                 'alert-bar',

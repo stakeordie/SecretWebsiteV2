@@ -27,19 +27,22 @@
 </template>
 
 <script>
+  import { getLocaleNode } from '@/utils'
   export default {
     computed: {
       homeExplainer() {
-        const locale = this.$context.locale;
-        const homeExplainer = this.$static.homeExplainer.edges
-          .find(({ node }) => node.locale === locale);
-        if (!homeExplainer) {
-          const { node } =  this.$static.homeExplainer.edges
-            .find(({ node }) => node.locale === 'en');
-          return node;
-        } else {
-          return homeExplainer.node;
-        }
+        return getLocaleNode(this.$static.homeExplainer, this.$context.locale)
+        // const locale = this.$context.locale;
+        // console.log(this.$static.homeExplainer.edges)
+        // const homeExplainer = this.$static.homeExplainer.edges
+        //   .find(({ node }) => node.locale === locale);
+        // if (!homeExplainer) {
+        //   const { node } =  this.$static.homeExplainer.edges
+        //     .find(({ node }) => node.locale === 'en');
+        //   return node;
+        // } else {
+        //   return homeExplainer.node;
+        // }
       },
 
       steps() {

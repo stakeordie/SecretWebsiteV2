@@ -1,6 +1,6 @@
 <template>
   <div v-if="isAlertOpen" class="alert-bar">
-    <vue-markdown class="alert-content">{{ alertMessage }}</vue-markdown>
+    <vue-markdown class="alert-content">{{ alertMessage.text }}</vue-markdown>
     <a @click="isAlertOpen = false" href="" class="close-alert">
       <img src="../assets/icon-menu-close.svg" width="24" height="24" alt="close" />
     </a>
@@ -8,7 +8,10 @@
 </template>
 
 <script>
+  import { getLocaleNode } from '@/utils'
+
   export default {
+    
     props: {
       url: {
         type: String,
@@ -23,7 +26,7 @@
     },
     computed: {
       alertMessage() {
-        return this.$static.alertBar.edges[0].node.text;
+        return getLocaleNode(this.$static.alertBar, this.$context.locale)
       }
     }
   }
@@ -36,6 +39,7 @@
       edges{
         node{
           text
+          locale
         }
       }
     }
