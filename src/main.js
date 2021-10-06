@@ -36,7 +36,6 @@ import Announcement from '~/components/Announcement.vue';
 import Navigation from '~/components/Navigation.vue';
 import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
-import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
 import HeroMixed from '~/components/HeroMixed.vue';
 import HeroMixedCms from '~/components/HeroMixedCms.vue';
@@ -90,6 +89,7 @@ import BlogPostsFeatured from '~/components/blog/BlogPostsFeatured'
 import BlogFilter from '~/components/blog/BlogFilter'
 
 // Page Specific
+import HomeHero from '~/components/page/HomeHero.vue';
 import HomeExplainer from '~/components/page/HomeExplainer'
 import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
@@ -134,7 +134,6 @@ export default function (Vue, {
   Vue.component('ImagePlaceholder', ImagePlaceholder);
   Vue.component('Navigation', Navigation);
   Vue.component('Type', Type);
-  Vue.component('HeroVideo', HeroVideo);
   Vue.component('HeroTitle', HeroTitle);
   Vue.component('HeroMixed', HeroMixed);
   Vue.component('HeroMixedCms', HeroMixedCms);
@@ -194,9 +193,11 @@ export default function (Vue, {
 
 
   //Page Specific
+  Vue.component('HomeHero', HomeHero);
   Vue.component('HomeExplainer', HomeExplainer);
   Vue.component('HomeAnnouncements', HomeAnnouncements);
   Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
+  
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);

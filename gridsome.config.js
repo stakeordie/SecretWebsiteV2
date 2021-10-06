@@ -12,8 +12,15 @@ const i18nPlugin = {
     locales: [
       'en',
       'es',
-      'jp'
+      'jp',
+      'he',
+      'zh-Hant-TW',
+      'ko-KR'
     ],
+    pathAliases: {
+      'zh-Hant-TW': 'zh-tw',
+      'ko-KR': 'ko'
+    },
     messages: {
       'es': require('./src/locales/es.json'),
       'jp': require('./src/locales/jp.json')
@@ -82,6 +89,7 @@ module.exports = {
             ],
             localizedTypes: [
                 'alert-bar',
+                'home-hero',
                 'home-explainer'
             ],
             singleTypes: [
