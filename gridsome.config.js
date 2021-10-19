@@ -85,7 +85,9 @@ module.exports = {
                 'exchanges',
                 'international-communities',
                 'card-grid-headers',
-                'committees'
+                'committees',
+                'nav-item',
+                'page',
             ],
             localizedTypes: [
                 'alert-bar',
@@ -106,6 +108,7 @@ module.exports = {
                 'agent-landing-hero',
                 'agent-landing-intro-rows',
                 'about-scrt',
+                'nav-header'
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
