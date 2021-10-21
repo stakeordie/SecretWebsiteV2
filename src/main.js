@@ -76,6 +76,11 @@ import AboutScrtMajorFunctions from '~/components/page/AboutScrtMajorFunctions.v
 import AboutScrtCommunitySupport from '~/components/page/AboutScrtCommunitySupport.vue';
 import AboutScrtStakeGovApps from '~/components/page/AboutScrtStakeGovApps.vue';
 import AboutScrtApps from '~/components/page/AboutScrtApps.vue';
+import EcosystemRoadmapPdf from '~/components/page/EcosystemRoadmapPdf.vue';
+import EcosystemRoadmapYourProject from '~/components/page/EcosystemRoadmapYourProject.vue';
+import EcosystemRoadmapWhatsBeenBuilt from '~/components/page/EcosystemRoadmapWhatsBeenBuilt.vue';
+import SubmitProject from '~/components/page/SubmitProject.vue';
+
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -105,6 +110,7 @@ require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
 
 
+
 function setDefaultTheme() {
   const theme = getComputedStyle(document.documentElement).getPropertyValue('--theme')
   if (!theme) return
@@ -113,6 +119,8 @@ function setDefaultTheme() {
   body.setAttribute('theme', theme.trim())
 
 }
+
+
 
 export default function (Vue, {
   router,
@@ -190,13 +198,20 @@ export default function (Vue, {
   Vue.component('BlogPosts', BlogPosts);
   Vue.component('BlogPostsFeatured', BlogPostsFeatured);
   Vue.component('BlogFilter', BlogFilter);
-
+  Vue.component('EcosystemRoadmapYourProject', EcosystemRoadmapYourProject);
+  Vue.component('EcosystemRoadmapWhatsBeenBuilt', EcosystemRoadmapWhatsBeenBuilt);
+  Vue.component('EcosystemRoadmapPdf', EcosystemRoadmapPdf);
+  Vue.component('SubmitProject', SubmitProject);
+  
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
   Vue.component('HomeExplainer', HomeExplainer);
   Vue.component('HomeAnnouncements', HomeAnnouncements);
   Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
+ 
+
+
   
 
   //External Libraries
@@ -205,6 +220,8 @@ export default function (Vue, {
   Vue.component('i18n', i18n);
   Vue.component('Deploy', Deploy);
   Vue.use(VueAnime);
+  
+
 
   Vue.use(Flare);
   Vue.use(VueSocialSharing);
@@ -231,6 +248,9 @@ export default function (Vue, {
           'cancelable': false
         });
         el.dispatchEvent(clickEvent);
+
+          
+
       }
     };
     next();
@@ -257,4 +277,5 @@ export default function (Vue, {
 
   const $tp = (value) => value;
   Vue.prototype.$tp = !Vue.prototype.$tp ? $tp : Vue.prototype.$tp;
+
 }

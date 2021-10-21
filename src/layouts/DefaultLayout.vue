@@ -408,7 +408,7 @@
     <page>
       <slot></slot>
     </page>
-    <column>
+    <column v-if="swirlBottomIsVisible" class="swirl-wrapper-bottom">
       <block>
         <div class="swirl bottom">
           <themed-image>
@@ -449,7 +449,7 @@
     </column>
 
     <template #footer>
-      <simple-footer mode="normal">
+      <simple-footer :class="swirlBottomIsVisible" mode="normal">
         <section class="footer-nav">
           <nav>
             <h6 class="footer-nav-title">Learn</h6>
@@ -684,6 +684,7 @@ export default {
       isDevelopersOpen: false,
       isEcosystemOpen: false,
       swirlSpecial: false,
+      swirlBottomIsVisible: true,
       linksLearn: [
         {
           title: "About the Network",
@@ -754,6 +755,11 @@ export default {
         {
           title: "About Wallet Support",
           path: "/ecosystem/overview#wallet-support",
+          target: "",
+        },
+        {
+          title: "Roadmap",
+          path: "/ecosystem/ecosystem-roadmap",
           target: "",
         },
       ],
@@ -885,6 +891,7 @@ export default {
     $route: {
         handler(to, from) {
           this.checker();
+          this.removeBottomSwirl();
           this.isNavOpen = false;
           return;
         },
@@ -893,6 +900,20 @@ export default {
   },
 
   methods: {
+    removeBottomSwirl() {
+      if(process.isClient) {
+        const path = window.location.pathname;
+        const simpleFooter = document.querySelector(".simple-footer"); 
+        if(path.includes('/ecosystem/ecosystem-roadmap')) {
+          this.swirlBottomIsVisible = false;
+          simpleFooter.classList.add("swirlIsOff");
+          console.log('test' + this.swirlBottomIsVisible);
+        } else {
+          this.swirlBottomIsVisible = true;
+          simpleFooter.classList.remove("swirlIsOff");
+        }
+      }
+    },
     checker() {
       if(process.isClient) {
         const path = window.location.pathname;
@@ -991,6 +1012,7 @@ export default {
     this.callFunction("body-visible");
     this.setInitialTheme();
     this.checker();
+    this.removeBottomSwirl();
     // this.removeMainMarginHeroMixed();
   },
 };
