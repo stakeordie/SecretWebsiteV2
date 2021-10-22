@@ -59,7 +59,7 @@
               <h6
                 v-if="link.clusterTitle === 'On Secret Network'"
                 class="cluster-title"
-                :class="link.clusterTitle.replaceAll(' ', '-').toLowerCase()"
+                :class="link.clusterTitle ? link.clusterTitle.replaceAll(' ', '-').toLowerCase() : ''"
               >
                 {{ link.clusterTitle }}
               </h6>
@@ -86,7 +86,7 @@
               <h6
                 v-if="link.clusterTitle === 'On Ethereum'"
                 class="cluster-title"
-                :class="link.clusterTitle.replaceAll(' ', '-').toLowerCase()"
+                :class="link.clusterTitle ? link.clusterTitle.replaceAll(' ', '-').toLowerCase() : ''"
               >
                 {{ link.clusterTitle }}
               </h6>
@@ -153,6 +153,9 @@ export default {
       );
       return content2;
     },
+    replaceAndLowerCase() {
+
+    }
   },
   mounted() {
     this.checker();
