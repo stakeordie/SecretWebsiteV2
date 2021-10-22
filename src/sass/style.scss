@@ -16,6 +16,7 @@
 @import "pages/secret-brand";
 @import "pages/become-secret-agent";
 @import "pages/ecosystem-roadmap";
+@import "pages/submit-proyect";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -324,7 +325,7 @@ p {
 }
 
 input:not(.button), textarea {
-  border-radius: var(--f-gutter-s);
+  border-radius: var(--f-gutter-xs);
   padding: var(--f-gutter-xs) var(--f-gutter);
 
   @include theme(dark dark-colored) {

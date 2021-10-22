@@ -3,13 +3,13 @@ title: "Submit Proyect"
 ---
 
 <!-- Page title -->
-<column>
+<column class="submit-proyect-page-title">
 
 <block>
 
 <hero-title>
 
-## Submit Your Proyect
+## Ecosystem Roadmap
 
 </hero-title>
 
@@ -19,17 +19,11 @@ title: "Submit Proyect"
 
 
 
-
-
-
-
-
-
-<column>
+<column class="submit-proyect-page-form">
 
 <block>
 
-<submit-project></submit-project>
+<submit-project />
 
 </block>
 
