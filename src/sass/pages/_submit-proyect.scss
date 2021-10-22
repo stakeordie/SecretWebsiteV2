@@ -1,7 +1,9 @@
-.submit-proyect-page {
-  &-title {
-    .hero-title {
-      margin-bottom: calc(var(--f-gutter-xxxl) 60px) !important;
+.--flare {
+  &.submit-proyect-page {
+    &-title {
+      .hero-title {
+        margin-bottom: calc(var(--f-gutter-xxxl) - 48px) !important;
+      }
     }
   }
 }

@@ -39,7 +39,8 @@
               Network in a few sentences.
             </p>
             <p class="description-invalid">
-              Please describe your project and the value it brings to Secret Network in a few sentences.
+              Please describe your project and the value it brings to Secret
+              Network in a few sentences.
             </p>
           </label>
           <label for="link">
@@ -117,7 +118,8 @@
               private or unknown.
             </p>
             <p class="description-invalid">
-              Please share your best estimate or write “In Development” if private or unknown.
+              Please share your best estimate or write “In Development” if
+              private or unknown.
             </p>
           </label>
         </fieldset>
@@ -163,7 +165,8 @@
               Email address, Discord username, or Telegram username
             </p>
             <p class="description-invalid">
-              Please share your email address, Discord username, or Telegram username 
+              Please share your email address, Discord username, or Telegram
+              username
             </p>
           </label>
         </fieldset>
@@ -178,13 +181,17 @@
           />
           <div class="consent__description">
             <p class="label">Developer Consent</p>
-            <p>
+            <p class="description-message">
               By checking this box, you are indicating you are a developer on
               this project and consent to including it on Secret Network’s
               ecosystem roadmap.
             </p>
-          </div></label
-        >
+          </div>
+          <p class="description-invalid">
+            You must be a developer of the project to submit it for inclusion on
+            the roadmap.
+          </p>
+        </label>
 
         <button class="submit-form" type="submit">SUBMIT</button>
       </form>
@@ -204,31 +211,39 @@ export default {
       const submitBtnEl = document.querySelector(".submit-form");
       const inputRequired = document.querySelectorAll("[required]");
 
-      console.log(inputRequired);
+      
+      const markAsInvalid = function(el) {
+        el.classList.add("invalid");
+        el.parentElement.classList.add("invalid-wrapper");
+      }
+      
+      const markAsValid = function(el) {
+        el.classList.remove("invalid");
+        el.parentElement.classList.remove("invalid-wrapper");
+      }
 
+      // validation after update values
       inputRequired.forEach((input) => {
-        input.addEventListener('focusout', function() {
-          if(input != "") {
-            input.classList.remove("invalid");
-            input.parentElement.classList.remove("invalid-wrapper");
+        input.addEventListener("focusout", function () {
+          if (!input.value) {
+            markAsValid(input);
+          } else {
+            markAsValid(input);
           }
         });
-        console.log(input);
-      })
+      });
 
+      // validation on submission 
       submitBtnEl.addEventListener("click", function (e) {
         inputRequired.forEach((element) => {
-          if (element.value === "") {
-            element.classList.add("invalid");
-            element.parentElement.classList.add("invalid-wrapper");
-            console.log([element]);
-          } else {
-            element.classList.remove("invalid");
-            element.parentElement.classList.remove("invalid-wrapper");
-            console.log([element]);
+          if (!element.validity.valid) {
+            markAsInvalid(element);
+          } 
+          else {
+            markAsValid(element);
           }
         });
-        e.preventDefault();
+        // e.preventDefault();
         // console.log(e.target);
       });
     },
@@ -277,8 +292,8 @@ export default {
         margin: 0;
       }
       .description-invalid {
-          display: none;
-        }
+        display: none;
+      }
       &.invalid-wrapper {
         .description {
           display: none;
@@ -290,6 +305,9 @@ export default {
       input {
         max-height: 38px;
         margin-bottom: 5px;
+        // &:invalid {
+        //   transform: scale(2);
+        // }
         &.invalid {
           border: 1px solid var(--color-analog-secondary-red);
         }
@@ -333,7 +351,8 @@ export default {
         color: var(--color-analog-secondary-red);
       }
     }
-    .description, .description-invalid {
+    .description,
+    .description-invalid {
       font-size: 14px;
       line-height: 20px;
     }
@@ -368,6 +387,7 @@ export default {
     .consent {
       display: grid;
       grid-template-columns: 24px 1fr;
+      position: relative;
       gap: 8px;
       align-items: start;
       justify-content: start;
@@ -390,6 +410,11 @@ export default {
           font-size: 14px !important;
           line-height: 21px;
         }
+      }
+      .description-invalid {
+        position: absolute;
+        left: 0;
+        bottom: -28px;
       }
     }
     .submit-form {
