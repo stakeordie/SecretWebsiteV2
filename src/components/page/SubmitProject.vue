@@ -1,6 +1,6 @@
 <template>
   <div class="ecosystem-submit-project">
-    <div class="ecosystem-submit-project__message">
+    <div v-if="!formIsSubmited" scrollTop class="ecosystem-submit-project__message">
       <h3>Submit Your Project</h3>
       <p>
         The Secret Network ecosystem roadmap is a community effort, stewarded by
@@ -9,7 +9,7 @@
         roadmap.
       </p>
     </div>
-    <div class="ecosystem-submit-project__form">
+    <div v-if="!formIsSubmited" class="ecosystem-submit-project__form">
       <form
         on:click="submitForm"
         class="form"
@@ -145,7 +145,6 @@
                 id="discord"
                 name="contact"
                 value="discord"
-                checked
               />Discord</label
             >
             <label for="telegram"
@@ -154,7 +153,6 @@
                 id="telegram"
                 name="contact"
                 value="telegram"
-                checked
               />Telegram</label
             >
           </fieldset>
@@ -196,6 +194,33 @@
         <button class="submit-form" type="submit">SUBMIT</button>
       </form>
     </div>
+    <div v-show="formIsSubmited" class="ecosystem-submit-project__thankyou">
+      <h3>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.5 19.5L13.5 25.5L28.5 10.5"
+            stroke="#5AA361"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        Project Submitted
+      </h3>
+      <p>
+        Thank you for submitting your project. A member of the Secret Foundation
+        will be in touch to help coordinate your including your project on the
+        roadmap.
+      </p>
+      <a href="/ecosystem/ecosystem-roadmap">Go back to the Ecosystem Roadmap page</a>
+    </div>
   </div>
 </template>
 
@@ -203,48 +228,60 @@
 export default {
   data() {
     return {
-      inputIsValid: true,
+      formIsSubmited: false,
     };
   },
   methods: {
     submitForm() {
       const submitBtnEl = document.querySelector(".submit-form");
       const inputRequired = document.querySelectorAll("[required]");
+      const thankYouEl = document.querySelector('.ecosystem-submit-project__thankyou');
+      let inputsInvalid = [];
 
-      
-      const markAsInvalid = function(el) {
+      const markAsInvalid = function (el) {
         el.classList.add("invalid");
         el.parentElement.classList.add("invalid-wrapper");
-      }
-      
-      const markAsValid = function(el) {
+      };
+      const markAsValid = function (el) {
         el.classList.remove("invalid");
         el.parentElement.classList.remove("invalid-wrapper");
-      }
+      };
+      const changeState = () => {
+        this.formIsSubmited = true;
+        setTimeout(() => {
+          thankYouEl.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        }, 500);
+      };
 
-      // validation after update values
-      inputRequired.forEach((input) => {
-        input.addEventListener("focusout", function () {
-          if (!input.value) {
-            markAsValid(input);
-          } else {
-            markAsValid(input);
-          }
+      if (!this.formIsSubmited)
+        // validation after update values
+        inputRequired.forEach((input) => {
+          input.addEventListener("focusout", function () {
+            if (!input.value) {
+              markAsValid(input);
+            } else {
+              markAsValid(input);
+            }
+          });
         });
-      });
 
-      // validation on submission 
-      submitBtnEl.addEventListener("click", function (e) {
+      // validation on submission
+      submitBtnEl.addEventListener("click", (e) => {
+        inputsInvalid = [];
+
         inputRequired.forEach((element) => {
           if (!element.validity.valid) {
             markAsInvalid(element);
-          } 
-          else {
+            inputsInvalid.push(element);
+          } else {
             markAsValid(element);
           }
         });
-        // e.preventDefault();
-        // console.log(e.target);
+        if (inputsInvalid.length === 1) {
+          setTimeout(() => {
+            changeState();
+          }, 500);
+        }
       });
     },
   },
@@ -426,6 +463,23 @@ export default {
         background: var(--color-neutral-dark-mode-02);
         color: var(--theme-fg);
       }
+    }
+  }
+  &__thankyou {
+    display: grid;
+    gap: var(--f-gutter);
+    max-width: 710px;
+    *{margin: 0;}
+    h3 {
+      display: grid;
+      color: var(--color-analog-secondary-green);
+      gap: 4px;
+      grid-template-columns: 36px 1fr;
+    }
+    p, a {
+      font-size: var(--paragraph-font-size-big);
+      line-height: 28px;
+      letter-spacing: -0.15px;
     }
   }
 }
