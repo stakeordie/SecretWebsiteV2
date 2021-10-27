@@ -80,6 +80,7 @@ import EcosystemRoadmapPdf from '~/components/page/EcosystemRoadmapPdf.vue';
 import EcosystemRoadmapYourProject from '~/components/page/EcosystemRoadmapYourProject.vue';
 import EcosystemRoadmapWhatsBeenBuilt from '~/components/page/EcosystemRoadmapWhatsBeenBuilt.vue';
 import SubmitProject from '~/components/page/SubmitProject.vue';
+import HeaderNav from '~/components/HeaderNav.vue';
 
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
@@ -182,6 +183,8 @@ export default function (Vue, {
   Vue.component('AboutScrtCommunitySupport', AboutScrtCommunitySupport);
   Vue.component('AboutScrtStakeGovApps', AboutScrtStakeGovApps);
   Vue.component('AboutScrtApps', AboutScrtApps);
+  Vue.component('HeaderNav', HeaderNav);
+
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);
