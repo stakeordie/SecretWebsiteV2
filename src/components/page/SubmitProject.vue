@@ -10,18 +10,12 @@
       </p>
     </div>
     <div class="ecosystem-submit-project__form">
-      <form
-        on:click="submitForm"
-        class="form"
-        action="https://getform.io/f/6c5e28de-6265-4385-a947-cc91d37568ad"
-        method="POST"
-        target="_blank"
-      >
+      <form @submit.prevent="signup()">
         <fieldset class="project-info">
           <h4>Project Info</h4>
           <label for="name">
             <p class="label">Name <span>*</span></p>
-            <input class="name" type="text" name="name" required />
+            <input class="name" type="text" name="name" v-model="name" required />
             <p class="description">Code names are accepted.</p>
             <p class="description-invalid">
               Please include a project name. Code names are accepted.
@@ -204,9 +198,26 @@ export default {
   data() {
     return {
       inputIsValid: true,
+      name: ""
     };
   },
   methods: {
+    async signup() {
+      try {
+        const response = await fetch("https://usebasin.com/f/353dfab205a4.json", {
+          method: "POST",
+          body: JSON.stringify({ name: this.name }),
+          headers: {
+            "Content-Type": "application/json"
+          },
+        });
+        if(response.ok) {
+          this.signupSuccess = true;
+        }
+      } catch(e) {
+        this.signupError = true;
+      }
+    },
     submitForm() {
       const submitBtnEl = document.querySelector(".submit-form");
       const inputRequired = document.querySelectorAll("[required]");

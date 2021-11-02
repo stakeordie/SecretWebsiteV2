@@ -1,5 +1,5 @@
 ---
-title: "Submit Proyect"
+title: "Submit Project"
 ---
 
 <!-- Page title -->
