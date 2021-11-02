@@ -21,7 +21,7 @@
       <!-- PDF -->
 
       <ClientOnly>
-        <pdf class="scrt-pdf-viewer__intro__file" src="/SecretNetwork_BrandBook_Version01.pdf">
+        <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url">
           </pdf>
       </ClientOnly>
 

@@ -186,7 +186,7 @@ Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer
 
 <block>
 
-<btn url="https://forms.gle/8NbTmUNVgbUkHY8eA">Become a Secret Agent</btn>
+<btn url="https://scrt.network/get-involved/become-secret-agent">Become a Secret Agent</btn>
 
 </block>
 
