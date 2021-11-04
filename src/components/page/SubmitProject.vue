@@ -46,7 +46,7 @@
           </label>
           <label for="link">
             <p class="label">Link</p>
-            <input class="link" type="url" name="link" v-model="link" />
+            <input class="link" type="text" name="link" v-model="link" />
             <p class="description">
               If there is a link with more information about your project,
               please include it here.
