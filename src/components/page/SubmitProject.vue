@@ -196,6 +196,7 @@
           </p>
         </label>
 
+        <input type="hidden" name="importante" />
         <button class="submit-form" type="submit">SUBMIT</button>
       </form>
     </div>
@@ -232,7 +233,8 @@ export default {
             date: this.date,
             contactMethod: this.contactMethod,
             contact: this.contact,
-            constent: this.constent
+            constent: this.constent,
+            importante: this.akismet
           }),
           headers: {
             "Content-Type": "application/json"
