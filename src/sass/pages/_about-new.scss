@@ -1,5 +1,5 @@
 .about-about-SCRT {
-  #purchase,#store, #stake-scrt, #scrt-governance, #apps {
+  #purchase,#store, #stake-scrt, #scrt-governance, #scrt-apps {
     padding-top: 8em;
     margin-top: -8em;
   }
@@ -213,9 +213,12 @@
           // padding-right: 0;
           display: grid;
           place-content: start;
-          gap: var(--f-gutter-xxs);
+          gap: var(--f-gutter-xs);
           * {
             margin: 0;
+          }
+          p {
+            margin-bottom: var(--f-gutter-s);
           }
           h6 {
             font-weight: 600;

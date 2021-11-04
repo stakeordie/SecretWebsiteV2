@@ -33,7 +33,8 @@
         <div class="nav-wrapper">
           <div :class="{ 'is-nav-open': isNavOpen }" class="mobile-wrapper">
             <!-- main navigation -->
-            <nav class="main-navigation">
+            <header-nav></header-nav>
+            <!-- <nav class="main-navigation">
               <ul class="header__navigation">
                 <li
                   @click.prevent="showLearn"
@@ -192,7 +193,7 @@
                   </transition>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
             <!-- social navigation -->
             <nav class="social-navigation">
               <a href="https://forum.scrt.network/" target="blank">
@@ -408,7 +409,7 @@
     <page>
       <slot></slot>
     </page>
-    <column>
+    <column v-if="swirlBottomIsVisible" class="swirl-wrapper-bottom">
       <block>
         <div class="swirl bottom">
           <themed-image>
@@ -449,7 +450,7 @@
     </column>
 
     <template #footer>
-      <simple-footer mode="normal">
+      <simple-footer :class="swirlBottomIsVisible" mode="normal">
         <section class="footer-nav">
           <nav>
             <h6 class="footer-nav-title">Learn</h6>
@@ -684,6 +685,7 @@ export default {
       isDevelopersOpen: false,
       isEcosystemOpen: false,
       swirlSpecial: false,
+      swirlBottomIsVisible: true,
       linksLearn: [
         {
           title: "About the Network",
@@ -754,6 +756,11 @@ export default {
         {
           title: "About Wallet Support",
           path: "/ecosystem/overview#wallet-support",
+          target: "",
+        },
+        {
+          title: "Roadmap",
+          path: "/ecosystem/ecosystem-roadmap",
           target: "",
         },
       ],
@@ -885,6 +892,8 @@ export default {
     $route: {
         handler(to, from) {
           this.checker();
+          this.removeBottomSwirl();
+          this.isNavOpen = false;
           return;
         },
         // immediate: true,
@@ -892,6 +901,20 @@ export default {
   },
 
   methods: {
+    removeBottomSwirl() {
+      if(process.isClient) {
+        const path = window.location.pathname;
+        const simpleFooter = document.querySelector(".simple-footer"); 
+        if(path.includes('/ecosystem/ecosystem-roadmap')) {
+          this.swirlBottomIsVisible = false;
+          simpleFooter.classList.add("swirlIsOff");
+          console.log('test' + this.swirlBottomIsVisible);
+        } else {
+          this.swirlBottomIsVisible = true;
+          simpleFooter.classList.remove("swirlIsOff");
+        }
+      }
+    },
     checker() {
       if(process.isClient) {
         const path = window.location.pathname;
@@ -900,8 +923,6 @@ export default {
         } else {
           this.swirlSpecial = false;
         }
-        console.log(this.swirlSpecial)
-        console.log(path);
       }
     },
     toggleNavOpen() {
@@ -917,15 +938,19 @@ export default {
     // },
     showLearn() {
       this.isLearnOpen = !this.isLearnOpen;
+      this.isNavOpen = false;
     },
     showCommunity() {
       this.isCommunityOpen = !this.isCommunityOpen;
+      this.isNavOpen = false;
     },
     showDevelopers() {
       this.isDevelopersOpen = !this.isDevelopersOpen;
+      this.isNavOpen = false;
     },
     showEcosystem() {
       this.isEcosystemOpen = !this.isEcosystemOpen;
+      this.isNavOpen = false;
     },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
@@ -988,6 +1013,7 @@ export default {
     this.callFunction("body-visible");
     this.setInitialTheme();
     this.checker();
+    this.removeBottomSwirl();
     // this.removeMainMarginHeroMixed();
   },
 };
@@ -1095,97 +1121,97 @@ export default {
         display: none;
       }
 
-      .main-navigation {
-        display: flex;
-        flex: auto;
-        height: 100%;
+      // .main-navigation {
+      //   display: flex;
+      //   flex: auto;
+      //   height: 100%;
 
-        .header__navigation {
-          flex: auto;
-          margin: 0;
-          display: flex;
-          height: 100%;
-          justify-content: flex-start;
-          align-items: center;
+      //   .header__navigation {
+      //     flex: auto;
+      //     margin: 0;
+      //     display: flex;
+      //     height: 100%;
+      //     justify-content: flex-start;
+      //     align-items: center;
 
-          li.dropdown-container {
-            padding-left: 0;
-            margin: 0;
-            position: relative;
-            display: flex;
-            height: 100%;
-            align-items: center;
+      //     li.dropdown-container {
+      //       padding-left: 0;
+      //       margin: 0;
+      //       position: relative;
+      //       display: flex;
+      //       height: 100%;
+      //       align-items: center;
 
-            & > a {
-              text-decoration: none;
-              display: flex;
-              gap: 10px;
-              color: var(--theme-fg);
-            }
+      //       & > a {
+      //         text-decoration: none;
+      //         display: flex;
+      //         gap: 10px;
+      //         color: var(--theme-fg);
+      //       }
 
-            .dropdown {
-              position: absolute;
-              left: 0;
-              top: 56px;
-              background: var(--theme-dropdown-bg);
-              display: flex;
-              border-radius: var(--f-gutter-xs);
-              z-index: 9;
-              margin: 0;
-              flex-direction: column;
-              min-width: 200px;
-              flex: auto;
-              box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-              padding-left: 0;
+      //       .dropdown {
+      //         position: absolute;
+      //         left: 0;
+      //         top: 56px;
+      //         background: var(--theme-dropdown-bg);
+      //         display: flex;
+      //         border-radius: var(--f-gutter-xs);
+      //         z-index: 9;
+      //         margin: 0;
+      //         flex-direction: column;
+      //         min-width: 200px;
+      //         flex: auto;
+      //         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+      //         padding-left: 0;
 
-              li {
-                margin: 0;
-                flex: auto;
-                padding: 0;
-                height: 100%;
-                display: flex;
+      //         li {
+      //           margin: 0;
+      //           flex: auto;
+      //           padding: 0;
+      //           height: 100%;
+      //           display: flex;
 
-                a {
-                  white-space: nowrap;
-                  color: var(--theme-bg);
+      //           a {
+      //             white-space: nowrap;
+      //             color: var(--theme-bg);
 
-                  @include theme(dark dark-colored) {
-                    color: var(--color-neutral-light-mode-045);
-                  }
+      //             @include theme(dark dark-colored) {
+      //               color: var(--color-neutral-light-mode-045);
+      //             }
 
-                  padding: var(--f-gutter-s) var(--f-gutter);
-                  display: inline-block;
-                  flex: auto;
-                  height: 100%;
-                  font-weight: 500;
-                  text-decoration: none;
+      //             padding: var(--f-gutter-s) var(--f-gutter);
+      //             display: inline-block;
+      //             flex: auto;
+      //             height: 100%;
+      //             font-weight: 500;
+      //             text-decoration: none;
 
-                  &:hover {
-                    font-weight: 600;
+      //             &:hover {
+      //               font-weight: 600;
 
-                    @include theme(dark dark-colored) {
-                      color: black;
-                    }
+      //               @include theme(dark dark-colored) {
+      //                 color: black;
+      //               }
 
-                    @include theme(light light-colored) {
-                      color: white;
-                    }
-                  }
+      //               @include theme(light light-colored) {
+      //                 color: white;
+      //               }
+      //             }
 
-                  &:before {
-                    display: block;
-                    content: attr(title);
-                    font-weight: bold;
-                    height: 0;
-                    overflow: hidden;
-                    visibility: hidden;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      //             &:before {
+      //               display: block;
+      //               content: attr(title);
+      //               font-weight: bold;
+      //               height: 0;
+      //               overflow: hidden;
+      //               visibility: hidden;
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
 
       &.is-nav-open {
         // @include respond-to(">=l") {

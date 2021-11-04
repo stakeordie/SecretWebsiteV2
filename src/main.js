@@ -36,7 +36,6 @@ import Announcement from '~/components/Announcement.vue';
 import Navigation from '~/components/Navigation.vue';
 import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
-import HeroVideo from '~/components/HeroVideo.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
 import HeroMixed from '~/components/HeroMixed.vue';
 import HeroMixedCms from '~/components/HeroMixedCms.vue';
@@ -73,6 +72,16 @@ import SecretAgentEmailFormBanner from '~/components/SecretAgentEmailFormBanner.
 import AboutGetStarted from '~/components/page/AboutGetStarted.vue';
 import AboutPurchaseScrt from '~/components/page/AboutPurchaseScrt.vue';
 import AboutWallets from '~/components/page/AboutWallets.vue';
+import AboutScrtMajorFunctions from '~/components/page/AboutScrtMajorFunctions.vue';
+import AboutScrtCommunitySupport from '~/components/page/AboutScrtCommunitySupport.vue';
+import AboutScrtStakeGovApps from '~/components/page/AboutScrtStakeGovApps.vue';
+import AboutScrtApps from '~/components/page/AboutScrtApps.vue';
+import EcosystemRoadmapPdf from '~/components/page/EcosystemRoadmapPdf.vue';
+import EcosystemRoadmapYourProject from '~/components/page/EcosystemRoadmapYourProject.vue';
+import EcosystemRoadmapWhatsBeenBuilt from '~/components/page/EcosystemRoadmapWhatsBeenBuilt.vue';
+import SubmitProject from '~/components/page/SubmitProject.vue';
+import HeaderNav from '~/components/HeaderNav.vue';
+
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -86,13 +95,16 @@ import BlogPostsFeatured from '~/components/blog/BlogPostsFeatured'
 import BlogFilter from '~/components/blog/BlogFilter'
 
 // Page Specific
+import HomeHero from '~/components/page/HomeHero.vue';
 import HomeExplainer from '~/components/page/HomeExplainer'
 import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
 import i18n from '~/components/i18n'
+import Deploy from '~/components/Deploy'
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
+
 
 
 
@@ -108,6 +120,8 @@ function setDefaultTheme() {
   body.setAttribute('theme', theme.trim())
 
 }
+
+
 
 export default function (Vue, {
   router,
@@ -129,7 +143,6 @@ export default function (Vue, {
   Vue.component('ImagePlaceholder', ImagePlaceholder);
   Vue.component('Navigation', Navigation);
   Vue.component('Type', Type);
-  Vue.component('HeroVideo', HeroVideo);
   Vue.component('HeroTitle', HeroTitle);
   Vue.component('HeroMixed', HeroMixed);
   Vue.component('HeroMixedCms', HeroMixedCms);
@@ -166,6 +179,12 @@ export default function (Vue, {
   Vue.component('AboutGetStarted', AboutGetStarted);
   Vue.component('AboutPurchaseScrt', AboutPurchaseScrt);
   Vue.component('AboutWallets', AboutWallets);
+  Vue.component('AboutScrtMajorFunctions', AboutScrtMajorFunctions);
+  Vue.component('AboutScrtCommunitySupport', AboutScrtCommunitySupport);
+  Vue.component('AboutScrtStakeGovApps', AboutScrtStakeGovApps);
+  Vue.component('AboutScrtApps', AboutScrtApps);
+  Vue.component('HeaderNav', HeaderNav);
+
 
   //Experimental
   // Vue.component('SecretAgents', SecretAgents);
@@ -182,18 +201,30 @@ export default function (Vue, {
   Vue.component('BlogPosts', BlogPosts);
   Vue.component('BlogPostsFeatured', BlogPostsFeatured);
   Vue.component('BlogFilter', BlogFilter);
-
+  Vue.component('EcosystemRoadmapYourProject', EcosystemRoadmapYourProject);
+  Vue.component('EcosystemRoadmapWhatsBeenBuilt', EcosystemRoadmapWhatsBeenBuilt);
+  Vue.component('EcosystemRoadmapPdf', EcosystemRoadmapPdf);
+  Vue.component('SubmitProject', SubmitProject);
+  
 
   //Page Specific
+  Vue.component('HomeHero', HomeHero);
   Vue.component('HomeExplainer', HomeExplainer);
   Vue.component('HomeAnnouncements', HomeAnnouncements);
   Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
+ 
+
+
+  
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
   Vue.component('typical', typical);
   Vue.component('i18n', i18n);
+  Vue.component('Deploy', Deploy);
   Vue.use(VueAnime);
+  
+
 
   Vue.use(Flare);
   Vue.use(VueSocialSharing);
@@ -220,6 +251,9 @@ export default function (Vue, {
           'cancelable': false
         });
         el.dispatchEvent(clickEvent);
+
+          
+
       }
     };
     next();
@@ -246,4 +280,5 @@ export default function (Vue, {
 
   const $tp = (value) => value;
   Vue.prototype.$tp = !Vue.prototype.$tp ? $tp : Vue.prototype.$tp;
+
 }

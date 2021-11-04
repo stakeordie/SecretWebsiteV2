@@ -1,0 +1,40 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+.--flare .ecosystem-roadmap-page {
+  &__pdf {
+    .content {
+      .box {
+        .hero-title {
+          padding-left: 38px;
+          padding-top: 38px;
+          margin-bottom: var(--f-gutter-xxl);
+          p {
+            margin-bottom: var(--f-gutter-xs);
+          }
+          @include respond-to("<=s") {
+           width: 100%;       
+           p {
+            margin-bottom: 0;
+           }
+          }
+        }
+      }
+    }
+  }
+  &__your-project {
+    .content {
+      .box {
+        padding-top: calc(var(--f-gutter-xl) + var(--f-gutter));
+        padding-bottom: calc(var(--f-gutter-xl) + 12px);
+      }
+    }
+  }
+  &__whats-been-built {
+    background: var(--color-black);
+    .content {
+      .box {
+        padding-top: var(--f-gutter-l);
+        padding-bottom: var(--f-gutter-l);
+      }
+    }
+  }
+}

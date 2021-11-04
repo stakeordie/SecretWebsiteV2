@@ -12,8 +12,15 @@ const i18nPlugin = {
     locales: [
       'en',
       'es',
-      'jp'
+      'jp',
+      'he',
+      'zh-Hant-TW',
+      'ko-KR'
     ],
+    pathAliases: {
+      'zh-Hant-TW': 'zh-tw',
+      'ko-KR': 'ko'
+    },
     messages: {
       'es': require('./src/locales/es.json'),
       'jp': require('./src/locales/jp.json')
@@ -78,10 +85,14 @@ module.exports = {
                 'exchanges',
                 'international-communities',
                 'card-grid-headers',
-                'committees'
+                'committees',
+                'nav-item',
+                'page',
             ],
             localizedTypes: [
-              'home-explainer'
+                'alert-bar',
+                'home-hero',
+                'home-explainer'
             ],
             singleTypes: [
                 'alert-bar',
@@ -95,7 +106,10 @@ module.exports = {
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
-                'agent-landing-intro-rows'
+                'agent-landing-intro-rows',
+                'about-scrt',
+                'nav-header',
+                'ecosystem-roadmap'
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).

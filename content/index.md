@@ -5,7 +5,7 @@ title: 'Secret Network'
 <!-- Hero Video -->
 <column class="card-variant" mode="normal">
   <block>
-    <hero-video /><!-- CMS: Home - Hero -->
+    <home-hero /><!-- CMS: Home - Hero -->
   </block>
 </column>
 
