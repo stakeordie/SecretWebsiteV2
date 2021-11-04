@@ -26,6 +26,7 @@
             <textarea
               class="description-area"
               name="description"
+              v-model="description"
               required
             ></textarea>
             <p class="description">
@@ -39,7 +40,7 @@
           </label>
           <label for="link">
             <p class="label">Link</p>
-            <input class="link" type="url" name="link" />
+            <input class="link" type="url" name="link" v-model="link"/>
             <p class="description">
               If there is a link with more information about your project,
               please include it here.
@@ -57,6 +58,7 @@
                 id="idea"
                 name="stage"
                 value="idea"
+                v-model="stage"
                 checked
               />Idea</label
             >
@@ -66,6 +68,7 @@
                 id="proof-of-concept-or-prototype"
                 name="stage"
                 value="proof-of-concept-or-prototype"
+                v-model="stage"
               />Proof of Concept or Prototype</label
             >
             <label for="getting-funding-or-team"
@@ -73,7 +76,8 @@
                 type="radio"
                 id="getting-funding-or-team"
                 name="stage"
-                value="getting-funding-or-team"
+                :value="getting-funding-or-team"
+                v-model="stage"
               />Getting Funding or Team</label
             >
             <label for="in-development-for-mainnet"
@@ -82,6 +86,7 @@
                 id="in-development-for-mainnet"
                 name="stage"
                 value="in-development-for-mainnet"
+                v-model="stage"
               />In Development for Mainnet</label
             >
             <label for="on-testnet">
@@ -90,11 +95,12 @@
                 id="on-testnet"
                 name="stage"
                 value="on-testnet"
+                v-model="stage"
               />On Testnet</label
             >
             <label for="other"
-              ><input type="radio" id="other" name="stage" value="other" />Other
-              <input class="other" type="text" name="other"
+              ><input type="radio" id="other" name="stage" value="other" v-model="stage" />Other
+              <input class="other" type="text" name="other" v-model="stageOtherName"
             /></label>
           </fieldset>
 
@@ -102,9 +108,10 @@
             <p class="label">Release Date <span>*</span></p>
             <input
               class="release-date"
-              type="text"
+              type="date"
               id="date"
-              name="stage"
+              name="date"
+              v-model="date"
               required
             />
             <p class="description">
@@ -130,6 +137,7 @@
                 id="email"
                 name="contact"
                 value="email"
+                v-model="contactMethod"
                 checked
               />Email</label
             >
@@ -139,7 +147,7 @@
                 id="discord"
                 name="contact"
                 value="discord"
-                checked
+                v-model="contactMethod"
               />Discord</label
             >
             <label for="telegram"
@@ -148,13 +156,13 @@
                 id="telegram"
                 name="contact"
                 value="telegram"
-                checked
+                v-model="contactMethod"
               />Telegram</label
             >
           </fieldset>
           <label for="contact-info">
             <p class="label">Contact Info <span>*</span></p>
-            <input class="contact-info" name="contact-info" required />
+            <input class="contact-info" name="contact-info" v-model="contact" required />
             <p class="description">
               Email address, Discord username, or Telegram username
             </p>
@@ -170,7 +178,8 @@
             type="checkbox"
             id="developer-consent"
             name="developer-consent"
-            value="True"
+            value="false"
+            v-model="consent"
             required
           />
           <div class="consent__description">
@@ -198,7 +207,15 @@ export default {
   data() {
     return {
       inputIsValid: true,
-      name: ""
+      name: "",
+      description: "",
+      link: "",
+      stage: "",
+      stageOtherName: "",
+      date: null,
+      contactMethod: "",
+      contact: "",
+      constent: false
     };
   },
   methods: {
@@ -206,7 +223,17 @@ export default {
       try {
         const response = await fetch("https://usebasin.com/f/353dfab205a4.json", {
           method: "POST",
-          body: JSON.stringify({ name: this.name }),
+          body: JSON.stringify({
+            name: this.name,
+            description: this.description,
+            link: this.link,
+            stage: this.stage,
+            stageOtherName: this.stageOtherName,
+            date: this.date,
+            contactMethod: this.contactMethod,
+            contact: this.contact,
+            constent: this.constent
+          }),
           headers: {
             "Content-Type": "application/json"
           },
