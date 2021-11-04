@@ -73,7 +73,7 @@
                 type="radio"
                 id="proof-of-concept-or-prototype"
                 name="stage"
-                value="proof-of-concept-or-prototype"
+                value="Proof of Concept or Prototype"
                 v-model="stage"
               />Proof of Concept or Prototype</label
             >
@@ -82,7 +82,7 @@
                 type="radio"
                 id="getting-funding-or-team"
                 name="stage"
-                value="getting-funding-or-team"
+                value="Getting Funding or Team"
                 v-model="stage"
               />Getting Funding or Team</label
             >
@@ -91,7 +91,7 @@
                 type="radio"
                 id="in-development-for-mainnet"
                 name="stage"
-                value="in-development-for-mainnet"
+                value="In Development for Mainnet"
                 v-model="stage"
               />In Development for Mainnet</label
             >
@@ -100,7 +100,7 @@
                 type="radio"
                 id="on-testnet"
                 name="stage"
-                value="on-testnet"
+                value="On Testnet"
                 v-model="stage"
               />On Testnet</label
             >
@@ -109,7 +109,7 @@
                 type="radio"
                 id="other"
                 name="stage"
-                value="other"
+                value="Other"
                 v-model="stage" />Other
               <input
                 class="other"
