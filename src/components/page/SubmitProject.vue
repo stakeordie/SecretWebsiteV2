@@ -123,7 +123,7 @@
             <p class="label">Release Date <span>*</span></p>
             <input
               class="release-date"
-              type="date"
+              type="text"
               id="date"
               name="date"
               v-model="date"
@@ -193,28 +193,30 @@
           </label>
         </fieldset>
 
-        <label class="consent" for="developer-consent"
-          ><input
-            type="checkbox"
-            id="developer-consent"
-            name="developer-consent"
-            value="false"
-            v-model="consent"
-            required
-          />
-          <div class="consent__description">
-            <p class="label">Developer Consent</p>
-            <p class="description-message">
-              By checking this box, you are indicating you are a developer on
-              this project and consent to including it on Secret Network’s
-              ecosystem roadmap.
+        <fieldset class="dev-consent">
+          <label class="consent" for="developer-consent"
+            ><input
+              type="checkbox"
+              id="developer-consent"
+              name="developer-consent"
+              value="false"
+              v-model="consent"
+              required
+            />
+            <div class="consent__description">
+              <p class="label">Developer Consent</p>
+              <p class="description-message">
+                By checking this box, you are indicating you are a developer on
+                this project and consent to including it on Secret Network’s
+                ecosystem roadmap.
+              </p>
+            </div>
+            <p class="description-invalid">
+              You must be a developer of the project to submit it for inclusion on
+              the roadmap.
             </p>
-          </div>
-          <p class="description-invalid">
-            You must be a developer of the project to submit it for inclusion on
-            the roadmap.
-          </p>
-        </label>
+          </label>
+        </fieldset>
 
         <input type="hidden" name="importante" />
         <button class="submit-form" type="submit">SUBMIT</button>
@@ -485,6 +487,9 @@ export default {
           grid-column: 2;
         }
       }
+    }
+    .dev-consent {
+      margin-top:25px;
     }
     .consent {
       display: grid;

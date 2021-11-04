@@ -26,7 +26,7 @@
       </ClientOnly>
 
       <div class="scrt-pdf-viewer__intro__download">
-        <btn class="no-arrow" :url="roadmap.url">DOWNLOAD PDF</btn>
+        <btn class="no-arrow" :url="roadmap.url">DOWNLOAD INTERACTIVE PDF</btn>
       </div>
     </div>
   </div>
