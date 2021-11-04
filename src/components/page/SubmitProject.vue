@@ -1,6 +1,6 @@
 <template>
   <div class="ecosystem-submit-project">
-    <div class="ecosystem-submit-project__message">
+    <div v-show="!formIsSubmited" class="ecosystem-submit-project__message">
       <h3>Submit Your Project</h3>
       <p>
         The Secret Network ecosystem roadmap is a community effort, stewarded by
@@ -9,13 +9,19 @@
         roadmap.
       </p>
     </div>
-    <div class="ecosystem-submit-project__form">
+    <div v-show="!formIsSubmited" class="ecosystem-submit-project__form">
       <form @submit.prevent="signup()">
         <fieldset class="project-info">
           <h4>Project Info</h4>
           <label for="name">
             <p class="label">Name <span>*</span></p>
-            <input class="name" type="text" name="name" v-model="name" required />
+            <input
+              class="name"
+              type="text"
+              name="name"
+              v-model="name"
+              required
+            />
             <p class="description">Code names are accepted.</p>
             <p class="description-invalid">
               Please include a project name. Code names are accepted.
@@ -40,7 +46,7 @@
           </label>
           <label for="link">
             <p class="label">Link</p>
-            <input class="link" type="url" name="link" v-model="link"/>
+            <input class="link" type="url" name="link" v-model="link" />
             <p class="description">
               If there is a link with more information about your project,
               please include it here.
@@ -76,7 +82,7 @@
                 type="radio"
                 id="getting-funding-or-team"
                 name="stage"
-                :value="getting-funding-or-team"
+                value="getting-funding-or-team"
                 v-model="stage"
               />Getting Funding or Team</label
             >
@@ -99,8 +105,17 @@
               />On Testnet</label
             >
             <label for="other"
-              ><input type="radio" id="other" name="stage" value="other" v-model="stage" />Other
-              <input class="other" type="text" name="other" v-model="stageOtherName"
+              ><input
+                type="radio"
+                id="other"
+                name="stage"
+                value="other"
+                v-model="stage" />Other
+              <input
+                class="other"
+                type="text"
+                name="other"
+                v-model="stageOtherName"
             /></label>
           </fieldset>
 
@@ -162,7 +177,12 @@
           </fieldset>
           <label for="contact-info">
             <p class="label">Contact Info <span>*</span></p>
-            <input class="contact-info" name="contact-info" v-model="contact" required />
+            <input
+              class="contact-info"
+              name="contact-info"
+              v-model="contact"
+              required
+            />
             <p class="description">
               Email address, Discord username, or Telegram username
             </p>
@@ -200,6 +220,36 @@
         <button class="submit-form" type="submit">SUBMIT</button>
       </form>
     </div>
+    <!-- Thank you -->
+    <div v-show="formIsSubmited" class="ecosystem-submit-project__thankyou">
+      <h3>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.5 19.5L13.5 25.5L28.5 10.5"
+            stroke="#5AA361"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        Project Submitted
+      </h3>
+      <p>
+        Thank you for submitting your project. A member of the Secret Foundation
+        will be in touch to help coordinate your including your project on the
+        roadmap.
+      </p>
+      <a href="/ecosystem/ecosystem-roadmap"
+        >Go back to the Ecosystem Roadmap page</a
+      >
+    </div>
   </div>
 </template>
 
@@ -208,6 +258,7 @@ export default {
   data() {
     return {
       inputIsValid: true,
+      formIsSubmited: false,
       name: "",
       description: "",
       link: "",
@@ -216,34 +267,47 @@ export default {
       date: null,
       contactMethod: "",
       contact: "",
-      constent: false
+      consent: false,
     };
   },
   methods: {
     async signup() {
+      const thankYouEl = document.querySelector('.ecosystem-submit-project__thankyou');
+
       try {
-        const response = await fetch("https://usebasin.com/f/353dfab205a4.json", {
-          method: "POST",
-          body: JSON.stringify({
-            name: this.name,
-            description: this.description,
-            link: this.link,
-            stage: this.stage,
-            stageOtherName: this.stageOtherName,
-            date: this.date,
-            contactMethod: this.contactMethod,
-            contact: this.contact,
-            constent: this.constent,
-            importante: this.akismet
-          }),
-          headers: {
-            "Content-Type": "application/json"
-          },
-        });
-        if(response.ok) {
+        const response = await fetch(
+          "https://usebasin.com/f/353dfab205a4.json",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              name: this.name,
+              description: this.description,
+              link: this.link,
+              stage: this.stage,
+              stageOtherName: this.stageOtherName,
+              date: this.date,
+              contactMethod: this.contactMethod,
+              contact: this.contact,
+              consent: this.consent,
+              importante: this.akismet,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (response.ok) {
           this.signupSuccess = true;
+          this.formIsSubmited = true;
+          setTimeout(() => {
+            thankYouEl.scrollIntoView({
+              behavior: "smooth",
+              block: "end",
+              inline: "nearest",
+            });
+          }, 500);
         }
-      } catch(e) {
+      } catch (e) {
         this.signupError = true;
       }
     },
@@ -251,16 +315,15 @@ export default {
       const submitBtnEl = document.querySelector(".submit-form");
       const inputRequired = document.querySelectorAll("[required]");
 
-      
-      const markAsInvalid = function(el) {
+      const markAsInvalid = function (el) {
         el.classList.add("invalid");
         el.parentElement.classList.add("invalid-wrapper");
-      }
-      
-      const markAsValid = function(el) {
+      };
+
+      const markAsValid = function (el) {
         el.classList.remove("invalid");
         el.parentElement.classList.remove("invalid-wrapper");
-      }
+      };
 
       // validation after update values
       inputRequired.forEach((input) => {
@@ -273,13 +336,12 @@ export default {
         });
       });
 
-      // validation on submission 
+      // validation on submission
       submitBtnEl.addEventListener("click", function (e) {
         inputRequired.forEach((element) => {
           if (!element.validity.valid) {
             markAsInvalid(element);
-          } 
-          else {
+          } else {
             markAsValid(element);
           }
         });
@@ -466,6 +528,26 @@ export default {
         background: var(--color-neutral-dark-mode-02);
         color: var(--theme-fg);
       }
+    }
+  }
+  &__thankyou {
+    display: grid;
+    gap: var(--f-gutter);
+    max-width: 710px;
+    * {
+      margin: 0;
+    }
+    h3 {
+      display: grid;
+      color: var(--color-analog-secondary-green);
+      gap: 4px;
+      grid-template-columns: 36px 1fr;
+    }
+    p,
+    a {
+      font-size: var(--paragraph-font-size-big);
+      line-height: 28px;
+      letter-spacing: -0.15px;
     }
   }
 }
