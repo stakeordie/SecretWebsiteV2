@@ -55,6 +55,7 @@
     homeCtaCards: allStrapiHomeCtaCards{
       edges {
         node {
+          locale
           card_1 {
             title
             subtitle
@@ -105,6 +106,61 @@
             }
             page {
               route
+            }
+          }
+          localizations {
+            locale
+            card_1 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_2 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_3 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_4 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
             }
           }
         }

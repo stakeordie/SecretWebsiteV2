@@ -94,6 +94,7 @@ module.exports = {
                 //'nav-header' - Middlewear
                 //content-types,
                 'nav-item',
+                'home-cta-cards',
                 //single-types
                 'alert-bar',
                 'home-hero',
