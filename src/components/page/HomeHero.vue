@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-video">
+  <div class="hero">
     <div class="column1">
       <div class="message">
         <h6 class="title">{{homeHero.title}}</h6>
@@ -15,30 +15,12 @@
 </template>
 
 <script>
-  import { getLocaleNode } from '@/utils' 
+  import { getLocaleData } from '@/utils' 
   export default {
     data: function () {
       return {
-        showVideo: false
+        title: ""
       }
-    },
-    props: {
-      title: {
-        type: String,
-        required: false
-      },
-      message: {
-        type: String,
-        required: false
-      },
-      videoThumbnail: {
-        type: String,
-        required: false
-      },
-      video: {
-        type: String,
-        required: false
-      },
     },
     computed: {
       hasImage() {
@@ -49,7 +31,7 @@
         }
       },
       homeHero() {
-        return getLocaleNode(this.$static.homeHero, this.$context.locale)
+        return getLocaleData(this.$static.homeHero, this.$context.locale)
       }
     }
   }
@@ -59,17 +41,23 @@
 <static-query>
   query{
     homeHero: allStrapiHomeHero {
-      edges{
-        node{
+      edges {
+        node {
           title
           subtitle
           tagline
+          locale
+          localizations {
+            title
+            subtitle
+            tagline
+            locale
+          }
           image {
             url
             caption
             alternativeText
           }
-          locale
         }
       }
     }
@@ -80,7 +68,7 @@
   @import "../../sass/functions/theme";
   @import "@lkmx/flare/src/functions/respond-to";
 
-  .hero-video {
+  .hero {
     padding: var(--f-gutter-l);
     background: var(--theme-card-bg-default);
     display: grid;
@@ -123,27 +111,6 @@
 
         @include theme(light light-colored) {
           color: var(--color-neutral-light-mode-05);
-        }
-      }
-    }
-
-    .video {
-      grid-column: 1 / span 2;
-      display: grid;
-      grid-template-columns: 1fr;
-
-      .close-video {
-        justify-self: flex-end;
-
-        img {
-          @include theme(light light-colored) {
-            filter: invert(1);
-          }
-        }
-      }
-      video {
-        @include respond-to("<=s") {
-          height: 250px;
         }
       }
     }

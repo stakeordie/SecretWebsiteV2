@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import { getLocaleNode } from '@/utils'
+  import { getLocaleData } from '@/utils'
 
   export default {
     
@@ -26,7 +26,7 @@
     },
     computed: {
       alertMessage() {
-        return getLocaleNode(this.$static.alertBar, this.$context.locale)
+        return getLocaleData(this.$static.alertBar, this.$context.locale)
       }
     }
   }

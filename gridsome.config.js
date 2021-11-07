@@ -90,9 +90,15 @@ module.exports = {
                 'page',
             ],
             localizedTypes: [
+                //complex types
+                //'nav-header' - Middlewear
+                //content-types,
+                'nav-item',
+                //single-types
                 'alert-bar',
                 'home-hero',
-                'home-explainer'
+                'home-explainer',
+
             ],
             singleTypes: [
                 'alert-bar',

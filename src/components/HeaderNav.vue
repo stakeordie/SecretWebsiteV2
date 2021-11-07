@@ -34,7 +34,7 @@
             <g-link
               class="flui-header-nav__items__single-item__dropdown__single-item__anchor"
               :title="dropdownItem.nav_item.text"
-              :to="dropdownItem.nav_item.page.route"
+              :to="$tp(dropdownItem.nav_item.page.route)"
               >{{ dropdownItem.nav_item.text }}</g-link
             >
           </li>

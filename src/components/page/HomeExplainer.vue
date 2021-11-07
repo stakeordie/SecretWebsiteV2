@@ -27,11 +27,11 @@
 </template>
 
 <script>
-  import { getLocaleNode } from '@/utils'
+  import { getLocaleData } from '@/utils'
   export default {
     computed: {
       homeExplainer() {
-        return getLocaleNode(this.$static.homeExplainer, this.$context.locale)
+        return getLocaleData(this.$static.homeExplainer, this.$context.locale)
         // const locale = this.$context.locale;
         // console.log(this.$static.homeExplainer.edges)
         // const homeExplainer = this.$static.homeExplainer.edges
@@ -77,6 +77,18 @@ query {
           route
         }
         locale
+        localizations {
+          title
+          subtitle
+          column_1
+          column_2
+          changing_words {
+            word
+            seconds
+          }
+          button_title
+          locale
+        }
       }
     }
   }
