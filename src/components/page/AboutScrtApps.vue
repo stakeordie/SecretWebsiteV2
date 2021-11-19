@@ -62,9 +62,9 @@ query {
     display: grid;
     justify-items: center;
     gap: var(--f-gutter);
-    * {
-      // margin: 0;
-    }
+    // * {
+    //   // margin: 0;
+    // }
     p {
       max-width: 768px;
       font-size: 20px;
