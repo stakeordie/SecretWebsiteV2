@@ -8,7 +8,7 @@
         <div class="mega-header__logo-bar__content__searchbar">
           <div class="mega-header__logo-bar--searchbar">
             <img src="./assets/search-icon.svg" alt="">
-            <p>Search</p>
+            <span>Search</span>
           </div>
         </div>
       </div>
@@ -131,8 +131,14 @@ export default {
   --mega-header-color-social-medial-hover: rgba(240, 242, 245, 0.5);
   --mega-header-padding-tb-nav-expanded: 8px;
   --mega-header-padding-list-nav-expanded: 10px 24px;
+  --mega-header-text-size-nav-expanded: 18px;
+  --mega-header-line-height-nav-expanded: 28.8px;
+  --mega-header-weight-nav-expanded: 500;
+  --mega-header-height-list-nav-expanded: 29px;
+  --mega-header-height-nav-expanded: 300px
 }
   .mega-header {
+    height: 100%;
     &__logo-bar {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -156,7 +162,7 @@ export default {
         padding: var(--mega-header-padding-searchbar);
         border-radius: var(--mega-header-border-searchbar);
         background-color: var(--color-neutral-dark-mode-03);
-        p {
+        span {
           min-width: var(--mega-header-width-searchbar);
           margin-bottom: 0;
         }
@@ -179,6 +185,7 @@ export default {
           width: fit-content;
           color: var(--color-analog-primary-white);
           font-family: var(--f-default-headers-font);
+          font-weight: 600;
         }
       }
 
@@ -188,6 +195,7 @@ export default {
         padding: var(--mega-header-padding-tb-nav-expanded) var(--f-gutter);
         grid-template-columns: repeat(5, 1fr);
         background-color: var(--mega-header-background-nav-expanded);
+        height:var(--mega-header-height-nav-expanded);
         &__content {
           ul {
             padding: 0;
@@ -198,6 +206,10 @@ export default {
               a {
                 color: var(--mega-header-color-nav-exanded);
                 font-family: var(--f-default-text-font);
+                line-height: var(--mega-header-line-height-nav-expanded);
+                font-weight: 500;
+                font-size: var(--mega-header-text-size-nav-expanded);
+                height: var(--mega-header-height-list-nav-expanded);
                 &:hover {
                   color: var(--mega-header-color-nav-exanded-hover);
                 }
@@ -228,12 +240,12 @@ export default {
       &__icon-content {
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: auto 1fr;
+        
         gap: var(--mega-header-gap-social-media);
         a {
           height: 100%;   
           display: grid;
-          align-content: center;          
+          align-content: center;    ;
           &:hover {
             color: var(--mega-header-color-social-medial-hover);
           }          
