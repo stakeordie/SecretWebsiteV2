@@ -2,15 +2,16 @@
   <header class="mega-header__wrapper">
     <!-- // first block -->
     <div class="mega-header">
-      <div class="mega-header__logo-bar">
-        <div class="mega-header__logo-bar__content__image" :class="burger">
-          <img src="../assets/icon-menu.svg" alt="close icon" class="menu" v-on:click="toggleMobileMenu">
-          <img src="../assets/icon-close.svg" alt="close icon" class="close" v-on:click="toggleCloseMobileMenu">
-          <img src="../assets/scrt-logo--white.svg" alt="secret network logo" class="logo"/>
-          <img src="../assets/search-icon--small.svg" alt="close icon" class="search">
+      <div class="mega-header__logo-bar" :class="burger">
+        <div class="mega-header__logo-bar__content__image">
+          <img src="../assets/icon-menu.svg" alt="close icon" class="menu" v-on:click="toggleMegaMenu">
+          <img src="../assets/icon-close.svg" alt="close icon" class="close" v-on:click="toggleMegaMenu">
+          <a href="/">
+            <img src="../assets/scrt-logo--white.svg" alt="secret network logo" class="logo"/>
+          </a>          
         </div>
         <div class="mega-header__logo-bar__content__searchbar">
-          <div class="mega-header__logo-bar--searchbar search-trigger" v-on:click="searchTrigger">
+          <div class="mega-header__logo-bar--searchbar search-trigger search" v-on:click="searchTrigger">
             <img src="../assets/search-icon.svg" alt="" />
             <p>Search</p>
           </div>
@@ -32,7 +33,7 @@
       </ul>
     </div>
     <!-- expanded -->
-    <div class="wrapper" v-if="megaMenuIsOpen">
+    <div class="mega-header__wrapper__expanded" v-if="megaMenuIsOpen">
       <div class="mega-header__nav__expanded">
         <ul
           class="mega-header__nav__expanded__content"
@@ -47,62 +48,52 @@
           >
             <a
               class="mega-header__nav__expanded__content__item__link"
-              :href="it.nav_item.page.route"
+              :href="it.nav_item.page.route" 
+              v-on:click="linkCloseMenu"             
               >{{ it.nav_item.text }}</a
             >
           </li>
         </ul>
       </div>
-      <div class="mega-header__social-media">
-        <div class="mega-header__social-media__content">
+      <div class="mega-header__nav__social-media">
+        <div class="mega-header__nav__social-media__content">
           <p class="title">Connect with Us:</p>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/message-circle.svg" alt="message image" />
-            <a href="" alt="forums">Forums</a>
+          <div class="mega-header__nav__social-media__icon-content">            
+            <a href="https://forum.scrt.network/" target="_blank" alt="forums" v-on:click="linkCloseMenu" >
+              <img src="../assets/message-circle.svg" alt="message image" />
+              <span>Forums</span>
+            </a>
           </div>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/discord.svg" alt="discord image" />
-            <a href="" alt="discord">Discord</a>
+          <div class="mega-header__nav__social-media__icon-content">          
+            <a href="https://discord.com/invite/SJK32GY" target="_blank" alt="discord" v-on:click="linkCloseMenu" >
+              <img src="../assets/discord.svg" alt="discord image" />
+              <span>Discord</span>
+            </a>
           </div>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/telegram.svg" alt="telegram image" />
-            <a href="" alt="telegram">Telegram</a>
+          <div class="mega-header__nav__social-media__icon-content">            
+            <a href="https://t.me/SCRTcommunity" target="_blank" alt="telegram" v-on:click="linkCloseMenu" >
+              <img src="../assets/telegram.svg" alt="telegram image" />
+              <span>Telegram</span>
+            </a>
           </div>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/twitter.svg" alt="twitter image" />
-            <a href="" alt="twitter">Twitter</a>
+          <div class="mega-header__nav__social-media__icon-content">            
+            <a href="https://twitter.com/SecretNetwork" target="_blank" alt="twitter" v-on:click="linkCloseMenu" >
+              <img src="../assets/twitter.svg" alt="twitter image" />
+              <span>Twitter</span>
+            </a>
           </div>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/youtube.svg" alt="youtube image" />
-            <a href="" alt="youtube">Youtube</a>
+          <div class="mega-header__nav__social-media__icon-content">            
+            <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="_blank" alt="youtube" v-on:click="linkCloseMenu" >
+              <img src="../assets/youtube.svg" alt="youtube image" />
+              <span>Youtube</span>    
+            </a> 
           </div>
-          <div class="mega-header__social-media__icon-content">
-            <img src="../assets/icon-social-instagram.svg" alt="instagram image" />
-            <a href="" alt="instagram">Instagram</a>
+          <div class="mega-header__nav__social-media__icon-content">            
+            <a href="https://www.instagram.com/scrtnetwork/" target="_blank" alt="instagram" v-on:click="linkCloseMenu" >
+              <img src="../assets/icon-social-instagram.svg" alt="instagram image" />
+              <span>Instagram</span>
+            </a>
           </div>
-        </div>
-      </div>
-      <!-- Social media mobile -->
-      <div class="mega-header__mobile__social-media">
-        <div class="mega-header__mobile__social-media__content">
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="discord"><img src="../assets/discord.svg" alt="discord image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="telegram"><img src="../assets/telegram.svg" alt="telegram image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">        
-            <a href="" alt="twitter"><img src="../assets/twitter.svg" alt="twitter image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="instagram"><img src="../assets/icon-social-instagram.svg" alt="instagram image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="youtube"><img src="../assets/youtube.svg" alt="youtube image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">
-            <a href="" alt="forums"><img src="../assets/message-circle.svg" alt="message image" /></a>
-          </div>          
         </div>
       </div>      
     </div>
@@ -113,8 +104,7 @@
 export default {
   data() {
     return {
-      megaMenuIsOpen: false,
-      mobileMenuIsOpen: false,
+      megaMenuIsOpen: false,      
     };
   },
   methods: {
@@ -122,14 +112,9 @@ export default {
       e.preventDefault();
       this.megaMenuIsOpen = !this.megaMenuIsOpen;
     },
-    toggleMobileMenu(e) {
-      e.preventDefault();
+    linkCloseMenu(e) {
       this.megaMenuIsOpen = !this.megaMenuIsOpen;
-    },
-    toggleCloseMobileMenu(e) {
-      e.preventDefault();
-      this.megaMenuIsOpen = !this.megaMenuIsOpen;
-    }
+    },    
   },
   computed: {
     chevron() {
@@ -205,7 +190,7 @@ export default {
   --mega-header-weight-nav-expanded: 500;
   --mega-header-height-list-nav-expanded: 27px;
   --mega-header-height-nav-expanded: 300px;
-  --mega-header-grid-image-content: 24px 1fr 24px;
+  --mega-header-grid-image-content: 24px 1fr;
   --mega-header-height-expaded-item: 47px;
   --mega-header-height-expaded-item-mobile: 40px;
   --mega-header-padding-expaded-item-mobile: 8px 26px;
@@ -218,9 +203,18 @@ export default {
     right: 0;
     width: 100%;
     z-index: 999;
-    @include respond-to("<=m") {
-      overflow: auto;
-      max-height: 100vh;
+    &__expanded {
+      @include respond-to("<=m") {
+        scrollbar-width: none;
+        overflow-y: scroll;
+        overflow: auto;
+        scroll-behavior: smooth;
+        height: calc(100vh - 67px);
+        min-height: calc(100vh - 67px);
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -234,10 +228,35 @@ export default {
     align-items: center;
     padding: 0 var(--f-gutter-l);
     @include respond-to("<=m") {
-      grid-auto-flow: row;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 24px;
       padding: 0 var(--f-gutter);
     }
+    &.is-closed {
+      .close, .search {
+      display: none;
+      }
+      .search {
+        @include respond-to(">m") {
+          display: grid;
+        }      
+      }          
+    }
+    &.is-opened {
+      .menu {
+        display: none;
+      }
+      .close {
+        display: unset;
+        @include respond-to(">m") {
+          display: none;
+        }            
+      }  
+      .search {
+        @include respond-to(">m") {
+          display: grid;
+        }      
+      }               
+    }    
     &__content {
       &__image {
         padding: var(--mega-header-padding-logo) var(--f-gutter);
@@ -249,10 +268,24 @@ export default {
           justify-content: space-around;
           align-content: center;
         }
-        .logo {
-          width: 130.67px;
-          height: 58px;
-          justify-self: center;
+        a {
+          .logo {
+            width: 130.67px;
+            height: 58px;
+            justify-self: center;
+          }       
+          @include respond-to("<=m") {
+            display: grid;
+            justify-content: center;
+          }
+          &:visited {
+            color: inherit;
+            background-color: inherit;
+          }
+          &:active {
+            color: inherit;
+            background-color: inherit;
+          }          
         }
         .close, .search, .menu {
           width: var(--mega-header-space-l);
@@ -262,22 +295,6 @@ export default {
             display: none;
           }
         }
-        &.is-closed {
-          .close, .search {
-          display: none;
-        }          
-        }
-        &.is-opened {
-          .menu {
-            display: none;
-          }
-          .close, .search {
-            display: unset;
-            @include respond-to(">m") {
-              display: none;
-            }            
-          }          
-        }
       }
       &__searchbar {
         display: grid;
@@ -286,7 +303,8 @@ export default {
         @include respond-to("<=m") {
           justify-content: start;
           width: 100%;
-          display: none;
+          /* display: none; */
+          padding: 0;
         }
       }
     }
@@ -304,6 +322,17 @@ export default {
         height: var(--mega-header-space);
         @include respond-to("<=m") {
           width: 100%;
+          display: none;
+        }
+      }
+      @include respond-to("<=m") {
+        background-color: var(--mega-headerbackground);
+        padding: 0;
+      }
+      img {
+        @include respond-to("<=m") {
+          width: 24px;
+          height: auto;
         }
       }
     }
@@ -403,77 +432,61 @@ export default {
         }
       }
     }
-  }
-  &__social-media {
-    display: grid;
-    justify-content: end;
-    background-color: var(--mega-header-background-nav-expanded);    
-    padding-bottom: var(--f-gutter);
-    @include respond-to("<=m") {
-      justify-content: start;
-      padding: var(--f-gutter);
-      display: none;
-    }
-    .title {
-      color: var(--mega-header-color-social-medial-hover);
-    }
-    p,
-    a {
-      margin-bottom: 0;
-      font-family: var(--f-default-headers-font);
-      font-weight: var(--paragraph-font-weight-big);
-      color: var(--mega-header-color-social-medial);
-    }
-    &__content {
+    &__social-media {
       display: grid;
-      grid-auto-flow: column;
-      width: fit-content;
-      gap: var(--f-gutter);
-      padding-right: var(--f-gutter);
+      justify-content: end;
+      background-color: var(--mega-header-background-nav-expanded);    
+      padding-bottom: var(--f-gutter);
       @include respond-to("<=m") {
-        grid-auto-flow: row;
-        justify-content: start;
-        padding-right: 0;
-        display: none;
+        justify-content: space-around;
+        padding: var(--f-gutter);  
+        background-color: var(--mega-headerbackground);   
+        width: 100%;   
       }
-    }
-    &__icon-content {
-      display: grid;
-      grid-auto-flow: column;
-
-      gap: var(--mega-header-gap-social-media);
-      a {
-        height: 100%;
-        display: grid;
-        align-content: center;
-        line-height: var(--mega-header-line-height);
-        &:hover {
-          color: var(--mega-header-color-social-medial-hover);
+      .title {
+        color: var(--mega-header-color-social-medial-hover);
+        @include respond-to("<=m") {
+          display: none;
         }
       }
-    }
-  }
-  &__mobile {
-    &__social-media {
-      background-color: var(--mega-headerbackground);
-    @include respond-to(">m") {
-      display: none;
-    }      
+      p,
+      a {
+        margin-bottom: 0;
+        font-family: var(--f-default-headers-font);
+        font-weight: var(--paragraph-font-weight-big);
+        color: var(--mega-header-color-social-medial);
+      }
       &__content {
         display: grid;
-        grid-auto-flow: column;
-        height: 67px;
+        grid-auto-flow: column;       
+        gap: var(--f-gutter);
+        padding-right: var(--f-gutter);
+        @include respond-to("<=m") {
+          padding-right: 0;
+          justify-content: space-around;
+          width: 100vw;
+        }
       }
       &__icon-content {
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        img {
-          display: block;
-          margin: auto;
+        a {
+          display: grid;
+          grid-auto-flow: column;
+          gap: var(--mega-header-gap-social-media);
+          height: 100%;
+          display: grid;
+          align-content: center;
+          line-height: var(--mega-header-line-height);
+          &:hover {
+            color: var(--mega-header-color-social-medial-hover);
+          }
+          span {
+            @include respond-to("<=m") {
+              display: none;
+            }
+          }
         }
-      }      
-    }
+      }
+    }    
   }
 }
 </style>
