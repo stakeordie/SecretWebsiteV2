@@ -69,7 +69,7 @@
   // }
 
   .alert-bar {
-    +.simple-header {
+    +.mega-header__wrapper {
       @include respond-to(">=m") {
         top: var(--alert-height-desktop);
       }
