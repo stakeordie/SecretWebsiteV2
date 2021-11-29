@@ -69,7 +69,7 @@
   // }
 
   .alert-bar {
-    +.mega-header__wrapper {
+    +.mega-header {
       @include respond-to(">=m") {
         top: var(--alert-height-desktop);
       }
@@ -87,6 +87,11 @@
           @include respond-to("<=s") {
             margin-top: calc(var(--alert-height-mobile));
           }
+        }
+      }
+      .mega-header {
+        @include respond-to("<=m") {
+          padding-bottom: 67px;
         }
       }
     }
