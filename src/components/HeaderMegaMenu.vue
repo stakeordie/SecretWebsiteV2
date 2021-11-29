@@ -176,7 +176,7 @@ export default {
   --mega-headerbackground: var(--color-analog-primary-black);
   --mega-header-padding-logo: 5px;
   --mega-header-border-searchbar: 4px;
-  --mega-header-padding-searchbar: 10px;
+  --mega-header-padding-searchbar: 7px 8px;
   --mega-header-line-height-searchbar: 25.62px;
   --mega-header-gap-searchbar: 10px;
   --mega-header-width-searchbar: 219px;
@@ -313,6 +313,7 @@ export default {
       }
       &--searchbar {
         display: grid;
+        align-items: center;
         grid-auto-flow: column;
         gap: var(--mega-header-gap-searchbar);
         padding: var(--mega-header-padding-searchbar);
@@ -321,7 +322,7 @@ export default {
         p {
           min-width: var(--mega-header-width-searchbar);
           margin-bottom: 0;
-          line-height: var(--mega-header-line-height-searchbar);
+          /* line-height: var(--mega-header-line-height-searchbar); */
           /* height: var(--mega-header-space); */
           @include respond-to("<=m") {
             width: 100%;
@@ -482,6 +483,9 @@ export default {
             padding: var(--f-gutter);  
             background-color: var(--mega-headerbackground);   
             width: 100vw;   
+          }
+          @include respond-to(">=m") {
+            width: 100%;
           }
           .title {
             color: var(--mega-header-color-social-medial-hover);
