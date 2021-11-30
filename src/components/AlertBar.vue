@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isAlertOpen" class="alert-bar">
+  <div v-if="isAlertOpen" class="alert-bar" :style="varAlertHeight">
     <vue-markdown class="alert-content">{{ alertMessage.text }}</vue-markdown>
-    <a @click="isAlertOpen = false" href="" class="close-alert">
+    <a @click="closeAlert" href="" class="close-alert">
       <img src="../assets/icon-menu-close.svg" width="24" height="24" alt="close" />
     </a>
   </div>
@@ -21,13 +21,28 @@
     data: function () {
       return {
         isAlertOpen: true,
+        alertHeight: '68px',
         message: 'SecretSwap - the first front-running resistant, cross-chain DEX - is now LIVE on mainnet. [CLICK HERE](https://scrt.network/blog/secretswap-is-live-on-mainnet) to learn more.',
+      }
+    },
+    methods: {
+      closeAlert() {
+        const body = document.querySelector('body');
+        this.isAlertOpen = false;
+        return body.setAttribute('style', `--ab-height:0px`)
+      },
+      varAlertHeight() {
+        const body = document.querySelector('body');
+        return body.setAttribute('style', `--ab-height:${this.alertHeight}`)
       }
     },
     computed: {
       alertMessage() {
         return getLocaleData(this.$static.alertBar, this.$context.locale)
-      }
+      },
+    },
+    mounted() {
+      this.varAlertHeight();
     }
   }
 

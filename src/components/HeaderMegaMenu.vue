@@ -109,6 +109,7 @@ export default {
   data() {
     return {
       megaMenuIsOpen: false,      
+      alertIsOpen: true,      
     };
   },
   methods: {
@@ -118,7 +119,7 @@ export default {
     },
     linkCloseMenu(e) {
       this.megaMenuIsOpen = !this.megaMenuIsOpen;
-    },    
+    },   
   },
   computed: {
     chevron() {
@@ -131,8 +132,8 @@ export default {
       const content = this.$static.navHeader.edges.map((it) => it.node.nav_groups);
       console.log('mega menu items', content[0]);
       return content[0];
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -403,8 +404,7 @@ export default {
         overflow-y: scroll;
         overflow: auto;
         scroll-behavior: smooth;
-        height: calc(100vh - 67px);
-        min-height: calc(100vh - 67px);
+        height: calc(100vh - (67px + var(--ab-height)));
         padding-bottom: 0;
         &::-webkit-scrollbar {
           display: none;
