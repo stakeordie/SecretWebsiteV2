@@ -207,6 +207,7 @@ export default {
     right: 0;
     width: 100%;
     z-index: 999;
+    /* display: none; */
     @include respond-to(">=xxl") {
       display: flex;
       flex-direction: column;
@@ -214,17 +215,23 @@ export default {
     } 
   &__wrapper { 
     height: 100%;
+    width: 100%;
     background-color: var(--mega-headerbackground);
-    width: 100vw;
+    /* width: 100vw; */
     justify-content: center;
     display: flex; 
     @include respond-to("<=m") {
       width: 100%;
     }
   &__content {
-    width: 100%;
-    max-width: 1568px;
-    display: grid;
+    width: 100%;    
+    display: grid;    
+    @include respond-to(">=xl") {
+       max-width: 1440px;  
+    } 
+    @media screen and (min-width: 2560px) {
+         max-width: 1840px;
+    } 
     .logo-bar {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -274,7 +281,7 @@ export default {
           }
           a {
             .logo {
-              width: 130.67px;
+              width: 129px;
               height: 58px;
               justify-self: center;
             }       
@@ -342,56 +349,57 @@ export default {
         }
       }
     }
-  .nav {
-    display: grid;
-    grid-auto-flow: column;
-    padding: 0 var(--f-gutter);
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 0;
-    @include respond-to("<=m") {
-      grid-auto-flow: row;
-      grid-template-columns: 1fr;
-      padding: 0;
-      display: none;
-    }
-      &__content {
-          display: grid;
-          grid-auto-flow: column;
-          gap: var(--mega-header-gap-nav);
-          padding: var(--f-gutter) var(--f-gutter-l);
-          align-items: center;
-          justify-content: start;
-          transition: 0.2s ease;
-          margin-bottom: 0;
-          @include respond-to("<=m") {
-            padding: var(--f-gutter);
-          }
-          a {
-            margin-bottom: 0;
-            width: fit-content;
-            color: var(--color-analog-primary-white);
-            font-family: var(--f-default-headers-font);
-            font-weight: 600;
-          }
-          &__chevron {
+    .nav {
+      display: grid;
+      grid-auto-flow: column;
+      padding: 0 var(--f-gutter);
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 0;
+      @include respond-to("<=m") {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        padding: 0;
+        display: none;
+      }
+        &__content {
+            display: grid;
+            grid-auto-flow: column;
+            gap: var(--mega-header-gap-nav);
+            padding: var(--f-gutter) var(--f-gutter-l);
+            align-items: center;
+            justify-content: start;
             transition: 0.2s ease;
-            transform: rotate(0);
-            &.arrow-up {
-              transform: rotate(180deg);
+            margin-bottom: 0;
+            @include respond-to("<=m") {
+              padding: var(--f-gutter);
             }
-          }
-          &:hover {
-            cursor: pointer;
             a {
-              color: var(--mega-header-color-nav-exanded-hover);   
+              margin-bottom: 0;
+              width: fit-content;
+              color: var(--color-analog-primary-white);
+              font-family: var(--f-default-headers-font);
+              font-weight: 600;
             }
-          }
-      }   
+            &__chevron {
+              transition: 0.2s ease;
+              transform: rotate(0);
+              &.arrow-up {
+                transform: rotate(180deg);
+              }
+            }
+            &:hover {
+              cursor: pointer;
+              a {
+                color: var(--mega-header-color-nav-exanded-hover);   
+              }
+            }
+        }   
     }    
   }     
     &__expanded {
       height: 100%;
-      width: 100vw;
+      /* width: 100vw; */
+      width: 100%;
       justify-content: center;
       display: flex;
       background-color: var(--mega-header-background-nav-expanded);
@@ -412,10 +420,15 @@ export default {
       }
     &__content {
       width: 100%;
-      max-width: 1568px;
       display: grid;
       background-color: var(--mega-header-background-nav-expanded);
       padding-bottom: var(--f-gutter);
+      @include respond-to(">=xl") {
+         max-width: 1440px;  
+      } 
+      @media screen and (min-width: 2560px) {
+           max-width: 1840px;
+      }           
     }
       .nav {
         &__expanded {
@@ -477,7 +490,7 @@ export default {
           justify-content: end;
           background-color: var(--mega-header-background-nav-expanded);  
           padding: 0 16px;
-          padding-top: 11px;
+          padding-top: 11px;          
           @include respond-to("<=m") {
             justify-content: space-around;
             padding: var(--f-gutter);  
@@ -504,7 +517,7 @@ export default {
             display: grid;
             grid-auto-flow: column;       
             gap: var(--f-gutter);
-            padding-right: var(--f-gutter);
+            /* padding-right: var(--f-gutter); */
             @include respond-to("<=m") {
               padding-right: 0;
               justify-content: space-around;
