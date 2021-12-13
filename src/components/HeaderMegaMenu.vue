@@ -172,9 +172,10 @@ export default {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 :root {
+  
   --mega-header-space: 16px;
   --mega-header-space-l: 24px;
-  --mega-headerbackground: var(--color-analog-primary-black);
+  --mega-headerbackground: var(--color-neutral-dark-mode-01);
   --mega-header-padding-logo: 5px;
   --mega-header-border-searchbar: 4px;
   --mega-header-padding-searchbar: 7px 8px;
@@ -187,6 +188,7 @@ export default {
   --mega-header-color-nav-exanded-hover: rgba(178, 190, 204, 1);
   --mega-header-gap-social-media: 4px;
   --mega-header-color-social-medial: rgba(240, 242, 245, 1);
+  --mega-header-color-social-media-icon: var(--color-analog-primary-white);
   --mega-header-color-social-medial-hover: rgba(240, 242, 245, 0.5);
   --mega-header-padding-tb-nav-expanded: 8px;
   --mega-header-padding-list-nav-expanded: 10px 24px;
@@ -200,6 +202,7 @@ export default {
   --mega-header-height-expaded-item-mobile: 40px;
   --mega-header-padding-expaded-item-mobile: 8px 26px;
   --mega-header-line-height: var(--f-h6-line-height);
+  --paragraph-font-weight-big: 300;
 }
 .mega-header {
     position: fixed;
@@ -365,7 +368,7 @@ export default {
             display: grid;
             grid-auto-flow: column;
             gap: var(--mega-header-gap-nav);
-            padding: var(--f-gutter) var(--f-gutter-l);
+            padding: 8px var(--f-gutter-l);
             align-items: center;
             justify-content: start;
             transition: 0.2s ease;
@@ -510,8 +513,13 @@ export default {
           a {
             margin-bottom: 0;
             font-family: var(--f-default-headers-font);
-            font-weight: var(--paragraph-font-weight-big);
-            color: var(--mega-header-color-social-medial);
+            font-weight: var(--paragraph-font-weight-big);            
+            img {
+              color: var(--mega-header-color-social-media-icon);
+            }
+            span {
+              color: var(--mega-header-color-social-medial);
+            }
           }
           &__content {
             display: grid;
