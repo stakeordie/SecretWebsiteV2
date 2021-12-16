@@ -202,17 +202,23 @@ export default {
     resetCheck() {
       this.checkedCategories = [];
     },
-    walletCheck() {
+    walletCheck() {      
       if (window.location.hash) {
         if (this.collection === "toolsAndWallets") {
           const container = document.querySelector(
             ".tools-and-wallets-container"
           );
           setTimeout(() => {
-            this.checkedCategories = ["wallet"];
+            // const gridContainerToolsWallets = document.querySelector("#tools-wallets");
+            if (window.location.hash === "#tools") {
+              this.checkedCategories = ["tool"];
+            } else if (window.location.hash === "#wallets") {
+              this.checkedCategories = ["wallet"];
+            }
             container.style.scrollMargin = 100 + "px";
+            console.log(container);
             container.scrollIntoView();
-          }, 1);
+          }, 1000);
         }
       }
     },
@@ -297,8 +303,7 @@ export default {
   },
 
   mounted() {
-    this.walletCheck();
-    // this.gridHeader();
+    this.walletCheck();    
   }
 };
 </script>

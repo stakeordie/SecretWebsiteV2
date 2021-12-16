@@ -41,7 +41,7 @@ title: "Ecosystem"
 </column>
 
 <!-- Tools and Wallets -->
-<column class="spacer-s tools-and-wallets-container">
+<column class="spacer-s tools-and-wallets-container" id="tools-wallets">
 
 <block>
 
