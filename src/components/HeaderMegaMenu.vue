@@ -130,7 +130,7 @@ export default {
     },
     megaMenuItems() {
       const content = this.$static.navHeader.edges.map((it) => it.node.nav_groups);
-      console.log('mega menu items', content[0]);
+      // console.log('mega menu items', content[0]);
       return content[0];
     },
   },
