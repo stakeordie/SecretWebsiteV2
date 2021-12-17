@@ -18,7 +18,7 @@ title: "Ecosystem"
 </column>
 
 <!-- DApps -->
-<column class="spacer-s">
+<column id="dapps" class="spacer-s">
 
 <block>
 
@@ -30,7 +30,7 @@ title: "Ecosystem"
 
 
 <!-- Contributors -->
-<column class="spacer-s contributors-container">
+<column id="contributors" class="spacer-s contributors-container">
 
 <block>
 
@@ -41,7 +41,7 @@ title: "Ecosystem"
 </column>
 
 <!-- Tools and Wallets -->
-<column class="spacer-s tools-and-wallets-container" id="tools-wallets">
+<column class="spacer-s tools-and-wallets-container" id="toolswallets">
 
 <block>
 
@@ -53,7 +53,7 @@ title: "Ecosystem"
 
 
 <!-- Exchanges -->
-<column class="spacer-s">
+<column id="exchanges" class="spacer-s">
 
 <block>
 
