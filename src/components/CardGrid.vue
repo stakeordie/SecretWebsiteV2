@@ -211,6 +211,16 @@ export default {
         }
       }
     },
+    hash(hash, collection, link) {
+      if (window.location.hash === hash) {
+        console.log(window.location.hash)
+        if (this.collection === collection) {
+          setTimeout(() => {
+            window.location.href = link;
+          }, 500);
+        }        
+      }
+    },    
 
     evaluateTags(size) {
       if (!size) return;
@@ -294,6 +304,9 @@ export default {
   mounted() {
     this.hashToFilter("#wallets", "wallet");
     this.hashToFilter("#tools", "tool");
+    this.hash("#dapps", "dApps", "#dapps");
+    this.hash("#exchanges", "exchanges", "#exchanges");
+    this.hash("#contributors", "contributors", "#contributors");
   },
   updated() {
    
