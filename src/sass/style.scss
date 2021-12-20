@@ -110,6 +110,9 @@ body {
   &.modal-open {
     position: fixed;
   }
+  &.freezed {
+    overflow: hidden;
+  }
 
   pre {
     // max-width: var(--blog-content-width);
