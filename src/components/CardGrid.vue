@@ -201,6 +201,7 @@ export default {
       this.checkedCategories = [];
     },
     hashToFilter(hash, filter) {
+      console.log('.')
       if (window.location.hash === hash) {
         console.log(window.location.hash)
         if (this.collection === "toolsAndWallets") {
