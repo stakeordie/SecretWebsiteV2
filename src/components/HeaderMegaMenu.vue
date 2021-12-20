@@ -164,10 +164,14 @@ export default {
     return {
       megaMenuIsOpen: false,
       alertIsOpen: true,
-      // body: document.querySelector("body"),
+      columns: [],
     };
   },
   methods: {
+    megaMenuColumns() {
+      const body = document.querySelector('body');
+      body.setAttribute("style", `--scrt-megamenu-columns:${this.columns.length}`);
+    },
     toggleMegaMenu(e) {
       const body = document.querySelector('body');
       e.preventDefault();
@@ -190,17 +194,16 @@ export default {
       return this.megaMenuIsOpen ? "is-opened" : "is-closed";
     },
     megaMenuItems() {
-      const body = document.querySelector("body");
       const content = this.$static.navHeader.edges.map(
         (it) => it.node.nav_groups
       );
-      // console.log('mega menu items', content[0]);
-      // console.log(content[0])
-      // console.log(content[0].length)
-      body.setAttribute("style", `--scrt-megamenu-columns:${content[0].length}`)
+      this.columns = content[0];
       return content[0];
     },
   },
+  mounted() {
+    this.megaMenuColumns();
+  }
 };
 </script>
 
