@@ -201,9 +201,8 @@ export default {
       this.checkedCategories = [];
     },
     hashToFilter(hash, filter) {
-      console.log('.')
       if (window.location.hash === hash) {
-        console.log(window.location.hash)
+        // console.log(window.location.hash)
         if (this.collection === "toolsAndWallets") {
           setTimeout(() => {
             window.location.href = "#toolswallets";
@@ -214,7 +213,7 @@ export default {
     },
     hash(hash, collection, link) {
       if (window.location.hash === hash) {
-        console.log(window.location.hash)
+        // console.log(window.location.hash)
         if (this.collection === collection) {
           setTimeout(() => {
             window.location.href = link;
