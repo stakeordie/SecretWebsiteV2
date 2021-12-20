@@ -164,22 +164,22 @@ export default {
     return {
       megaMenuIsOpen: false,
       alertIsOpen: true,
-      body: document.querySelector("body"),
+      // body: document.querySelector("body"),
     };
   },
   methods: {
     toggleMegaMenu(e) {
-      // const body = document.querySelector('body');
+      const body = document.querySelector('body');
       e.preventDefault();
       this.megaMenuIsOpen = !this.megaMenuIsOpen;
       this.megaMenuIsOpen
-        ? this.body.classList.add("freezed")
-        : this.body.classList.remove("freezed");
+        ? body.classList.add("freezed")
+        : body.classList.remove("freezed");
     },
     linkCloseMenu(e) {
-      // const body = document.querySelector("body");
+      const body = document.querySelector("body");
       this.megaMenuIsOpen = false;
-      this.body.classList.remove("freezed");
+      body.classList.remove("freezed");
     },
   },
   computed: {
@@ -190,10 +190,14 @@ export default {
       return this.megaMenuIsOpen ? "is-opened" : "is-closed";
     },
     megaMenuItems() {
+      const body = document.querySelector("body");
       const content = this.$static.navHeader.edges.map(
         (it) => it.node.nav_groups
       );
       // console.log('mega menu items', content[0]);
+      // console.log(content[0])
+      // console.log(content[0].length)
+      body.setAttribute("style", `--scrt-megamenu-columns:${content[0].length}`)
       return content[0];
     },
   },
@@ -421,7 +425,7 @@ export default {
         display: grid;
         grid-auto-flow: column;
         padding: 0 var(--f-gutter);
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(var(--scrt-megamenu-columns), 1fr);
         margin-bottom: 0;
         @include respond-to("<=m") {
           grid-auto-flow: row;
@@ -503,7 +507,7 @@ export default {
           display: grid;
           grid-auto-flow: column;
           padding: var(--mega-header-padding-tb-nav-expanded) var(--f-gutter);
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(var(--scrt-megamenu-columns), 1fr);
           background-color: var(--mega-header-background-nav-expanded);
           /* min-height: var(--mega-header-height-nav-expanded); */
           @include respond-to("<=m") {
