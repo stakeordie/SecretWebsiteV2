@@ -1,7 +1,7 @@
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 .simple-layout {
   &.ecosystem-overview {
-    #dapps, #contributors, #tools, #wallets, #exchanges {
+    #dapps, #contributors, #toolswallets, #exchanges {
       padding-top: 200px; margin-top: -200px;
     }
   }
