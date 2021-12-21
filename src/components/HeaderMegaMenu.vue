@@ -487,6 +487,7 @@ export default {
         overflow-y: scroll;
         overflow: auto;
         scroll-behavior: smooth;
+        // height: calc(100vh - (var(--alert-height-mobile) + 68px));
         height: calc(100vh - (67px + var(--ab-height)));
         padding-bottom: 0;
         &::-webkit-scrollbar {

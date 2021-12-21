@@ -26,13 +26,15 @@
       }
     },
     methods: {
-      closeAlert() {
+      checkAlertHeight() {
         const body = document.querySelector('body');
-        this.isAlertOpen = false;
         return body.setAttribute('style', `--ab-height:0px`)
       },
+      closeAlert() {
+        this.isAlertOpen = false;
+      },
       varAlertHeight() {
-        const body = document.querySelector('body');
+        const body = document.querySelector('html');
         return body.setAttribute('style', `--ab-height:${this.alertHeight}`)
       }
     },
@@ -43,6 +45,9 @@
     },
     mounted() {
       this.varAlertHeight();
+    },
+    updated() {
+      this.checkAlertHeight();
     }
   }
 
