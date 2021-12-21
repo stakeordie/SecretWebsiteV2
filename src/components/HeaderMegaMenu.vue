@@ -1,161 +1,167 @@
 <template>
-  <header class="mega-header">
-    <!-- // first block -->
-    <div class="mega-header__wrapper">
-      <div class="mega-header__wrapper__content">
-        <div class="logo-bar" :class="burger">
-          <div class="logo-bar__content__image">
-            <img
-              src="../assets/icon-menu.svg"
-              alt="close icon"
-              class="menu"
-              v-on:click="toggleMegaMenu"
-            />
-            <img
-              src="../assets/icon-close.svg"
-              alt="close icon"
-              class="close"
-              v-on:click="toggleMegaMenu"
-            />
-            <a href="/">
+  <transition name="slide-megaheader">
+    <header class="mega-header" v-show="!scrollingDown">
+      <!-- // first block -->
+      <div class="mega-header__wrapper">
+        <div class="mega-header__wrapper__content">
+          <div class="logo-bar" :class="burger">
+            <div class="logo-bar__content__image">
               <img
-                src="../assets/scrt-logo--white.svg"
-                alt="secret network logo"
-                class="logo"
+                src="../assets/icon-menu.svg"
+                alt="close icon"
+                class="menu"
+                v-on:click="toggleMegaMenu"
               />
-            </a>
-          </div>
-          <div class="logo-bar__content__searchbar">
-            <div
-              class="logo-bar--searchbar search-trigger search"
-              v-on:click="searchTrigger"
-            >
-              <img src="../assets/search-icon.svg" alt="" />
-              <p>Search</p>
+              <img
+                src="../assets/icon-close.svg"
+                alt="close icon"
+                class="close"
+                v-on:click="toggleMegaMenu"
+              />
+              <a href="/">
+                <img
+                  src="../assets/scrt-logo--white.svg"
+                  alt="secret network logo"
+                  class="logo"
+                />
+              </a>
+            </div>
+            <div class="logo-bar__content__searchbar">
+              <div
+                class="logo-bar--searchbar search-trigger search"
+                v-on:click="searchTrigger"
+              >
+                <img src="../assets/search-icon.svg" alt="" />
+                <p>Search</p>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- nav items HEADINGS DESKTOP -->
-        <ul class="nav">
-          <li
-            class="nav__content"
-            v-for="(nav, index) in megaMenuItems"
-            :key="index"
-            v-on:click="toggleMegaMenu"
-          >
-            <a href="/">{{ nav.title }}</a>
-            <img
-              :class="chevron"
-              class="nav__content__chevron"
-              src="../assets/icon-chevron-down.svg"
-              alt="arrow down icon"
-            />
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- expanded -->
-    <div class="mega-header__wrapper__expanded" v-if="megaMenuIsOpen">
-      <div class="mega-header__wrapper__expanded__content">
-        <div class="nav__expanded">
-          <ul
-            class="nav__expanded__content"
-            v-for="(nav, index) in megaMenuItems"
-            :key="index"
-          >
-            <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
+          <!-- nav items HEADINGS DESKTOP -->
+          <ul class="nav">
             <li
-              class="nav__expanded__content__item"
-              v-for="(it, index) in nav.nav_items"
+              class="nav__content"
+              v-for="(nav, index) in megaMenuItems"
               :key="index"
+              v-on:click="toggleMegaMenu"
             >
-              <a
-                class="nav__expanded__content__item__link"
-                :href="it.nav_item.page.route"
-                v-on:click="linkCloseMenu"
-                >{{ it.nav_item.text }}</a
-              >
+              <a href="/">{{ nav.title }}</a>
+              <img
+                :class="chevron"
+                class="nav__content__chevron"
+                src="../assets/icon-chevron-down.svg"
+                alt="arrow down icon"
+              />
             </li>
           </ul>
         </div>
-        <div class="nav__social-media">
-          <div class="nav__social-media__content">
-            <p class="title">Connect with Us:</p>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://forum.scrt.network/"
-                target="_blank"
-                alt="forums"
-                v-on:click="linkCloseMenu"
+      </div>
+      <!-- expanded -->
+      <div class="mega-header__wrapper__expanded" v-if="megaMenuIsOpen">
+        <div class="mega-header__wrapper__expanded__content">
+          <div class="nav__expanded">
+            <ul
+              class="nav__expanded__content"
+              v-for="(nav, index) in megaMenuItems"
+              :key="index"
+            >
+              <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
+              <li
+                class="nav__expanded__content__item"
+                v-for="(it, index) in nav.nav_items"
+                :key="index"
               >
-                <img src="../assets/message-circle.svg" alt="message image" />
-                <span>Forums</span>
-              </a>
-            </div>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://discord.com/invite/SJK32GY"
-                target="_blank"
-                alt="discord"
-                v-on:click="linkCloseMenu"
-              >
-                <img src="../assets/discord.svg" alt="discord image" />
-                <span>Discord</span>
-              </a>
-            </div>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://t.me/SCRTcommunity"
-                target="_blank"
-                alt="telegram"
-                v-on:click="linkCloseMenu"
-              >
-                <img src="../assets/telegram.svg" alt="telegram image" />
-                <span>Telegram</span>
-              </a>
-            </div>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://twitter.com/SecretNetwork"
-                target="_blank"
-                alt="twitter"
-                v-on:click="linkCloseMenu"
-              >
-                <img src="../assets/twitter.svg" alt="twitter image" />
-                <span>Twitter</span>
-              </a>
-            </div>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
-                target="_blank"
-                alt="youtube"
-                v-on:click="linkCloseMenu"
-              >
-                <img src="../assets/youtube.svg" alt="youtube image" />
-                <span>Youtube</span>
-              </a>
-            </div>
-            <div class="nav__social-media__icon-content">
-              <a
-                href="https://www.instagram.com/scrtnetwork/"
-                target="_blank"
-                alt="instagram"
-                v-on:click="linkCloseMenu"
-              >
-                <img
-                  src="../assets/icon-social-instagram.svg"
-                  alt="instagram image"
-                />
-                <span>Instagram</span>
-              </a>
+                <a
+                  class="nav__expanded__content__item__link"
+                  :href="it.nav_item.page.route"
+                  v-on:click="linkCloseMenu"
+                  >{{ it.nav_item.text }}</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="nav__social-media">
+            <div class="nav__social-media__content">
+              <p class="title">Connect with Us:</p>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://forum.scrt.network/"
+                  target="_blank"
+                  alt="forums"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img src="../assets/message-circle.svg" alt="message image" />
+                  <span>Forums</span>
+                </a>
+              </div>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://discord.com/invite/SJK32GY"
+                  target="_blank"
+                  alt="discord"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img src="../assets/discord.svg" alt="discord image" />
+                  <span>Discord</span>
+                </a>
+              </div>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://t.me/SCRTcommunity"
+                  target="_blank"
+                  alt="telegram"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img src="../assets/telegram.svg" alt="telegram image" />
+                  <span>Telegram</span>
+                </a>
+              </div>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://twitter.com/SecretNetwork"
+                  target="_blank"
+                  alt="twitter"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img src="../assets/twitter.svg" alt="twitter image" />
+                  <span>Twitter</span>
+                </a>
+              </div>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
+                  target="_blank"
+                  alt="youtube"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img src="../assets/youtube.svg" alt="youtube image" />
+                  <span>Youtube</span>
+                </a>
+              </div>
+              <div class="nav__social-media__icon-content">
+                <a
+                  href="https://www.instagram.com/scrtnetwork/"
+                  target="_blank"
+                  alt="instagram"
+                  v-on:click="linkCloseMenu"
+                >
+                  <img
+                    src="../assets/icon-social-instagram.svg"
+                    alt="instagram image"
+                  />
+                  <span>Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div v-on:click="linkCloseMenu" class="mega-header__overlay" v-if="megaMenuIsOpen"></div>
-  </header>
+      <div
+        v-on:click="linkCloseMenu"
+        class="mega-header__overlay"
+        v-if="megaMenuIsOpen"
+      ></div>
+    </header>
+  </transition>
 </template>
 
 <script>
@@ -164,16 +170,36 @@ export default {
     return {
       megaMenuIsOpen: false,
       alertIsOpen: true,
+      scrollingDown: false,
       columns: [],
     };
   },
   methods: {
+    scrollPosition(e) {
+      let lastScrollTop = 0;
+      window.addEventListener(
+        "scroll",
+        () => {
+          let st = window.pageYOffset || document.documentElement.scrollTop;
+          if (st > lastScrollTop && st > 88) {
+            this.scrollingDown = true;
+          } else {
+            this.scrollingDown = false;
+          }
+          lastScrollTop = st <= 0 ? 0 : st;
+        },
+        false
+      );
+    },
     megaMenuColumns() {
-      const body = document.querySelector('body');
-      body.setAttribute("style", `--scrt-megamenu-columns:${this.columns.length}`);
+      const body = document.querySelector("body");
+      body.setAttribute(
+        "style",
+        `--scrt-megamenu-columns:${this.columns.length}`
+      );
     },
     toggleMegaMenu(e) {
-      const body = document.querySelector('body');
+      const body = document.querySelector("body");
       e.preventDefault();
       this.megaMenuIsOpen = !this.megaMenuIsOpen;
       this.megaMenuIsOpen
@@ -203,7 +229,13 @@ export default {
   },
   mounted() {
     this.megaMenuColumns();
-  }
+    if (process.isClient) {
+      this.scrollPosition();
+    }
+  },
+  beforeDestroy() {
+    // this.scrollPosition();
+  },
 };
 </script>
 
@@ -642,5 +674,19 @@ export default {
     backdrop-filter: blur(0.25em);
     animation: 75ms ease-in;
   }
+}
+
+.slide-megaheader-enter-active,
+.slide-megaheader-leave-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.5s;
+  transition: 0.5s ease-in-out;
+}
+.slide-megaheader-enter,
+.slide-megaheader-leave-to {
+  transform: translateY(-110px);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
 }
 </style>
