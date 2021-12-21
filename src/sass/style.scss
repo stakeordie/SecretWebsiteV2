@@ -111,7 +111,9 @@ body {
     position: fixed;
   }
   &.freezed {
-    overflow: hidden;
+    @include respond-to(">=l") {
+      overflow: hidden;
+    }
   }
 
   pre {
