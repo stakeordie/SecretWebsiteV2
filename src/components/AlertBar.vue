@@ -34,8 +34,8 @@
         this.isAlertOpen = false;
       },
       varAlertHeight() {
-        const body = document.querySelector('html');
-        return body.setAttribute('style', `--ab-height:${this.alertHeight}`)
+        const htmlEl = document.querySelector('html');
+        return this.isAlertOpen ? htmlEl.setAttribute('style', `--ab-height:${this.alertHeight}`) : htmlEl.setAttribute('style', `--ab-height:0px`)
       }
     },
     computed: {
@@ -47,7 +47,7 @@
       this.varAlertHeight();
     },
     updated() {
-      this.checkAlertHeight();
+      this.varAlertHeight();
     }
   }
 
