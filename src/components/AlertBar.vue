@@ -1,6 +1,6 @@
 <template>
   <div v-if="isAlertOpen" class="alert-bar" :style="varAlertHeight">
-    <vue-markdown class="alert-content" ref="msg">{{
+    <vue-markdown v-if="isAlertOpen" class="alert-content" ref="msg">{{
       alertMessage.text
     }}</vue-markdown>
     <a @click="closeAlert" href="" class="close-alert">
@@ -36,14 +36,11 @@ export default {
     checkForStatus() {
       if (process.isClient) {
         let localStorage = window.localStorage.getItem("alertMsg");
-        if(localStorage === this.$static.alertBar.edges[0].node.text) {
-          console.log('es identico')
-          this.isAlertOpen = false;
+        if (localStorage === this.$static.alertBar.edges[0].node.text) {
+        } else {
+          this.isAlertOpen = true;
         }
       }
-      // if(localStorage === this.$static.alertBar.edges[0].node.text) {
-      //   console.log('es identico')
-      // }
       return this.$static.alertBar.edges[0].node.text;
     },
     checkAlertHeight() {
@@ -79,6 +76,7 @@ export default {
     this.checkForStatus();
   },
   mounted() {
+    this.checkForStatus();
     this.varAlertHeight();
   },
   updated() {
