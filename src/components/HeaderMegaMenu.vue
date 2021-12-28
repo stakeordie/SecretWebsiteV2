@@ -18,13 +18,13 @@
                 class="close"
                 v-on:click="toggleMegaMenu"
               />
-              <a href="/">
+              <g-link to="/">
                 <img
                   src="../assets/scrt-logo--white.svg"
                   alt="secret network logo"
                   class="logo"
                 />
-              </a>
+              </g-link>
             </div>
             <div class="logo-bar__content__searchbar">
               <div
@@ -70,12 +70,10 @@
                 v-for="(it, index) in nav.nav_items"
                 :key="index"
               >
-                <a
+                <g-link
                   class="nav__expanded__content__item__link"
-                  :href="it.nav_item.page.route"
-                  v-on:click="linkCloseMenu"
-                  >{{ it.nav_item.text }}</a
-                >
+                  :to="it.nav_item.page.route"
+                  ><span v-on:click="linkCloseMenu">{{ it.nav_item.text }}</span></g-link>
               </li>
             </ul>
           </div>
@@ -206,7 +204,7 @@ export default {
         ? body.classList.add("freezed")
         : body.classList.remove("freezed");
     },
-    linkCloseMenu(e) {
+    linkCloseMenu() {
       const body = document.querySelector("body");
       this.megaMenuIsOpen = false;
       body.classList.remove("freezed");
@@ -235,7 +233,7 @@ export default {
   },
   beforeDestroy() {
     // this.scrollPosition();
-  },
+  }
 };
 </script>
 
@@ -678,15 +676,15 @@ export default {
 
 .slide-megaheader-enter-active,
 .slide-megaheader-leave-active {
-  opacity: 1;
+  // opacity: 1;
   transform: translateY(0px);
-  transition: opacity 0.5s;
-  transition: 0.5s ease-in-out;
+  // transition: opacity 0.5s;
+  transition: 0.5s ease;
 }
 .slide-megaheader-enter,
 .slide-megaheader-leave-to {
   transform: translateY(-110px);
-  transition: 0.5s ease-in-out;
-  opacity: 0;
+  transition: 0.5s ease;
+  // opacity: 0;
 }
 </style>

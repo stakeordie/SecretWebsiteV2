@@ -74,6 +74,7 @@ const colors = {
   "": "red",
   null: "purple",
   undefined: "purple",
+  nfts: "orange",
 };
 
 export default {
