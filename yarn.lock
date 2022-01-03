@@ -2478,10 +2478,10 @@
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
 
-"@stakeordie/source-strapi@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/@stakeordie/source-strapi/-/source-strapi-0.2.0.tgz"
-  integrity sha512-D90/b7Se2RdbM7mWCjHiBkY04gLhP8C1nnNYu8xd8gGtuZrgKe0AvkC9ydqW6xJJzjCe89BegtfCW7ZsG3YMTQ==
+"@stakeordie/source-strapi@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@stakeordie/source-strapi/-/source-strapi-0.3.0.tgz#a6b0306852a8545db3bccfca0ce7f1ee65eb0809"
+  integrity sha512-+MfKJFCtXMQk5wsCN/KH9nsKHsgIZ4qhhFE4tKR+6QxWtSKmKFVWWcUVQHfVfG+Q4UAcew+yt8xWrPEm36u6Ig==
   dependencies:
     axios "^0.19.0"
     lodash "^4.17.11"
@@ -5100,9 +5100,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001251:
-  version "1.0.30001280"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001280.tgz"
-  integrity sha512-kFXwYvHe5rix25uwueBxC569o53J6TpnGu0BEEn+6Lhl2vsnAumRFWEBhDft1fwyo6m1r4i+RqA4+163FpeFcA==
+  version "1.0.30001282"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001282.tgz"
+  integrity sha512-YhF/hG6nqBEllymSIjLtR2iWDDnChvhnVJqp+vloyt2tEHFG1yBR+ac2B/rOw0qOK0m0lEXU2dv4E/sMk5P9Kg==
 
 capture-exit@^2.0.0:
   version "2.0.0"

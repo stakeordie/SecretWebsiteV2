@@ -1,9 +1,17 @@
-export function getLocaleNode(query, locale) {
-  const res = query.edges.find(({ node }) => node.locale === locale);
-  if(!res) {
-    const { node } = query.edges.find(({ node }) => node.locale === 'en');
-    return node
+export function getLocaleData(query, locale) {
+  let data = query.edges[0].node;
+  let localizedData
+  if(!data.localizations) {
+    return data;
   } else {
-    return res.node
+    localizedData = data.localizations.find(it => it.locale === locale)
+  }
+  if(!localizedData) {
+    return data
+  } else {
+    return {
+      ...data,
+      ...localizedData
+    }
   }
 }

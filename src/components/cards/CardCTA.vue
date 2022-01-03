@@ -1,13 +1,13 @@
 <template>
-  <div class="card-simple" :class="{ 'cta': $static.homeCtaCards.edges[0].node[cardId].page.route }">
-    <a :href="$static.homeCtaCards.edges[0].node[cardId].page.route">
+  <div class="card-simple" :class="{ 'cta': homeCtaCards[cardId].page.route }">
+    <a :href="homeCtaCards[cardId].page.route">
       <card-block>
-        <h3>{{$static.homeCtaCards.edges[0].node[cardId].title}}</h3>
-        <h4>{{$static.homeCtaCards.edges[0].node[cardId].subtitle}}</h4>
-        <p>{{$static.homeCtaCards.edges[0].node[cardId].text}}</p>
+        <h3>{{homeCtaCards[cardId].title}}</h3>
+        <h4>{{homeCtaCards[cardId].subtitle}}</h4>
+        <p>{{homeCtaCards[cardId].text}}</p>
       </card-block>
       <card-block v-if="hasImage">
-        <img :src="$static.homeCtaCards.edges[0].node[cardId].image.url" :alt="$static.homeCtaCards.edges[0].node[cardId].image.alternativeText"/>
+        <img :src="homeCtaCards[cardId].image.url" :alt="homeCtaCards[cardId].image.alternativeText"/>
       </card-block>
     </a>
     <card-block>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import { getLocaleData } from '@/utils'
   export default {
     props: {
       cardId: {
@@ -44,6 +45,9 @@
         } else {
           return true;
         }
+      },
+      homeCtaCards() {
+        return getLocaleData(this.$static.homeCtaCards, this.$context.locale)
       }
     }
   }
@@ -55,6 +59,7 @@
     homeCtaCards: allStrapiHomeCtaCards{
       edges {
         node {
+          locale
           card_1 {
             title
             subtitle
@@ -105,6 +110,61 @@
             }
             page {
               route
+            }
+          }
+          localizations {
+            locale
+            card_1 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_2 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_3 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
+            }
+            card_4 {
+              title
+              subtitle
+              text
+              image {
+                url
+                caption
+                alternativeText
+              }
+              page {
+                route
+              }
             }
           }
         }

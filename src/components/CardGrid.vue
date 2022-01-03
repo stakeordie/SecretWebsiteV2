@@ -139,8 +139,6 @@ const sortBySorting = (first, second) => {
   return first.sort - second.sort;
 };
 
-
-
 export default {
   components: { Pagination },
 
@@ -150,7 +148,7 @@ export default {
 
       checkedCategories: [],
 
-      selectedTag: "All"
+      selectedTag: "All",
     };
   },
 
@@ -160,7 +158,7 @@ export default {
     header: { type: String, required: false, default: "" },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
-    hasCategories: { type: Boolean, default: true }
+    hasCategories: { type: Boolean, default: true },
   },
 
   methods: {
@@ -202,20 +200,27 @@ export default {
     resetCheck() {
       this.checkedCategories = [];
     },
-    walletCheck() {
-      if (window.location.hash) {
+    hashToFilter(hash, filter) {
+      if (window.location.hash === hash) {
+        // console.log(window.location.hash)
         if (this.collection === "toolsAndWallets") {
-          const container = document.querySelector(
-            ".tools-and-wallets-container"
-          );
           setTimeout(() => {
-            this.checkedCategories = ["wallet"];
-            container.style.scrollMargin = 100 + "px";
-            container.scrollIntoView();
-          }, 1);
+            window.location.href = "#toolswallets";
+            this.checkedCategories = [filter];
+          }, 500);
         }
       }
     },
+    hash(hash, collection, link) {
+      if (window.location.hash === hash) {
+        // console.log(window.location.hash)
+        if (this.collection === collection) {
+          setTimeout(() => {
+            window.location.href = link;
+          }, 500);
+        }        
+      }
+    },    
 
     evaluateTags(size) {
       if (!size) return;
@@ -225,26 +230,26 @@ export default {
       } else {
         return "tag-card-5";
       }
-    }
+    },
   },
 
   computed: {
     // WALTER WAS HERE
     filteredElements() {
       const sortedCollection = this.collections;
-      for(const [i, element] of sortedCollection.entries()) {
+      for (const [i, element] of sortedCollection.entries()) {
         if (element.sort == null) {
           element.sort = 99999;
         }
-      };
-      sortedCollection.sort(function(a, b) {
+      }
+      sortedCollection.sort(function (a, b) {
         return a.sort - b.sort;
       });
       if (!this.checkedCategories.length) {
         return sortedCollection;
-      };
-      const collection = sortedCollection.filter(post =>
-        post.types.some(tag => this.checkedCategories.includes(tag.name))
+      }
+      const collection = sortedCollection.filter((post) =>
+        post.types.some((tag) => this.checkedCategories.includes(tag.name))
       );
       return collection;
     },
@@ -270,36 +275,42 @@ export default {
     },
 
     collections() {
-      return this.$static[this.collection].edges.map(it => it.node);
+      return this.$static[this.collection].edges.map((it) => it.node);
     },
 
     categories() {
-      const data = this.$static[this.collection].edges.filter(element => {
+      const data = this.$static[this.collection].edges.filter((element) => {
         return element.node.types.length > 0;
       });
 
-      const categoryData = data.map(item => {
+      const categoryData = data.map((item) => {
         return {
-          name: item.node.types[0]?.name
+          name: item.node.types[0]?.name,
         };
       });
 
       let uniqueCategories = [];
 
-      categoryData.filter(cat => {
-        if (!uniqueCategories.find(cat_some => cat_some.name == cat.name)) {
+      categoryData.filter((cat) => {
+        if (!uniqueCategories.find((cat_some) => cat_some.name == cat.name)) {
           uniqueCategories.push(cat);
         }
       });
 
       return uniqueCategories;
-    }
+    },
   },
 
   mounted() {
-    this.walletCheck();
-    // this.gridHeader();
-  }
+    this.hashToFilter("#wallets", "wallet");
+    this.hashToFilter("#tools", "tool");
+    this.hash("#dapps", "dApps", "#dapps");
+    this.hash("#exchanges", "exchanges", "#exchanges");
+    this.hash("#contributors", "contributors", "#contributors");
+  },
+  updated() {
+   
+  },
 };
 </script>
 

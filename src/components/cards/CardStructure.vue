@@ -3,7 +3,7 @@
     <div class="scrt-structure">
       <div class="ethereum bc">
         <img src="../../../content/img/logo-ethereum.svg" alt="" />
-        <h5>Ethereum's smart contacts</h5>
+        <h5>Ethereum's smart contracts</h5>
       </div>
       <div class="plus icon">
         <img src="../../../content/img/icon-plus.svg" alt="" />

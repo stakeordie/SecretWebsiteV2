@@ -17,7 +17,7 @@
     "@gridsome/source-ghost": "^0.4.0",
     "@gridsome/vue-remark": "^0.2.6",
     "@lkmx/flare": "^0.3.5",
-    "@stakeordie/source-strapi": "^0.2.0",
+    "@stakeordie/source-strapi": "^0.3.0",
     "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
     "gridsome": "^0.7.0",

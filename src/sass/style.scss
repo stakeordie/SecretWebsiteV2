@@ -16,6 +16,7 @@
 @import "pages/secret-brand";
 @import "pages/become-secret-agent";
 @import "pages/ecosystem-roadmap";
+@import "pages/ecosystem-overview";
 @import "pages/submit-proyect";
 
 @import "@lkmx/flare/src/functions/respond-to";
@@ -108,6 +109,11 @@ body {
   }
   &.modal-open {
     position: fixed;
+  }
+  &.freezed {
+    @include respond-to(">=l") {
+      overflow: hidden;
+    }
   }
 
   pre {
