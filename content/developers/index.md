@@ -42,7 +42,7 @@ title: 'Developer Resources'
 
 Use Secret Contracts to build decentralized applications with improved usability and explore new frontiers in web3.
 
-<btn class="no-arrow" url="https://build.scrt.network/dev/developers.html">Quickstart</btn>
+<btn class="no-arrow" url="https://docs.scrt.network/dev/developers.html">Quickstart</btn>
 
 </block>
 
@@ -85,7 +85,7 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 #### Learn about Secret Contracts
 
-<btn class="full" url="https://build.scrt.network/dev/developers.html">Learn More</btn>
+<btn class="full" url="https://docs.scrt.network/dev/developers.html">Learn More</btn>
 
 </card-simple>
 

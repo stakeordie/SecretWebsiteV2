@@ -474,7 +474,7 @@ export default {
         },
         {
           title: "Quickstart Guide",
-          path: "https://build.scrt.network/dev/developers.html",
+          path: "https://docs.scrt.network/dev/developers.html",
           external: true,
           target: "blank",
         },
