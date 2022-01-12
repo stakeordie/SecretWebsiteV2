@@ -212,7 +212,7 @@ We will always push for privacy by default, privacy as an expectation, and priva
 
 [35] Rust-Lang. (n.d.). Rust-lang/rust. Retrieved December 20, 2020, from https://github.com/rust-lang/rust
 
-[36] Privacy Model of Secret Contracts. (n.d.). Retrieved December 20, 2020, from https://build.scrt.network/dev/privacy-model-of-secret-contracts.html
+[36] Privacy Model of Secret Contracts. (n.d.). Retrieved December 20, 2020, from https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html
 
 [37] lbid.
 
