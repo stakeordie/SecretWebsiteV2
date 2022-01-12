@@ -2,8 +2,7 @@
   <simple-layout>
     <template #header>
       <alert-bar></alert-bar>
-      <header-mega-menu>      
-      </header-mega-menu>
+      <header-mega-menu> </header-mega-menu>
     </template>
 
     <column class="swirl-wrapper">
@@ -19,7 +18,7 @@
               alt=""
             />
             <img
-            v-if="!swirlSpecial"
+              v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="@/assets/swirl-color-dark.svg"
@@ -87,8 +86,8 @@
     </column>
 
     <template #footer>
-      <simple-footer :class="swirlBottomIsVisible" mode="normal">
-        <section class="footer-nav">
+      <simple-footer :class="swirlBottomIsVisible" mode="full">
+        <!-- <section class="footer-nav">
           <nav>
             <h6 class="footer-nav-title">Learn</h6>
             <g-link
@@ -144,7 +143,8 @@
               >
             </g-link>
           </nav>
-        </section>
+        </section> -->
+        <footer-menu> </footer-menu>
         <section class="footer-contact">
           <div class="social">
             <g-link :to="$tp(`/`)">
@@ -287,16 +287,17 @@
           </div>
         </section>
       </simple-footer>
-      <column class="legal" mode="normal" number="2" number-m="2" number-s="1">
+      <column class="legal" mode="full" number="1" number-m="1" number-s="1">
         <block class="rights-reserved">
           <p>© Secret Network. All Rights Reserved.</p>
-        </block>
-        <block class="documents">
-          <nav>
+          <nav class="documents">
             <a href="">Terms of Service</a>
+            <span>|</span>
             <a href="">Privacy Policy</a>
           </nav>
         </block>
+        <!-- <block class="documents">
+        </block> -->
       </column>
     </template>
   </simple-layout>
@@ -311,10 +312,8 @@
 </static-query>
 
 <script>
-
 export default {
-  
-  data: function() {
+  data: function () {
     return {
       isNavOpen: false,
       isLearnOpen: false,
@@ -474,7 +473,7 @@ export default {
         },
         {
           title: "Quickstart Guide",
-          path: "https://build.scrt.network/dev/developers.html",
+          path: "https://docs.scrt.network/dev/developers.html",
           external: true,
           target: "blank",
         },
@@ -516,7 +515,7 @@ export default {
     };
   },
   watch: {
-    isNavOpen: function() {
+    isNavOpen: function () {
       this.toggleNavOpen();
     },
     $route() {
@@ -527,25 +526,25 @@ export default {
       // this.removeMainMarginHeroMixed();
     },
     $route: {
-        handler(to, from) {
-          this.checker();
-          this.removeBottomSwirl();
-          this.isNavOpen = false;
-          return;
-        },
-        // immediate: true,
+      handler(to, from) {
+        this.checker();
+        this.removeBottomSwirl();
+        this.isNavOpen = false;
+        return;
       },
+      // immediate: true,
+    },
   },
 
   methods: {
     removeBottomSwirl() {
-      if(process.isClient) {
+      if (process.isClient) {
         const path = window.location.pathname;
-        const simpleFooter = document.querySelector(".simple-footer"); 
-        if(path.includes('/ecosystem/ecosystem-roadmap')) {
+        const simpleFooter = document.querySelector(".simple-footer");
+        if (path.includes("/ecosystem/ecosystem-roadmap")) {
           this.swirlBottomIsVisible = false;
           simpleFooter.classList.add("swirlIsOff");
-          console.log('test' + this.swirlBottomIsVisible);
+          console.log("test" + this.swirlBottomIsVisible);
         } else {
           this.swirlBottomIsVisible = true;
           simpleFooter.classList.remove("swirlIsOff");
@@ -553,9 +552,9 @@ export default {
       }
     },
     checker() {
-      if(process.isClient) {
+      if (process.isClient) {
         const path = window.location.pathname;
-        if(path.includes('/about/about-scrt')) {
+        if (path.includes("/about/about-scrt")) {
           this.swirlSpecial = true;
         } else {
           this.swirlSpecial = false;
@@ -634,9 +633,9 @@ export default {
       if (!body) return;
       body.setAttribute("theme", theme);
     },
-    callFunction: function(className) {
+    callFunction: function (className) {
       if ((window.onload = "load")) {
-        setTimeout(function() {
+        setTimeout(function () {
           const el = document.body;
           el.classList.add(className);
         }, 700);
@@ -663,7 +662,7 @@ export default {
 body {
   @include respond-to("<=m") {
     /* overflow-y:hidden; */
-  }  
+  }
 }
 .simple-layout {
   position: relative;
@@ -1126,56 +1125,65 @@ body {
     }
   }
 
-  .footer-nav {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--f-gutter);
-    margin-bottom: var(--f-gutter-xxl);
+  // .footer-nav {
+  //   display: grid;
+  //   grid-template-columns: repeat(4, 1fr);
+  //   gap: var(--f-gutter);
+  //   margin-bottom: var(--f-gutter-xxl);
 
-    @include respond-to("<=s") {
-      grid-template-columns: 1fr;
-      gap: var(--f-gutter-xxl);
-    }
+  //   @include respond-to("<=s") {
+  //     grid-template-columns: 1fr;
+  //     gap: var(--f-gutter-xxl);
+  //   }
 
-    nav {
-      display: grid;
-      align-content: start;
-      gap: var(--f-gutter);
-      padding-right: var(--f-gutter);
+  //   nav {
+  //     display: grid;
+  //     align-content: start;
+  //     gap: var(--f-gutter);
+  //     padding-right: var(--f-gutter);
 
-      @include respond-to("<=s") {
-        text-align: center;
-        padding-right: 0;
-        align-items: center;
-      }
+  //     @include respond-to("<=s") {
+  //       text-align: center;
+  //       padding-right: 0;
+  //       align-items: center;
+  //     }
 
-      .footer-nav-title {
-        color: var(--theme-fg);
-        margin-bottom: 0;
-      }
+  //     .footer-nav-title {
+  //       color: var(--theme-fg);
+  //       margin-bottom: 0;
+  //     }
 
-      a {
-        line-height: 1.5;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: var(--f-gutter-s);
+  //     a {
+  //       line-height: 1.5;
+  //       text-decoration: none;
+  //       display: flex;
+  //       align-items: center;
+  //       gap: var(--f-gutter-s);
 
-        span {
-          display: inline-block;
-          width: 90%;
+  //       span {
+  //         display: inline-block;
+  //         width: 90%;
 
-          @include respond-to("<=s") {
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
+  //         @include respond-to("<=s") {
+  //           width: 100%;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .footer-contact {
+    // display: grid;
+    // grid-template-columns: 1fr 445px;
+    // width: 100%;
+    // max-width: 1873px;
     display: grid;
     grid-template-columns: 1fr 445px;
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
 
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
@@ -1269,6 +1277,7 @@ body {
 
 .legal {
   // height: 48px;
+  
 
   @include theme(light light-colored) {
     background: var(--color-neutral-light-mode-01);
@@ -1285,19 +1294,32 @@ body {
   }
 
   .content {
+    display: grid;
+    // justify-content: center;
     .box {
-      display: grid;
-      align-content: end;
-
+      // align-content: end;
+      // display: grid;
+    // grid-template-columns: 1fr 445px;
+      // background: red;
+    // padding: 40px;
+    padding-left: var(--f-gutter-xl);
+    padding-right: var(--f-gutter-xl);
+        display: grid;
+        width: 100%;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+        grid-auto-flow: column;
       p,
       a {
         margin: 0;
         // color: var(--the);
       }
-    }
-  }
-
-  .documents {
+      .documents {
+        display: grid;
+        grid-auto-flow: column;
+        gap: var(--f-gutter);
+        justify-content: end;
     .content {
       .box {
         display: grid;
@@ -1321,6 +1343,10 @@ body {
       }
     }
   }
+    }
+  }
+
+  
 }
 
 // .fade-enter-active {
