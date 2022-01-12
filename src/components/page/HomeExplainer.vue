@@ -4,9 +4,11 @@
     <!-- Want to build better internet title -->
     <div class="color-change" number="1" number-m="1" number-s="1">
       <h2 class="first-heading">{{ homeExplainer.title }}</h2>
-      <h2>
-        {{ homeExplainer.subtitle }} <typical :steps="steps" :loop="Infinity" :wrapper="'span'">
-        </typical>.
+      <h2 class="rotator">
+        {{ homeExplainer.subtitle }} <div class="rotator__wrapper">
+          <typical :steps="steps" :loop="Infinity" :wrapper="'span'">
+          </typical>.
+        </div>
       </h2>
     </div>
 
@@ -118,6 +120,18 @@ strong {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-flow: dense;
       grid-row-gap: var(--f-gutter);
+    }
+  }
+  .rotator {
+    &__wrapper {
+      display: inline-block;
+      // grid-auto-flow: column;
+      // display: block;
+      @include respond-to("<=s") {
+        display: grid;
+        grid-auto-flow: column;
+        display: block;
+      }
     }
   }
 }
