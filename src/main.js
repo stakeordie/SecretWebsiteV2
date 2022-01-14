@@ -82,6 +82,7 @@ import EcosystemRoadmapWhatsBeenBuilt from '~/components/page/EcosystemRoadmapWh
 import SubmitProject from '~/components/page/SubmitProject.vue';
 import HeaderNav from '~/components/HeaderNav.vue';
 import HeaderMegaMenu from '~/components/HeaderMegaMenu.vue';
+import FooterMenu from '~/components/FooterMenu.vue';
 
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
@@ -186,6 +187,7 @@ export default function (Vue, {
   Vue.component('AboutScrtApps', AboutScrtApps);
   Vue.component('HeaderNav', HeaderNav);
   Vue.component('HeaderMegaMenu', HeaderMegaMenu);
+  Vue.component('FooterMenu', FooterMenu);
 
 
   //Experimental

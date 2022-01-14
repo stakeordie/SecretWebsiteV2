@@ -127,7 +127,7 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 #### Node Runner Guide
 
-<btn class="full" url="https://build.scrt.network/validators-and-full-nodes/join-validator-mainnet.html">Read guide</btn>
+<btn class="full" url="https://docs.scrt.network/validators-and-full-nodes/join-validator-mainnet.html">Read guide</btn>
 
 </card-simple>
 
