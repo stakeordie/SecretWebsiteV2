@@ -267,20 +267,16 @@ export default {
 .fade-leave-to {
   position: absolute;
   opacity: 0;
-  // transform: translateY(30px);
 }
 
 .fade-status-enter-active,
 .fade-status-leave-active {
   transition: 0.2s ease;
   opacity: 1;
-  // position: absolute;
-  // width: 100%;
 }
 .fade-status-enter,
 .fade-status-leave-to {
   opacity: 0;
-  // transform: translateY(30px);
 }
 
 .color-enter-active,
@@ -291,7 +287,5 @@ export default {
 .color-enter,
 .color-leave-to {
   opacity: 0;
-  // transform: translateY(30px);
-  // color: gray;
 }
 </style>
