@@ -204,8 +204,8 @@
       }
 
       h1 {
-        line-height: 1.1;
-
+        line-height: 60px;
+        font-size: 54px;
         @include respond-to("<=m") {
           font-size: var(--f-h2-text-size);
           line-height: var(--f-h2-line-height);
