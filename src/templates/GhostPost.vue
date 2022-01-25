@@ -354,6 +354,11 @@
           padding: 0 var(--f-gutter-xs);
         }
       }
+      ul {
+        li {
+          list-style: disc;
+        }
+      }
 
       blockquote {
         max-width: var(--blog-content-width);

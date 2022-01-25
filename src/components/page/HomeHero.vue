@@ -112,6 +112,23 @@
         @include theme(light light-colored) {
           color: var(--color-neutral-light-mode-05);
         }
+        a {
+          font-size: var(--f-gutter);
+          color: var(--color-neutral-dark-mode-05);
+          &:hover {
+            color: var(--color-analog-secondary-blue);
+          }
+          &:after {
+            display: inline-block;
+            width: var(--f-gutter);
+            height: var(--f-gutter);
+            content: "";
+            margin-left: var(--f-gutter-s);
+            background: url(../../assets/btn-arrow.svg);
+            background-size: cover;
+            transform: translate(0, 2px);
+          }
+        }
       }
     }
   }
