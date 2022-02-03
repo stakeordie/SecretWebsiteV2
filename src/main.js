@@ -52,6 +52,7 @@ import CardStructure from '~/components/cards/CardStructure.vue';
 import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
 import CardGrid from '~/components/CardGrid.vue';
+import CardGridV2 from '~/components/CardGridV2.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
@@ -161,6 +162,7 @@ export default function (Vue, {
   Vue.component('CardCurrentPrice', CardCurrentPrice);
   Vue.component('Media', Media);
   Vue.component('CardGrid', CardGrid);
+  Vue.component('CardGridV2', CardGridV2);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
