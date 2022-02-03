@@ -2,7 +2,7 @@
 title: "DApps"
 ---
 
-<!-- DApps -->
+
 <column id="dapps" class="spacer-s bg-black-gradient">
 
 <block>
