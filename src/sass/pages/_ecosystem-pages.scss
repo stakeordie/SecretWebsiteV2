@@ -1,0 +1,44 @@
+.ecosystem-pages {
+  &__roadmap {
+    padding-top: var(--f-gutter-xxxl);
+    padding-bottom: var(--f-gutter-xxxl);
+    background: var(--color-black);
+    * {
+      margin: 0;
+    }
+  }
+  &__action {
+    .content {
+      .box {
+        display: grid;
+        justify-content: end;
+      }
+    }
+  }
+  &__two-columns {
+    padding-top: 76px;
+    padding-bottom: 76px;
+    .content {
+      .box {
+        display: grid;
+        align-items: center;
+        align-content: center;
+        gap: var(--f-gutter);
+        * {
+          margin: 0;
+        }
+      }
+    }
+    img {
+      height: 255px;
+    }
+    &__img {
+      .content {
+        .box {
+          display: grid;
+          justify-content: end;
+        }
+      }
+    }
+  }
+}

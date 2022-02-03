@@ -1,0 +1,733 @@
+<template>
+  <div>
+    <!-- GRID HEADER -->
+    <div class="grid-header-v2">
+      <h2>{{ gridHeaderTitle(header) }}</h2>
+      <p>{{ gridHeaderSubtitle(header) }}</p>
+    </div>
+    <div class="elements-v2">
+      <!-- FILTER -->
+      <div class="filter v2">
+        <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
+        <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3>
+        <div class="filter-auction" v-if="hasCategories">
+          <h3>Explore {{ gridHeaderTitle(header) }} on Secret Network</h3>
+          <!-- <button class="btn-clear" v-on:click="resetCheck">Clear</button> -->
+        </div>
+        <div class="search">
+          <input
+            class="search-filter"
+            type="text"
+            ref="inputSearch"
+            v-model="searchInputValue"
+            @keyup="searchFilter()"
+            placeholder="Search by project name"
+          />
+        </div>
+        <ul
+          class="custom-checkbox"
+          :class="'selected-' + selectedTag"
+          v-if="hasCategories"
+        >
+          <li>Filter:</li>
+          <li v-for="(category, index) of categories" :key="index">
+            <label v-on:click="searchFilterReset">
+              <input
+                :id="category.name"
+                type="checkbox"
+                :value="category.name"
+                v-model="checkedCategories"
+              />
+              <span class="title">{{ formatCategory(category.name) }}</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="elements-container">
+        <!-- GRID -->
+        <div class="elements-grid PAGINATED" v-if="isPaginated">
+          <div
+            class="card-element"
+            v-for="element in pagedArray"
+            :key="element.id"
+          >
+            <a :href="element.url" target="blank">
+              <img :src="element.picture.url" alt="picture" />
+              <div
+                class="meta"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
+                <div class="m-title">
+                  <h6>{{ element.title }}</h6>
+                </div>
+                <!-- <div class="m-elements"> -->
+                <div
+                  class="m-elements"
+                  :class="evaluateTags(element.types.length)"
+                  v-if="hasCategories"
+                >
+                  <p
+                    v-for="(category, id) in element.types"
+                    :key="id"
+                    :class="'accent-' + category.name"
+                  >
+                    {{ formatCategory(category.name) }}
+                  </p>
+                </div>
+                <p class="language" v-if="element.language">
+                  {{ element.language }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="elements-grid NOPAGINATED" v-else>
+          <div
+            class="card-element"
+            v-for="element in filteredElements"
+            :key="element.id"
+          >
+            <a :href="element.url" target="blank">
+              <img :src="element.picture.url" alt="picture" />
+              <div
+                class="meta"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
+                <div class="m-title">
+                  <h6 class="element-grid-title">{{ element.title }}</h6>
+                  <!-- <small>{{ element.sort }}</small> -->
+                  <!-- <small>{{ element.id }}</small> -->
+                </div>
+                <div
+                  class="m-elements"
+                  :class="evaluateTags(element.types.length)"
+                  v-if="hasCategories"
+                >
+                  <p
+                    v-for="(category, id) in element.types"
+                    :key="id"
+                    :class="'accent-' + category.name"
+                  >
+                    {{ formatCategory(category.name) }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="no-results" v-if="searchNoResults">
+            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <h3>No matches found</h3>
+            <p>
+              Please try another search or use one of
+              <span>the predefined filters.</span>
+            </p>
+          </div>
+        </div>
+
+        <pagination
+          v-if="isPaginated"
+          @page="setPagesFather"
+          :pageSize="pageSize"
+          :items="filteredElements"
+          :currentPage="currentPage"
+        >
+        </pagination>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import LogoVue from "./docs/Logo.vue";
+import Pagination from "./Pagination.vue";
+
+const sortBySorting = (first, second) => {
+  if (first.sort === null) return 1;
+  if (second.sort === null) return -1;
+  return first.sort - second.sort;
+};
+
+export default {
+  components: { Pagination },
+
+  data() {
+    return {
+      search: "",
+      searchInputValue: "",
+      searchNoResults: false,
+
+      currentPage: 0,
+
+      checkedCategories: [],
+
+      selectedTag: "All",
+    };
+  },
+
+  props: {
+    props: ["value"],
+    title: { type: String, required: true },
+    collection: { type: String, required: true },
+    header: { type: String, required: false, default: "" },
+    pageSize: { type: Number, required: false, default: 10 },
+    isPaginated: { type: Boolean, required: false, default: false },
+    hasCategories: { type: Boolean, default: true },
+  },
+
+  methods: {
+    searchFilter() {
+      const cardEl = document.querySelectorAll(".card-element");
+      let hiddenEls = [];
+      this.resetCheck();
+      this.search = this.searchInputValue.toLowerCase();
+
+      cardEl.forEach((item) => {
+        if (!item.innerText.toLowerCase().includes(this.search)) {
+          item.classList.add("hidden");
+          hiddenEls.push(".");
+        }
+        if (!this.search || item.innerText.toLowerCase().includes(this.search)) {
+          item.classList.remove("hidden");
+        }
+      });
+      if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
+      if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
+
+      console.log("total array", cardEl.length);
+      console.log("hiddens", hiddenEls.length);
+      // console.log('hiddens', cardEl.classList.contains(hidden))
+    },
+    searchFilterReset() {
+      this.search = "";
+      const cardEl = document.querySelectorAll(".card-element");
+      this.searchInputValue = "";
+      cardEl.forEach((item) => {
+        item.classList.remove("hidden");
+      });
+    },
+    gridHeaderTitle(x) {
+      let headers = this.$static.gridHeaders.edges;
+      for (let i = 0; i < headers.length; i++) {
+        let headerEdge = headers[i];
+        let headerTitle = headerEdge.node.title;
+        let headerSubtitle = headerEdge.node.subtitle;
+        if (headerTitle == x) {
+          // console.log(i);
+          headerTitle = this.$static.gridHeaders.edges[i].node.title;
+          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
+          return headerTitle;
+        }
+      }
+    },
+    gridHeaderSubtitle(x) {
+      let headers = this.$static.gridHeaders.edges;
+      for (let i = 0; i < headers.length; i++) {
+        let headerEdge = headers[i];
+        let headerTitle = headerEdge.node.title;
+        let headerSubtitle = headerEdge.node.subtitle;
+        if (headerTitle == x) {
+          // console.log(i);
+          headerTitle = this.$static.gridHeaders.edges[i].node.title;
+          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
+          return headerSubtitle;
+        }
+      }
+    },
+    formatCategory(category) {
+      if (!category) return "";
+      return category.includes("_") ? category.replace("_", " ") : category;
+    },
+    setPagesFather(number) {
+      this.currentPage = number;
+    },
+    resetCheck() {
+      this.checkedCategories = [];
+    },
+    hashToFilter(hash, filter) {
+      if (window.location.hash === hash) {
+        // console.log(window.location.hash)
+        if (this.collection === "toolsAndWallets") {
+          setTimeout(() => {
+            window.location.href = "#toolswallets";
+            this.checkedCategories = [filter];
+          }, 500);
+        }
+      }
+    },
+    hash(hash, collection, link) {
+      if (window.location.hash === hash) {
+        // console.log(window.location.hash)
+        if (this.collection === collection) {
+          setTimeout(() => {
+            window.location.href = link;
+          }, 500);
+        }
+      }
+    },
+
+    evaluateTags(size) {
+      if (!size) return;
+
+      if (size < 5) {
+        return "tag-card-" + size;
+      } else {
+        return "tag-card-5";
+      }
+    },
+  },
+
+  computed: {
+    // WALTER WAS HERE
+    filteredElements() {
+      const sortedCollection = this.collections;
+      for (const [i, element] of sortedCollection.entries()) {
+        if (element.sort == null) {
+          element.sort = 99999;
+        }
+      }
+      sortedCollection.sort(function (a, b) {
+        return a.sort - b.sort;
+      });
+      if (!this.checkedCategories.length) {
+        return sortedCollection;
+      }
+      const collection = sortedCollection.filter((post) =>
+        post.types.some((tag) => this.checkedCategories.includes(tag.name))
+      );
+      return collection;
+    },
+
+    // OLD FUNCTION
+    // filteredElements() {
+    //   this.collections.sort(sortBySorting);
+    //   if (!this.checkedCategories.length) {
+    //     return this.collections;
+    //   }
+    //   const collection = this.collections.filter(post =>
+    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
+    //   );
+    //   console.log(collection);
+    //   console.log('🌮');
+    //   return collection;
+    // },
+
+    pagedArray() {
+      const start = this.currentPage * this.pageSize;
+      const end = start + this.pageSize;
+      return this.filteredElements.slice(start, end);
+    },
+
+    collections() {
+      return this.$static[this.collection].edges.map((it) => it.node);
+    },
+
+    categories() {
+      const data = this.$static[this.collection].edges.filter((element) => {
+        return element.node.types.length > 0;
+      });
+
+      const categoryData = data.map((item) => {
+        return {
+          name: item.node.types[0]?.name,
+        };
+      });
+
+      let uniqueCategories = [];
+
+      categoryData.filter((cat) => {
+        if (!uniqueCategories.find((cat_some) => cat_some.name == cat.name)) {
+          uniqueCategories.push(cat);
+        }
+      });
+
+      return uniqueCategories;
+    },
+  },
+
+  mounted() {
+    this.hashToFilter("#wallets", "wallet");
+    this.hashToFilter("#tools", "tool");
+    this.hash("#dapps", "dApps", "#dapps");
+    this.hash("#exchanges", "exchanges", "#exchanges");
+    this.hash("#contributors", "contributors", "#contributors");
+  },
+  updated() {},
+};
+</script>
+
+<static-query>
+query {
+  gridHeaders: allStrapiCardGridHeaders {
+    edges {
+      node {
+        id
+        title,
+        subtitle
+      }
+    }
+  }
+    dApps: allStrapiDApps {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  contributors: allStrapiContributors {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  toolsAndWallets: allStrapiToolsAndWallets {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+    internationalCommunities: allStrapiInternationalCommunities {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        language: language
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  exchanges: allStrapiExchanges {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name
+        }
+      }
+    }
+  }
+  nfts: allStrapiNfTs {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name: nft_type
+        }
+      }
+    }
+  }
+}
+</static-query>
+
+<style lang="scss">
+@import "../sass/functions/theme";
+@import "../sass/_text.scss";
+@import "@lkmx/flare/src/functions/respond-to";
+
+$accent-colors: ("validator", "developer", "fund", "wallet");
+
+.grid-header-v2 {
+  display: grid;
+  max-width: 60%;
+  margin-bottom: var(--f-gutter-xl);
+  margin-top: 48px;
+  
+  @include respond-to("<=s") {
+    max-width: 100%;
+  }
+  @include respond-to("<=m") {
+    margin-top: 11px;
+  }
+}
+
+.elements-v2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--f-gutter-xl);
+  background-color: var(--theme-card-grid-bg-color);
+  padding: 32px;
+
+  @include respond-to("<=m") {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    margin-bottom: 48px;
+  }
+
+  h4 {
+    color: var(--color-neutral-dark-mode-05);
+  }
+  .filter {
+    &.v2 {
+      display: grid;
+      justify-content: center;
+      gap: var(--f-gutter);
+      padding-bottom: var(--f-gutter);
+      * {
+        margin: 0;
+      }
+      .custom-checkbox {
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        gap: 10px;
+        display: inline-grid;
+        justify-content: center;
+        li {
+          text-align: center;
+          display: grid;
+          align-items: center;
+          * {
+            margin: 0;
+          }
+          label {
+            padding: 0;
+            border: 0;
+          }
+          input {
+            &:checked {
+              ~ .title {
+                color: var(--color-highkey-secondary-blue);
+                border-color: var(--color-highkey-secondary-blue);
+              }
+            }
+
+            // &:not(:checked) {
+            //   ~ .title {
+            //     // color: blue;
+            //   }
+            // }
+          }
+          span {
+            padding: 8px;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+      .search-filter {
+        background: var(--color-neutral-dark-mode-01);
+        background-image: url(../assets/icon-search.svg);
+        background-repeat: no-repeat;
+        border-color: var(--color-neutral-dark-mode-01);
+        background-position: 8px;
+        padding-left: 32px;
+      }
+    }
+  }
+  .filter-auction {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    @include respond-to(">=s") {
+      margin: 0px 0px 20px 0px;
+    }
+
+    button {
+      padding: 0px;
+      background: none;
+      color: var(--color-analog-secondary-blue);
+    }
+  }
+
+  .elements-container {
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: var(--f-gutter);
+
+      @include respond-to(">=s") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to(">=m") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include respond-to(">=l") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include respond-to(">=xl") {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .no-results {
+        display: grid;
+        grid-column: span 5;
+        justify-items: center;
+        gap: var(--f-gutter);
+        padding: var(--f-gutter-l) 0;
+        * {
+          margin: 0;
+        }
+        img {
+          max-width: 150px;
+        }
+        p {
+          text-align: center;
+          span {
+            @include respond-to(">=m") {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .card-element {
+        border-radius: var(--f-radius);
+        overflow: hidden;
+        background: var(--theme-card-bg-default);
+        transition: 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        &.hidden {
+          display: none;
+        }
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        }
+
+        &:hover {
+          transform: var(--card-hover-transform);
+          box-shadow: var(--card-hover-shadow) var(--accent-gray);
+        }
+
+        * {
+          margin: 0;
+        }
+
+        h6 {
+          color: var(--theme-fg);
+        }
+
+        p {
+          &.tag {
+            text-transform: capitalize;
+          }
+
+          @each $name, $color in $accent-colors {
+            &.accent-#{$name} {
+              color: var(--accent-#{$name});
+            }
+          }
+        }
+
+        .meta {
+          padding: var(--f-gutter);
+          display: flex;
+          flex-direction: column;
+          gap: var(--f-gutter-xxs);
+          height: 112px;
+
+          &--with-categories {
+            height: 112px;
+          }
+
+          h6 {
+            font-size: 14px;
+          }
+
+          .m-elements {
+            display: grid;
+            height: 100%;
+
+            &.tag-card-1 {
+              place-content: center center;
+              p {
+                font-size: var(--f-tags-general);
+              }
+            }
+            &.tag-card-2 {
+              p {
+                place-content: center center;
+                font-size: var(--f-tags-normal);
+              }
+            }
+            &.tag-card-3,
+            &.tag-card-4 {
+              place-content: center center;
+              p {
+                font-size: var(--f-tags-s);
+              }
+            }
+
+            &.tag-card-3,
+            &.tag-card-4,
+            &.tag-card-5 {
+              grid-template-columns: repeat(2, 1fr);
+              p {
+                font-size: var(--f-tags-s);
+              }
+            }
+
+            p {
+              font-size: 12px;
+              text-transform: capitalize;
+            }
+          }
+
+          .location {
+            color: var(--color-analog-secondary-blue);
+          }
+        }
+      }
+    }
+  }
+}
+</style>
