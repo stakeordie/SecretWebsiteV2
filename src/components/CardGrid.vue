@@ -404,22 +404,6 @@ query {
       }
     }
   }
-  nfts: allStrapiNfTs {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        picture: logo {
-          url
-        }
-        types {
-          name: nft_type
-        }
-      }
-    }
-  }
 }
 </static-query>
 
