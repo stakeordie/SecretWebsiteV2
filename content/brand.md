@@ -83,7 +83,7 @@ Providing privacy and protecting data is critical for empowering people, protect
 
 <block>
 
-<btn class="bg-invert no-arrow" type="submit" url="/SecretNetwork_BrandBook_Version01.pdf" target="blank">Download our brandbook</btn>
+<btn class="bg-invert no-arrow" type="submit" url="/SecretNetwork_BrandBook_Version01.pdf" target="blank" rel="noopener noreferrer">Download our brandbook</btn>
 
 </block>
 

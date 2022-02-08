@@ -52,7 +52,7 @@
             v-for="element in pagedArray"
             :key="element.id"
           >
-            <a :href="element.url" target="blank">
+            <a :href="element.url" target="blank" rel="noopener noreferrer">
               <img :src="element.picture.url" alt="picture" />
               <div
                 class="meta"
@@ -89,7 +89,7 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a :href="element.url" target="blank">
+            <a :href="element.url" target="blank" rel="noopener noreferrer">
               <img :src="element.picture.url" alt="picture" />
               <div
                 class="meta"

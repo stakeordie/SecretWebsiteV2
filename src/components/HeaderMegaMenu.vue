@@ -84,6 +84,7 @@
                 <a
                   href="https://forum.scrt.network/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="forums"
                   v-on:click="linkCloseMenu"
                 >
@@ -95,6 +96,7 @@
                 <a
                   href="https://discord.com/invite/SJK32GY"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="discord"
                   v-on:click="linkCloseMenu"
                 >
@@ -106,6 +108,7 @@
                 <a
                   href="https://t.me/SCRTcommunity"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="telegram"
                   v-on:click="linkCloseMenu"
                 >
@@ -117,6 +120,7 @@
                 <a
                   href="https://twitter.com/SecretNetwork"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="twitter"
                   v-on:click="linkCloseMenu"
                 >
@@ -128,6 +132,7 @@
                 <a
                   href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="youtube"
                   v-on:click="linkCloseMenu"
                 >
@@ -139,6 +144,7 @@
                 <a
                   href="https://www.instagram.com/scrtnetwork/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   alt="instagram"
                   v-on:click="linkCloseMenu"
                 >

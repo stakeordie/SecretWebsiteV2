@@ -156,7 +156,7 @@
               />
             </g-link>
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank">
+              <a href="https://forum.scrt.network/" target="blank" rel="noopener noreferrer">
                 <img
                   src="@/assets/icon-social-forum.svg"
                   alt="Join the Conversation"
@@ -166,7 +166,7 @@
               </a>
               <a
                 href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank"
+                target="blank" rel="noopener noreferrer"
               >
                 <img
                   src="@/assets/icon-social-github.svg"
@@ -175,7 +175,7 @@
                   height="24"
                 />
               </a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank">
+              <a href="https://discord.com/invite/SJK32GY" target="blank" rel="noopener noreferrer">
                 <img
                   src="@/assets/icon-social-discord.svg"
                   alt="Join the Conversation"
@@ -183,7 +183,7 @@
                   height="24"
                 />
               </a>
-              <a href="https://t.me/SCRTcommunity" target="blank">
+              <a href="https://t.me/SCRTcommunity" target="blank" rel="noopener noreferrer">
                 <img
                   src="@/assets/icon-social-telegram.svg"
                   alt="Join the Conversation"
@@ -191,7 +191,7 @@
                   height="24"
                 />
               </a>
-              <a href="https://twitter.com/SecretNetwork" target="blank">
+              <a href="https://twitter.com/SecretNetwork" target="blank" rel="noopener noreferrer">
                 <img
                   src="@/assets/icon-social-twitter.svg"
                   alt="Join the Conversation"
@@ -199,7 +199,7 @@
                   height="24"
                 />
               </a>
-              <a href="https://www.instagram.com/scrtnetwork/" target="blank">
+              <a href="https://www.instagram.com/scrtnetwork/" target="blank" rel="noopener noreferrer">
                 <img
                   src="@/assets/icon-social-instagram.svg"
                   alt="Join the Conversation"
@@ -209,7 +209,7 @@
               </a>
               <a
                 href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
-                target="blank"
+                target="blank" rel="noopener noreferrer"
               >
                 <img
                   src="@/assets/icon-social-youtube.svg"
@@ -223,13 +223,13 @@
               <p>
                 <a
                   href="https://github.com/SecretFoundation/SecretWebsite"
-                  target="blank"
+                  target="blank" rel="noopener noreferrer"
                   >Contribute to scrt.network
                 </a>
               </p>
               <a
                 href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank"
+                target="blank" rel="noopener noreferrer"
               >
                 <img
                   src="../assets/icon-github.svg"
