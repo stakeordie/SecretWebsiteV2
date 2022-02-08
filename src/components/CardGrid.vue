@@ -50,7 +50,7 @@
             v-for="element in pagedArray"
             :key="element.id"
           >
-            <a :href="element.url" target="blank">
+            <a :href="element.url" target="blank" rel="noopener noreferrer">
               <img :src="element.picture.url" alt="picture" />
               <div
                 class="meta"
@@ -87,7 +87,7 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a :href="element.url" target="blank">
+            <a :href="element.url" target="blank" rel="noopener noreferrer">
               <img :src="element.picture.url" alt="picture" />
               <div
                 class="meta"
@@ -218,9 +218,9 @@ export default {
           setTimeout(() => {
             window.location.href = link;
           }, 500);
-        }        
+        }
       }
-    },    
+    },
 
     evaluateTags(size) {
       if (!size) return;
@@ -308,9 +308,7 @@ export default {
     this.hash("#exchanges", "exchanges", "#exchanges");
     this.hash("#contributors", "contributors", "#contributors");
   },
-  updated() {
-   
-  },
+  updated() {},
 };
 </script>
 
@@ -402,6 +400,22 @@ query {
         }
         types {
           name
+        }
+      }
+    }
+  }
+  nfts: allStrapiNfTs {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types {
+          name: nft_type
         }
       }
     }

@@ -106,7 +106,7 @@ export default {
         (it) => it.node.nav_groups
       );
       this.footerMenu = content[0];
-      console.log(this.footerMenu);
+      // console.log(this.footerMenu);
       return content[0];
     },
   },

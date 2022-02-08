@@ -7,7 +7,7 @@
           <h6>Meetings</h6>
           <h4>{{committee.date}}</h4>
         </div>
-        <a class="button" target="blank" :href="committee.url">Join</a>
+        <a class="button" target="blank" rel="noopener noreferrer" :href="committee.url">Join</a>
         <div class="info-wrapper">
           <div class="info-set">
             <h6>Lead</h6>
