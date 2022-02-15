@@ -1,5 +1,5 @@
 ---
-title: "Ecosystem"
+title: 'Ecosystem'
 ---
 
 <!-- Page title -->
@@ -58,18 +58,6 @@ title: "Ecosystem"
 <block>
 
 <card-grid header="Exchanges" title="Exchanges" collection="exchanges" :pageSize="15" :isPaginatd="false"></card-grid>
-
-</block>
-
-</column>
-
-
-<!-- NFTs -->
-<column id="nfts" class="spacer-s">
-
-<block>
-
-<card-grid header="Exchanges" title="NFTs" collection="nfts" :pageSize="15" :isPaginatd="false"></card-grid>
 
 </block>
 
