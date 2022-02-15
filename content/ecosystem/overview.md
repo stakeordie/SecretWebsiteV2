@@ -62,3 +62,15 @@ title: "Ecosystem"
 </block>
 
 </column>
+
+
+<!-- NFTs -->
+<column id="nfts" class="spacer-s">
+
+<block>
+
+<card-grid header="Exchanges" title="NFTs" collection="nfts" :pageSize="15" :isPaginatd="false"></card-grid>
+
+</block>
+
+</column>

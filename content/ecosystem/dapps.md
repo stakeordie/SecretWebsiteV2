@@ -45,7 +45,7 @@ title: "DApps"
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" weight="left">
+<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="left">
 
 <block>
 
@@ -74,7 +74,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" weight="left">
+<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="left">
 
 <block>
 

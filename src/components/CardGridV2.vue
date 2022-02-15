@@ -38,7 +38,7 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ formatCategory(category.name) }}</span>
+              <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
             </label>
           </li>
         </ul>
@@ -89,31 +89,51 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a :href="element.url" target="blank" rel="noopener noreferrer">
-              <img :src="element.picture.url" alt="picture" />
+            <a
+              class="card-element__overall-link"
+              :href="element.url"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-element__header">
+                <img
+                  class="card-element__header__logo"
+                  :src="element.picture.url"
+                  alt="picture"
+                />
+                <!-- Categorie tags -->
+                <div
+                  class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }"
+                >
+                  <div
+                    class="m-elements card-element__header__tags"
+                    :class="evaluateTags(element.types.length)"
+                    v-if="hasCategories"
+                  >
+                    <p
+                      v-for="(category, id) in element.types"
+                      :key="id"
+                      :class="'accent-' + category.name"
+                    >
+                      {{ formatCategory(category.name) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div
-                class="meta"
+                class="card-element__title-desc"
                 :class="{ 'meta--with-categories': hasCategories }"
               >
-                <div class="m-title">
-                  <h6 class="element-grid-title">{{ element.title }}</h6>
-                  <!-- <small>{{ element.sort }}</small> -->
-                  <!-- <small>{{ element.id }}</small> -->
-                </div>
-                <div
-                  class="m-elements"
-                  :class="evaluateTags(element.types.length)"
-                  v-if="hasCategories"
-                >
-                  <p
-                    v-for="(category, id) in element.types"
-                    :key="id"
-                    :class="'accent-' + category.name"
-                  >
-                    {{ formatCategory(category.name) }}
+                <div class="card-element__title-desc__header">
+                  <h4 class="element-grid-title">{{ element.title }}</h4>
+                  <p>
+                    Secret (SCRT) is a cryptocurrency and the native coin of the
+                    Secret Network blockchain.
                   </p>
                 </div>
               </div>
+                <btn class="ecosystem" url="">Visit site</btn>
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -188,7 +208,10 @@ export default {
           item.classList.add("hidden");
           hiddenEls.push(".");
         }
-        if (!this.search || item.innerText.toLowerCase().includes(this.search)) {
+        if (
+          !this.search ||
+          item.innerText.toLowerCase().includes(this.search)
+        ) {
           item.classList.remove("hidden");
         }
       });
@@ -464,7 +487,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   max-width: 60%;
   margin-bottom: var(--f-gutter-xl);
   margin-top: 48px;
-  
+
   @include respond-to("<=s") {
     max-width: 100%;
   }
@@ -479,6 +502,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   gap: var(--f-gutter-xl);
   background-color: var(--theme-card-grid-bg-color);
   padding: 32px;
+  align-content: start;
 
   @include respond-to("<=m") {
     grid-template-columns: 1fr;
@@ -516,20 +540,40 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           label {
             padding: 0;
             border: 0;
-          }
-          input {
-            &:checked {
-              ~ .title {
-                color: var(--color-highkey-secondary-blue);
-                border-color: var(--color-highkey-secondary-blue);
+              transition: 0.2s ease;
+            
+            &:hover {
+              color: var(--color-analog-primary-white);
+            }
+            span {
+              display: grid;
+              gap: 2px;
+              grid-auto-flow: column;
+              align-items: center;
+              font-size: 15px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 2px 8px;
+              border: 1px solid var(--color-neutral-dark-mode-04);
+              img {
+                // transition: 0.2s ease;
+                width: 0px;
+                height: 0px;
               }
             }
-
-            // &:not(:checked) {
-            //   ~ .title {
-            //     // color: blue;
-            //   }
-            // }
+            input {
+              &:checked {
+                ~ .title {
+                  color: var(--color-analog-primary-white);
+                  border-color: var(--color-analog-primary-white);
+                  img {
+                    transition: 0.2s ease;
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+              }
+            }
           }
           span {
             padding: 8px;
@@ -570,13 +614,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: var(--f-gutter);
-
       @include respond-to(">=s") {
         grid-template-columns: repeat(2, 1fr);
       }
 
       @include respond-to(">=m") {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @include respond-to(">=l") {
@@ -584,7 +627,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
 
       @include respond-to(">=xl") {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
 
       .no-results {
@@ -614,9 +657,59 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         overflow: hidden;
         background: var(--theme-card-bg-default);
         transition: 0.2s ease;
-        display: flex;
-        flex-direction: column;
+        display: grid;
         text-align: center;
+        border-radius: 10px;
+        * {
+          margin: 0;
+        }
+        // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
+        &__overall-link {
+          display: grid;
+          gap: var(--f-gutter);
+          padding: var(--f-gutter);
+          grid-template-rows: 64px 1fr 32px;
+        }
+        &__header {
+          display: grid;
+          grid-template-columns: 64px 1fr;
+          align-items: start;
+          gap: 4px;
+          &__logo {
+            border-radius: 10px;
+          }
+          .meta {
+            display: grid;
+            justify-items: end;
+            // gap: 8px;
+          }
+          &__tags {
+            display: flex;
+            flex-flow: wrap-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+            p {
+              font-size: 15px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 2px 8px;
+              border: 1px solid var(--color-neutral-dark-mode-04);
+            }
+          }
+        }
+        &__title-desc {
+          display: grid;
+          gap: 8px;
+          text-align: left;
+          &__header {
+            display: grid;
+            gap: 8px;
+            align-content: start;
+          }
+          h4 {
+            color: white;
+          }
+        }
         &.hidden {
           display: none;
         }
@@ -645,70 +738,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             text-transform: capitalize;
           }
 
-          @each $name, $color in $accent-colors {
-            &.accent-#{$name} {
-              color: var(--accent-#{$name});
-            }
-          }
-        }
-
-        .meta {
-          padding: var(--f-gutter);
-          display: flex;
-          flex-direction: column;
-          gap: var(--f-gutter-xxs);
-          height: 112px;
-
-          &--with-categories {
-            height: 112px;
-          }
-
-          h6 {
-            font-size: 14px;
-          }
-
-          .m-elements {
-            display: grid;
-            height: 100%;
-
-            &.tag-card-1 {
-              place-content: center center;
-              p {
-                font-size: var(--f-tags-general);
-              }
-            }
-            &.tag-card-2 {
-              p {
-                place-content: center center;
-                font-size: var(--f-tags-normal);
-              }
-            }
-            &.tag-card-3,
-            &.tag-card-4 {
-              place-content: center center;
-              p {
-                font-size: var(--f-tags-s);
-              }
-            }
-
-            &.tag-card-3,
-            &.tag-card-4,
-            &.tag-card-5 {
-              grid-template-columns: repeat(2, 1fr);
-              p {
-                font-size: var(--f-tags-s);
-              }
-            }
-
-            p {
-              font-size: 12px;
-              text-transform: capitalize;
-            }
-          }
-
-          .location {
-            color: var(--color-analog-secondary-blue);
-          }
+          // @each $name, $color in $accent-colors {
+          //   &.accent-#{$name} {
+          //     color: var(--accent-#{$name});
+          //   }
+          // }
         }
       }
     }

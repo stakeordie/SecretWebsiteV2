@@ -73,7 +73,7 @@ export default {
     .btn {
       font-weight: bold;
       width: 100%;
-      place-content: center center;
+      place-content: center center; 
       display: inline-flex;
       background: var(--theme-card-button-bg);
       color: var(--theme-fg);
@@ -101,6 +101,20 @@ export default {
 
       &.text-center {
         justify-content: center;
+      }
+      &.ecosystem {
+        justify-content: start;
+        place-content: center start; 
+        padding-left: 0;
+        padding-right: 0;
+        background: none;
+        pointer-events: none;
+        span {
+          color: var(--color-neutral-dark-mode-05);
+        }
+        &:hover {
+          background: none;
+        }
       }
       &.bg-invert {
         background: var(--theme-fg);
