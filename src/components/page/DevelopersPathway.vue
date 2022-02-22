@@ -1,13 +1,13 @@
 <template>
   <section class="page-developer-pathway">
-    <div class="page-developer-pathway__inside" v-for="(item, index) in pathway" :key="index">
+    <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index">
       <div class="page-developer-pathway__description">
-        <h6 v-if="item.subtitle">{{ item.subtitle }}</h6>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
+        <h6 v-if="path.pathDescription.subtitle">{{ path.pathDescription.subtitle }}</h6>
+        <h3>{{ path.pathDescription.title }}</h3>
+        <p>{{ path.pathDescription.description }}</p>
       </div>
       <div class="page-developer-pathway__content">
-        <ul v-for="(resource, index) in item.items" :key="index">
+        <ul v-for="(resource, index) in path.items" :key="index">
           <li class="page-developer-pathway__content__item">
             <div class="page-developer-pathway__content__item__icon">
               <img :src="resource.image" alt="" />
@@ -15,7 +15,9 @@
             <div class="page-developer-pathway__content__item__details">
               <h6>{{ resource.title }}</h6>
               <p>{{ resource.description }}</p>
-              <btn class="link-arrow" :url="resource.url">{{ resource.urlTitle }}</btn>
+              <btn class="link-arrow" :url="resource.url">{{
+                resource.urlTitle
+              }}</btn>
             </div>
           </li>
         </ul>
@@ -27,7 +29,7 @@
 <script>
 export default {
   props: {
-    path: {
+    pathId: {
       type: String,
       required: true,
     },
@@ -36,11 +38,13 @@ export default {
     return {
       pathway: [
         {
-          id: 0,
-          subtitle: "",
-          title: "Learn the Fundamentals",
-          description:
-            "Get to know the ins and outs of Secret Network’s tech stack.",
+          pathDescription: {
+            id: 0,
+            subtitle: "",
+            title: "Learn the Fundamentals",
+            description:
+              "Get to know the ins and outs of Secret Network’s tech stack.",
+          },
           items: [
             {
               image: "/temp/icon-developers-path.svg",
@@ -92,22 +96,34 @@ export default {
             },
           ],
         },
+        {
+          pathDescription: {
+            id: 1,
+            subtitle: "DEVELOPER PATHWAY",
+            title: "Design Smart Contracts",
+            description:
+              "Start creating and deploying privacy-preserving smart contracts.",
+          },
+          items: [
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Overview",
+              description:
+                "Quickly get up to speed on what Secret is all about.",
+              urlTitle: "View docs",
+              url: "google.com",
+            }
+          ],
+        },
       ],
     };
   },
-  methods: {
-    test() {
-      // console.log(this.pathway[0])
-      // console.log(this.path)
-    }
-  },
-  mounted() {
-    // this.test();
-  },
   computed: {
     sectionContent() {
-      const content = this.pathway[this.path];
-      console.log(this.pathway[this.path])
+      const content = this.pathway.filter(it => {
+        const filtered = it.pathDescription.id === Number(this.pathId)
+        return filtered
+      })
       // const content = this.$static.aboutContent.edges.map(
       //   (it) => it.node[this.section]
       // );
