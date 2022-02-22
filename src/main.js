@@ -104,6 +104,8 @@ import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
 import i18n from '~/components/i18n'
 import Deploy from '~/components/Deploy'
+import DevelopersWhyBuild from '~/components/page/DevelopersWhyBuild'
+import DevelopersPathway from '~/components/page/DevelopersPathway'
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
@@ -218,6 +220,8 @@ export default function (Vue, {
   Vue.component('HomeExplainer', HomeExplainer);
   Vue.component('HomeAnnouncements', HomeAnnouncements);
   Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
+  Vue.component('DevelopersWhyBuild', DevelopersWhyBuild);
+  Vue.component('DevelopersPathway', DevelopersPathway);
  
 
 
