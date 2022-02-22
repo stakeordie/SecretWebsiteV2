@@ -1,6 +1,6 @@
 <template>
   <section class="page-developer-pathway">
-    <div v-for="(item, index) in pathway" :key="index">
+    <div class="page-developer-pathway__inside" v-for="(item, index) in pathway" :key="index">
       <div class="page-developer-pathway__description">
         <h6 v-if="item.subtitle">{{ item.subtitle }}</h6>
         <h3>{{ item.title }}</h3>
@@ -117,4 +117,93 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+@import "@lkmx/flare/src/functions/respond-to";
+
+
+.page-developer-pathway{
+  position: relative;
+  top: 120px;
+  
+  &__inside{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 4px;
+
+    @include respond-to("<=m"){
+      grid-template-columns: 1fr;
+    }
+  }
+
+  
+
+  &__description{
+    min-width: 360px;
+
+
+    h3{
+      font-size: var(--f-h3-text-size);
+    }
+    p{
+      font-size: var(--paragraph-font-size-big);
+      font-weight: 100;
+    }
+    
+     @include respond-to(">=l"){
+       padding-right: 28px;
+      border-right:  solid 1px var(--color-neutral-dark-mode-04);
+    }
+    
+    
+  }
+
+  &__content{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    row-gap: 24px;
+    margin: var(--f-gutter);
+   
+
+   
+
+    @include respond-to("<=xs"){
+      grid-template-columns: 1fr;
+    }
+    
+    &__item{
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      grid-gap: 10px;
+
+      
+
+      &__details{
+        
+
+        h6{
+          font-size: var(--f-h5-text-size);
+          margin-bottom: 0%;
+        }
+
+        p{
+          margin-bottom: 0;
+          
+        }
+
+        .link-arrow{
+            color:var(--color-highkey-secondary-blue);
+          }
+
+
+      }
+
+
+    }
+  }
+  
+}
+
+</style>
