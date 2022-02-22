@@ -26,6 +26,12 @@
 
 <script>
 export default {
+  props: {
+    path: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       pathway: [
@@ -89,10 +95,23 @@ export default {
       ],
     };
   },
-  props: {
-    pathId: {
-      type: String,
-      required: true,
+  methods: {
+    test() {
+      // console.log(this.pathway[0])
+      // console.log(this.path)
+    }
+  },
+  mounted() {
+    // this.test();
+  },
+  computed: {
+    sectionContent() {
+      const content = this.pathway[this.path];
+      console.log(this.pathway[this.path])
+      // const content = this.$static.aboutContent.edges.map(
+      //   (it) => it.node[this.section]
+      // );
+      return content;
     },
   },
 };
