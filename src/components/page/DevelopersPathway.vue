@@ -2,7 +2,9 @@
   <section class="page-developer-pathway">
     <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index">
       <div class="page-developer-pathway__description">
-        <h6 v-if="path.pathDescription.subtitle">{{ path.pathDescription.subtitle }}</h6>
+        <h6 v-if="path.pathDescription.subtitle">
+          {{ path.pathDescription.subtitle }}
+        </h6>
         <h3>{{ path.pathDescription.title }}</h3>
         <p>{{ path.pathDescription.description }}</p>
       </div>
@@ -107,10 +109,101 @@ export default {
           items: [
             {
               image: "/temp/icon-developers-path.svg",
-              title: "Overview",
+              title: "Secret Contract Dev Guide",
               description:
-                "Quickly get up to speed on what Secret is all about.",
+                "Get an IDE, know what functions to call, how to debug, and more.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Toolkit",
+              description:
+                "A set of Rust packages with common tools to develop Secret Contracts.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Secret Quickstarts",
+              description:
+                "Every step you need to create + deploy a Secret Contract in one place.",
               urlTitle: "View docs",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Secret NFT Guide",
+              description:
+                "Mint your first Secret NFT and learn how their privacy-preserving features work.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Contract Privacy Model",
+              description:
+                "Learn about Secret’s privacy-preserving features and how you can use them.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Polar",
+              description:
+                "Learn about Secret’s privacy-preserving features and how you can use them.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+          ],
+        },
+        {
+          pathDescription: {
+            id: 2,
+            subtitle: "DEVELOPER PATHWAY",
+            title: "Build Secret Apps",
+            description:
+              "Create an interface for your private dApp and connect it to a Secret Contract.",
+          },
+          items: [
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "GripTapeJS",
+              description:
+                "Speed up your Secret App interface building with this development framework.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Light Client",
+              description:
+                "Let your app interact with nodes on the network using Secret CLI.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Secret Python",
+              description:
+                "Flex your Python skills to build and test components of Secret Apps.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "Figment Learn",
+              description:
+                "An easy step-by-step tutorial to set up your first contract, made by our partner, Figment.",
+              urlTitle: "View resource",
+              url: "google.com",
+            },
+            {
+              image: "/temp/icon-developers-path.svg",
+              title: "SecretJS",
+              description:
+                "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
+              urlTitle: "View template",
               url: "google.com",
             }
           ],
@@ -120,10 +213,10 @@ export default {
   },
   computed: {
     sectionContent() {
-      const content = this.pathway.filter(it => {
-        const filtered = it.pathDescription.id === Number(this.pathId)
-        return filtered
-      })
+      const content = this.pathway.filter((it) => {
+        const filtered = it.pathDescription.id === Number(this.pathId);
+        return filtered;
+      });
       // const content = this.$static.aboutContent.edges.map(
       //   (it) => it.node[this.section]
       // );
@@ -134,92 +227,83 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import "@lkmx/flare/src/functions/respond-to";
 
-
-.page-developer-pathway{
+.page-developer-pathway {
   position: relative;
   top: 120px;
-  
-  &__inside{
+
+  &__inside {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 4px;
+    margin-bottom: 68px;
 
-    @include respond-to("<=m"){
+
+    @include respond-to("<=m") {
       grid-template-columns: 1fr;
     }
   }
 
-  
-
-  &__description{
+  &__description {
     min-width: 360px;
 
+    h6{
+      font-family: montserrat;
+          text-transform: uppercase;
+          font-weight: 100;
+          font-size: var(--f-h5-text-size);
+          color: var(--color-neutral-dark-mode-05);
+          line-height: 24px;
 
-    h3{
+          @include respond-to("<=s") {
+            font-size: var(--f-h6-text-size);
+          }
+    }
+
+    h3 {
       font-size: var(--f-h3-text-size);
     }
-    p{
+    p {
       font-size: var(--paragraph-font-size-big);
       font-weight: 100;
     }
-    
-     @include respond-to(">=l"){
-       padding-right: 28px;
-      border-right:  solid 1px var(--color-neutral-dark-mode-04);
+
+    @include respond-to(">=l") {
+      padding-right: 28px;
+      border-right: solid 1px var(--color-neutral-dark-mode-04);
     }
-    
-    
   }
 
-  &__content{
-    
+  &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 32px;
     row-gap: 24px;
     margin: var(--f-gutter);
-   
 
-   
-
-    @include respond-to("<=xs"){
+    @include respond-to("<=xs") {
       grid-template-columns: 1fr;
     }
-    
-    &__item{
+
+    &__item {
       display: grid;
       grid-template-columns: 24px 1fr;
       grid-gap: 10px;
 
-      
-
-      &__details{
-        
-
-        h6{
+      &__details {
+        h6 {
           font-size: var(--f-h5-text-size);
           margin-bottom: 0%;
         }
 
-        p{
+        p {
           margin-bottom: 0;
-          
         }
 
-        .link-arrow{
-            color:var(--color-highkey-secondary-blue);
-          }
-
-
+        
       }
-
-
     }
   }
-  
 }
-
 </style>

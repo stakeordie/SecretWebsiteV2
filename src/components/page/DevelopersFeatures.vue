@@ -18,22 +18,22 @@ export default {
       sectionTitle: 'Why Build on Secret Network?',
       reasons: [
         {
-          imageUrl: "temp/icon-features-private.svg",
+          imageUrl: "/temp/devs-ethnical.svg",
           title: "Private-by-Default",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
-          imageUrl: "temp/icon-devs-interoperability..svg",
+          imageUrl: "/temp/icon-devs-interoperability.svg",
           title: "Blockchain Interoperability",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
-          imageUrl: "temp/icon-devs-hundred.svg",
+          imageUrl: "/temp/icon-devs-hundred.svg",
           title: "Hundreds of New Use Cases",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
-          imageUrl: "temp/devs-ethnical.svg",
+          imageUrl: "/temp/icon-devs-ethnical.svg",
           title: "Ethical Solutions",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
@@ -50,15 +50,15 @@ export default {
 .page-developer__features{
   position: relative;
     text-align: center ;
-    height: 480px;
-    top:42px;
+    
+    top:56px;
 
 
     &__title{
         font-size: var(--f-h3-text-size);
         font-family: var(--f-default-headers-font);
         line-height: 30px;
-        padding: var(--f-gutter);
+        // padding: var(--f-gutter);
         
     }
 
@@ -69,12 +69,11 @@ export default {
         vertical-align: top;
 
         @include respond-to("<=s"){
-            
             margin: auto;
         }
 
         &__reason{
-            margin: var(--f-gutter);
+            margin: auto;
 
             h6{
                 font-size: var(--f-h4-text-size);

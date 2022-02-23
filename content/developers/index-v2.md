@@ -3,7 +3,6 @@ title: 'Developer Resources'
 ---
 
 
-
 <column class="page-developers__hero-container">
 
 <block>
@@ -13,8 +12,6 @@ title: 'Developer Resources'
 </block>
 
 </column>
-
-
 
 
 
@@ -38,14 +35,34 @@ title: 'Developer Resources'
 
 
 
-
-
 <column>
 
 <block>
+
+
 
 <developers-start-here></developers-start-here>
 
 </block>
 
 </column> 
+
+
+
+
+
+
+
+
+
+<column>
+
+<block>
+
+<developers-pathway pathId="0"></developers-pathway>
+<developers-pathway pathId="1"></developers-pathway>
+<developers-pathway pathId="2"></developers-pathway>
+
+</block>
+
+</column>

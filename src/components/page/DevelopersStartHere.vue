@@ -18,12 +18,12 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developers{
+  position: relative;
   text-align: center;
   display: block;
-  position: relative;
     text-align: center ;
-    height: 287px;
-    top:42px;
+    min-height: 287px;
+    top:120px;
 
     &__sub-title{
          font-family: montserrat;
