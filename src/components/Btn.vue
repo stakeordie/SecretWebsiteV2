@@ -116,6 +116,20 @@ export default {
           background: none;
         }
       }
+      &.link-arrow {
+        justify-content: start;
+        place-content: center start; 
+        padding-left: 0;
+        padding-right: 0;
+        background: none;
+        pointer-events: all;
+        span {
+          color: var(--color-neutral-dark-mode-05);
+        }
+        &:hover {
+          background: none;
+        }
+      }
       &.bg-invert {
         background: var(--theme-fg);
         &:hover {
