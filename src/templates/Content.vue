@@ -42,16 +42,23 @@ export default {
         arr.push({
           route: el.node.route,
           title: el.node.title,
-          ogDescription: el.node.og_description ? el.node.og_description : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
+          ogDescription: el.node.og_description
+            ? el.node.og_description
+            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
           ogImage: el.node.og_image
             ? el.node.og_image.url
             : "https://scrt.network/cover.png",
         });
       });
 
-      filtered = arr.filter(
-        (x) => x.route === this.$page.content.path.slice(0, -1)
-      );
+      // Discard Homepage from slice
+      if (this.$page.content.path !== "/") {
+        filtered = arr.filter(
+          (x) => x.route === this.$page.content.path.slice(0, -1)
+        );
+      } else {
+        filtered = arr.filter((x) => x.route === this.$page.content.path);
+      }
 
       // console.log(filtered);
       if (filtered.length >= 1) {
