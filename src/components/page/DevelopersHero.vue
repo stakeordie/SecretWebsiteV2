@@ -58,6 +58,7 @@ export default {};
         font-size: 54px;
         letter-spacing: 0.5px;
         
+        
 
         @include respond-to("<=s") {
           font-size: 24px;
@@ -76,7 +77,7 @@ export default {};
         font-size: var(--f-h4-text-size);
         letter-spacing: 0.2px;
         color: var(--color-neutral-dark-mode-05);
-        line-height: 16px;
+        line-height: 24px;
         text-align: center;
         margin: auto;
 
@@ -126,8 +127,11 @@ export default {};
 
     @include respond-to("<=s") {
       width: 480px;
-      top: -2%;
-      left: 35%;
+      left: 30%;
+    }
+     @include respond-to("<=xs") {
+      width: 480px;
+      left: 12%;
     }
   }
 }

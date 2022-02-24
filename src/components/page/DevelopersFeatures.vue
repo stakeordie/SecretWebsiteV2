@@ -1,8 +1,8 @@
 <template>
   <section class="page-developer__features">
     <h1 class="page-developer__features__title">{{sectionTitle}}</h1>
-    <div class="page-developer__features__reasons" v-for="(item, index) in reasons" :key="index">
-      <div class="page-developer__features__reasons__reason">
+    <div class="page-developer__features__reasons" >
+      <div class="page-developer__features__reasons__reason" v-for="(item, index) in reasons" :key="index">
         <img :src="item.imageUrl" alt="">
         <h6>{{item.title}}</h6>
         <p>{{item.description}}</p>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-export default {
+export default { 
   data() {
     return {
       sectionTitle: 'Why Build on Secret Network?',
@@ -48,10 +48,10 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .page-developer__features{
-  position: relative;
+ 
     text-align: center ;
     
-    top:56px;
+    margin: 56px 0;
 
 
     &__title{
@@ -63,13 +63,23 @@ export default {
     }
 
     &__reasons{
-        display: inline-block;
-        width: 280px;
+        display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+    gap: 16px;
+        
         padding: var(--f-gutter-l);
         vertical-align: top;
-
-        @include respond-to("<=s"){
+        
+        @include respond-to("<=m"){
             margin: auto;
+            grid-template-columns: 1fr 1fr;
+        }
+
+
+        @include respond-to("<=xs"){
+            margin: auto;
+            grid-template-columns: 1fr ;
         }
 
         &__reason{

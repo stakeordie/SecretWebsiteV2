@@ -23,7 +23,8 @@ export default {};
   display: block;
     text-align: center ;
     min-height: 287px;
-    top:120px;
+    margin: 56px 0;
+    
 
     &__sub-title{
          font-family: montserrat;

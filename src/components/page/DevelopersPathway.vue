@@ -1,6 +1,9 @@
 <template>
   <section class="page-developer-pathway">
-    <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index">
+    <div
+      class="page-developer-pathway__inside"
+      v-for="(path, index) in sectionContent"
+      :key="index">
       <div class="page-developer-pathway__description">
         <h6 v-if="path.pathDescription.subtitle">
           {{ path.pathDescription.subtitle }}
@@ -35,7 +38,7 @@ export default {
       type: String,
       required: true,
     },
-  },
+  }, 
   data() {
     return {
       pathway: [
@@ -205,7 +208,7 @@ export default {
                 "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
               urlTitle: "View template",
               url: "google.com",
-            }
+            },
           ],
         },
       ],
@@ -231,14 +234,14 @@ export default {
 
 .page-developer-pathway {
   position: relative;
-  top: 120px;
+  
+  margin: 24px 0;
 
   &__inside {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 4px;
     margin-bottom: 68px;
-
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -248,17 +251,17 @@ export default {
   &__description {
     min-width: 360px;
 
-    h6{
+    h6 {
       font-family: montserrat;
-          text-transform: uppercase;
-          font-weight: 100;
-          font-size: var(--f-h5-text-size);
-          color: var(--color-neutral-dark-mode-05);
-          line-height: 24px;
+      text-transform: uppercase;
+      font-weight: 100;
+      font-size: var(--f-h5-text-size);
+      color: var(--color-neutral-dark-mode-05);
+      line-height: 24px;
 
-          @include respond-to("<=s") {
-            font-size: var(--f-h6-text-size);
-          }
+      @include respond-to("<=s") {
+        font-size: var(--f-h6-text-size);
+      }
     }
 
     h3 {
@@ -273,6 +276,10 @@ export default {
       padding-right: 28px;
       border-right: solid 1px var(--color-neutral-dark-mode-04);
     }
+    @include respond-to("<=m") {
+      
+      border-bottom: solid 1px var(--color-neutral-dark-mode-04);
+    }
   }
 
   &__content {
@@ -282,8 +289,17 @@ export default {
     row-gap: 24px;
     margin: var(--f-gutter);
 
+    @include respond-to("<=m"){
+       margin: 16px 0;
+    }
+
     @include respond-to("<=xs") {
       grid-template-columns: 1fr;
+    }
+    ul{
+      @include respond-to("<=m"){
+        padding: 0;
+      }
     }
 
     &__item {
@@ -301,7 +317,15 @@ export default {
           margin-bottom: 0;
         }
 
-        
+        a {
+          padding: 0;
+          span {
+            color: var(--color-highkey-secondary-blue) !important;
+          }
+          .theme-image {
+            color: var(--color-highkey-secondary-blue) !important;
+          }
+        }
       }
     }
   }
