@@ -44,7 +44,7 @@ export default {
           title: "Tutorials",
           description:
             "View this easy step-by-step tutorial made by our partner Figment.",
-          urlTitle: "View tutorials",
+          urlTitle: "View docs",
           url: "google.com",
         },
         {
@@ -52,7 +52,7 @@ export default {
           title: "Tutorials",
           description:
             "View this easy step-by-step tutorial made by our partner Figment.",
-          urlTitle: "View tutorials",
+          urlTitle: "View repo",
           url: "google.com",
         },
       ],
@@ -82,8 +82,8 @@ export default {
   &__cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 12px;
-    gap: 12px;
+    grid-gap: 26px;
+    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr 1fr;

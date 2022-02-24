@@ -2,11 +2,7 @@
   <section class="page-developer-advanced">
     <h6 class="page-developer-advanced__title">Advanced resources</h6>
     <div class="page-developer-advanced__cards">
-      <div
-        class="page-developer-advanced__cards__card"
-        v-for="(item, index) in material"
-        :key="index"
-      >
+      <div class="page-developer-advanced__cards__card" v-for="(item, index) in material" :key="index">
         <img :src="item.imageUrl" alt="" />
         <div class="page-developer-advanced__cards__card__content">
           <h6>{{ item.title }}</h6>
