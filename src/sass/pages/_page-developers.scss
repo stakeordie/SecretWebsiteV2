@@ -1,6 +1,12 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
 .page-developers{
     &__hero-container{
         background: var(--color-neutral-dark-mode-01);
         overflow: hidden;
+        margin-top: -6px;
+        @include respond-to("<=m") {
+            margin-top: -44px;
+        }
     }
 }
