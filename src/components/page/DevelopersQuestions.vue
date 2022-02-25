@@ -40,13 +40,13 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-questions {
-    margin: 68px 0;
+    margin: 100px 0;
 
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background: var(--color-neutral-dark-mode-03);
-    padding: var(--f-gutter-l);
+    padding: var(--f-gutter);
     border-radius: 10px;
 
     @include respond-to("<=s"){
@@ -70,7 +70,7 @@ export default {};
       &__buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 16px;
+        grid-gap: 4px;
 
          @include respond-to("<=xs"){
         grid-template-columns: 1fr;

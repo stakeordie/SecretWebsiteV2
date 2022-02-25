@@ -153,9 +153,9 @@ title: 'Developer Resources'
 
 
 <!-- Controlls  -->
-<column number="2">
+<column number="2" class="page-developers__horizontal-scroll">
 
-<block>
+<block >
 
 ### Cool stuff others built (on Secret)
 
