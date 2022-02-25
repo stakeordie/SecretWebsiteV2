@@ -152,6 +152,49 @@ title: 'Developer Resources'
 
 
 
+<!-- Controlls  -->
+<column number="2">
+
+<block>
+
+### Cool stuff others built (on Secret)
+
+</block>
+
+<block class="justify-right">
+
+<scroll-horizontal></scroll-horizontal>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+<!-- Horizontal Scroll -->
+<column class="media-featured spacer-s horizontal-slider" mode="full">
+
+<block>
+
+<developers-cool-stuff></developers-cool-stuff>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
 
 <column>
 

@@ -4,7 +4,7 @@
       <div
         v-for="(media, index) in filterMediaItems"
         class="item"
-        :class="`accent-${media.type}`"
+        :class="`accent-${media.type}`" :key="index"
       >
         <a :href="media.url">
           <p class="type">{{ media.type }}</p>
