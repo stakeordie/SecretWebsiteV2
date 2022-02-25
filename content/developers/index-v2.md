@@ -121,14 +121,11 @@ title: 'Developer Resources'
 
 
 
-
-
-
 <column>
 
 <block>
 
-<developers-questions></developers-questions>
+<developers-funding></developers-funding>
 
 </block>
 
@@ -138,13 +135,11 @@ title: 'Developer Resources'
 
 
 
-
-
 <column>
 
 <block>
 
-<developers-funding></developers-funding>
+<developers-questions></developers-questions>
 
 </block>
 

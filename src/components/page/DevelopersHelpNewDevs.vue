@@ -7,7 +7,7 @@
       <p class="page-developer-new-dev__content__text">
         Secret Pathways is a community effort and we’re actively looking for
         contributors. Want to help out?Join the Discord and let us know in the
-        dev channel, or contact us here.
+        dev channel, or <a href="#">contact us here.</a>
       </p>
     </div>
   </section>
@@ -18,6 +18,7 @@ export default {};
 </script>
 
 <style lang='scss'>
+@import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-new-dev{
     position: relative;
@@ -25,6 +26,10 @@ export default {};
     border: solid 1px var(--color-analog-secondary-gray);
     border-radius:10px ;
     padding: var(--f-gutter);
+
+    @include respond-to("<=s"){
+      padding:0;
+    }
     &__content{
         text-align: center;
         padding: var(--f-gutter);
