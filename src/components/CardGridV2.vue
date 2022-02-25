@@ -128,12 +128,11 @@
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
                   <p>
-                    Secret (SCRT) is a cryptocurrency and the native coin of the
-                    Secret Network blockchain.
+                    {{element.description}}
                   </p>
                 </div>
               </div>
-                <btn class="ecosystem" url="">Visit site</btn>
+                <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn>
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -398,6 +397,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -414,6 +415,9 @@ query {
         sort
         title: name
         url: link
+        cta_title
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -430,6 +434,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -463,6 +469,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }

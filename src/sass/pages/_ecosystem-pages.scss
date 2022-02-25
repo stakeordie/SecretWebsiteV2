@@ -1,8 +1,48 @@
 .ecosystem-pages {
+  &__learn-more {
+    // padding-top: 61px;
+    padding-bottom: 61px;
+    .content {
+      .box {
+        display: grid;
+        gap: 25px;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        justify-items: center;
+        p {
+          max-width: 668px;
+        }
+        .btn {
+          &.no-bg {
+            background: transparent;
+          }
+        }
+        *{margin: 0;}
+      }
+    }
+    * {
+      margin: 0;
+    }
+  }
   &__roadmap {
-    padding-top: var(--f-gutter-xxxl);
-    padding-bottom: var(--f-gutter-xxxl);
+    padding-top: 61px;
+    padding-bottom: 61px;
     background: var(--color-black);
+    .content {
+      .box {
+        display: grid;
+        align-items: center;
+        *{margin: 0;}
+        h2 {
+          font-size: 36px;
+          line-height: 40px;
+        }
+        .btn {
+          width: 300px;
+        }
+      }
+    }
     * {
       margin: 0;
     }
@@ -24,6 +64,9 @@
         align-items: center;
         align-content: center;
         gap: var(--f-gutter);
+        p {
+          max-width: 610px;
+        }
         * {
           margin: 0;
         }
@@ -36,7 +79,7 @@
       .content {
         .box {
           display: grid;
-          justify-content: end;
+          // justify-content: end;
         }
       }
     }

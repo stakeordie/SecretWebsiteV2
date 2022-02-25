@@ -85,6 +85,7 @@ import HeaderNav from '~/components/HeaderNav.vue';
 import HeaderMegaMenu from '~/components/HeaderMegaMenu.vue';
 import FooterMenu from '~/components/FooterMenu.vue';
 
+
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -108,6 +109,12 @@ import DevelopersHero from '~/components/page/DevelopersHero'
 import DevelopersFeatures from '~/components/page/DevelopersFeatures'
 import DevelopersStartHere from '~/components/page/DevelopersStartHere'
 import DevelopersPathway from '~/components/page/DevelopersPathway'
+import DevelopersHelpNewDevs from '~/components/page/DevelopersHelpNewDevs'
+import DevelopersCardResources from '~/components/page/DevelopersCardResources';
+import DevelopersAdvanced from '~/components/page/DevelopersAdvanced'
+import DevelopersQuestions from '~/components/page/DevelopersQuestions'
+import DevelopersFunding from '~/components/page/DevelopersFunding'
+
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
@@ -194,6 +201,7 @@ export default function (Vue, {
   Vue.component('HeaderNav', HeaderNav);
   Vue.component('HeaderMegaMenu', HeaderMegaMenu);
   Vue.component('FooterMenu', FooterMenu);
+  
 
 
   //Experimental
@@ -226,6 +234,11 @@ export default function (Vue, {
   Vue.component('DevelopersFeatures', DevelopersFeatures);
   Vue.component('DevelopersStartHere', DevelopersStartHere);
   Vue.component('DevelopersPathway', DevelopersPathway);
+  Vue.component('DevelopersHelpNewDevs', DevelopersHelpNewDevs);
+  Vue.component('DevelopersCardResources', DevelopersCardResources);
+  Vue.component('DevelopersAdvanced', DevelopersAdvanced);
+  Vue.component('DevelopersQuestions', DevelopersQuestions);
+  Vue.component('DevelopersFunding', DevelopersFunding);
 
 
   

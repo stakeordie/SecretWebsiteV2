@@ -1,6 +1,9 @@
 <template>
   <section class="page-developer-pathway">
-    <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index">
+    <div
+      class="page-developer-pathway__inside"
+      v-for="(path, index) in sectionContent"
+      :key="index">
       <div class="page-developer-pathway__description">
         <h6 v-if="path.pathDescription.subtitle">
           {{ path.pathDescription.subtitle }}
@@ -35,7 +38,7 @@ export default {
       type: String,
       required: true,
     },
-  },
+  }, 
   data() {
     return {
       pathway: [
@@ -49,7 +52,7 @@ export default {
           },
           items: [
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Overview",
               description:
                 "Quickly get up to speed on what Secret is all about.",
@@ -57,7 +60,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Secret Contracts",
               description:
                 "Install the right tools and set up your first project.",
@@ -65,7 +68,7 @@ export default {
               url: "/",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Protocol",
               description:
                 "Learn how Secret works and the use cases it serves.",
@@ -73,7 +76,7 @@ export default {
               url: "/",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Contract Privacy Model",
               description:
                 "Get to know Secret’s privacy-preserving features and how you can use them. ",
@@ -81,7 +84,7 @@ export default {
               url: "/",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Network Architecture",
               description:
                 "Find out how Secret Contract interactions are executed and preserve data privacy.",
@@ -89,7 +92,7 @@ export default {
               url: "/",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Awesome Secret",
               description:
                 "An overview of all the Secret apps, tools, and resources you might need. ",
@@ -108,7 +111,7 @@ export default {
           },
           items: [
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Secret Contract Dev Guide",
               description:
                 "Get an IDE, know what functions to call, how to debug, and more.",
@@ -116,7 +119,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Toolkit",
               description:
                 "A set of Rust packages with common tools to develop Secret Contracts.",
@@ -124,7 +127,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Secret Quickstarts",
               description:
                 "Every step you need to create + deploy a Secret Contract in one place.",
@@ -132,7 +135,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Secret NFT Guide",
               description:
                 "Mint your first Secret NFT and learn how their privacy-preserving features work.",
@@ -140,7 +143,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Contract Privacy Model",
               description:
                 "Learn about Secret’s privacy-preserving features and how you can use them.",
@@ -148,7 +151,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Polar",
               description:
                 "Learn about Secret’s privacy-preserving features and how you can use them.",
@@ -167,7 +170,7 @@ export default {
           },
           items: [
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "GripTapeJS",
               description:
                 "Speed up your Secret App interface building with this development framework.",
@@ -175,7 +178,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Light Client",
               description:
                 "Let your app interact with nodes on the network using Secret CLI.",
@@ -183,7 +186,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Secret Python",
               description:
                 "Flex your Python skills to build and test components of Secret Apps.",
@@ -191,7 +194,7 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "Figment Learn",
               description:
                 "An easy step-by-step tutorial to set up your first contract, made by our partner, Figment.",
@@ -199,13 +202,13 @@ export default {
               url: "google.com",
             },
             {
-              image: "/temp/icon-developers-path.svg",
+              image: "/temp/icon-features-file.svg",
               title: "SecretJS",
               description:
                 "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
               urlTitle: "View template",
               url: "google.com",
-            }
+            },
           ],
         },
       ],
@@ -231,14 +234,12 @@ export default {
 
 .page-developer-pathway {
   position: relative;
-  top: 120px;
 
   &__inside {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 4px;
-    margin-bottom: 68px;
-
+    margin: 68px 0;
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -248,17 +249,17 @@ export default {
   &__description {
     min-width: 360px;
 
-    h6{
+    h6 {
       font-family: montserrat;
-          text-transform: uppercase;
-          font-weight: 100;
-          font-size: var(--f-h5-text-size);
-          color: var(--color-neutral-dark-mode-05);
-          line-height: 24px;
+      text-transform: uppercase;
+      font-weight: 100;
+      font-size: var(--f-h5-text-size);
+      color: var(--color-neutral-dark-mode-05);
+      line-height: 24px;
 
-          @include respond-to("<=s") {
-            font-size: var(--f-h6-text-size);
-          }
+      @include respond-to("<=s") {
+        font-size: var(--f-h6-text-size);
+      }
     }
 
     h3 {
@@ -273,6 +274,10 @@ export default {
       padding-right: 28px;
       border-right: solid 1px var(--color-neutral-dark-mode-04);
     }
+    @include respond-to("<=m") {
+      
+      border-bottom: solid 1px var(--color-neutral-dark-mode-04);
+    }
   }
 
   &__content {
@@ -282,8 +287,17 @@ export default {
     row-gap: 24px;
     margin: var(--f-gutter);
 
+    @include respond-to("<=m"){
+       margin: 16px 0;
+    }
+
     @include respond-to("<=xs") {
       grid-template-columns: 1fr;
+    }
+    ul{
+      @include respond-to("<=m"){
+        padding: 0;
+      }
     }
 
     &__item {
@@ -301,7 +315,15 @@ export default {
           margin-bottom: 0;
         }
 
-        
+        a {
+          padding: 0;
+          span {
+            color: var(--color-highkey-secondary-blue) !important;
+          }
+          .theme-image {
+            color: var(--color-highkey-secondary-blue) !important;
+          }
+        }
       }
     }
   }
