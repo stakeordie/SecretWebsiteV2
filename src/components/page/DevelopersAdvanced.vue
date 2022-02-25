@@ -25,7 +25,7 @@ export default {
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
           urlTitle: "View guide",
-          url: "google.com",
+          url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
         },
         {
           imageUrl: "/temp/icon-developers-path.svg",
@@ -33,7 +33,7 @@ export default {
           description:
             "Learn how to set up and run an IBC relayer to facilitate communication with the wider Cosmos ecosystem.",
           urlTitle: "View template",
-          url: "google.com",
+          url: "https://docs.scrt.network/relayers/setting-up-hermes.html",
         }
       ]
     }

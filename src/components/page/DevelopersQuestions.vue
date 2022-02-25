@@ -17,14 +17,14 @@
               page-developer-questions__banner__content__buttons__blue-button
             "
           >
-            <btn class="text-center no-arrow" url="/">Join our Discord</btn>
+            <btn class="text-center no-arrow" url="https://discord.com/invite/SJK32GY">Join our Discord</btn>
           </div>
           <div
             class="
               page-developer-questions__banner__content__buttons__dark-button
             "
           >
-            <btn class="text-center no-arrow" url="/">Post on forums</btn>
+            <btn class="text-center no-arrow" url="https://forum.scrt.network/">Post on forums</btn>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-questions {
-    margin: 56px 0;
+    margin: 68px 0;
 
   &__banner {
     display: grid;

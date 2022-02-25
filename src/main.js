@@ -114,6 +114,9 @@ import DevelopersCardResources from '~/components/page/DevelopersCardResources';
 import DevelopersAdvanced from '~/components/page/DevelopersAdvanced'
 import DevelopersQuestions from '~/components/page/DevelopersQuestions'
 import DevelopersFunding from '~/components/page/DevelopersFunding'
+import DevelopersCallAction from '~/components/page/DevelopersCallAction'
+import DevelopersCallSecond from '~/components/page/DevelopersCallSecond'
+
 
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
@@ -239,6 +242,9 @@ export default function (Vue, {
   Vue.component('DevelopersAdvanced', DevelopersAdvanced);
   Vue.component('DevelopersQuestions', DevelopersQuestions);
   Vue.component('DevelopersFunding', DevelopersFunding);
+  Vue.component('DevelopersCallAction', DevelopersCallAction);
+  Vue.component('DevelopersCallSecond', DevelopersCallSecond);
+
 
 
   

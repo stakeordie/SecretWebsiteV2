@@ -29,31 +29,31 @@ export default {
           description:
             "View this easy step-by-step tutorial made by our partner Figment.",
           urlTitle: "View tutorials",
-          url: "google.com",
+          url: "https://learn.figment.io/protocols/secret",
         },
         {
           imageUrl: "/temp/icon-resources-check.svg",
-          title: "Tutorials",
+          title: "Awesome Secret",
           description:
-            "View this easy step-by-step tutorial made by our partner Figment.",
+            "A living overview of all Secret Apps, tools, guides, and resources! ",
           urlTitle: "View tutorials",
-          url: "google.com",
+          url: "https://github.com/SecretFoundation/awesome-secret",
         },
         {
           imageUrl: "/temp/icon-resources-documentation.svg",
-          title: "Tutorials",
+          title: "Documentation",
           description:
-            "View this easy step-by-step tutorial made by our partner Figment.",
+            "Read the official documentation on Secret contracts, clients, protocols, and more. ",
           urlTitle: "View docs",
-          url: "google.com",
+          url: "https://docs.scrt.network/",
         },
         {
           imageUrl: "/temp/icon-resources-github.svg",
-          title: "Tutorials",
+          title: "Github",
           description:
-            "View this easy step-by-step tutorial made by our partner Figment.",
+            "View the source code that powers the Secret Network blockchain.",
           urlTitle: "View repo",
-          url: "google.com",
+          url: "https://github.com/scrtlabs/SecretNetwork",
         },
       ],
     };
