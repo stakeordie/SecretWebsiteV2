@@ -1,7 +1,6 @@
 <template>
   <div>
     <div
-      :class="coolStuff"
       class="items horizontal-slider page-developer__cool-stuff"
     >
       <div class="card-element item" v-for="element in coolStuff" :key="element.id">
@@ -75,8 +74,8 @@ export default {
         ".media-featured > .--flare-block > .content > .box"
       );
       content.scrollLeft += 390;
-      console.log("right");
-      console.log(content);
+      // console.log("right");
+      // console.log(content);
     },
 
     onFilterApplied(filters) {
@@ -89,7 +88,7 @@ export default {
       const coolStuffArr = this.$static.coolStuff.edges.map((it) => {
         return it.node;
       });
-      console.log(coolStuffArr);
+      // console.log(coolStuffArr);
       return coolStuffArr;
     },
   },
@@ -98,7 +97,7 @@ export default {
 
 <static-query>
 query {
-  coolStuff: allStrapiToolsAndWallets {
+  coolStuff: allStrapiDApps {
     edges {
       node {
         id
@@ -125,14 +124,34 @@ query {
 
 .page-developer {
   &__cool-stuff {
+    white-space: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .card-element {
       border-radius: var(--f-radius);
       overflow: hidden;
       background: var(--theme-card-bg-default);
       transition: 0.2s ease;
-      display: grid;
+      display: inline-flex;
+      // gap: var(--f-gutter);
+      flex-direction: column;
       text-align: center;
       border-radius: 10px;
+      max-width: 300px;
+      min-width: 300px;
+
+      margin-right: var(--f-gutter-l);
+
+      display: inline-flex;
+      flex-direction: column;
+
+      white-space: normal;
+      justify-content: space-between;
+      vertical-align: top;
+      position: relative;
       * {
         margin: 0;
       }
