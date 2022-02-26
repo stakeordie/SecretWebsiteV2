@@ -13,11 +13,9 @@
         </p>
         <div class="page-developer-questions__banner__content__buttons">
           <div
-            class="
-              page-developer-questions__banner__content__buttons__blue-button
-            "
-          >
-            <btn class="text-center no-arrow" url="https://discord.com/invite/SJK32GY">Join our Discord</btn>
+            class="page-developer-questions__banner__content__buttons__blue-button">
+            
+            <btn class="text-center no-arrow special-icon"  url="https://discord.com/invite/SJK32GY"><img src="../../assets/icon-social-discord.svg" /> Join our Discord</btn>
           </div>
           <div
             class="
@@ -40,11 +38,14 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-questions {
-    margin: 100px 0;
+    margin: 124px 0;
+
+    
 
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: 42px;
     background: var(--color-neutral-dark-mode-03);
     padding: var(--f-gutter);
     border-radius: 10px;
@@ -81,6 +82,11 @@ export default {};
             background-color: #4195c4 !important;
             font-size: var(--f-default-text-size);
             letter-spacing: 1px;
+            &.special-icon{
+              img{
+                display: inline-block !important;
+              }
+            }
           }
         }
       }
