@@ -135,7 +135,7 @@ title: 'Developer Resources'
 
 
 
-<column>
+<column class="page-developers__dev-questions">
 
 <block>
 

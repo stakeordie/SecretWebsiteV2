@@ -15,14 +15,14 @@
           <div
             class="page-developer-questions__banner__content__buttons__blue-button">
             
-            <btn class="text-center no-arrow special-icon"  url="https://discord.com/invite/SJK32GY"><img src="../../assets/icon-social-discord.svg" /> Join our Discord</btn>
+            <btn class="text-center no-arrow special"  url="https://discord.com/invite/SJK32GY"><img class="special-icon" src="../../assets/icon-social-discord.svg" /> Join our Discord</btn>
           </div>
           <div
             class="
               page-developer-questions__banner__content__buttons__dark-button
             "
           >
-            <btn class="text-center no-arrow" url="https://forum.scrt.network/">Post on forums</btn>
+            <btn class="text-center no-arrow special" url="https://forum.scrt.network/"><img class="special-icon" src="../../assets/icon-social-forum.svg" />Post on forums</btn>
           </div>
         </div>
       </div>
@@ -69,9 +69,9 @@ export default {};
 
 
       &__buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 4px;
+        display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
 
          @include respond-to("<=xs"){
         grid-template-columns: 1fr;

@@ -163,8 +163,15 @@ export default {
       &.no-arrow {
         img {
           display: none !important;
+           &.special-icon {
+        
+          display: inline-block !important;
+      }
         }
       }
+
+      
+
 
       &.full {
         width: 100%;
