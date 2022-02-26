@@ -51,24 +51,24 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developers-funding{
-    margin: 64px 0;
+    margin: 164px 0;
 
     &__content{
         text-align: center;
-        max-width: 510px;
+        max-width: 620px;
         margin: auto;
 
         &__sub-title{
             font-family: montserrat;
             text-transform: uppercase;
-            font-weight: 100;
-            font-size: var(--f-h4-text-size);
+            font-weight: 500;
+            font-size: var(--f-h5-text-size);
             color: var(--color-neutral-dark-mode-05);
             line-height: 24px;
 
-          @include respond-to("<=s") {
-            font-size: var(--f-h6-text-size);
-          }
+            @include respond-to("<=s") {
+              font-size: var(--f-h6-text-size);
+            }
         }
         &__title{
             font-family: montserrat;
@@ -78,6 +78,10 @@ export default {
         @include respond-to("<=s") {
             font-size: var(--f-h4-text-size);
           }
+        }
+
+        &__text{
+          font-size: var(--paragraph-font-size-big);
         }
     }
 
@@ -95,6 +99,11 @@ export default {
 
             &__material{
               padding: var(--f-gutter);
+
+              h6{
+                font-size: var(--f-h4-text-size);
+          margin-bottom: 0;
+              }
 
             }
 

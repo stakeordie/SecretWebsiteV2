@@ -22,17 +22,16 @@ export default {};
 
 .page-developer-new-dev{
     position: relative;
-    margin: 24px 0;
+    
     border: solid 1px var(--color-analog-secondary-gray);
     border-radius:10px ;
     padding: var(--f-gutter);
 
-    @include respond-to("<=s"){
-      padding:0;
-    }
+    
     &__content{
+      display: grid;
+      grid-gap: 4px;
         text-align: center;
-        padding: var(--f-gutter);
         color: var(--color-neutral-dark-mode-05);
         max-width: 740px;
         margin: auto;
@@ -41,11 +40,13 @@ export default {};
         &__title{
             font-size: var(--f-h5-text-size);
             font-family: montserrat;
+            margin: 0;
 
         }
 
         &__text{
             font-size: var(--f-default-text-size);
+            margin: 0;
         }
     }
 }

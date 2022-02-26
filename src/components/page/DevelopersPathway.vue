@@ -231,13 +231,16 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-pathway {
-  position: relative;
+  display: grid;
+  grid-gap: 68px;
+  margin-top: 68px;
 
   &__inside {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 4px;
-    margin: 68px 0;
+    margin-bottom: 76px;
+    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -249,19 +252,21 @@ export default {
 
     h6 {
       font-family: montserrat;
-      text-transform: uppercase;
-      font-weight: 100;
-      font-size: var(--f-h5-text-size);
-      color: var(--color-neutral-dark-mode-05);
-      line-height: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--f-h5-text-size);
+    color: var(--color-neutral-dark-mode-05);
+    line-height: 24px;
+   
 
-      @include respond-to("<=s") {
-        font-size: var(--f-h6-text-size);
-      }
+    @include respond-to("<=s") {
+      font-size: var(--f-h6-text-size);
+    }
     }
 
     h3 {
       font-size: var(--f-h3-text-size);
+      line-height: 1;
     }
     p {
       font-size: var(--paragraph-font-size-big);
@@ -283,7 +288,7 @@ export default {
     grid-template-columns: 1fr 1fr;
     grid-gap: 32px;
     row-gap: 24px;
-    margin: var(--f-gutter);
+    margin-left: 36px;
 
     @include respond-to("<=m"){
        margin: 16px 0;
@@ -304,9 +309,11 @@ export default {
       grid-gap: 10px;
 
       &__details {
+        display: grid;
+        grid-gap: 4px;
         h6 {
           font-size: var(--f-h5-text-size);
-          margin-bottom: 0%;
+          margin-bottom: 0;
         }
 
         p {

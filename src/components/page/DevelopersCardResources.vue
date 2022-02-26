@@ -65,11 +65,11 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-resources {
-  margin: 56px 0;
+  margin: 60px 0;
   &__title {
     font-family: montserrat;
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 500;
     font-size: var(--f-h5-text-size);
     color: var(--color-neutral-dark-mode-05);
     line-height: 24px;
@@ -78,6 +78,7 @@ export default {
     @include respond-to("<=s") {
       font-size: var(--f-h6-text-size);
     }
+
   }
   &__cards {
     display: grid;

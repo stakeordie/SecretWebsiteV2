@@ -55,9 +55,11 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .page-developer__features {
+  display: grid;
+  grid-gap: 28px;
   text-align: center;
-
-  margin: 56px 0;
+  margin-top: 44px;
+  margin-bottom: 56px;
 
   &__title {
     font-size: var(--f-h3-text-size);
@@ -71,7 +73,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 26px;
 
-    padding: var(--f-gutter-l);
+   
     vertical-align: top;
 
     @include respond-to("<=m") {

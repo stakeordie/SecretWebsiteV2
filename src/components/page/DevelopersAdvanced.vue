@@ -20,7 +20,7 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/icon-developers-path.svg",
+          imageUrl: "/temp/icon-features-file.svg",
           title: "Node Running",
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
@@ -28,7 +28,7 @@ export default {
           url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
         },
         {
-          imageUrl: "/temp/icon-developers-path.svg",
+          imageUrl: "/temp/icon-features-file.svg",
           title: "IBC Relayers",
           description:
             "Learn how to set up and run an IBC relayer to facilitate communication with the wider Cosmos ecosystem.",
@@ -46,13 +46,13 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-advanced{
-    margin: 56px 0;
+    margin: 72px 0;
 
 
   &__title {
     font-family: montserrat;
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 500;
     font-size: var(--f-h5-text-size);
     color: var(--color-neutral-dark-mode-05);
     line-height: 24px;
