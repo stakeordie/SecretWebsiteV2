@@ -13,18 +13,16 @@
         </p>
         <div class="page-developer-questions__banner__content__buttons">
           <div
-            class="
-              page-developer-questions__banner__content__buttons__blue-button
-            "
-          >
-            <btn class="text-center no-arrow" url="https://discord.com/invite/SJK32GY">Join our Discord</btn>
+            class="page-developer-questions__banner__content__buttons__blue-button">
+            
+            <btn class="text-center no-arrow special"  url="https://discord.com/invite/SJK32GY"><img class="special-icon" src="../../assets/icon-social-discord.svg" /> Join our Discord</btn>
           </div>
           <div
             class="
               page-developer-questions__banner__content__buttons__dark-button
             "
           >
-            <btn class="text-center no-arrow" url="https://forum.scrt.network/">Post on forums</btn>
+            <btn class="text-center no-arrow special" url="https://forum.scrt.network/"><img class="special-icon" src="../../assets/icon-social-forum.svg" />Post on forums</btn>
           </div>
         </div>
       </div>
@@ -40,11 +38,14 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-questions {
-    margin: 100px 0;
+    margin: 124px 0;
+
+    
 
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: 42px;
     background: var(--color-neutral-dark-mode-03);
     padding: var(--f-gutter);
     border-radius: 10px;
@@ -68,9 +69,9 @@ export default {};
 
 
       &__buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 4px;
+        display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
 
          @include respond-to("<=xs"){
         grid-template-columns: 1fr;
@@ -81,6 +82,11 @@ export default {};
             background-color: #4195c4 !important;
             font-size: var(--f-default-text-size);
             letter-spacing: 1px;
+            &.special-icon{
+              img{
+                display: inline-block !important;
+              }
+            }
           }
         }
       }

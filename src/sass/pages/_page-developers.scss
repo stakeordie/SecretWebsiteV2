@@ -8,8 +8,15 @@
         @include respond-to("<=m") {
             margin-top: -44px;
         }
+
     }
+
+    &__dev-questions{
+        margin-bottom: 132px;
+    }
+
     &__cool-stuff {
+        
         .content{
             .box {
                 overflow-x: scroll;
@@ -42,6 +49,21 @@
                   display: none;
                 }
               }
+        }
+    }
+
+    &__dev-questions{
+        .content{
+            .box{
+                .btn{
+                    span{
+                        display: grid;
+                        grid-template-columns: 16px 1fr;
+                        gap: var(--f-gutter-s);
+                        align-items: center;
+                    }
+                }
+            }
         }
     }
 }

@@ -54,6 +54,8 @@ export default {
     margin: 164px 0;
 
     &__content{
+      display: grid;
+      grid-gap: 8px;
         text-align: center;
         max-width: 620px;
         margin: auto;
@@ -65,6 +67,7 @@ export default {
             font-size: var(--f-h5-text-size);
             color: var(--color-neutral-dark-mode-05);
             line-height: 24px;
+            margin: 0;
 
             @include respond-to("<=s") {
               font-size: var(--f-h6-text-size);
@@ -88,10 +91,11 @@ export default {
     &__materials{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-gap: 26px;
+            grid-gap: 4px;
             text-align: left;
             max-width: 1000px;
             margin: auto;
+            margin-top: 16px;
 
             @include respond-to("<=xs"){
                 grid-template-columns: 1fr;
