@@ -178,7 +178,7 @@ title: 'Developer Resources'
 
 
 <!-- Horizontal Scroll -->
-<column class="media-featured spacer-s horizontal-slider" mode="full">
+<column class="page-developers__cool-stuff spacer-s horizontal-slider" mode="full">
 
 <block>
 
