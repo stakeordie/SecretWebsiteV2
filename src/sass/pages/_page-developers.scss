@@ -1,6 +1,47 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
 .page-developers{
     &__hero-container{
         background: var(--color-neutral-dark-mode-01);
         overflow: hidden;
+        margin-top: -6px;
+        @include respond-to("<=m") {
+            margin-top: -44px;
+        }
+    }
+    &__cool-stuff {
+        .content{
+            .box {
+                overflow-x: scroll;
+                max-width: 98vw;
+                scrollbar-width: none;
+                scroll-behavior: smooth;
+                @include respond-to("<=m") {
+                  max-width: 97vw;
+                }
+                padding-left: 0;
+                padding-right: 0;
+          
+                @include respond-to(">=l") {
+                  padding-left: 3vw;
+                }
+          
+                @include respond-to(">=xl") {
+                  padding-left: 9vw;
+                }
+          
+                @include respond-to(">=xxl") {
+                  padding-left: 13vw;
+                }
+          
+                @include respond-to("xxxl") {
+                  padding-left: 19vw;
+                }
+          
+                &::-webkit-scrollbar {
+                  display: none;
+                }
+              }
+        }
     }
 }

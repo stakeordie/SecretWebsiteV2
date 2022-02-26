@@ -19,15 +19,16 @@ export default {};
 .page-developers {
   position: relative;
   text-align: center;
-  display: block;
+  display: grid;
   text-align: center;
-  margin-top: 64px;
+  margin-top: 92px;
+  padding: var(--f-gutter);
 
   &__sub-title {
     font-family: montserrat;
     text-transform: uppercase;
-    font-weight: 100;
-    font-size: var(--f-h4-text-size);
+    font-weight: 500;
+    font-size: var(--f-h5-text-size);
     color: var(--color-neutral-dark-mode-05);
     line-height: 24px;
 
@@ -48,8 +49,9 @@ export default {};
 
   &__text {
     text-align: center;
-    max-width: 600px;
+    max-width: 758px;
     margin: auto;
+    font-size: var(--paragraph-font-size-big);
   }
 }
 </style>

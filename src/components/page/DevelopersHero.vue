@@ -29,7 +29,7 @@ export default {};
 
 .page-developers__hero {
 
-  height: 540px;
+  min-height: 494px;
   padding: var(--f-gutter-xxl);
 
   @include respond-to("<=s") {
@@ -42,28 +42,28 @@ export default {};
   display: block;
 
   &__content {
+    display: grid;
     z-index: 5;
     position: relative;
     padding: var(--f-gutter);
-    top: 56px;
+    margin: auto;
+    top:24px;
 
     @include respond-to("<=s") {
-      top: 174px;
+      padding: 0;
     }
 
     &__title {
+      display: grid;
+    grid-gap:20px;
       text-align: center;
       h1 {
         font-family: var(--f-default-headers-font);
         font-size: 54px;
+        
+        line-height: 60px;
         letter-spacing: 0.5px;
         
-        
-
-        @include respond-to("<=s") {
-          font-size: 24px;
-          line-height: 24px;
-        }
 
         span {
           color: #4195c4;
@@ -73,7 +73,7 @@ export default {};
       h4 {
         font-family: var(--f-default-headers-font);
         text-transform: uppercase;
-        font-weight: 400;
+        font-weight: 500;
         font-size: var(--f-h4-text-size);
         letter-spacing: 0.2px;
         color: var(--color-neutral-dark-mode-05);
@@ -105,10 +105,23 @@ export default {};
         }
       }
 
-      .text-center {
+      a{
+        margin-right: 0;
+      }
+       .text-center{
         background-color: #4195c4 !important;
-        font-size: var(--f-default-text-size);
-        letter-spacing: 1px;
+        width:400px;
+        margin-right: 0;
+        padding: 0;
+
+        &::before{
+          margin: 0;
+        }
+
+        .btn-text{
+          letter-spacing: 1px;
+          font-size: var(--f-h6-text-size);
+        }
       }
     }
   }

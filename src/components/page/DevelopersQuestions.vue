@@ -17,14 +17,14 @@
               page-developer-questions__banner__content__buttons__blue-button
             "
           >
-            <btn class="text-center no-arrow" url="/">Join our Discord</btn>
+            <btn class="text-center no-arrow" url="https://discord.com/invite/SJK32GY">Join our Discord</btn>
           </div>
           <div
             class="
               page-developer-questions__banner__content__buttons__dark-button
             "
           >
-            <btn class="text-center no-arrow" url="/">Post on forums</btn>
+            <btn class="text-center no-arrow" url="https://forum.scrt.network/">Post on forums</btn>
           </div>
         </div>
       </div>
@@ -40,13 +40,13 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-questions {
-    margin: 56px 0;
+    margin: 100px 0;
 
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background: var(--color-neutral-dark-mode-03);
-    padding: var(--f-gutter-l);
+    padding: var(--f-gutter);
     border-radius: 10px;
 
     @include respond-to("<=s"){
@@ -70,7 +70,7 @@ export default {};
       &__buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 16px;
+        grid-gap: 4px;
 
          @include respond-to("<=xs"){
         grid-template-columns: 1fr;

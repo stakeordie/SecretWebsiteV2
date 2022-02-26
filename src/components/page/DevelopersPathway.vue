@@ -1,9 +1,7 @@
 <template>
   <section class="page-developer-pathway">
     <div
-      class="page-developer-pathway__inside"
-      v-for="(path, index) in sectionContent"
-      :key="index">
+      class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index">
       <div class="page-developer-pathway__description">
         <h6 v-if="path.pathDescription.subtitle">
           {{ path.pathDescription.subtitle }}
@@ -57,7 +55,7 @@ export default {
               description:
                 "Quickly get up to speed on what Secret is all about.",
               urlTitle: "View docs",
-              url: "google.com",
+              url: "https://docs.scrt.network/overview.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -65,7 +63,7 @@ export default {
               description:
                 "Install the right tools and set up your first project.",
               urlTitle: "View docs",
-              url: "/",
+              url: "https://docs.scrt.network/dev/secret-contracts.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -73,7 +71,7 @@ export default {
               description:
                 "Learn how Secret works and the use cases it serves.",
               urlTitle: "View docs",
-              url: "/",
+              url: "https://docs.scrt.network/protocol/protocol.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -81,7 +79,7 @@ export default {
               description:
                 "Get to know Secret’s privacy-preserving features and how you can use them. ",
               urlTitle: "View resource",
-              url: "/",
+              url: "",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -89,7 +87,7 @@ export default {
               description:
                 "Find out how Secret Contract interactions are executed and preserve data privacy.",
               urlTitle: "View docs",
-              url: "/",
+              url: "https://docs.scrt.network/protocol/architecture.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -97,7 +95,7 @@ export default {
               description:
                 "An overview of all the Secret apps, tools, and resources you might need. ",
               urlTitle: "View resource",
-              url: "/",
+              url: "https://github.com/SecretFoundation/awesome-secret",
             },
           ],
         },
@@ -116,7 +114,7 @@ export default {
               description:
                 "Get an IDE, know what functions to call, how to debug, and more.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://docs.scrt.network/dev/developing-secret-contracts.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -124,7 +122,7 @@ export default {
               description:
                 "A set of Rust packages with common tools to develop Secret Contracts.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://github.com/scrtlabs/secret-toolkit",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -132,7 +130,7 @@ export default {
               description:
                 "Every step you need to create + deploy a Secret Contract in one place.",
               urlTitle: "View docs",
-              url: "google.com",
+              url: "https://docs.scrt.network/dev/quickstart.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -140,7 +138,7 @@ export default {
               description:
                 "Mint your first Secret NFT and learn how their privacy-preserving features work.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://learn.figment.io/tutorials/create-your-first-secret-nft",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -148,7 +146,7 @@ export default {
               description:
                 "Learn about Secret’s privacy-preserving features and how you can use them.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -156,7 +154,7 @@ export default {
               description:
                 "Learn about Secret’s privacy-preserving features and how you can use them.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://www.npmjs.com/package/secret-polar",
             },
           ],
         },
@@ -175,7 +173,7 @@ export default {
               description:
                 "Speed up your Secret App interface building with this development framework.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://griptapejs.com/",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -183,7 +181,7 @@ export default {
               description:
                 "Let your app interact with nodes on the network using Secret CLI.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://docs.scrt.network/cli/install-cli.html",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -191,7 +189,7 @@ export default {
               description:
                 "Flex your Python skills to build and test components of Secret Apps.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://github.com/secretanalytics/secret-sdk-python ",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -199,7 +197,7 @@ export default {
               description:
                 "An easy step-by-step tutorial to set up your first contract, made by our partner, Figment.",
               urlTitle: "View resource",
-              url: "google.com",
+              url: "https://learn.figment.io/protocols/secret",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -207,7 +205,7 @@ export default {
               description:
                 "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
               urlTitle: "View template",
-              url: "google.com",
+              url: "https://github.com/scrtlabs/Secret.js",
             },
           ],
         },
@@ -233,13 +231,16 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-pathway {
-  position: relative;
+  display: grid;
+  grid-gap: 68px;
+  margin-top: 68px;
 
   &__inside {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 4px;
-    margin: 68px 0;
+    margin-bottom: 76px;
+    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -251,19 +252,21 @@ export default {
 
     h6 {
       font-family: montserrat;
-      text-transform: uppercase;
-      font-weight: 100;
-      font-size: var(--f-h5-text-size);
-      color: var(--color-neutral-dark-mode-05);
-      line-height: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: var(--f-h5-text-size);
+    color: var(--color-neutral-dark-mode-05);
+    line-height: 24px;
+   
 
-      @include respond-to("<=s") {
-        font-size: var(--f-h6-text-size);
-      }
+    @include respond-to("<=s") {
+      font-size: var(--f-h6-text-size);
+    }
     }
 
     h3 {
       font-size: var(--f-h3-text-size);
+      line-height: 1;
     }
     p {
       font-size: var(--paragraph-font-size-big);
@@ -285,7 +288,7 @@ export default {
     grid-template-columns: 1fr 1fr;
     grid-gap: 32px;
     row-gap: 24px;
-    margin: var(--f-gutter);
+    margin-left: 36px;
 
     @include respond-to("<=m"){
        margin: 16px 0;
@@ -306,9 +309,11 @@ export default {
       grid-gap: 10px;
 
       &__details {
+        display: grid;
+        grid-gap: 4px;
         h6 {
           font-size: var(--f-h5-text-size);
-          margin-bottom: 0%;
+          margin-bottom: 0;
         }
 
         p {
