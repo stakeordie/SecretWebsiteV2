@@ -513,7 +513,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   grid-template-columns: 1fr;
   gap: var(--f-gutter-xl);
   // background-color: var(--theme-card-grid-bg-color);
-  padding: 32px;
+  padding: 32px 0;
   margin-top: 64px;
   align-content: start;
   text-align: center;
