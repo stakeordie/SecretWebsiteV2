@@ -688,6 +688,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         * {
           margin: 0;
         }
+
+        &:hover &__header__tag{
+          border: 1px solid var(--color-neutral-dark-mode-02);
+        }
+
+        
         // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
         &__overall-link {
           display: grid;
@@ -746,8 +752,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         }
 
         &:hover {
+          
           background: var(--color-neutral-dark-mode-04);
         }
+
+        
 
         * {
           margin: 0;
@@ -768,7 +777,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           //   }
           // }
         }
+        
+        
       }
+      
     }
   }
 }

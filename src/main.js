@@ -117,6 +117,7 @@ import DevelopersFunding from '~/components/page/DevelopersFunding'
 import DevelopersCallAction from '~/components/page/DevelopersCallAction'
 import DevelopersCallSecond from '~/components/page/DevelopersCallSecond'
 import DevelopersCoolStuff from '~/components/page/DevelopersCoolStuff'
+import ServiceTable from '~/components/page/ServiceTable'
 
 
 
@@ -246,6 +247,7 @@ export default function (Vue, {
   Vue.component('DevelopersCallAction', DevelopersCallAction);
   Vue.component('DevelopersCallSecond', DevelopersCallSecond);
   Vue.component('DevelopersCoolStuff', DevelopersCoolStuff);
+  Vue.component('ServiceTable', ServiceTable);
 
 
 
