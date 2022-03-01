@@ -16,7 +16,7 @@
         <div class="page-developers-funding__materials__material" v-for="(item, index) in material" :key="index">
           <h6>{{ item.title }}</h6>
             <p>{{ item.description }}</p>
-            <a  :url="item.url">READ MORE</a>
+            <a  :href="item.url" >READ MORE</a>
         </div>
       </div>
   </section>
@@ -32,14 +32,14 @@ export default {
           title: "Ecosystem Fund",
           description:
             "Get long-term financial and strategic support from our top industry partners to scale your Secret project and reach billions of users.",
-          url: "google.com",
+          url: "https://scrt.network/blog/secret-network-400m-ecosystem-funding-new-investors",
         },
         {
           imageUrl: "/temp/icon-developers-path.svg",
           title: "Grants",
           description:
             "Get non-dilutive capital to get your Secret idea off the ground and rapidly gain traction.",
-          url: "google.com",
+          url: "https://scrt.network/blog/announcing-secret-network-grant-program",
         }
       ]
     }

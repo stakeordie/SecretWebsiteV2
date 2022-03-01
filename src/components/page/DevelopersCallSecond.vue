@@ -30,7 +30,7 @@ export default {
           description:
             "Become a Secret Agent and advance a better, more empowering web. ",
           urlTitle: "Get involved",
-          url: "google.com",
+          url: "https://scrt.network/get-involved/become-secret-agent",
         },
       ],
     };

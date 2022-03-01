@@ -212,9 +212,12 @@ query {
         aspect-ratio: 1 / 1;
       }
 
-      &:hover {
-        transform: var(--card-hover-transform);
-        box-shadow: var(--card-hover-shadow) var(--accent-gray);
+      // &:hover {
+      //   transform: var(--card-hover-transform);
+      //   box-shadow: var(--card-hover-shadow) var(--accent-gray);
+      // }
+      &:hover{
+        background: var(--color-neutral-dark-mode-04);
       }
 
       * {
