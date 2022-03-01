@@ -109,7 +109,7 @@ export default {};
         margin-right: 0;
       }
        .text-center{
-        background-color: #4195c4 !important;
+        background-color: var(--color-highkey-secondary-blue) !important;
         width:400px;
         margin-right: 0;
         padding: 0;
