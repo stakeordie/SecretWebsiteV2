@@ -80,6 +80,8 @@ module.exports = {
                 'external-media-alts',
                 'contributors',
                 'd-apps',
+                'nf-ts',
+                'cool-stuffs',
                 'nodes',
                 'tools-and-wallets',
                 'exchanges',
