@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div
-      class="items horizontal-slider page-developer__cool-stuff"
-    >
-      <div class="card-element item" v-for="element in coolStuff" :key="element.id">
+    <div class="items horizontal-slider page-developer__cool-stuff">
+      <div
+        class="card-element item"
+        v-for="element in coolStuff"
+        :key="element.id"
+      >
         <a
           class="card-element__overall-link"
           :href="element.url"
@@ -13,7 +15,7 @@
           <div class="card-element__header">
             <img
               class="card-element__header__logo"
-              :src="element.picture.url"
+              :src="element.logo[0].url"
               alt="picture"
             />
             <!-- Categorie tags -->
@@ -85,10 +87,21 @@ export default {
 
   computed: {
     coolStuff() {
+      
       const coolStuffArr = this.$static.coolStuff.edges.map((it) => {
         return it.node;
       });
-      // console.log(coolStuffArr);
+      coolStuffArr.sort(function (a, b) {
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if(titleA < titleB) {
+          return -1
+        }
+        if(titleA > titleB) {
+          return 1
+        }
+        return 0;
+      });
       return coolStuffArr;
     },
   },
@@ -96,26 +109,25 @@ export default {
 </script>
 
 <static-query>
-query {
-  coolStuff: allStrapiDApps {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+  query {
+    coolStuff: allStrapiCoolStuffs {
+      edges {
+        node {
+          id
+          title: name
+          url: link
+          description
+          cta_title
+          logo {
+            url
+          }
+          types {
+            name
+          }
         }
       }
     }
   }
-}
 </static-query>
 
 <style lang="scss">
@@ -127,6 +139,7 @@ query {
     white-space: nowrap;
     display: grid;
     grid-auto-flow: column;
+    justify-content: start;
     &::-webkit-scrollbar {
       display: none;
     }

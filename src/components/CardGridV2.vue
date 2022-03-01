@@ -313,9 +313,28 @@ export default {
           element.sort = 99999;
         }
       }
+      // array.sort(function(a, b){
+      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
+      // if (nameA < nameB) //sort string ascending
+      //   return -1;
+      // if (nameA > nameB)
+      //   return 1;
+      // return 0; //default return value (no sorting)
+      // });
       sortedCollection.sort(function (a, b) {
-        return a.sort - b.sort;
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if(titleA < titleB) {
+          return -1
+        }
+        if(titleA > titleB) {
+          return 1
+        }
+        return 0;
       });
+      // sortedCollection.sort(function (a, b) {
+      //   return a.sort - b.sort;
+      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
