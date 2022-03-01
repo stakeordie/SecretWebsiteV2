@@ -101,7 +101,7 @@ export default {
               description:
                 "Get to know Secret’s privacy-preserving features and how you can use them. ",
               urlTitle: "View resource",
-              url: "",
+              url: "https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html",
             },
             {
               image: "/temp/icon-features-file.svg",

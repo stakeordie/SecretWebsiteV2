@@ -66,7 +66,7 @@ export default {};
         
 
         span {
-          color: #4195c4;
+          color: var(--color-highkey-secondary-blue);
         }
       }
 
