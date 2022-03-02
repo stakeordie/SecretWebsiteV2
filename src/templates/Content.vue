@@ -26,6 +26,11 @@ export default {
           property: "og:image",
           content: this.getMetaData("ogImage"),
         },
+        {
+          key: "description",
+          property: "description",
+          content: this.getMetaData("description"),
+        },
       ],
     };
   },
@@ -42,6 +47,9 @@ export default {
         arr.push({
           route: el.node.route,
           title: el.node.title,
+          description: el.node.meta_description
+            ? el.node.meta_description
+            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
           ogDescription: el.node.og_description
             ? el.node.og_description
             : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
@@ -63,7 +71,7 @@ export default {
       // console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];
-        // console.log(result);
+        console.log(result);
       } else {
         result = "Secret Network";
       }
@@ -101,10 +109,12 @@ export default {
         og_image {
           url
         }
+        meta_title
+        meta_description
       }
     }
   }
-  }
+}
 </page-query>
 
 <style lang="scss">
