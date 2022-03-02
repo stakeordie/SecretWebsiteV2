@@ -71,7 +71,7 @@
                   :class="evaluateTags(element.types.length)"
                   v-if="hasCategories"
                 >
-                  <p
+                  <p class="tag-accent"
                     v-for="(category, id) in element.types"
                     :key="id"
                     :class="'accent-' + category.name"
@@ -115,7 +115,7 @@
                     :class="evaluateTags(element.types.length)"
                     v-if="hasCategories"
                   >
-                    <p
+                    <p class="tag-accent"
                       v-for="(category, id) in element.types"
                       :key="id"
                       :class="'accent-' + category.name"
@@ -707,18 +707,31 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         * {
           margin: 0;
         }
-
-        &:hover &__header__tag{
-          border: 1px solid var(--color-neutral-dark-mode-02);
-        }
-
         
+       
+
+
         // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
         &__overall-link {
           display: grid;
           gap: var(--f-gutter);
           padding: var(--f-gutter);
           grid-template-rows: 64px 1fr 32px;
+
+
+          &:hover  .ecosystem .btn-text{
+              color: var( --color-analog-tertiary-blue);
+            }
+
+          &:hover .tag-accent{
+                border-color: var(--color-neutral-dark-mode-02);
+              }
+
+              .ecosystem{
+                 &:hover{
+            color: var(--color-highkey-secondary-blue);
+          }
+              }
         }
         &__header {
           display: grid;
@@ -728,6 +741,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &__logo {
             border-radius: 10px;
           }
+
+          
+
           .meta {
             display: grid;
             justify-items: end;
@@ -744,8 +760,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
               border-radius: 100px;
               padding: 2px 8px;
               border: 1px solid var(--color-neutral-dark-mode-04);
+
             }
+            
           }
+          
         }
         &__title-desc {
           display: grid;
@@ -773,10 +792,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         &:hover {
           
           background: var(--color-neutral-dark-mode-04);
+
         }
-
-        
-
+   
         * {
           margin: 0;
         }

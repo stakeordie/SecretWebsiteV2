@@ -21,7 +21,7 @@
             <!-- Categorie tags -->
             <div class="meta meta--with-categories">
               <div class="m-elements card-element__header__tags">
-                <p
+                <p class="tag-accent"
                   v-for="(category, id) in element.types"
                   :key="id"
                   :class="'accent-' + category.name"
@@ -150,16 +150,13 @@ export default {
       transition: 0.2s ease;
       display: inline-flex;
       // gap: var(--f-gutter);
-      flex-direction: column;
+      // flex-direction: column;
       text-align: center;
       border-radius: 10px;
       max-width: 300px;
       min-width: 300px;
 
       margin-right: var(--f-gutter-l);
-
-      display: inline-flex;
-      flex-direction: column;
 
       white-space: normal;
       justify-content: space-between;
@@ -174,6 +171,21 @@ export default {
         gap: var(--f-gutter);
         padding: var(--f-gutter);
         grid-template-rows: 64px 1fr 32px;
+
+        .ecosystem{
+          margin-top: 0;
+
+          &:hover{
+            color: var(--color-highkey-secondary-blue);
+          }
+        }
+         &:hover  .ecosystem .btn-text{
+              color: var( --color-highkey-secondary-blue);
+            }
+
+         &:hover .tag-accent{
+                border-color: var(--color-neutral-dark-mode-02);
+              }
       }
       &__header {
         display: grid;
