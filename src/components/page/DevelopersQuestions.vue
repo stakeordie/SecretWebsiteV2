@@ -52,6 +52,7 @@ export default {};
 
     @include respond-to("<=s"){
         grid-template-columns: 1fr;
+        grid-gap: 0px;
     }
 
     &__image {
@@ -61,7 +62,7 @@ export default {};
     }
 
     &__content {
-        margin: auto 0;
+        margin: auto ;
       &__title {
           font-size: var(--f-h4-text-size);
           
@@ -72,14 +73,18 @@ export default {};
         display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
+    min-width: 320px;
+    margin: auto;
+    
 
          @include respond-to("<=xs"){
         grid-template-columns: 1fr;
+        grid-gap: 0px;
     }
 
         &__blue-button {
           .text-center {
-            background-color: #4195c4 !important;
+            background-color: var(--color-highkey-secondary-blue) !important;
             font-size: var(--f-default-text-size);
             letter-spacing: 1px;
             &.special-icon{

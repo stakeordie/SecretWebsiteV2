@@ -6,8 +6,8 @@
       </h6>
       <p class="page-developer-new-dev__content__text">
         Secret Pathways is a community effort and we’re actively looking for
-        contributors. Want to help out?Join the Discord and let us know in the
-        dev channel, or <a href="#">contact us here.</a>
+        contributors. Want to help out? Join the Discord and let us know in the
+        dev channel, or <a href="https://discord.gg/PzdQ9bfvcX">contact us here.</a>
       </p>
     </div>
   </section>

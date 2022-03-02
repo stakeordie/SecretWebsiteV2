@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div
-      class="items horizontal-slider page-developer__cool-stuff"
-    >
-      <div class="card-element item" v-for="element in coolStuff" :key="element.id">
+    <div class="items horizontal-slider page-developer__cool-stuff">
+      <div
+        class="card-element item"
+        v-for="element in coolStuff"
+        :key="element.id"
+      >
         <a
           class="card-element__overall-link"
           :href="element.url"
@@ -13,13 +15,13 @@
           <div class="card-element__header">
             <img
               class="card-element__header__logo"
-              :src="element.picture.url"
+              :src="element.logo[0].url"
               alt="picture"
             />
             <!-- Categorie tags -->
             <div class="meta meta--with-categories">
               <div class="m-elements card-element__header__tags">
-                <p
+                <p class="tag-accent"
                   v-for="(category, id) in element.types"
                   :key="id"
                   :class="'accent-' + category.name"
@@ -85,10 +87,21 @@ export default {
 
   computed: {
     coolStuff() {
+      
       const coolStuffArr = this.$static.coolStuff.edges.map((it) => {
         return it.node;
       });
-      // console.log(coolStuffArr);
+      coolStuffArr.sort(function (a, b) {
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if(titleA < titleB) {
+          return -1
+        }
+        if(titleA > titleB) {
+          return 1
+        }
+        return 0;
+      });
       return coolStuffArr;
     },
   },
@@ -96,26 +109,25 @@ export default {
 </script>
 
 <static-query>
-query {
-  coolStuff: allStrapiDApps {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+  query {
+    coolStuff: allStrapiCoolStuffs {
+      edges {
+        node {
+          id
+          title: name
+          url: link
+          description
+          cta_title
+          logo {
+            url
+          }
+          types {
+            name
+          }
         }
       }
     }
   }
-}
 </static-query>
 
 <style lang="scss">
@@ -127,6 +139,7 @@ query {
     white-space: nowrap;
     display: grid;
     grid-auto-flow: column;
+    justify-content: start;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -137,16 +150,13 @@ query {
       transition: 0.2s ease;
       display: inline-flex;
       // gap: var(--f-gutter);
-      flex-direction: column;
+      // flex-direction: column;
       text-align: center;
       border-radius: 10px;
       max-width: 300px;
       min-width: 300px;
 
       margin-right: var(--f-gutter-l);
-
-      display: inline-flex;
-      flex-direction: column;
 
       white-space: normal;
       justify-content: space-between;
@@ -161,6 +171,21 @@ query {
         gap: var(--f-gutter);
         padding: var(--f-gutter);
         grid-template-rows: 64px 1fr 32px;
+
+        .ecosystem{
+          margin-top: 0;
+
+          &:hover{
+            color: var(--color-highkey-secondary-blue);
+          }
+        }
+         &:hover  .ecosystem .btn-text{
+              color: var( --color-highkey-secondary-blue);
+            }
+
+         &:hover .tag-accent{
+                border-color: var(--color-neutral-dark-mode-02);
+              }
       }
       &__header {
         display: grid;
@@ -212,9 +237,12 @@ query {
         aspect-ratio: 1 / 1;
       }
 
-      &:hover {
-        transform: var(--card-hover-transform);
-        box-shadow: var(--card-hover-shadow) var(--accent-gray);
+      // &:hover {
+      //   transform: var(--card-hover-transform);
+      //   box-shadow: var(--card-hover-shadow) var(--accent-gray);
+      // }
+      &:hover{
+        background: var(--color-neutral-dark-mode-04);
       }
 
       * {

@@ -98,6 +98,9 @@ export default {
       background: var(--color-neutral-dark-mode-03);
       padding: var(--f-gutter-l);
       border-radius: 10px;
+       &:hover{
+        background: var(--color-neutral-dark-mode-04);
+      }
 
       &__content {
         margin-top: 10px;

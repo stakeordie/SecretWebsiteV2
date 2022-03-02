@@ -1,19 +1,23 @@
 <template>
   <div>
     <!-- GRID HEADER -->
-    <div class="grid-header-v2">
+    <!-- <div class="grid-header-v2">
       <h2>{{ gridHeaderTitle(header) }}</h2>
       <p>{{ gridHeaderSubtitle(header) }}</p>
-    </div>
+    </div> --> 
     <div class="elements-v2">
       <!-- FILTER -->
       <div class="filter v2">
         <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
-        <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3>
-        <div class="filter-auction" v-if="hasCategories">
-          <h3>Explore {{ gridHeaderTitle(header) }} on Secret Network</h3>
-          <!-- <button class="btn-clear" v-on:click="resetCheck">Clear</button> -->
-        </div>
+        <h5 class="mini-title">Explore</h5>
+        <!-- <h2 v-if="!gridHeaderTitle(header)">{{ title }}</h2> -->
+        <h2>{{ gridHeaderTitle(header) }}</h2>
+          <p>{{ gridHeaderSubtitle(header) }}</p>
+        <!-- <div class="filter-auction" v-if="hasCategories">
+          <h2>{{ gridHeaderTitle(header) }}</h2>
+          <p>{{ gridHeaderSubtitle(header) }}</p>
+          // <button class="btn-clear" v-on:click="resetCheck">Clear</button> 
+        </div> -->
         <div class="search">
           <input
             class="search-filter"
@@ -67,7 +71,7 @@
                   :class="evaluateTags(element.types.length)"
                   v-if="hasCategories"
                 >
-                  <p
+                  <p class="tag-accent"
                     v-for="(category, id) in element.types"
                     :key="id"
                     :class="'accent-' + category.name"
@@ -111,7 +115,7 @@
                     :class="evaluateTags(element.types.length)"
                     v-if="hasCategories"
                   >
-                    <p
+                    <p class="tag-accent"
                       v-for="(category, id) in element.types"
                       :key="id"
                       :class="'accent-' + category.name"
@@ -309,9 +313,28 @@ export default {
           element.sort = 99999;
         }
       }
+      // array.sort(function(a, b){
+      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
+      // if (nameA < nameB) //sort string ascending
+      //   return -1;
+      // if (nameA > nameB)
+      //   return 1;
+      // return 0; //default return value (no sorting)
+      // });
       sortedCollection.sort(function (a, b) {
-        return a.sort - b.sort;
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if(titleA < titleB) {
+          return -1
+        }
+        if(titleA > titleB) {
+          return 1
+        }
+        return 0;
       });
+      // sortedCollection.sort(function (a, b) {
+      //   return a.sort - b.sort;
+      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
@@ -508,17 +531,30 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--f-gutter-xl);
-  background-color: var(--theme-card-grid-bg-color);
-  padding: 32px;
+  // background-color: var(--theme-card-grid-bg-color);
+  padding: 32px 0;
+  margin-top: 64px;
   align-content: start;
+  text-align: center;
 
   @include respond-to("<=m") {
     grid-template-columns: 1fr;
   }
 
-  h3 {
-    margin-bottom: 48px;
+  h5 {
+  color: var(--color-analog-tertiary-gray);
+  
   }
+  h2 {
+      margin-bottom: 48px;
+      font-size: 54px;
+    }
+    p{
+      max-width: 650px;
+    }
+
+  
+ 
 
   h4 {
     color: var(--color-neutral-dark-mode-05);
@@ -671,12 +707,31 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         * {
           margin: 0;
         }
+        
+       
+
+
         // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
         &__overall-link {
           display: grid;
           gap: var(--f-gutter);
           padding: var(--f-gutter);
           grid-template-rows: 64px 1fr 32px;
+
+
+          &:hover  .ecosystem .btn-text{
+              color: var( --color-analog-tertiary-blue);
+            }
+
+          &:hover .tag-accent{
+                border-color: var(--color-neutral-dark-mode-02);
+              }
+
+              .ecosystem{
+                 &:hover{
+            color: var(--color-highkey-secondary-blue);
+          }
+              }
         }
         &__header {
           display: grid;
@@ -686,6 +741,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &__logo {
             border-radius: 10px;
           }
+
+          
+
           .meta {
             display: grid;
             justify-items: end;
@@ -702,8 +760,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
               border-radius: 100px;
               padding: 2px 8px;
               border: 1px solid var(--color-neutral-dark-mode-04);
+
             }
+            
           }
+          
         }
         &__title-desc {
           display: grid;
@@ -729,10 +790,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         }
 
         &:hover {
-          transform: var(--card-hover-transform);
-          box-shadow: var(--card-hover-shadow) var(--accent-gray);
-        }
+          
+          background: var(--color-neutral-dark-mode-04);
 
+        }
+   
         * {
           margin: 0;
         }
@@ -752,7 +814,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           //   }
           // }
         }
+        
+        
       }
+      
     }
   }
 }

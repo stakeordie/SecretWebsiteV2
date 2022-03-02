@@ -11,7 +11,7 @@
       <div class="page-developer-call__content__info">
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
-        <btn class="lcenter-text no-arrow" :url="item.url">{{
+        <btn class="center-text no-arrow" :url="item.url">{{
           item.urlTitle
         }}</btn>
       </div>
@@ -30,7 +30,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get scrt",
-          url: "google.com",
+          url: "https://scrt.network/about/about-scrt",
         },
       ],
     };
