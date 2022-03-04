@@ -5,28 +5,88 @@
 </template>
 
 <script>
-  export default {
-    metaInfo() {
-      return {
-        title: this.$page.content.title,
-        meta: [
-          {
-            key: 'og:title',
-            property: 'og:title',
-            content: 'Secret Network - ' + this.$page.content.title
-          }
-        ]
-      }
-    },
+export default {
+  metaInfo() {
+    return {
+      // title: this.$page.content.title,
+      title: this.getMetaData("title"),
+      meta: [
+        {
+          key: "og:title",
+          property: "og:title",
+          content: `${this.getMetaData("title")} - Secret Network`,
+        },
+        {
+          key: "og:description",
+          property: "og:description",
+          content: this.getMetaData("ogDescription"),
+        },
+        {
+          key: "og:image",
+          property: "og:image",
+          content: this.getMetaData("ogImage"),
+        },
+        {
+          key: "description",
+          property: "description",
+          content: this.getMetaData("description"),
+        },
+      ],
+    };
+  },
+  methods: {
+    getMetaData(strapiData) {
+      let arr = [];
+      let pages = this.$page.strapiPages.edges;
+      let filtered;
+      let result;
 
-    computed: {
-      pageClass() {
-        const dir = this.$page.content.fileInfo.directory;
-        const name = this.$page.content.fileInfo.name;
-        return dir ? `${dir}-${name}` : name;
+      // console.log(pages);
+
+      pages.forEach((el) => {
+        arr.push({
+          route: el.node.route,
+          title: el.node.og_title,
+          description: el.node.meta_description
+            ? el.node.meta_description
+            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
+          ogDescription: el.node.og_description
+            ? el.node.og_description
+            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
+          ogImage: el.node.og_image
+            ? el.node.og_image.url
+            : "https://scrt.network/cover.png",
+        });
+      });
+
+      // Discard Homepage from slice
+      if (this.$page.content.path !== "/") {
+        filtered = arr.filter(
+          (x) => x.route === this.$page.content.path.slice(0, -1)
+        );
+      } else {
+        filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
-    }
-  }
+
+      // console.log(filtered);
+      if (filtered.length >= 1) {
+        result = filtered[0][strapiData];
+        console.log(result);
+      } else {
+        result = "Secret Network";
+      }
+
+      return result;
+    },
+  },
+  computed: {
+    pageClass() {
+      const dir = this.$page.content.fileInfo.directory;
+      const name = this.$page.content.fileInfo.name;
+      return dir ? `${dir}-${name}` : name;
+    },
+  },
+};
 </script>
 
 <page-query>
@@ -39,7 +99,22 @@
         directory
       }
     }
+  strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+      }
+    }
   }
+}
 </page-query>
 
 <style lang="scss">
@@ -91,5 +166,4 @@
     }
   }
 }
-
 </style>

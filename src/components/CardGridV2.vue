@@ -1,42 +1,48 @@
 <template>
   <div>
     <!-- GRID HEADER -->
-    <div class="grid-header">
-      <h3>{{ gridHeaderTitle(header) }}</h3>
+    <!-- <div class="grid-header-v2">
+      <h2>{{ gridHeaderTitle(header) }}</h2>
       <p>{{ gridHeaderSubtitle(header) }}</p>
-    </div>
-    <div class="elements">
+    </div> --> 
+    <div class="elements-v2">
       <!-- FILTER -->
-      <div class="filter">
-        <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3>
-        <div class="filter-auction" v-if="hasCategories">
-          <h4>Filters</h4>
-          <button class="btn-clear" v-on:click="resetCheck">Clear</button>
+      <div class="filter v2">
+        <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
+        <h5 class="mini-title">Explore</h5>
+        <!-- <h2 v-if="!gridHeaderTitle(header)">{{ title }}</h2> -->
+        <h2>{{ gridHeaderTitle(header) }}</h2>
+          <p>{{ gridHeaderSubtitle(header) }}</p>
+        <!-- <div class="filter-auction" v-if="hasCategories">
+          <h2>{{ gridHeaderTitle(header) }}</h2>
+          <p>{{ gridHeaderSubtitle(header) }}</p>
+          // <button class="btn-clear" v-on:click="resetCheck">Clear</button> 
+        </div> -->
+        <div class="search">
+          <input
+            class="search-filter"
+            type="text"
+            ref="inputSearch"
+            v-model="searchInputValue"
+            @keyup="searchFilter()"
+            placeholder="Search by project name"
+          />
         </div>
         <ul
           class="custom-checkbox"
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
         >
+          <li>Filter:</li>
           <li v-for="(category, index) of categories" :key="index">
-            <label>
+            <label v-on:click="searchFilterReset">
               <input
                 :id="category.name"
                 type="checkbox"
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ formatCategory(category.name) }}</span>
-              <img
-                class="unchecked"
-                src="../assets/icon-checkbox-unchecked.svg"
-                alt="unchecked"
-              />
-              <img
-                class="checked"
-                src="../assets/icon-checkbox-checked.svg"
-                alt="checked"
-              />
+              <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
             </label>
           </li>
         </ul>
@@ -65,7 +71,7 @@
                   :class="evaluateTags(element.types.length)"
                   v-if="hasCategories"
                 >
-                  <p
+                  <p class="tag-accent"
                     v-for="(category, id) in element.types"
                     :key="id"
                     :class="'accent-' + category.name"
@@ -87,32 +93,59 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a :href="element.url" target="blank" rel="noopener noreferrer">
-              <img :src="element.picture.url" alt="picture" />
+            <a
+              class="card-element__overall-link"
+              :href="element.url"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-element__header">
+                <img
+                  class="card-element__header__logo"
+                  :src="element.picture.url"
+                  alt="picture"
+                />
+                <!-- Categorie tags -->
+                <div
+                  class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }"
+                >
+                  <div
+                    class="m-elements card-element__header__tags"
+                    :class="evaluateTags(element.types.length)"
+                    v-if="hasCategories"
+                  >
+                    <p class="tag-accent"
+                      v-for="(category, id) in element.types"
+                      :key="id"
+                      :class="'accent-' + category.name"
+                    >
+                      {{ formatCategory(category.name) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div
-                class="meta"
+                class="card-element__title-desc"
                 :class="{ 'meta--with-categories': hasCategories }"
               >
-                <div class="m-title">
-                  <h6>{{ element.title }}</h6>
-                  <!-- <small>{{ element.sort }}</small> -->
-                  <!-- <small>{{ element.id }}</small> -->
-                </div>
-                <div
-                  class="m-elements"
-                  :class="evaluateTags(element.types.length)"
-                  v-if="hasCategories"
-                >
-                  <p
-                    v-for="(category, id) in element.types"
-                    :key="id"
-                    :class="'accent-' + category.name"
-                  >
-                    {{ formatCategory(category.name) }}
+                <div class="card-element__title-desc__header">
+                  <h4 class="element-grid-title">{{ element.title }}</h4>
+                  <p>
+                    {{element.description}}
                   </p>
                 </div>
               </div>
+                <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn>
             </a>
+          </div>
+          <div class="no-results" v-if="searchNoResults">
+            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <h3>No matches found</h3>
+            <p>
+              Please try another search or use one of
+              <span>the predefined filters.</span>
+            </p>
           </div>
         </div>
 
@@ -144,6 +177,10 @@ export default {
 
   data() {
     return {
+      search: "",
+      searchInputValue: "",
+      searchNoResults: false,
+
       currentPage: 0,
 
       checkedCategories: [],
@@ -153,6 +190,7 @@ export default {
   },
 
   props: {
+    props: ["value"],
     title: { type: String, required: true },
     collection: { type: String, required: true },
     header: { type: String, required: false, default: "" },
@@ -162,6 +200,39 @@ export default {
   },
 
   methods: {
+    searchFilter() {
+      const cardEl = document.querySelectorAll(".card-element");
+      let hiddenEls = [];
+      this.resetCheck();
+      this.search = this.searchInputValue.toLowerCase();
+
+      cardEl.forEach((item) => {
+        if (!item.innerText.toLowerCase().includes(this.search)) {
+          item.classList.add("hidden");
+          hiddenEls.push(".");
+        }
+        if (
+          !this.search ||
+          item.innerText.toLowerCase().includes(this.search)
+        ) {
+          item.classList.remove("hidden");
+        }
+      });
+      if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
+      if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
+
+      console.log("total array", cardEl.length);
+      console.log("hiddens", hiddenEls.length);
+      // console.log('hiddens', cardEl.classList.contains(hidden))
+    },
+    searchFilterReset() {
+      this.search = "";
+      const cardEl = document.querySelectorAll(".card-element");
+      this.searchInputValue = "";
+      cardEl.forEach((item) => {
+        item.classList.remove("hidden");
+      });
+    },
     gridHeaderTitle(x) {
       let headers = this.$static.gridHeaders.edges;
       for (let i = 0; i < headers.length; i++) {
@@ -242,9 +313,28 @@ export default {
           element.sort = 99999;
         }
       }
+      // array.sort(function(a, b){
+      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
+      // if (nameA < nameB) //sort string ascending
+      //   return -1;
+      // if (nameA > nameB)
+      //   return 1;
+      // return 0; //default return value (no sorting)
+      // });
       sortedCollection.sort(function (a, b) {
-        return a.sort - b.sort;
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if(titleA < titleB) {
+          return -1
+        }
+        if(titleA > titleB) {
+          return 1
+        }
+        return 0;
       });
+      // sortedCollection.sort(function (a, b) {
+      //   return a.sort - b.sort;
+      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
@@ -330,6 +420,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -346,6 +438,9 @@ query {
         sort
         title: name
         url: link
+        cta_title
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -362,6 +457,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -395,6 +492,8 @@ query {
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
@@ -414,37 +513,134 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.grid-header {
+.grid-header-v2 {
   display: grid;
   max-width: 60%;
-  margin-bottom: var(--f-gutter-l);
+  margin-bottom: var(--f-gutter-xl);
+  margin-top: 48px;
+
   @include respond-to("<=s") {
     max-width: 100%;
   }
+  @include respond-to("<=m") {
+    margin-top: 11px;
+  }
 }
 
-.elements {
+.elements-v2 {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr;
   gap: var(--f-gutter-xl);
-  background-color: var(--theme-card-grid-bg-color);
-  padding: 32px;
+  // background-color: var(--theme-card-grid-bg-color);
+  padding: 32px 0;
+  margin-top: 64px;
+  align-content: start;
+  text-align: center;
 
   @include respond-to("<=m") {
     grid-template-columns: 1fr;
   }
 
-  h3 {
-    margin-bottom: 48px;
+  h5 {
+  color: var(--color-analog-tertiary-gray);
+  
   }
+  h2 {
+      margin-bottom: 48px;
+      font-size: 54px;
+    }
+    p{
+      max-width: 650px;
+    }
+
+  
+ 
 
   h4 {
     color: var(--color-neutral-dark-mode-05);
   }
-
+  .filter {
+    &.v2 {
+      display: grid;
+      justify-content: center;
+      gap: var(--f-gutter);
+      padding-bottom: var(--f-gutter);
+      * {
+        margin: 0;
+      }
+      .custom-checkbox {
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        gap: 10px;
+        display: inline-grid;
+        justify-content: center;
+        li {
+          text-align: center;
+          display: grid;
+          align-items: center;
+          * {
+            margin: 0;
+          }
+          label {
+            padding: 0;
+            border: 0;
+              transition: 0.2s ease;
+            
+            &:hover {
+              color: var(--color-analog-primary-white);
+            }
+            span {
+              display: grid;
+              gap: 2px;
+              grid-auto-flow: column;
+              align-items: center;
+              font-size: 15px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 2px 8px;
+              border: 1px solid var(--color-neutral-dark-mode-04);
+              img {
+                // transition: 0.2s ease;
+                width: 0px;
+                height: 0px;
+              }
+            }
+            input {
+              &:checked {
+                ~ .title {
+                  color: var(--color-analog-primary-white);
+                  border-color: var(--color-analog-primary-white);
+                  img {
+                    transition: 0.2s ease;
+                    width: 16px;
+                    height: 16px;
+                  }
+                }
+              }
+            }
+          }
+          span {
+            padding: 8px;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+      .search-filter {
+        background: var(--color-neutral-dark-mode-01);
+        background-image: url(../assets/icon-search.svg);
+        background-repeat: no-repeat;
+        border-color: var(--color-neutral-dark-mode-01);
+        background-position: 8px;
+        padding-left: 32px;
+      }
+    }
+  }
   .filter-auction {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
 
     @include respond-to(">=s") {
       margin: 0px 0px 20px 0px;
@@ -462,13 +658,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: var(--f-gutter);
-
       @include respond-to(">=s") {
         grid-template-columns: repeat(2, 1fr);
       }
 
       @include respond-to(">=m") {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @include respond-to(">=l") {
@@ -476,7 +671,29 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
 
       @include respond-to(">=xl") {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .no-results {
+        display: grid;
+        grid-column: span 5;
+        justify-items: center;
+        gap: var(--f-gutter);
+        padding: var(--f-gutter-l) 0;
+        * {
+          margin: 0;
+        }
+        img {
+          max-width: 150px;
+        }
+        p {
+          text-align: center;
+          span {
+            @include respond-to(">=m") {
+              display: block;
+            }
+          }
+        }
       }
 
       .card-element {
@@ -484,9 +701,87 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         overflow: hidden;
         background: var(--theme-card-bg-default);
         transition: 0.2s ease;
-        display: flex;
-        flex-direction: column;
+        display: grid;
         text-align: center;
+        border-radius: 10px;
+        * {
+          margin: 0;
+        }
+        
+       
+
+
+        // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
+        &__overall-link {
+          display: grid;
+          gap: var(--f-gutter);
+          padding: var(--f-gutter);
+          grid-template-rows: 64px 1fr 32px;
+
+
+          &:hover  .ecosystem .btn-text{
+              color: var( --color-analog-tertiary-blue);
+            }
+
+          &:hover .tag-accent{
+                border-color: var(--color-neutral-dark-mode-02);
+              }
+
+              .ecosystem{
+                 &:hover{
+            color: var(--color-highkey-secondary-blue);
+          }
+              }
+        }
+        &__header {
+          display: grid;
+          grid-template-columns: 64px 1fr;
+          align-items: start;
+          gap: 4px;
+          &__logo {
+            border-radius: 10px;
+          }
+
+          
+
+          .meta {
+            display: grid;
+            justify-items: end;
+            // gap: 8px;
+          }
+          &__tags {
+            display: flex;
+            flex-flow: wrap-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+            p {
+              font-size: 15px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 2px 8px;
+              border: 1px solid var(--color-neutral-dark-mode-04);
+
+            }
+            
+          }
+          
+        }
+        &__title-desc {
+          display: grid;
+          gap: 8px;
+          text-align: left;
+          &__header {
+            display: grid;
+            gap: 8px;
+            align-content: start;
+          }
+          h4 {
+            color: white;
+          }
+        }
+        &.hidden {
+          display: none;
+        }
 
         img {
           object-fit: cover;
@@ -495,10 +790,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         }
 
         &:hover {
-          transform: var(--card-hover-transform);
-          box-shadow: var(--card-hover-shadow) var(--accent-gray);
-        }
+          
+          background: var(--color-neutral-dark-mode-04);
 
+        }
+   
         * {
           margin: 0;
         }
@@ -512,72 +808,16 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             text-transform: capitalize;
           }
 
-          @each $name, $color in $accent-colors {
-            &.accent-#{$name} {
-              color: var(--accent-#{$name});
-            }
-          }
+          // @each $name, $color in $accent-colors {
+          //   &.accent-#{$name} {
+          //     color: var(--accent-#{$name});
+          //   }
+          // }
         }
-
-        .meta {
-          padding: var(--f-gutter);
-          display: flex;
-          flex-direction: column;
-          gap: var(--f-gutter-xxs);
-          height: 112px;
-
-          &--with-categories {
-            height: 112px;
-          }
-
-          h6 {
-            font-size: 14px;
-          }
-
-          .m-elements {
-            display: grid;
-            height: 100%;
-
-            &.tag-card-1 {
-              place-content: center center;
-              p {
-                font-size: var(--f-tags-general);
-              }
-            }
-            &.tag-card-2 {
-              p {
-                place-content: center center;
-                font-size: var(--f-tags-normal);
-              }
-            }
-            &.tag-card-3,
-            &.tag-card-4 {
-              place-content: center center;
-              p {
-                font-size: var(--f-tags-s);
-              }
-            }
-
-            &.tag-card-3,
-            &.tag-card-4,
-            &.tag-card-5 {
-              grid-template-columns: repeat(2, 1fr);
-              p {
-                font-size: var(--f-tags-s);
-              }
-            }
-
-            p {
-              font-size: 12px;
-              text-transform: capitalize;
-            }
-          }
-
-          .location {
-            color: var(--color-analog-secondary-blue);
-          }
-        }
+        
+        
       }
+      
     }
   }
 }

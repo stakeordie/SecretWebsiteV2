@@ -11,7 +11,7 @@
       <!-- <h5>{{element.whatWalletUseCard[0].id}}</h5> -->
       <!-- methods -->
       <section class="about-wallets__wrapper__loop__collection">
-        <a href="" target="blank"  class="about-wallets__wrapper__loop__collection__wallet" v-for="(wallet, index)  in aboutScrtWallets[0].whatWalletUseCard"
+        <a href="" target="blank" rel="noopener noreferrer"  class="about-wallets__wrapper__loop__collection__wallet" v-for="(wallet, index)  in aboutScrtWallets[0].whatWalletUseCard"
         :key="index">
           <img :src="wallet.image.url" :alt="wallet.title">
           <h6>{{wallet.title}}</h6> 

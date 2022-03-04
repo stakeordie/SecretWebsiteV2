@@ -52,6 +52,7 @@ import CardStructure from '~/components/cards/CardStructure.vue';
 import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
 import CardGrid from '~/components/CardGrid.vue';
+import CardGridV2 from '~/components/CardGridV2.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
@@ -84,6 +85,7 @@ import HeaderNav from '~/components/HeaderNav.vue';
 import HeaderMegaMenu from '~/components/HeaderMegaMenu.vue';
 import FooterMenu from '~/components/FooterMenu.vue';
 
+
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
@@ -103,6 +105,21 @@ import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
 import i18n from '~/components/i18n'
 import Deploy from '~/components/Deploy'
+import DevelopersHero from '~/components/page/DevelopersHero'
+import DevelopersFeatures from '~/components/page/DevelopersFeatures'
+import DevelopersStartHere from '~/components/page/DevelopersStartHere'
+import DevelopersPathway from '~/components/page/DevelopersPathway'
+import DevelopersHelpNewDevs from '~/components/page/DevelopersHelpNewDevs'
+import DevelopersCardResources from '~/components/page/DevelopersCardResources';
+import DevelopersAdvanced from '~/components/page/DevelopersAdvanced'
+import DevelopersQuestions from '~/components/page/DevelopersQuestions'
+import DevelopersFunding from '~/components/page/DevelopersFunding'
+import DevelopersCallAction from '~/components/page/DevelopersCallAction'
+import DevelopersCallSecond from '~/components/page/DevelopersCallSecond'
+import DevelopersCoolStuff from '~/components/page/DevelopersCoolStuff'
+import ServiceTable from '~/components/page/ServiceTable'
+
+
 
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
@@ -161,6 +178,7 @@ export default function (Vue, {
   Vue.component('CardCurrentPrice', CardCurrentPrice);
   Vue.component('Media', Media);
   Vue.component('CardGrid', CardGrid);
+  Vue.component('CardGridV2', CardGridV2);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
@@ -188,6 +206,7 @@ export default function (Vue, {
   Vue.component('HeaderNav', HeaderNav);
   Vue.component('HeaderMegaMenu', HeaderMegaMenu);
   Vue.component('FooterMenu', FooterMenu);
+  
 
 
   //Experimental
@@ -216,7 +235,20 @@ export default function (Vue, {
   Vue.component('HomeExplainer', HomeExplainer);
   Vue.component('HomeAnnouncements', HomeAnnouncements);
   Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
- 
+  Vue.component('DevelopersHero', DevelopersHero);
+  Vue.component('DevelopersFeatures', DevelopersFeatures);
+  Vue.component('DevelopersStartHere', DevelopersStartHere);
+  Vue.component('DevelopersPathway', DevelopersPathway);
+  Vue.component('DevelopersHelpNewDevs', DevelopersHelpNewDevs);
+  Vue.component('DevelopersCardResources', DevelopersCardResources);
+  Vue.component('DevelopersAdvanced', DevelopersAdvanced);
+  Vue.component('DevelopersQuestions', DevelopersQuestions);
+  Vue.component('DevelopersFunding', DevelopersFunding);
+  Vue.component('DevelopersCallAction', DevelopersCallAction);
+  Vue.component('DevelopersCallSecond', DevelopersCallSecond);
+  Vue.component('DevelopersCoolStuff', DevelopersCoolStuff);
+  Vue.component('ServiceTable', ServiceTable);
+
 
 
   
