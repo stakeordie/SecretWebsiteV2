@@ -79,7 +79,7 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 Use Secret’s private-by-default smart contracts to develop trailblazing apps not possible elsewhere.
 
-<btn class="text-center no-arrow" url="/">VIEW DEV TOOLS</btn>
+<btn class="text-center no-arrow" url="/developers">VIEW DEV TOOLS</btn>
 
 </block>
 
@@ -101,7 +101,7 @@ Use Secret’s private-by-default smart contracts to develop trailblazing apps n
 
 Find out where to buy SCRT, what wallet to store it in, and how to start using Secret dApps. 
 
-<btn class="text-center no-arrow" url="/">Get SCRT</btn>
+<btn class="text-center no-arrow" url="/about/about-scrt">Get SCRT</btn>
 
 </block>
 
