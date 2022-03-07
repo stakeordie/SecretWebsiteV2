@@ -73,7 +73,7 @@ export default {};
         display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
-    min-width: 320px;
+    min-width: 100%;
     margin: auto;
     
 

@@ -26,10 +26,10 @@
           <a :href="item.url" class="item-link">{{ item.urlService }}</a>
           </div>
         </li>
-        <li class="service-status__table__row__status">{{ item.status1 }}<div class="status-heading">Deposit</div></li>
-        <li class="service-status__table__row__status">{{ item.status2 }}<div class="status-heading">Widthraw</div></li>
-        <li class="service-status__table__row__status">{{ item.status3 }}<div class="status-heading">Trading</div></li>
-        <li class="service-status__table__row__update">{{ item.time }}<div class="status-heading">Last updated</div></li>
+        <li class="service-status__table__row__status"><h6 class="status-heading">Deposit</h6>{{ item.status1 }}</li>
+        <li class="service-status__table__row__status"><h6 class="status-heading">Widthraw</h6>{{ item.status2 }}</li>
+        <li class="service-status__table__row__status"><h6 class="status-heading">Trading</h6>{{ item.status3 }}</li>
+        <li class="service-status__table__row__update"><h6 class="status-heading">Last updated</h6>{{ item.time }}</li>
       </ul>
     </div>
   </section>
@@ -260,6 +260,7 @@ export default {
               font-weight: 100;
               text-transform: none;
               color: var(--color-neutral-dark-mode-05);
+              margin: 0;
                 
                 @include respond-to(">=m"){
                   display: none;

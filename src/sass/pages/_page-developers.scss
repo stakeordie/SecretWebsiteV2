@@ -4,7 +4,7 @@
     &__hero-container{
         background: var(--color-neutral-dark-mode-01);
         overflow: hidden;
-        margin-top: -6px;
+        margin-top: -44px;
         @include respond-to("<=m") {
             margin-top: -44px;
         }
