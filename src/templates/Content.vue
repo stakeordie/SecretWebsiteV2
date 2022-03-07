@@ -46,7 +46,7 @@ export default {
       pages.forEach((el) => {
         arr.push({
           route: el.node.route,
-          title: el.node.title,
+          title: el.node.og_title,
           description: el.node.meta_description
             ? el.node.meta_description
             : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
@@ -109,7 +109,7 @@ export default {
         og_image {
           url
         }
-        meta_title
+        og_title
         meta_description
       }
     }
