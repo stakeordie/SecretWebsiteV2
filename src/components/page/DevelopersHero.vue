@@ -11,7 +11,7 @@
           contracts. Encrypted inputs, outputs, and state can be revealed at
           will, opening up an entirely new design space for dApps.
         </p>
-        <btn class="text-center no-arrow" url="/">Join our Dev Community</btn>
+        <btn class="text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Join our Dev Community</btn>
       </div>
     </div>
     <div class="page-developers__hero__bg-img">

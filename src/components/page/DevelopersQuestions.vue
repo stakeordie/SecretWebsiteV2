@@ -45,7 +45,7 @@ export default {};
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-gap: 42px;
+    grid-gap: 16px;
     background: var(--color-neutral-dark-mode-03);
     padding: var(--f-gutter);
     border-radius: 10px;
