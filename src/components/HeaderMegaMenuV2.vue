@@ -346,7 +346,8 @@ export default {
       const body = document.querySelector("body");
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
-      this.megaMenuIsOpen = false;      
+      this.megaMenuIsOpen = false; 
+      this.lastIndex = null;     
       body.classList.remove("freezed");
       navEl.forEach(el => {el.classList.remove("activeNav")});
       arrow.forEach(el => {el.classList.remove("arrow-up")});
