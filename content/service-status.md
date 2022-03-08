@@ -1,16 +1,33 @@
 ---
 title: 'Service Status'
 ---
-<column>
+
+
+
+
+<column class="service-status__hero-container">
+
 <block>
-<hero-title>
 
-## Service Status
+<service-status-hero></service-status-hero>
 
-</hero-title>
 </block>
+
 </column>
 
+
+
+
+
+<column >
+
+<block>
+
+<service-status-alert></service-status-alert>
+
+</block>
+
+</column>
 
 
 

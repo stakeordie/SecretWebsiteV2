@@ -15,7 +15,7 @@
         <li class="row-status">DEPOSIT </li>
         <li class="row-status">WITHDRAWS</li>
         <li class="row-status">TRADING</li>
-        <li class="row-status">Last updated</li>
+        <li class="row-status">Reported on</li>
       </ul>
 
       <ul class="service-status__table__row"  v-for="(item, index) in material" :key="index">
@@ -27,9 +27,9 @@
           </div>
         </li>
         <li class="service-status__table__row__status"><h6 class="status-heading">Deposit</h6>{{ item.status1 }}</li>
-        <li class="service-status__table__row__status"><h6 class="status-heading">Widthraw</h6>{{ item.status2 }}</li>
+        <li class="service-status__table__row__status"><h6 class="status-heading">Widthraws</h6>{{ item.status2 }}</li>
         <li class="service-status__table__row__status"><h6 class="status-heading">Trading</h6>{{ item.status3 }}</li>
-        <li class="service-status__table__row__update"><h6 class="status-heading">Last updated</h6>{{ item.time }}</li>
+        <li class="service-status__table__row__update"><h6 class="status-heading">Reported on</h6>{{ item.time }}</li>
       </ul>
     </div>
   </section>
@@ -108,8 +108,9 @@ export default {
 
 
   &__tabs{
-    display: inline-block;
     margin-bottom: 16px;
+    
+    text-align: center;
     
 
     &__tab{
@@ -145,7 +146,7 @@ export default {
 
         &__columns{
             display: grid;
-            grid-template-columns: repeat(5,1fr);
+            grid-template-columns: 2fr repeat(4,1fr);
             grid-gap: 4px;
             background: var(--color-neutral-dark-mode-03);
             margin: 0;
@@ -182,7 +183,7 @@ export default {
         }
          &__row{
             display: grid;
-            grid-template-columns: repeat(5,1fr);
+            grid-template-columns: 2fr repeat(4,1fr);
             grid-gap: 4px;
             background: var(--color-neutral-dark-mode-04);
             margin: 0;
@@ -198,6 +199,7 @@ export default {
             li{
               padding: var(--f-gutter) var(--f-gutter-l);
               margin-bottom: 0;
+              vertical-align: top;
              
 
             }
@@ -234,6 +236,10 @@ export default {
               font-weight: 700;
               color: var(--color-analog-secondary-green);
               align-self: center;
+              
+              @include respond-to ("<=s"){
+                align-self:auto;
+              }
 
                @include respond-to ("<=xs"){
                 transform: translateX(58px);
