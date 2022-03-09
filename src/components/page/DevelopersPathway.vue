@@ -351,12 +351,6 @@ export default {
 
           a {
             padding: 0;
-            span {
-              color: var(--color-developers-blue-02) !important;
-            }
-            .theme-image {
-              color: var(--color-developers-blue-02) !important;
-            }
           }
         }
       }
