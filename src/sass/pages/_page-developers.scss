@@ -15,7 +15,19 @@
         margin-bottom: 132px;
     }
 
+    &__horizontal-scroll{
+      h3{
+
+        @include respond-to("<=xs"){
+          font-size: var(--f-h4-text-size);
+
+        }
+      }
+    }
+
     &__cool-stuff {
+
+      
         
         .content{
             .box {

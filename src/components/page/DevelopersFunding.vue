@@ -61,6 +61,8 @@ export default {
         max-width: 620px;
         margin: auto;
 
+         
+
         &__sub-title{
             font-family: montserrat;
             text-transform: uppercase;
@@ -98,8 +100,13 @@ export default {
             margin: auto;
             margin-top: 16px;
 
+            @include respond-to("<=s") {
+              
+            }
+
             @include respond-to("<=xs"){
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
             &__material{
