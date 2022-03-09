@@ -103,9 +103,7 @@ export default {
           .link-arrow {
             padding: 0;
             margin-top: 0%;
-            span {
-              color: var(--color-highkey-secondary-blue) !important;
-            }
+            
           }
         }
       }

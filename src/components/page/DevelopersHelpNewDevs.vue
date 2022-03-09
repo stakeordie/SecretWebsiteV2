@@ -47,6 +47,8 @@ export default {};
         &__text{
             font-size: var(--f-default-text-size);
             margin: 0;
+
+            
         }
     }
 }

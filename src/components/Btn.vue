@@ -124,12 +124,14 @@ export default {
         background: none;
         pointer-events: all;
         span {
-          color: var(--color-neutral-dark-mode-05);
+          color: var(--color-developers-blue-02);
         }
         &:hover {
           background: none;
         }
       }
+
+
       &.bg-invert {
         background: var(--theme-fg);
         &:hover {

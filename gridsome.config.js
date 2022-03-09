@@ -118,6 +118,7 @@ module.exports = {
                 'agent-landing-intro-rows',
                 'about-scrt',
                 'nav-header',
+                'nav-header-new',
                 'ecosystem-roadmap'
             ],
             // Possibility to login with a Strapi user,
