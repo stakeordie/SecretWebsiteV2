@@ -10,13 +10,13 @@
                 src="../assets/icon-menu.svg"
                 alt="close icon"
                 class="menu"
-                v-on:click="toggleMegaMenu"
+                v-on:click.prevent="openMenuFromMobile"
               />
               <img
                 src="../assets/icon-close.svg"
                 alt="close icon"
                 class="close"
-                v-on:click="toggleMegaMenu"
+                @click.prevent="openMenuFromMobile"
               />
               <g-link to="/">
                 <img
@@ -32,80 +32,15 @@
                 class="nav__content"
                 v-for="(nav, index) in megaMenuItems"
                 :key="index"
-                v-on:click="toggleMegaMenu($event, index)"                
+                @click.prevent="toggleMegaMenu(index)"
               >
                 <a href="/">{{ nav.title }}</a>
-                <img                  
+                <img
                   class="nav__content__chevron"
                   src="../assets/icon-chevron-down.svg"
                   alt="arrow down icon"
                 />
               </li>
-              <!-- <li
-                    class="nav__content"
-                    
-                    v-on:click="toggleMegaMenu"
-                >
-                    <a href="/">Learn</a>
-                    <img
-                        :class="chevron"
-                        class="nav__content__chevron"
-                        src="../assets/icon-chevron-down.svg"
-                        alt="arrow down icon"
-                    />
-                </li>
-                <li
-                    class="nav__content"
-                   
-                    v-on:click="toggleMegaMenu"
-                >
-                    <a href="/">Build</a>
-                    <img
-                        :class="chevron"
-                        class="nav__content__chevron"
-                        src="../assets/icon-chevron-down.svg"
-                        alt="arrow down icon"
-                    />
-                </li>
-                <li
-                    class="nav__content"
-                  
-                    v-on:click="toggleMegaMenu"
-                >
-                    <a href="/">Ecosystem</a>
-                    <img
-                        :class="chevron"
-                        class="nav__content__chevron"
-                        src="../assets/icon-chevron-down.svg"
-                        alt="arrow down icon"
-                    />
-                </li>
-                <li
-                    class="nav__content"
-                    
-                    v-on:click="toggleMegaMenu"
-                >
-                    <a href="/">Get Involved</a>
-                    <img
-                        :class="chevron"
-                        class="nav__content__chevron"
-                        src="../assets/icon-chevron-down.svg"
-                        alt="arrow down icon"
-                    />
-                </li>
-                <li
-                    class="nav__content"
-                    
-                    v-on:click="toggleMegaMenu"
-                >
-                    <a href="/">Resources</a>
-                    <img
-                        :class="chevron"
-                        class="nav__content__chevron"
-                        src="../assets/icon-chevron-down.svg"
-                        alt="arrow down icon"
-                    />
-                </li> -->
             </ul>
             <div class="logo-bar__content__searchbar">
               <div
@@ -126,70 +61,73 @@
           <!-- nav items HEADINGS DESKTOP -->
         </div>
       </div>
+
       <!-- expanded -->
       <div class="mega-header__wrapper__expanded" v-if="megaMenuIsOpen">
         <div class="mega-header__wrapper__expanded__content">
-          <div class="nav__expanded">            
+          <div class="nav__expanded">
             <ul
               class="nav__expanded__content"
-              v-for="(nav, indexS) in subNav[0].sections"
-              :key="indexS"
+              v-for="(nav, index) in megaMenuItems"
+              :key="index"
             >
-              <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>  
-              <li                
-                class="nav__expanded__content__item"                
+              <div class="nav__expanded__content__titles">
+                <div
+                  class="nav__expanded__content__titles__content"
+                  @click.prevent="openSubMenu(index)"
+                >
+                  <div class="nav__expanded__content__titles__content__name">
+                    <img src="../assets/badge.svg" alt="" />
+                    <h6>{{ nav.title }}</h6>
+                  </div>
+                  <img
+                    src="../assets/icon-chevron-down.svg"
+                    alt="arrow down icon"
+                  />
+                </div>
+              </div>
+
+              <li
+                class="nav__expanded__content__item"
+                :class="{
+                  hidden__submenu: subMenuIndex != index,
+                }"
               >
-                <span
-                  :class="{ 'emptytitle' : nav.title === '-'}" 
-                  class="nav__expanded__content__section"
-                  >{{
-                  nav.title
-                }}
-                <hr>
-                </span>
-                
-              </li>    
-              
-              <li                
-                class="nav__expanded__content__item" 
-                v-for="(secItem, indexItem) in subNav[0].sections[indexS].nav_items"
-                :key="indexItem"               
-              >
-                <div class="nav__expanded__content__item__desc">
-                  <img :src="secItem.nav_item.icon" alt="" />
-                  <div >
-                    <div class="nav__expanded__content__item__desc__title">
-                      <span v-on:click="linkCloseMenu">{{
-                      secItem.nav_item.text
-                      }}</span>
+                <div                  
+                  v-for="(sec, indexSec) in nav.sections" :key="indexSec"
+                >
+                  <span
+                    :class="{ emptytitle: sec.title === '-' }"
+                    class="nav__expanded__content__section"
+                    >{{ sec.title }}
+                    <hr />
+                  </span>
+                  <div
+                    class="nav__expanded__content__container"
+                    v-for="(secItem, indexItem) in sec.nav_items"
+                    :key="indexItem"
+                  >
+                    <div class="nav__expanded__content__item__desc">
+                      <img :src="secItem.nav_item.icon" alt="" />
+                      <div>
+                        <div class="nav__expanded__content__item__desc__title">
+                          <span v-on:click="linkCloseMenu">{{
+                            secItem.nav_item.text
+                          }}</span>
+                        </div>
+                        <div class="nav__expanded__content__item__desc__descr">
+                          <span v-on:click="linkCloseMenu">{{
+                            secItem.nav_item.description
+                          }}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="nav__expanded__content__item__desc__descr">
-                      <span v-on:click="linkCloseMenu">{{
-                        secItem.nav_item.description
-                      }}</span>
-                    </div>                    
                   </div>
                 </div>
-                
-                
-
-              </li> 
-
-              <!-- <li                
-                class="nav__expanded__content__item"
-                v-for="(section, index) in nav.sections"
-                :key="index"
-              >
-                <g-link
-                  class="nav__expanded__content__item__link"                  
-                  ><span v-on:click="linkCloseMenu">{{
-                    section.title
-                  }}</span></g-link
-                >
-              </li> -->
+              </li>
             </ul>
           </div>
-          <!-- <div class="nav__social-media">
+          <div class="nav__social-media">
             <div class="nav__social-media__content">
               <p class="title">Connect with Us:</p>
               <div class="nav__social-media__icon-content">
@@ -268,7 +206,7 @@
                 </a>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
       <div
@@ -288,8 +226,9 @@ export default {
       alertIsOpen: true,
       scrollingDown: false,
       columns: [],
-      subNav: [],
-      lastIndex: null      
+      miniMenuIsOpen: false,
+      subMenuIndex: -1,
+      
     };
   },
   methods: {
@@ -309,6 +248,20 @@ export default {
         false
       );
     },
+    resizeWindow(){  
+      const navTitles = 
+        document.getElementsByClassName("nav__expanded__content__titles");
+      window.addEventListener(
+        "resize",
+        () => {
+          if(window.screen.width >= 992 && this.subMenuIndex == -1){
+            
+          }   
+          
+        }
+      );   
+      
+    },
     megaMenuColumns() {
       const body = document.querySelector("body");
       body.setAttribute(
@@ -316,41 +269,71 @@ export default {
         `--scrt-megamenu-columns:${this.columns.length}`
       );
     },
-    toggleMegaMenu(e, index) {                        
-      const body = document.querySelector("body"); 
-      const navEl = document.querySelectorAll(".nav__content");
-      const arrow = document.querySelectorAll(".nav__content__chevron");         
-      e.preventDefault();
-      this.subNav = [];     
-      if(index != this.lastIndex){        
-        this.subNav.push(this.megaMenuItems[index]);
-        this.megaMenuIsOpen = true;  
-        this.lastIndex = index;
-        navEl.forEach(el => {el.classList.remove("activeNav")});
-        arrow.forEach(el => {el.classList.remove("arrow-up")});
-        navEl[index].classList.add("activeNav"); 
-        arrow[index].classList.add("arrow-up"); 
-          
-      } 
-      else{
-        this.megaMenuIsOpen = false;  
-        this.lastIndex = null;
-        navEl[index].classList.remove("activeNav"); 
-        arrow[index].classList.remove("arrow-up");
-      }     
+    toggleMegaMenu(index) {
+      this.megaMenuIsOpen = false;
+      const body = document.querySelector("body");
+      if (index != this.subMenuIndex) {
+        this.subMenuIndex = index;
+        this.changeNavElementsToActive(true, index);
+        this.megaMenuIsOpen = true;
+      } else {
+        this.subMenuIndex = -1;
+        this.changeNavElementsToActive(false, index);
+        this.megaMenuIsOpen = false;
+      }
+
       this.megaMenuIsOpen
         ? body.classList.add("freezed")
-        : body.classList.remove("freezed");            
-    },    
+        : body.classList.remove("freezed");
+    },
+    changeNavElementsToActive(active, index) {
+      const navEl = document.querySelectorAll(".nav__content");
+      const arrow = document.querySelectorAll(".nav__content__chevron");
+      if (active) {
+        navEl.forEach((el) => {
+          el.classList.remove("activeNav");
+        });
+        arrow.forEach((el) => {
+          el.classList.remove("arrow-up");
+        });
+        navEl[index].classList.add("activeNav");
+        arrow[index].classList.add("arrow-up");
+      } else {
+        navEl[index].classList.remove("activeNav");
+        arrow[index].classList.remove("arrow-up");
+      }
+    },
+    openSubMenu(index) {
+      if (index == this.subMenuIndex) {
+        this.subMenuIndex = -1;        
+        this.changeNavElementsToActive(false, index);
+        return;
+      }
+      this.subMenuIndex = index;
+      this.changeNavElementsToActive(true, index);
+    },
+    openMenuFromMobile() {   
+      this.subMenuIndex = -1;
+      if (this.megaMenuIsOpen) {
+        this.megaMenuIsOpen = !this.megaMenuIsOpen;        
+      } else {
+        this.megaMenuIsOpen = !this.megaMenuIsOpen;
+      }
+      
+    },
     linkCloseMenu() {
       const body = document.querySelector("body");
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
-      this.megaMenuIsOpen = false; 
-      this.lastIndex = null;     
+      this.megaMenuIsOpen = false;
+      this.subMenuIndex = -1;
       body.classList.remove("freezed");
-      navEl.forEach(el => {el.classList.remove("activeNav")});
-      arrow.forEach(el => {el.classList.remove("arrow-up")});
+      navEl.forEach((el) => {
+        el.classList.remove("activeNav");
+      });
+      arrow.forEach((el) => {
+        el.classList.remove("arrow-up");
+      });
     },
   },
   computed: {
@@ -378,27 +361,27 @@ export default {
                   nav_item: {
                     icon: "../assets/img/badge.svg",
                     text: "About Secret Network",
-                    description: "Discover Secret’s inner workings and what makes it different from other blockchains.",
+                    description:
+                      "Discover Secret’s inner workings and what makes it different from other blockchains.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Guides",
-                    description: "Find out how to do all things Secret—from staking to bridging over assets and more.",
+                    description:
+                      "Find out how to do all things Secret—from staking to bridging over assets and more.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -408,12 +391,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Use Cases",
@@ -422,68 +404,68 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Secret Tokens",
-                    description: "Find out how Secret Tokens let you make any token privacy-preserving.",
+                    description:
+                      "Find out how Secret Tokens let you make any token privacy-preserving.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "DeFi",
-                    description: "Learn how Secret powers financial tools that are safe yet decentralized.",
+                    description:
+                      "Learn how Secret powers financial tools that are safe yet decentralized.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "DAOs",
-                    description: "Learn how Secret could make decentralized governance safer and more democratic.",
+                    description:
+                      "Learn how Secret could make decentralized governance safer and more democratic.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "NFTs",
-                    description: "Discover how Secret NFTs enable artists to create work not possible elsewhere.",
+                    description:
+                      "Discover how Secret NFTs enable artists to create work not possible elsewhere.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Gaming",
-                    description: "Explore the possibilities Secret NFTs open up for game designers. ",
+                    description:
+                      "Explore the possibilities Secret NFTs open up for game designers. ",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Secret Token (SCRT)",
@@ -492,44 +474,44 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Get SCRT",
-                    description: "Learn how to buy SCRT using CEXes, DEXes, bridging then swapping, or direct pay.",
+                    description:
+                      "Learn how to buy SCRT using CEXes, DEXes, bridging then swapping, or direct pay.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Use SCRT",
-                    description: "Learn how to stake your tokens, participate in governance, and start using Secret apps.",
+                    description:
+                      "Learn how to stake your tokens, participate in governance, and start using Secret apps.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Tokenomics",
-                    description: "Find out how tokens are distributed across core contributors on Secret Network.",
+                    description:
+                      "Find out how tokens are distributed across core contributors on Secret Network.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-              ]
-            }
-          ]  
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           id: 0,
@@ -542,14 +524,14 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Developer Resources",
-                    description: "Find the tools and guides you need to start building on Secret—from creating smart contracts to building Secret Apps.",
+                    description:
+                      "Find the tools and guides you need to start building on Secret—from creating smart contracts to building Secret Apps.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -559,10 +541,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -572,10 +553,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -585,12 +565,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Funding",
@@ -599,30 +578,29 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Ecosystem Fund",
-                    description: "Scale your project with 225M+ in funding and strategic support provided by Secret’s partners.",
+                    description:
+                      "Scale your project with 225M+ in funding and strategic support provided by Secret’s partners.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Grants",
-                    description: "Kickstart your project and rapidly gain traction with one of our grants.",
+                    description:
+                      "Kickstart your project and rapidly gain traction with one of our grants.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-                
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Support",
@@ -631,18 +609,18 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Find a Team",
-                    description: "Teamwork makes the dream work. Use the #findateam channel to connect with others and make things happen.",
+                    description:
+                      "Teamwork makes the dream work. Use the #findateam channel to connect with others and make things happen.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }               
-              ]
-            }
-          ]    
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           id: 0,
@@ -659,10 +637,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -672,10 +649,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -685,10 +661,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -698,10 +673,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -711,10 +685,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -724,12 +697,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Block Explorers",
@@ -742,10 +714,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -755,13 +726,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                },                
-                
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Network Statistics",
@@ -774,12 +743,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }               
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Bridges",
@@ -792,11 +760,10 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                },   
+                  },
+                },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
@@ -805,10 +772,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -818,10 +784,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -831,15 +796,13 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                },                     
-              ]
-            }
-          ]         
-          
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           id: 0,
@@ -852,27 +815,27 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Become a Secret Agent",
-                    description: "Collaborate with others to turn a more empowering web into reality.",
+                    description:
+                      "Collaborate with others to turn a more empowering web into reality.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "International Communities",
-                    description: "Join your local Secret community to champion privacy around the globe. ",
+                    description:
+                      "Join your local Secret community to champion privacy around the globe. ",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -882,12 +845,11 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }                
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "-",
@@ -896,42 +858,42 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Discord",
-                    description: "Meet fellow Agents, join committee meetings, and get support.",
+                    description:
+                      "Meet fellow Agents, join committee meetings, and get support.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Telegram",
-                    description: "Join the conversation and get help from Secret OGs.",
+                    description:
+                      "Join the conversation and get help from Secret OGs.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Forums",
-                    description: "Join discussions around governance and the wider Secret ecosystem.",
+                    description:
+                      "Join discussions around governance and the wider Secret ecosystem.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }        
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Follow us",
@@ -944,10 +906,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -957,10 +918,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -970,10 +930,9 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
@@ -983,15 +942,13 @@ export default {
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }               
-              ]
-            }
-            
-          ]   
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           id: 0,
@@ -1004,29 +961,29 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Blog",
-                    description: "Read up on the latest updates, projects, and apps, and learn about privacy.",
+                    description:
+                      "Read up on the latest updates, projects, and apps, and learn about privacy.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Media",
-                    description: "View Secret’s latest mentions in the news including articles, interviews, and podcasts.",
+                    description:
+                      "View Secret’s latest mentions in the news including articles, interviews, and podcasts.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }                            
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Guides",
@@ -1035,42 +992,42 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Developer Tutorials",
-                    description: "Get your Secret Contract and App up in no-time with community-made tutorials.",
+                    description:
+                      "Get your Secret Contract and App up in no-time with community-made tutorials.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Guides",
-                    description: "Find out how to do all things Secret—from staking to bridging over assets and more.",
+                    description:
+                      "Find out how to do all things Secret—from staking to bridging over assets and more.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Brand Guidelines",
-                    description: "View the guidelines that underpin the Secret brand look & sound.",
+                    description:
+                      "View the guidelines that underpin the Secret brand look & sound.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
-                }        
-              ]
+                  },
+                },
+              ],
             },
             {
               title: "Funding Opportunities",
@@ -1079,40 +1036,39 @@ export default {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Ecosystem Fund",
-                    description: "Scale your project with 200M+ in funding and strategic support provided by Secret’s partners.",
+                    description:
+                      "Scale your project with 200M+ in funding and strategic support provided by Secret’s partners.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
                 {
                   nav_item: {
                     icon: "../assets/img/icon-social-instagram.svg",
                     text: "Grants",
-                    description: "Kickstart your project and rapidly gain traction with one of our grants.",
+                    description:
+                      "Kickstart your project and rapidly gain traction with one of our grants.",
                     page: {
                       name: "",
                       route: "",
-                      title: ""
+                      title: "",
                     },
-                    
-                  }
+                  },
                 },
-                         
-              ]
-            }
-            
-          ]   
+              ],
+            },
+          ],
         },
-      ];      
+      ];
+
       return testArray;
     },
-    
   },
-  mounted() {
+  mounted() { 
+    this.resizeWindow();   
     this.megaMenuColumns();
     if (process.isClient) {
       this.scrollPosition();
@@ -1216,10 +1172,10 @@ export default {
       width: 100%;
       display: grid;
       @include respond-to(">=xl") {
-        /*max-width: 1440px;*/
+        max-width: 1440px;
       }
       @media screen and (min-width: 2560px) {
-        /*max-width: 1840px;*/
+        max-width: 1840px;
       }
       .logo-bar {
         display: grid;
@@ -1227,7 +1183,7 @@ export default {
         grid-auto-flow: column;
         align-items: center;
 
-        @include respond-to("<=m") {
+        @include respond-to("<=l") {
           grid-template-columns: 1fr 24px;
           padding: 0 var(--f-gutter);
         }
@@ -1275,7 +1231,7 @@ export default {
                 height: 58px;
                 justify-self: center;
               }
-              @include respond-to("<=m") {
+              @include respond-to("<=l") {
                 display: grid;
                 justify-content: center;
               }
@@ -1305,25 +1261,25 @@ export default {
             @include respond-to("<=l") {
               justify-content: start;
               width: 100%;
-              display: none; 
+              display: none;
               padding: 0;
             }
           }
           &__btnSrct {
             display: grid;
-            @include respond-to("<=l") {                
+            @include respond-to("<=l") {
               display: none;
             }
             button {
               display: flex;
               justify-content: center;
-              align-items: center;                           
+              align-items: center;
               margin: 0px 16px;
               background-color: var(--color-analog-primary-white);
               border-radius: 10px;
               gap: 8.8px;
               padding: 10px 16px;
-              
+
               img {
                 width: 19.2px;
                 height: 19.2px;
@@ -1384,16 +1340,17 @@ export default {
         &__content {
           display: grid;
           grid-auto-flow: column;
-          gap: var(--mega-header-gap-nav);          
+          gap: var(--mega-header-gap-nav);
           padding: 22px 20px;
           align-items: center;
-          justify-content: start;
+          justify-content: center;
           transition: 0.2s ease;
-          margin-bottom: 0;   
+          margin-bottom: 0;
+          
           &.activeNav {
             background: var(--mega-header-background-nav-expanded);
             border-radius: 10px 10px 0px 0px;
-          }       
+          }
           @include respond-to("<=m") {
             padding: var(--f-gutter);
           }
@@ -1427,7 +1384,7 @@ export default {
       justify-content: center;
       display: flex;
       background-color: var(--mega-header-background-nav-expanded);
-      @include respond-to("<=m") {
+      @include respond-to("<=l") {
         position: absolute;
         top: 67px;
         left: 0;
@@ -1451,6 +1408,9 @@ export default {
         @include respond-to(">=xl") {
           max-width: 1440px;
         }
+        @include respond-to("<=l") {          
+          padding-bottom: 0;
+        }
         @media screen and (min-width: 2560px) {
           max-width: 1840px;
         }
@@ -1458,16 +1418,15 @@ export default {
       .nav {
         &__expanded {
           display: grid;
-          grid-auto-flow: column;
-          padding: var(--mega-header-padding-tb-nav-expanded) var(--f-gutter);
+          grid-auto-flow: row;          
           grid-template-columns: repeat(var(--scrt-megamenu-columns), 1fr);
-          background-color: var(--mega-header-background-nav-expanded);
+          background-color: var(--mega-header-background-nav-expanded);          
           /* min-height: var(--mega-header-height-nav-expanded); */
-          @include respond-to("<=m") {
-            grid-auto-flow: row;
-            grid-template-columns: 1fr;
-            height: auto;
+          @include respond-to("<=l") {
+            display: flex;
+            flex-direction: column;
             padding: 0;
+            padding-bottom: 160px;
           }
           &__content {
             padding: 0;
@@ -1476,7 +1435,31 @@ export default {
             height: fit-content;
             gap: 20px;
             padding-top: 11px;
-            &__title {              
+            @include respond-to("<=l") {
+              padding-top: 0px;
+            }
+            &__titles {
+              background: black;
+              @include respond-to(">l") {
+                display: none;
+              }
+              &__content {
+                display: flex;
+                padding: 28px;
+                justify-content: space-between;
+                &__name {
+                  display: flex;
+                  gap: 12.36px;
+                  h6 {
+                    margin: 0;
+                  }
+                }
+              }
+            }
+            &__list {
+              display: none;
+            }
+            &__title {
               padding: var(--f-gutter);
               font-weight: 600;
               margin-bottom: 0;
@@ -1488,28 +1471,39 @@ export default {
               font-size: 18px;
               font-family: var(--f-default-headers-font);
               font-weight: 500;
-              color: #B2BFCD;
+              color: #b2bfcd;
               hr {
                 display: block;
                 width: 100%;
                 height: 3px;
-                background: #303C4A;
+                background: #303c4a;
                 margin: 4px 0px;
               }
-              &.emptytitle{
+              &.emptytitle {
                 color: var(--mega-header-background-nav-expanded);
               }
             }
-            
+            &__container{
+              &:hover{
+                  border-radius: 10px;
+                  background-color: #303C4A;
+                }
+            }
+
             &__item {
+              display: grid;
+              grid-auto-flow: column;
+              gap: 37px;
               /* padding: var(--mega-header-padding-list-nav-expanded); */
               margin-bottom: 0;
               /* height: var(--mega-header-height-expaded-item); */
-              padding-left: 24px;              
+              padding-left: 24px;
               @include respond-to("<=m") {
+                display: flex;
+                flex-direction: column;
                 padding: var(--mega-header-padding-expaded-item-mobile);
-                height: var(--mega-header-height-expaded-item-mobile);
-              }              
+                height: fit-content;
+              }
               &__link {
                 color: var(--mega-header-color-nav-exanded) !important;
                 line-height: var(--mega-header-line-height-nav-expanded);
@@ -1523,34 +1517,35 @@ export default {
                 @include respond-to("<=m") {
                   line-height: var(--mega-header-line-height);
                 }
-              }
+              }              
               &__desc {
-                display: flex;     
-                align-items: flex-start;   
+                display: flex;
+                align-items: flex-start;
                 gap: 11.03px;
-                padding: 20px;  
+                padding: 20px;
                 img {
                   width: 24px;
                   height: 24px;
-                }      
+                }
                 &__title {
                   font-weight: 500;
                   font-size: 18px;
                   font-family: var(--f-default-headers-font);
                   color: #fff;
                   line-height: 24px;
-                  
                 }
                 &__descr {
                   font-family: var(--f-default-headers-font);
                   font-weight: normal;
                   font-size: 16px;
-                  color: #B2BFCD;                  
+                  color: #b2bfcd;
                 }
-                              
+                
+              }
+              &.hidden__submenu {
+                display: none;
               }
             }
-
           }
         }
         &__social-media {
@@ -1559,18 +1554,20 @@ export default {
           background-color: var(--mega-header-background-nav-expanded);
           padding: 0 16px;
           padding-top: 11px;
-          @include respond-to("<=m") {
+          @include respond-to("<=l") {
             justify-content: space-around;
             padding: var(--f-gutter);
             background-color: var(--mega-headerbackground);
             width: 100vw;
+            bottom: 0;
+            position: fixed;
           }
-          @include respond-to(">=m") {
-            width: 100%;
+          @include respond-to(">l") {
+            display: none;
           }
           .title {
             color: var(--mega-header-color-social-medial-hover);
-            @include respond-to("<=m") {
+            @include respond-to("<=l") {
               display: none;
             }
           }
@@ -1591,7 +1588,7 @@ export default {
             grid-auto-flow: column;
             gap: var(--f-gutter);
             /* padding-right: var(--f-gutter); */
-            @include respond-to("<=m") {
+            @include respond-to("<=l") {
               padding-right: 0;
               justify-content: space-around;
               width: 100vw;
@@ -1611,7 +1608,7 @@ export default {
               }
               span {
                 height: 24px;
-                @include respond-to("<=m") {
+                @include respond-to("<=l") {
                   display: none;
                 }
               }
