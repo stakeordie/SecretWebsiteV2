@@ -117,7 +117,7 @@ export default {
           padding: 0;
           margin-top: 0%;
           span {
-            color: var(--color-highkey-secondary-blue) !important;
+            color: var(--color-developers-blue-02) !important;
           }
         }
       }

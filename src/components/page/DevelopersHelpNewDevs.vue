@@ -47,6 +47,10 @@ export default {};
         &__text{
             font-size: var(--f-default-text-size);
             margin: 0;
+
+            a{
+              color: var(--color-developers-blue-01);
+            }
         }
     }
 }

@@ -331,6 +331,10 @@ export default {
         grid-gap: 10px;
         padding: 0;
         margin: 0;
+
+        &__icon{
+          color: var(--color-developers-blue-01);
+        }
         
         &__details {
           display: grid;
@@ -348,10 +352,10 @@ export default {
           a {
             padding: 0;
             span {
-              color: var(--color-highkey-secondary-blue) !important;
+              color: var(--color-developers-blue-02) !important;
             }
             .theme-image {
-              color: var(--color-highkey-secondary-blue) !important;
+              color: var(--color-developers-blue-02) !important;
             }
           }
         }

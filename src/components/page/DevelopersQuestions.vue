@@ -84,7 +84,7 @@ export default {};
 
         &__blue-button {
           .text-center {
-            background-color: var(--color-highkey-secondary-blue) !important;
+            background-color: var(--color-developers-blue-01) !important;
             font-size: var(--f-default-text-size);
             letter-spacing: 1px;
             &.special-icon{
