@@ -1,0 +1,16 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
+
+
+.service-status{
+
+    &__hero-container{
+      background: var(--color-analog-primary-black);
+      margin-top: -44px;
+
+      @include respond-to("<=l"){
+        
+      }
+    }
+    
+  }

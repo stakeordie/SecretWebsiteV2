@@ -99,6 +99,10 @@ export default {
       p {
         font-size: 16px;
         text-align: left;
+
+        @include respond-to("<=s"){
+          text-align: center;
+        }
       }
 
       img {

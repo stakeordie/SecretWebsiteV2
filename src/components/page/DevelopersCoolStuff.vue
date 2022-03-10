@@ -140,6 +140,9 @@ export default {
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
+
+
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -192,6 +195,7 @@ export default {
         grid-template-columns: 64px 1fr;
         align-items: start;
         gap: 4px;
+
         &__logo {
           border-radius: 10px;
         }

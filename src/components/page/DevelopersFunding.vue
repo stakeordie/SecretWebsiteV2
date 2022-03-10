@@ -16,7 +16,8 @@
         <div class="page-developers-funding__materials__material" v-for="(item, index) in material" :key="index">
           <h6>{{ item.title }}</h6>
             <p>{{ item.description }}</p>
-            <a  :href="item.url" >READ MORE</a>
+            <btn class="text-center no-arrow " :url="item.url">READ MORE</btn>
+
         </div>
       </div>
   </section>
@@ -60,6 +61,8 @@ export default {
         max-width: 620px;
         margin: auto;
 
+         
+
         &__sub-title{
             font-family: montserrat;
             text-transform: uppercase;
@@ -97,8 +100,13 @@ export default {
             margin: auto;
             margin-top: 16px;
 
+            @include respond-to("<=s") {
+              
+            }
+
             @include respond-to("<=xs"){
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
             &__material{

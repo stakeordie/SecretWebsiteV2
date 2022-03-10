@@ -2,7 +2,9 @@
   <simple-layout>
     <template #header>
       <alert-bar></alert-bar>
-      <header-mega-menu> </header-mega-menu>
+      <!-- <header-mega-menu> </header-mega-menu> -->
+      <header-mega-menu-v2> </header-mega-menu-v2>
+      
     </template>
 
     <column class="swirl-wrapper">
