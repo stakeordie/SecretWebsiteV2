@@ -27,29 +27,31 @@
               </g-link>
             </div>
 
-            <ul class="nav">
-              <li
-                class="nav__content"
-                v-for="(nav, index) in megaMenuItems"
-                :key="index"
-                @click.prevent="toggleMegaMenu(index)"
-              >
-                <a href="/">{{ nav.title }}</a>
-                <img
-                  class="nav__content__chevron"
-                  src="../assets/icon-chevron-down.svg"
-                  alt="arrow down icon"
-                />
-              </li>
-            </ul>
+            <div class="logo-bar__content__menu">
+              <ul class="nav">
+                <li
+                  class="nav__content"
+                  v-for="(nav, index) in megaMenuItems"
+                  :key="index"
+                  @click.prevent="toggleMegaMenu(index)"
+                >
+                  <a href="/">{{ nav.title }}</a>
+                  <img
+                    class="nav__content__chevron"
+                    src="../assets/icon-chevron-down.svg"
+                    alt="arrow down icon"
+                  />
+                </li>
+              </ul>              
+            </div>
             <div class="logo-bar__content__searchbar">
-              <div
-                class="logo-bar--searchbar search-trigger search"
-                v-on:click="searchTrigger"
-              >
-                <img src="../assets/search-icon.svg" alt="" />
-                <p>Search</p>
-              </div>
+                <div
+                  class="logo-bar--searchbar search-trigger search"
+                  v-on:click="searchTrigger"
+                >
+                  <img src="../assets/search-icon.svg" alt="" />
+                  <p>Search</p>
+                </div>
             </div>
             <div class="logo-bar__content__btnSrct">
               <button>
@@ -68,6 +70,7 @@
           <div class="nav__expanded">
             <ul
               class="nav__expanded__content"
+              :class="{hidden__submenu: subMenuIndex != index}"              
               v-for="(nav, index) in megaMenuItems"
               :key="index"
             >
@@ -94,12 +97,18 @@
                 }"
               >
                 <div                  
-                  v-for="(sec, indexSec) in nav.sections" :key="indexSec"
+                  v-for="(sec, indexSec) in nav.nav_groups_new" :key="indexSec"
                 >
                   <span
-                    :class="{ emptytitle: sec.title === '-' }"
+                    v-if="sec.title != ''"                    
                     class="nav__expanded__content__section"
                     >{{ sec.title }}
+                    <hr />
+                  </span>
+                  <span 
+                    v-else
+                    class="nav__expanded__content__section emptytitle"
+                    >-
                     <hr />
                   </span>
                   <div
@@ -108,7 +117,14 @@
                     :key="indexItem"
                   >
                     <div class="nav__expanded__content__item__desc">
-                      <img :src="secItem.nav_item.icon" alt="" />
+                      <img 
+                        v-if="secItem.nav_item.icon != null"
+                        :src="secItem.nav_item.icon.url" alt="" 
+                      />
+                      <img 
+                        v-else
+                        src="../assets/badge-black.svg" alt="" 
+                      />
                       <div>
                         <div class="nav__expanded__content__item__desc__title">
                           <span v-on:click="linkCloseMenu">{{
@@ -125,9 +141,9 @@
                   </div>
                 </div>
               </li>
-            </ul>
-          </div>
-          <div class="nav__social-media">
+            </ul>            
+          </div>          
+          <div class="nav__social-media">            
             <div class="nav__social-media__content">
               <p class="title">Connect with Us:</p>
               <div class="nav__social-media__icon-content">
@@ -334,8 +350,9 @@ export default {
       arrow.forEach((el) => {
         el.classList.remove("arrow-up");
       });
-    },
+    },    
   },
+
   computed: {
     chevron() {
       return this.megaMenuIsOpen ? "arrow-up" : "arrow-down";
@@ -344,730 +361,731 @@ export default {
       return this.megaMenuIsOpen ? "is-opened" : "is-closed";
     },
     megaMenuItems() {
-      // const content = this.$static.navHeader.edges.map(
-      //   (it) => it.node.nav_groups
-      // );
-      // this.columns = content[0];
-      // console.log(this.columns);
-      const testArray = [
-        {
-          id: 0,
-          title: "Learn",
-          sections: [
-            {
-              title: "Overview",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/badge.svg",
-                    text: "About Secret Network",
-                    description:
-                      "Discover Secret’s inner workings and what makes it different from other blockchains.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Guides",
-                    description:
-                      "Find out how to do all things Secret—from staking to bridging over assets and more.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "FAQ",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Use Cases",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Secret Tokens",
-                    description:
-                      "Find out how Secret Tokens let you make any token privacy-preserving.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "DeFi",
-                    description:
-                      "Learn how Secret powers financial tools that are safe yet decentralized.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "DAOs",
-                    description:
-                      "Learn how Secret could make decentralized governance safer and more democratic.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "NFTs",
-                    description:
-                      "Discover how Secret NFTs enable artists to create work not possible elsewhere.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Gaming",
-                    description:
-                      "Explore the possibilities Secret NFTs open up for game designers. ",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Secret Token (SCRT)",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Get SCRT",
-                    description:
-                      "Learn how to buy SCRT using CEXes, DEXes, bridging then swapping, or direct pay.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Use SCRT",
-                    description:
-                      "Learn how to stake your tokens, participate in governance, and start using Secret apps.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Tokenomics",
-                    description:
-                      "Find out how tokens are distributed across core contributors on Secret Network.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 0,
-          title: "Build",
-          sections: [
-            {
-              title: "Start Building",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Developer Resources",
-                    description:
-                      "Find the tools and guides you need to start building on Secret—from creating smart contracts to building Secret Apps.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Documentation",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Tutorials",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Github",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Funding",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Ecosystem Fund",
-                    description:
-                      "Scale your project with 225M+ in funding and strategic support provided by Secret’s partners.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Grants",
-                    description:
-                      "Kickstart your project and rapidly gain traction with one of our grants.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Support",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Find a Team",
-                    description:
-                      "Teamwork makes the dream work. Use the #findateam channel to connect with others and make things happen.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 0,
-          title: "Ecosystem",
-          sections: [
-            {
-              title: "Ecosystem",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "DApps",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Tools",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Contributors",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Partners",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Validators",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Roadmap",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Block Explorers",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Secret Nodes",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Mintscan",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Network Statistics",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Secret Analystics",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Bridges",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "IBC Bridge",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Etherum Bridge",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Binance Smart Chain Bridge",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Moreno Bridge",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 0,
-          title: "Get Involved",
-          sections: [
-            {
-              title: "Join the Community",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Become a Secret Agent",
-                    description:
-                      "Collaborate with others to turn a more empowering web into reality.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "International Communities",
-                    description:
-                      "Join your local Secret community to champion privacy around the globe. ",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Events",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "-",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Discord",
-                    description:
-                      "Meet fellow Agents, join committee meetings, and get support.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Telegram",
-                    description:
-                      "Join the conversation and get help from Secret OGs.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Forums",
-                    description:
-                      "Join discussions around governance and the wider Secret ecosystem.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Follow us",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Twitter",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Youtube",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Instagram",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Reddit",
-                    description: "",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 0,
-          title: "Resources",
-          sections: [
-            {
-              title: "News & Media",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Blog",
-                    description:
-                      "Read up on the latest updates, projects, and apps, and learn about privacy.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Media",
-                    description:
-                      "View Secret’s latest mentions in the news including articles, interviews, and podcasts.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Guides",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Developer Tutorials",
-                    description:
-                      "Get your Secret Contract and App up in no-time with community-made tutorials.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Guides",
-                    description:
-                      "Find out how to do all things Secret—from staking to bridging over assets and more.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Brand Guidelines",
-                    description:
-                      "View the guidelines that underpin the Secret brand look & sound.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-            {
-              title: "Funding Opportunities",
-              nav_items: [
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Ecosystem Fund",
-                    description:
-                      "Scale your project with 200M+ in funding and strategic support provided by Secret’s partners.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-                {
-                  nav_item: {
-                    icon: "../assets/img/icon-social-instagram.svg",
-                    text: "Grants",
-                    description:
-                      "Kickstart your project and rapidly gain traction with one of our grants.",
-                    page: {
-                      name: "",
-                      route: "",
-                      title: "",
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      ];
+      const content = this.$static.navHeaderNew.edges.map(
+        (it) => it.node.nav_categories
+      );
+      this.columns = content[0];
+      console.log(this.columns);
+      // const testArray = [
+      //   {
+      //     id: 0,
+      //     title: "Learn",
+      //     sections: [
+      //       {
+      //         title: "Overview",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/badge.svg",
+      //               text: "About Secret Network",
+      //               description:
+      //                 "Discover Secret’s inner workings and what makes it different from other blockchains.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Guides",
+      //               description:
+      //                 "Find out how to do all things Secret—from staking to bridging over assets and more.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "FAQ",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Use Cases",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Secret Tokens",
+      //               description:
+      //                 "Find out how Secret Tokens let you make any token privacy-preserving.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "DeFi",
+      //               description:
+      //                 "Learn how Secret powers financial tools that are safe yet decentralized.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "DAOs",
+      //               description:
+      //                 "Learn how Secret could make decentralized governance safer and more democratic.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "NFTs",
+      //               description:
+      //                 "Discover how Secret NFTs enable artists to create work not possible elsewhere.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Gaming",
+      //               description:
+      //                 "Explore the possibilities Secret NFTs open up for game designers. ",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Secret Token (SCRT)",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Get SCRT",
+      //               description:
+      //                 "Learn how to buy SCRT using CEXes, DEXes, bridging then swapping, or direct pay.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Use SCRT",
+      //               description:
+      //                 "Learn how to stake your tokens, participate in governance, and start using Secret apps.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Tokenomics",
+      //               description:
+      //                 "Find out how tokens are distributed across core contributors on Secret Network.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     id: 0,
+      //     title: "Build",
+      //     sections: [
+      //       {
+      //         title: "Start Building",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Developer Resources",
+      //               description:
+      //                 "Find the tools and guides you need to start building on Secret—from creating smart contracts to building Secret Apps.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Documentation",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Tutorials",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Github",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Funding",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Ecosystem Fund",
+      //               description:
+      //                 "Scale your project with 225M+ in funding and strategic support provided by Secret’s partners.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Grants",
+      //               description:
+      //                 "Kickstart your project and rapidly gain traction with one of our grants.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Support",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Find a Team",
+      //               description:
+      //                 "Teamwork makes the dream work. Use the #findateam channel to connect with others and make things happen.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     id: 0,
+      //     title: "Ecosystem",
+      //     sections: [
+      //       {
+      //         title: "Ecosystem",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "DApps",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Tools",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Contributors",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Partners",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Validators",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Roadmap",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Block Explorers",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Secret Nodes",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Mintscan",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Network Statistics",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Secret Analystics",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Bridges",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "IBC Bridge",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Etherum Bridge",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Binance Smart Chain Bridge",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Moreno Bridge",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     id: 0,
+      //     title: "Get Involved",
+      //     sections: [
+      //       {
+      //         title: "Join the Community",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Become a Secret Agent",
+      //               description:
+      //                 "Collaborate with others to turn a more empowering web into reality.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "International Communities",
+      //               description:
+      //                 "Join your local Secret community to champion privacy around the globe. ",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Events",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "-",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Discord",
+      //               description:
+      //                 "Meet fellow Agents, join committee meetings, and get support.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Telegram",
+      //               description:
+      //                 "Join the conversation and get help from Secret OGs.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Forums",
+      //               description:
+      //                 "Join discussions around governance and the wider Secret ecosystem.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Follow us",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Twitter",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Youtube",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Instagram",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Reddit",
+      //               description: "",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     id: 0,
+      //     title: "Resources",
+      //     sections: [
+      //       {
+      //         title: "News & Media",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Blog",
+      //               description:
+      //                 "Read up on the latest updates, projects, and apps, and learn about privacy.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Media",
+      //               description:
+      //                 "View Secret’s latest mentions in the news including articles, interviews, and podcasts.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Guides",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Developer Tutorials",
+      //               description:
+      //                 "Get your Secret Contract and App up in no-time with community-made tutorials.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Guides",
+      //               description:
+      //                 "Find out how to do all things Secret—from staking to bridging over assets and more.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Brand Guidelines",
+      //               description:
+      //                 "View the guidelines that underpin the Secret brand look & sound.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //       {
+      //         title: "Funding Opportunities",
+      //         nav_items: [
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Ecosystem Fund",
+      //               description:
+      //                 "Scale your project with 200M+ in funding and strategic support provided by Secret’s partners.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //           {
+      //             nav_item: {
+      //               icon: "../assets/img/icon-social-instagram.svg",
+      //               text: "Grants",
+      //               description:
+      //                 "Kickstart your project and rapidly gain traction with one of our grants.",
+      //               page: {
+      //                 name: "",
+      //                 route: "",
+      //                 title: "",
+      //               },
+      //             },
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      // ];
 
-      return testArray;
+      return this.columns;
     },
   },
   mounted() { 
+    //this.megaMenuItems2();
     this.resizeWindow();   
     this.megaMenuColumns();
     if (process.isClient) {
@@ -1082,26 +1100,26 @@ export default {
 
 <static-query>
   query {
-  navHeader: allStrapiNavHeader {
+  navHeaderNew: allStrapiNavHeaderNew {
     edges {
       node {
-        nav_groups {
-          title
+        id
+        nav_categories {
           id
-          nav_items {
-            nav_item {
-              text
+          title 
+          nav_groups_new {
+            id
+            title
+            nav_items {
               id
-              page {
-                name
-                title
-                route
-                locale
+              nav_item {
+                text
+                description
+                icon {
+                  url
+                }
               }
-              locale
-              external_link
             }
-            sort_name
           }
         }
       }
@@ -1179,7 +1197,7 @@ export default {
       }
       .logo-bar {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 150px 1fr auto auto;
         grid-auto-flow: column;
         align-items: center;
 
@@ -1193,7 +1211,7 @@ export default {
             display: none;
           }
           .search {
-            @include respond-to(">m") {
+            @include respond-to(">l") {
               display: grid;
             }
           }
@@ -1204,7 +1222,7 @@ export default {
           }
           .close {
             display: unset;
-            @include respond-to(">m") {
+            @include respond-to(">l") {
               display: none;
             }
           }
@@ -1250,21 +1268,26 @@ export default {
               width: var(--mega-header-space-l);
               height: var(--mega-header-space-l);
               align-self: center;
-              @include respond-to(">m") {
+              @include respond-to(">l") {
                 display: none;
               }
             }
           }
-          &__searchbar {
+          &__menu {
             display: grid;
-            padding-right: var(--f-gutter);
-            @include respond-to("<=l") {
+            
+          }
+          &__searchbar {
+            display: grid;            
+            @include respond-to("<xl") {
               justify-content: start;
               width: 100%;
               display: none;
               padding: 0;
             }
           }
+          
+          
           &__btnSrct {
             display: grid;
             @include respond-to("<=l") {
@@ -1328,8 +1351,7 @@ export default {
       .nav {
         display: grid;
         grid-auto-flow: column;
-        padding: 0 var(--f-gutter);
-        grid-template-columns: repeat(var(--scrt-megamenu-columns), 1fr);
+        padding: 0 var(--f-gutter);        
         margin-bottom: 0;
         @include respond-to("<=l") {
           grid-auto-flow: row;
@@ -1405,6 +1427,7 @@ export default {
         display: grid;
         background-color: var(--mega-header-background-nav-expanded);
         padding-bottom: var(--f-gutter);
+        
         @include respond-to(">=xl") {
           max-width: 1440px;
         }
@@ -1418,8 +1441,7 @@ export default {
       .nav {
         &__expanded {
           display: grid;
-          grid-auto-flow: row;          
-          grid-template-columns: repeat(var(--scrt-megamenu-columns), 1fr);
+          grid-auto-flow: row;        
           background-color: var(--mega-header-background-nav-expanded);          
           /* min-height: var(--mega-header-height-nav-expanded); */
           @include respond-to("<=l") {
@@ -1434,7 +1456,10 @@ export default {
             display: grid;
             height: fit-content;
             gap: 20px;
-            padding-top: 11px;
+            padding-top: 20px;
+            &.hidden__submenu {
+              padding: 0px;
+            }
             @include respond-to("<=l") {
               padding-top: 0px;
             }
@@ -1445,13 +1470,14 @@ export default {
               }
               &__content {
                 display: flex;
-                padding: 28px;
+                padding: 20px;
                 justify-content: space-between;
                 &__name {
                   display: flex;
                   gap: 12.36px;
                   h6 {
                     margin: 0;
+                    font-size: 18px;
                   }
                 }
               }
@@ -1547,16 +1573,18 @@ export default {
               }
             }
           }
-        }
+          
+        }        
+        
         &__social-media {
           display: grid;
           justify-content: end;
           background-color: var(--mega-header-background-nav-expanded);
           padding: 0 16px;
-          padding-top: 11px;
+          padding-top: 11px;          
           @include respond-to("<=l") {
             justify-content: space-around;
-            padding: var(--f-gutter);
+            padding: 20px;
             background-color: var(--mega-headerbackground);
             width: 100vw;
             bottom: 0;
