@@ -17,9 +17,11 @@
                 v-for="(it, index) in nav.nav_items"
                 :key="index"
               >
+              <!-- <span>{{it.nav_item.external_link}}</span> -->
+              <!-- <span>{{it.nav_item.page.route}}</span> -->
                 <g-link
                   class="nav__expanded__content__item__link"
-                  :to="it.nav_item.page.route"
+                  :to="it.nav_item.page ? it.nav_item.page.route : it.nav_item.external_link"
                   ><span >{{ it.nav_item.text }}</span></g-link>
               </li>
             </ul>
