@@ -20,6 +20,7 @@
               />
               <g-link to="/">
                 <img
+                  @click="linkCloseMenu"
                   src="../assets/new-secret-logo.svg"
                   alt="secret network logo"
                   class="logo"
@@ -100,9 +101,9 @@
               >
                 <div
                   class="nav__expanded__content__item__cards"
-                  :class=" {
+                  :class="{
                     firtsEcoSub: index == 2 && indexSec == 0,
-                    lastEcoSub: index == 2 && indexSec == 3
+                    lastEcoSub: index == 2 && indexSec == 3,
                   }"
                   v-for="(sec, indexSec) in nav.nav_items"
                   :key="indexSec"
@@ -124,26 +125,64 @@
                     v-for="(secItem, indexItem) in sec.sub_category_nav_item"
                     :key="indexItem"
                   >
-                    <div class="nav__expanded__content__item__desc">
-                      <img
-                        v-if="secItem.nav_item.icon != null"
-                        :src="secItem.nav_item.icon.url"
-                        alt=""
-                      />
-                      <img v-else src="../assets/badge-black.svg" alt="" />
-                      <div>
-                        <div class="nav__expanded__content__item__desc__title">
-                          <span v-on:click="linkCloseMenu">{{
-                            secItem.nav_item.text
-                          }}</span>
+                    <g-link
+                      v-if="secItem.nav_item.page != null"
+                      :to="secItem.nav_item.page.route"
+                    >
+                      <div
+                        @click="linkCloseMenu"
+                        class="nav__expanded__content__item__desc"
+                      >
+                        <div class="nav__expanded__content__item__img">
+                          <img
+                            v-if="secItem.nav_item.icon != null"
+                            :src="secItem.nav_item.icon.url"
+                            alt=""
+                          />
+                          <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
-                        <div class="nav__expanded__content__item__desc__descr">
-                          <span v-on:click="linkCloseMenu">{{
-                            secItem.nav_item.description
-                          }}</span>
+                        <div>
+                          <div
+                            class="nav__expanded__content__item__desc__title"
+                          >
+                            <span>{{ secItem.nav_item.text }}</span>
+                          </div>
+                          <div
+                            class="nav__expanded__content__item__desc__descr"
+                          >
+                            <span>{{ secItem.nav_item.description }}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </g-link>
+                    <g-link v-else :to="secItem.nav_item.external_link">
+                      <div
+                        @click="linkCloseMenu"
+                        class="nav__expanded__content__item__desc"
+                      >
+                        <div class="nav__expanded__content__item__img">
+                          <img
+                            v-if="secItem.nav_item.icon != null"
+                            :src="secItem.nav_item.icon.url"
+                            alt=""
+                          />
+                          <img v-else src="../assets/badge-black.svg" alt="" />
+                        </div>
+
+                        <div>
+                          <div
+                            class="nav__expanded__content__item__desc__title"
+                          >
+                            <span>{{ secItem.nav_item.text }}</span>
+                          </div>
+                          <div
+                            class="nav__expanded__content__item__desc__descr"
+                          >
+                            <span>{{ secItem.nav_item.description }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </g-link>
                   </div>
                 </div>
               </li>
@@ -255,8 +294,7 @@ export default {
       scrollingDown: false,
       columns: [],
       miniMenuIsOpen: false,
-      subMenuIndex: -1
-      
+      subMenuIndex: -1,
     };
   },
   methods: {
@@ -265,21 +303,23 @@ export default {
       window.addEventListener(
         "scroll",
         () => {
-          let st = window.pageYOffset || document.documentElement.scrollTop;
-          if (st > lastScrollTop && st > 88) {
-            this.scrollingDown = true;
-          } else {
-            this.scrollingDown = false;
+          if (!this.megaMenuIsOpen) {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop && st > 88) {
+              this.scrollingDown = true;
+            } else {
+              this.scrollingDown = false;
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
           }
-          lastScrollTop = st <= 0 ? 0 : st;
         },
         false
       );
     },
-    resizeWindow() {      
-      window.addEventListener("resize", () => {        
+    resizeWindow() {
+      window.addEventListener("resize", () => {
         if (window.innerWidth >= 1200) {
-          if(this.megaMenuIsOpen && this.subMenuIndex == -1){
+          if (this.megaMenuIsOpen && this.subMenuIndex == -1) {
             this.megaMenuIsOpen = false;
           }
         }
@@ -327,16 +367,13 @@ export default {
       }
     },
     openSubMenu(index) {
-      
       if (index == this.subMenuIndex) {
         this.subMenuIndex = -1;
-        this.changeNavElementsToActive(false, index);        
-      }else{
+        this.changeNavElementsToActive(false, index);
+      } else {
         this.subMenuIndex = index;
         this.changeNavElementsToActive(true, index);
       }
-      
-      
     },
     openMenuFromMobile() {
       this.subMenuIndex = -1;
@@ -347,14 +384,13 @@ export default {
         this.isMobileOpen = true;
         this.megaMenuIsOpen = !this.megaMenuIsOpen;
       }
-
-      console.log(this.isMobileOpen)
     },
     linkCloseMenu() {
+      this.megaMenuIsOpen = false;
       const body = document.querySelector("body");
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
-      this.megaMenuIsOpen = false;
+
       this.subMenuIndex = -1;
       body.classList.remove("freezed");
       navEl.forEach((el) => {
@@ -364,22 +400,40 @@ export default {
         el.classList.remove("arrow-up");
       });
     },
-    mapNavArray(array){
-      array.forEach((c) =>{        
+    mapNavArray(array) {
+      array.forEach((c) => {
         let result = c.nav_items.reduce(function (r, a) {
           r[a.sub_category] = r[a.sub_category] || [];
           r[a.sub_category].push(a);
           return r;
-        }, Object.create(null));        
-        c.nav_items = [];        
-        Object.entries(result).forEach(([key, value]) => {             
-          c.nav_items.push({
-            sub_category: key,
-            sub_category_nav_item: value
-          });      
+        }, Object.create(null));
+        c.nav_items = [];
+        Object.entries(result).forEach(([key, value]) => {
+          if (key == "Join the Community") {
+            let firstArray = value.filter((e, i) => {
+              return i < 3;
+            });
+
+            let secondArray = value.filter((e, i) => {
+              return i > 2;
+            });
+            c.nav_items.push({
+              sub_category: key,
+              sub_category_nav_item: firstArray,
+            });
+            c.nav_items.push({
+              sub_category: "",
+              sub_category_nav_item: secondArray,
+            });
+          } else {
+            c.nav_items.push({
+              sub_category: key,
+              sub_category_nav_item: value,
+            });
+          }
         });
-      });    
-    }
+      });
+    },
   },
 
   computed: {
@@ -393,12 +447,13 @@ export default {
       const content = this.$static.navHeader.edges.map(
         (it) => it.node.nav_groups
       );
-      this.columns = content[0];      
+      this.columns = content[0];
       this.mapNavArray(this.columns);
+
       return this.columns;
     },
   },
-  mounted() {   
+  mounted() {
     this.resizeWindow();
     this.megaMenuColumns();
     if (process.isClient) {
@@ -606,7 +661,7 @@ export default {
 
           &__btnSrct {
             display: grid;
-            
+
             @include respond-to("<=l") {
               display: none;
             }
@@ -619,9 +674,9 @@ export default {
               border-radius: 10px;
               gap: 8.8px;
               padding: 10px 16px;
-              &:hover{
-              background: #D7DDE5;
-            }
+              &:hover {
+                background: #d7dde5;
+              }
 
               img {
                 width: 19.2px;
@@ -831,7 +886,7 @@ export default {
                 width: 100%;
                 height: 3px;
                 background: #303c4a;
-                margin: 4px 0px;
+                margin: 24px 0px 0px 0px;
               }
               &.emptytitle {
                 color: var(--mega-header-background-nav-expanded);
@@ -845,7 +900,7 @@ export default {
             }
 
             &__item {
-              display: grid;                             
+              display: grid;
               gap: 37px;
               grid-template-columns: repeat(3, 1fr);
               /* padding: var(--mega-header-padding-list-nav-expanded); */
@@ -862,21 +917,18 @@ export default {
                 padding: var(--mega-header-padding-expaded-item-mobile);
               }
 
-              &__cards{
-                &.firtsEcoSub{
-                  @include respond-to(">=l") {                    
+              &__cards {
+                &.firtsEcoSub {
+                  @include respond-to(">=l") {
                     grid-row: 1 / 3;
-
                   }
                 }
-                &.lastEcoSub{
-                  @include respond-to(">=l") {                    
+                &.lastEcoSub {
+                  @include respond-to(">=l") {
                     grid-row: 1 / 3;
                     grid-column: 3/4;
-
                   }
                 }
-                
               }
               &__link {
                 color: var(--mega-header-color-nav-exanded) !important;
@@ -894,13 +946,10 @@ export default {
               }
               &__desc {
                 display: flex;
-                align-items: flex-start;
-                gap: 11.03px;
-                padding: 20px;
-                img {
-                  width: 24px;
-                  height: 24px;
-                }
+                align-items: center;
+                gap: 12.08px;
+                padding: 15px;
+
                 &__title {
                   font-weight: 500;
                   font-size: 18px;
@@ -913,6 +962,13 @@ export default {
                   font-weight: normal;
                   font-size: 16px;
                   color: #b2bfcd;
+                }
+              }
+              &__img {
+                align-self: flex-start;
+                img {
+                  width: 24px;
+                  height: 24px;
                 }
               }
               &.hidden__submenu {
@@ -935,9 +991,9 @@ export default {
                 border-radius: 10px;
                 gap: 8.8px;
                 padding: 10px 16px;
-                &:hover{
-              background: #D7DDE5;
-            }
+                &:hover {
+                  background: #d7dde5;
+                }
                 img {
                   width: 19.2px;
                   height: 19.2px;
