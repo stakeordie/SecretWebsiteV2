@@ -398,8 +398,7 @@ export default {
       return this.columns;
     },
   },
-  mounted() {
-    //this.megaMenuItems2();
+  mounted() {   
     this.resizeWindow();
     this.megaMenuColumns();
     if (process.isClient) {
@@ -407,7 +406,7 @@ export default {
     }
   },
   beforeDestroy() {
-    // this.scrollPosition();
+    this.scrollPosition();
   },
 };
 </script>
