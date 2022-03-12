@@ -962,6 +962,9 @@ export default {
                   font-weight: normal;
                   font-size: 16px;
                   color: #b2bfcd;
+                  @include respond-to("<=l") {
+                    display: none;
+                  }
                 }
               }
               &__img {
@@ -971,6 +974,7 @@ export default {
                   height: 24px;
                 }
               }
+
               &.hidden__submenu {
                 display: none;
               }
