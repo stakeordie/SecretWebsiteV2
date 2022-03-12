@@ -141,7 +141,9 @@
                           />
                           <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
-                        <div>
+                        <div
+                          class="nav__expanded__content__item__textcontainer"
+                        >
                           <div
                             class="nav__expanded__content__item__desc__title"
                           >
@@ -169,7 +171,9 @@
                           <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
 
-                        <div>
+                        <div
+                          class="nav__expanded__content__item__textcontainer"
+                        >
                           <div
                             class="nav__expanded__content__item__desc__title"
                           >
@@ -944,29 +948,36 @@ export default {
                   line-height: var(--mega-header-line-height);
                 }
               }
-              &__desc {
+              &__textcontainer {
                 display: flex;
-                align-items: center;
-                gap: 12.08px;
-                padding: 15px;
+                flex-direction: column;
+                gap: 4px;
+                
+              }
+              &__desc {
+                  display: flex;
+                  align-items: center;
+                  gap: 12.08px;
+                  padding: 15px;
 
-                &__title {
-                  font-weight: 500;
-                  font-size: 18px;
-                  font-family: var(--f-default-headers-font);
-                  color: #fff;
-                  line-height: 24px;
-                }
-                &__descr {
-                  font-family: var(--f-default-headers-font);
-                  font-weight: normal;
-                  font-size: 16px;
-                  color: #b2bfcd;
-                  @include respond-to("<=l") {
-                    display: none;
+                  &__title {
+                    font-weight: 500;
+                    font-size: 18px;
+                    font-family: var(--f-default-headers-font);
+                    color: #fff;
+                    line-height: 24px;
+                  }
+                  &__descr {
+                    font-family: var(--f-default-headers-font);
+                    font-weight: normal;
+                    font-size: 16px;
+                    color: #b2bfcd;
+                    @include respond-to("<=l") {
+                      display: none;
+                    }
                   }
                 }
-              }
+
               &__img {
                 align-self: flex-start;
                 img {
