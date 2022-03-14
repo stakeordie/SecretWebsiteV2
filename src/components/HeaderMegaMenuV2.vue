@@ -81,7 +81,8 @@
                   @click.prevent="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img src="../assets/badge.svg" alt="" />
+                    <img :src="nav.icon.url" alt="" />
+                    <!-- <img src="../assets/badge.svg" alt="" /> -->
                     <h6>{{ nav.title }}</h6>
                   </div>
                   <img
@@ -478,6 +479,10 @@ export default {
         nav_groups {
           title
           id
+          icon {
+            url
+            name
+          }
           nav_items {
             sub_category
             nav_item {
