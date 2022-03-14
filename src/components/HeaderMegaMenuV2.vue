@@ -915,8 +915,7 @@ export default {
               grid-template-columns: repeat(3, 1fr);
               /* padding: var(--mega-header-padding-list-nav-expanded); */
               margin-bottom: 0;
-              /* height: var(--mega-header-height-expaded-item); */
-              padding-left: 201px;
+              /* height: var(--mega-header-height-expaded-item); */              
               @include respond-to("<=m") {
                 display: flex;
                 flex-direction: column;
