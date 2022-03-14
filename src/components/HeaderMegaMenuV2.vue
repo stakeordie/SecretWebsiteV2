@@ -785,6 +785,7 @@ export default {
       justify-content: center;
       display: flex;
       background-color: var(--mega-header-background-nav-expanded);
+      border-radius: 0px 0px 10px 10px;
       @include respond-to("<=l") {
         position: absolute;
         top: 67px;
