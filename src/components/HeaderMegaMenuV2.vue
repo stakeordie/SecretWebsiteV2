@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="logo-bar__content__btnSrct">
-              <button>
+              <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/logo-scrt.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
@@ -81,7 +81,8 @@
                   @click.prevent="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img src="../assets/badge.svg" alt="" />
+                    <img :src="nav.icon.url" alt="" />
+                    <!-- <img src="../assets/badge.svg" alt="" /> -->
                     <h6>{{ nav.title }}</h6>
                   </div>
                   <img
@@ -192,7 +193,7 @@
               </li>
             </ul>
             <div class="nav__expanded__content__btnSrct">
-              <button>
+              <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/logo-scrt.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
@@ -404,6 +405,10 @@ export default {
         el.classList.remove("arrow-up");
       });
     },
+    redirectAboutSrct() {
+      this.linkCloseMenu();
+      this.$router.push("/about/about-scrt");
+    },
     mapNavArray(array) {
       array.forEach((c) => {
         let result = c.nav_items.reduce(function (r, a) {
@@ -478,6 +483,10 @@ export default {
         nav_groups {
           title
           id
+          icon {
+            url
+            name
+          }
           nav_items {
             sub_category
             nav_item {
@@ -785,6 +794,7 @@ export default {
       justify-content: center;
       display: flex;
       background-color: var(--mega-header-background-nav-expanded);
+      border-radius: 0px 0px 10px 10px;
       @include respond-to("<=l") {
         position: absolute;
         top: 67px;
@@ -910,7 +920,6 @@ export default {
               /* padding: var(--mega-header-padding-list-nav-expanded); */
               margin-bottom: 0;
               /* height: var(--mega-header-height-expaded-item); */
-              padding-left: 201px;
               @include respond-to("<=m") {
                 display: flex;
                 flex-direction: column;
@@ -952,31 +961,30 @@ export default {
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
-                
               }
               &__desc {
-                  display: flex;
-                  align-items: center;
-                  gap: 12.08px;
-                  padding: 15px;
+                display: flex;
+                align-items: center;
+                gap: 12.08px;
+                padding: 15px;
 
-                  &__title {
-                    font-weight: 500;
-                    font-size: 18px;
-                    font-family: var(--f-default-headers-font);
-                    color: #fff;
-                    line-height: 24px;
-                  }
-                  &__descr {
-                    font-family: var(--f-default-headers-font);
-                    font-weight: normal;
-                    font-size: 16px;
-                    color: #b2bfcd;
-                    @include respond-to("<=l") {
-                      display: none;
-                    }
+                &__title {
+                  font-weight: 500;
+                  font-size: 18px;
+                  font-family: var(--f-default-headers-font);
+                  color: #fff;
+                  line-height: 24px;
+                }
+                &__descr {
+                  font-family: var(--f-default-headers-font);
+                  font-weight: normal;
+                  font-size: 16px;
+                  color: #b2bfcd;
+                  @include respond-to("<=l") {
+                    display: none;
                   }
                 }
+              }
 
               &__img {
                 align-self: flex-start;
