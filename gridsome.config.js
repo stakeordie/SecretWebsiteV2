@@ -90,6 +90,12 @@ module.exports = {
                 'committees',
                 'nav-item',
                 'page',
+                'services-bots',
+                'services-bridges',
+                'services-ce-xes',
+                'services-de-xes',
+                'services-wallets',
+                'services-websites',
             ],
             localizedTypes: [
                 //complex types
