@@ -19,10 +19,10 @@
               >
               <!-- <span>{{it.nav_item.external_link}}</span> -->
               <!-- <span>{{it.nav_item.page.route}}</span> -->
-                <g-link
+                <g-link 
                   class="nav__expanded__content__item__link"
                   :to="it.nav_item.page ? it.nav_item.page.route : it.nav_item.external_link"
-                  ><span >{{ it.nav_item.text }}</span></g-link>
+                  ><span >{{ it.nav_item.text }}</span><img v-if="it.nav_item.external_link" class="nav__expanded__content__item__link-icon" src ="../assets/icon-arrow-external-blue.svg" alt="External Link"/></g-link>
               </li>
             </ul>
           </div>
@@ -385,6 +385,7 @@ export default {
             }
             &__item {
               /* padding: var(--mega-header-padding-list-nav-expanded); */
+              
               margin-bottom: 0;
               /* height: var(--mega-header-height-expaded-item); */
               padding-left: 24px;
@@ -394,9 +395,14 @@ export default {
               }
               &__link {
                 // color: var(--mega-header-color-nav-exanded) !important;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+                gap: var(--f-gutter-xxs);
                 line-height: var(--mega-header-line-height-nav-expanded);
                 font-weight: 400;
                 font-size: var(--mega-header-text-size-nav-expanded);
+                height: var(--mega-header-space-l);
                 /* height: var(--mega-header-height-list-nav-expanded); */
                 &:hover {
                   color: var(--mega-header-color-nav-exanded-hover) !important;
@@ -405,6 +411,9 @@ export default {
                 @include respond-to("<=m") {
                   line-height: var(--mega-header-line-height);
                 }
+              }
+              &__link-icon {
+                transform: translateY(-2px);
               }
             }
           }

@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="logo-bar__content__btnSrct">
-              <button>
+              <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/logo-scrt.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
@@ -193,7 +193,7 @@
               </li>
             </ul>
             <div class="nav__expanded__content__btnSrct">
-              <button>
+              <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/logo-scrt.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
@@ -404,6 +404,10 @@ export default {
       arrow.forEach((el) => {
         el.classList.remove("arrow-up");
       });
+    },
+    redirectAboutSrct() {
+      this.linkCloseMenu();
+      this.$router.push("/about/about-scrt");
     },
     mapNavArray(array) {
       array.forEach((c) => {
@@ -916,7 +920,6 @@ export default {
               /* padding: var(--mega-header-padding-list-nav-expanded); */
               margin-bottom: 0;
               /* height: var(--mega-header-height-expaded-item); */
-              padding-left: 201px;
               @include respond-to("<=m") {
                 display: flex;
                 flex-direction: column;
@@ -958,31 +961,30 @@ export default {
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
-                
               }
               &__desc {
-                  display: flex;
-                  align-items: center;
-                  gap: 12.08px;
-                  padding: 15px;
+                display: flex;
+                align-items: center;
+                gap: 12.08px;
+                padding: 15px;
 
-                  &__title {
-                    font-weight: 500;
-                    font-size: 18px;
-                    font-family: var(--f-default-headers-font);
-                    color: #fff;
-                    line-height: 24px;
-                  }
-                  &__descr {
-                    font-family: var(--f-default-headers-font);
-                    font-weight: normal;
-                    font-size: 16px;
-                    color: #b2bfcd;
-                    @include respond-to("<=l") {
-                      display: none;
-                    }
+                &__title {
+                  font-weight: 500;
+                  font-size: 18px;
+                  font-family: var(--f-default-headers-font);
+                  color: #fff;
+                  line-height: 24px;
+                }
+                &__descr {
+                  font-family: var(--f-default-headers-font);
+                  font-weight: normal;
+                  font-size: 16px;
+                  color: #b2bfcd;
+                  @include respond-to("<=l") {
+                    display: none;
                   }
                 }
+              }
 
               &__img {
                 align-self: flex-start;
