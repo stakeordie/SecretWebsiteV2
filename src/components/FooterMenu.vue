@@ -19,10 +19,10 @@
               >
               <!-- <span>{{it.nav_item.external_link}}</span> -->
               <!-- <span>{{it.nav_item.page.route}}</span> -->
-                <g-link
+                <g-link 
                   class="nav__expanded__content__item__link"
                   :to="it.nav_item.page ? it.nav_item.page.route : it.nav_item.external_link"
-                  ><span >{{ it.nav_item.text }}</span><img class="nav__expanded__content__item__link-icon" src ="../assets/icon-arrow-external-blue.svg" alt="External Link"/></g-link>
+                  ><span >{{ it.nav_item.text }}</span><img v-if="it.nav_item.external_link" class="nav__expanded__content__item__link-icon" src ="../assets/icon-arrow-external-blue.svg" alt="External Link"/></g-link>
               </li>
             </ul>
           </div>
