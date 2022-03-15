@@ -90,6 +90,12 @@ module.exports = {
                 'committees',
                 'nav-item',
                 'page',
+                'services-bots',
+                'services-bridges',
+                'services-ce-xes',
+                'services-de-xes',
+                'services-wallets',
+                'services-websites',
             ],
             localizedTypes: [
                 //complex types
@@ -118,6 +124,7 @@ module.exports = {
                 'agent-landing-intro-rows',
                 'about-scrt',
                 'nav-header',
+                'nav-header-new',
                 'ecosystem-roadmap'
             ],
             // Possibility to login with a Strapi user,

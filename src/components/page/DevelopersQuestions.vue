@@ -45,7 +45,7 @@ export default {};
   &__banner {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-gap: 42px;
+    grid-gap: 16px;
     background: var(--color-neutral-dark-mode-03);
     padding: var(--f-gutter);
     border-radius: 10px;
@@ -73,7 +73,7 @@ export default {};
         display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
-    min-width: 320px;
+    min-width: 100%;
     margin: auto;
     
 
@@ -84,7 +84,7 @@ export default {};
 
         &__blue-button {
           .text-center {
-            background-color: var(--color-highkey-secondary-blue) !important;
+            background-color: var(--color-developers-blue-01) !important;
             font-size: var(--f-default-text-size);
             letter-spacing: 1px;
             &.special-icon{
