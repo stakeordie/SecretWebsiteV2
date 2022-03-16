@@ -125,7 +125,8 @@ module.exports = {
                 'about-scrt',
                 'nav-header',
                 'nav-header-new',
-                'ecosystem-roadmap'
+                'ecosystem-roadmap',
+                'services-alert',
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
