@@ -147,12 +147,12 @@ body {
   &.index {
     main { padding-top: 52px; }
   }
-  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq) {
+  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq):not(.about-secret-contracts) {
     main { padding-top: 44px; }
   }
   // TODO Lets try to make this for all pages that requires to handle this.
   // We should be able to mark them as "pages-with-heros" or something.
-  &.about-secret-tokens-bridges, &.about-secret-finance, &.about-secret-nfts {
+  &.about-secret-tokens-bridges, &.about-secret-finance, &.about-secret-nfts, &.about-secret-contracts{
     main { padding-top: 0; }
   }
   main {
