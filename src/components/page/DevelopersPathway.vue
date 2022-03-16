@@ -144,7 +144,7 @@ export default {
               description:
                 "A set of Rust packages with common tools to develop Secret Contracts.",
               urlTitle: "View resource",
-              url: "https://github.com/scrtlabs/secret-toolkit",
+              url: "https://crates.io/crates/secret-toolkit",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -156,11 +156,11 @@ export default {
             },
             {
               image: "/temp/icon-features-file.svg",
-              title: "Secret NFT Guide",
+              title: "Project Template",
               description:
-                "Mint your first Secret NFT and learn how their privacy-preserving features work.",
+                "Quickstart template to get started writing your own cosmwasm contracts.",
               urlTitle: "View resource",
-              url: "https://learn.figment.io/tutorials/create-your-first-secret-nft",
+              url: "https://github.com/scrtlabs/secret-template",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -170,14 +170,25 @@ export default {
               urlTitle: "View resource",
               url: "https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html",
             },
+            
             {
               image: "/temp/icon-features-file.svg",
-              title: "Polar",
+              title: "Fadroma",
               description:
-                "Learn about Secret’s privacy-preserving features and how you can use them.",
+                "Core workflows for smart contract development and deployment on Secret and Cosmos-based platforms.",
               urlTitle: "View resource",
-              url: "https://www.npmjs.com/package/secret-polar",
+              url: "https://github.com/hackbg/fadroma",
             },
+            {
+              image: "/temp/icon-features-file.svg",
+              title: "Secret NFT Guide",
+              description:
+                "Mint your first Secret NFT and learn how their privacy-preserving features work.",
+              urlTitle: "View resource",
+              url: "https://learn.figment.io/tutorials/create-your-first-secret-nft",
+            },
+            
+            
           ],
         },
         {
@@ -211,7 +222,7 @@ export default {
               description:
                 "Flex your Python skills to build and test components of Secret Apps.",
               urlTitle: "View resource",
-              url: "https://github.com/secretanalytics/secret-sdk-python ",
+              url: "https://pypi.org/project/secret-sdk/ ",
             },
             {
               image: "/temp/icon-features-file.svg",
@@ -228,6 +239,14 @@ export default {
                 "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
               urlTitle: "View template",
               url: "https://github.com/scrtlabs/Secret.js",
+            },
+            {
+              image: "/temp/icon-features-file.svg",
+              title: "Polar",
+              description:
+                "Project management tooling and smart contract development framework.",
+              urlTitle: "View resource",
+              url: "https://docs.arufaresearch.com/",
             },
           ],
         },
