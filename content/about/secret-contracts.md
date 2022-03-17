@@ -2,11 +2,11 @@
 title: "Secret Contracts"
 ---
 
-<hero-mixed-cms section="aboutSecretFinance">
+<hero-mixed-cms section="secretContracts">
 
 </hero-mixed-cms>
 
-<!-- <content-navigator-cms section="SecretContracts">
+<content-navigator-cms section="secretContracts">
 
 
-</content-navigator-cms> -->
+</content-navigator-cms>

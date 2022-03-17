@@ -119,6 +119,16 @@ query {
           heroBody
           mainContent
         }
+        secretContracts {
+          heroColor
+          heroImage {
+            url
+          }
+          heroSubtitle
+          heroTitle
+          heroBody
+          mainContent
+        }
       }
     }
   }
