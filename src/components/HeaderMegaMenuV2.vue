@@ -453,9 +453,9 @@ export default {
       return this.megaMenuIsOpen ? "is-opened" : "is-closed";
     },
     megaMenuItems() {
-      const content = this.$static.navHeader.edges.map(
-        (it) => it.node.nav_groups
-      );
+      const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
+      const content = neWArray.edges.map((it) => it.node.nav_groups);
+
       this.columns = content[0];
       this.mapNavArray(this.columns);
 
@@ -812,7 +812,7 @@ export default {
         }
       }
       &__content {
-        width: 100%;
+        width: 95%;
         display: grid;
         background-color: var(--mega-header-background-nav-expanded);
         padding-bottom: var(--f-gutter);
@@ -826,6 +826,9 @@ export default {
         @media screen and (min-width: 2560px) {
           max-width: 1840px;
         }
+        @include respond-to ("<=l"){
+          width: 100%;
+        }
       }
       .nav {
         &__expanded {
@@ -836,7 +839,7 @@ export default {
           @include respond-to("<=l") {
             display: flex;
             flex-direction: column;
-            padding: 0;
+            // padding: 0;
             padding-bottom: 160px;
           }
           &__content {
