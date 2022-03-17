@@ -453,9 +453,9 @@ export default {
       return this.megaMenuIsOpen ? "is-opened" : "is-closed";
     },
     megaMenuItems() {
-      const content = this.$static.navHeader.edges.map(
-        (it) => it.node.nav_groups
-      );
+      const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
+      const content = neWArray.edges.map((it) => it.node.nav_groups);
+
       this.columns = content[0];
       this.mapNavArray(this.columns);
 
