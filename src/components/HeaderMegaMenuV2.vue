@@ -127,8 +127,12 @@
                     :key="indexItem"
                   >
                     <g-link
-                      v-if="secItem.nav_item.page != null"
-                      :to="secItem.nav_item.page.route"
+                      v-if="secItem.nav_item.display_on_header"
+                      :to="
+                        secItem.nav_item.page
+                          ? secItem.nav_item.page.route
+                          : secItem.nav_item.external_link
+                      "
                     >
                       <div
                         @click="linkCloseMenu"
@@ -142,36 +146,6 @@
                           />
                           <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
-                        <div
-                          class="nav__expanded__content__item__textcontainer"
-                        >
-                          <div
-                            class="nav__expanded__content__item__desc__title"
-                          >
-                            <span>{{ secItem.nav_item.text }}</span>
-                          </div>
-                          <div
-                            class="nav__expanded__content__item__desc__descr"
-                          >
-                            <span>{{ secItem.nav_item.description }}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </g-link>
-                    <g-link v-else :to="secItem.nav_item.external_link">
-                      <div
-                        @click="linkCloseMenu"
-                        class="nav__expanded__content__item__desc"
-                      >
-                        <div class="nav__expanded__content__item__img">
-                          <img
-                            v-if="secItem.nav_item.icon != null"
-                            :src="secItem.nav_item.icon.url"
-                            alt=""
-                          />
-                          <img v-else src="../assets/badge-black.svg" alt="" />
-                        </div>
-
                         <div
                           class="nav__expanded__content__item__textcontainer"
                         >
@@ -414,9 +388,12 @@ export default {
         let result = c.nav_items.reduce(function (r, a) {
           r[a.sub_category] = r[a.sub_category] || [];
           r[a.sub_category].push(a);
+
           return r;
         }, Object.create(null));
+
         c.nav_items = [];
+
         Object.entries(result).forEach(([key, value]) => {
           if (key == "Join the Community") {
             let firstArray = value.filter((e, i) => {
@@ -426,6 +403,7 @@ export default {
             let secondArray = value.filter((e, i) => {
               return i > 2;
             });
+
             c.nav_items.push({
               sub_category: key,
               sub_category_nav_item: firstArray,
@@ -492,6 +470,8 @@ export default {
             nav_item {
               text
               id
+              display_on_header
+              display_on_footer
               description
               icon {
                 url
@@ -826,7 +806,7 @@ export default {
         @media screen and (min-width: 2560px) {
           max-width: 1840px;
         }
-        @include respond-to ("<=l"){
+        @include respond-to("<=l") {
           width: 100%;
         }
       }

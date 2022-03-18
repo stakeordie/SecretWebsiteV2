@@ -1,32 +1,42 @@
 <template>
-
-    <div class="mega-footer">
-      
-      <!-- expanded -->
-      <div class="mega-footer__wrapper__expanded">
-        <div class="mega-footer__wrapper__expanded__content">
-          <div class="nav__expanded">
-            <ul
-              class="nav__expanded__content"
-              v-for="(nav, index) in footerMenuItems"
+  <div class="mega-footer">
+    <!-- expanded -->
+    <div class="mega-footer__wrapper__expanded">
+      <div class="mega-footer__wrapper__expanded__content">
+        <div class="nav__expanded">
+          <ul
+            class="nav__expanded__content"
+            v-for="(nav, index) in footerMenuItems"
+            :key="index"
+          >
+            <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
+            <li
+              class="nav__expanded__content__item"
+              :class="!it.nav_item.display_on_footer ? 'hideFooterItem': ' '"
+              v-for="(it, index) in nav.nav_items"
               :key="index"
             >
-              <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
-              <li
-                class="nav__expanded__content__item"
-                v-for="(it, index) in nav.nav_items"
-                :key="index"
-              >
               <!-- <span>{{it.nav_item.external_link}}</span> -->
               <!-- <span>{{it.nav_item.page.route}}</span> -->
-                <g-link 
-                  class="nav__expanded__content__item__link"
-                  :to="it.nav_item.page ? it.nav_item.page.route : it.nav_item.external_link"
-                  ><span >{{ it.nav_item.text }}</span><img v-if="it.nav_item.external_link" class="nav__expanded__content__item__link-icon" src ="../assets/icon-arrow-external-blue.svg" alt="External Link"/></g-link>
-              </li>
-            </ul>
-          </div>
-          <!-- <div class="nav__social-media">
+              <g-link
+                
+                class="nav__expanded__content__item__link"
+                :to="
+                  it.nav_item.page
+                    ? it.nav_item.page.route
+                    : it.nav_item.external_link
+                "
+                ><span>{{ it.nav_item.text }}</span
+                ><img
+                  v-if="it.nav_item.external_link"
+                  class="nav__expanded__content__item__link-icon"
+                  src="../assets/icon-arrow-external-blue.svg"
+                  alt="External Link"
+              /></g-link>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="nav__social-media">
             <div class="nav__social-media__content">
               <p class="title">Connect with Us:</p>
               <div class="nav__social-media__icon-content">
@@ -94,10 +104,9 @@
               </div>
             </div>
           </div> -->
-        </div>
       </div>
     </div>
-
+  </div>
 </template>
 
 <script>
@@ -127,6 +136,8 @@ export default {
             nav_item {
               text
               id
+              display_on_header
+              display_on_footer
               page {
                 name
                 title
@@ -378,14 +389,14 @@ export default {
               padding: var(--f-gutter);
               font-weight: 600;
               margin-bottom: 0;
-                padding-left: 24px;
+              padding-left: 24px;
               @include respond-to(">m") {
                 // display: none;
               }
             }
             &__item {
               /* padding: var(--mega-header-padding-list-nav-expanded); */
-              
+
               margin-bottom: 0;
               /* height: var(--mega-header-height-expaded-item); */
               padding-left: 24px;
@@ -414,6 +425,9 @@ export default {
               }
               &__link-icon {
                 transform: translateY(-2px);
+              }
+              &.hideFooterItem{
+                display: none;
               }
             }
           }
