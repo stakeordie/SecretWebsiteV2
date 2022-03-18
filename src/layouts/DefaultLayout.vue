@@ -1247,7 +1247,7 @@ body {
 
         span {
           @include theme(dark dark-colored) {
-            color: var(--color-analog-secondary-blue);
+            color: var(--color-newBrand-blue-01);
           }
 
           @include theme(light light-colored) {

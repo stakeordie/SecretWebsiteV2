@@ -792,7 +792,7 @@ export default {
         }
       }
       &__content {
-        width: 95%;
+        width: 100%;
         display: grid;
         background-color: var(--mega-header-background-nav-expanded);
         padding-bottom: var(--f-gutter);
@@ -824,7 +824,7 @@ export default {
           }
           &__content {
             padding: 0;
-            margin: 0;
+            margin: 0 16px;
             display: grid;
             height: fit-content;
             gap: 20px;
@@ -949,7 +949,7 @@ export default {
                 display: flex;
                 align-items: center;
                 gap: 12.08px;
-                padding: 15px;
+                padding: 16px;
 
                 &__title {
                   font-weight: 500;

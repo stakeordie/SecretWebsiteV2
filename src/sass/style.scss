@@ -292,7 +292,8 @@ strong {
 button,
 .button {
   border-radius: var(--f-gutter-s);
-  background-color: var(--theme-button);
+  //background-color: var(--theme-button);
+  background-color: var(--color-newBrand-blue-01);
   cursor: pointer;
 
   &.theme {
