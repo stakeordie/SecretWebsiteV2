@@ -3,43 +3,42 @@
     <div class="service-status__tabs">
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 0 ? 'focused': '']"
-        
+        :class="[indexTables == 0 ? 'focused' : '']"
         @click.prevent="setArrayIndex(0)"
       >
         CEXes
       </button>
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 1 ? 'focused': '']"
+        :class="[indexTables == 1 ? 'focused' : '']"
         @click.prevent="setArrayIndex(1)"
       >
         DEXes
       </button>
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 2 ? 'focused': '']"
+        :class="[indexTables == 2 ? 'focused' : '']"
         @click.prevent="setArrayIndex(2)"
       >
         Wallets
       </button>
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 3 ? 'focused': '']"
+        :class="[indexTables == 3 ? 'focused' : '']"
         @click.prevent="setArrayIndex(3)"
       >
         Bridges
       </button>
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 4 ? 'focused': '']"
+        :class="[indexTables == 4 ? 'focused' : '']"
         @click.prevent="setArrayIndex(4)"
       >
         Websites
       </button>
       <button
         class="service-status__tabs__tab"
-        :class="[indexTables == 5 ? 'focused': '']"
+        :class="[indexTables == 5 ? 'focused' : '']"
         @click.prevent="setArrayIndex(5)"
       >
         Bots
@@ -66,48 +65,41 @@
           <img class="item-img" :src="item.node.logo.url" alt="" />
           <div class="item-info">
             <h6>{{ item.node.service_name }}</h6>
-            <a :href="item.node.url" class="item-link">{{ item.node.url }}</a>
+            <a rel="noopener noreferrer" :href="item.node.url" class="item-link" target="blank">{{ item.node.url }}</a>
           </div>
         </li>
         <li
           class="service-status__table__row__status"
           :class="{
-            active: getValueByKey(1,item) == 'active',
-            inactive: getValueByKey(1,item) == 'inactive',
+            active: getValueByKey(1, item) == 'active',
+            inactive: getValueByKey(1, item) == 'inactive',
           }"
         >
           <h6 class="status-heading">{{ serviceTableItems.headers[1] }}</h6>
-          {{ getValueByKey(1,item) }}
+          {{ getValueByKey(1, item) }}
         </li>
         <li
           class="service-status__table__row__status"
           :class="{
-            active: getValueByKey(2,item) == 'active',
-            inactive: getValueByKey(2,item) == 'inactive',
+            active: getValueByKey(2, item) == 'active',
+            inactive: getValueByKey(2, item) == 'inactive',
           }"
         >
           <h6 class="status-heading">{{ serviceTableItems.headers[2] }}</h6>
-          {{ compareIndexColumns ? getValueByKey(2,item) : "" }}
+          {{ compareIndexColumns ? getValueByKey(2, item) : "" }}
         </li>
         <li
           class="service-status__table__row__status"
           :class="{
-            active: getValueByKey(3,item) == 'active',
-            inactive: getValueByKey(3,item) == 'inactive',
-            time_est: indexTables == 3
+            active: getValueByKey(3, item) == 'active',
+            inactive: getValueByKey(3, item) == 'inactive',
+            time_est: indexTables == 3,
           }"
         >
           <h6 class="status-heading">{{ serviceTableItems.headers[3] }}</h6>
-          {{ compareIndexColumns ? getValueByKey(3,item) : "" }}
+          {{ compareIndexColumns ? getValueByKey(3, item) : "" }}
         </li>
-        <!-- <li class="service-status__table__row__status">
-          <h6 class="status-heading">Widthraws</h6>
-          {{ item.status2 }}
-        </li>
-        <li class="service-status__table__row__status">
-          <h6 class="status-heading">Trading</h6>
-          {{ item.status3 }}
-        </li> -->
+
         <li class="service-status__table__row__update">
           <h6 class="status-heading">{{ serviceTableItems.headers[4] }}</h6>
           {{ item.node.reported_on | formatDate }}
@@ -169,22 +161,22 @@ export default {
       //this.searchInactivesValues();
     },
     //return value by key because every query has different structure
-    getValueByKey(itemNumber,item) {     
+    getValueByKey(itemNumber, item) {
       let value = "";
       switch (itemNumber) {
         case 1:
           if (this.indexTables == 0 || this.indexTables == 1) value = item.node["deposit_status"];
-          else if (this.indexTables == 2)  value = item.node["transaction_status"];
-          else if (this.indexTables == 3)  value = item.node["in_status"];
-          else if (this.indexTables > 3)  value = item.node["status"];
+          else if (this.indexTables == 2) value = item.node["transaction_status"];
+          else if (this.indexTables == 3) value = item.node["in_status"];
+          else if (this.indexTables > 3) value = item.node["status"];
           break;
         case 2:
           if (this.indexTables == 0 || this.indexTables == 1) value = item.node["withdraws_status"];
-          else  value = item.node["out_status"];
+          else value = item.node["out_status"];
           break;
         case 3:
           if (this.indexTables == 0 || this.indexTables == 1) value = item.node["trading_status"];
-          else  value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
+          else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
           break;
       }
       return value;
@@ -205,14 +197,14 @@ export default {
     formatDate(value) {
       if (!value || !new Date(value).toISOString()) return " ";
       let time = value.match(/\d\d:\d\d/);
-      let fullDate = new Date(value);      
+      let fullDate = new Date(value);
       var dd = fullDate.getDate();
       var mm = fullDate.getMonth() + 1; //January is 0!
       var yyyy = fullDate.getFullYear();
-      if (dd < 10) dd = "0" + dd; 
+      if (dd < 10) dd = "0" + dd;
       if (mm < 10) mm = "0" + mm;
       var dateISO = dd + "/" + mm + "/" + yyyy;
-      let finalDate = time + " " + dateISO;
+      let finalDate = time + '  ' + dateISO;
 
       return finalDate;
     },
@@ -222,8 +214,8 @@ export default {
     serviceTableItems() {
       var table = this.response_headers[this.indexTables].title;
       var headers = this.response_headers[this.indexTables].headers;
-      var content = this.$static[table].edges.map((it) => it);   
-        
+      var content = this.$static[table].edges.map((it) => it);
+
       this.columns.items = [];
       this.columns.items = content;
       this.columns.headers = headers;
@@ -426,9 +418,9 @@ query {
         display: grid;
         grid-template-columns: 42px 1fr;
         gap: 16px;
-        
 
         .item-img {
+          object-fit: contain;
           width: 42px;
           height: 42px;
         }
@@ -445,7 +437,6 @@ query {
           font-family: var(--f-default-text-font);
           line-height: 0;
           color: var(--color-analog-tertiary-blue);
-          
         }
       }
       &__status {
@@ -459,7 +450,7 @@ query {
           color: var(--color-analog-secondary-orange);
         }
 
-        &.time_est{
+        &.time_est {
           text-transform: lowercase;
           font-weight: 400;
           font-family: var(--blog-text-font-family);

@@ -824,7 +824,7 @@ export default {
           }
           &__content {
             padding: 0;
-            margin: 0 16px;
+            margin: 0;
             display: grid;
             height: fit-content;
             gap: 20px;
