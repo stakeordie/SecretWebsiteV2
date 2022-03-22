@@ -116,7 +116,7 @@
           <h4>Community</h4>
           <p>Whether you’re a developer, an artist, a writer, an entrepreneur, or a dreamer, there are many ways for you
             to contribute to Secret Network.</p>
-          <btn class="text-center" url="/community">Go to page</btn>
+          <btn class="text-center" url="/get-involved/international-communities">Go to page</btn>
 
         </card-minimal>
 
@@ -162,7 +162,7 @@
 
 
     <!-- Join the conversation -->
-    <column class="spacer-s img-invert" number="5" number-m="2" number-s="2">
+    <column class="spacer-s img-invert" number="4" number-m="2" number-s="2">
 
       <block>
 
@@ -170,7 +170,7 @@
 
           <img src="../assets/icon-social-forum-big.svg" alt=""/>
 
-          <h6>Secret Forum</h6>
+          <h6>Forum</h6>
 
         </card-simple>
 
@@ -182,7 +182,7 @@
 
           <img src="../assets/icon-social-discord-big.svg" alt=""/>
 
-          <h6>Discord Chat</h6>
+          <h6>Discord</h6>
 
         </card-simple>
 
@@ -218,7 +218,43 @@
 
           <img src="../assets/icon-social-youtube-big.svg" alt=""/>
 
-          <h6>Youtube Channel</h6>
+          <h6>Youtube</h6>
+
+        </card-simple>
+
+      </block>
+
+      <block>
+
+        <card-simple class="accent-orange text-center cta" url="https://www.instagram.com/scrtnetwork/">
+
+          <img src="../assets/icon-social-instagram-big.svg" alt=""/>
+
+          <h6>Instagram</h6>
+
+        </card-simple>
+
+      </block>
+
+      <block>
+
+        <card-simple class="accent-red text-center cta" url="https://www.reddit.com/r/SecretNetwork/">
+
+          <img src="../assets/icon-social-reddit-big.svg" alt=""/>
+
+          <h6>Reddit</h6>
+
+        </card-simple>
+
+      </block>
+
+      <block>
+
+        <card-simple class="accent-gray text-center cta" url="https://www.secretcalendar.org/">
+
+          <img src="../assets/icon-social-events-big.svg" alt=""/>
+
+          <h6>Events</h6>
 
         </card-simple>
 
