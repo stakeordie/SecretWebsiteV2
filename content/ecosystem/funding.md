@@ -66,3 +66,19 @@ title: "Funding"
 </ecosystem-funding-contributors>
 
 </column>
+
+
+
+
+
+
+
+
+
+<column class="spacer-s page-ecosystem__apply" >
+
+<ecosystem-funding-apply>
+
+</ecosystem-funding-apply>
+
+</column>

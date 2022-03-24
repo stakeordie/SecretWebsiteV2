@@ -116,8 +116,7 @@ export default {
                 height: 96px;
             }
 
-            &__name{
-            }
+            
         }
     }
 }
