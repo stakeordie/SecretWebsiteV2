@@ -122,7 +122,7 @@ import ServiceTable from '~/components/page/ServiceTable'
 import ServiceStatusAlert from '~/components/page/ServiceStatusAlert'
 import ServiceStatusHero from '~/components/page/ServiceStatusHero'
 import EcosystemFundingHero from '~/components/page/EcosystemFundingHero'
-import ServiceJobs from '~/components/page/ServiceJobs'
+import EcosystemFundingWhyBuild from '~/components/page/EcosystemFundingWhyBuild'
 
 
 
@@ -257,7 +257,7 @@ export default function (Vue, {
   Vue.component('ServiceStatusAlert', ServiceStatusAlert);
   Vue.component('ServiceStatusHero', ServiceStatusHero);
   Vue.component('EcosystemFundingHero', EcosystemFundingHero);
-  Vue.component('ServiceJobs', ServiceJobs);
+  Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
 
 
 
