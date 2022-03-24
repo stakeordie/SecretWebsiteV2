@@ -122,6 +122,8 @@ import ServiceTable from '~/components/page/ServiceTable'
 import ServiceStatusAlert from '~/components/page/ServiceStatusAlert'
 import ServiceStatusHero from '~/components/page/ServiceStatusHero'
 import EcosystemFundingHero from '~/components/page/EcosystemFundingHero'
+import EcosystemFundingAppVerticals from '~/components/page/EcosystemFundingAppVerticals'
+import EcosystemFundingContributors from '~/components/page/EcosystemFundingContributors'
 
 
 
@@ -256,6 +258,8 @@ export default function (Vue, {
   Vue.component('ServiceStatusAlert', ServiceStatusAlert);
   Vue.component('ServiceStatusHero', ServiceStatusHero);
   Vue.component('EcosystemFundingHero', EcosystemFundingHero);
+  Vue.component('EcosystemFundingAppVerticals', EcosystemFundingAppVerticals);
+  Vue.component('EcosystemFundingContributors', EcosystemFundingContributors);
 
 
 
