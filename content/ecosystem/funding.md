@@ -91,6 +91,22 @@ title: "Funding"
 
 
 
+<column class="spacer-s " >
+
+<ecosystem-funding-grant>
+
+</ecosystem-funding-grant>
+
+</column>
+
+
+
+
+
+
+
+
+
 
 <column class="spacer-s">
 

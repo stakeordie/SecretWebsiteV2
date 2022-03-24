@@ -7,7 +7,7 @@
           <p class="page-ecosystem__apply__content__p">
               Apply for our Ecosystem Fund and get the financial and strategic support you need to seriously scale your project.
           </p>
-          <btn class="page-ecosystem__apply__content__btn center-text no-arrow" url="#" >APPLY FOR FUNDING</btn>
+          <btn class="page-ecosystem__apply__content__btn center-text no-arrow" url="https://scrt.network/blog/secret-network-400m-ecosystem-funding-new-investors" >APPLY FOR FUNDING</btn>
       </div>
       
   </section>
@@ -26,14 +26,13 @@ export default {
     text-align: center;
     background: var(--color-neutral-dark-mode-02);
 
+
+
     &__content{
-        width: 742px;
-        margin: auto;
+        max-width: 600px;
+        margin: 42px auto;
         padding: 16px;
 
-        &__btn{
-            width: 300px;
-        }
 
     }
 }

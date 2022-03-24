@@ -127,6 +127,7 @@ import EcosystemFundingContributors from '~/components/page/EcosystemFundingCont
 import ServiceJobs from '~/components/page/ServiceJobs'
 import EcosystemFundingWhyBuild from '~/components/page/EcosystemFundingWhyBuild'
 import EcosystemFundingApply from '~/components/page/EcosystemFundingApply'
+import EcosystemFundingGrant from '~/components/page/EcosystemFundingGrant'
 import EcosystemFundingCtas from '~/components/page/EcosystemFundingCtas'
 
 
@@ -266,6 +267,7 @@ export default function (Vue, {
   Vue.component('EcosystemFundingContributors', EcosystemFundingContributors);
   Vue.component('ServiceJobs', ServiceJobs);
   Vue.component('EcosystemFundingApply', EcosystemFundingApply);
+  Vue.component('EcosystemFundingGrant', EcosystemFundingGrant);
 
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
