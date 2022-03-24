@@ -124,6 +124,7 @@ import ServiceStatusHero from '~/components/page/ServiceStatusHero'
 import EcosystemFundingHero from '~/components/page/EcosystemFundingHero'
 import EcosystemFundingAppVerticals from '~/components/page/EcosystemFundingAppVerticals'
 import EcosystemFundingContributors from '~/components/page/EcosystemFundingContributors'
+import ServiceJobs from '~/components/page/ServiceJobs'
 
 
 
@@ -260,6 +261,7 @@ export default function (Vue, {
   Vue.component('EcosystemFundingHero', EcosystemFundingHero);
   Vue.component('EcosystemFundingAppVerticals', EcosystemFundingAppVerticals);
   Vue.component('EcosystemFundingContributors', EcosystemFundingContributors);
+  Vue.component('ServiceJobs', ServiceJobs);
 
 
 

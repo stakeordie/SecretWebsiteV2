@@ -56,7 +56,7 @@
             </div>
             <div class="logo-bar__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/logo-scrt.svg" alt="" />
+                <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
@@ -168,7 +168,7 @@
             </ul>
             <div class="nav__expanded__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/logo-scrt.svg" alt="" />
+                <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
@@ -665,15 +665,15 @@ export default {
               margin: 0px 16px;
               background-color: var(--color-analog-primary-white);
               border-radius: 10px;
-              gap: 8.8px;
+              gap: 6px;
               padding: 10px 16px;
               &:hover {
                 background: #d7dde5;
               }
 
               img {
-                width: 19.2px;
-                height: 19.2px;
+                width: 24px;
+                height: 24px;
               }
               p {
                 margin: 0;
@@ -995,14 +995,14 @@ export default {
                 margin: 0px 16px;
                 background-color: var(--color-analog-primary-white);
                 border-radius: 10px;
-                gap: 8.8px;
+                gap: 6px;
                 padding: 10px 16px;
                 &:hover {
                   background: #d7dde5;
                 }
                 img {
-                  width: 19.2px;
-                  height: 19.2px;
+                  width: 24px;
+                  height: 24px;
                 }
                 p {
                   margin: 0;

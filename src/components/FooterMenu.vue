@@ -406,6 +406,7 @@ export default {
               }
               &__link {
                 // color: var(--mega-header-color-nav-exanded) !important;
+                color: var(--color-newBrand-blue-02);
                 display: grid;
                 grid-template-columns: auto 1fr;
                 align-items: center;
