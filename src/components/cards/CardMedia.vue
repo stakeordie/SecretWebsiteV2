@@ -100,19 +100,26 @@ $accent-colors: (
     bottom: 0;
     padding: var(--f-gutter);
     border-radius: var(--f-gutter-l);
+    // overflow: hidden;
     left: 0;
     right: 0;
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    object-fit: cover;
 
     @include respond-to("<=s") {
-      position: relative;
-      padding-left: 0;
-      padding-right: 0;
+      // max-height: 50%;
+      // min-height: 50%;
+      // position: relative;
+      // padding-left: 0;
+      // padding-right: 0;
     }
 
     @include respond-to(">=xxl") {
-      position: relative;
-      padding-left: 0;
-      padding-right: 0;
+      // position: relative;
+      // padding-left: 0;
+      // padding-right: 0;
     }
   }
 }

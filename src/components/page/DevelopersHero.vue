@@ -66,7 +66,7 @@ export default {};
         
 
         span {
-          color: var(--color-developers-blue-02);
+          color: var(--color-newBrand-blue-02);
         }
       }
 
@@ -109,7 +109,7 @@ export default {};
         margin-right: 0;
       }
        .text-center{
-        background-color: var(--color-developers-blue-01) !important;
+        background-color: var(--color-newBrand-blue-01) !important;
         width:400px;
         margin-right: 0;
         padding: 0;
