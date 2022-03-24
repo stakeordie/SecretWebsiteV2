@@ -72,8 +72,9 @@
               >
                 <g-link
                   class="nav__expanded__content__item__link"
-                  :to="it.nav_item.page.route"
-                  ><span v-on:click="linkCloseMenu">{{ it.nav_item.text }}</span></g-link>
+                  :to="it.nav_item.page ? it.nav_item.page.route : it.nav_item.external_link">
+                  <span v-on:click="linkCloseMenu">{{ it.nav_item.text }}</span>
+                </g-link>
               </li>
             </ul>
           </div>

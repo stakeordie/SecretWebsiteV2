@@ -42,8 +42,8 @@
             <a :href="media.url">
               <p class="type">{{ media.category }}</p>
               <h6>{{ media.title }}</h6>
-              <p>{{ media.description }}</p>
-              <img :src="media.picture" />
+              <p></p>
+              <img :src="media.picture" :alt="media.title" />
             </a>
           </div>
         </div>
