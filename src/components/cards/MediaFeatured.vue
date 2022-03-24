@@ -3,12 +3,14 @@
     <div class="items horizontal-slider">
       <div
         v-for="(media, index) in filterMediaItems"
+        :key="index"
         class="item"
         :class="`accent-${media.type}`" :key="index"
       >
         <a :href="media.url">
           <p class="type">{{ media.type }}</p>
           <h6>{{ media.title }}</h6>
+          <p></p>
           <img :src="media.picture" :alt="media.title" />
         </a>
       </div>
@@ -136,25 +138,25 @@ $accent-colors: (Article, Podcast, Video);
 
   .items {
     white-space: nowrap;
+
     &::-webkit-scrollbar {
       display: none;
     }
 
     .item {
-      background: var(--theme-card-bg-default);
-      transition: 0.2s ease;
-      cursor: pointer;
-      display: inline-flex;
-      flex-direction: column;
-      width: 350px;
-      height: 300px;
-      white-space: normal;
-      justify-content: space-between;
-      vertical-align: top;
-      margin-right: var(--f-gutter-l);
       border-radius: var(--f-radius);
       padding: var(--f-gutter);
       background: var(--theme-card-bg-default);
+      transition: 0.2s ease;
+      cursor: pointer;
+      display: inline-block;
+      //flex-direction: column;
+      width: 350px;
+      height: 400px;
+      white-space: normal;
+      //justify-content: space-between;
+      vertical-align: top;
+      margin-right: var(--f-gutter-l);
       position: relative;
       &:hover {
         transform: var(--card-hover-transform);
@@ -186,6 +188,9 @@ $accent-colors: (Article, Podcast, Video);
         border-radius: var(--f-gutter-l);
         left: 0;
         right: 0;
+        height: 290px;
+        width: 100%;
+        object-fit: cover;
       }
     }
   }
