@@ -122,7 +122,12 @@ import ServiceTable from '~/components/page/ServiceTable'
 import ServiceStatusAlert from '~/components/page/ServiceStatusAlert'
 import ServiceStatusHero from '~/components/page/ServiceStatusHero'
 import EcosystemFundingHero from '~/components/page/EcosystemFundingHero'
+import EcosystemFundingAppVerticals from '~/components/page/EcosystemFundingAppVerticals'
+import EcosystemFundingContributors from '~/components/page/EcosystemFundingContributors'
 import ServiceJobs from '~/components/page/ServiceJobs'
+import EcosystemFundingWhyBuild from '~/components/page/EcosystemFundingWhyBuild'
+import EcosystemFundingApply from '~/components/page/EcosystemFundingApply'
+import EcosystemFundingCtas from '~/components/page/EcosystemFundingCtas'
 
 
 
@@ -257,8 +262,14 @@ export default function (Vue, {
   Vue.component('ServiceStatusAlert', ServiceStatusAlert);
   Vue.component('ServiceStatusHero', ServiceStatusHero);
   Vue.component('EcosystemFundingHero', EcosystemFundingHero);
+  Vue.component('EcosystemFundingAppVerticals', EcosystemFundingAppVerticals);
+  Vue.component('EcosystemFundingContributors', EcosystemFundingContributors);
   Vue.component('ServiceJobs', ServiceJobs);
+  Vue.component('EcosystemFundingApply', EcosystemFundingApply);
 
+  Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
+  Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
+  
 
 
   
