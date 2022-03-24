@@ -82,3 +82,24 @@ title: "Funding"
 </ecosystem-funding-apply>
 
 </column>
+
+
+
+
+
+
+
+
+
+
+<column class="spacer-s">
+
+<block>
+
+<ecosystem-funding-ctas>
+    
+</ecosystem-funding-ctas>
+
+</block>
+
+</column>
