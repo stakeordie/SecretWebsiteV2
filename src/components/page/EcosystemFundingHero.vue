@@ -10,8 +10,10 @@
           <h2 class="page-ecosystem-funding__hero__content__info-title">Build bigger with our $225M+ fund</h2>
           <p class="page-ecosystem-funding__hero__content__info-description">Get long-term financial and strategic support to build on Secret Network, provided by leading investors in the field.</p>
           <div class="page-ecosystem-funding__hero__content__info-buttons">
-            <btn class="text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Apply For Funding</btn>
-            <btn class="ecosystem text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Become a Partner</btn>
+            <!-- <btn class="text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Apply For Funding</btn>
+            <btn class="ecosystem text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Become a Partner</btn> -->
+            <a href="#" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-primary">Apply for Funding</a>
+            <a href="#" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-secondary">Become a Partner</a>
           </div>
         </div>
       </div>
@@ -52,15 +54,53 @@ export default {}
       &__info-buttons {
         display: grid;
         grid-template-columns: auto auto;
+        gap: 16px;
 
         @include respond-to("<=l") {
           grid-template-columns: 1fr;
           justify-items: center;
+          gap: var(--f-gutter);
         }
-        .btn {
+
+        &__btn {
+          font-size: 18px;
+          text-align: center;
+          text-transform: uppercase;
           height: 64px;
-          max-width: 100%;
+          font-weight: bold;
+          font-weight: 600;
+          letter-spacing: 1px;
+          // width: 100%;
+          place-content: center center; 
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+          margin: 0;
         }
+
+        .btn-primary {
+            color: white;
+            background: var(--theme-card-button-bg);
+            padding-left: var(--f-gutter-l);
+            padding-right: var(--f-gutter-l);
+            border-radius: var(--f-gutter-s);
+            width: 100%;
+
+            &:hover {
+              background: var(--color-neutral-dark-mode-02);
+            }
+        }
+
+        .btn-secondary {
+          color: var(--color-newBrand-blue-02);
+          padding: 0;
+          width: fit-content;
+
+          @include respond-to("<=l") {
+          width: 100%;
+          }
+        }
+      }
 
       //   .content .box .btn {
       //     height: 64px;
@@ -79,7 +119,6 @@ export default {}
       //     }
 
       //     &.text-center {
-      //     //width: 274px;
       //     padding-left: var(--f-gutter-xl);
       //     padding-right: var(--f-gutter-xl);
       //     margin-right: 0;
@@ -88,7 +127,6 @@ export default {}
       //       }
       //     }
       //   }
-      }
 
       &__info-label {
         color: var(--color-newBrand-blue-01);
@@ -106,11 +144,6 @@ export default {}
         color: var(--color-neutral-dark-mode-05);
       }
     }
-  }
-
-  
+  } 
 }
-
-
-
 </style>
