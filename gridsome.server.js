@@ -65,5 +65,9 @@ module.exports = function(api) {
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
+    createPage({
+      path: '/resources/news-media/blog/',
+      component: 'src/pages/Blog.vue'
+    })
   })
 }

@@ -158,7 +158,7 @@ module.exports = {
       ...optionalPlugins
     ],
     templates: {
-        GhostPost: '/blog/:slug',
+        GhostPost: '/resources/news-media/blog/:slug',
     },
     transformers: {
         remark: {
