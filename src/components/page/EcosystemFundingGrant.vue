@@ -29,9 +29,15 @@ export default {};
   text-align: center;
 
   &__content {
-    max-width: 600px;
+    max-width: 742px;
     margin: 42px auto;
     padding: 16px;
+
+    &__p{
+            font-size: var(--paragraph-font-size-big);
+            line-height: var(--paragraph-line-height-big);
+            color: var(--color-neutral-dark-mode-06);
+        }
   }
 }
 </style>

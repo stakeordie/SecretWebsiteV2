@@ -5,7 +5,8 @@
           <img class="page-ecosystem__ctas__cards__card__img" :src="item.imageUrl" alt="" />
           <h4 class="page-ecosystem__ctas__cards__card__h4">{{ item.title }}</h4>
           <p class="page-ecosystem__ctas__cards__card__p">{{ item.description }}</p>
-          <btn class="center-text no-arrow" :url="item.url">{{ item.urlTitle }}</btn>
+          
+          <btn class="center-text no-arrow ctas-button" :url="item.url">{{ item.urlTitle }}</btn>
         </div>
     </div>
   </section>
@@ -51,12 +52,16 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-ecosystem__ctas{
-  margin: 64px auto;
+  
 
   &__cards{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 48px;
+
+      @include respond-to("<=m"){
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       @include respond-to("<=s"){
         grid-template-columns: 1fr;
@@ -69,6 +74,15 @@ export default {
 
         margin-bottom: 16px;
       }
+
+      
+
+      &.cta-button{
+        margin-left:0;
+        padding-left: 0;
+      }
+      
+      
       
     }
     

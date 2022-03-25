@@ -40,9 +40,10 @@ export default {
     
     &__content {
       display: grid;
-      gap: var(--f-gutter-l);
-      padding-top: var(--f-gutter-xxl);
-      padding-bottom: var(--f-gutter-xxl);
+      gap: var(--f-gutter-m);
+      padding-top: var(--f-gutter-xl) ;
+      // padding-top: var(--f-gutter-xxl);
+      // padding-bottom: var(--f-gutter-xxl);
 
       @include respond-to("<=l") {
         padding-top: var(--f-gutter-l);

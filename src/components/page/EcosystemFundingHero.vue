@@ -29,6 +29,7 @@ export default {}
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-ecosystem-funding {
+  
   &__hero {
     &__content {
       display: grid;
@@ -50,6 +51,8 @@ export default {}
       &__info {
         padding: var(--f-gutter);
       }
+
+      
 
       &__info-buttons {
         display: grid;
@@ -85,6 +88,7 @@ export default {}
             padding-right: var(--f-gutter-l);
             border-radius: var(--f-gutter-s);
             width: 100%;
+            
 
             &:hover {
               background: var(--color-neutral-dark-mode-02);
@@ -95,6 +99,10 @@ export default {}
           color: var(--color-newBrand-blue-02);
           padding: 0;
           width: fit-content;
+
+          &:hover {
+              color: var(--navigation-dropdown-background);
+            }
 
           @include respond-to("<=l") {
           width: 100%;
@@ -136,6 +144,11 @@ export default {}
         font-family: Montserrat, sans-serif;
         font-size: 54px;
         line-height: 60px;
+
+        @include respond-to("<=s"){
+          font-size: 40px;
+        line-height: var(--f-h2-line-height);
+        }
       }
 
       &__info-description {

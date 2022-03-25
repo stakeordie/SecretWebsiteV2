@@ -29,9 +29,17 @@ export default {
 
 
     &__content{
-        max-width: 600px;
-        margin: 42px auto;
+        max-width: 742px;
+        margin: var(--f-gutter-l) auto;
         padding: 16px;
+
+        
+
+        &__p{
+            font-size: var(--paragraph-font-size-big);
+            line-height: var(--paragraph-line-height-big);
+            color: var(--color-neutral-dark-mode-06);
+        }
 
 
     }

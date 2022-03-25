@@ -101,7 +101,7 @@ export default {
     display: grid;
     row-gap: 36px;
     text-align: center;
-    padding: 64px 0;
+    padding-bottom: var(--f-gutter-xl) ;
 
     &__title{
         text-align: center;

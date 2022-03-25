@@ -49,9 +49,10 @@ export default {
 
 .page-ecosystem__app-verticals{
     display: grid;
-    row-gap: 36px;
+    row-gap: var(--f-gutter-l);
     text-align: center;
-    padding: 64px 0;
+    padding-bottom: var(--f-gutter-l) ;
+    
 
 
     &__title{
@@ -64,6 +65,7 @@ export default {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 24px;
+        align-items: baseline;
 
         @include respond-to("<=s"){
             grid-template-columns: repeat(3, 1fr);
