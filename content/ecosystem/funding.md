@@ -72,6 +72,23 @@ title: "Funding"
 
 
 
+<column class="spacer-s">
+
+<block>
+
+<ecosystem-funding-slider>
+    
+</ecosystem-funding-slider>
+
+</block>
+
+</column>
+
+
+
+
+
+
 
 
 
