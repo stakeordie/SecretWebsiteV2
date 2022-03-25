@@ -144,6 +144,11 @@ body {
 }
 
 .simple-layout {
+  &.ecosystem-funding {
+    .swirl-wrapper {
+      opacity: 0;
+    }
+  }
 
   &.index {
     main { padding-top: 52px; }
