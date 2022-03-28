@@ -194,13 +194,14 @@ export default {
     // },
   },
   filters: {
-    formatDate(value) {
-      if (!value || !new Date(value).toISOString()) return " ";
-      let time = value.match(/\d\d:\d\d/);
-      let fullDate = new Date(value);
+    formatDate(value) {      
+      if (!value || !new Date(value).toISOString() || new Date(value).getFullYear() == 0) return " ";            
+      let time = value.match(/\d\d:\d\d/); 
+      let fullDate = new Date(value);      
       var dd = fullDate.getDate();
       var mm = fullDate.getMonth() + 1; //January is 0!
       var yyyy = fullDate.getFullYear();
+            
       if (dd < 10) dd = "0" + dd;
       if (mm < 10) mm = "0" + mm;
       var dateISO = dd + "/" + mm + "/" + yyyy;
