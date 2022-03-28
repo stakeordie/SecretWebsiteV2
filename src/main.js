@@ -59,6 +59,7 @@ import MediaFeatured from '~/components/cards/MediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
 import CommitteesCms from '~/components/cards/CommitteesCms.vue';
 import Btn from '~/components/Btn.vue';
+import FluiButton from '~/components/FluiButton.vue';
 import Faq from '~/components/Faq.vue';
 import Colors from '~/components/cards/Colors.vue';
 import MediaChannels from '~/components/cards/MediaChannels.vue';
@@ -122,7 +123,14 @@ import ServiceTable from '~/components/page/ServiceTable'
 import ServiceStatusAlert from '~/components/page/ServiceStatusAlert'
 import ServiceStatusHero from '~/components/page/ServiceStatusHero'
 import EcosystemFundingHero from '~/components/page/EcosystemFundingHero'
+import EcosystemFundingAppVerticals from '~/components/page/EcosystemFundingAppVerticals'
+import EcosystemFundingContributors from '~/components/page/EcosystemFundingContributors'
 import ServiceJobs from '~/components/page/ServiceJobs'
+import EcosystemFundingWhyBuild from '~/components/page/EcosystemFundingWhyBuild'
+import EcosystemFundingApply from '~/components/page/EcosystemFundingApply'
+import EcosystemFundingGrant from '~/components/page/EcosystemFundingGrant'
+import EcosystemFundingCtas from '~/components/page/EcosystemFundingCtas'
+import EcosystemFundingSlider from '~/components/page/EcosystemFundingSlider'
 
 
 
@@ -190,6 +198,7 @@ export default function (Vue, {
   Vue.component('Committees', Committees);
   Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
+  Vue.component('FluiButton', FluiButton);
   Vue.component('Faq', Faq);
   Vue.component('Colors', Colors);
   Vue.component('MediaChannels', MediaChannels);
@@ -257,8 +266,17 @@ export default function (Vue, {
   Vue.component('ServiceStatusAlert', ServiceStatusAlert);
   Vue.component('ServiceStatusHero', ServiceStatusHero);
   Vue.component('EcosystemFundingHero', EcosystemFundingHero);
+  Vue.component('EcosystemFundingAppVerticals', EcosystemFundingAppVerticals);
+  Vue.component('EcosystemFundingContributors', EcosystemFundingContributors);
   Vue.component('ServiceJobs', ServiceJobs);
+  Vue.component('EcosystemFundingApply', EcosystemFundingApply);
+  Vue.component('EcosystemFundingGrant', EcosystemFundingGrant);
 
+  Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
+  Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
+  Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
+  
+  
 
 
   
