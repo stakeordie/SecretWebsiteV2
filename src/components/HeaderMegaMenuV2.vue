@@ -56,7 +56,7 @@
             </div>
             <div class="logo-bar__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/logo-scrt.svg" alt="" />
+                <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
@@ -127,8 +127,12 @@
                     :key="indexItem"
                   >
                     <g-link
-                      v-if="secItem.nav_item.page != null"
-                      :to="secItem.nav_item.page.route"
+                      v-if="secItem.nav_item.display_on_header"
+                      :to="
+                        secItem.nav_item.page
+                          ? secItem.nav_item.page.route
+                          : secItem.nav_item.external_link
+                      "
                     >
                       <div
                         @click="linkCloseMenu"
@@ -158,43 +162,13 @@
                         </div>
                       </div>
                     </g-link>
-                    <g-link v-else :to="secItem.nav_item.external_link">
-                      <div
-                        @click="linkCloseMenu"
-                        class="nav__expanded__content__item__desc"
-                      >
-                        <div class="nav__expanded__content__item__img">
-                          <img
-                            v-if="secItem.nav_item.icon != null"
-                            :src="secItem.nav_item.icon.url"
-                            alt=""
-                          />
-                          <img v-else src="../assets/badge-black.svg" alt="" />
-                        </div>
-
-                        <div
-                          class="nav__expanded__content__item__textcontainer"
-                        >
-                          <div
-                            class="nav__expanded__content__item__desc__title"
-                          >
-                            <span>{{ secItem.nav_item.text }}</span>
-                          </div>
-                          <div
-                            class="nav__expanded__content__item__desc__descr"
-                          >
-                            <span>{{ secItem.nav_item.description }}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </g-link>
                   </div>
                 </div>
               </li>
             </ul>
             <div class="nav__expanded__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/logo-scrt.svg" alt="" />
+                <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
@@ -414,9 +388,12 @@ export default {
         let result = c.nav_items.reduce(function (r, a) {
           r[a.sub_category] = r[a.sub_category] || [];
           r[a.sub_category].push(a);
+
           return r;
         }, Object.create(null));
+
         c.nav_items = [];
+
         Object.entries(result).forEach(([key, value]) => {
           if (key == "Join the Community") {
             let firstArray = value.filter((e, i) => {
@@ -426,6 +403,7 @@ export default {
             let secondArray = value.filter((e, i) => {
               return i > 2;
             });
+
             c.nav_items.push({
               sub_category: key,
               sub_category_nav_item: firstArray,
@@ -492,6 +470,8 @@ export default {
             nav_item {
               text
               id
+              display_on_header
+              display_on_footer
               description
               icon {
                 url
@@ -685,15 +665,15 @@ export default {
               margin: 0px 16px;
               background-color: var(--color-analog-primary-white);
               border-radius: 10px;
-              gap: 8.8px;
+              gap: 6px;
               padding: 10px 16px;
               &:hover {
                 background: #d7dde5;
               }
 
               img {
-                width: 19.2px;
-                height: 19.2px;
+                width: 24px;
+                height: 24px;
               }
               p {
                 margin: 0;
@@ -812,7 +792,7 @@ export default {
         }
       }
       &__content {
-        width: 95%;
+        width: 100%;
         display: grid;
         background-color: var(--mega-header-background-nav-expanded);
         padding-bottom: var(--f-gutter);
@@ -826,7 +806,7 @@ export default {
         @media screen and (min-width: 2560px) {
           max-width: 1840px;
         }
-        @include respond-to ("<=l"){
+        @include respond-to("<=l") {
           width: 100%;
         }
       }
@@ -969,7 +949,7 @@ export default {
                 display: flex;
                 align-items: center;
                 gap: 12.08px;
-                padding: 15px;
+                padding: 16px;
 
                 &__title {
                   font-weight: 500;
@@ -1015,14 +995,14 @@ export default {
                 margin: 0px 16px;
                 background-color: var(--color-analog-primary-white);
                 border-radius: 10px;
-                gap: 8.8px;
+                gap: 6px;
                 padding: 10px 16px;
                 &:hover {
                   background: #d7dde5;
                 }
                 img {
-                  width: 19.2px;
-                  height: 19.2px;
+                  width: 24px;
+                  height: 24px;
                 }
                 p {
                   margin: 0;

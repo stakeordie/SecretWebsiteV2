@@ -21,6 +21,7 @@
 @import "pages/ecosystem-pages";
 @import "pages/page-developers";
 @import "pages/service-status";
+@import "pages/funding";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -143,6 +144,11 @@ body {
 }
 
 .simple-layout {
+  &.ecosystem-funding {
+    .swirl-wrapper {
+      opacity: 0;
+    }
+  }
 
   &.index {
     main { padding-top: 52px; }
@@ -292,7 +298,8 @@ strong {
 button,
 .button {
   border-radius: var(--f-gutter-s);
-  background-color: var(--theme-button);
+  //background-color: var(--theme-button);
+  background-color: var(--color-newBrand-blue-01);
   cursor: pointer;
 
   &.theme {
