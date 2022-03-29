@@ -176,7 +176,10 @@ export default {
           break;
         case 3:
           if (this.indexTables == 0 || this.indexTables == 1) value = item.node["trading_status"];
-          else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
+          else {                     
+            if(!item.node["amount_time_estimated"] || item.node["amount_time_estimated"] == 0) value = " "
+            else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
+          }        
           break;
       }
       return value;
@@ -194,13 +197,14 @@ export default {
     // },
   },
   filters: {
-    formatDate(value) {
-      if (!value || !new Date(value).toISOString()) return " ";
-      let time = value.match(/\d\d:\d\d/);
-      let fullDate = new Date(value);
+    formatDate(value) {      
+      if (!value || !new Date(value).toISOString() || new Date(value).getFullYear() == 0) return " ";            
+      let time = value.match(/\d\d:\d\d/); 
+      let fullDate = new Date(value);      
       var dd = fullDate.getDate();
       var mm = fullDate.getMonth() + 1; //January is 0!
       var yyyy = fullDate.getFullYear();
+            
       if (dd < 10) dd = "0" + dd;
       if (mm < 10) mm = "0" + mm;
       var dateISO = dd + "/" + mm + "/" + yyyy;
