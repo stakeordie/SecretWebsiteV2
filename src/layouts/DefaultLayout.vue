@@ -1187,6 +1187,14 @@ body {
     margin-right: auto;
     padding: 40px;
 
+    a{
+      color: var(--color-newBrand-blue-02) !important;
+
+      &:hover {
+                  color: var(--mega-header-color-nav-exanded-hover) !important;
+                }
+    }
+
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
       gap: var(--f-gutter-xxl);
@@ -1212,6 +1220,8 @@ body {
         grid-auto-flow: column;
         grid-auto-columns: max-content;
         gap: var(--f-gutter);
+
+        
       }
 
       .contribute-github {

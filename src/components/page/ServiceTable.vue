@@ -176,7 +176,10 @@ export default {
           break;
         case 3:
           if (this.indexTables == 0 || this.indexTables == 1) value = item.node["trading_status"];
-          else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
+          else {                     
+            if(!item.node["amount_time_estimated"] || item.node["amount_time_estimated"] == 0) value = " "
+            else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
+          }        
           break;
       }
       return value;

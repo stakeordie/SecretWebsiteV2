@@ -1,8 +1,14 @@
 <template>
+
+
+  
   <div class="flui-slider">
+
+  
+    
     <ul class="flui-slider__items">
 
-      
+        <div class="line-spacer">&nbsp; </div>
 
 
 
@@ -13,13 +19,15 @@
 
           <p class="flui-slider__items__item__container-quote">“DeFiance is excited to support Secret Network, the only privacy-by-default smart contract blockchain that enables groundbreaking technologies like front-run resistant DEXes, Secret NFTs, and more. The Secret team has been relentless in working towards their mission since Enigma and we think that the ecosystem is now ready to tackle the next phase of growth.”</p>
           <div class="flui-slider__items__item__container-author">
-            <p>
-              Arthur Cheong 
-            </p>
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
-            </svg>
-            <p>
+            <div class="author-block">
+              <p>
+                Arthur Cheong
+              </p>
+              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
+              </svg>
+            </div>
+            <p class="author-position">
               Founding Partner at DeFiance Capital
             </p>
           </div>
@@ -32,13 +40,15 @@
 
           <p class="flui-slider__items__item__container-quote">“Secret Network is the first mover and market leader in solving what is still a core need for Web3: data privacy for applications. We are excited to become supporters of the Secret ecosystem and look forward to helping accelerate its global growth across all verticals and aspects.”</p>
           <div class="flui-slider__items__item__container-author">
-            <p>
-              Brian Lee 
-            </p>
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
-            </svg>
-            <p>
+            <div class="author-block">
+              <p>
+                Brian Lee
+              </p>
+              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
+              </svg>
+            </div>
+            <p class="author-position">
               Partner at Alameda Research
             </p>
           </div>
@@ -50,13 +60,15 @@
 
           <p class="flui-slider__items__item__container-quote">“The availability of readily scalable, provable, and compliant privacy technology is an integral component of mass-market consumer-friendly Web3 applications. CoinFund is proud to support Secret Network in its mission to enable and accelerate trust-minimized privacy within the composable base layer.”</p>
           <div class="flui-slider__items__item__container-author">
-            <p>
-              Evan Feng 
-            </p>
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
-            </svg>
-            <p>
+            <div class="author-block">
+              <p>
+                Evan Feng
+              </p>
+              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5 0H14.5L9.5 20H6.5L11.5 0Z" fill="#60A0DC"/>
+              </svg>
+            </div>
+            <p class="author-position">
               Director of Research at CoinFund
             </p>
           </div>
@@ -252,11 +264,19 @@ export default {
   --flui-slider-arrow-border-radius: var(--f-gutter-l);;
   --flui-slider-arrow-chevron-color: var(--color-analog-primary-white);
 }
+
+// .line-spacer{
+//   background: var(--color-neutral-dark-mode-04);
+//   height: 2px;
+//   position: absolute;
+// }
+
 .flui-slider {
+  border-top: solid 2px var(--color-neutral-dark-mode-04);
   position: relative;
   display: grid;
-  width: 100%;
-  height: var(--flui-slider-height);
+  width: 98%;
+  height: calc(var(--flui-slider-height) + 64px);
   padding: 0;
   
   * {
@@ -357,14 +377,27 @@ export default {
          @include respond-to ("<=s"){
         width: calc(100% - 68px);
         font-size: var(--paragraph-font-size-small);
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+        
         }
+            .author-block{
+            display: inline-flex;
+            
+              p{
+                color: var(--color-neutral-dark-mode-06);
+              }
+            }
 
-        svg{
-          @include respond-to ("<=s"){
-            display: none;
-          }
-        }
+            .author-position{
+              color: var(--color-neutral-dark-mode-05);
+            }
+
+        // @include respond-to ("<=s"){
+        //
+        // }
+
+      
+        
       }
 
       //al div una altura de 100%
