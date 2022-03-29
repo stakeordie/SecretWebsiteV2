@@ -7,7 +7,7 @@
               The latest status of network performance and services within the network. Updated manually by dedicated community members.
             </p>
             <p class="service-status__hero__content__text">
-              If you suspect there is an issue occuring, <a href="" class="service-status__hero__content__link">send them a message here.</a>
+              If you suspect there is an issue occuring, <a href="https://linktr.ee/SCRTSupport" target='_blank' rel="noopener noreferrer" class="service-status__hero__content__link">send them a message here.</a>
               </p>
   </section>
 </template>
