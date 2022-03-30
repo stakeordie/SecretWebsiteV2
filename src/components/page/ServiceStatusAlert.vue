@@ -129,6 +129,13 @@ export default {
       &__title {
         margin-bottom: 0;
       }
+
+      &__text{
+
+        &__link{
+          color: var(--color-newBrand-blue-02);
+        }
+      }
     }
   }
 }
