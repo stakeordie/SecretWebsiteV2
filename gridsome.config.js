@@ -96,6 +96,7 @@ module.exports = {
                 'services-de-xes',
                 'services-wallets',
                 'services-websites',
+                'developer-pathways',
             ],
             localizedTypes: [
                 //complex types
@@ -155,7 +156,7 @@ module.exports = {
             plugins: ['@gridsome/remark-prismjs']
         }
     },
-      ...optionalPlugins
+    //   ...optionalPlugins
     ],
     templates: {
         GhostPost: '/blog/:slug',
