@@ -24,7 +24,7 @@ title: 'Do Deploy'
 
 <block>
 
-<deploy/>
+<deploy-temp/>
 
 </block>
 
