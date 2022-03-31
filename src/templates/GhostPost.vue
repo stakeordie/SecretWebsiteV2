@@ -60,12 +60,12 @@
           {
             key: 'og:title',
             property: 'og:title',
-            content: this.$page.post.title
+            content: this.$page.post.meta_title
           },
           {
             key: 'og:description',
             property: 'og:description',
-            content: this.$page.post.description
+            content: this.$page.post.meta_description
           },
           {
             key: 'og:image',
@@ -113,6 +113,7 @@
       postContent() {
         const transformedPost = this.$page.post.content.replace(/src="\//g, 'src="https://ghost.scrt.network/')
         //const transformedPost = this.$page.post.content.split('src="/').join('src="https://ghost.scrt.network/');
+        
         return transformedPost
       }
     },
@@ -130,7 +131,7 @@
       }
     },
     mounted() {
-      this.getMetaInfoLength();
+      this.getMetaInfoLength();      
     }
   }
 
@@ -145,6 +146,8 @@
   description: excerpt
   content: html
   feature_image
+  meta_title  
+  meta_description
   primary_tag {
   name
   }
