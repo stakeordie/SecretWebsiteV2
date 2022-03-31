@@ -59,9 +59,9 @@ title: 'Developer Resources'
 
 <block>
 
-<developers-pathway pathId="0"></developers-pathway>
 <developers-pathway pathId="1"></developers-pathway>
 <developers-pathway pathId="2"></developers-pathway>
+<developers-pathway pathId="3"></developers-pathway>
 
 </block>
 
