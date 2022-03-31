@@ -1,13 +1,36 @@
 <template>
-  <blog-posts-featured :posts="$static.posts.edges"></blog-posts-featured>
+  <blog-posts-featured :posts="postFeatured"></blog-posts-featured>
 </template>
 
 <script>
-import BlogPostsFeatured from '@/components/blog/BlogPostsFeatured'
+import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
 
 export default {
-  components: { BlogPostsFeatured }
-}
+  components: { BlogPostsFeatured },
+  data(){
+    return {
+      postFeatured: []
+    };
+  },
+  methods:{
+    filterPostsFeatured() {
+      const { edges: posts } = this.$static.posts;
+      const hiddenTag = "hidden";
+      this.postFeatured = posts.filter(({ node: post }) => {
+        if (!post.primary_tag) return true;
+        else {
+          const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);          
+          if (hidden.length == 0) return true;
+        }
+      });
+      
+    },
+  },
+   mounted(){    
+    this.filterPostsFeatured();
+  },
+
+};
 </script>
 
 <static-query>
@@ -21,6 +44,11 @@ export default {
         id
         slug
         reading_time
+        tags {
+          name
+          id
+          slug
+        }
         primary_tag {
           name
         }
