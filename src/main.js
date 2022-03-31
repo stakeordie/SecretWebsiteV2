@@ -107,6 +107,7 @@ import HomeAnnouncements from '~/components/page/HomeAnnouncements'
 import HomeFeaturedMedia from '~/components/page/HomeFeaturedMedia'
 import i18n from '~/components/i18n'
 import Deploy from '~/components/Deploy'
+import DeployTemp from '~/components/DeployTemp'
 import DevelopersHero from '~/components/page/DevelopersHero'
 import DevelopersFeatures from '~/components/page/DevelopersFeatures'
 import DevelopersStartHere from '~/components/page/DevelopersStartHere'
@@ -286,6 +287,7 @@ export default function (Vue, {
   Vue.component('typical', typical);
   Vue.component('i18n', i18n);
   Vue.component('Deploy', Deploy);
+  Vue.component('DeployTemp', DeployTemp);
   Vue.use(VueAnime);
   
 
