@@ -196,7 +196,7 @@ export default {
   },
   
   metaInfo: {
-    title: "Blog",
+    title: "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
   },
 };
 </script>

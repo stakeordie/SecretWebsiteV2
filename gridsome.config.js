@@ -50,7 +50,7 @@ module.exports = {
     siteName: 'Secret Network',
     siteUrl: 'http://scrt.network/',
     siteDescription: 'Secret Network is an open-source protocol that performs computations on encrypted data, bringing privacy to smart contracts and public blockchains.',
-    titleTemplate: '%s - Bringing Privacy to Smart Contracts and Public Blockchains',
+    titleTemplate: '%s',
     plugins: [{
         use: "@gridsome/vue-remark",
         options: {
