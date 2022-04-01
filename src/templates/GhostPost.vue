@@ -99,9 +99,7 @@
             icon: 'fab fah fa-lg fa-linkedin',
             color: '#007bb5'
           }
-        ],
-        title: "",
-        description: ""
+        ]        
       }
     },
     computed: {
@@ -121,6 +119,12 @@
         //const transformedPost = this.$page.post.content.split('src="/').join('src="https://ghost.scrt.network/');
         
         return transformedPost
+      },
+      titleMeta(){
+        return this.$page.post.meta_title ? this.$page.post.meta_title : this.$page.post.title;        
+      },
+      descriptionMeta(){
+        return this.$page.post.meta_description ? this.$page.post.meta_description : this.$page.post.description;
       }
     },
     methods: {
@@ -136,15 +140,8 @@
         }, 500);
       }
     },
-    mounted() {
-      if(!this.$page.post.meta_title) this.title = this.$page.post.title;
-      else this.title = this.$page.post.meta_title;
-
-      if(!this.$page.post.meta_description) this.description = this.$page.post.description; 
-      else this.description = this.$page.post.meta_description;     
-
-      this.getMetaInfoLength(); 
-          
+    mounted() { 
+      this.getMetaInfoLength();           
     }
   }
 
