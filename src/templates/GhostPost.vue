@@ -43,7 +43,7 @@
     },
     metaInfo() {
       return {
-        title: this.$page.post.title,
+        title: this.$page.post.meta_title,
         meta: [{
             name: 'title',
             content: this.$page.post.meta_title
@@ -135,7 +135,8 @@
       }
     },
     mounted() {
-      this.getMetaInfoLength();      
+      this.getMetaInfoLength();  
+      console.log(this.$page.post.meta_title)    
     }
   }
 
