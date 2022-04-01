@@ -43,14 +43,14 @@
     },
     metaInfo() {
       return {
-        title: this.title,
+        title: this.titleMeta,
         meta: [{
             name: 'title',
-            content: this.title
+            content: this.titleMeta
           },
           {
             name: 'description',
-            content: this.description
+            content: this.descriptionMeta
           },
           {
             name: 'author',
@@ -64,12 +64,12 @@
           {
             key: 'og:title',
             property: 'og:title',
-            content: this.title
+            content: this.titleMeta
           },
           {
             key: 'og:description',
             property: 'og:description',
-            content: this.description
+            content: this.descriptionMeta
           },
           {
             key: 'og:image',
