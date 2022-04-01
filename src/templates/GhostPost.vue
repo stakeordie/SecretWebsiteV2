@@ -121,11 +121,14 @@ export default {
         : "@/assets/scrt-logo.png";
     },
     coverImage() {
-      const urlSplit = this.$page.post.feature_image.split(":");
-      if (urlSplit[0] == "https" || urlSplit[0] == "http") {
-        return this.$page.post.feature_image;
+      if (this.$page.post.feature_image) {
+        const urlSplit = this.$page.post.feature_image.split(":");
+        if (urlSplit[0] == "https" || urlSplit[0] == "http") {
+          return this.$page.post.feature_image;
+        }
+        return "https://ghost.scrt.network/" + this.$page.post.feature_image;
       }
-      return "https://ghost.scrt.network/" + this.$page.post.feature_image;
+      else return "/blog-cover.jpg"
     },
     postContent() {
       const transformedPost = this.$page.post.content.replace(
