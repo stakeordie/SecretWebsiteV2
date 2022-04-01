@@ -1,12 +1,34 @@
 <template>
-  <blog-posts :posts="$static.posts.edges"></blog-posts>
+  <blog-posts :posts="latestPost"></blog-posts>
 </template>
 
 <script>
 import BlogPosts from '@/components/blog/BlogPosts'
 
 export default {
-  components: { BlogPosts }
+  components: { BlogPosts },
+  data(){
+    return {
+      latestPost: []
+    };
+  },
+  methods:{
+    filterlatestPost() {
+      const { edges: posts } = this.$static.posts;
+      const hiddenTag = "hidden";
+      this.latestPost = posts.filter(({ node: post }) => {
+        if (!post.primary_tag) return true;
+        else {
+          const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);          
+          if (hidden.length == 0) return true;
+        }
+      });
+      
+    },
+  },
+   mounted(){    
+    this.filterlatestPost();
+  },
 }
 </script>
 
@@ -21,6 +43,11 @@ export default {
         id
         slug
         reading_time
+        tags {
+          name
+          id
+          slug
+        }
         primary_tag {
           name
         }
