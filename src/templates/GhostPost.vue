@@ -43,14 +43,14 @@
     },
     metaInfo() {
       return {
-        title: this.$page.post.meta_title,
+        title: this.title,
         meta: [{
             name: 'title',
-            content: this.$page.post.meta_title
+            content: this.title
           },
           {
             name: 'description',
-            content: this.$page.post.meta_description
+            content: this.description
           },
           {
             name: 'author',
@@ -64,12 +64,12 @@
           {
             key: 'og:title',
             property: 'og:title',
-            content: this.$page.post.meta_title
+            content: this.title
           },
           {
             key: 'og:description',
             property: 'og:description',
-            content: this.$page.post.meta_description
+            content: this.description
           },
           {
             key: 'og:image',
@@ -99,7 +99,9 @@
             icon: 'fab fah fa-lg fa-linkedin',
             color: '#007bb5'
           }
-        ]
+        ],
+        title: "",
+        description: ""
       }
     },
     computed: {
@@ -135,8 +137,14 @@
       }
     },
     mounted() {
-      this.getMetaInfoLength();  
-      console.log(this.$page.post.meta_title)    
+      if(!this.$page.post.meta_title) this.title = this.$page.post.title;
+      else this.title = this.$page.post.meta_title;
+
+      if(!this.$page.post.meta_description) this.description = this.$page.post.description; 
+      else this.description = this.$page.post.meta_description;     
+
+      this.getMetaInfoLength(); 
+          
     }
   }
 
