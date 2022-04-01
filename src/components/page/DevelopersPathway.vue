@@ -2,26 +2,26 @@
   <section class="page-developer-pathway">
     <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index" >
       <div class="page-developer-pathway__description">
-        <h6 v-if="path.pathDescription.subtitle">
-          {{ path.pathDescription.subtitle }}
+        <h6 v-if="path.node.subtitle">
+          {{ path.node.subtitle }}
         </h6>
-        <h3>{{ path.pathDescription.title }}</h3>
-        <p>{{ path.pathDescription.description }}</p>
+        <h3>{{ path.node.title }}</h3>
+        <p>{{ path.node.description }}</p>
       </div>
       <div class="page-developer-pathway__content">
-        <div  v-for="(resource, index) in path.items" :key="index">
+        <div  v-for="(resource, index) in path.node.resource" :key="index">
           <ul class="page-developer-pathway__content__box">
-            <a  :href="resource.url"  >
+            <a  :href="resource.cta_url"  >
             <li class="page-developer-pathway__content__box__item">
               
                 <div class="page-developer-pathway__content__box__item__icon">
-                  <img :src="resource.image" alt="" />
+                  <img src="/temp/icon-features-file.svg" alt="" />
                 </div>
                 <div class="page-developer-pathway__content__box__item__details">
                   <h6>{{ resource.title }}</h6>
                   <p>{{ resource.description }}</p>
-                  <btn class="link-arrow" :url="resource.url">
-                    {{resource.urlTitle}}
+                  <btn class="link-arrow" :url="resource.cta_url">
+                    {{resource.cta_title}}
                     </btn>
                 </div>
               
@@ -60,213 +60,50 @@ export default {
     },
   },
   data() {
-    return {
-      pathway: [
-        {
-          pathDescription: {
-            id: 0,
-            subtitle: "",
-            title: "Learn the Fundamentals",
-            description:
-              "Get to know the ins and outs of Secret Network’s tech stack.",
-          },
-          items: [
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Overview",
-              description:
-                "Quickly get up to speed on what Secret is all about.",
-              urlTitle: "View docs",
-              url: "https://docs.scrt.network/overview.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Secret Contracts",
-              description:
-                "Install the right tools and set up your first project.",
-              urlTitle: "View docs",
-              url: "https://docs.scrt.network/dev/secret-contracts.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Protocol",
-              description:
-                "Learn how Secret works and the use cases it serves.",
-              urlTitle: "View docs",
-              url: "https://docs.scrt.network/protocol/protocol.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Contract Privacy Model",
-              description:
-                "Get to know Secret’s privacy-preserving features and how you can use them. ",
-              urlTitle: "View resource",
-              url: "https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Network Architecture",
-              description:
-                "Find out how Secret Contract interactions are executed and preserve data privacy.",
-              urlTitle: "View docs",
-              url: "https://docs.scrt.network/protocol/architecture.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Awesome Secret",
-              description:
-                "An overview of all the Secret apps, tools, and resources you might need. ",
-              urlTitle: "View resource",
-              url: "https://github.com/SecretFoundation/awesome-secret",
-            },
-          ],
-        },
-        {
-          pathDescription: {
-            id: 1,
-            subtitle: "DEVELOPER PATHWAY",
-            title: "Design Smart Contracts",
-            description:
-              "Start creating and deploying privacy-preserving smart contracts.",
-          },
-          items: [
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Secret Contract Dev Guide",
-              description:
-                "Get an IDE, know what functions to call, how to debug, and more.",
-              urlTitle: "View resource",
-              url: "https://docs.scrt.network/dev/developing-secret-contracts.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Toolkit",
-              description:
-                "A set of Rust packages with common tools to develop Secret Contracts.",
-              urlTitle: "View resource",
-              url: "https://crates.io/crates/secret-toolkit",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Secret Quickstarts",
-              description:
-                "Every step you need to create + deploy a Secret Contract in one place.",
-              urlTitle: "View docs",
-              url: "https://docs.scrt.network/dev/quickstart.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Project Template",
-              description:
-                "Quickstart template to get started writing your own cosmwasm contracts.",
-              urlTitle: "View resource",
-              url: "https://github.com/scrtlabs/secret-template",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Contract Privacy Model",
-              description:
-                "Learn about Secret’s privacy-preserving features and how you can use them.",
-              urlTitle: "View resource",
-              url: "https://docs.scrt.network/dev/privacy-model-of-secret-contracts.html",
-            },
-            
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Fadroma",
-              description:
-                "Core workflows for smart contract development and deployment on Secret and Cosmos-based platforms.",
-              urlTitle: "View resource",
-              url: "https://github.com/hackbg/fadroma",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Secret NFT Guide",
-              description:
-                "Mint your first Secret NFT and learn how their privacy-preserving features work.",
-              urlTitle: "View resource",
-              url: "https://learn.figment.io/tutorials/create-your-first-secret-nft",
-            },
-            
-            
-          ],
-        },
-        {
-          pathDescription: {
-            id: 2,
-            subtitle: "DEVELOPER PATHWAY",
-            title: "Build Secret Apps",
-            description:
-              "Create an interface for your private dApp and connect it to a Secret Contract.",
-          },
-          items: [
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "GripTapeJS",
-              description:
-                "Speed up your Secret App interface building with this development framework.",
-              urlTitle: "View resource",
-              url: "https://griptapejs.com/",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Light Client",
-              description:
-                "Let your app interact with nodes on the network using Secret CLI.",
-              urlTitle: "View resource",
-              url: "https://docs.scrt.network/cli/install-cli.html",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Secret Python",
-              description:
-                "Flex your Python skills to build and test components of Secret Apps.",
-              urlTitle: "View resource",
-              url: "https://pypi.org/project/secret-sdk/ ",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Figment Learn",
-              description:
-                "An easy step-by-step tutorial to set up your first contract, made by our partner, Figment.",
-              urlTitle: "View resource",
-              url: "https://learn.figment.io/protocols/secret",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "SecretJS",
-              description:
-                "Connect your JavaScript interface to a Secret Contract with the SecretJS library.",
-              urlTitle: "View template",
-              url: "https://github.com/scrtlabs/Secret.js",
-            },
-            {
-              image: "/temp/icon-features-file.svg",
-              title: "Polar",
-              description:
-                "Project management tooling and smart contract development framework.",
-              urlTitle: "View resource",
-              url: "https://docs.arufaresearch.com/",
-            },
-          ],
-        },
-      ],
+    return {      
+      sectionContent: []
     };
   },
-  computed: {
-    sectionContent() {
-      const content = this.pathway.filter((it) => {
-        const filtered = it.pathDescription.id === Number(this.pathId);
-        return filtered;
-      });
-      // const content = this.$static.aboutContent.edges.map(
-      //   (it) => it.node[this.section]
-      // );
-      return content;
-    },
+  methods: {
+    getSectionContent(){
+      this.sectionContent = this.$static.developerPadthways.edges.filter(
+        (it) =>{          
+          if(it.node.id == this.pathId){
+            it.node.resource = it.node.resource.sort((a,b) => a.order - b.order);
+            return it;
+          };      
+        } 
+      )      
+    }
   },
+  mounted(){
+    this.getSectionContent();
+  }
+ 
 };
 </script>
+
+<static-query>
+query {
+  developerPadthways: allStrapiDeveloperPathways {
+    edges {
+      node {
+        id
+        subtitle
+        title
+        description
+        resource {
+          order
+          title
+          description
+          cta_title
+          cta_url
+        }
+      }
+    }
+  }
+}
+</static-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";

@@ -21,7 +21,7 @@
 
     <column class="horizontal-slider spacer-s" mode="full">
       <block>
-        <blog-featured-posts :posts="$page.posts.edges"></blog-featured-posts>
+        <blog-featured-posts></blog-featured-posts>
       </block>
     </column>
 
@@ -128,6 +128,7 @@ export default {
       ],
       selectedContent: "All",
       appliedFilters: [],
+      
     };
   },
   computed: {
@@ -146,11 +147,14 @@ export default {
 
     posts() {
       const { edges: posts } = this.$page.posts;
-      const hiddenTag = 'hidden';
+      const hiddenTag = "hidden";
       return posts.filter(({ node: post }) => {
         if (this.appliedFilters.length === 0) {
           if (!post.primary_tag) return true;
-          else if(post.primary_tag && post.primary_tag.slug != hiddenTag) return true;
+          else {
+            const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);            
+            if (hidden.length == 0) return true;
+          }
         }
 
         if (!post.primary_tag) return false;
@@ -161,9 +165,12 @@ export default {
     tags() {
       const { edges: tags } = this.$page.tags;
       const { edges: posts } = this.$page.posts;
-      const hiddenTag = 'hidden';
+      const hiddenTag = "hidden";
       return tags.filter(({ node: tag }) => {
-        return posts.some(({ node: post }) => post.primary_tag?.id == tag.id && tag.name != hiddenTag);
+        return posts.some(
+          ({ node: post }) =>
+            post.primary_tag?.id == tag.id && tag.name != hiddenTag
+        );
       });
     },
   },
@@ -184,9 +191,12 @@ export default {
     onFilterApplied(filters) {
       this.appliedFilters = filters;
     },
+
+    
   },
+  
   metaInfo: {
-    title: "Blog",
+    title: "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
   },
 };
 </script>
@@ -202,6 +212,11 @@ export default {
           id
           slug
           reading_time
+          tags {
+            name
+            id
+            slug
+          }
           primary_tag {
             name
             id

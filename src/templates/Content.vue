@@ -14,7 +14,7 @@ export default {
         {
           key: "og:title",
           property: "og:title",
-          content: `${this.getMetaData("title")} - Secret Network`,
+          content: this.getMetaData("title"),
         },
         {
           key: "og:description",
@@ -29,6 +29,10 @@ export default {
         {
           key: "description",
           property: "description",
+          content: this.getMetaData("description"),
+        },
+        {
+          name: "description",
           content: this.getMetaData("description"),
         },
       ],
@@ -61,13 +65,15 @@ export default {
 
       // Discard Homepage from slice
       if (this.$page.content.path !== "/") {
-        filtered = arr.filter(
-          (x) => x.route === this.$page.content.path.slice(0, -1)
-        );
+        filtered = arr.filter((x) => {
+          return x.route.substr(-1) === "/"
+            ? x.route === this.$page.content.path
+            : x.route === this.$page.content.path.slice(0, -1);
+        });
       } else {
         filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
-
+    
       // console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];
