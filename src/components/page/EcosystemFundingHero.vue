@@ -35,7 +35,7 @@ export default {}
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 0;
+      gap: 16px;
 
       @include respond-to("<=m") {
           grid-template-columns: 1fr;
@@ -59,39 +59,60 @@ export default {}
         grid-template-columns: auto auto;
         gap: 16px;
 
+        align-items: center;
+
         @include respond-to("<=l") {
           grid-template-columns: 1fr;
           justify-items: center;
-          gap: var(--f-gutter);
+          gap: 16px
         }
+        
 
-        &__btn {
+        &__btn{
+          
           font-size: 18px;
           text-align: center;
-          text-transform: uppercase;
-          height: 64px;
           font-weight: bold;
           font-weight: 600;
-          letter-spacing: 1px;
-          // width: 100%;
-          place-content: center center; 
-          display: inline-flex;
-          align-items: center;
-          cursor: pointer;
-          margin: 0;
+          letter-spacing: 1.2px;
+          //line-height: 0;
+          
+          text-transform: uppercase;
         }
+
+        // &__btn {
+        //   font-size: 18px;
+        //   line-height: 0px;
+        //   text-align: center;
+        //   text-transform: uppercase;
+        //   height: 64px;
+        //   font-weight: bold;
+        //   font-weight: 600;
+        //   letter-spacing: 1px;
+        //   // width: 100%;
+        //   place-content: center center; 
+        //   display: inline-flex;
+        //   align-items: center;
+        //   cursor: pointer;
+        //   margin: 0;
+        //   padding: 0;
+        // }
 
         .btn-primary {
             color: white;
             background: var(--theme-card-button-bg);
-            padding-left: var(--f-gutter-l);
-            padding-right: var(--f-gutter-l);
+            // padding-left: var(--f-gutter-l);
+            // padding-right: var(--f-gutter-l);
             border-radius: var(--f-gutter-s);
+            padding: 16px 0 12px 0;
             width: 100%;
+            margin-bottom: 0;
+            
             
 
             &:hover {
               background: var(--color-neutral-dark-mode-02);
+              color: white;
             }
         }
 
@@ -106,6 +127,7 @@ export default {}
 
           @include respond-to("<=l") {
           width: 100%;
+          padding-top: 16px;
           }
         }
       }

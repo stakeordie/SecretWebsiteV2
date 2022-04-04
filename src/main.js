@@ -132,6 +132,12 @@ import EcosystemFundingApply from '~/components/page/EcosystemFundingApply'
 import EcosystemFundingGrant from '~/components/page/EcosystemFundingGrant'
 import EcosystemFundingCtas from '~/components/page/EcosystemFundingCtas'
 import EcosystemFundingSlider from '~/components/page/EcosystemFundingSlider'
+import NewHomeHero from '~/components/page/NewHomeHero'
+import NewHomeContracts from '~/components/page/NewHomeContracts'
+import NewHomeCallAction from '~/components/page/NewHomeCallAction'
+import NewHomeMission from '~/components/page/NewHomeMission'
+import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
+
 
 
 
@@ -222,6 +228,12 @@ export default function (Vue, {
   // Vue.component('HeaderMegaMenu', HeaderMegaMenu);
   Vue.component('HeaderMegaMenuV2', HeaderMegaMenuV2);
   Vue.component('FooterMenu', FooterMenu);
+  Vue.component('NewHomeHero', NewHomeHero);
+  Vue.component('NewHomeContracts', NewHomeContracts);
+  Vue.component('NewHomeCallAction', NewHomeCallAction);
+  Vue.component('NewHomeMission', NewHomeMission);
+  Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
+
   
 
 
