@@ -33,6 +33,7 @@ import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
 import Announcement from '~/components/Announcement.vue';
+import AnnouncementVer2 from '~/components/AnnouncementVer2.vue';
 import Navigation from '~/components/Navigation.vue';
 import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
@@ -141,6 +142,7 @@ import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 
 
 
+
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
@@ -175,6 +177,7 @@ export default function (Vue, {
   Vue.component('ThemeColor', ThemeColor);
   Vue.component('AlertBar', AlertBar);
   Vue.component('Announcement', Announcement);
+  Vue.component('AnnouncementVer2', AnnouncementVer2);
   Vue.component('DefaultLayout', DefaultLayout);
   Vue.component('DocsLayout', DocsLayout);
   Vue.component('DocsHeroLayout', DocsHeroLayout);
@@ -233,6 +236,7 @@ export default function (Vue, {
   Vue.component('NewHomeCallAction', NewHomeCallAction);
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
+
 
   
 

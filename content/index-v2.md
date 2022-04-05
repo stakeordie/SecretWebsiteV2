@@ -4,7 +4,7 @@ title: 'Secret Network'
 
 
 <!-- Home Hero-->
-<column class="new-home__bg " mode="full">
+<column class="new-home__cover " mode="full">
 
 <block class="">
 
@@ -96,7 +96,7 @@ title: 'Secret Network'
 
 
 
-<column mode="full">
+<column  class="new-home__bg">
 
 <block class="no-padding">
 
@@ -105,6 +105,33 @@ title: 'Secret Network'
 
 </block>
 
+</column>
+
+
+
+
+
+
+
+
+
+<!-- Blog block header -->
+<column class="block-header new-home__block-header new-home__bg" number="2" number-m="1" number-s="1">
+  <block>
+
+  ##### OTHER MEDIA:
+
+  </block>
+  <block>
+    <btn class="link-arrow" url="/blog/">VIEW ALL</btn>
+  </block>
+</column>
+
+<!-- Blog cards -->
+<column class="spacer-s new-home__bg">
+  <block>
+    <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
+  </block>
 </column>
 
 
