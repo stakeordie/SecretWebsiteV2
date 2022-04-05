@@ -1,24 +1,26 @@
 <template>
   <section class="new-home-hero">
     <div class="new-home-hero__container">
-      <h1 class="new-home-hero__container__h1">
-        More Privacy <span>Limitless Possibilities</span>
-      </h1>
-      <p class="new-home-hero__container__p">
-        Secret Network is the first blockchain with customizable privacy. You
-        get to choose what you share, with whom, and how. This protects users,
-        and empowers developers to build a better Web3.
-      </p>
-
-      <div class="new-home-hero__container__btns">
-        <button class="text-center no-arrow btn-bigger" url="#">
-          Get SCRT
-        </button>
-        <button class="text-center no-arrow btn-bigger" url="#">
-          Learn More
-        </button>
+      <div class="new-home-hero__container__text">
+        <h1 class="new-home-hero__container__h1">
+          More Privacy <span>Limitless Possibilities</span>
+        </h1>
+        <p class="new-home-hero__container__p">
+          Secret Network is the first blockchain with customizable privacy. You
+          get to choose what you share, with whom, and how. This protects users,
+          and empowers developers to build a better Web3.
+        </p>
+        <div class="new-home-hero__container__btns">
+          <button class="text-center no-arrow btn-bigger" url="#">
+            Get SCRT
+          </button>
+          <button class="text-center no-arrow btn-bigger" url="#">
+            Learn More
+          </button>
+        </div>
       </div>
       <div class="new-home-hero__container__logos">
+        <h6>Supported by</h6>
         <infinite-slide-bar
           duration="150s"
           :barStyle="{ background: '', padding: '5px 0' }"
@@ -76,17 +78,26 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 .new-home-hero {
   &__container {
+  
     height: 705px;
     text-align: center;
-    max-width: 742px;
+    max-width: 1280px;
     margin: auto;
+    padding: var(--f-gutter);
 
-    transform: translateY(25%);
+    transform: translateY(15%);
 
     @include respond-to("<=xs") {
-      height: 867px;
-      transform: translateY(10%);
-      padding: 16px;
+      height: 900px;
+      //transform: translateY(12%);
+      padding: 0;
+    }
+
+    &__text{
+      max-width: 742px;
+      margin: auto;
+      margin-bottom: 26px;
+      padding: var(--f-gutter);
     }
 
     &__h1 {
@@ -119,9 +130,49 @@ export default {
 
         @include respond-to("<=xs") {
           width: 100%;
+          padding: 16px 0;
           margin: 10px 0;
         }
+
+        
       }
+    }
+    &__logos {
+      margin: auto;
+
+      @include respond-to("<=l"){
+        width: 1000px;
+      }
+
+       @include respond-to("<=m"){
+        width: 900px;
+      }
+
+             @include respond-to("<=s"){
+        width: 620px;
+      }
+            @include respond-to("<=xs"){
+        width: 320px;
+      }
+
+      & h6{
+        color: var(--color-neutral-dark-mode-05);
+        margin-bottom: 24px;
+        
+      }
+
+      & .vifnslb-bar{
+        gap: 96px;
+
+        @include respond-to("<=m"){
+        gap: 64px;
+      }
+
+        & img{
+          height: 48px;
+        }
+      }
+
     }
   }
 }

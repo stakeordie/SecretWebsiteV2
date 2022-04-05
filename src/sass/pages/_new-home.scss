@@ -1,3 +1,16 @@
+
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
+
+.simple-layout {
+  &.new-home {
+    .swirl-wrapper {
+      opacity: 0;
+    }
+  }
+}
+
+
 .new-home{
    
     
@@ -9,7 +22,21 @@
     }
 
     &__bg {
-        background-color: var(--color-neutral-dark-mode-01);
+        background-color: var(--color-neutral-dark-mode-02);
+
+        &__top{
+            background-image: url("../../src/assets/home/wave-border-top.png") ;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        &__bottom{
+            background-image: url("../../src/assets/home/wave-border-bottom.png") ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            padding-bottom: 114px;
+        }
     }
 
     &__block-header{

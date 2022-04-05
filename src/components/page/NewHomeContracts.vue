@@ -17,14 +17,18 @@
           <div class="new-home-contracts__features__feature" v-for="(item, index) in reasons" :key="index">
              
 
-              <img :src="item.imageUrl" alt="" />
-              <h4>{{ item.title }}</h4>
-              <p>{{ item.description }}</p>
-              <a :href="item.btnUrl" class="">{{item.btn}}</a>
+              <a :href="item.btnUrl">
+                  <img :src="item.imageUrl" alt="" />
+                  <h4>{{ item.title }}</h4>
+                  <p>{{ item.description }}</p>
+                  <a  href="#" class="">{{item.btn}}</a>
+              </a>
           </div>
       </div>
 
-      <btn class="text-center no-arrow padding-small" url="#">Learn More</btn>
+      <button class="text-center no-arrow btn-bigger" url="#">
+            Learn more
+          </button>
   </section>
 </template>
 
@@ -90,6 +94,7 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 36px;
+        padding-bottom: 26px;
 
         // @include respond-to ("<=m"){
         //     gap: 16px;
@@ -103,6 +108,8 @@ export default {
 
         &__feature{
             padding: var(--f-gutter-l);
+            border-radius: 10px;
+            
 
             // @include respond-to ("=l"){
             //     padding: 0;
@@ -110,6 +117,10 @@ export default {
 
             @include respond-to ("m"){
                 padding: var(--f-gutter-l) 0;
+            }
+
+            &:hover{
+                background: var(--color-neutral-dark-mode-04);
             }
 
             & img{
@@ -121,6 +132,7 @@ export default {
 
            & h4{
                color: #D4DCE3;
+               font-family: montserrat;
 
                @include respond-to("<=m"){
                    font-size: 22px;
@@ -129,28 +141,33 @@ export default {
 
            & p{
                color: var(--color-neutral-dark-mode-05);
+               font-family: var(--f-default-text-font);
+               font-size: var(--f-default-text-size);
            }
 
            & a{
+             
                display: inline-block;
-               padding: 12px 0;
+               //padding: 12px 0;
                width: 100%;
                color: var(--color-newBrand-blue-02);
                font-weight: 700;
                letter-spacing: 1px;
            }
-        }
-
-        & btn{
-            margin: 0;
-        }
-
-        & .btn-small{
-            width: 200px;
-            padding: 16px 0;
-        }
-        
+        }    
     }
+
+     & button {
+            margin: 10px;
+            padding: 15px 40px;
+            width: 200px;
+            font-size: 18px;
+
+            @include respond-to("<=xs") {
+            width: 100%;
+            margin: 10px 0;
+            }
+      }
 }
 
 

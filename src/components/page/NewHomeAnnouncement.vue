@@ -1,5 +1,5 @@
 <template>
-  <announcement-ver2 :announcementId="$static.homeAnnouncements.edges[0].node[location].id" />
+    <announcement-ver2 :announcementId="$static.homeAnnouncements.edges[0].node[location].id" />
 </template>
 
 <script>
@@ -33,30 +33,34 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-
- .announcement-ver2 {
-   padding: 64px 0 32px 0;
+.announcement-ver2 {
+   padding: 114px 0 32px 0;
 
    display: grid;
    grid-template-columns: repeat(2,1fr);
    gap:68px;
 
+    @include respond-to("<=m"){
+     gap:24px;
+     
+   }
+
    @include respond-to("<=s"){
      grid-template-columns: 1fr;
-     padding: var(--f-gutter);
+     padding: 114px var(--f-gutter) var(--f-gutter) var(--f-gutter);
      
    }
 
    &__img{
-     height: 100%;
-     
+     //height: 100%;
+     min-width: 100%;
      padding: var(--f-gutter);
      object-fit: cover;
      
      img{
        object-fit: cover;
        height: 100%;
-       min-width: 100%;
+       //min-width: 100%;
        margin-right: 0;
        
 
@@ -89,8 +93,8 @@ export default {
           margin-bottom: 26px;
         }
 
-				btn {
-					margin-bottom: 26px;
+				& .btn {
+					margin-bottom: 26px !important;
 				}
 
         &__title{
@@ -103,65 +107,8 @@ export default {
           gap: 10px;
         }
      }
-   
-  //  &__social{
-  //       display: grid;
-        
-        
-  //       a{
-  //         width: 24px;
-  //         height: 24px;
-
-  //         img{
-  //           width: 24px;
-  //         height: 24px;
-  //         }
-  //       }
-      
-  //  }
-
-	// // background: var(--theme-card-bg-variant);
-	// .--flare-block {
-	// 	background: var(--theme-card-bg-variant);
-
-	// 	.content {
-  //           align-self: center;
-	// 		.box {
-	// 			// display: grid;
-	// 			// gap: var(--f-gutter);
-	// 			 // padding: var(--f-gutter-xxl) var(--f-gutter-xl) 0 var(--f-gutter);
-
-  //       @include respond-to("<=m") {
-  //         padding: var(--f-gutter);
-  //       }
-
-  //       img{
-  //           height: 375px;
-  //           width: 100%;
-  //         }
-
-        
-
-
-	// 			h3 {
-	// 				color: var(--color-analog-primary-white);
-  //                   font-size: 54px;
-	// 			}
-
-	// 			h4 {
-					
-	// 				color: var(--color-analog-tertiary-yellow);
-  //                   font-size: 18px;
-  //                   font-weight: 600;
-  //                   text-transform: uppercase;
-	// 			}
-
-	// 			.btn {
-	// 				margin-bottom: 0;
-	// 			}
-	// 		}
-	// 	}
-	// }
 }
+   
+ 
 
 </style>

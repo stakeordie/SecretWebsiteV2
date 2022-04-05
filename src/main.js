@@ -142,7 +142,6 @@ import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 
 
 
-
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
@@ -178,6 +177,7 @@ export default function (Vue, {
   Vue.component('AlertBar', AlertBar);
   Vue.component('Announcement', Announcement);
   Vue.component('AnnouncementVer2', AnnouncementVer2);
+
   Vue.component('DefaultLayout', DefaultLayout);
   Vue.component('DocsLayout', DocsLayout);
   Vue.component('DocsHeroLayout', DocsHeroLayout);
@@ -236,7 +236,6 @@ export default function (Vue, {
   Vue.component('NewHomeCallAction', NewHomeCallAction);
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
-
 
   
 

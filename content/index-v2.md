@@ -22,7 +22,6 @@ title: 'Secret Network'
 
 
 
-
 <!--  -->
 <column class=" spacer-s " >
 
@@ -96,7 +95,7 @@ title: 'Secret Network'
 
 
 
-<column  class="new-home__bg">
+<column  class="new-home__bg__top">
 
 <block class="no-padding">
 
@@ -115,25 +114,24 @@ title: 'Secret Network'
 
 
 
-<!-- Blog block header -->
-<column class="block-header new-home__block-header new-home__bg" number="2" number-m="1" number-s="1">
+<!-- Block header -->
+<column class="block-header new-home__bg" number="2" number-m="1" number-s="1">
   <block>
 
-  ##### OTHER MEDIA:
+  #### Other media
 
   </block>
   <block>
-    <btn class="link-arrow" url="/blog/">VIEW ALL</btn>
+    <btn class="link-arrow" url="/blog/">View all</btn>
   </block>
 </column>
 
 <!-- Blog cards -->
-<column class="spacer-s new-home__bg">
+<column class="spacer-s new-home__bg__bottom">
   <block>
     <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
   </block>
 </column>
-
 
 
 

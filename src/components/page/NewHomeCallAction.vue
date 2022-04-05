@@ -112,6 +112,8 @@ export default {
         &__info{
             align-self: center;
             padding: var(--f-gutter);
+            max-width: 550px;
+            margin: auto;
 
             @include respond-to("<=s"){
                 order: 2;

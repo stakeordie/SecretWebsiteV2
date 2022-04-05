@@ -27,6 +27,7 @@ export default {
 <style lang="scss">
 
 .new-home__mission{
+    padding-top: 128px;
 
     &__content{
         max-width: 800px;
