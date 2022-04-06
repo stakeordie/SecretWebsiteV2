@@ -18,23 +18,23 @@ export default {
     return {
       reasons: [
         {
-          imageUrl: "../temp/funding/icon-appverticals-secret-app.svg",
+          imageUrl: "../img/funding/icon-appverticals-secret-app.svg",
           title: "Secret Apps",
         },
         {
-          imageUrl: "../temp/funding/icon-appverticals-secret-nfts.svg",
+          imageUrl: "../img/funding/icon-appverticals-secret-nfts.svg",
           title: "Secret NFTs",
         },
         {
-          imageUrl: "../temp/funding/icon-appverticals-defi.svg",
+          imageUrl: "../img/funding/icon-appverticals-defi.svg",
           title: "DeFi",
         },
         {
-          imageUrl: "../temp/funding/icon-appverticals-infrastructure.svg",
+          imageUrl: "../img/funding/icon-appverticals-infrastructure.svg",
           title: "Infrastructure",
         },
         {
-          imageUrl: "../temp/funding/icon-appverticals-tooling.svg",
+          imageUrl: "../img/funding/icon-appverticals-tooling.svg",
           title: "Tooling",
         },
         
