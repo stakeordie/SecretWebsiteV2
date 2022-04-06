@@ -1,20 +1,13 @@
 <template>
-  <section class="page-developer-call">
-    <div
-      class="page-developer-call__content"
-      v-for="(item, index) in material"
-      :key="index"
-    >
-      <div class="page-developer-call__content__img">
-        <img :src="item.imageUrl" alt="" />
-      </div>
-      <div class="page-developer-call__content__info">
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-        <btn class="center-text no-arrow" :url="item.url">{{
-          item.urlTitle
-        }}</btn>
-      </div>
+  <section class="page-developers__call-action">
+      <div class="page-developers__call-action__cards" >
+        <div class="page-developers__call-action__cards__card" v-for="(item, index) in material" :key="index">
+          <img class="page-developers__call-action__cards__card__img" :src="item.imageUrl" alt="" />
+          <h4 class="page-developers__call-action__cards__card__h4">{{ item.title }}</h4>
+          <p class="page-developers__call-action__cards__card__p">{{ item.description }}</p>
+          
+          <btn class="center-text no-arrow call-action-button" :url="item.url">{{ item.urlTitle }}</btn>
+        </div>
     </div>
   </section>
 </template>
@@ -25,52 +18,66 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/developers-get-started.svg",
-          title: "Get started",
+          imageUrl: "/temp/funding/icon-funding-getscrt.svg",
+          title: "Get Started",
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
-          urlTitle: "Get scrt",
-          url: "https://scrt.network/about/about-scrt",
+          urlTitle: "Get SCRT",
+          url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
+        },
+         {
+          imageUrl: "/temp/funding/icon-funding-community.svg",
+          title: "Join the Community",
+          description:
+            "Join our community of privacy pioneers to create a better, more empowering web. ",
+          urlTitle: "BECOME A SECRET AGENT",
+          url: "https://docs.scrt.network/relayers/setting-up-hermes.html",
         },
       ],
     };
   },
-};
+
+}
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.page-developer-call {
-  margin: 42px 0;
+.page-developers__call-action {
+  
 
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 102px;
+  &__cards{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 48px;
 
-    @include respond-to("<=s") {
-      grid-template-columns: 1fr;
-      grid-gap: 0px;
-    }
-
-    &__info {
-      margin: auto 0;
-
-      @include respond-to("<=s") {
-        padding: var(--f-gutter);
+      @include respond-to("<=m"){
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      p {
-        font-size: var(--paragraph-font-size-big);
+      @include respond-to("<=s"){
+        grid-template-columns: 1fr;
       }
-    }
 
-    &__img {
-      @include respond-to("<=s") {
-        margin: auto;
+    &__card{
+      padding: 16px;
+
+      &__img{
+
+        margin-bottom: 16px;
       }
+
+      
+
+      &.cta-button{
+        margin-left:0;
+        padding-left: 0;
+      }
+      
+      
+      
     }
+    
   }
 }
 </style>
