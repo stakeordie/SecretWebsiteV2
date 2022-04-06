@@ -72,6 +72,21 @@ title: 'Secret Network'
 
 
 
+<column>
+
+<block style="text-align:center" class="new-home__side-spacer">
+
+<btn  class="no-arrow new-home__slider-btn"   url="../ecosystem/dapps" >Explore the Ecosystem</btn>
+
+</block>
+
+</column>
+
+
+
+
+
+
 
 
 
@@ -118,11 +133,11 @@ title: 'Secret Network'
 <column class="new-home__block-header new-home__bg" number="2" >
   <block>
 
-  ##### OTHER MEDIA:
+  ##### LATEST BLOG POST
 
   </block>
-  <block style="justify-content: center; text-align: right">
-    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px;">View all</btn>
+  <block style=" text-align: right">
+    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn>
   
   </block>
 </column>
@@ -143,9 +158,9 @@ title: 'Secret Network'
 
 
 <!-- Home featured media -->
-<column mode="full" class="new-home__bg__bottom space-top">
+<column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <home-featured-media /><!-- CMS: Home - Featured Media -->
+    <new-home-featured-media /><!-- CMS: Home - Featured Media -->
   </block>
 </column>
 
@@ -185,9 +200,9 @@ title: 'Secret Network'
 
 <block>
 
-<ecosystem-funding-ctas>
+<new-home-mission-ctas>
     
-</ecosystem-funding-ctas>
+</new-home-mission-ctas>
 
 </block>
 

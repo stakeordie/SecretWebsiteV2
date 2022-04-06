@@ -48,8 +48,25 @@
         
         & h5{
             color: var(--color-neutral-dark-mode-05);
+            text-transform: uppercase;
         }
 
     
+    }
+
+    &__side-spacer{
+        padding: var(--f-gutter);
+    }
+
+    &__slider-btn{
+        width: 320px;
+        margin: 64px 0 0 0 !important;
+        font-size: 18px !important;
+        padding: 10px 0 !important;
+
+        @include respond-to ("<=s"){
+            width: 100%;
+            
+        }
     }
 }

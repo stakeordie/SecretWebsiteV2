@@ -22,9 +22,9 @@
               </a>
           </div>
       </div>
-      <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-scrt">
+      <btn class="text-center no-arrow btn-bigger" url="../about/about-scrt">
             Learn more
-          </button>
+          </btn>
   </section>
 </template>
 
@@ -38,21 +38,21 @@ export default {
           title: "Stay safe while spending, saving, and trading",
           description: "Control access to your assets and data with Secret Tokens and Apps, while avoiding hacks and front-running. ",
           btn: "ABOUT SECRET DEFI",
-          btnUrl: "#"
+          btnUrl: "../about/secret-finance"
         },
         {
           imageUrl: "/temp/home/icon-home-creativity.svg",
           title: "Take full control of your creativity",
           description: "Selectively reveal content and ownership with Secret NFTs to control access, create hidden features, and make art and entertainment not possible elsewhere.  ",
           btn: "ABOUT SECRET NFTS",
-          btnUrl: "#"
+          btnUrl: "../about/secret-nfts"
         },
         {
           imageUrl: "/temp/home/icon-home-explore.svg",
           title: "Explore and expand  the frontiers of Web3",
           description: "Enter the new design space customizable privacy opens up, and build groundbreaking apps in areas ranging from finance to communication to gaming. ",
           btn: "START BUILDING",
-          btnUrl: "#"
+          btnUrl: "https://scrt.network/developers"
         },
        
       ]
@@ -68,6 +68,9 @@ export default {
 .new-home-contracts{
     text-align: center;
     padding: 64px 0;
+    @include respond-to ("<=s"){
+            padding: 64px var(--f-gutter);
+        }
 
     &__header{
         padding-bottom: 56px;
@@ -113,8 +116,16 @@ export default {
                 padding: var(--f-gutter-l) 0;
             }
 
+            @include respond-to ("s"){
+                padding: 0 var(--f-gutter-xxxl) ;
+            }
+
             &:hover{
                 background: var(--color-neutral-dark-mode-04);
+
+                a {
+                    color: var(--color-newBrand-blue-01);
+                }
             }
 
             .feature-cont{
@@ -155,7 +166,7 @@ export default {
                display: inline-block;
                //padding: 12px 0;
                width: 100%;
-               color: var(--color-newBrand-blue-02);
+               
                font-weight: 700;
                letter-spacing: 1px;
                padding: 10px 0;
@@ -163,13 +174,13 @@ export default {
         }    
     }
 
-     & button {
+     & .btn-bigger {
             
-            padding: 10px 40px;
-            width: 200px;
-            font-size: 18px;
+            padding: 10px 0 !important;
+            width: 200px !important;
+            font-size: 18px !important;
 
-            @include respond-to("<=xs") {
+            @include respond-to("<=m") {
             width: 100%;
             margin: 10px 0;
             }

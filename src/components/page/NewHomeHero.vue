@@ -11,12 +11,12 @@
           and empowers developers to build a better Web3.
         </p>
         <div class="new-home-hero__container__btns">
-          <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-scrt">
+          <btn class="text-center no-arrow btn-bigger" url="../about/about-scrt">
             Get SCRT
-          </button>
-          <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-secret-network/">
+          </btn>
+          <btn class="text-center no-arrow btn-bigger" url="../about/about-secret-network/">
             Learn More
-          </button>
+          </btn>
         </div>
       </div>
       <div class="new-home-hero__container__logos">
@@ -127,9 +127,9 @@ export default {
     }
 
     &__btns {
-      & button {
-        margin: 10px;
-        width: 172px;
+      & .btn-bigger {
+        
+        width: 172px !important;
 
         @include respond-to("<=xs") {
           width: 100%;

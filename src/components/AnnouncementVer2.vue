@@ -12,20 +12,23 @@
     <btn class="no-arrow" v-if="buttonOne.is" :url="buttonOne.route">{{ buttonOne.title }}</btn>
     <btn v-if="buttonTwo.is" :url="buttonTwo.route">{{ buttonTwo.title }}</btn>
 
-    <p class="announcement-ver2__cont__title">Follow us</p>
+    
       <div class="announcement-ver2__cont__social">
+        <p class="announcement-ver2__cont__social-title">Follow us</p>
 
-        <a href="https://twitter.com/SecretNetwork" target="blank" rel="noopener noreferrer">
-            <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation"/>
-          </a>
-          <a href="https://www.instagram.com/scrtnetwork/" target="blank" rel="noopener noreferrer">
-            <img src="@/assets/icon-social-instagram.svg"
-                  alt="Join the Conversation"/>
-          </a>
-          <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank" rel="noopener noreferrer">
-            <img  src="@/assets/icon-social-youtube.svg"
-                  alt="Join the Conversation"/>
-          </a>
+        <div class="announcement-ver2__cont__social-icons">
+          <a href="https://twitter.com/SecretNetwork" target="blank" rel="noopener noreferrer">
+              <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation"/>
+            </a>
+            <a href="https://www.instagram.com/scrtnetwork/" target="blank" rel="noopener noreferrer">
+              <img src="@/assets/icon-social-instagram.svg"
+                    alt="Join the Conversation"/>
+            </a>
+            <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank" rel="noopener noreferrer">
+              <img  src="@/assets/icon-social-youtube.svg"
+                    alt="Join the Conversation"/>
+            </a>
+        </div>
         
       </div>
 
@@ -33,44 +36,7 @@
   </div>
 
 </section>
-  <!-- <column class="announcement-ver2 accent-green spacer-s" :weight="media.is == true ? 'right' : 'left'" number="2" number-s="1">
-    
-    <block class="announcement-ver2__img" v-show="media.is">
 
-      <img :src="media.url" />
-
-    </block>
-
-    <block>
-      <h4>Announcement</h4>
-
-      <h3>{{ announcement.title }}</h3>
-
-      <p>{{ announcement.text }}</p>
-
-      <btn class="no-arrow" v-if="buttonOne.is" :url="buttonOne.route">{{ buttonOne.title }}</btn>
-      <btn v-if="buttonTwo.is" :url="buttonTwo.route">{{ buttonTwo.title }}</btn>
-      
-      <h6>Follow us</h6>
-      <div class="announcement-ver2__social">
-
-        <a href="https://twitter.com/SecretNetwork" target="blank" rel="noopener noreferrer">
-            <img src="@/assets/icon-social-twitter.svg" alt="Join the Conversation"/>
-          </a>
-          <a href="https://www.instagram.com/scrtnetwork/" target="blank" rel="noopener noreferrer">
-            <img src="@/assets/icon-social-instagram.svg"
-                  alt="Join the Conversation"/>
-          </a>
-          <a href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw" target="blank" rel="noopener noreferrer">
-            <img  src="@/assets/icon-social-youtube.svg"
-                  alt="Join the Conversation"/>
-          </a>
-        
-      </div>
-
-    </block>
-    
-  </column> -->
 
 </template>
 

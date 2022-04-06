@@ -327,15 +327,15 @@ button,
 // -----BUTTON-----
 
 .btn-bigger{
-    padding: 22px 0;
+    padding: 22px 0 !important;
     background-color: var(--color-neutral-dark-mode-04);
     border-radius: var(--f-gutter-s);
 
-    font-family: var(--f-default-text-font);
-    font-size: var(--paragraph-font-size-big);
+    font-family: var(--f-default-text-font) !important;
+    font-size: var(--paragraph-font-size-big) !important;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
 
     cursor: pointer;
 
