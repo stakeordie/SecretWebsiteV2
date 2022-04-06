@@ -2,7 +2,7 @@
   <section class="page-developer-questions">
     <div class="page-developer-questions__banner">
       <div class="page-developer-questions__banner__image">
-        <img src="/temp/have-questions.png" alt="Have questions" />
+        <img src="../../assets/have-questions.png" alt="Have questions" />
       </div>
       <div class="page-developer-questions__banner__content">
         <h3 class="page-developer-questions__banner__content__title">

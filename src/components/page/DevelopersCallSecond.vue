@@ -25,7 +25,7 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/developers-get-join.svg",
+          imageUrl: "/img/developers/developers-get-join.svg",
           title: "Join the community",
           description:
             "Become a Secret Agent and advance a better, more empowering web. ",

@@ -18,7 +18,7 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/funding/icon-funding-getscrt.svg",
+          imageUrl: "/img/developers/icon-funding-getscrt.svg",
           title: "Get Started",
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
@@ -26,7 +26,7 @@ export default {
           url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
         },
          {
-          imageUrl: "/temp/funding/icon-funding-community.svg",
+          imageUrl: "/img/developers/icon-funding-community.svg",
           title: "Join the Community",
           description:
             "Join our community of privacy pioneers to create a better, more empowering web. ",

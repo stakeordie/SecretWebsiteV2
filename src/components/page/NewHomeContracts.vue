@@ -34,21 +34,21 @@ export default {
     return {
       reasons: [
         {
-          imageUrl: "/temp/home/icon-home-exchange.svg",
+          imageUrl: "/img/home/icon-home-exchange.svg",
           title: "Stay safe while spending, saving, and trading",
           description: "Control access to your assets and data with Secret Tokens and Apps, while avoiding hacks and front-running. ",
           btn: "ABOUT SECRET DEFI",
           btnUrl: "../about/secret-finance"
         },
         {
-          imageUrl: "/temp/home/icon-home-creativity.svg",
+          imageUrl: "/img/home/icon-home-creativity.svg",
           title: "Take full control of your creativity",
           description: "Selectively reveal content and ownership with Secret NFTs to control access, create hidden features, and make art and entertainment not possible elsewhere.  ",
           btn: "ABOUT SECRET NFTS",
           btnUrl: "../about/secret-nfts"
         },
         {
-          imageUrl: "/temp/home/icon-home-explore.svg",
+          imageUrl: "/img/home/icon-home-explore.svg",
           title: "Explore and expand  the frontiers of Web3",
           description: "Enter the new design space customizable privacy opens up, and build groundbreaking apps in areas ranging from finance to communication to gaming. ",
           btn: "START BUILDING",
