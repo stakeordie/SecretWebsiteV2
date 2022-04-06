@@ -3,33 +3,45 @@
 </template>
 
 <script>
-import BlogPosts from '@/components/blog/BlogPosts'
+import BlogPosts from "@/components/blog/BlogPosts";
 
 export default {
   components: { BlogPosts },
-  data(){
+  data() {
     return {
-      latestPost: []
+      latestPost: [],
     };
   },
-  methods:{
+  methods: {
     filterlatestPost() {
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
       this.latestPost = posts.filter(({ node: post }) => {
         if (!post.primary_tag) return true;
         else {
-          const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);          
+          const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);
           if (hidden.length == 0) return true;
         }
       });
-      
+    },
+    mapImage() {
+      const arrayPosts = this.$static.posts.edges;
+      arrayPosts.forEach((el) => {
+        if (el.node.feature_image) {
+          const urlSplit = el.node.feature_image.split(":");
+          if (urlSplit[0] !== "https" && urlSplit[0] !== "http") {
+            el.node.feature_image =
+              "https://ghost.scrt.network/" + el.node.feature_image;
+          }
+        } else el.node.feature_image = "/blog-cover.jpg";
+      });
     },
   },
-   mounted(){    
+  mounted() {
+    this.mapImage();
     this.filterlatestPost();
   },
-}
+};
 </script>
 
 <static-query>
@@ -43,6 +55,7 @@ export default {
         id
         slug
         reading_time
+        feature_image
         tags {
           name
           id

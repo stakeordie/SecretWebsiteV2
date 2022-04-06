@@ -33,6 +33,7 @@ import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
 import Announcement from '~/components/Announcement.vue';
+import AnnouncementVer2 from '~/components/AnnouncementVer2.vue';
 import Navigation from '~/components/Navigation.vue';
 import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
@@ -132,6 +133,12 @@ import EcosystemFundingApply from '~/components/page/EcosystemFundingApply'
 import EcosystemFundingGrant from '~/components/page/EcosystemFundingGrant'
 import EcosystemFundingCtas from '~/components/page/EcosystemFundingCtas'
 import EcosystemFundingSlider from '~/components/page/EcosystemFundingSlider'
+import NewHomeHero from '~/components/page/NewHomeHero'
+import NewHomeContracts from '~/components/page/NewHomeContracts'
+import NewHomeCallAction from '~/components/page/NewHomeCallAction'
+import NewHomeMission from '~/components/page/NewHomeMission'
+import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
+
 
 
 
@@ -169,6 +176,8 @@ export default function (Vue, {
   Vue.component('ThemeColor', ThemeColor);
   Vue.component('AlertBar', AlertBar);
   Vue.component('Announcement', Announcement);
+  Vue.component('AnnouncementVer2', AnnouncementVer2);
+
   Vue.component('DefaultLayout', DefaultLayout);
   Vue.component('DocsLayout', DocsLayout);
   Vue.component('DocsHeroLayout', DocsHeroLayout);
@@ -222,6 +231,12 @@ export default function (Vue, {
   // Vue.component('HeaderMegaMenu', HeaderMegaMenu);
   Vue.component('HeaderMegaMenuV2', HeaderMegaMenuV2);
   Vue.component('FooterMenu', FooterMenu);
+  Vue.component('NewHomeHero', NewHomeHero);
+  Vue.component('NewHomeContracts', NewHomeContracts);
+  Vue.component('NewHomeCallAction', NewHomeCallAction);
+  Vue.component('NewHomeMission', NewHomeMission);
+  Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
+
   
 
 
