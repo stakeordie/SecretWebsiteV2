@@ -15,7 +15,7 @@
       <li class="flui-slider__items__item current">
         <div class="flui-slider__items__item__container">
     
-          <img src="/temp/funding/logos/defiance.svg" alt="" height="64px">
+          <img src="../../assets/funding/logos/defiance.svg" alt="" height="64px">
 
           <p class="flui-slider__items__item__container-quote">“DeFiance is excited to support Secret Network, the only privacy-by-default smart contract blockchain that enables groundbreaking technologies like front-run resistant DEXes, Secret NFTs, and more. The Secret team has been relentless in working towards their mission since Enigma and we think that the ecosystem is now ready to tackle the next phase of growth.”</p>
           <div class="flui-slider__items__item__container-author">
@@ -36,7 +36,7 @@
       </li>
       <li class="flui-slider__items__item">
          <div class="flui-slider__items__item__container">
-          <img src="/temp/funding/logos/alameda.svg" alt="" height="64px">
+          <img src="../../assets/funding/logos/alameda.svg" alt="" height="64px">
 
           <p class="flui-slider__items__item__container-quote">“Secret Network is the first mover and market leader in solving what is still a core need for Web3: data privacy for applications. We are excited to become supporters of the Secret ecosystem and look forward to helping accelerate its global growth across all verticals and aspects.”</p>
           <div class="flui-slider__items__item__container-author">
@@ -56,7 +56,7 @@
       </li>
       <li class="flui-slider__items__item">
          <div class="flui-slider__items__item__container">
-          <img src="/temp/funding/logos/coinfund.svg" alt="" height="64px">
+          <img src="../../assets/funding/logos/coinfund.svg" alt="" height="64px">
 
           <p class="flui-slider__items__item__container-quote">“The availability of readily scalable, provable, and compliant privacy technology is an integral component of mass-market consumer-friendly Web3 applications. CoinFund is proud to support Secret Network in its mission to enable and accelerate trust-minimized privacy within the composable base layer.”</p>
           <div class="flui-slider__items__item__container-author">

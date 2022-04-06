@@ -15,7 +15,7 @@
             <li class="page-developer-pathway__content__box__item">
               
                 <div class="page-developer-pathway__content__box__item__icon">
-                  <img src="/temp/icon-features-file.svg" alt="" />
+                  <img src="../../assets/icon-features-file.svg" alt="" />
                 </div>
                 <div class="page-developer-pathway__content__box__item__details">
                   <h6>{{ resource.title }}</h6>

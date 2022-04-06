@@ -25,7 +25,7 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/icon-features-file.svg",
+          imageUrl: "/img/developers/icon-features-file.svg",
           title: "Node Running",
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
@@ -33,7 +33,7 @@ export default {
           url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
         },
         {
-          imageUrl: "/temp/icon-features-file.svg",
+          imageUrl: "/img/developers/icon-features-file.svg",
           title: "IBC Relayers",
           description:
             "Learn how to set up and run an IBC relayer to facilitate communication with the wider Cosmos ecosystem.",

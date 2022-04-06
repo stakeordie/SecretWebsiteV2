@@ -29,14 +29,12 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/temp/icon-developers-path.svg",
           title: "Ecosystem Fund",
           description:
             "Get long-term financial and strategic support from our top industry partners to scale your Secret project and reach billions of users.",
           url: "https://scrt.network/blog/secret-network-400m-ecosystem-funding-new-investors",
         },
         {
-          imageUrl: "/temp/icon-developers-path.svg",
           title: "Grants",
           description:
             "Get non-dilutive capital to get your Secret idea off the ground and rapidly gain traction.",
