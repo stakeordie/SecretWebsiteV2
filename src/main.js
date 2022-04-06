@@ -138,6 +138,8 @@ import NewHomeContracts from '~/components/page/NewHomeContracts'
 import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
+import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 
 
 
@@ -236,6 +238,8 @@ export default function (Vue, {
   Vue.component('NewHomeCallAction', NewHomeCallAction);
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
+  Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
+  Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
 
   
 
