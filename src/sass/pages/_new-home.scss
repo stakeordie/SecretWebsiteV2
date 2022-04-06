@@ -1,11 +1,15 @@
 
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
+.space-top{
+    padding-top: 92px;
+}
 
 .simple-layout {
-  &.new-home {
+  &.index-v2 {
     .swirl-wrapper {
       opacity: 0;
+      display: none;
     }
   }
 }
@@ -19,6 +23,7 @@
         background-image: url("../../src/assets/home-hero-swirlbg.png") ;
         background-size: cover ;
         background-position: center;
+        background-position: top;
     }
 
     &__bg {

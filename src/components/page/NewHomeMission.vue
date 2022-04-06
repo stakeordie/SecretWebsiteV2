@@ -25,9 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
 
 .new-home__mission{
-    padding-top: 128px;
+    padding-top: 32px;
 
     &__content{
         max-width: 800px;
@@ -36,12 +38,32 @@ export default {
 
         &-h5, &-h1{
         text-align: center;
+        letter-spacing: 1px;
+        max-width: 768px;
+        }
+
+        &-h5{
+            color: var(--color-neutral-dark-mode-05);
+        }
+
+        &-h1{
+            padding: 0 var(--f-gutter-xxl);
+            
+            @include respond-to("<=s"){
+                padding: 0;
+                
+            }
         }
 
         &-p{
             font-size: 26px;
             line-height: 39px;
             font-weight: 100;
+
+            @include respond-to("<=s"){
+                text-align: center;
+            }
+        
         }
     }
 

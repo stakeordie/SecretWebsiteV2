@@ -12,12 +12,9 @@
             can:
           </p>
       </div>
-
       <div class="new-home-contracts__features"  >
           <div class="new-home-contracts__features__feature" v-for="(item, index) in reasons" :key="index">
-             
-
-              <a :href="item.btnUrl">
+              <a :href="item.btnUrl" class="feature-cont">
                   <img :src="item.imageUrl" alt="" />
                   <h4>{{ item.title }}</h4>
                   <p>{{ item.description }}</p>
@@ -25,8 +22,7 @@
               </a>
           </div>
       </div>
-
-      <button class="text-center no-arrow btn-bigger" url="#">
+      <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-scrt">
             Learn more
           </button>
   </section>
@@ -81,6 +77,9 @@ export default {
             padding-bottom: 0;
             margin-bottom: 0;
         }
+        & h3{
+            margin-bottom: 10px;
+        }
 
         &-p{
             font-size: var(--paragraph-font-size-big);
@@ -94,26 +93,21 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 36px;
-        padding-bottom: 26px;
+        padding-bottom: 48px;
+        width: 100%;
 
-        // @include respond-to ("<=m"){
-        //     gap: 16px;
-        // }
+        
 
         @include respond-to ("<=s"){
             grid-template-columns: 1fr;
         }
 
-        
-
         &__feature{
-            padding: var(--f-gutter-l);
+            padding: var(--f-gutter);
             border-radius: 10px;
             
-
-            // @include respond-to ("=l"){
-            //     padding: 0;
-            // }
+            
+            
 
             @include respond-to ("m"){
                 padding: var(--f-gutter-l) 0;
@@ -121,6 +115,13 @@ export default {
 
             &:hover{
                 background: var(--color-neutral-dark-mode-04);
+            }
+
+            .feature-cont{
+                display: grid;
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
+                max-height: 390px;
             }
 
             & img{
@@ -133,6 +134,8 @@ export default {
            & h4{
                color: #D4DCE3;
                font-family: montserrat;
+               letter-spacing: 0;
+               margin-bottom: 0;
 
                @include respond-to("<=m"){
                    font-size: 22px;
@@ -142,7 +145,9 @@ export default {
            & p{
                color: var(--color-neutral-dark-mode-05);
                font-family: var(--f-default-text-font);
-               font-size: var(--f-default-text-size);
+               font-size: var(--f-default-text-size) ;
+               letter-spacing: 0;
+               margin-bottom: 0;
            }
 
            & a{
@@ -153,13 +158,14 @@ export default {
                color: var(--color-newBrand-blue-02);
                font-weight: 700;
                letter-spacing: 1px;
+               padding: 10px 0;
            }
         }    
     }
 
      & button {
-            margin: 10px;
-            padding: 15px 40px;
+            
+            padding: 10px 40px;
             width: 200px;
             font-size: 18px;
 

@@ -15,8 +15,8 @@
                   Learn how to get SCRT, install a wallet, and start staking your SCRT.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="#">Get SCRT</btn>
-                  <btn class="text-center no-arrow btn" url="#">Use SCRT</btn>
+                  <btn class="text-center no-arrow btn" url="http://localhost:8080/about/about-scrt">Get SCRT</btn>
+                  <btn class="text-center no-arrow btn" url="https://wallet.keplr.app/#/secret/stake">Use SCRT</btn>
               </div>
           </div>
 
@@ -36,7 +36,7 @@
               </p>
               <div class="new-home__call__content__info-btns">
                   <btn class="text-center no-arrow btn" url="#">START BUILDING</btn>
-                  <btn class="text-center no-arrow btn" url="#">FundING</btn>
+                  <btn class="text-center no-arrow btn" url="http://localhost:8080/ecosystem/funding">FundING</btn>
                   <btn class="text-center no-arrow btn" url="#">Grants</btn>
               </div>
           </div>
@@ -86,7 +86,7 @@ export default {
     // Shared attributes
 
     &__content{
-        padding: 64px 0;
+        padding: 72px 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;

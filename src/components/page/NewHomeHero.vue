@@ -11,10 +11,10 @@
           and empowers developers to build a better Web3.
         </p>
         <div class="new-home-hero__container__btns">
-          <button class="text-center no-arrow btn-bigger" url="#">
+          <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-scrt">
             Get SCRT
           </button>
-          <button class="text-center no-arrow btn-bigger" url="#">
+          <button class="text-center no-arrow btn-bigger" url="http://localhost:8080/about/about-secret-network/">
             Learn More
           </button>
         </div>
@@ -81,15 +81,17 @@ export default {
   
     height: 705px;
     text-align: center;
-    max-width: 1280px;
+    max-width: 96vw;
+    min-width: 343px;
+    overflow: hidden;
     margin: auto;
     padding: var(--f-gutter);
 
-    transform: translateY(15%);
+    transform: translateY(21%);
 
     @include respond-to("<=xs") {
       height: 900px;
-      //transform: translateY(12%);
+      transform: translateY(12%);
       padding: 0;
     }
 
@@ -121,6 +123,7 @@ export default {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
       color: var(--color-neutral-dark-mode-06);
+      min-width: 311px;
     }
 
     &__btns {
@@ -138,27 +141,34 @@ export default {
       }
     }
     &__logos {
-      margin: auto;
+      
+      max-width: 100%;
+      overflow: hidden;
 
-      @include respond-to("<=l"){
-        width: 1000px;
-      }
 
-       @include respond-to("<=m"){
-        width: 900px;
-      }
+      // @include respond-to("<=l"){
+      //   width: 1000px;
+      // }
 
-             @include respond-to("<=s"){
-        width: 620px;
-      }
-            @include respond-to("<=xs"){
-        width: 320px;
-      }
+      //  @include respond-to("<=m"){
+      //   width: 860px;
+      // }
+
+      //        @include respond-to("<=s"){
+      //   width: 600px;
+      // }
+      //       @include respond-to("<=xs"){
+      //   width: 320px;
+      // }
 
       & h6{
         color: var(--color-neutral-dark-mode-05);
         margin-bottom: 24px;
         
+      }
+
+      & .vifnslb-container{
+        width: 100%;
       }
 
       & .vifnslb-bar{

@@ -57,7 +57,7 @@ title: 'Secret Network'
 </column>
 
 <!-- Horizontal Scroll -->
-<column class="page-developers__cool-stuff spacer-s horizontal-slider" mode="full">
+<column class="page-developers__cool-stuff  horizontal-slider" mode="full">
 
 <block>
 
@@ -115,21 +115,37 @@ title: 'Secret Network'
 
 
 <!-- Block header -->
-<column class="block-header new-home__bg" number="2" number-m="1" number-s="1">
+<column class="new-home__block-header new-home__bg" number="2" >
   <block>
 
-  #### Other media
+  ##### OTHER MEDIA:
 
   </block>
-  <block>
-    <btn class="link-arrow" url="/blog/">View all</btn>
+  <block style="justify-content: center; text-align: right">
+    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px;">View all</btn>
+  
   </block>
 </column>
 
 <!-- Blog cards -->
-<column class="spacer-s new-home__bg__bottom">
+<column class=" new-home__bg">
   <block>
     <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
+  </block>
+</column>
+
+
+
+
+
+
+
+
+
+<!-- Home featured media -->
+<column mode="full" class="new-home__bg__bottom space-top">
+  <block>
+    <home-featured-media /><!-- CMS: Home - Featured Media -->
   </block>
 </column>
 
