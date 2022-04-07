@@ -24,6 +24,14 @@
         background-size: cover ;
         background-position: center;
         background-position: top;
+
+        &__full-w{
+
+            & .box{
+            margin: 0 auto !important;
+            padding: 0;
+            }
+        }
     }
 
     &__bg {
@@ -49,6 +57,10 @@
         & h5{
             color: var(--color-neutral-dark-mode-05);
             text-transform: uppercase;
+        }
+
+        & h4{
+            color: var(--color-neutral-dark-mode-05);
         }
 
     

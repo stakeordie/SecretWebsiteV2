@@ -115,6 +115,18 @@ export default {
           display: inline-grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 10px;
+          
+          
+          & a{
+
+            & img {
+              fill: var(--color-neutral-dark-mode-05);
+              opacity: .75;
+              
+
+              
+            }
+          }
 
         }
        }

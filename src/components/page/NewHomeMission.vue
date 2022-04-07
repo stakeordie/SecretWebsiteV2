@@ -29,7 +29,11 @@ export default {
 
 
 .new-home__mission{
-    padding-top: 32px;
+    padding-top: 128px;
+
+    @include respond-to("<=s"){
+        padding-top: 32px;
+    }
 
     &__content{
         max-width: 800px;
@@ -51,6 +55,9 @@ export default {
             
             @include respond-to("<=s"){
                 padding: 0;
+                //font-size: var(--f-h2-text-size);
+                font-size: 42px;
+                line-height: 50px;
                 
             }
         }
@@ -62,6 +69,8 @@ export default {
 
             @include respond-to("<=s"){
                 text-align: center;
+                font-size: var(--paragraph-font-size-big);
+                line-height: var(--paragraph-line-height-big);
             }
         
         }

@@ -15,9 +15,11 @@
       <div class="new-home-contracts__features"  >
           <div class="new-home-contracts__features__feature" v-for="(item, index) in reasons" :key="index">
               <a :href="item.btnUrl" class="feature-cont">
-                  <img :src="item.imageUrl" alt="" />
-                  <h4>{{ item.title }}</h4>
-                  <p>{{ item.description }}</p>
+                  <div class="feature-cont__description">
+                      <img :src="item.imageUrl" alt="" />
+                      <h4>{{ item.title }}</h4>
+                      <p>{{ item.description }}</p>
+                  </div>
                   <a  href="#" class="">{{item.btn}}</a>
               </a>
           </div>
@@ -65,126 +67,143 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.new-home-contracts{
-    text-align: center;
-    padding: 64px 0;
-    @include respond-to ("<=s"){
-            padding: 64px var(--f-gutter);
-        }
+.new-home-contracts {
+  text-align: center;
+  padding: 64px 0;
 
-    &__header{
-        padding-bottom: 56px;
+  @include respond-to ("<=s") {
+    padding: 64px var(--f-gutter);
+  }
 
-        & h5{
-            color: var(--color-neutral-dark-mode-05);
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-        & h3{
-            margin-bottom: 10px;
-        }
+  &__header {
+    padding-bottom: 56px;
 
-        &-p{
-            font-size: var(--paragraph-font-size-big);
-            line-height: var(--paragraph-line-height-big);
-            max-width: 600px;
-            margin: auto;
-        }
+    & h5 {
+      color: var(--color-neutral-dark-mode-05);
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
 
-    &__features{
+    & h3 {
+      margin-bottom: 10px;
+    }
+
+    &-p {
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
+      max-width: 600px;
+      margin: auto;
+    }
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    padding-bottom: 48px;
+    width: 100%;
+
+
+
+    @include respond-to ("<=s") {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    &__feature {
+      padding: var(--f-gutter);
+      border-radius: 10px;
+
+
+
+
+      @include respond-to ("m") {
+        padding: var(--f-gutter-l) 0;
+      }
+
+      @include respond-to ("s") {
+        padding: 0 var(--f-gutter-xxxl);
+      }
+
+      &:hover {
+        background: var(--color-neutral-dark-mode-04);
+
+        a {
+          color: var(--color-newBrand-blue-01);
+        }
+      }
+
+      .feature-cont {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 36px;
-        padding-bottom: 48px;
-        width: 100%;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+        height: 360px;
 
-        
-
-        @include respond-to ("<=s"){
-            grid-template-columns: 1fr;
+        @include respond-to("m") {
+          height: 390px;
         }
 
-        &__feature{
-            padding: var(--f-gutter);
-            border-radius: 10px;
-            
-            
-            
+        &__description {
 
-            @include respond-to ("m"){
-                padding: var(--f-gutter-l) 0;
-            }
 
-            @include respond-to ("s"){
-                padding: 0 var(--f-gutter-xxxl) ;
-            }
+          & img {
+            margin: auto;
+            margin-bottom: 12px;
+            width: 100px;
+            height: 100px;
+          }
 
-            &:hover{
-                background: var(--color-neutral-dark-mode-04);
-
-                a {
-                    color: var(--color-newBrand-blue-01);
-                }
-            }
-
-            .feature-cont{
-                display: grid;
-                grid-template-rows: repeat(3, 1fr);
-                gap: 10px;
-                max-height: 390px;
-            }
-
-            & img{
-                margin: auto;
-                margin-bottom: 12px;
-                width: 100px;
-                height: 100px;
-            }
-
-           & h4{
-               color: #D4DCE3;
-               font-family: montserrat;
-               letter-spacing: 0;
-               margin-bottom: 0;
-
-               @include respond-to("<=m"){
-                   font-size: 22px;
-               }
-           }
-
-           & p{
-               color: var(--color-neutral-dark-mode-05);
-               font-family: var(--f-default-text-font);
-               font-size: var(--f-default-text-size) ;
-               letter-spacing: 0;
-               margin-bottom: 0;
-           }
-
-           & a{
-             
-               display: inline-block;
-               //padding: 12px 0;
-               width: 100%;
-               
-               font-weight: 700;
-               letter-spacing: 1px;
-               padding: 10px 0;
-           }
-        }    
-    }
-
-     & .btn-bigger {
-            
-            padding: 10px 0 !important;
-            width: 200px !important;
-            font-size: 18px !important;
+          & h4 {
+            color: #D4DCE3;
+            font-family: montserrat;
+            letter-spacing: 0;
+            margin-bottom: 12px;
 
             @include respond-to("<=m") {
-            width: 100%;
-            margin: 10px 0;
+              font-size: 22px;
             }
+          }
+
+          & p {
+            color: var(--color-neutral-dark-mode-05);
+            font-family: var(--f-default-text-font);
+            font-size: var(--f-default-text-size);
+            letter-spacing: 0;
+            margin-bottom: 0;
+          }
+        }
+
+        & a {
+
+          align-self: flex-end;
+          //padding: 12px 0;
+          width: 100%;
+          font-weight: 700;
+          letter-spacing: 1px;
+          padding: 10px 0;
+
+          @include respond-to("<=s") {
+            align-self: flex-start;
+          }
+        }
       }
+
+
+    }
+  }
+
+  & .btn-bigger {
+
+    padding: 10px 0 !important;
+    width: 200px !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+
+    @include respond-to("<=m") {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
 }
 
 
