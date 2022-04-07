@@ -46,7 +46,7 @@ export default {
 
 <static-query>
 {
-  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3) {
+  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3, filter: {tags:{id: {ne: "62460c5faa18ef05f57689b1"}}}) {
     edges {
       node {
         title
