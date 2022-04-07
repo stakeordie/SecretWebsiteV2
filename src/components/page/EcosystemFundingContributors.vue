@@ -121,9 +121,12 @@ export default {
         &__img{
             width: 130px;
             height: 64px;
-            margin: auto;
+            margin: auto auto;
             
 
+        }
+        & img{
+          margin: auto;
         }
 
         @include respond-to("<=m"){
