@@ -6,7 +6,7 @@ title: 'Secret Network'
 <!-- Home Hero-->
 <column class="new-home__cover " mode="full">
 
-<block class="">
+<block class="new-home__cover__full-w">
 
 <new-home-hero></new-home-hero>
 
@@ -40,9 +40,9 @@ title: 'Secret Network'
 
 
 <!-- Controlls  -->
-<column number="2" class="page-developers__horizontal-scroll">
+<column number="2" class="page-developers__horizontal-scroll ">
 
-<block >
+<block class="new-home__block-header">
 
 #### Apps live on mainnet
 
@@ -59,9 +59,24 @@ title: 'Secret Network'
 <!-- Horizontal Scroll -->
 <column class="page-developers__cool-stuff  horizontal-slider" mode="full">
 
-<block>
+<block >
 
 <developers-cool-stuff></developers-cool-stuff>
+
+</block>
+
+</column>
+
+
+
+
+
+
+<column>
+
+<block style="text-align:center" class="new-home__side-spacer">
+
+<btn  class="no-arrow new-home__slider-btn"   url="../ecosystem/dapps" >Explore the Ecosystem</btn>
 
 </block>
 
@@ -118,11 +133,11 @@ title: 'Secret Network'
 <column class="new-home__block-header new-home__bg" number="2" >
   <block>
 
-  ##### OTHER MEDIA:
+  ##### LATEST BLOG POSTS
 
   </block>
-  <block style="justify-content: center; text-align: right">
-    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px;">View all</btn>
+  <block style=" text-align: right">
+    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn>
   
   </block>
 </column>
@@ -143,9 +158,9 @@ title: 'Secret Network'
 
 
 <!-- Home featured media -->
-<column mode="full" class="new-home__bg__bottom space-top">
+<column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <home-featured-media /><!-- CMS: Home - Featured Media -->
+    <new-home-featured-media /><!-- CMS: Home - Featured Media -->
   </block>
 </column>
 
@@ -185,9 +200,9 @@ title: 'Secret Network'
 
 <block>
 
-<ecosystem-funding-ctas>
+<new-home-mission-ctas>
     
-</ecosystem-funding-ctas>
+</new-home-mission-ctas>
 
 </block>
 

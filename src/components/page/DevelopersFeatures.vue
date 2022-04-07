@@ -22,25 +22,25 @@ export default {
       sectionTitle: "Why Build on Secret Network?",
       reasons: [
         {
-          imageUrl: "/temp/icon-features-rocket.svg",
+          imageUrl: "/img/developers/icon-features-rocket.svg",
           title: "Be a pioneer",
           description:
             "Explore the possibilities of customizable privacy and build groundbreaking apps in areas ranging from finance to gaming.",
         },
         {
-          imageUrl: "/temp/icon-features-protect.svg",
+          imageUrl: "/img/developers/icon-features-protect.svg",
           title: "Make an impact",
           description:
             "Build towards a better web by creating decentralized solutions that protect & empower users.",
         },
         {
-          imageUrl: "/temp/icon-features-decentralized.svg",
+          imageUrl: "/img/developers/icon-features-decentralized.svg",
           title: "Built-in Interoperability",
           description:
             "With Cosmos IBC & bridges to 4+ ecosystems (and counting), apps built on Secret Network can be used by billions of users all across Web3. ",
         },
         {
-          imageUrl: "/temp/icon-features-idea.svg",
+          imageUrl: "/img/developers/icon-features-idea.svg",
           title: "Get serious funding",
           description:
             "With over $400M in funding and grants available to any developer to build on Secret Network, no idea is too big.",

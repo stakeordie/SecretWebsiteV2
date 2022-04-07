@@ -511,7 +511,7 @@ export default {
   --mega-header-gap-nav: 10px;
   --mega-header-background-nav-expanded: rgba(43, 52, 64, 1);
   --mega-header-color-nav-exanded: rgba(240, 242, 245, 1);
-  --mega-header-color-nav-exanded-hover: rgba(178, 190, 204, 1);
+  --mega-header-color-nav-exanded-hover:var(--color-newBrand-blue-01);
   --mega-header-gap-social-media: 4px;
   --mega-header-color-social-medial: rgba(240, 242, 245, 1);
   --mega-header-color-social-media-icon: var(--color-analog-primary-white);

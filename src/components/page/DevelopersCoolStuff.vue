@@ -183,7 +183,7 @@ export default {
           }
         }
          &:hover  .ecosystem .btn-text{
-              color: var( --color-highkey-secondary-blue);
+              color: var(--color-newBrand-blue-01);
             }
 
          &:hover .tag-accent{

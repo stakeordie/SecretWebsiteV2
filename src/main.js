@@ -47,6 +47,7 @@ import CardCTA from '~/components/cards/CardCTA.vue';
 import CardMinimal from '~/components/cards/CardMinimal.vue';
 import CardBlock from '~/components/cards/CardBlock.vue';
 import CardMedia from '~/components/cards/CardMedia.vue';
+import NewCardMedia from '~/components/cards/NewCardMedia.vue';
 import CardSecretAgent from '~/components/cards/CardSecretAgent.vue';
 import CardStats from '~/components/cards/CardStats.vue';
 import CardStructure from '~/components/cards/CardStructure.vue';
@@ -138,6 +139,8 @@ import NewHomeContracts from '~/components/page/NewHomeContracts'
 import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
+import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 
 
 
@@ -195,6 +198,7 @@ export default function (Vue, {
   Vue.component('CardMinimal', CardMinimal);
   Vue.component('CardBlock', CardBlock);
   Vue.component('CardMedia', CardMedia);
+  Vue.component('NewCardMedia', NewCardMedia);
   Vue.component('CardSecretAgent', CardSecretAgent);
   Vue.component('CardStats', CardStats);
   Vue.component('CardStructure', CardStructure);
@@ -236,6 +240,8 @@ export default function (Vue, {
   Vue.component('NewHomeCallAction', NewHomeCallAction);
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
+  Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
+  Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
 
   
 

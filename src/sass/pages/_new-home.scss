@@ -19,11 +19,20 @@
    
     
     &__cover{
-        //background-color: var(--color-neutral-dark-mode-01);
+       
         background-image: url("../../src/assets/home-hero-swirlbg.png") ;
         background-size: cover ;
         background-position: center;
         background-position: top;
+
+        &__full-w{
+            overflow: hidden;
+            & .box{
+            margin: 0 auto !important;
+            padding: 0;
+            overflow: hidden;
+            }
+        }
     }
 
     &__bg {
@@ -48,8 +57,30 @@
         
         & h5{
             color: var(--color-neutral-dark-mode-05);
+            text-transform: uppercase;
+        }
+
+        & h4{
+            color: var(--color-neutral-dark-mode-05);
         }
 
     
+    }
+
+    &__side-spacer{
+        padding: var(--f-gutter);
+    }
+
+    &__slider-btn{
+        width: 320px !important;
+        margin: 48px 0 0 0 !important;
+        font-size: 18px !important;
+        padding: 10px 0 !important;
+
+        @include respond-to ("<=s"){
+            width: 100% !important;
+            margin: 0 !important;
+            
+        }
     }
 }

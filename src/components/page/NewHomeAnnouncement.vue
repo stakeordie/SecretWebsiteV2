@@ -97,15 +97,41 @@ export default {
 					margin-bottom: 26px !important;
 				}
 
-        &__title{
-          margin-bottom: 0;
+       
+       &__social{
+
+         @include respond-to("<=s"){
+           text-align: center;
+         }
+         
+
+         &-title{
+          margin-bottom: 10px;
+           
+           
         }
 
-        &__social{
+        &-icons{
           display: inline-grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 10px;
+          
+          
+          & a{
+
+            & img {
+              fill: var(--color-neutral-dark-mode-05);
+              opacity: .75;
+              
+
+              
+            }
+          }
+
         }
+       }
+       
+       
      }
 }
    

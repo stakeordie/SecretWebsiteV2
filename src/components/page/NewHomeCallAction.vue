@@ -15,7 +15,7 @@
                   Learn how to get SCRT, install a wallet, and start staking your SCRT.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="http://localhost:8080/about/about-scrt">Get SCRT</btn>
+                  <btn class="text-center no-arrow btn" url="../about/about-scrt">Get SCRT</btn>
                   <btn class="text-center no-arrow btn" url="https://wallet.keplr.app/#/secret/stake">Use SCRT</btn>
               </div>
           </div>
@@ -35,9 +35,9 @@
                 the decentralized web.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="#">START BUILDING</btn>
-                  <btn class="text-center no-arrow btn" url="http://localhost:8080/ecosystem/funding">FundING</btn>
-                  <btn class="text-center no-arrow btn" url="#">Grants</btn>
+                  <btn class="text-center no-arrow btn" url="../developers">START BUILDING</btn>
+                  <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
+                  <btn class="text-center no-arrow btn" url="../blog/announcing-secret-network-grant-program">Grants</btn>
               </div>
           </div>
           <div class="new-home__call__content__img">
@@ -61,7 +61,7 @@
                   Become a Secret Agent and collaborate with others to turn a safer and more empowering web into reality.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="#">Become a Secret agent</btn>
+                  <btn class="text-center no-arrow btn" url="../get-involved/become-secret-agent">Become a Secret agent</btn>
               </div>
           </div>
 

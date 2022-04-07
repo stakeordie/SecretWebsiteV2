@@ -213,12 +213,3 @@ title: 'Developer Resources'
 
 
 
-<column>
-
-<block>
-
-<developers-call-second></developers-call-second>
-
-</block>
-
-</column> 

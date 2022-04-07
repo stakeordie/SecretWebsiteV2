@@ -16,76 +16,76 @@ export default {
     return {
       reasons: [
         {
-          imageUrl: "../temp/funding/logos/alameda.svg"
+          imageUrl: "../img/funding/logos/alameda.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/arca.svg"
+          imageUrl: "../img/funding/logos/arca.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/arkstream.svg"
+          imageUrl: "../img/funding/logos/arkstream.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/arrington.svg"
+          imageUrl: "../img/funding/logos/arrington.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/bison.svg"
+          imageUrl: "../img/funding/logos/bison.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/blacktower.svg"
+          imageUrl: "../img/funding/logos/blacktower.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/coinfund.svg"
+          imageUrl: "../img/funding/logos/coinfund.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/defiance.svg"
+          imageUrl: "../img/funding/logos/defiance.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/dragonly.svg"
+          imageUrl: "../img/funding/logos/dragonly.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/fenbushi.svg"
+          imageUrl: "../img/funding/logos/fenbushi.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/figment.svg"
+          imageUrl: "../img/funding/logos/figment.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/hartman.svg"
+          imageUrl: "../img/funding/logos/hartman.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/hashed.svg"
+          imageUrl: "../img/funding/logos/hashed.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/hashkey-group.svg"
+          imageUrl: "../img/funding/logos/hashkey-group.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/huobi.svg"
+          imageUrl: "../img/funding/logos/huobi.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/iconium.svg"
+          imageUrl: "../img/funding/logos/iconium.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/kucoin.svg"
+          imageUrl: "../img/funding/logos/kucoin.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/magnus.svg"
+          imageUrl: "../img/funding/logos/magnus.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/ngc.svg"
+          imageUrl: "../img/funding/logos/ngc.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/sanctor.svg"
+          imageUrl: "../img/funding/logos/sanctor.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/scrt-labs.svg"
+          imageUrl: "../img/funding/logos/scrt-labs.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/shima.svg"
+          imageUrl: "../img/funding/logos/shima.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/skynet.svg"
+          imageUrl: "../img/funding/logos/skynet.svg"
         },
         {
-          imageUrl: "../temp/funding/logos/skyvision.svg"
+          imageUrl: "../img/funding/logos/skyvision.svg"
         },
       ]
     }
@@ -121,9 +121,12 @@ export default {
         &__img{
             width: 130px;
             height: 64px;
-            margin: auto;
+            margin: auto auto;
             
 
+        }
+        & img{
+          margin: auto;
         }
 
         @include respond-to("<=m"){
