@@ -74,32 +74,48 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "@lkmx/flare/src/functions/respond-to";
+<style lang="scss">@import "@lkmx/flare/src/functions/respond-to";
+
 .new-home-hero {
-  &__container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 705px;
+  overflow: hidden;
+  max-width: 100vw;
   
-    height: 705px;
+
+  @include respond-to("<=xs") {
+    height: 900px;
+
+  }
+
+  &__container {
+
+    align-self: center;
     text-align: center;
-    max-width: 96vw;
+    max-width: 100%;
     min-width: 343px;
     overflow: hidden;
-    margin: auto;
-    padding: var(--f-gutter);
+    margin: 0 auto;
+    transform: translateY(10%);
 
-    transform: translateY(21%);
+
+
+    //padding: var(--f-gutter);
+
+    //transform: translateY(24%);
 
     @include respond-to("<=xs") {
-      height: 900px;
-      transform: translateY(12%);
-      padding: 0;
+
+      transform: translateY(6%);
     }
 
-    &__text{
+    &__text {
       max-width: 742px;
       margin: auto;
-      margin-bottom: 26px;
-      padding: var(--f-gutter);
+      padding: 0 var(--f-gutter);
+
     }
 
     &__h1 {
@@ -108,6 +124,7 @@ export default {
       font-size: 54px;
       line-height: 60px;
       font-weight: 600;
+      margin-bottom: 26px;
 
       & span {
         display: block;
@@ -116,7 +133,9 @@ export default {
 
       @include respond-to("<=s") {
         font-size: 40px;
+        margin-bottom: 10px;
       }
+
     }
 
     &__p {
@@ -124,61 +143,72 @@ export default {
       line-height: var(--paragraph-line-height-big);
       color: var(--color-neutral-dark-mode-06);
       min-width: 311px;
+      margin-bottom: 26px;
+
+
     }
 
     &__btns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 360px;
+      margin: auto;
+
+      @include respond-to("<=xs") {
+        grid-template-columns: 1fr;
+        width: 100%;
+
+
+      }
+
       & .btn-bigger {
-        
+
         width: 172px !important;
+        margin: 0 !important;
 
         @include respond-to("<=xs") {
-          width: 100%;
-          padding: 16px 0;
-          margin: 10px 0;
+          width: 100% !important;
+          padding: 10px 0;
+
         }
 
-        
+
       }
     }
+
     &__logos {
-      
+      margin-top: 68px;
       max-width: 100%;
       overflow: hidden;
 
+      @include respond-to("<=s") {
+        margin-top: 42px;
+      }
 
-      // @include respond-to("<=l"){
-      //   width: 1000px;
-      // }
 
-      //  @include respond-to("<=m"){
-      //   width: 860px;
-      // }
-
-      //        @include respond-to("<=s"){
-      //   width: 600px;
-      // }
-      //       @include respond-to("<=xs"){
-      //   width: 320px;
-      // }
-
-      & h6{
+      & h6 {
         color: var(--color-neutral-dark-mode-05);
         margin-bottom: 24px;
-        
+
       }
 
-      & .vifnslb-container{
+      & .vifnslb-container {
         width: 100%;
+        overflow: hidden;
       }
 
-      & .vifnslb-bar{
+      & .vifnslb-bar {
         gap: 96px;
+        margin-right: 96px;
+        overflow: hidden;
 
-        @include respond-to("<=m"){
-        gap: 64px;
-      }
+        @include respond-to("<=m") {
+          gap: 64px;
+          margin-right: 64px;
+        }
 
-        & img{
+        & img {
           height: 48px;
         }
       }
@@ -186,4 +216,5 @@ export default {
     }
   }
 }
+
 </style>

@@ -6,7 +6,7 @@ title: 'Secret Network'
 <!-- Home Hero-->
 <column class="new-home__cover " mode="full">
 
-<block class="">
+<block class="new-home__cover__full-w">
 
 <new-home-hero></new-home-hero>
 
@@ -40,9 +40,9 @@ title: 'Secret Network'
 
 
 <!-- Controlls  -->
-<column number="2" class="page-developers__horizontal-scroll">
+<column number="2" class="page-developers__horizontal-scroll ">
 
-<block >
+<block class="new-home__block-header">
 
 #### Apps live on mainnet
 
@@ -59,7 +59,7 @@ title: 'Secret Network'
 <!-- Horizontal Scroll -->
 <column class="page-developers__cool-stuff  horizontal-slider" mode="full">
 
-<block>
+<block >
 
 <developers-cool-stuff></developers-cool-stuff>
 
@@ -133,7 +133,7 @@ title: 'Secret Network'
 <column class="new-home__block-header new-home__bg" number="2" >
   <block>
 
-  ##### LATEST BLOG POST
+  ##### LATEST BLOG POSTS
 
   </block>
   <block style=" text-align: right">
