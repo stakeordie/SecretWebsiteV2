@@ -31,7 +31,7 @@ export default {
           description:
             "Read the official documentation on Secret contracts, clients, protocols, and more. ",
           urlTitle: "START DEVELOPING",
-          url: "https://scrt.network/developers",
+          url: "../developers",
         },
          {
           imageUrl: "/img/developers/icon-funding-community.svg",

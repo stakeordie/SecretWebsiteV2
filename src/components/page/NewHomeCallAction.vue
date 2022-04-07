@@ -35,7 +35,7 @@
                 the decentralized web.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="https://scrt.network/developers">START BUILDING</btn>
+                  <btn class="text-center no-arrow btn" url="../developers">START BUILDING</btn>
                   <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
                   <btn class="text-center no-arrow btn" url="../blog/announcing-secret-network-grant-program">Grants</btn>
               </div>

@@ -81,6 +81,9 @@ export default {
   margin: 0;
   padding: 0;
   height: 705px;
+  overflow: hidden;
+  max-width: 100vw;
+  
 
   @include respond-to("<=xs") {
     height: 900px;
@@ -91,7 +94,7 @@ export default {
 
     align-self: center;
     text-align: center;
-    max-width: 100vw;
+    max-width: 100%;
     min-width: 343px;
     overflow: hidden;
     margin: 0 auto;
@@ -192,11 +195,13 @@ export default {
 
       & .vifnslb-container {
         width: 100%;
+        overflow: hidden;
       }
 
       & .vifnslb-bar {
         gap: 96px;
         margin-right: 96px;
+        overflow: hidden;
 
         @include respond-to("<=m") {
           gap: 64px;

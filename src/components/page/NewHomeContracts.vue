@@ -20,7 +20,7 @@
                       <h4>{{ item.title }}</h4>
                       <p>{{ item.description }}</p>
                   </div>
-                  <a  href="#" class="">{{item.btn}}</a>
+                  <a  :href="item.btnUrl" class="">{{item.btn}}</a>
               </a>
           </div>
       </div>
@@ -54,7 +54,7 @@ export default {
           title: "Explore and expand  the frontiers of Web3",
           description: "Enter the new design space customizable privacy opens up, and build groundbreaking apps in areas ranging from finance to communication to gaming. ",
           btn: "START BUILDING",
-          btnUrl: "https://scrt.network/developers"
+          btnUrl: "../developers"
         },
        
       ]
@@ -122,7 +122,7 @@ export default {
       }
 
       @include respond-to ("s") {
-        padding: 0 var(--f-gutter-xxxl);
+        padding: var(--f-gutter) var(--f-gutter-xxxl);
       }
 
       &:hover {
@@ -141,7 +141,12 @@ export default {
 
         @include respond-to("m") {
           height: 390px;
+          
         }
+        @include respond-to ("<=s") {
+        grid-template-rows: 3fr 1fr;
+        height: auto;
+      }
 
         &__description {
 
@@ -199,8 +204,8 @@ export default {
     font-size: 18px !important;
     margin: 0 !important;
 
-    @include respond-to("<=m") {
-      width: 100%;
+    @include respond-to("<=s") {
+      width: 100% !important;
       margin: 10px 0;
     }
   }
