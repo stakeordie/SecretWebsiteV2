@@ -157,9 +157,15 @@ $accent-colors: (
       }
 
       .new-blog-card__body{
-        padding: 4px 0 0 0;
+        
         
         //height: 48px;
+      }
+
+      .new-blog-card__feature-image{
+        border-radius: 10px;
+        height: 188px;
+        overflow: hidden;
       }
 
       .new-blog-card__tag {
@@ -168,6 +174,8 @@ $accent-colors: (
         font-size: var(--f-default-text-size);
         font-weight: 700;
         font-family: hind;
+
+        padding-top: 10px;
         
       }
 
