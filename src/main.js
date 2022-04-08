@@ -93,12 +93,15 @@ import FooterMenu from '~/components/FooterMenu.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
+import NewBlogCard from '~/components/blog/NewBlogCard'
 import BlogCardFeatured from '~/components/blog/BlogCardFeatured'
 import BlogHero from '~/components/blog/BlogHero'
 import BlogFeaturedPosts from '~/components/blog/BlogFeaturedPosts'
 import BlogLatestPosts from '~/components/blog/BlogLatestPosts'
+import NewBlogLatestPosts from '~/components/blog/NewBlogLatestPosts'
 import BlogLatestPostsTwelve from '~/components/blog/BlogLatestPostsTwelve'
 import BlogPosts from '~/components/blog/BlogPosts'
+import NewBlogPosts from '~/components/blog/NewBlogPosts'
 import BlogPostsFeatured from '~/components/blog/BlogPostsFeatured'
 import BlogFilter from '~/components/blog/BlogFilter'
 
@@ -253,12 +256,15 @@ export default function (Vue, {
   // Blog
   Vue.component('BlogAuthor', BlogAuthor);
   Vue.component('BlogCard', BlogCard);
+  Vue.component('NewBlogCard', NewBlogCard);
   Vue.component('BlogCardFeatured', BlogCardFeatured);
   Vue.component('BlogHero', BlogHero);
   Vue.component('BlogFeaturedPosts', BlogFeaturedPosts);
   Vue.component('BlogLatestPosts', BlogLatestPosts);
+  Vue.component('NewBlogLatestPosts', NewBlogLatestPosts);
   Vue.component('BlogLatestPostsTwelve', BlogLatestPostsTwelve);
   Vue.component('BlogPosts', BlogPosts);
+  Vue.component('NewBlogPosts', NewBlogPosts);
   Vue.component('BlogPostsFeatured', BlogPostsFeatured);
   Vue.component('BlogFilter', BlogFilter);
   Vue.component('EcosystemRoadmapYourProject', EcosystemRoadmapYourProject);

@@ -1,13 +1,14 @@
 <template>
-  <blog-posts :posts="latestPost"></blog-posts>
+  <new-blog-posts :posts="latestPost"></new-blog-posts>
 </template>
 
 <script>
 import BlogPosts from "@/components/blog/BlogPosts";
+import NewBlogPosts from "@/components/blog/NewBlogPosts";
 
 
 export default {
-  components: { BlogPosts },
+  components: { NewBlogPosts },
   data() {
     return{
       latestPost: [],

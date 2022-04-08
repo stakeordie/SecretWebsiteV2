@@ -106,7 +106,7 @@ $accent-colors: (
     // bottom: 0;
     // padding: var(--f-gutter);
     order: 1;
-    border-radius: var(--f-gutter);
+    border-radius: var(--f-gutter-s);
     left: 0;
     right: 0;
     width: 100%;
