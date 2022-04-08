@@ -147,7 +147,7 @@ title: 'Secret Network'
 <!-- Home featured media -->
 <column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <new-home-featured-media /><!-- CMS: Home - Featured Media -->
+    <new-home-featured-media-test /><!-- CMS: Home - Featured Media -->
   </block>
 </column>
 
