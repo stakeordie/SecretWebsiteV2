@@ -145,6 +145,7 @@ import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
 import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
+import GrantsBuild from '~/components/page/GrantsBuild'
 
 
 
@@ -247,6 +248,7 @@ export default function (Vue, {
   Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
   Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
   Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
+  Vue.component('GrantsBuild', GrantsBuild);
 
   
 
