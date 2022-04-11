@@ -149,6 +149,7 @@ import GrantsBuild from '~/components/page/GrantsBuild'
 import GrantsHero from '~/components/page/GrantsHero'
 import GetScrtHero from '~/components/page/GetScrtHero'
 import GetScrtBuy from '~/components/page/GetScrtBuy'
+import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
 
 
 
@@ -313,6 +314,8 @@ export default function (Vue, {
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
   Vue.component('GrantsHero', GrantsHero);
+  Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
+  
   
 
 
