@@ -7,9 +7,9 @@ title: "Grants"
 
 <block>
 
-<ecosystem-funding-hero>
+<grants-hero>
     
-</ecosystem-funding-hero>
+</grants-hero>
 
 </block>
 
