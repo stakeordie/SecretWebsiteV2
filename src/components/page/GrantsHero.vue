@@ -24,7 +24,18 @@ export default {}
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-grants {
+  padding-top: var(--f-gutter-xxxl);
   
+      @include respond-to("<=m") {
+        padding-top: var(--f-gutter-xxl);
+      }
+      
+      @include respond-to("<=s") {
+        padding-top: var(--f-gutter-xl);
+      }
+
+      
+
   &__hero {
     &__content {
       display: grid;

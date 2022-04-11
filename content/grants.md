@@ -71,7 +71,7 @@ title: "Grants"
     
 <p class="page-grants__p">Apply for a Secret Grant and get the funding you need to turn your ideas into reality.</p>
     
-<btn class="no-arrow" url="#" >APPLY FOR FUNDING</btn>
+<btn class="no-arrow" url="../blog/secret-network-400m-ecosystem-funding-new-investors" >APPLY FOR FUNDING</btn>
 
 </div>
 
@@ -97,7 +97,7 @@ title: "Grants"
     
 <p class="page-ecosystem__grant__content__p">Apply for our $225M+ Ecosystem Fund to get long-term financial & strategic support to scale your Secret project.</p>
     
-<btn class="no-arrow" url="#" >READ MORE</btn>
+<btn class="no-arrow" url="../ecosystem/funding" >READ MORE</btn>
 
 </div>
 
@@ -118,9 +118,9 @@ title: "Grants"
 
 <block>
 
-<ecosystem-funding-ctas>
+<new-home-mission-ctas>
     
-</ecosystem-funding-ctas>
+</new-home-mission-ctas>
 
 </block>
 

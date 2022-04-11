@@ -1,0 +1,14 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
+.space-top{
+    padding-top: 92px;
+}
+
+.simple-layout {
+  &.about-get-scrt {
+    .swirl-wrapper {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
