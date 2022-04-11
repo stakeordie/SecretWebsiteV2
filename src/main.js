@@ -146,6 +146,7 @@ import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
 import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 import GrantsBuild from '~/components/page/GrantsBuild'
+import GrantsHero from '~/components/page/GrantsHero'
 
 
 
@@ -307,7 +308,7 @@ export default function (Vue, {
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
-  
+  Vue.component('GrantsHero', GrantsHero);
   
 
 
