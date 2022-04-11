@@ -147,6 +147,8 @@ import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 import GrantsBuild from '~/components/page/GrantsBuild'
 import GrantsHero from '~/components/page/GrantsHero'
+import GetScrtHero from '~/components/page/GetScrtHero'
+import GetScrtBuy from '~/components/page/GetScrtBuy'
 
 
 
@@ -250,6 +252,8 @@ export default function (Vue, {
   Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
   Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
   Vue.component('GrantsBuild', GrantsBuild);
+  Vue.component('GetScrtHero', GetScrtHero);
+  Vue.component('GetScrtBuy', GetScrtBuy);
 
   
 

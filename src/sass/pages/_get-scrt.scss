@@ -6,9 +6,57 @@
 
 .simple-layout {
   &.about-get-scrt {
+    & h5{
+        color: var(--color-analog-tertiary-yellow);
+        margin-bottom: 0;
+    }
+
     .swirl-wrapper {
       opacity: 0;
       display: none;
     }
   }
+}
+
+.get-scrt{
+
+    & .content{
+
+        & .box{
+           
+        }
+    }
+    
+
+    &__cover{
+        background: url("../../src/assets/home/new-home-hero-bg.png") ;
+        background-size: cover ;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__price-box{
+        background: url("../../src/assets/get-scrt/get-scrt-yellow-bubble.png") ;
+        background-size: cover ;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    &__spacer{ 
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        padding: var(--f-gutter-xxl) 0;
+    }
+
+    &__p{
+        font-size: var(--paragraph-font-size-big);
+        line-height: var(--paragraph-line-height-big);
+       
+    }
+    
+    &__p-small{
+        text-align: center;
+    }
 }
