@@ -150,6 +150,8 @@ import GrantsHero from '~/components/page/GrantsHero'
 import GetScrtHero from '~/components/page/GetScrtHero'
 import GetScrtBuy from '~/components/page/GetScrtBuy'
 import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
+import GetScrtQuestions from '~/components/page/GetScrtQuestions'
+import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
 
 
 
@@ -255,6 +257,8 @@ export default function (Vue, {
   Vue.component('GrantsBuild', GrantsBuild);
   Vue.component('GetScrtHero', GetScrtHero);
   Vue.component('GetScrtBuy', GetScrtBuy);
+  Vue.component('GetScrtQuestions', GetScrtQuestions);
+  Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   
 

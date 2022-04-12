@@ -14,8 +14,8 @@
           <img src="../../assets/getscrt-icon.svg" alt="" />
           <h3>SCRT price</h3>
         </div>
-        <h1>${{ scrtData[selected] }}</h1>
-        <h1>${{ selected }}</h1>
+        <!-- <h1>{{ scrtData.usd }}</h1> -->
+        <h1>{{ selected === '' ? scrtData.usd : scrtData[selected] }} {{ selected === '' ? 'usd' : selected }}</h1>
         <select v-model="selected">
           <option disabled value="">Please select one</option>
           <option>usd</option>
@@ -32,9 +32,9 @@
 export default {
   data() {
     return {
-      selected: "",
       coinGeckoResponse: "",
-      scrtData: this.selected,
+      scrtData: '',
+      selected: "",
     };
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
         .then((result) => {
           this.coinGeckoResponse = JSON.parse(result);
           this.scrtData = this.coinGeckoResponse.market_data.current_price;
-          console.log(this.coinGeckoResponse.market_data.current_price.usd);
+          // console.log(this.coinGeckoResponse.market_data.current_price.usd);
         })
         .catch((error) => console.log("error", error));
       // this.scrtData = this.coinGeckoResponse.fromEentries(it => {
@@ -59,6 +59,7 @@ export default {
   },
   mounted() {
     this.getScrtValue();
+    
   },
 };
 </script>
@@ -69,54 +70,100 @@ export default {
 .get-scrt__hero {
   padding: var(--f-gutter-xxxl) 0;
 
+  @include respond-to("<=s") {
+    padding: var(--f-gutter-xxxl) var(--f-gutter);
+  }
+
   &__content {
     display: grid;
-    grid-template-columns: 660px 1fr;
+    grid-template-columns: 1fr 400px;
     gap: 36px;
+
+    @include respond-to("<=l") {
+      //grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond-to("<=m") {
+      grid-template-columns: 1fr;
+    }
+
+    @include respond-to("<=s") {
+      grid-template-columns: 1fr;
+    }
 
     &__info {
       display: grid;
       gap: 16px;
       align-self: center;
 
+      @include respond-to("<=s") {
+        //order: 2;
+      }
+
       & h5 {
         color: var(--color-analog-tertiary-yellow);
         margin-bottom: 0;
       }
 
-      & h1 {
-        margin-bottom: 0;
-        line-height: 60px;
-      }
+      &__info {
+        display: grid;
+        gap: 16px;
+        align-self: center;
 
-      & p {
-        font-size: var(--paragraph-font-size-big);
-        line-height: var(--paragraph-line-height-big);
-        color: var(--color-neutral-dark-mode-06);
-      }
-    }
-
-    &__price-box {
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      align-self: center;
-      align-content: center;
-
-      .price-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & img {
-          width: 48px;
-          height: 48px;
+        & h5 {
+          color: var(--color-analog-tertiary-yellow);
+          margin-bottom: 0;
         }
 
-        & h3 {
+        & h1 {
           margin-bottom: 0;
+          line-height: 60px;
+        }
+
+        &__price-box {
+          height: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          align-self: center;
+          align-content: center;
+          color: var(--color-neutral-dark-mode-01);
+
+          @include respond-to("<=s") {
+            //order: 1;
+          }
+
+          .price-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & img {
+              width: 48px;
+              height: 48px;
+              background: #fff;
+              border-radius: 50%;
+              margin-right: 10px;
+            }
+
+            .price-title {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              & h1 {
+                font-family: Montserrat;
+                font-weight: 600;
+                font-size: 54px;
+                margin-bottom: 0;
+              }
+            }
+
+            & h3 {
+              margin-bottom: 0;
+            }
+          }
         }
       }
     }

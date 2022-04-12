@@ -37,17 +37,17 @@
 
     &__price-box{
         background: url("../../src/assets/get-scrt/get-scrt-yellow-bubble.png") ;
-        background-size: cover ;
+        background-size: contain ;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 
-    &__spacer{ 
+    &__text-block{ 
         text-align: center;
         max-width: 800px;
         margin: auto;
-        padding: var(--f-gutter-xxl) 0;
+        padding: var(--f-gutter-xxl) var(--f-gutter);
     }
 
     &__p{
