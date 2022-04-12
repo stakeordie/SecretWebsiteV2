@@ -67,6 +67,21 @@ title: "Get SCRT"
 
 
 
+<column class="spacer-s">
+
+<block>
+
+<get-scrt-wallets></get-scrt-wallets>
+
+</block>
+
+</column>
+
+
+
+
+
+
 
 
 
