@@ -39,7 +39,7 @@ export default {
   props: {
     pathId: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   data() {
