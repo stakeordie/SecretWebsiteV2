@@ -56,6 +56,7 @@ export default {}
 
 
           &__convert-sscrt {
+            padding-bottom: 32px;
             &__content {
               display: grid;
               grid-template-columns: 1fr 1fr;

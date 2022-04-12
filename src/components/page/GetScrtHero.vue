@@ -29,15 +29,35 @@ export default {
 .get-scrt__hero{
      padding: var(--f-gutter-xxxl) 0;
 
+     @include respond-to("<=s"){
+            padding: var(--f-gutter-xxxl) var(--f-gutter);
+        }
+
     &__content{
         display: grid;
-        grid-template-columns: 660px 1fr;
+        grid-template-columns: 1fr 400px;
         gap: 36px;
+
+        @include respond-to("<=l"){
+            //grid-template-columns: 1fr 1fr;
+        }
+
+         @include respond-to("<=m"){
+            grid-template-columns: 1fr ;
+        }
+
+        @include respond-to("<=s"){
+            grid-template-columns: 1fr ;
+        }
         
         &__info{
             display: grid;
             gap: 16px;
             align-self: center;
+
+            @include respond-to("<=s"){
+                //order: 2;
+            }
            
            & h5{
                 color: var(--color-analog-tertiary-yellow);
@@ -65,6 +85,11 @@ export default {
             text-align: center;
             align-self: center;
             align-content: center;
+            color: var(--color-neutral-dark-mode-01);
+
+             @include respond-to("<=s"){
+                //order: 1;
+            }
             
             .price-title{
                 display: flex;
@@ -74,11 +99,21 @@ export default {
                 & img{
                     width: 48px;
                     height: 48px;
+                    background: #fff;
+                    border-radius: 50%;
+                    margin-right: 10px;
                 }
 
                 & h3{
                     margin-bottom: 0;
                 }
+            }
+
+            & h1{
+                font-family: Montserrat;
+                font-weight: 600;
+                font-size: 54px;
+                margin-bottom: 0;
             }
 
         }

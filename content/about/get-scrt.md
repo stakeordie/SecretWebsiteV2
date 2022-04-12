@@ -24,7 +24,7 @@ title: "Get SCRT"
 
 <block class="">
 
-<div class="get-scrt__spacer">
+<div class="get-scrt__text-block">
 
 ### About SCRT
     
@@ -48,7 +48,7 @@ title: "Get SCRT"
 
 <block class="">
 
-<div class="get-scrt__spacer">
+<div class="get-scrt__text-block">
 
 ##### STORE SCRT
 
@@ -76,21 +76,21 @@ title: "Get SCRT"
 
 <block>
 
-<div class="get-scrt__spacer">
+<div class="get-scrt__text-block">
 
 ##### BUY SCRT
 
 ### Where to get SCRT
     
-<p class="get-scrt__p">Here are the different ways to get SCRT, from beginner to pro. Note: what methods you can use depend on your jurisdiction (i.e. the country you live in).</p>
+<p class=" get-scrt__p">Here are the different ways to get SCRT, from beginner to pro. Note: what methods you can use depend on your jurisdiction (i.e. the country you live in).</p>
     
 </div>
 
-<get-scrt-buy pathId="1"></get-scrt-buy>
+<get-scrt-buy class="" pathId="1"></get-scrt-buy>
 
 <p class="get-scrt__p-small">*Not Available in the U.S. See <a>this article</a> for guidance on how to get SCRT in the U.S.</p>
 
-<get-scrt-buy pathId="2"></get-scrt-buy>
+<get-scrt-buy  pathId="2"></get-scrt-buy>
 <get-scrt-buy pathId="3"></get-scrt-buy>
 
 </block>
@@ -98,22 +98,6 @@ title: "Get SCRT"
 </column>
 
 
-
-
-
-
-
-
-
-<column class="">
-
-<block>
-
-<get-scrt-buy></get-scrt-buy>
-
-</block>
-
-</column>
 
 
 
@@ -140,13 +124,36 @@ title: "Get SCRT"
 
 
 
+
+
+
+
+<column class="spacer-s page-developers__dev-questions">
+
+<block>
+
+<get-scrt-questions></get-scrt-questions>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
 <column class="spacer-s">
 
 <block>
 
-<new-home-mission-ctas>
+<get-scrt-learn-more>
     
-</new-home-mission-ctas>
+</get-scrt-learn-more>
 
 </block>
 
