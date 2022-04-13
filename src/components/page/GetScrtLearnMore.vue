@@ -1,10 +1,10 @@
 <template>
-  <section class="page-ecosystem__ctas">
-      <div class="page-ecosystem__ctas__cards" >
-        <div class="page-ecosystem__ctas__cards__card" v-for="(item, index) in material" :key="index">
-          <img class="page-ecosystem__ctas__cards__card__img" :src="item.imageUrl" alt="" />
-          <h4 class="page-ecosystem__ctas__cards__card__h4">{{ item.title }}</h4>
-          <p class="page-ecosystem__ctas__cards__card__p">{{ item.description }}</p>
+  <section class="page-get-scrt__ctas">
+      <div class="page-get-scrt__ctas__cards" >
+        <div class="page-get-scrt__ctas__cards__card" v-for="(item, index) in material" :key="index">
+          <img class="page-get-scrt__ctas__cards__card__img" :src="item.imageUrl" alt="" />
+          <h4 class="page-get-scrt__ctas__cards__card__h4">{{ item.title }}</h4>
+          <p class="page-get-scrt__ctas__cards__card__p">{{ item.description }}</p>
           
           <btn class="center-text no-arrow ctas-button" :url="item.url">{{ item.urlTitle }}</btn>
         </div>
@@ -43,7 +43,7 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.page-ecosystem__ctas{
+.page-get-scrt__ctas{
   padding: 64px 0;
   
 
