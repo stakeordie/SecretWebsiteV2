@@ -98,7 +98,8 @@ export default {}
   .content {
     .box {
       .page-get-scrt {
-        padding-top: var(--f-gutter-xxxl);
+        padding-top: 0;
+        padding-bottom: var(--f-gutter-xl);
 
         @include respond-to("<=m") {
           padding-top: var(--f-gutter-xxl);
@@ -109,6 +110,7 @@ export default {}
         }
 
         &__wallets {
+          
           &__card {
             display: grid;
             grid-template-rows: auto 1fr 86px;

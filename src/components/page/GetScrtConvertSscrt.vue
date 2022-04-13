@@ -3,7 +3,7 @@
     <section class="page-get-scrt__convert-sscrt">
       <div class="page-get-scrt__convert-sscrt__content">
         <div class="page-get-scrt__convert-sscrt__content__image">
-          <img src="../../assets/get-scrt-convert-sscrt.png" alt="">
+          <img src="../../assets/get-scrt-convert-sscrt.png" alt="" />
         </div>
         <div class="page-get-scrt__convert-sscrt__content__info">
           <img src="../../assets/keplr_icon.svg" alt="" />
