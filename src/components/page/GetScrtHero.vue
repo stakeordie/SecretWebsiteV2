@@ -19,14 +19,13 @@
           <h1>{{ selected === '' ? scrtData.usd : scrtData[selected] }} {{ selected === '' ? 'usd' : selected }}</h1>
           <div class="custom-select">
             
-            <select id="brow" class="standard-select" v-model="selected">
-              <!-- <input list="brow"> -->
-              <option hidden >Please select one</option>
-              <option>usd</option>
-              <option>cad</option>
-              <option>eur</option>
-              <option>mxn</option>
+            <select style="text-transform:uppercase" class="standard-select" v-model="selected">
+                <option>usd</option>
+                <option>cad</option>
+                <option>eur</option>
+                <option>mxn</option>
             </select>
+
           </div>
         </div>
       </div>
@@ -99,7 +98,7 @@ export default {
 
     &__info {
       display: grid;
-      gap: 16px;
+      gap: 8px;
       align-self: center;
 
       @include respond-to("<=s") {
@@ -109,6 +108,15 @@ export default {
       & h5 {
         color: var(--color-analog-tertiary-yellow);
         margin-bottom: 0;
+      }
+
+      & h1{
+        margin-bottom: 0;
+      }
+
+      & p{
+        font-size: var(--paragraph-font-size-big);
+        line-height: var(--paragraph-line-height-big);
       }
     }
 
@@ -130,7 +138,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-bottom: 10px;
+
 
         & img {
           width: 42px;
@@ -145,13 +153,8 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
-
-          & h1 {
-            font-family: Montserrat;
-            font-weight: 600;
-            font-size: 54px;
-            margin-bottom: 0;
-          }
+          padding: 0;
+          margin: 0;
         }
 
         & h3 {
@@ -164,13 +167,37 @@ export default {
           align-items: center;
           justify-content: center;
 
+          &:hover{
+
+          }
+
+          & h1 {
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+
+
+          }
+
           & select{
             background: transparent;
             border: none;
+            width: 30px;
+            //width: 250px;
+            height: 30px;
+            transform: translateX(-8px) translateY(0px);
+            text-transform:uppercase;
+
+            cursor: pointer;
 
             &:focus{
               outline: none;
             }
+
+            
+            
           }
 
           & .custom-select{
@@ -179,28 +206,54 @@ export default {
             align-self: center;
             
             position: relative;
-            top: -8px;
-            right: -6px;
+            top: -4px;
+            right: -15px;
+
+            @include respond-to("<=s"){
+              top: -3px;
+              right: -10px;
+            }
+
+            &:hover{
+
+              &::after{
+                background-color: var(--color-neutral-dark-mode-04);
+              }
+            }
 
             &::after{
               content: "";
               display: table-cell;
               text-align: center;
 
-              width: 20px;
-              height: 20px;
+              width: 25px;
+              height: 25px;
               padding: 2px;
               background-image: url(../../assets/get-scrt/icon-repeat-no-bg.svg);
               background-repeat: no-repeat;
-              background-size: 15px;
+              background-size: 18px;
               background-position: center;
               background-color: var(--color-neutral-dark-mode-02);
               border-radius: 50%;
               position: absolute;
               top: 0;
-              right: 0;
+              right: 0;              
 
               pointer-events: none;
+            }
+
+            @include respond-to("<=s"){
+               height: 28px;
+               width: 28px;
+
+               &::after{
+                 content: "";
+                 width: 28px;
+                 height: 28px;
+                 background-size: 20px;
+                 //padding: 1px;
+
+               }
             }
           }
       }
@@ -209,5 +262,7 @@ export default {
     }
 
   }
+
+
 }
 </style>
