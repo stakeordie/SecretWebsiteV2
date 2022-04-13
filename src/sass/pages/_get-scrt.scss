@@ -6,9 +6,10 @@
 
 .simple-layout {
   &.about-get-scrt {
-    & h5{
+    & h5 {
         color: var(--color-analog-tertiary-yellow);
         margin-bottom: 0;
+        font-size: 16px;
     }
 
     .swirl-wrapper {
@@ -18,11 +19,12 @@
   }
 }
 
+
 .get-scrt{
 
     & .content{
 
-        & .box{
+        & .box {
            
         }
     }
@@ -50,6 +52,32 @@
         padding: var(--f-gutter-xxl) var(--f-gutter);
     }
 
+    &__privacy {
+        display: grid;
+        justify-content: center;
+        &__text-box { 
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--f-gutter-s);
+            align-items: center;
+            width: fit-content;
+            padding: var(--f-gutter) 32px;
+            border-radius: var(--f-gutter-s);
+            border: 1px solid var(--color-neutral-dark-mode-04);
+    
+            &__p {
+                margin-bottom: 0;
+
+                a {
+                    color: var(--color-neutral-dark-mode-04);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    
+
     &__p{
         font-size: var(--paragraph-font-size-big);
         line-height: var(--paragraph-line-height-big);
@@ -58,5 +86,6 @@
     
     &__p-small{
         text-align: center;
+        
     }
 }
