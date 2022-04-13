@@ -35,7 +35,7 @@
             />
           </themed-image>
         </div>
-        <div class="swirl top v1">
+        <!-- <div class="swirl top v1">
           <themed-image>
             <img
               v-if="swirlSpecial"
@@ -67,7 +67,7 @@
               height="100"
             />
           </themed-image>
-        </div>
+        </div> -->
       </block>
     </column>
 
