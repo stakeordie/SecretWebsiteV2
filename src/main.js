@@ -152,6 +152,7 @@ import GetScrtBuy from '~/components/page/GetScrtBuy'
 import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
 import GetScrtQuestions from '~/components/page/GetScrtQuestions'
 import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
+import GetScrtWallets from '~/components/page/GetScrtWallets'
 
 
 
@@ -319,6 +320,7 @@ export default function (Vue, {
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
   Vue.component('GrantsHero', GrantsHero);
   Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
+  Vue.component('GetScrtWallets', GetScrtWallets);
   
   
 
