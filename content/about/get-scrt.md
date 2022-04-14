@@ -82,7 +82,7 @@ title: "Get SCRT"
 </svg>
 
     
-<p class="get-scrt__privacy__text-box__p">Want to set up a completely private wallet that can’t be linked to your identity in any way? Check out <a href="">this tutorial</a> to find out how.</p>
+<p class="get-scrt__privacy__text-box__p">Want to set up a completely private wallet that can’t be linked to your identity in any way? Check out <a href="https://medium.com/@secretnetwork/secret-network-access-control-viewing-keys-vs-permits-97baad539e72">this tutorial</a> to find out how.</p>
     
 </div>
 
@@ -116,7 +116,7 @@ title: "Get SCRT"
 
 <get-scrt-buy class="" pathId="1"></get-scrt-buy>
 
-<p class="get-scrt__p-small">*Not Available in the U.S. See <a>this article</a> for guidance on how to get SCRT in the U.S.</p>
+<p class="get-scrt__p-small ">*Not Available in the U.S. See <a href="#">this article</a> for guidance on how to get SCRT in the U.S.</p>
 
 <get-scrt-buy  pathId="2"></get-scrt-buy>
 <get-scrt-buy pathId="3"></get-scrt-buy>

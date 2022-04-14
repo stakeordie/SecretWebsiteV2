@@ -42,7 +42,7 @@ export default {};
 
     @include respond-to("<=m"){
       
-      //padding: 26px 16px;
+      padding: 26px 16px;
     }
 
   &__banner {

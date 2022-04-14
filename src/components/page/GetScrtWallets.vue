@@ -20,7 +20,7 @@
                 <p>INSTALL</p>
                 <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
                 </a>
-                <a href="https://www.keplr.app/" class="page-get-scrt__wallets__card__links__item">
+                <a href="https://www.youtube.com/watch?v=5omunWd-V9Y" class="page-get-scrt__wallets__card__links__item">
                 <p>TUTORIAL</p>
                 <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
                 </a>
@@ -33,7 +33,7 @@
         <div class="page-get-scrt__wallets__content__other">
           <div class="page-get-scrt__wallets__content__other__header">
             <h5>Other Options</h5>
-            <a href="" class="page-get-scrt__wallets__content__other__header__link">
+            <a href="../ecosystem/tools" class="page-get-scrt__wallets__content__other__header__link">
                 <p>VIEW ALL</p>
                 <img src="../../assets/icon-arrow-right.svg" alt="External Link"/>
                 </a>
