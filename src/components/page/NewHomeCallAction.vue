@@ -16,7 +16,7 @@
               </p>
               <div class="new-home__call__content__info-btns">
                   <btn class="text-center no-arrow btn" url="../about/about-scrt">Get SCRT</btn>
-                  <btn class="text-center no-arrow btn" url="https://wallet.keplr.app/#/secret/stake">Use SCRT</btn>
+                  <btn class="text-center no-arrow btn" url="../about/about-scrt">Use SCRT</btn>
               </div>
           </div>
 
@@ -36,7 +36,7 @@
               </p>
               <div class="new-home__call__content__info-btns">
                   <btn class="text-center no-arrow btn" url="../developers">START BUILDING</btn>
-                  <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
+                  <btn class="text-center no-arrow btn" url="../blog/secret-network-400m-ecosystem-funding-new-investors">FundING</btn>
                   <btn class="text-center no-arrow btn" url="../blog/announcing-secret-network-grant-program">Grants</btn>
               </div>
           </div>
@@ -153,8 +153,17 @@ export default {
                 }
 
                 & .btn{
-                    padding: 10px 0 !important;
+                    padding: 10px 10px !important;
                     margin: 0 !important;
+
+                    max-width: fit-content !important;
+                    min-width: 160px;
+
+                    justify-content: center;
+
+                    @include respond-to("<=m"){
+                        max-width: 100% !important;
+                    }
                 }
             }
 
@@ -184,8 +193,19 @@ export default {
         }
 
         & .new-home__call__content__info-btns{
-            display: grid;
-            grid-template-columns: 1fr
+
+            & .btn{
+                padding: 10px 1px !important;
+                margin: 0 !important;
+
+                max-width: fit-content !important;
+                min-width: 220px;
+                        
+                @include respond-to("<=m"){
+                max-width: 100% !important;
+                } 
+            }
+            
             
         }
     }

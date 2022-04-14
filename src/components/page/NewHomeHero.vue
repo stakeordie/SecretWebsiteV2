@@ -175,6 +175,7 @@ export default {
 
         width: 172px !important;
         margin: 0 !important;
+        max-height: 64px;
 
         @include respond-to("<=xs") {
           width: 100% !important;
