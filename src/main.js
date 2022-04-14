@@ -143,7 +143,16 @@ import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
+import GrantsBuild from '~/components/page/GrantsBuild'
+import GrantsHero from '~/components/page/GrantsHero'
+import GetScrtHero from '~/components/page/GetScrtHero'
+import GetScrtBuy from '~/components/page/GetScrtBuy'
+import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
+import GetScrtQuestions from '~/components/page/GetScrtQuestions'
+import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
+import GetScrtWallets from '~/components/page/GetScrtWallets'
 
 
 
@@ -244,7 +253,13 @@ export default function (Vue, {
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
   Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
+  Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
   Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
+  Vue.component('GrantsBuild', GrantsBuild);
+  Vue.component('GetScrtHero', GetScrtHero);
+  Vue.component('GetScrtBuy', GetScrtBuy);
+  Vue.component('GetScrtQuestions', GetScrtQuestions);
+  Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   
 
@@ -303,6 +318,9 @@ export default function (Vue, {
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
+  Vue.component('GrantsHero', GrantsHero);
+  Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
+  Vue.component('GetScrtWallets', GetScrtWallets);
   
   
 

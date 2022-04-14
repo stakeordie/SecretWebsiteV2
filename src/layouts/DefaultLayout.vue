@@ -7,9 +7,35 @@
       
     </template>
 
-    <column class="swirl-wrapper">
+    <column class="swirl-wrapper swirl-v1 swirl-v2">
       <block>
-        <div class="swirl top">
+        <div class="swirl top v2">
+          <themed-image>
+            <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-layout-v2.svg"
+              alt=""
+            />
+            <img
+              v-if="!swirlSpecial"
+              dark-colored
+              light-colored
+              src="@/assets/swirl-layout-v2.svg"
+              alt=""
+            />
+            <img
+              dark
+              src="@/assets/swirl-layout-v2.svg"
+              alt="swirl"
+              width="100"
+              height="100"
+            />
+          </themed-image>
+        </div>
+        <!-- <div class="swirl top v1">
           <themed-image>
             <img
               v-if="swirlSpecial"
@@ -41,15 +67,45 @@
               height="100"
             />
           </themed-image>
-        </div>
+        </div> -->
       </block>
     </column>
+
     <page>
       <slot></slot>
     </page>
-    <column v-if="swirlBottomIsVisible" class="swirl-wrapper-bottom">
+
+    <column v-if="swirlBottomIsVisible" class="swirl-wrapper-bottom swirl-v1 swirl-v2">
       <block>
-        <div class="swirl bottom">
+        <div class="swirl bottom v2">
+          <themed-image>
+            <img
+              v-if="swirlSpecial"
+              dark-colored
+              light-colored
+              class="special-mod"
+              src="@/assets/swirl-special-color-inverted-v2.svg"
+              alt=""
+            />
+            <img
+              v-if="!swirlSpecial"
+              dark-colored
+              light-colored
+              src="@/assets/swirl-special-color-inverted-v2.svg"
+              alt="swirl"
+              width="100"
+              height="100"
+            />
+            <img
+              dark
+              src="@/assets/swirl-special-color-inverted-v2.svg"
+              alt="swirl"
+              width="100"
+              height="100"
+            />
+          </themed-image>
+        </div>
+        <!-- <div class="swirl bottom v1">
           <themed-image>
             <img
               v-if="swirlSpecial"
@@ -83,7 +139,7 @@
               height="100"
             />
           </themed-image>
-        </div>
+        </div> -->
       </block>
     </column>
 
@@ -1091,6 +1147,10 @@ body {
   &.bottom {
     left: 0;
     bottom: -300px;
+    &.v2 {
+      height: 139px;
+      bottom: -196px;
+    }
 
     @include respond-to("<=s") {
       bottom: -300px;

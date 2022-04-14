@@ -24,9 +24,6 @@
               </a>
           </div>
       </div>
-      <btn class="text-center no-arrow btn-bigger" url="../about/about-scrt">
-            Learn more
-          </btn>
   </section>
 </template>
 

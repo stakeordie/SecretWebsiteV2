@@ -1,3 +1,28 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
+// .simple-layout {
+//   .swirl-wrapper {
+//     &.swirl-v1 {
+//       .v1 {
+//         display: block;
+//       }
+
+//       .v2 {
+//         display: none;
+//       }
+//     }
+//     &.swirl-v2 {
+//       .v1 {
+//         display: none;
+//       }
+      
+//       .v2 {
+//         display: block;
+//       }
+//     }
+//   }
+// }
+
 .about-cards {
   .content {
     .box {

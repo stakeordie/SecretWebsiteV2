@@ -2,16 +2,17 @@
   <section class="new-blog-grid">
     <div class="new-blog-grid__title">
       <h5 class="new-blog-grid__title-h5">
-        LATES BLOG POST
+        LATEST BLOG POSTS
       </h5>
       <div class="new-blog-grid__title-btns">
-        <a class="link-arrow" url="/blog/" >View blog</a>
-        <a class="link-arrow" url="/blog/" >View all media</a>
+        <a class="link-arrow" href="../blog/" >View blog</a>
+        <!-- <a class="link-arrow" url="/blog/" >View all media</a> -->
       </div>
 
     </div>
     <div class="new-blog-grid__container">
       <new-blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
+        <template #image><g-image :src="node.feature_image"></g-image></template>
         <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
         <h5>{{ node.title }}</h5>
         <!-- <p>{{ node.description | truncate }}</p> -->
@@ -67,18 +68,19 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    @include respond-to("<=s"){
-      flex-direction: column;
-    }
+    // @include respond-to("<=s"){
+    //   flex-direction: column;
+    // }
 
     &-h5{
       color: var(--color-neutral-dark-mode-05);
+      text-transform: uppercase;
     }
 
     &-btns{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+      // gap: 26px;
       
       @include respond-to("<=s"){
         display: flex;
