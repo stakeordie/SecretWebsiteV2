@@ -34,7 +34,7 @@
           <div class="page-get-scrt__wallets__content__other__header">
             <h5>Other Options</h5>
             <a href="" class="page-get-scrt__wallets__content__other__header__link">
-                <p>INSTALL</p>
+                <p>VIEW ALL</p>
                 <img src="../../assets/icon-arrow-right.svg" alt="External Link"/>
                 </a>
           </div>
