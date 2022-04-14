@@ -76,7 +76,7 @@ export default {
   padding: var(--f-gutter-xxxl) 0;
 
   @include respond-to("<=s") {
-    padding: var(--f-gutter-xxxl) var(--f-gutter);
+    padding: var(--f-gutter-xxl) var(--f-gutter);
   }
 
   &__content {
@@ -86,15 +86,14 @@ export default {
 
     @include respond-to("<=l") {
       //grid-template-columns: 1fr 1fr;
+      
     }
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
 
-    @include respond-to("<=s") {
-      grid-template-columns: 1fr;
-    }
 
     &__info {
       display: grid;
@@ -112,6 +111,11 @@ export default {
 
       & h1{
         margin-bottom: 0;
+
+        @include respond-to("<=s"){
+          font-size: 48px;
+          line-height: var(--f-h2-line-height);
+        }
       }
 
       & p{
@@ -159,6 +163,11 @@ export default {
 
         & h3 {
           margin-bottom: 0;
+
+          @include respond-to("<=s"){
+              font-size: 24px;
+              //line-height: var(--f-h1-line-height);
+            }
         }
       }
 
@@ -167,10 +176,6 @@ export default {
           align-items: center;
           justify-content: center;
 
-          &:hover{
-
-          }
-
           & h1 {
             font-family: Montserrat;
             font-weight: 600;
@@ -178,7 +183,10 @@ export default {
             text-transform: uppercase;
             margin-bottom: 0;
 
-
+            @include respond-to("<=s"){
+              font-size: 40px;
+              //line-height: var(--f-h1-line-height);
+            }
           }
 
           & select{
@@ -187,7 +195,7 @@ export default {
             width: 30px;
             //width: 250px;
             height: 30px;
-            transform: translateX(-8px) translateY(0px);
+            transform: translateX(-6px) translateY(0px);
             text-transform:uppercase;
 
             cursor: pointer;
