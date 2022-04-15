@@ -120,6 +120,7 @@ title: "Get SCRT"
 
 <get-scrt-buy  pathId="2"></get-scrt-buy>
 <get-scrt-buy-by-groups class="get-scrt__exchanges" pathId="3"></get-scrt-buy-by-groups>
+<get-scrt-buy  pathId="4"></get-scrt-buy>
 
 </block>
 
