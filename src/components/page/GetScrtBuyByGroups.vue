@@ -9,23 +9,47 @@
         <p>{{ path.node.description }}</p>
       </div>
       <div class="get-scrt-buy__content">
-        <div  v-for="(resource, index) in path.node.resource" :key="index">
-          <ul class="get-scrt-buy__content__box">
-            <a  :href="resource.cta_url"  >
-            <li class="get-scrt-buy__content__box__item">
-                <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
-                <img class="item-icon" :src="resource.icon.url" alt="" />
-                <div class="get-scrt-buy__content__box__item__details">
-                  <h6>{{ resource.title }}</h6>
-                  <p>{{ resource.description }}</p>
-                  <btn class="link-arrow" :url="resource.cta_url">
-                    {{resource.cta_title}}
-                    </btn>
-                </div>
-              
-            </li>
-            </a>
-          </ul>
+        <div>
+          <h6 class="get-scrt-buy__content__title">Secret Dexes</h6>
+          <div  v-for="(resource, index) in path.node.resource" :key="index">
+            <ul class="get-scrt-buy__content__box" v-if="resource.group === 'Secret Dexes'">
+              <a  :href="resource.cta_url">
+              <li class="get-scrt-buy__content__box__item">
+                  <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
+                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <div class="get-scrt-buy__content__box__item__details">
+                    <h6>{{ resource.title }}</h6>
+                    <p>{{ resource.description }}</p>
+                    <p>{{ resource.buy_scrt_option }}</p>
+                    <btn class="link-arrow" :url="resource.cta_url">
+                      {{resource.cta_title}}
+                      </btn>
+                  </div>
+              </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h6 class="get-scrt-buy__content__title">Ethereum Dexes</h6>
+          <div  v-for="(resource, index) in path.node.resource" :key="index">
+            <ul class="get-scrt-buy__content__box" v-if="resource.group === 'Ethereum Dexes'">
+              <a  :href="resource.cta_url">
+              <li class="get-scrt-buy__content__box__item">
+                  <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
+                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <div class="get-scrt-buy__content__box__item__details">
+                    <h6>{{ resource.title }}</h6>
+                    <p>{{ resource.description }}</p>
+                    <p>{{ resource.buy_scrt_option }}</p>
+                    <btn class="link-arrow" :url="resource.cta_url">
+                      {{resource.cta_title}}
+                      </btn>
+                  </div>
+              </li>
+              </a>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -51,7 +75,16 @@ export default {
         (it) =>{          
           if(it.node.id == this.pathId){
             it.node.resource = it.node.buy_scrt_option.sort((a,b) => a.order - b.order);
-            return it;
+            // console.log(it.node.buy_scrt_option.group)
+            it.node.buy_scrt_option.filter(i => {
+              console.log(i.group)
+            })
+              return it;
+            // it.node.buy_scrt_option.filter((gr) => {
+            //   if(gr.group === 'Secret Dexes:') {
+            //     console.log(gr)
+            //   }
+            // })
           };      
         } 
       )      
@@ -158,7 +191,10 @@ query {
     grid-gap: 32px;
     row-gap: 24px;
     margin-left: 36px;
-
+    &__title {
+      color: var(--color-neutral-dark-mode-05);
+      text-transform: uppercase;
+    }
     @include respond-to("<=m") {
       margin: 16px 0;
     }

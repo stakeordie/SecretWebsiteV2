@@ -97,6 +97,7 @@ module.exports = {
                 'services-wallets',
                 'services-websites',
                 'developer-pathways',
+                'buy-scrt-options',
             ],
             localizedTypes: [
                 //complex types
