@@ -69,8 +69,11 @@
                 margin-bottom: 0;
 
                 a {
-                    color: var(--color-neutral-dark-mode-04);
+                    color: var(--color-newBrand-blue-02);
                     text-decoration: underline;
+                    &:hover {
+                        color: var(--color-newBrand-blue-01);
+                    }
                 }
             }
         }
