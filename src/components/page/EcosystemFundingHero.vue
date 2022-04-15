@@ -12,8 +12,8 @@
           <div class="page-ecosystem-funding__hero__content__info-buttons">
             <!-- <btn class="text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Apply For Funding</btn>
             <btn class="ecosystem text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Become a Partner</btn> -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-primary">Apply for Funding</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-secondary">Become a Partner</a>
+            <a target="blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-primary">Apply for Funding</a>
+            <a target="blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-ecosystem-funding__hero__content__info-buttons__btn btn-secondary">Become a Partner</a>
           </div>
         </div>
       </div>

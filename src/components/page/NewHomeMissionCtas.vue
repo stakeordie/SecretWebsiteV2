@@ -29,7 +29,7 @@ export default {
           imageUrl: "/img/developers/icon-funding-developing.svg",
           title: "Build on Secret",
           description:
-            "Read the official documentation on Secret contracts, clients, protocols, and more. ",
+            "Create groundbreaking dApps with private-by-default smart contracts.  ",
           urlTitle: "START DEVELOPING",
           url: "../developers",
         },
@@ -37,7 +37,7 @@ export default {
           imageUrl: "/img/developers/icon-funding-community.svg",
           title: "Join the Community",
           description:
-            "Join our community of privacy pioneers to create a better, more empowering web. ",
+            "Become a Secret Agent and advance a better, more empowering web.  ",
           urlTitle: "BECOME A SECRET AGENT",
           url: "../get-involved/become-secret-agent",
         },

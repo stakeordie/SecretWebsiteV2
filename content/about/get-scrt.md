@@ -119,7 +119,8 @@ title: "Get SCRT"
 <p class="get-scrt__p-small ">*Not Available in the U.S. See <a href="#">this article</a> for guidance on how to get SCRT in the U.S.</p>
 
 <get-scrt-buy  pathId="2"></get-scrt-buy>
-<get-scrt-buy pathId="3"></get-scrt-buy>
+<get-scrt-buy-by-groups class="get-scrt__exchanges" pathId="3"></get-scrt-buy-by-groups>
+<get-scrt-buy  pathId="4"></get-scrt-buy>
 
 </block>
 

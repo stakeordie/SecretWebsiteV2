@@ -9,7 +9,7 @@
           <h5 class="page-grants__hero__content__info-label">GRANTS</h5>
           <h2 class="page-grants__hero__content__info-title">Kickstart your Secret project</h2>
           <p class="page-grants__hero__content__info-description">Get long-term financial and strategic support to build on Secret Network, provided by leading investors in the field.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-grants__hero__content__info-btn">Find Out More</a>
+          <a target="blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSfyjl_vJ2PJa0TiHuENfaXqB8q57D9nL7zOrBXV1cXoHLhoiA/viewform" class="page-grants__hero__content__info-btn">Find Out More</a>
         </div>
       </div>
     </section>
