@@ -5,8 +5,8 @@
         <h5>Get SCRT</h5>
         <h1>How to buy & store Secret</h1>
         <p>
-          Apply for a Secret Grant and get the financial & strategic support you
-          need to rapidly gain traction.
+          Get your hands on some SCRT using direct pay, exchanges, or bridging
+          over your assets, and learn what wallet to get.
         </p>
       </div>
       <div class="get-scrt__hero__content__price-box get-scrt__price-box">

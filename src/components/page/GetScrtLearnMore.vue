@@ -21,16 +21,16 @@ export default {
           imageUrl: "/img/developers/icon-funding-developing.svg",
           title: "Build on Secret",
           description:
-            "Read the official documentation on Secret contracts, clients, protocols, and more. ",
-          urlTitle: "START DEVELOPING",
+            "Start building privacy-preserving dApps with Secret smart contracts. ",
+          urlTitle: "START BUILDING",
           url: "../developers",
         },
          {
           imageUrl: "/img/developers/icon-funding-community.svg",
           title: "Join the Community",
           description:
-            "Join our community of privacy pioneers to create a better, more empowering web. ",
-          urlTitle: "BECOME A SECRET AGENT",
+            "Start building privacy-preserving dApps with Secret smart contracts. ",
+          urlTitle: "GET INVOLVED",
           url: "../get-involved/become-secret-agent",
         },
       ],
