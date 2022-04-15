@@ -23,7 +23,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "https://docs.scrt.network/node-guides/run-full-node-mainnet.html",
+          url: "../about/about-scrt",
         },
         {
           imageUrl: "/img/developers/icon-funding-developing.svg",
@@ -31,7 +31,7 @@ export default {
           description:
             "Read the official documentation on Secret contracts, clients, protocols, and more. ",
           urlTitle: "START DEVELOPING",
-          url: "https://docs.scrt.network/relayers/setting-up-hermes.html",
+          url: "../developers",
         },
          {
           imageUrl: "/img/developers/icon-funding-community.svg",
@@ -39,7 +39,7 @@ export default {
           description:
             "Join our community of privacy pioneers to create a better, more empowering web. ",
           urlTitle: "BECOME A SECRET AGENT",
-          url: "https://docs.scrt.network/relayers/setting-up-hermes.html",
+          url: "../get-involved/become-secret-agent",
         },
       ],
     };

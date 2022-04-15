@@ -5,8 +5,8 @@
         <h5>Get SCRT</h5>
         <h1>How to buy & store Secret</h1>
         <p>
-          Get your hands on some SCRT using direct pay, exchanges, or bridging
-          over your assets, and learn what wallet to get.
+          Apply for a Secret Grant and get the financial & strategic support you
+          need to rapidly gain traction.
         </p>
       </div>
       <div class="get-scrt__hero__content__price-box get-scrt__price-box">
@@ -16,16 +16,21 @@
         </div>
         <!-- <h1>{{ scrtData.usd }}</h1> -->
         <div class="price-select">
-          <h1>{{ selected === '' ? scrtData.usd : scrtData[selected] }} {{ selected === '' ? 'usd' : selected }}</h1>
+          <h1>
+            {{ selected === "" ? scrtData.usd : scrtData[selected] }}
+            {{ selected === "" ? "usd" : selected }}
+          </h1>
           <div class="custom-select">
-            
-            <select style="text-transform:uppercase" class="standard-select" v-model="selected">
-                <option>usd</option>
-                <option>cad</option>
-                <option>eur</option>
-                <option>mxn</option>
+            <select
+              style="text-transform: uppercase"
+              class="standard-select"
+              v-model="selected"
+            >
+              <option>usd</option>
+              <option>cad</option>
+              <option>eur</option>
+              <option>mxn</option>
             </select>
-
           </div>
         </div>
       </div>
@@ -38,7 +43,7 @@ export default {
   data() {
     return {
       coinGeckoResponse: "",
-      scrtData: '',
+      scrtData: "",
       selected: "",
     };
   },
@@ -64,7 +69,6 @@ export default {
   },
   mounted() {
     this.getScrtValue();
-    
   },
 };
 </script>
@@ -86,14 +90,12 @@ export default {
 
     @include respond-to("<=l") {
       //grid-template-columns: 1fr 1fr;
-      
     }
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
       gap: 16px;
     }
-
 
     &__info {
       display: grid;
@@ -109,16 +111,16 @@ export default {
         margin-bottom: 0;
       }
 
-      & h1{
+      & h1 {
         margin-bottom: 0;
 
-        @include respond-to("<=s"){
+        @include respond-to("<=s") {
           font-size: 48px;
           line-height: var(--f-h2-line-height);
         }
       }
 
-      & p{
+      & p {
         font-size: var(--paragraph-font-size-big);
         line-height: var(--paragraph-line-height-big);
       }
@@ -143,14 +145,12 @@ export default {
         justify-content: center;
         align-items: center;
 
-
         & img {
           width: 42px;
           height: 42px;
           background: #fff;
           border-radius: 50%;
           margin-right: 10px;
-
         }
 
         .price-title {
@@ -164,113 +164,103 @@ export default {
         & h3 {
           margin-bottom: 0;
 
-          @include respond-to("<=s"){
-              font-size: 24px;
-              //line-height: var(--f-h1-line-height);
-            }
+          @include respond-to("<=s") {
+            font-size: 24px;
+            //line-height: var(--f-h1-line-height);
+          }
         }
       }
 
-      .price-select{
-          display: flex;
-          align-items: center;
-          justify-content: center;
+      .price-select {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-          & h1 {
-            font-family: Montserrat;
-            font-weight: 600;
-            font-size: 48px;
-            text-transform: uppercase;
-            margin-bottom: 0;
+        & h1 {
+          font-family: Montserrat;
+          font-weight: 600;
+          font-size: 48px;
+          text-transform: uppercase;
+          margin-bottom: 0;
 
-            @include respond-to("<=s"){
-              font-size: 40px;
-              //line-height: var(--f-h1-line-height);
+          @include respond-to("<=s") {
+            font-size: 40px;
+            //line-height: var(--f-h1-line-height);
+          }
+        }
+
+        & select {
+          background: transparent;
+          border: none;
+          width: 30px;
+          //width: 250px;
+          height: 30px;
+          transform: translateX(-6px) translateY(0px);
+          text-transform: uppercase;
+
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        & .custom-select {
+          height: 20px;
+          width: 20px;
+          align-self: center;
+
+          position: relative;
+          top: -4px;
+          right: -15px;
+
+          @include respond-to("<=s") {
+            top: -3px;
+            right: -10px;
+          }
+
+          &:hover {
+            &::after {
+              background-color: var(--color-neutral-dark-mode-04);
             }
           }
 
-          & select{
-            background: transparent;
-            border: none;
-            width: 30px;
-            //width: 250px;
-            height: 30px;
-            transform: translateX(-6px) translateY(0px);
-            text-transform:uppercase;
+          &::after {
+            content: "";
+            display: table-cell;
+            text-align: center;
 
-            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            padding: 2px;
+            background-image: url(../../assets/get-scrt/icon-repeat-no-bg.svg);
+            background-repeat: no-repeat;
+            background-size: 18px;
+            background-position: center;
+            background-color: var(--color-neutral-dark-mode-02);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
 
-            &:focus{
-              outline: none;
-            }
-
-            
-            
+            pointer-events: none;
           }
 
-          & .custom-select{
-            height: 20px;
-            width: 20px;
-            align-self: center;
-            
-            position: relative;
-            top: -4px;
-            right: -15px;
+          @include respond-to("<=s") {
+            height: 28px;
+            width: 28px;
 
-            @include respond-to("<=s"){
-              top: -3px;
-              right: -10px;
-            }
-
-            &:hover{
-
-              &::after{
-                background-color: var(--color-neutral-dark-mode-04);
-              }
-            }
-
-            &::after{
+            &::after {
               content: "";
-              display: table-cell;
-              text-align: center;
-
-              width: 25px;
-              height: 25px;
-              padding: 2px;
-              background-image: url(../../assets/get-scrt/icon-repeat-no-bg.svg);
-              background-repeat: no-repeat;
-              background-size: 18px;
-              background-position: center;
-              background-color: var(--color-neutral-dark-mode-02);
-              border-radius: 50%;
-              position: absolute;
-              top: 0;
-              right: 0;              
-
-              pointer-events: none;
-            }
-
-            @include respond-to("<=s"){
-               height: 28px;
-               width: 28px;
-
-               &::after{
-                 content: "";
-                 width: 28px;
-                 height: 28px;
-                 background-size: 20px;
-                 //padding: 1px;
-
-               }
+              width: 28px;
+              height: 28px;
+              background-size: 20px;
+              //padding: 1px;
             }
           }
+        }
       }
-
-      
     }
-
   }
-
-
 }
 </style>

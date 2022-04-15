@@ -10,7 +10,7 @@
       </p>
       <btn
         class="page-ecosystem__grant__content__btn center-text no-arrow"
-        url="https://scrt.network/blog/secret-network-400m-ecosystem-funding-new-investors">
+        url="../blog/announcing-secret-network-grant-program">
         GET A GRANT
         </btn
       >
