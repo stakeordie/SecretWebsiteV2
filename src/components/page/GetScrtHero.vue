@@ -197,6 +197,7 @@ export default {
           height: 30px;
           transform: translateX(-6px) translateY(0px);
           text-transform: uppercase;
+          box-shadow: none;
 
           cursor: pointer;
 

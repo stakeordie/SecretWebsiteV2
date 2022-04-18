@@ -93,17 +93,25 @@ import FooterMenu from '~/components/FooterMenu.vue';
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
 import BlogCard from '~/components/blog/BlogCard'
-import NewBlogCard from '~/components/blog/NewBlogCard'
 import BlogCardFeatured from '~/components/blog/BlogCardFeatured'
 import BlogHero from '~/components/blog/BlogHero'
 import BlogFeaturedPosts from '~/components/blog/BlogFeaturedPosts'
 import BlogLatestPosts from '~/components/blog/BlogLatestPosts'
-import NewBlogLatestPosts from '~/components/blog/NewBlogLatestPosts'
 import BlogLatestPostsTwelve from '~/components/blog/BlogLatestPostsTwelve'
 import BlogPosts from '~/components/blog/BlogPosts'
-import NewBlogPosts from '~/components/blog/NewBlogPosts'
 import BlogPostsFeatured from '~/components/blog/BlogPostsFeatured'
 import BlogFilter from '~/components/blog/BlogFilter'
+
+
+//BlogV2
+import NewBlogCard from '~/components/blog/NewBlogCard'
+import NewBlogLatestPosts from '~/components/blog/NewBlogLatestPosts'
+import NewBlogPosts from '~/components/blog/NewBlogPosts'
+import BlogPostsV2 from '~/components/blog/BlogPostsV2'
+import BlogCardFeaturedV2 from '~/components/blog/BlogCardFeaturedV2'
+import BlogFeaturedPostsV2 from '~/components/blog/BlogFeaturedPostsV2'
+import BlogPostsFeaturedV2 from '~/components/blog/BlogPostsFeaturedV2'
+import BlogFilterV2 from '~/components/blog/BlogFilterV2'
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -273,21 +281,28 @@ export default function (Vue, {
   // Blog
   Vue.component('BlogAuthor', BlogAuthor);
   Vue.component('BlogCard', BlogCard);
-  Vue.component('NewBlogCard', NewBlogCard);
   Vue.component('BlogCardFeatured', BlogCardFeatured);
   Vue.component('BlogHero', BlogHero);
   Vue.component('BlogFeaturedPosts', BlogFeaturedPosts);
   Vue.component('BlogLatestPosts', BlogLatestPosts);
-  Vue.component('NewBlogLatestPosts', NewBlogLatestPosts);
   Vue.component('BlogLatestPostsTwelve', BlogLatestPostsTwelve);
   Vue.component('BlogPosts', BlogPosts);
-  Vue.component('NewBlogPosts', NewBlogPosts);
   Vue.component('BlogPostsFeatured', BlogPostsFeatured);
   Vue.component('BlogFilter', BlogFilter);
   Vue.component('EcosystemRoadmapYourProject', EcosystemRoadmapYourProject);
   Vue.component('EcosystemRoadmapWhatsBeenBuilt', EcosystemRoadmapWhatsBeenBuilt);
   Vue.component('EcosystemRoadmapPdf', EcosystemRoadmapPdf);
   Vue.component('SubmitProject', SubmitProject);
+
+  //BlogV2
+  Vue.component('NewBlogCard', NewBlogCard);
+  Vue.component('NewBlogLatestPosts', NewBlogLatestPosts);
+  Vue.component('NewBlogPosts', NewBlogPosts);
+  Vue.component('BlogPostsV2', BlogPostsV2);
+  Vue.component('BlogCardFeaturedV2', BlogCardFeaturedV2);
+  Vue.component('BlogFeaturedPostsV2', BlogFeaturedPostsV2);
+  Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
+  Vue.component('BlogFilterV2', BlogFilterV2);
   
 
   //Page Specific

@@ -123,7 +123,7 @@
                   href="https://www.ledger.com/ledger-live/download"
                   class="page-get-scrt__wallets__card__links__item"
                 >
-                  <p>INSTALL</p>
+                  <p>GET</p>
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
