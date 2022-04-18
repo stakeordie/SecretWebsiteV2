@@ -5,10 +5,11 @@
 <script>
 import BlogPosts from "@/components/blog/BlogPosts";
 
+
 export default {
   components: { BlogPosts },
   data() {
-    return {
+    return{
       latestPost: [],
     };
   },

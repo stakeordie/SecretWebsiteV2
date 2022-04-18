@@ -83,6 +83,15 @@ export default {
   height: 705px;
   overflow: hidden;
   max-width: 100vw;
+
+  @include respond-to(">=xxl") {
+    height: 800px;
+
+  }
+   @include respond-to(">=xxxl") {
+    height: 8900px;
+
+  }
   
 
   @include respond-to("<=xs") {
@@ -166,6 +175,7 @@ export default {
 
         width: 172px !important;
         margin: 0 !important;
+        max-height: 64px;
 
         @include respond-to("<=xs") {
           width: 100% !important;

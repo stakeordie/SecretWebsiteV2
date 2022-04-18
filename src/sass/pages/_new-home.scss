@@ -6,7 +6,7 @@
 }
 
 .simple-layout {
-  &.index-v2 {
+  &.index, &.new-index-test {
     .swirl-wrapper {
       opacity: 0;
       display: none;
@@ -20,10 +20,30 @@
     
     &__cover{
        
-        background-image: url("../../src/assets/home-hero-swirlbg.png") ;
-        background-size: cover ;
-        background-position: center;
-        background-position: top;
+        background: url("../../src/assets/home/new-home-swirl-regular.svg"),
+                        linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),  
+                        url("../../src/assets/home/new-home-hero-bg.png") ;
+        background-size: cover, cover, cover ;
+        background-position: top center, center, center;
+        background-repeat: no-repeat;
+
+        @include respond-to("<=s"){
+            background-size: auto, cover, cover ;
+        }
+        
+        @include respond-to(">=xxl"){
+            background-position: center 10%, center, center;
+            
+        }
+
+        @include respond-to(">=xxxl"){
+            background: url("../../src/assets/home/new-home-swirlbigger.svg") ,
+                        linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),  
+                        url("../../src/assets/home/new-home-hero-bg.png") ;
+            background-size: auto, cover, cover ;
+            background-repeat: no-repeat;
+            
+        }
 
         &__full-w{
             overflow: hidden;
@@ -68,7 +88,7 @@
     }
 
     &__side-spacer{
-        padding: var(--f-gutter);
+        //padding: var(--f-gutter);
     }
 
     &__slider-btn{

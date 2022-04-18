@@ -74,7 +74,7 @@ title: 'Secret Network'
 
 <column>
 
-<block style="text-align:center" class="new-home__side-spacer">
+<block style="text-align:center" class="new-home__side-spacer"> 
 
 <btn  class="no-arrow new-home__slider-btn"   url="../ecosystem/dapps" >Explore the Ecosystem</btn>
 
@@ -131,13 +131,16 @@ title: 'Secret Network'
 
 <!-- Block header -->
 <column class="new-home__block-header new-home__bg" number="2" >
-  <block>
+<block>
 
-  ##### LATEST BLOG POSTS
+##### LATEST BLOG POSTS
 
-  </block>
-  <block style=" text-align: right">
-    <btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn>
+</block>
+<block style=" text-align: right">
+
+<btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn> 
+
+    
   
   </block>
 </column>

@@ -53,11 +53,13 @@ import CardStats from '~/components/cards/CardStats.vue';
 import CardStructure from '~/components/cards/CardStructure.vue';
 import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
+import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
+import NewMediaFeatured from '~/components/cards/NewMediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
 import CommitteesCms from '~/components/cards/CommitteesCms.vue';
 import Btn from '~/components/Btn.vue';
@@ -102,6 +104,17 @@ import BlogPosts from '~/components/blog/BlogPosts'
 import BlogPostsFeatured from '~/components/blog/BlogPostsFeatured'
 import BlogFilter from '~/components/blog/BlogFilter'
 
+
+//BlogV2
+import NewBlogCard from '~/components/blog/NewBlogCard'
+import NewBlogLatestPosts from '~/components/blog/NewBlogLatestPosts'
+import NewBlogPosts from '~/components/blog/NewBlogPosts'
+import BlogPostsV2 from '~/components/blog/BlogPostsV2'
+import BlogCardFeaturedV2 from '~/components/blog/BlogCardFeaturedV2'
+import BlogFeaturedPostsV2 from '~/components/blog/BlogFeaturedPostsV2'
+import BlogPostsFeaturedV2 from '~/components/blog/BlogPostsFeaturedV2'
+import BlogFilterV2 from '~/components/blog/BlogFilterV2'
+
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
 import HomeExplainer from '~/components/page/HomeExplainer'
@@ -140,7 +153,17 @@ import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
+import GrantsBuild from '~/components/page/GrantsBuild'
+import GrantsHero from '~/components/page/GrantsHero'
+import GetScrtHero from '~/components/page/GetScrtHero'
+import GetScrtBuy from '~/components/page/GetScrtBuy'
+import GetScrtBuyByGroups from '~/components/page/GetScrtBuyByGroups'
+import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
+import GetScrtQuestions from '~/components/page/GetScrtQuestions'
+import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
+import GetScrtWallets from '~/components/page/GetScrtWallets'
 
 
 
@@ -204,11 +227,14 @@ export default function (Vue, {
   Vue.component('CardStructure', CardStructure);
   Vue.component('CardCurrentPrice', CardCurrentPrice);
   Vue.component('Media', Media);
+  Vue.component('NewMedia', NewMedia);
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
+  Vue.component('NewMediaFeatured', NewMediaFeatured);
+
   Vue.component('Committees', Committees);
   Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
@@ -241,7 +267,14 @@ export default function (Vue, {
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
   Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
+  Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
   Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
+  Vue.component('GrantsBuild', GrantsBuild);
+  Vue.component('GetScrtHero', GetScrtHero);
+  Vue.component('GetScrtBuy', GetScrtBuy);
+  Vue.component('GetScrtBuyByGroups', GetScrtBuyByGroups);
+  Vue.component('GetScrtQuestions', GetScrtQuestions);
+  Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   
 
@@ -265,6 +298,16 @@ export default function (Vue, {
   Vue.component('EcosystemRoadmapWhatsBeenBuilt', EcosystemRoadmapWhatsBeenBuilt);
   Vue.component('EcosystemRoadmapPdf', EcosystemRoadmapPdf);
   Vue.component('SubmitProject', SubmitProject);
+
+  //BlogV2
+  Vue.component('NewBlogCard', NewBlogCard);
+  Vue.component('NewBlogLatestPosts', NewBlogLatestPosts);
+  Vue.component('NewBlogPosts', NewBlogPosts);
+  Vue.component('BlogPostsV2', BlogPostsV2);
+  Vue.component('BlogCardFeaturedV2', BlogCardFeaturedV2);
+  Vue.component('BlogFeaturedPostsV2', BlogFeaturedPostsV2);
+  Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
+  Vue.component('BlogFilterV2', BlogFilterV2);
   
 
   //Page Specific
@@ -297,6 +340,9 @@ export default function (Vue, {
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
+  Vue.component('GrantsHero', GrantsHero);
+  Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
+  Vue.component('GetScrtWallets', GetScrtWallets);
   
   
 

@@ -60,6 +60,7 @@ export default {
      img{
        object-fit: cover;
        height: 100%;
+       max-height: 500px;
        //min-width: 100%;
        margin-right: 0;
        

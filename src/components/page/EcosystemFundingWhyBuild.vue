@@ -17,7 +17,7 @@
             <p class="page-ecosystem-funding__why-build__content__reasons-description">Tap into Secret Network’s bustling ecosystem with 100,000+ users, over 50 applications, and billions of dollars in historical volume.</p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Get serious funding</h4>
+            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Join a first mover</h4>
             <p class="page-ecosystem-funding__why-build__content__reasons-description">Our privacy-preserving smart contracts have been live on mainnet since 2020, and we’ve been racing ever since.</p>
           </div>
         </div>
