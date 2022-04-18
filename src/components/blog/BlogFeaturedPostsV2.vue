@@ -1,5 +1,5 @@
 <template>
-  <blog-posts-featured-v2 :posts="BlogPostsFeaturedV2"></blog-posts-featured-v2>
+  <blog-posts-featured-v2 :posts="postFeaturedV2"></blog-posts-featured-v2>
 </template>
 
 <script>
@@ -10,14 +10,14 @@ export default {
   components: { BlogPostsFeaturedV2 },
   data() {
     return {
-    BlogPostsFeaturedV2: [],
+    postFeaturedV2: [],
     };
   },
   methods: {
     filterPostsFeatured() {
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
-      this.BlogPostsFeaturedV2 = posts.filter(({ node: post }) => {
+      this.postFeaturedV2 = posts.filter(({ node: post }) => {
         if (!post.primary_tag) return true;
         else {
           const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);

@@ -18,7 +18,8 @@
 
 <script>
 import BlogCardFeaturedV2 from './BlogCardFeaturedV2.vue'
-//import BlogCardFeatured from './BlogCardFeatured.vue'
+// import BlogCardFeatured from './BlogCardFeatured.vue'
+
 
 const truncateSize = 200
 
