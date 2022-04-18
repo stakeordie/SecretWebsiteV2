@@ -2,85 +2,211 @@
 title: 'Secret Network'
 ---
 
-<!-- Hero Video -->
-<column class="card-variant" mode="normal">
-  <block>
-    <home-hero /> <!-- CMS: Home - Hero -->
-  </block>
+
+<!-- Home Hero-->
+<column class="new-home__cover " mode="full">
+
+<block class="new-home__cover__full-w">
+
+<new-home-hero></new-home-hero>
+
+</block>
+
 </column>
 
 
-<!-- Getting started -->
+
+
+
+
+
+
+
+<!--  -->
+<column class=" spacer-s " >
+
+<block>
+
+<new-home-contracts></new-home-contracts>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+<!-- Controlls  -->
+<column number="2" class="page-developers__horizontal-scroll ">
+
+<block class="new-home__block-header">
+
+#### Apps live on mainnet
+
+</block>
+
+<block class="justify-right">
+
+<scroll-horizontal></scroll-horizontal>
+
+</block>
+
+</column>
+
+<!-- Horizontal Scroll -->
+<column class="page-developers__cool-stuff  horizontal-slider" mode="full">
+
+<block >
+
+<developers-cool-stuff></developers-cool-stuff>
+
+</block>
+
+</column>
+
+
+
+
+
+
 <column>
-  <block>
-    <card-cta class="orientation-horizontal accent-purple" cardId="card_1" imageWidth="1200" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
-  </block>
+
+<block style="text-align:center" class="new-home__side-spacer"> 
+
+<btn  class="no-arrow new-home__slider-btn"   url="../ecosystem/dapps" >Explore the Ecosystem</btn>
+
+</block>
+
 </column>
 
-<!-- Card collection -->
-<column class="spacer-s" number="3" number-m="1" number-s="1">
-  <block>
-    <card-cta class="orientation-vertical accent-blue" cardId="card_2" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
-  </block>
-  <block>
-    <card-cta class="orientation-vertical accent-green" cardId="card_3" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
-  </block>
-  <block>
-    <card-cta class="orientation-vertical accent-orange" cardId="card_4" imageWidth="630" imageHeight="500"/><!-- CMS: Home - CTA Cards -->
-  </block>
-</column>
 
-<!-- Want to build a better internet -->
+
+
+
+
+
+
+
 <column class="spacer-s">
-  <block>
-    <home-explainer /><!-- CMS: Home - Explainer -->
-  </block>
+
+<block>
+
+<new-home-call-action>
+    
+</new-home-call-action>
+
+</block>
+
 </column>
 
-  <!-- Top Announcement -->
-<column mode="full">
-  <block class="no-padding">
-    <home-announcements location="top" /><!-- CMS: Home - Announcements -->
-  </block>
+
+
+
+
+
+
+
+
+<column  class="new-home__bg__top">
+
+<block class="no-padding">
+
+<new-home-announcement location="top" />
+    
+
+</block>
+
 </column>
+
+
+
+
+
+
+
+
 
 <!-- Block header -->
-<column class="block-header" number="2" number-m="1" number-s="1">
-  <block>
+<column class="new-home__block-header new-home__bg" number="2" >
+<block>
 
-  ### Latest Blog Posts
-  Read, watch and absorb the secrets that we publish in<br/>our official blog.
+##### LATEST BLOG POSTS
 
-  </block>
-  <block>
-    <btn url="/blog/">All Posts</btn>
+</block>
+<block style=" text-align: right">
+
+<btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn> 
+
+    
+  
   </block>
 </column>
 
 <!-- Blog cards -->
-<column class="spacer-s">
+<column class=" new-home__bg">
   <block>
     <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
   </block>
 </column>
 
-<!-- Announcement -->
-<column mode="full">
-  <block class="no-padding">
-    <home-announcements location="bottom" /><!-- CMS: Home - Announcements -->
-  </block>
-</column>
+
+
+
+
+
+
+
 
 <!-- Home featured media -->
-<column mode="full">
+<column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <home-featured-media /><!-- CMS: Home - Featured Media -->
+    <new-home-featured-media /><!-- CMS: Home - Featured Media -->
   </block>
 </column>
 
-<!-- media channels -->
+
+
+
+
+
+
+
+
+
+
 <column class="spacer-s">
-  <block>
-    <media-channels />
-  </block>
+
+<block>
+
+<new-home-mission>
+    
+</new-home-mission>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
+
+<column class="spacer-s">
+
+<block>
+
+<new-home-mission-ctas>
+    
+</new-home-mission-ctas>
+
+</block>
+
 </column>
