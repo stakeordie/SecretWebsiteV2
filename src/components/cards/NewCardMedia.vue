@@ -40,7 +40,7 @@ $accent-colors: (
 // }
 
 .new-card-media {
-  border-radius: var(--f-radius);
+  border-radius: var(--f-radius-s);
   padding: var(--f-gutter);
   background: var(--color-neutral-dark-mode-02);
   transition: 0.2s ease;
@@ -65,7 +65,7 @@ $accent-colors: (
   span {
     margin-top: var(--f-gutter);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     order: 2;
   }
 
