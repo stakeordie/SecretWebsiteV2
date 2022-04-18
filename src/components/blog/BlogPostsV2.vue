@@ -5,7 +5,7 @@
       </h4>
     <div class="new-blog-grid-v2__container">
 
-      <new-blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
+      <blog-card-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
         <template #image><g-image :src="node.feature_image"></g-image></template>
         <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
         <h5>{{ node.title }}</h5>
@@ -18,18 +18,19 @@
             <p>{{ node.date }} · {{ node.reading_time }} min read</p>
           </div>
         </template>
-      </new-blog-card>
+      </blog-card-v2>
     </div>
   </section>
 </template>
 
 <script>
 import BlogCard from '@/components/blog/BlogCard'
+import BlogCardV2 from '@/components/blog/BlogCardV2'
 
 const truncateSize = 200;
 
 export default {
-  components: { BlogCard },
+  components: { BlogCardV2 },
   props: {
     posts: {
       type: Array,
