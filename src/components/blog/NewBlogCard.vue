@@ -123,7 +123,7 @@ $accent-colors: (
   overflow: hidden;//background: var(--theme-card-bg-default);
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  height: 384px;
+  height: 364px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -135,7 +135,7 @@ $accent-colors: (
   }
 
   &:hover {
-    background: var(--color-neutral-dark-mode-04);
+    background: var(--theme-card-bg-default);
     
   }
 
@@ -164,8 +164,9 @@ $accent-colors: (
 
       .new-blog-card__feature-image{
         border-radius: 10px;
-        height: 188px;
+        height: fit-content;
         overflow: hidden;
+
       }
 
       .new-blog-card__tag {

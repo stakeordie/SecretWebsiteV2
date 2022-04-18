@@ -2,27 +2,45 @@
   <div class="page-get-scrt">
     <section class="page-get-scrt__wallets">
       <div class="page-get-scrt__wallets__content">
-
         <!-- RECOMMENDED -->
         <div class="page-get-scrt__wallets__content__recommended">
           <div class="page-get-scrt__wallets__content__recommended__header">
             <h5>Recommended</h5>
           </div>
-          <div class="page-get-scrt__wallets__content__recommended__recommended-cards">
+          <div
+            class="
+              page-get-scrt__wallets__content__recommended__recommended-cards
+            "
+          >
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/keplr_icon.png" alt="Keplr"/>
+              <img src="../../assets/keplr_icon.png" alt="Keplr" />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Keplr</h5>
-                <p>Interwallet for the entire Cosmos ecosystem. Keplr integrates with all Secret Apps, allows you to stake SCRT, and vote on proposals.</p>
+                <p>
+                  The interchain wallet for the Cosmos ecosystem, and the only
+                  wallet that integrates with all apps and tools on Secret.
+                </p>
               </div>
               <div class="page-get-scrt__wallets__card__links">
-                <a href="https://www.keplr.app/" class="page-get-scrt__wallets__card__links__item">
-                <p>INSTALL</p>
-                <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
+                <a
+                  href="https://www.keplr.app/"
+                  class="page-get-scrt__wallets__card__links__item"
+                >
+                  <p>INSTALL</p>
+                  <img
+                    src="../../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
                 </a>
-                <a href="https://www.youtube.com/watch?v=5omunWd-V9Y" class="page-get-scrt__wallets__card__links__item">
-                <p>TUTORIAL</p>
-                <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
+                <a
+                  href="https://www.youtube.com/watch?v=5omunWd-V9Y"
+                  class="page-get-scrt__wallets__card__links__item"
+                >
+                  <p>TUTORIAL</p>
+                  <img
+                    src="../../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
                 </a>
               </div>
             </div>
@@ -33,66 +51,99 @@
         <div class="page-get-scrt__wallets__content__other">
           <div class="page-get-scrt__wallets__content__other__header">
             <h5>Other Options</h5>
-            <a href="../ecosystem/tools" class="page-get-scrt__wallets__content__other__header__link">
-                <p>VIEW ALL</p>
-                <img src="../../assets/icon-arrow-right.svg" alt="External Link"/>
-                </a>
+            <a
+              href="../ecosystem/tools"
+              class="page-get-scrt__wallets__content__other__header__link"
+            >
+              <p>VIEW ALL</p>
+              <img
+                src="../../assets/icon-arrow-right.svg"
+                alt="External Link"
+              />
+            </a>
           </div>
           <div class="page-get-scrt__wallets__content__other__other-cards">
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/citadelone-icon.png" alt="Citadel.One"/>
+              <img src="../../assets/citadelone-icon.png" alt="Citadel.One" />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Citadel.One</h5>
-                <p>Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.</p>
+                <p>
+                  Citadel.One’s wallet simplifies staking, offers a transaction
+                  history, and other tools to get more out of your crypto.
+                </p>
               </div>
               <div class="page-get-scrt__wallets__card__links">
-                <a href="https://app.citadel.one/login" class="page-get-scrt__wallets__card__links__item">
-                <p>INSTALL</p>
-                <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
+                <a
+                  href="https://app.citadel.one/login"
+                  class="page-get-scrt__wallets__card__links__item"
+                >
+                  <p>INSTALL</p>
+                  <img
+                    src="../../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
                 </a>
               </div>
             </div>
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/cosmostation-icon.png" alt="Cosmostation"/>
+              <img
+                src="../../assets/cosmostation-icon.png"
+                alt="Cosmostation"
+              />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Cosmostation</h5>
-                <p>Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.</p>
+                <p>
+                  A non-custodial wallet for chains built on the Cosmos SDK.
+                </p>
               </div>
               <div class="page-get-scrt__wallets__card__links">
-                <a href="https://wallet.cosmostation.io/cosmos" class="page-get-scrt__wallets__card__links__item">
-                <p>INSTALL</p>
-                <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
+                <a
+                  href="https://wallet.cosmostation.io/cosmos"
+                  class="page-get-scrt__wallets__card__links__item"
+                >
+                  <p>INSTALL</p>
+                  <img
+                    src="../../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
                 </a>
               </div>
             </div>
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/ledger-nano-icon.png" alt="LedgerNano"/>
+              <img src="../../assets/ledger-nano-icon.png" alt="LedgerNano" />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>LedgerNano</h5>
-                <p>Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.</p>
+                <p>
+                  Secure, buy and grow your crypto assets with the world's most
+                  popular hardware wallet.
+                </p>
               </div>
               <div class="page-get-scrt__wallets__card__links">
-                <a href="https://www.ledger.com/ledger-live/download" class="page-get-scrt__wallets__card__links__item">
-                <p>INSTALL</p>
-                <img src="../../assets/icon-arrow-external-blue.svg" alt="External Link"/>
+                <a
+                  href="https://www.ledger.com/ledger-live/download"
+                  class="page-get-scrt__wallets__card__links__item"
+                >
+                  <p>GET</p>
+                  <img
+                    src="../../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
                 </a>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
-
 
 .about-get-scrt {
   .content {
@@ -110,7 +161,6 @@ export default {}
         }
 
         &__wallets {
-          
           &__card {
             display: grid;
             grid-template-rows: auto 1fr 86px;
@@ -182,7 +232,6 @@ export default {}
               grid-template-rows: max-content;
               // width: 25%;
 
-
               &__header {
                 padding-top: var(--f-gutter);
                 padding-bottom: var(--f-gutter);
@@ -196,7 +245,6 @@ export default {}
               &__recommended-cards {
                 display: grid;
                 grid-template-columns: 1fr;
-                
 
                 @include respond-to("<=l") {
                   grid-template-columns: repeat(2, 460px);
@@ -205,9 +253,6 @@ export default {}
                 @include respond-to("<=m") {
                   grid-template-columns: 1fr;
                 }
-
-               
-
               }
             }
 

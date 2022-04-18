@@ -91,6 +91,12 @@ export default {}
           font-size: var(--paragraph-font-size-big);
           line-height: var(--paragraph-line-height-big);
           margin-bottom: 0;
+          max-width: 442px;
+         
+         @include respond-to("<=m") {
+            
+            max-width: 100%;
+          }
 
         }
       }

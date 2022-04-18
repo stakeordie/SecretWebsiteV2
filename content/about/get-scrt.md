@@ -28,7 +28,7 @@ title: "Get SCRT"
 
 ### About SCRT
     
-<p class="get-scrt__p">Secret (SCRT) is a cryptocurrency and the native coin of the Secret Network blockchain. Just like Ether (ETH) and Bitcoin (BTC), you hold your Secret (SCRT) in a wallet and spend it when you want to use Secret Network. You can also stake it or use it to participate in governance.</p>
+<p class="get-scrt__p-left">Secret (SCRT) is a cryptocurrency and the native coin of the Secret Network blockchain. Just like Ether (ETH) and Bitcoin (BTC), you hold your Secret (SCRT) in a wallet and spend it when you want to use Secret Network. You can also stake it or use it to participate in governance.</p> 
     
 </div>
 
