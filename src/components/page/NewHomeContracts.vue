@@ -1,9 +1,9 @@
 <template>
   <section class="new-home-contracts">
       <div class="new-home-contracts__header">
-          <h5 class="new-home-contracts__header-h5">
+          <!-- <h5 class="new-home-contracts__header-h5">
               We made smart contracts private
-          </h5>
+          </h5> -->
           <h3 class="new-home-contracts__header-h3">
               We made smart contracts private
           </h3>
