@@ -71,7 +71,7 @@ title: "Grants"
     
 <p class="page-grants__p">Apply for a Secret Grant and get the funding you need to turn your ideas into reality.</p>
     
-<btn class="no-arrow" url="../blog/secret-network-400m-ecosystem-funding-new-investors" >APPLY FOR FUNDING</btn>
+<btn class="no-arrow" url="https://github.com/scrtlabs/Grants" >APPLY FOR FUNDING</btn>
 
 </div>
 
