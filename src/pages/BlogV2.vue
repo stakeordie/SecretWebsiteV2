@@ -322,7 +322,7 @@ export default {
       white-space: normal;
       /* justify-content: space-between; */
       vertical-align: top;
-      margin-right: var(--f-gutter-l);
+      margin-right: var(--f-gutter);
       position: relative;
       overflow: hidden;
     }

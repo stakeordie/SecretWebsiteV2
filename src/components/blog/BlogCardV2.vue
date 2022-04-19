@@ -132,6 +132,7 @@ $accent-colors: (
 
   @include respond-to("<=s") {
     min-height: auto;
+    width: 100%;
   }
 
   &:hover {
@@ -172,6 +173,10 @@ $accent-colors: (
           object-fit: cover;
           width: 368px;
           height: 150px;
+
+          @include respond-to("<=s") {
+            width: 100%;
+          }
 
         }
 

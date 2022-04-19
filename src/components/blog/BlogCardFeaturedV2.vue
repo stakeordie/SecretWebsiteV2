@@ -95,7 +95,7 @@
       overflow: hidden;//background: var(--theme-card-bg-default);
       transition: 0.3s ease-in-out;
       cursor: pointer;
-      height: 400px;
+      height: 424px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -132,6 +132,7 @@
           & img{
             border-radius: var(--f-radius);
             overflow: hidden;
+            margin-bottom: var(--f-gutter);
           }
 
           & .card-tag{
