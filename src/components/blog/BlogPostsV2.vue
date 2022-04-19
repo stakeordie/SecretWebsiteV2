@@ -106,7 +106,7 @@ export default {
     grid-template-columns: 1fr;
   }
 
-  gap: var(--f-gutter-l);
+  gap: var(--f-gutter);
   align-items: start;
   justify-items: center;
   }
