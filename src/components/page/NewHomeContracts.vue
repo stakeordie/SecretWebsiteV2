@@ -2,7 +2,7 @@
   <section class="new-home-contracts">
       <div class="new-home-contracts__header">
           <h5 class="new-home-contracts__header-h5">
-              THE SECRET OF SECRET NETWORK
+              We made smart contracts private
           </h5>
           <h3 class="new-home-contracts__header-h3">
               We made smart contracts private
@@ -79,6 +79,7 @@ export default {
       color: var(--color-neutral-dark-mode-05);
       padding-bottom: 0;
       margin-bottom: 0;
+      text-transform: uppercase;
     }
 
     & h3 {
