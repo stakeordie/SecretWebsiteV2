@@ -132,6 +132,7 @@ $accent-colors: (
 
   @include respond-to("<=s") {
     min-height: auto;
+    width: 100%;
   }
 
   &:hover {
@@ -150,12 +151,7 @@ $accent-colors: (
         
       }
 
-      & svg {
-        fill: var(--accent-#{$name});
-        border-radius: 10px;
-        min-height: 188px;
-        
-      }
+      
 
       .new-blog-card__body{
         
@@ -173,6 +169,14 @@ $accent-colors: (
           //width: 368px;
           height: 188px;
 
+        }
+
+        @include respond-to("<=s") {
+          //width: 100%;
+
+          & img{
+            width: 100%;
+          }
         }
 
       }
@@ -193,6 +197,7 @@ $accent-colors: (
         color: var(--theme-fg);
         font-size: var(--f-default-text-size);
         font-family: var( --f-default-headers-font);
+        line-height: 20px;
         
         & a {
           color: var(--theme-fg);

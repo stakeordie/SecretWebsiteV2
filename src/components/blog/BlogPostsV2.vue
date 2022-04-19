@@ -1,8 +1,8 @@
 <template>
   <section class="new-blog-grid-v2">
-          <h4 class="new-blog-grid-v2__title-h5">
+          <h3 class="new-blog-grid-v2__title-h5">
         Post
-      </h4>
+      </h3>
     <div class="new-blog-grid-v2__container">
 
       <blog-card-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
@@ -69,7 +69,7 @@ export default {
 
     &-h5{
       //color: var(--color-neutral-dark-mode-05);
-      text-transform: uppercase;
+      //text-transform: uppercase;
     }
 
     &-btns{
@@ -102,7 +102,7 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to("<=s") {
+  @include respond-to("<=xs") {
     grid-template-columns: 1fr;
   }
 

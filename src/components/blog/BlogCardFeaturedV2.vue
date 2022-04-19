@@ -104,6 +104,7 @@
 
       @include respond-to("<=s") {
         min-height: auto;
+        width: 320px;
       }
       
 
@@ -133,6 +134,11 @@
             border-radius: var(--f-radius);
             overflow: hidden;
             margin-bottom: var(--f-gutter);
+
+            @include respond-to("<=s") {
+              min-height: auto;
+              width: 100%;
+            }
           }
 
           & .card-tag{

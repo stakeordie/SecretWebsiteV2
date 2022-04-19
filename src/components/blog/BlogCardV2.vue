@@ -123,7 +123,7 @@ $accent-colors: (
   overflow: hidden;//background: var(--theme-card-bg-default);
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  height: 350px;
+  height: 340px;
   position: relative;
   display: flex;
   flex-direction: column;

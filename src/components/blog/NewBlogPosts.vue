@@ -64,6 +64,11 @@ export default {
 
 .new-blog-grid {
 
+  @include respond-to("<=s") {
+    padding: var(--f-gutter);
+  }
+  
+
   &__title{
     display: flex;
     justify-content: space-between;
@@ -103,7 +108,7 @@ export default {
      display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  @include respond-to("<=l") {
+  @include respond-to("<=m") {
     grid-template-columns: repeat(2, 1fr);
   }
 
