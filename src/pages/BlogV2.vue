@@ -272,6 +272,7 @@ export default {
       max-width: 99vw;
       scroll-behavior: smooth;
 
+
       @include respond-to("<=m") {
         max-width: 100vw;
       }
@@ -316,15 +317,19 @@ export default {
       cursor: pointer;
       display: inline-block;
       /* flex-direction: column; */
-      width: 400px;
+      max-width: 400px;
       //min-height: 400px;
       min-height: 400px;
       white-space: normal;
       /* justify-content: space-between; */
       vertical-align: top;
-      margin-right: var(--f-gutter-l);
+      margin-right: var(--f-gutter);
       position: relative;
       overflow: hidden;
+
+      @include respond-to("<=xs") {
+       margin-right: var(--f-gutter);
+      }
     }
   }
 }

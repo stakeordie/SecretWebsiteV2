@@ -1,11 +1,11 @@
 <template>
   <section class="new-blog-grid-v2">
-          <h4 class="new-blog-grid-v2__title-h5">
-        POSTS
-      </h4>
+          <h3 class="new-blog-grid-v2__title-h5">
+        Post
+      </h3>
     <div class="new-blog-grid-v2__container">
 
-      <new-blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
+      <blog-card-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
         <template #image><g-image :src="node.feature_image"></g-image></template>
         <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
         <h5>{{ node.title }}</h5>
@@ -18,18 +18,19 @@
             <p>{{ node.date }} · {{ node.reading_time }} min read</p>
           </div>
         </template>
-      </new-blog-card>
+      </blog-card-v2>
     </div>
   </section>
 </template>
 
 <script>
 import BlogCard from '@/components/blog/BlogCard'
+import BlogCardV2 from '@/components/blog/BlogCardV2'
 
 const truncateSize = 200;
 
 export default {
-  components: { BlogCard },
+  components: { BlogCardV2 },
   props: {
     posts: {
       type: Array,
@@ -68,7 +69,7 @@ export default {
 
     &-h5{
       //color: var(--color-neutral-dark-mode-05);
-      text-transform: uppercase;
+      //text-transform: uppercase;
     }
 
     &-btns{
@@ -101,11 +102,11 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to("<=s") {
+  @include respond-to("<=xs") {
     grid-template-columns: 1fr;
   }
 
-  gap: var(--f-gutter-l);
+  gap: var(--f-gutter);
   align-items: start;
   justify-items: center;
   }

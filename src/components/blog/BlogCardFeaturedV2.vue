@@ -1,14 +1,14 @@
 <template>
   <g-link class="blog-card-featured-v2 cta" :class="`accent-`+color" :to="$tp(`/blog/${slug}`)">
- <div class="blog-card-v2-body">
-   <div class="blog-card-v2__body">
-        <div class="blog-card-v2__tag">
+ <div class="blog-card-featured-v2-container">
+   <div class="blog-card-featured-v2__body">
+        <div class="blog-card-featured-v2__tag">
           <slot name="image"></slot>
           <slot class="card-tag" name="tag"></slot>
         </div>
         <slot name="default"></slot>
       </div>
-      <blog-author class="blog-card-v2__footer">
+      <blog-author class="blog-card-featured-v2__footer">
         <slot name="footer"></slot>
       </blog-author>
  </div>
@@ -89,27 +89,32 @@
   );
 
   .blog-card-featured-v2 {
-    
-  border-radius: var(--f-radius);
-  overflow: hidden;//background: var(--theme-card-bg-default);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  height: 400px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--f-gutter);
 
-  @include respond-to("<=s") {
-    min-height: auto;
-  }
+    &-container{
+      border-radius: var(--f-radius);
+      overflow: hidden;//background: var(--theme-card-bg-default);
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      height: 424px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--f-gutter);
+
+      @include respond-to("<=s") {
+        min-height: auto;
+        width: 320px;
+      }
+      
+
+      &:hover {
+        background: var(--theme-card-bg-default);
+        
+      }
+    }
+    
   
-
-  &:hover {
-    background: var(--theme-card-bg-default);
-    
-  }
 
     @each $name,
     $color in $accent-colors {
@@ -119,11 +124,22 @@
           fill: var(--accent-#{$name});
         }
 
-        .blog-card-v2__tag {
+        .blog-card-featured-v2__tag {
           color: var(--accent-#{$name});
           text-transform: uppercase;
           margin-bottom: var(--f-gutter-xs);
           font-weight: 700;
+
+          & img{
+            border-radius: var(--f-radius);
+            overflow: hidden;
+            margin-bottom: var(--f-gutter);
+
+            @include respond-to("<=s") {
+              min-height: auto;
+              width: 100%;
+            }
+          }
 
           & .card-tag{
             margin-top: var(--f-gutter);
@@ -143,7 +159,7 @@
       }
     }
 
-   .blog-card-v2__footer {
+   .blog-card-featured-v2__footer {
     //padding: var(--f-gutter);
     display: grid;
     grid-auto-flow: column;
@@ -170,13 +186,21 @@
     .author-info {
       display: grid;
       //gap: var(--f-gutter-xxs);
-      color: var(--theme-fg);
+      //color: var(--theme-fg);
+
+      & div{
+        margin-bottom: 0;
+        font-size: 14px;
+        color: var(--color-neutral-dark-mode-05);
+      }
 
       & p{
-        margin-bottom: 0;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 20px;
+        // margin-bottom: 0;
+        // font-size: 12px;
+        // font-weight: 500;
+        // line-height: 20px;
+
+
       }
     }
   }
