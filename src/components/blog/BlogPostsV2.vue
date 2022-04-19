@@ -1,7 +1,7 @@
 <template>
   <section class="new-blog-grid-v2">
           <h4 class="new-blog-grid-v2__title-h5">
-        POSTS
+        Post
       </h4>
     <div class="new-blog-grid-v2__container">
 

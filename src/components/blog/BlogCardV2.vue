@@ -191,7 +191,8 @@ $accent-colors: (
       & h5 {
         margin-bottom: 0;
         color: var(--theme-fg);
-        font-size: var(--f-default-text-size);
+        font-size: 14px;
+        line-height: 20px ;
         font-family: var( --f-default-headers-font);
         
         & a {
