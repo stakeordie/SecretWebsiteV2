@@ -171,8 +171,16 @@ $accent-colors: (
 
         }
 
+        @include respond-to("<=m") {
+          height: 144px;
+
+          & img{
+            //height: 144px;
+          }
+        }
+
         @include respond-to("<=s") {
-          //width: 100%;
+          height: 188px;
 
           & img{
             width: 100%;
@@ -189,6 +197,8 @@ $accent-colors: (
         font-family: hind;
 
         padding-top: 10px;
+
+        
         
       }
 
@@ -198,6 +208,10 @@ $accent-colors: (
         font-size: var(--f-default-text-size);
         font-family: var( --f-default-headers-font);
         line-height: 20px;
+
+        @include respond-to("<=m") {
+          font-size: 14px;
+        }
         
         & a {
           color: var(--theme-fg);

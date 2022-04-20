@@ -126,7 +126,8 @@ export default {
     grid-template-columns: repeat(3, 1fr);
 
     @include respond-to("<=m") {
-      grid-template-columns: repeat(2, 1fr);
+      //grid-template-columns: repeat(2, 1fr);
+       gap: var(--f-gutter-s);
     }
 
     @include respond-to("<=s") {
