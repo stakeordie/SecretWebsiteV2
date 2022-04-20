@@ -109,7 +109,7 @@
       
 
       &:hover {
-        background: var(--theme-card-bg-default);
+        background: var(--color-neutral-dark-mode-04);
         
       }
     }

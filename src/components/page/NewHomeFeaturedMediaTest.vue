@@ -1,6 +1,6 @@
 <template>
 <div>
-  <column class="" number="2" >
+  <column class="home-feature-media-test" number="2" >
 
     <block>
 
@@ -10,7 +10,9 @@
 
     <block style="text-align: right;"> 
 
-      <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">{{ media.button_text }}</btn>
+      <div class="new-blog-grid__title-btns">
+        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
+      </div>
 
     </block>
 
@@ -113,3 +115,31 @@ query {
   }
 }
 </static-query>
+
+<style lang="scss">
+
+.home-feature-media-test{
+  
+
+    & .link-arrow{
+
+ & a{
+        font-family: hind;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        
+
+        &:hover{
+
+          & span{
+            color: var(--color-newBrand-blue-01) !important;
+          }
+          
+        }
+      }
+    }
+}
+
+</style>
