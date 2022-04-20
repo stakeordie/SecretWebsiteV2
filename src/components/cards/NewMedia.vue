@@ -226,7 +226,7 @@ $accent-colors: ("Article", "Podcast", "Video");
       display: grid;
       padding: var(--f-gutter);
       border-radius: var(--f-gutter-s);
-      background: var(--color-neutral-dark-mode-02);
+      background: var(--color-analog-primary-black);
       height: 340px;
       // width: 350px;
       transition: 0.2s ease;
