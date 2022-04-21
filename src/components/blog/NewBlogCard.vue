@@ -168,6 +168,7 @@ $accent-colors: (
           object-fit: cover;
           //width: 368px;
           height: 188px;
+          width: 100%;
 
         }
 
