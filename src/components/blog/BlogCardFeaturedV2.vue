@@ -1,5 +1,5 @@
 <template>
-  <g-link class="blog-card-featured-v2 cta" :class="`accent-`+color" :to="$tp(`/blog/${slug}`)">
+  <g-link class="blog-card-featured-v2 cta" :class="`accent-blog-`+color" :to="$tp(`/blog/${slug}`)">
  <div class="blog-card-featured-v2-container">
    <div class="blog-card-featured-v2__body">
         <div class="blog-card-featured-v2__tag">
@@ -20,24 +20,48 @@
   
 
   const colors = {
-    "announcement": "blue",
-    "blockchain": "turquoise",
-    "collaboration": "green",
-    "community": "yellow",
-    "cosmos": "cream",
-    "design": "orange",
-    "dev": "red",
-    "ecosystem": "purple",
-    "governance": "gray",
-    "introduction": "blue",
-    "nodes": "turquoise",
-    "privacy": "green",
-    "secret apps": "yellow",
-    "solutions": "cream",
-    "staking": "orange",
-    "": "red",
-    null: "purple",
-    undefined: "purple"
+    announcement: "announcement",
+  education: "education",
+  "how to": "education",
+  explanations: "education",
+
+  "introduction": "education",
+  
+  dev: "developers",
+  "texh updates": "developers",
+  hackathon: "developers",
+  funding: "developers",
+  ecosystem: "ecosystem",  
+  community: "ecosystem",
+  
+  "collaboration": "ecosystem",
+
+  "dapp launches": "ecosystem",
+  "nft projects": "ecosystem",
+  reports: "ecosystem",
+  recaps: "ecosystem",
+  "reports/recaps": "ecosystem",
+  "": "optional",
+  undefined : "optional",
+  null: "optional",
+  defi: "optional",
+  nfts: "optional",
+  games: "optional",
+  technology: "optional",
+  tech:"optional",
+  privacy: "optional",
+
+
+
+  "blockchain": "optional",
+  "cosmos": "optional",
+  "design": "optional",
+  "governance": "optional",
+  "nodes": "optional",
+  "secret apps": "optional",
+  "solutions": "optional",
+  "staking": "optional",
+  "feature": "optional"
   }
 
   export default {
@@ -76,16 +100,13 @@
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
-  $accent-colors: (
-    "blue",
-    "turquoise",
-    "green",
-    "yellow",
-    "cream",
-    "orange",
-    "red",
-    "purple",
-    "gray",
+  $accent-blog-colors: (
+  "announcement",
+  "education",
+  "developers",
+  "ecosystem",
+  "optional",
+
   );
 
   .blog-card-featured-v2 {
@@ -117,15 +138,15 @@
   
 
     @each $name,
-    $color in $accent-colors {
-      &.accent-#{$name} {
+    $color in $accent-blog-colors {
+      &.accent-blog-#{$name} {
 
         svg {
-          fill: var(--accent-#{$name});
+          fill: var(--accent-blog-#{$name});
         }
 
         .blog-card-featured-v2__tag {
-          color: var(--accent-#{$name});
+          color: var(--accent-blog-#{$name});
           text-transform: uppercase;
           margin-bottom: var(--f-gutter-xs);
           font-weight: 700;
