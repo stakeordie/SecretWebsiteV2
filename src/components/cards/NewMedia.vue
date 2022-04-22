@@ -292,7 +292,8 @@ $accent-colors: ("Article", "Podcast", "Video");
           }
 
           .type {
-            color: var(--accent-#{$name});
+            // color: var(--accent-#{$name});
+            color: var(--accent-#{$name}-v2);
           }
         }
       }
