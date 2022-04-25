@@ -1,7 +1,7 @@
 <template>
   <g-link
     class="new-blog-card cta"
-    :class="`accent-blog-` + color"
+    :class="`accent-` + color"
     :to="$tp(`/blog/${slug}`)"
   >
   <div class="new-blog-card__top">
@@ -25,48 +25,29 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
-  announcement: "announcement",
-  education: "education",
-  "how to": "education",
-  explanations: "education",
-
-  "introduction": "education",
-  
-  dev: "developers",
-  "texh updates": "developers",
-  hackathon: "developers",
-  funding: "developers",
-  ecosystem: "ecosystem",  
-  community: "ecosystem",
-  
-  "collaboration": "ecosystem",
-
-  "dapp launches": "ecosystem",
-  "nft projects": "ecosystem",
-  reports: "ecosystem",
-  recaps: "ecosystem",
-  "reports/recaps": "ecosystem",
-  "": "optional",
-  undefined : "optional",
-  null: "optional",
-  defi: "optional",
-  nfts: "optional",
-  games: "optional",
-  technology: "optional",
-  tech:"optional",
-  privacy: "optional",
+  announcement: "blue",
+  blockchain: "turquoise",
+  collaboration: "green",
+  community: "yellow",
+  cosmos: "cream",
+  design: "orange",
+  dev: "red",
+  feature: "orange",
+  ecosystem: "purple",
+  governance: "gray",
+  hackathon: "yellow",
+  introduction: "blue",
+  nodes: "turquoise",
+  privacy: "green",
+  "secret apps": "yellow",
+  solutions: "cream",
+  staking: "orange",
+  "": "red",
+  null: "purple",
+  undefined: "purple",
+  nfts: "orange",
 
 
-
-  "blockchain": "optional",
-  "cosmos": "optional",
-  "design": "optional",
-  "governance": "optional",
-  "nodes": "optional",
-  "secret apps": "optional",
-  "solutions": "optional",
-  "staking": "optional",
-  "feature": "optional"
 };
 
 export default {
@@ -104,12 +85,16 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-blog-colors: (
-  "announcement",
-  "education",
-  "developers",
-  "ecosystem",
-  "optional",
+$accent-colors: (
+  "blue",
+  "turquoise",
+  "green",
+  "yellow",
+  "cream",
+  "orange",
+  "red",
+  "purple",
+  "gray"
 );
 
 .new-blog-card {
@@ -134,8 +119,8 @@ $accent-blog-colors: (
     
   }
 
-  @each $name, $color in $accent-blog-colors {
-    &.accent-blog-#{$name} {
+  @each $name, $color in $accent-colors {
+    &.accent-#{$name} {
       &:hover {
        
       }
@@ -185,7 +170,7 @@ $accent-blog-colors: (
       }
 
       .new-blog-card__tag {
-        color: var(--accent-blog-#{$name});
+        color: var(--accent-#{$name}-v2);
         text-transform: uppercase;
         font-size: var(--f-default-text-size);
         font-weight: 700;
