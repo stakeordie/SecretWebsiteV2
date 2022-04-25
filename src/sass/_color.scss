@@ -78,10 +78,13 @@
     --accent-red: var(--color-analog-secondary-red);
     --accent-purple: var(--color-analog-secondary-purple);
     --accent-gray: var(--color-analog-secondary-gray);
+    
+
     // accents media
     --accent-Podcast: var(--accent-turquoise);
     --accent-Article: var(--accent-yellow);
     --accent-Video: var(--accent-purple);
+    
     // accents contributors
     --accent-validator: var(--accent-blue);
     --accent-developer: var(--accent-red);
@@ -99,6 +102,10 @@
     --accent-secretswap: var(--color-analog-tertiary-yellow);
     --accent-analytics: var(--color-analog-tertiary-purple);
     --accent-international: var(--color-highkey-tertiary-orange);
+
+
+    
+    
 }
 
 @keyframes color-change {
@@ -114,6 +121,7 @@
     90% { color: var(--color-highkey-tertiary-orange); }
     100% { color: var(--accent-yellow); }
 }
+
 
 @keyframes fill-change {
     0% { fill: var(--accent-blue); }

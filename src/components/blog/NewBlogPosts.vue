@@ -1,23 +1,38 @@
 <template>
   <section class="new-blog-grid">
     <div class="new-blog-grid__title">
-      <h5 class="new-blog-grid__title-h5">
-        LATEST BLOG POSTS
-      </h5>
+      <h5 class="new-blog-grid__title-h5">LATEST BLOG POSTS</h5>
+      
       <div class="new-blog-grid__title-btns">
-        <a class="link-arrow" href="../blog/" >View blog</a>
-        <!-- <a class="link-arrow" url="/blog/" >View all media</a> -->
+        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</btn>
       </div>
 
+      <!-- <div class="new-blog-grid__title-btns">
+        <a class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</a>
+       
+      </div> -->
     </div>
     <div class="new-blog-grid__container">
-      <new-blog-card v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
-        <template #image><g-image :src="node.feature_image"></g-image></template>
-        <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
+      <new-blog-card
+        v-for="{ node } in posts"
+        :key="node.id"
+        :tag="node.primary_tag != null ? node.primary_tag.name : ''"
+        :slug="node.slug"
+      >
+        <template #image
+          ><g-image :src="node.feature_image"></g-image
+        ></template>
+        <template #tag v-if="node.primary_tag">{{
+          node.primary_tag.name
+        }}</template>
         <h5>{{ node.title }}</h5>
         <!-- <p>{{ node.description | truncate }}</p> -->
         <template #footer>
-          <g-image picture v-if="node.primary_author.profile_image" :src="node.primary_author.profile_image"></g-image>
+          <g-image
+            picture
+            v-if="node.primary_author.profile_image"
+            :src="node.primary_author.profile_image"
+          ></g-image>
           <g-image picture v-else src="@/assets/scrt-logo.png"></g-image>
           <div info class="author-info">
             <p>{{ node.primary_author.name }}</p>
@@ -30,7 +45,7 @@
 </template>
 
 <script>
-import BlogCard from '@/components/blog/BlogCard'
+import BlogCard from "@/components/blog/BlogCard";
 
 const truncateSize = 200;
 
@@ -40,36 +55,35 @@ export default {
     posts: {
       type: Array,
       required: true,
-      default: () => []
+      default: () => [],
     },
     columns: {
       type: Number,
       required: false,
-      default: 3
-    }
+      default: 3,
+    },
   },
   filters: {
     truncate(value) {
-      if (!value) return ''
-      return value.length >= truncateSize ? `${value.substring(0, truncateSize - 1)}...` : value
-    }
-  }
-}
+      if (!value) return "";
+      return value.length >= truncateSize
+        ? `${value.substring(0, truncateSize - 1)}...`
+        : value;
+    },
+  },
+};
 </script>
 
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-
 .new-blog-grid {
-
   @include respond-to("<=s") {
     padding: var(--f-gutter);
   }
-  
 
-  &__title{
+  &__title {
     display: flex;
     justify-content: space-between;
 
@@ -77,52 +91,52 @@ export default {
     //   flex-direction: column;
     // }
 
-    &-h5{
+    &-h5 {
       color: var(--color-neutral-dark-mode-05);
       text-transform: uppercase;
     }
 
-    &-btns{
+    &-btns {
       // display: grid;
       // grid-template-columns: repeat(2, 1fr);
       // gap: 26px;
-      
-      @include respond-to("<=s"){
-        display: flex;
-        
-      }
-      
-      
 
-      & a{
+      @include respond-to("<=s") {
+        display: flex;
+      }
+
+      & a {
         font-family: hind;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 1px;
         cursor: pointer;
+
+        &:hover {
+          & span {
+            color: var(--color-newBrand-blue-01) !important;
+          }
+        }
       }
     }
   }
 
-  &__container{
-     display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-  @include respond-to("<=m") {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    @include respond-to("<=m") {
+      //grid-template-columns: repeat(2, 1fr);
+       gap: var(--f-gutter-s);
+    }
 
-  @include respond-to("<=s") {
-    grid-template-columns: 1fr;
-  }
+    @include respond-to("<=s") {
+      grid-template-columns: 1fr;
+    }
 
-  gap: var(--f-gutter-l);
-  align-items: start;
-  justify-items: center;
+    gap: var(--f-gutter-l);
+    align-items: start;
+    justify-items: center;
   }
- 
 }
-
-
-
 </style>

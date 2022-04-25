@@ -20,24 +20,28 @@
   
 
   const colors = {
-    "announcement": "blue",
-    "blockchain": "turquoise",
-    "collaboration": "green",
-    "community": "yellow",
-    "cosmos": "cream",
-    "design": "orange",
-    "dev": "red",
-    "ecosystem": "purple",
-    "governance": "gray",
-    "introduction": "blue",
-    "nodes": "turquoise",
-    "privacy": "green",
-    "secret apps": "yellow",
-    "solutions": "cream",
-    "staking": "orange",
-    "": "red",
-    null: "purple",
-    undefined: "purple"
+    announcement: "blue",
+  blockchain: "turquoise",
+  collaboration: "green",
+  community: "yellow",
+  cosmos: "cream",
+  design: "orange",
+  dev: "red",
+  feature: "orange",
+  ecosystem: "purple",
+  governance: "gray",
+  hackathon: "yellow",
+  introduction: "blue",
+  nodes: "turquoise",
+  privacy: "green",
+  "secret apps": "yellow",
+  solutions: "cream",
+  staking: "orange",
+  "": "red",
+  null: "purple",
+  undefined: "purple",
+  nfts: "orange",
+
   }
 
   export default {
@@ -76,17 +80,17 @@
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
-  $accent-colors: (
-    "blue",
-    "turquoise",
-    "green",
-    "yellow",
-    "cream",
-    "orange",
-    "red",
-    "purple",
-    "gray",
-  );
+$accent-colors: (
+  "blue",
+  "turquoise",
+  "green",
+  "yellow",
+  "cream",
+  "orange",
+  "red",
+  "purple",
+  "gray"
+);
 
   .blog-card-featured-v2 {
 
@@ -109,7 +113,7 @@
       
 
       &:hover {
-        background: var(--theme-card-bg-default);
+        background: var(--color-neutral-dark-mode-04);
         
       }
     }
@@ -120,12 +124,9 @@
     $color in $accent-colors {
       &.accent-#{$name} {
 
-        svg {
-          fill: var(--accent-#{$name});
-        }
 
         .blog-card-featured-v2__tag {
-          color: var(--accent-#{$name});
+          color: var(--accent-#{$name}-v2);
           text-transform: uppercase;
           margin-bottom: var(--f-gutter-xs);
           font-weight: 700;
