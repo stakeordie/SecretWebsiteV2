@@ -720,8 +720,8 @@ $accent-colors: ("Article", "Podcast", "Video");
 @each $name, $color in $accent-colors {
   &.accent-#{$name}-v2 {
     &:hover {
-      background: var(--theme-card-bg-hover);
-      box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
+      background: var(--color-neutral-dark-mode-04);
+      // box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
     }
 
     .type {
