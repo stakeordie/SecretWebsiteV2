@@ -46,6 +46,7 @@ $accent-colors: (
   transition: 0.2s ease;
   cursor: pointer;
   min-height: 300px;
+  max-height: max-content;
   display: grid;
   align-content: start;
   position: relative;
@@ -82,6 +83,7 @@ $accent-colors: (
   h6 {
     margin-bottom: var(--f-gutter-l);
     order: 3;
+    height: 48px;
   }
 
   @each $name, $color in $accent-colors {

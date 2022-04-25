@@ -1,9 +1,8 @@
 :root {
     // accents media-v2
-    --accent-Podcast-v2: rgba(195, 196, 209, 1);
+    --accent-Podcast-v2: var(--accent-turquoise);
     --accent-Article-v2: var(--accent-yellow);
     --accent-Video-v2: var(--accent-purple);
-
 
     // accents blog-v2
     --accent-blog-announcement: #FEECA5;
