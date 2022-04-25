@@ -28,11 +28,11 @@
         <img :src="left.cover_image.url" :alt="left.title">
       </card-media> -->
 
-      <card-media :class="`accent-${left.type}-v2`" :url="left.link">
+      <new-card-media :class="`accent-${left.type}-v2`" :url="left.link">
         <span class="type">{{ left.type }}</span>
         <h6>{{ left.title }}</h6>
         <img :src="left.cover_image.url" :alt="left.title">
-      </card-media>
+      </new-card-media>
 
     </block>
 
@@ -45,11 +45,11 @@
         <img :src="center.cover_image.url" :alt="center.title">
       </card-media> -->
 
-      <card-media :class="`accent-${center.type}-v2`" :url="center.link">
+      <new-card-media :class="`accent-${center.type}-v2`" :url="center.link">
         <span class="type">{{ center.type }}</span>
         <h6>{{ center.title }}</h6>
         <img :src="center.cover_image.url" :alt="center.title">
-      </card-media>
+      </new-card-media>
 
     </block>
 
@@ -62,11 +62,11 @@
         <img :src="right.cover_image.url" :alt="right.title">
       </card-media> -->
 
-      <card-media :class="`accent-${right.type}-v2`" :url="right.link">
+      <new-card-media :class="`accent-${right.type}-v2`" :url="right.link">
         <span class="type">{{ right.type }}</span>
         <h6>{{ right.title }}</h6>
         <img :src="right.cover_image.url" :alt="right.title">
-      </card-media>
+      </new-card-media>
 
     </block>
 

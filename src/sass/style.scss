@@ -38,7 +38,8 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+  "blog-announcement"
 );
 
 :root {
@@ -628,7 +629,7 @@ img {
     .content {
       .box {
         span {
-          color: var(--accent-#{$name});
+          color: var(--accent-#{$name}-v2);
         }
       }
     }

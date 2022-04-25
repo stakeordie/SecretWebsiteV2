@@ -129,26 +129,12 @@ title: 'Secret Network'
 
 
 
-<!-- Block header -->
-<column class="new-home__block-header new-home__bg" number="2" >
-<block>
 
-##### LATEST BLOG POSTS
-
-</block>
-<block style=" text-align: right">
-
-<btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn> 
-
-    
-  
-  </block>
-</column>
 
 <!-- Blog cards -->
 <column class=" new-home__bg">
   <block>
-    <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
+    <new-blog-latest-posts class="latest-blog-cards"></new-blog-latest-posts>
   </block>
 </column>
 
