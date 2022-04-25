@@ -163,7 +163,10 @@ title: 'Secret Network'
 <!-- Home featured media -->
 <column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <new-home-featured-media /><!-- CMS: Home - Featured Media -->
+    <!--<new-home-featured-media /> CMS: Home - Featured Media -->
+    <!-- NewMediaFeaturedHomeV2 -->
+    <new-media-featured-home-v2>
+    </new-media-featured-home-v2>
   </block>
 </column>
 

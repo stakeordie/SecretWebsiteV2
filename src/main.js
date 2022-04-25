@@ -154,6 +154,7 @@ import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewMediaFeaturedHomeV2 from '~/components/cards/NewMediaFeaturedHomeV2'
 import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 import GrantsBuild from '~/components/page/GrantsBuild'
@@ -344,6 +345,7 @@ export default function (Vue, {
   Vue.component('GrantsHero', GrantsHero);
   Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
   Vue.component('GetScrtWallets', GetScrtWallets);
+  Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
   
   
 
