@@ -83,9 +83,10 @@
               v-if="swirlSpecial"
               dark-colored
               light-colored
-              class="special-mod"
               src="@/assets/swirl-special-color-inverted-v2.svg"
-              alt=""
+              alt="swirl"
+              width="100"
+              height="100"
             />
             <img
               v-if="!swirlSpecial"
