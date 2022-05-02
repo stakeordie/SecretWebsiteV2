@@ -52,7 +52,7 @@
           <div class="page-get-scrt__wallets__content__other__header">
             <h5>Other Options</h5>
             <a
-              href="../ecosystem/tools"
+              href="../ecosystem/tools#get-scrt"
               class="page-get-scrt__wallets__content__other__header__link"
             >
               <p>VIEW ALL</p>

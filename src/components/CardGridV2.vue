@@ -272,8 +272,15 @@ export default {
       this.checkedCategories = [];
     },
     hashToFilter(hash, filter) {
+      if (window.location.hash === '#get-scrt') {
+        console.log(window.location.hash)
+        console.log('hit')
+        window.scrollTo(0,0)
+        // HERE
+        this.checkedCategories = ['wallet'];
+      }
+
       if (window.location.hash === hash) {
-        // console.log(window.location.hash)
         if (this.collection === "toolsAndWallets") {
           setTimeout(() => {
             window.location.href = "#toolswallets";
