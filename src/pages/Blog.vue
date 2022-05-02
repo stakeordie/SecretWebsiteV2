@@ -21,20 +21,20 @@
 
     <column class="horizontal-slider spacer-s" mode="full">
       <block>
-        <blog-featured-posts></blog-featured-posts>
+        <blog-featured-posts-v2></blog-featured-posts-v2>
       </block>
     </column>
 
     <column class="blog-all-posts">
       <block>
-        <blog-filter
+        <blog-filter-v2
           :tags="tags"
           id="left"
           @blog-filter:filter-applied="onFilterApplied"
-        ></blog-filter>
+        ></blog-filter-v2>
         <section class="all-posts">
-          <h3>Posts</h3>
-          <blog-posts :posts="posts"></blog-posts>
+          <!-- <h3>Posts</h3> -->
+          <blog-posts-v2 :posts="posts"></blog-posts-v2>
         </section>
       </block>
     </column>
@@ -43,14 +43,19 @@
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
-import BlogPosts from "@/components/blog/BlogPosts";
-import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
+// import BlogPosts from "@/components/blog/BlogPosts";
+// import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
+
+import BlogFeaturedPostsV2 from '../components/blog/BlogFeaturedPostsV2.vue';
+import BlogFilterV2 from '../components/blog/BlogFilterV2.vue';
+import BlogPostsV2 from '../components/blog/BlogPostsV2.vue';
 
 export default {
   components: {
     DefaultLayout,
-    BlogPosts,
-    BlogPostsFeatured,
+    BlogFeaturedPostsV2,
+    BlogFilterV2,
+    BlogPostsV2,
   },
   data() {
     return {
@@ -270,6 +275,7 @@ export default {
       max-width: 99vw;
       scroll-behavior: smooth;
 
+
       @include respond-to("<=m") {
         max-width: 100vw;
       }
@@ -306,21 +312,27 @@ export default {
       display: none;
     }
 
-    .blog-card-featured {
+    .blog-card-featured-v2 {
+
       border-radius: var(--f-radius);
-      background: var(--theme-card-bg-default);
+      //background: var(--theme-card-bg-default);
       transition: 0.2s ease;
       cursor: pointer;
       display: inline-block;
       /* flex-direction: column; */
-      width: 400px;
-      min-height: 467px;
+      max-width: 400px;
+      //min-height: 400px;
+      min-height: 400px;
       white-space: normal;
       /* justify-content: space-between; */
       vertical-align: top;
-      margin-right: var(--f-gutter-l);
+      margin-right: var(--f-gutter);
       position: relative;
       overflow: hidden;
+
+      @include respond-to("<=xs") {
+       margin-right: var(--f-gutter);
+      }
     }
   }
 }
