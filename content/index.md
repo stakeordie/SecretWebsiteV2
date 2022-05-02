@@ -129,26 +129,10 @@ title: 'Secret Network'
 
 
 
-<!-- Block header -->
-<column class="new-home__block-header new-home__bg" number="2" >
-<block>
-
-##### LATEST BLOG POSTS
-
-</block>
-<block style=" text-align: right">
-
-<btn class="link-arrow" url="/blog/" style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content: right;">View all</btn> 
-
-    
-  
-  </block>
-</column>
-
 <!-- Blog cards -->
 <column class=" new-home__bg">
   <block>
-    <blog-latest-posts class="latest-blog-cards"></blog-latest-posts>
+    <new-blog-latest-posts class="latest-blog-cards"></new-blog-latest-posts>
   </block>
 </column>
 
@@ -161,9 +145,12 @@ title: 'Secret Network'
 
 
 <!-- Home featured media -->
-<column mode="full" class="new-home__bg__bottom space-top new-home__block-header">
+<column class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <home-featured-media /><!-- CMS: Home - Featured Media -->
+    <!--<new-home-featured-media /> CMS: Home - Featured Media -->
+    <!-- NewMediaFeaturedHomeV2 -->
+    <new-media-featured-home-v2 >
+    </new-media-featured-home-v2>
   </block>
 </column>
 

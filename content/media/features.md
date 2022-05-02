@@ -46,11 +46,11 @@ title: 'Featured Media'
 
 
 <!-- All Media -->
-<column class="media-featured spacer-s horizontal-slider" mode="full">
+<column class="new-media-featured spacer-s horizontal-slider" mode="full">
 
 <block>
 
-<media-featured></media-featured>
+<new-media-featured></new-media-featured>
 
 </block>
 
@@ -68,7 +68,7 @@ title: 'Featured Media'
 
 <block>
 
-<media></media>
+<new-media></new-media>
 
 </block>
 
