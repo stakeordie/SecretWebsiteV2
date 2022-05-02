@@ -25,17 +25,17 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
-  announcement: "blue",
+  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  dev: "red",
+  //dev: "red",
   feature: "orange",
-  ecosystem: "purple",
+  //ecosystem: "purple",
   governance: "gray",
-  hackathon: "yellow",
+  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -46,6 +46,25 @@ const colors = {
   null: "purple",
   undefined: "purple",
   nfts: "orange",
+
+  announcement: "announcement",
+  
+  education: "education",
+  how_tos:"education",
+  explanations: "education",
+  
+  dev: "developers",
+  'tech updates':"developers",
+  hackathons:"developers",
+  funding:"developers",
+
+  ecosystem:"ecosystem",
+  community:"ecosystem",
+  dapp_launches:"ecosystem",
+  'nft launches':"ecosystem",
+  reports:"ecosystem",
+  recaps:"ecosystem",
+
 
 
 };
@@ -94,7 +113,12 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+
+  "announcement",
+  "education",
+  "developers",
+  "ecosystem"
 );
 
 .new-blog-card {
@@ -175,6 +199,7 @@ $accent-colors: (
         font-size: var(--f-default-text-size);
         font-weight: 700;
         font-family: hind;
+        letter-spacing: 1px;
 
         padding-top: 10px;
 

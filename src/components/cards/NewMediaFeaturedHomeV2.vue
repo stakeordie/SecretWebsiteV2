@@ -3,8 +3,8 @@
     <div class="featured-media-header">
       <h5 class="featured-media-header__title">FEATURED MEDIA</h5>
       
-      <div class="featured-media-header__btns">
-        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
+      <div class="new-blog-grid__title-btns">
+        <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
       </div>
     </div>
 

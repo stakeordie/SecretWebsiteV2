@@ -4,7 +4,7 @@
       <h5 class="new-blog-grid__title-h5">LATEST BLOG POSTS</h5>
       
       <div class="new-blog-grid__title-btns">
-        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</btn>
+        <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</btn>
       </div>
 
       <!-- <div class="new-blog-grid__title-btns">
