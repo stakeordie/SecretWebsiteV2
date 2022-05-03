@@ -17,8 +17,17 @@
         <!-- <h1>{{ scrtData.usd }}</h1> -->
         <div class="price-select">
           <h1>
-            {{ selected === "" ? scrtData.usd : scrtData[selected] }}
-            {{ selected === "" ? "usd" : selected }}
+            {{
+              selected === ""
+                ? '$'+scrtData.usd
+                : new Intl.NumberFormat(undefined, {
+                    style: "currency",
+                    currencyDisplay: "symbol",
+                    currency: selected,
+                  }).format(scrtData[selected])
+            }}
+            <!-- {{ selected === "" ? scrtData.usd : scrtData[selected].toLocaleString(undefined, { style: 'currency', currency: selected }) }} -->
+            <!-- {{ selected === "" ? "usd" : selected }} -->
           </h1>
           <div class="custom-select">
             <select

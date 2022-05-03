@@ -31,12 +31,7 @@
           <ul class="v-checker">
             <li v-for="(link, index) in element.linkWithImage" :key="index">
               <a :href="link.url" v-if="link.clusterTitle === 'col1'">
-                <img
-                  v-for="(image, index) in link.image"
-                  :key="index"
-                  :src="image"
-                  alt=""
-                />
+                <img v-for="(image, index) in link.image" :key="index" :src="image"  alt="" />
                 <span>{{ link.title }}</span>
               </a>
             </li>
@@ -55,14 +50,17 @@
             </li>
           </ul>
           <ul class="v-checker">
+            <h6 class="h6">
+                On Secret Network
+              </h6>
             <li v-for="(link, index) in element.linkWithImage" :key="index">
-              <h6
+              <!-- <h6
                 v-if="link.clusterTitle === 'On Secret Network'"
                 class="cluster-title"
                 :class="link.clusterTitle"
               >
                 {{ link.clusterTitle }}
-              </h6>
+              </h6> -->
               <a
                 :href="link.url"
                 v-if="link.clusterTitle === 'On Secret Network'"
@@ -75,21 +73,25 @@
                 />
                 <span>{{ link.title }}</span>
               </a>
+              
             </li>
           </ul>
           <ul class="v-checker">
+            <h6 class="h6">
+                On Ethereum
+              </h6>
             <li
               class="li-check"
               v-for="(link, index) in element.linkWithImage"
               :key="index"
             >
-              <h6
+              <!-- <h6
                 v-if="link.clusterTitle === 'On Ethereum'"
                 class="cluster-title"
                 :class="link.clusterTitle"
               >
                 {{ link.clusterTitle }}
-              </h6>
+              </h6> -->
               <a :href="link.url" v-if="link.clusterTitle === 'On Ethereum'">
                 <img
                   v-for="(image, index) in link.image"
@@ -212,6 +214,9 @@ query {
     * {
       margin: 0;
     }
+
+    
+
     h6 {
       font-weight: 600;
       font-size: 18px;
@@ -240,6 +245,10 @@ query {
   @include respond-to("<=s") {
     grid-template-columns: 1fr;
   }
+
+      
+    
+
   h6 {
     color: #748ba5;
     text-transform: uppercase;
@@ -261,6 +270,20 @@ query {
     * {
       margin: 0;
     }
+  &:nth-child(1){
+
+          .h6{
+            display: none;
+          }
+        }
+
+        &:nth-child(2){
+
+          .h6{
+            display: none;
+          }
+        }
+
     .resources {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -272,6 +295,13 @@ query {
         padding: 0;
         align-items: start;
         align-content: start;
+
+        .h6{
+            color: #d4dce3;
+            font-size: 16px;
+            line-height: 24px;
+            text-transform:capitalize;
+          }
         li {
           display: grid;
           width: max-content;
@@ -284,6 +314,8 @@ query {
             line-height: 24px;
             text-transform:capitalize;
           }
+
+          
           a {
             display: grid;
             grid-auto-flow: column;

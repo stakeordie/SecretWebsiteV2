@@ -1,0 +1,26 @@
+:root {
+    // accents media-v2
+    --accent-Podcast-v2: var(--accent-turquoise);
+    --accent-Article-v2: var(--accent-yellow);
+    --accent-Video-v2: var(--accent-purple);
+
+    // accents blog-v2
+    --accent-blog-announcement: #FEECA5;
+    --accent-blog-education: #FBC998;
+    --accent-blog-developers: #8FD2EA;
+    --accent-blog-ecosystem: #96D9D3;
+    --accent-blog-optional: var(--color-analog-primary-white);
+
+
+    --accent-blue-v2: var(--color-analog-secondary-blue);                   //Announcement, Introduction
+    --accent-turquoise-v2: var(--color-analog-secondary-turquoise);         //Blockchain, Nodes
+    --accent-green-v2: var(--color-analog-secondary-green);                 //Collaborations, Privacy
+    --accent-yellow-v2: var(--color-analog-secondary-yellow);               //Community, Hackatho, Secret apps,
+    --accent-cream-v2: var(--color-analog-secondary-cream);                 //Cosmos, Solitions
+    --accent-orange-v2: var(--color-analog-secondary-orange);               //Design, Features, Stacking, NFTs
+    --accent-red-v2: var(--color-analog-secondary-red);                     //Dev, " "
+    --accent-purple-v2: var(--color-analog-secondary-purple);               //Ecosystem, null, undefined
+    --accent-gray-v2: var(--color-analog-secondary-gray);                   //Governance, 
+
+    
+}

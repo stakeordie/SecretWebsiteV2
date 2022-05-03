@@ -8,6 +8,7 @@
 @import "cards/card-simple";
 @import "cards/card-announcement";
 @import "sajari";
+@import "tags-color";
 
 // pages
 @import "pages/home";
@@ -37,7 +38,8 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+  "blog-announcement"
 );
 
 :root {
@@ -627,7 +629,7 @@ img {
     .content {
       .box {
         span {
-          color: var(--accent-#{$name});
+          color: var(--accent-#{$name}-v2);
         }
       }
     }
@@ -716,14 +718,14 @@ img {
 $accent-colors: ("Article", "Podcast", "Video");
 
 @each $name, $color in $accent-colors {
-  &.accent-#{$name} {
+  &.accent-#{$name}-v2 {
     &:hover {
-      background: var(--theme-card-bg-hover);
-      box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
+      background: var(--color-neutral-dark-mode-04);
+      // box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
     }
 
     .type {
-      color: var(--accent-#{$name});
+      color: var(--accent-#{$name}-v2);
     }
   }
 }

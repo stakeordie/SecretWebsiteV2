@@ -1,12 +1,16 @@
 <template>
-  <div>
-    <div class="items horizontal-slider">
-      <div
-        v-for="(media, index) in filterMediaItems"
-        :key="index"
-        class="item"
-        :class="`accent-${media.type}`"
-      >
+  <div class="new-media-featured-home-v2">
+    <div class="featured-media-header">
+      <h5 class="featured-media-header__title">FEATURED MEDIA</h5>
+      
+      <div class="featured-media-header__btns">
+        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
+      </div>
+    </div>
+
+    <!-- <div class="items horizontal-slider"> -->
+    <div class="items">
+      <div v-for="(media, index) in filterMediaItems" :key="index" class="item" :class="`accent-${media.type}-v2`">
         <a :href="media.url">
           <img :src="media.picture" :alt="media.title" />
           <p class="type">{{ media.type }}</p>
@@ -66,9 +70,121 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@import "../../sass/functions/theme";
+@import "@lkmx/flare/src/functions/respond-to";
+
+$accent-colors: (Article, Podcast, Video);
+
+.new-media-featured-home-v2
+{
+  padding: var(--f-gutter);
+.featured-media-header {
+        display: flex;
+        justify-content: space-between;
+
+        &__title {
+          color: var(--color-neutral-dark-mode-05);
+          text-transform: uppercase;
+        }
+
+        &__btns {
+
+          @include respond-to("<=s") {
+            display: flex;
+          }
+
+          & a {
+            font-family: hind;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+
+            &:hover {
+              & span {
+                color: var(--color-newBrand-blue-01);
+              }
+            }
+          }
+        }
+
+      }
+
+      .items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--f-gutter-l);
+
+        @include respond-to("<=s") {
+          grid-template-columns: 1fr;
+        }
+
+        .item {
+          display: grid;
+          padding: var(--f-gutter);
+          border-radius: var(--f-gutter-s);
+          background: var(--color-neutral-dark-mode-02);
+          transition: 0.2s ease;
+          cursor: pointer;
+
+
+          a {
+            display: grid;
+            width: 100%;
+            height: fit-content;
+
+            img {
+              border-radius: var(--f-gutter-s);
+              width: inherit;
+              max-height: 200px;
+              min-height: 200px;
+              object-fit: cover;
+            }
+
+            .type {
+              margin-top: var(--f-gutter-s);
+              margin-bottom: 0;
+              line-height: 24px;
+              text-transform: uppercase;
+              font-weight: 600;
+              width: 100%;
+              white-space: normal;
+            }
+
+            h6 {
+              margin-bottom: 0;
+              color: var(--color-analog-primary-white);
+              width: 100%;
+              white-space: normal;
+            }
+          }
+
+          @each $name,
+          $color in $accent-colors {
+            &.accent-#{$name}-v2 {
+              &:hover {
+                background: var(--color-neutral-dark-mode-04);
+                box-shadow: none;
+              }
+
+              .type {
+                color: var(--accent-#{$name}-v2);
+              }
+            }
+          }
+          
+        }
+      }
+}
+      
+    
+
+</style>
+
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMediaAlts(filter: { is_featured: { eq: true } }){
+  mediaEntries: allStrapiExternalMediaAlts(order: DESC, limit: 3,filter: { is_featured: { eq: true } }){
     edges {
       node {
         title
@@ -209,7 +325,7 @@ $accent-colors: (Article, Podcast, Video);
       }
 
       @each $name, $color in $accent-colors {
-        &.accent-#{$name} {
+        &.accent-#{$name}-v2 {
           &:hover {
             background: var(--color-neutral-dark-mode-04);
             box-shadow: none;

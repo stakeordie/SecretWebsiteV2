@@ -53,11 +53,13 @@ import CardStats from '~/components/cards/CardStats.vue';
 import CardStructure from '~/components/cards/CardStructure.vue';
 import CardCurrentPrice from '~/components/cards/CardCurrentPrice.vue';
 import Media from '~/components/cards/Media.vue';
+import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
+import NewMediaFeatured from '~/components/cards/NewMediaFeatured.vue';
 import Committees from '~/components/cards/Committees.vue';
 import CommitteesCms from '~/components/cards/CommitteesCms.vue';
 import Btn from '~/components/Btn.vue';
@@ -152,6 +154,7 @@ import NewHomeCallAction from '~/components/page/NewHomeCallAction'
 import NewHomeMission from '~/components/page/NewHomeMission'
 import NewHomeAnnouncement from '~/components/page/NewHomeAnnouncement'
 import NewHomeFeaturedMedia from '~/components/page/NewHomeFeaturedMedia'
+import NewMediaFeaturedHomeV2 from '~/components/cards/NewMediaFeaturedHomeV2'
 import NewHomeFeaturedMediaTest from '~/components/page/NewHomeFeaturedMediaTest'
 import NewHomeMissionCtas from '~/components/page/NewHomeMissionCtas'
 import GrantsBuild from '~/components/page/GrantsBuild'
@@ -226,11 +229,13 @@ export default function (Vue, {
   Vue.component('CardStructure', CardStructure);
   Vue.component('CardCurrentPrice', CardCurrentPrice);
   Vue.component('Media', Media);
+  Vue.component('NewMedia', NewMedia);
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
+  Vue.component('NewMediaFeatured', NewMediaFeatured);
   Vue.component('Committees', Committees);
   Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
@@ -340,6 +345,7 @@ export default function (Vue, {
   Vue.component('GrantsHero', GrantsHero);
   Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
   Vue.component('GetScrtWallets', GetScrtWallets);
+  Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
   
   
 

@@ -22,33 +22,51 @@
     <!-- Left card -->
     <block>
 
-      <card-media :class="`accent-${left.type}`" :url="left.link">
+      <!-- <card-media :class="`accent-${left.type}`" :url="left.link">
         <span class="type">{{ left.type }}</span>
         <h6>{{ left.title }}</h6>
         <img :src="left.cover_image.url" :alt="left.title">
-      </card-media>
+      </card-media> -->
+
+      <new-card-media :class="`accent-${left.type}-v2`" :url="left.link">
+        <span class="type">{{ left.type }}</span>
+        <h6>{{ left.title }}</h6>
+        <img :src="left.cover_image.url" :alt="left.title">
+      </new-card-media>
 
     </block>
 
     <!-- Center card -->
     <block>
 
-      <card-media :class="`accent-${center.type}`" :url="center.link">
+      <!-- <card-media :class="`accent-${center.type}`" :url="center.link">
         <span class="type">{{ center.type }}</span>
         <h6>{{ center.title }}</h6>
         <img :src="center.cover_image.url" :alt="center.title">
-      </card-media>
+      </card-media> -->
+
+      <new-card-media :class="`accent-${center.type}-v2`" :url="center.link">
+        <span class="type">{{ center.type }}</span>
+        <h6>{{ center.title }}</h6>
+        <img :src="center.cover_image.url" :alt="center.title">
+      </new-card-media>
 
     </block>
 
     <!-- Right card -->
     <block>
 
-      <card-media :class="`accent-${right.type}`" :url="right.link">
+      <!-- <card-media :class="`accent-${right.type}`" :url="right.link">
         <span class="type">{{ right.type }}</span>
         <h6>{{ right.title }}</h6>
         <img :src="right.cover_image.url" :alt="right.title">
-      </card-media>
+      </card-media> -->
+
+      <new-card-media :class="`accent-${right.type}-v2`" :url="right.link">
+        <span class="type">{{ right.type }}</span>
+        <h6>{{ right.title }}</h6>
+        <img :src="right.cover_image.url" :alt="right.title">
+      </new-card-media>
 
     </block>
 
