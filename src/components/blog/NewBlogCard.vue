@@ -55,7 +55,7 @@ const colors = {
   
   dev: "developers",
   'tech updates':"developers",
-  hackathons:"developers",
+  hackathon:"developers",
   funding:"developers",
 
   ecosystem:"ecosystem",
