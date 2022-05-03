@@ -132,6 +132,7 @@ export default {
 
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
+      gap: var(--f-gutter-l);
     }
 
     gap: var(--f-gutter-l);

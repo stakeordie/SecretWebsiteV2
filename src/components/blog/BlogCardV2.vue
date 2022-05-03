@@ -120,7 +120,8 @@ $accent-colors: (
 
 .blog-card-v2 {
   border-radius: var(--f-radius);
-  overflow: hidden;//background: var(--theme-card-bg-default);
+  overflow: hidden;
+  background: var(--color-neutral-dark-mode-02);
   transition: 0.3s ease-in-out;
   cursor: pointer;
   height: 340px;

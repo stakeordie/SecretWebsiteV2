@@ -146,7 +146,7 @@ $accent-colors: (
     @each $name,
     $color in $accent-colors {
       &.accent-#{$name} {
-
+        background: var(--color-neutral-dark-mode-02);
 
         .blog-card-featured-v2__tag {
           color: var(--accent-#{$name}-v2);
