@@ -15,7 +15,7 @@
                   Learn how to get SCRT, install a wallet, and start staking your SCRT.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn-color" url="../about/about-scrt">Get SCRT</btn>
+                  <btn class="text-center no-arrow btn btn-color" url="../about/about-scrt">Get SCRT</btn>
                   <btn class="text-center no-arrow btn" url="../about/about-scrt">Use SCRT</btn>
               </div>
           </div>
@@ -35,7 +35,7 @@
                 the decentralized web.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn-color" url="../developers">START BUILDING</btn>
+                  <btn class="text-center no-arrow btn btn-color" url="../developers">START BUILDING</btn>
                   <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
                   <btn class="text-center no-arrow btn" url="../developers/grants">Grants</btn>
               </div>
@@ -61,7 +61,7 @@
                   Become a Secret Agent and collaborate with others to turn a safer and more empowering web into reality.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn-color" url="../get-involved/become-secret-agent">Become a Secret agent</btn>
+                  <btn class="text-center no-arrow btn btn-color" url="../get-involved/become-secret-agent">Become a Secret agent</btn>
               </div>
           </div>
 
@@ -165,6 +165,12 @@ export default {
                         max-width: 100% !important;
                     }
                 }
+
+                & .btn-color:hover{
+                  
+                    background-color: var(--color-neutral-dark-mode-02);
+                
+                }
             }
 
         }
@@ -182,6 +188,10 @@ export default {
 
             & .btn-color{
                 background-color: var(--color-analog-secondary-orange);
+
+                &:hover{
+                    background-color: var(--color-neutral-dark-mode-02);
+                }
             }
         }
     }
@@ -195,6 +205,10 @@ export default {
 
             & .btn-color{
                 background-color: var(--color-analog-secondary-blue);
+
+                &:hover{
+                    background-color: var(--color-neutral-dark-mode-02);
+                }
             }
         }
     }
@@ -214,12 +228,22 @@ export default {
 
                 max-width: fit-content !important;
                 min-width: 220px;
+                transition: 0.5s all;
                         
                 @include respond-to("<=m"){
                 max-width: 100% !important;
                 } 
 
+                &:hover {
+                    background: var(--color-neutral-dark-mode-02);
+                    span {
+                    transform: translateY(2px);
+                    color: var(--color-analog-primary-white);
+                    }
+                }
+
                 & span{
+                    transform: translateY(1px);
                     color: var(--color-neutral-dark-mode-01);
                 }
             }

@@ -761,7 +761,7 @@ export default {
           &:hover {
             cursor: pointer;
             a {
-              color: var(--mega-header-color-nav-exanded-hover);
+              //color: var(--mega-header-color-nav-exanded-hover);
             }
           }
         }
