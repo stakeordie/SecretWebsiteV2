@@ -177,17 +177,39 @@ export default {
         width: 172px !important;
         margin: 0 !important;
         max-height: 64px;
+        justify-content: center;
+
 
         @include respond-to("<=xs") {
           width: 100% !important;
           padding: 10px 0;
 
         }
+        
+        & .themed-image{
+            display: none;
+          }
+        span{
+          display: flex;
+          vertical-align: middle;
+          
+          
 
-        &.special-icon{
-              vertical-align: sub;
+          img{
+            transform: translateY(-1px);
+            align-self: center;
+            margin-right: 6px;
+            width: 24px;
+            height: 24px;
+          }
+
+          
+        }
+
+        // &.special-icon{
+        //       vertical-align: middle;
               
-            }
+        //     }
 
 
       }
