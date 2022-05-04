@@ -2,7 +2,7 @@
   <section class="new-home__call">
       <div class="new-home__call__content action1">
           <div class="new-home__call__content__img">
-              <img src="../../assets/home/home-getstarted.png" alt="">
+              <img src="../../assets/home/home-buy.svg" alt="">
           </div>
           <div class="new-home__call__content__info">
               <h5 class="new-home__call__content__info-h5">
@@ -15,7 +15,7 @@
                   Learn how to get SCRT, install a wallet, and start staking your SCRT.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="../about/about-scrt">Get SCRT</btn>
+                  <btn class="text-center no-arrow btn-color" url="../about/about-scrt">Get SCRT</btn>
                   <btn class="text-center no-arrow btn" url="../about/about-scrt">Use SCRT</btn>
               </div>
           </div>
@@ -35,20 +35,20 @@
                 the decentralized web.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="../developers">START BUILDING</btn>
+                  <btn class="text-center no-arrow btn-color" url="../developers">START BUILDING</btn>
                   <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
                   <btn class="text-center no-arrow btn" url="../developers/grants">Grants</btn>
               </div>
           </div>
           <div class="new-home__call__content__img">
-              <img src="../../assets/home/home-develop.png" alt="">
+              <img src="../../assets/home/home-build.svg" alt="">
           </div>
           
       </div>
 
       <div class="new-home__call__content action3">
           <div class="new-home__call__content__img">
-              <img src="../../assets/home/home-join.png" alt="">
+              <img src="../../assets/home/home-join.svg" alt="">
           </div>
           <div class="new-home__call__content__info">
               <h5 class="new-home__call__content__info-h5">
@@ -61,7 +61,7 @@
                   Become a Secret Agent and collaborate with others to turn a safer and more empowering web into reality.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn" url="../get-involved/become-secret-agent">Become a Secret agent</btn>
+                  <btn class="text-center no-arrow btn-color" url="../get-involved/become-secret-agent">Become a Secret agent</btn>
               </div>
           </div>
 
@@ -175,26 +175,40 @@ export default {
 
     .action1{
         & h5{
-            color: var(--color-analog-secondary-yellow);
+            color: var(--color-analog-secondary-orange);
         }
 
-        
+        & .new-home__call__content__info-btns{
+
+            & .btn-color{
+                background-color: var(--color-analog-secondary-orange);
+            }
+        }
     }
 
     .action2{
         & h5{
             color: var(--color-analog-secondary-blue);
         }
+
+        & .new-home__call__content__info-btns{
+
+            & .btn-color{
+                background-color: var(--color-analog-secondary-blue);
+            }
+        }
     }
 
     .action3{
         & h5{
-            color: var(--color-analog-secondary-orange);
+            color: var(--color-analog-secondary-yellow);
         }
 
         & .new-home__call__content__info-btns{
 
-            & .btn{
+            & .btn-color{
+                background-color: var(--color-analog-secondary-yellow);
+                
                 padding: 10px 1px !important;
                 margin: 0 !important;
 
@@ -204,6 +218,10 @@ export default {
                 @include respond-to("<=m"){
                 max-width: 100% !important;
                 } 
+
+                & span{
+                    color: var(--color-neutral-dark-mode-01);
+                }
             }
             
             

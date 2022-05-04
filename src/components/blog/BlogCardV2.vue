@@ -25,17 +25,17 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
-  announcement: "blue",
+ // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  dev: "red",
+  //dev: "red",
   feature: "orange",
-  ecosystem: "purple",
+  //ecosystem: "purple",
   governance: "gray",
-  hackathon: "yellow",
+  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -46,6 +46,24 @@ const colors = {
   null: "purple",
   undefined: "purple",
   nfts: "orange",
+
+  announcement: "announcement",
+  
+  education: "education",
+  how_tos:"education",
+  explanations: "education",
+  
+  dev: "developers",
+  'tech updates':"developers",
+  hackathon:"developers",
+  funding:"developers",
+
+  ecosystem:"ecosystem",
+  community:"ecosystem",
+  dapp_launches:"ecosystem",
+  'nft launches':"ecosystem",
+  reports:"ecosystem",
+  recaps:"ecosystem",
 };
 
 export default {
@@ -92,12 +110,18 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+  
+  "announcement",
+  "education",
+  "developers",
+  "ecosystem"
 );
 
 .blog-card-v2 {
   border-radius: var(--f-radius);
-  overflow: hidden;//background: var(--theme-card-bg-default);
+  overflow: hidden;
+  background: var(--color-neutral-dark-mode-02);
   transition: 0.3s ease-in-out;
   cursor: pointer;
   height: 340px;
@@ -156,6 +180,7 @@ $accent-colors: (
         font-size: var(--f-default-text-size);
         font-weight: 700;
         font-family: hind;
+        letter-spacing: 1px;
 
         padding-top: 10px;
         

@@ -3,8 +3,8 @@
     <div class="featured-media-header">
       <h5 class="featured-media-header__title">FEATURED MEDIA</h5>
       
-      <div class="featured-media-header__btns">
-        <btn class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
+      <div class="new-blog-grid__title-btns">
+        <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
       </div>
     </div>
 
@@ -78,7 +78,11 @@ $accent-colors: (Article, Podcast, Video);
 
 .new-media-featured-home-v2
 {
-  padding: var(--f-gutter);
+  @include respond-to("<=s") {
+    padding: var(--f-gutter);
+  }
+
+  //padding: var(--f-gutter);
 .featured-media-header {
         display: flex;
         justify-content: space-between;
@@ -120,11 +124,15 @@ $accent-colors: (Article, Podcast, Video);
           grid-template-columns: 1fr;
         }
 
+        @include respond-to("m") {
+          gap: var(--f-gutter-s);
+        }
+
         .item {
           display: grid;
           padding: var(--f-gutter);
           border-radius: var(--f-gutter-s);
-          background: var(--color-neutral-dark-mode-02);
+          background: var(--color-neutral-dark-mode-03);
           transition: 0.2s ease;
           cursor: pointer;
 
@@ -136,10 +144,17 @@ $accent-colors: (Article, Podcast, Video);
 
             img {
               border-radius: var(--f-gutter-s);
-              width: inherit;
-              max-height: 200px;
-              min-height: 200px;
+              //width: inherit;
+              height: 180px;
+              width: 100%;
+              //min-height: 200px;
               object-fit: cover;
+
+              @include respond-to("m") {
+                height: 144px;
+              }
+
+              
             }
 
             .type {
@@ -150,6 +165,7 @@ $accent-colors: (Article, Podcast, Video);
               font-weight: 600;
               width: 100%;
               white-space: normal;
+              
             }
 
             h6 {
@@ -157,6 +173,10 @@ $accent-colors: (Article, Podcast, Video);
               color: var(--color-analog-primary-white);
               width: 100%;
               white-space: normal;
+
+              @include respond-to("<=m") {
+                font-size: 14px;
+              }
             }
           }
 
@@ -170,6 +190,7 @@ $accent-colors: (Article, Podcast, Video);
 
               .type {
                 color: var(--accent-#{$name}-v2);
+                letter-spacing: 1px;
               }
             }
           }

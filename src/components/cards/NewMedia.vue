@@ -172,7 +172,7 @@ $accent-colors: ("Article", "Podcast", "Video");
     }
 
     .item {
-      background: var(--theme-card-bg-default);
+      //background: var(--color-neutral-dark-mode-03);
       transition: 0.2s ease;
       cursor: pointer;
       display: inline-block;
@@ -184,7 +184,7 @@ $accent-colors: ("Article", "Podcast", "Video");
       margin-right: var(--f-gutter-l);
       border-radius: var(--f-radius);
       padding: var(--f-gutter);
-      background: var(--theme-card-bg-default);
+      //background: var(--theme-card-bg-default);
     }
   }
 }
@@ -218,7 +218,7 @@ $accent-colors: ("Article", "Podcast", "Video");
         grid-template-columns: repeat(2, 1fr);
       }
 
-      @include respond-to("<=s") {
+      @include respond-to("<=xs") {
         grid-template-columns: 1fr;
       }
 
@@ -226,8 +226,8 @@ $accent-colors: ("Article", "Podcast", "Video");
       display: grid;
       padding: var(--f-gutter);
       border-radius: var(--f-gutter-s);
-      background: var(--color-analog-primary-black);
-      height: 340px;
+      background: var(--color-neutral-dark-mode-02);
+      height: 300px;
       // width: 350px;
       transition: 0.2s ease;
       cursor: pointer;
@@ -258,10 +258,10 @@ $accent-colors: ("Article", "Podcast", "Video");
           // left: 0;
           // right: 0;
           // height: 290px;
-          width: inherit;
-          max-height: 200px;
-          min-height: 200px;
+          width: 100%;
           object-fit: cover;
+          //width: 368px;
+          height: 150px;
         }
 
         .type {
@@ -294,6 +294,7 @@ $accent-colors: ("Article", "Podcast", "Video");
           .type {
             // color: var(--accent-#{$name});
             color: var(--accent-#{$name}-v2);
+            letter-spacing: 1px;
           }
         }
       }
