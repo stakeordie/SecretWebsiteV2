@@ -24,6 +24,7 @@
 <script>
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
+
 const colors = {
  // announcement: "announcement",
   blockchain: "turquoise",
@@ -121,7 +122,7 @@ $accent-colors: (
 .blog-card-v2 {
   border-radius: var(--f-radius);
   overflow: hidden;
-  background: var(--color-neutral-dark-mode-02);
+  background: var(--color-neutral-dark-mode-03);
   transition: 0.3s ease-in-out;
   cursor: pointer;
   height: 340px;
