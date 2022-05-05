@@ -8,6 +8,7 @@
     --accent-announcement-v2: #FEECA5;
     --accent-education-v2: #FBC998;
     --accent-developers-v2: #8FD2EA;
+    --accent-dev-v2: #8FD2EA;
     --accent-ecosystem-v2: #96D9D3;
     --accent-optional-v2: var(--color-analog-primary-white);
 
@@ -22,5 +23,38 @@
     --accent-purple-v2: var(--color-analog-secondary-purple);               //Ecosystem, null, undefined
     --accent-gray-v2: var(--color-analog-secondary-gray);                   //Governance, 
 
+
+
+
+    --accent-blockchain-v2: var(--accent-turquoise-v2);
+    --accent-nodes-v2: var(--accent-turquoise-v2);
+    --accent-collaboration-v2: var(--accent-green-v2);
+    --accent-privacy-v2: var(--accent-green-v2);
+    //--accent-community-v2: var(--accent-yellow-v2);
+    --accent-secret-v2: var(--accent-yellow-v2);
+    --accent-Cosmos-v2: var(--accent-cream-v2);
+    --accent-solutions-v2: var(--accent-cream-v2);
+    --accent-design-v2: var(--accent-orange-v2);
+    --accent-Feature-v2: var(--accent-orange-v2);
+    --accent-staking-v2: var(--accent-orange-v2);
+    --accent-nfts-v2: var(--accent-orange-v2);
+    --accent-governance-v2: var(--accent-gray-v2);
+    --accent-Introduction-v2: var(--accent-blue-v2);
+    --accent-null-v2: var(--accent-purple-v2);
+    --accent-undefined-v2: var(--accent-purple-v2);
+
+
     
+    --accent-how-to-v2: var(--accent-education-v2);
+    --accent-explanations-v2: var(--accent-education-v2);
+    --accent-tech-updates-v2: var(--accent-developers-v2);
+    --accent-Hackathon-v2: var(--accent-developers-v2);
+    --accent-funding-v2: var(--accent-developers-v2);
+
+    --accent-community-v2: var(--accent-ecosystem-v2);
+    --accent-dapp-launches-v2: var(--accent-ecosystem-v2);
+    --accent-nft-launches-v2: var(--accent-ecosystem-v2);
+    --accent-reports-v2: var(--accent-ecosystem-v2);
+    --accents-recap-v2: var(--accent-ecosystem-v2);
+   
 }
