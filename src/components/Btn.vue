@@ -157,12 +157,32 @@ export default {
         }
       }
 
+      .btn-color{
+        transform: translateY(1px);
+        //vertical-align: middle;
+        color: var(--theme-fg);
+        
+        &:hover {
+        background: var(--color-neutral-dark-mode-02);
+          span {
+            transform: translateY(2px);
+            color: var(--color-analog-primary-white);
+          }
+        }
+      }
+
       .btn-text {
         transform: translateY(1px);
+        //vertical-align: middle;
         color: var(--theme-fg);
       }
 
       &.no-arrow {
+
+        .themed-image{
+            display: none;
+          }
+          
         img {
           display: none !important;
            &.special-icon {

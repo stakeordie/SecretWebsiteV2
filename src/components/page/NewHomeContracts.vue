@@ -14,14 +14,15 @@
       </div>
       <div class="new-home-contracts__features"  >
           <div class="new-home-contracts__features__feature" v-for="(item, index) in reasons" :key="index">
-              <a :href="item.btnUrl" class="feature-cont">
+              <div class="feature-cont">
                   <div class="feature-cont__description">
                       <img :src="item.imageUrl" alt="" />
                       <h4>{{ item.title }}</h4>
                       <p>{{ item.description }}</p>
                   </div>
-                  <a  :href="item.btnUrl" class="">{{item.btn}}</a>
-              </a>
+                  <btn class="text-center no-arrow" :url="item.btnUrl" >{{item.btn}}</btn>
+                  <!-- <a  :href="item.btnUrl" class="">{{item.btn}}</a> -->
+              </div>
           </div>
       </div>
   </section>
@@ -123,13 +124,7 @@ export default {
         padding: var(--f-gutter) var(--f-gutter-xxxl);
       }
 
-      &:hover {
-        background: var(--color-neutral-dark-mode-04);
-
-        a {
-          color: var(--color-newBrand-blue-01);
-        }
-      }
+      
 
       .feature-cont {
         display: grid;
@@ -184,14 +179,18 @@ export default {
           font-weight: 700;
           letter-spacing: 1px;
           padding: 10px 0;
+          justify-self: center;
+          margin-right: 0;
 
           @include respond-to("<=s") {
             align-self: flex-start;
           }
         }
+        
+        & a {
+          margin-right: 0 !important;
+        }
       }
-
-
     }
   }
 

@@ -20,17 +20,17 @@
   
 
   const colors = {
-    announcement: "blue",
+    // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  dev: "red",
+  //dev: "red",
   feature: "orange",
-  ecosystem: "purple",
+  //ecosystem: "purple",
   governance: "gray",
-  hackathon: "yellow",
+  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -41,6 +41,24 @@
   null: "purple",
   undefined: "purple",
   nfts: "orange",
+
+  announcement: "announcement",
+  
+  education: "education",
+  how_tos:"education",
+  explanations: "education",
+  
+  dev: "developers",
+  'tech updates':"developers",
+  hackathon:"developers",
+  funding:"developers",
+
+  ecosystem:"ecosystem",
+  community:"ecosystem",
+  dapp_launches:"ecosystem",
+  'nft launches':"ecosystem",
+  reports:"ecosystem",
+  recaps:"ecosystem",
 
   }
 
@@ -89,7 +107,12 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+  
+  "announcement",
+  "education",
+  "developers",
+  "ecosystem"
 );
 
   .blog-card-featured-v2 {
@@ -123,13 +146,14 @@ $accent-colors: (
     @each $name,
     $color in $accent-colors {
       &.accent-#{$name} {
-
+        background: var(--color-neutral-dark-mode-02);
 
         .blog-card-featured-v2__tag {
           color: var(--accent-#{$name}-v2);
           text-transform: uppercase;
           margin-bottom: var(--f-gutter-xs);
           font-weight: 700;
+          letter-spacing: 1px;
 
           & img{
             border-radius: var(--f-radius);
@@ -144,6 +168,7 @@ $accent-colors: (
 
           & .card-tag{
             margin-top: var(--f-gutter);
+            
           }
         }
 
