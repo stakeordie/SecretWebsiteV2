@@ -6,7 +6,9 @@
     <div class="new-blog-grid-v2__container">
 
       <blog-card-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
-        <template #image><g-image :src="node.feature_image"></g-image></template>
+        <template #image>
+          <g-image v-if="node.feature_image" :src="node.feature_image"></g-image>
+        </template>
         <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
         <h5>{{ node.title }}</h5>
         <!-- <p>{{ node.description | truncate }}</p> -->
