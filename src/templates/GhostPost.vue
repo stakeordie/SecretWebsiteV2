@@ -2,9 +2,15 @@
   <default-layout>
     <section class="blog-post">
       <section class="blog-post-excerpt">
-        <p class="tag" tag v-if="$page.post.primary_tag">
+
+        <p class="tag"  :class="`accent-` + $page.post.primary_tag.name" tag v-if="$page.post.primary_tag">
           {{ $page.post.primary_tag.name }}
         </p>
+        
+        <!-- <p class="tag"  tag v-if="$page.post.primary_tag">
+          {{ $page.post.primary_tag.name }}
+        </p> -->
+
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="description">{{ $page.post.description }}</p>
         <g-image class="cover-image" picture :src="coverImage"></g-image>
@@ -43,18 +49,28 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
+import BlogCardV2 from "@/components/blog/BlogCardV2";
+import BlogPostsV2 from "@/components/blog/BlogPostsV2"
 
 const url = `https://scrt.network`;
+
+
 
 export default {
   components: {
     DefaultLayout,
     BlogAuthor,
+    BlogCardV2,
+    BlogPostsV2,
   },
+
+
+
   metaInfo() {
     return {
       title: this.titleMeta,
       meta: [
+        
         {
           name: "title",
           content: this.titleMeta,
@@ -128,7 +144,7 @@ export default {
         }
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
       }
-      else return "/blog-cover.jpg"
+      else return "https://scrt.network/blog-cover.jpg"
     },
     postContent() {
       const transformedPost = this.$page.post.content.replace(
@@ -205,7 +221,43 @@ $accent-colors: (
   "orange",
   "red",
   "purple",
-  "gray"
+  "gray",
+
+
+  "blockchain",
+  "nodes",
+  "collaboration",
+  "privacy",
+  "secret",
+  "Cosmos",
+  "solutions",
+  "design",
+  "Feature",
+  "staking",
+  "nfts",
+  "governance",
+  "Introduction",
+  "null",
+  "undefined",
+
+  
+  "announcement",
+  "education",
+  "developers",
+  "dev",
+  "ecosystem",
+
+  "how-to",
+  "explanations",
+  "texk-updates",
+  "Hackathon",
+  "funding",
+  "community",
+  "dapp-launches",
+  "nft-launches",
+  "reports",
+  "recap",
+
 );
 
 .blog-post {
@@ -232,10 +284,16 @@ $accent-colors: (
 
     .tag {
       text-transform: uppercase;
+        font-size: var(--f-default-text-size);
+        font-weight: 700;
+        font-family: hind;
+        letter-spacing: 1px;
+
+        padding-top: 10px;
 
       @each $name, $color in $accent-colors {
         &.accent-#{$name} {
-          color: var(--accent-#{$name});
+          color: var(--accent-#{$name}-v2);
         }
       }
     }
