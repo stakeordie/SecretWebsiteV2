@@ -55,6 +55,8 @@ const colors = {
   explanations: "education",
   
   dev: "developers",
+  developers: "developers",
+  "dev": "developers",
   'tech updates':"developers",
   hackathon:"developers",
   funding:"developers",
