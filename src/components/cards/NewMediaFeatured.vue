@@ -210,7 +210,7 @@ $accent-colors: (Article, Podcast, Video);
 
       @each $name, $color in $accent-colors {
         &.accent-#{$name} {
-          background: var(--color-neutral-dark-mode-02);
+          background: var(--color-neutral-dark-mode-03);
           &:hover {
             background: var(--color-neutral-dark-mode-04);
             box-shadow: none;

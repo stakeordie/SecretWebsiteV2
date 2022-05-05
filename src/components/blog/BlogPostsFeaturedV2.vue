@@ -1,7 +1,7 @@
 <template>
   <section class="blog-featured-posts">
     <blog-card-featured-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
-      <template #image><g-image :src="node.feature_image"></g-image></template>
+      <template #image><g-image v-if="node.feature_image" :src="node.feature_image"></g-image></template>
       <template class="card-tag" #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
       <h5>{{ node.title }}</h5>
       <template #footer>

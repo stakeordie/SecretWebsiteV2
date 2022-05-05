@@ -1249,7 +1249,7 @@ body {
     padding: 40px;
 
     a{
-      color: var(--color-newBrand-blue-02) !important;
+      //color: var(--color-newBrand-blue-02) !important;
 
       &:hover {
                   color: var(--mega-header-color-nav-exanded-hover) !important;
