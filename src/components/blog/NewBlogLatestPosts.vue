@@ -35,7 +35,7 @@ export default {
             el.node.feature_image =
               "https://ghost.scrt.network/" + el.node.feature_image;
           }
-        } else el.node.feature_image = "/blog-cover.jpg";
+        } else el.node.feature_image = "https://scrt.network/blog-cover.jpg";
       });
     },
   },

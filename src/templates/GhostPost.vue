@@ -128,7 +128,7 @@ export default {
         }
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
       }
-      else return "/blog-cover.jpg"
+      else return "https://scrt.network/blog-cover.jpg"
     },
     postContent() {
       const transformedPost = this.$page.post.content.replace(
