@@ -86,14 +86,6 @@
             </a>
           </div>
 
-          <div class="no-results" v-if="searchNoResults">
-            <img src="../assets/illustration-no-matches.svg" alt="" />
-            <h3>No matches found</h3>
-            <p>
-              Please try another search or use one of
-              <span>the predefined filters.</span>
-            </p>
-          </div>
         </div>
 
         <div class="elements-grid NOPAGINATED" v-else>
@@ -557,6 +549,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     grid-template-columns: 1fr;
   }
 
+  @include respond-to("<=s") {
+        //grid-template-columns: repeat(2, 1fr);
+        padding: 32px var(--f-gutter);
+      }
+
   h5 {
   color: var(--color-analog-tertiary-gray);
   
@@ -585,10 +582,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         margin: 0;
       }
       .custom-checkbox {
-        grid-auto-flow: column;
-        grid-template-columns: auto;
+        // grid-auto-flow: column;
+        // grid-template-columns: auto;
         gap: 10px;
-        display: inline-grid;
+        display: flex;
         justify-content: center;
         li {
           text-align: center;
@@ -670,20 +667,23 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   }
 
   .elements-container {
+    //margin: auto;
     .elements-grid {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: var(--f-gutter);
-      @include respond-to(">=s") {
-        grid-template-columns: repeat(2, 1fr);
-      }
+       @include respond-to("<=xs") {
+         //grid-template-columns: repeat(2, 1fr);
+         //padding: var(--f-gutter);
+         justify-content: center;
+         grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
+       }
 
-      @include respond-to(">=m") {
-        grid-template-columns: repeat(2, 1fr);
-      }
+       
+      
 
       @include respond-to(">=l") {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       @include respond-to(">=xl") {
@@ -704,6 +704,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         }
         p {
           text-align: center;
+          
           span {
             @include respond-to(">=m") {
               display: block;
@@ -736,7 +737,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
 
           &:hover  .ecosystem .btn-text{
-              color: var( --color-analog-tertiary-blue);
+              color: var( --theme-links-default);
             }
 
           &:hover .tag-accent{
@@ -757,6 +758,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &__logo {
             border-radius: 10px;
             padding: 0;
+            object-fit: contain;
+
+            width: 64px;
+            height: 64px;
+            background-color: var(--color-neutral-dark-mode-04);
           }
 
          
@@ -810,6 +816,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           }
           h4 {
             color: white;
+          }
+          p{
+            min-width: 196px;
           }
         }
         &.hidden {
