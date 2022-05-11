@@ -56,8 +56,8 @@
             v-for="element in pagedArray"
             :key="element.id"
           >
-            <a :href="element.url" target="blank" rel="noopener noreferrer">
-              <img :src="element.picture.url" alt="picture" />
+            <a :href="element.url" target="blank" rel="noopener noreferrer" class="card-element__country">
+              <img :src="element.picture.url" alt="picture" class="card-element__country__picture" />
               <div
                 class="meta"
                 :class="{ 'meta--with-categories': hasCategories }"
@@ -84,6 +84,15 @@
                 </p>
               </div>
             </a>
+          </div>
+
+          <div class="no-results" v-if="searchNoResults">
+            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <h3>No matches found</h3>
+            <p>
+              Please try another search or use one of
+              <span>the predefined filters.</span>
+            </p>
           </div>
         </div>
 
@@ -747,7 +756,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           gap: 4px;
           &__logo {
             border-radius: 10px;
+            padding: 0;
           }
+
+         
 
           
 
@@ -773,6 +785,20 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           }
           
         }
+
+        &__country{
+          display: grid;
+          gap: 16px;
+          padding: var(--f-gutter);
+
+          &__picture{
+            //padding: var(--f-gutter);
+            border-radius: 10px;
+          }
+        }
+
+         
+
         &__title-desc {
           display: grid;
           gap: 8px;
@@ -790,10 +816,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           display: none;
         }
 
-        img {
+        & img {
           object-fit: cover;
-          width: 100%;
+          //width: 100%;
           aspect-ratio: 1 / 1;
+          
+          
         }
 
         &:hover {
