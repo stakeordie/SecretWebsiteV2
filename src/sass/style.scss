@@ -26,6 +26,7 @@
 @import "pages/new-home";
 @import "pages/grants";
 @import "pages/get-scrt";
+@import "pages/about-secret-network";
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -283,6 +284,15 @@ hr {
 
   &.swirl-e {
     background: url(../assets/separator-e.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200px;
+    margin-bottom: var(--f-gutter-s) !important;
+  }
+  &.swirl-f {
+    background: url(../assets/separator-f.svg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
