@@ -483,6 +483,7 @@ query {
         sort
         title: name
         url: link
+        cta_title
         language: language
         picture: logo {
           url
