@@ -1,5 +1,5 @@
 ---
-title: "Tools & Wallets"
+title: "Contributors"
 ---
 
 <!-- Tools -->
@@ -7,7 +7,7 @@ title: "Tools & Wallets"
 
 <block>
 
-<card-grid-v2 header="Tools & Wallets" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-v2>
+<card-grid-v2 header="Contributors" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-v2>
 
 </block>
 
