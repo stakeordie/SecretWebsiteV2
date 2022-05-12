@@ -29,7 +29,7 @@ export default {
           imageUrl: "/img/developers/icon-funding-community.svg",
           title: "Join the Community",
           description:
-            "Start building privacy-preserving dApps with Secret smart contracts. ",
+            "Become a Secret Agent and advance a better, more empowering web.",
           urlTitle: "GET INVOLVED",
           url: "../get-involved/become-secret-agent",
         },
