@@ -78,10 +78,10 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-contracts{
-  padding: 64px 0;
+  padding: 120px 0;
 
     @include respond-to("<=s"){
-            padding: 128px var(--f-gutter);
+            padding: 64px var(--f-gutter);
             }
 
     &__header{

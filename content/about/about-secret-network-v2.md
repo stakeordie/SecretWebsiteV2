@@ -84,7 +84,7 @@ title: "About"
 
 
 <!-- separator -->
-<column class="spacer-s">
+<column >
 <block>
 
 <hr class="swirl-f"/>

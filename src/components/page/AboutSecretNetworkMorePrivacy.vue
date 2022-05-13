@@ -45,6 +45,7 @@ export default {
 
     @include respond-to("<=m"){
         grid-template-columns: 1fr;
+        grid-template-rows: content 1fr;
         gap: 0;
     }
 
@@ -59,7 +60,7 @@ export default {
         img{
             align-self: center;
             max-width: 550px;
-        height: 550px;
+        max-height: 550px;
         margin: auto;
         }
     }
@@ -69,6 +70,10 @@ export default {
         align-self: center;
         margin: auto;
         max-width: 550px;
+
+        .intro__title{
+            font-size: var(--f-h4-text-size);
+        }
 
         .intro__p{
             font-size: var(--paragraph-font-size-big);

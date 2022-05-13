@@ -130,6 +130,11 @@ export default {};
     .by__links{
       display: flex;
       justify-content: space-between;
+
+      @include respond-to("<=xs"){
+           flex-direction: column;
+         }
+
       
     }
   }

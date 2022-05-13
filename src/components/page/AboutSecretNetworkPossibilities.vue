@@ -107,11 +107,13 @@ export default {
        
        @include respond-to ("<=s"){
           grid-gap: var(--f-gutter);
+          
         }
 
         @include respond-to("<=m"){
             grid-template-columns: repeat(3, 1fr);
             margin: auto;
+            
             //padding: var(--f-gutter);
 
             &__item{
@@ -133,7 +135,8 @@ export default {
 
         @include respond-to("<=xs"){
             grid-template-columns: 1fr;
-            row-gap: 24px;
+            row-gap: 0;
+            
 
             &__item{
 
@@ -157,7 +160,11 @@ export default {
             padding: 26px 16px;
 
             @include respond-to("<=s"){
-            //padding: 0;
+            padding: 16px;
+          }
+
+           @include respond-to("<=xs"){
+            max-width: 310px;
           }
 
             &__icon{
