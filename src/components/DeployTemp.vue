@@ -57,7 +57,7 @@ export default {
       var currentDate = new Date();
       this.currentTime = currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })   
       fetch(
-        "https://api.render.com/deploy/srv-c25kv3bonmle4k346bcg?key=QA429JBAgc0"
+        "https://api.render.com/deploy/srv-c9qmqpkgqg450d9ueh1g?key=AufRF7-tjQk"
       );
     },
     countClicks() {
