@@ -64,8 +64,8 @@ module.exports = {
         use: '@gridsome/source-ghost',
         options: {
             typeName: 'Ghost',
-            baseUrl: 'https://ghost.scrt.network',
-            contentKey: '4149959fe32b2af9a94038da54',
+            baseUrl: process.env.GHOST_API_URL,
+            contentKey: process.env.GHOST_API_KEY,
         }
     },
     {
