@@ -15,6 +15,8 @@ import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from 'vue-typical';
 import VueSocialSharing from 'vue-social-sharing';
 import VueAnime from 'vue-animejs';
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 
 import '@fontsource/hind'
@@ -384,6 +386,7 @@ export default function (Vue, {
   Vue.component('i18n', i18n);
   Vue.component('Deploy', Deploy);
   Vue.component('DeployTemp', DeployTemp);
+  Vue.component("v-select", vSelect);
   Vue.use(VueAnime);
   
 

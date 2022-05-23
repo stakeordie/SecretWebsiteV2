@@ -16,6 +16,10 @@
         </div>
         <!-- <h1>{{ scrtData.usd }}</h1> -->
         <div class="price-select">
+          <!-- BORRADOR -->
+          <div>
+            <v-select v-model="selected" :options="['usd', 'cad', 'eur', 'mxn']"></v-select>
+          </div>
           <h1>
             {{
               selected === ""
@@ -30,6 +34,7 @@
             <!-- {{ selected === "" ? "usd" : selected }} -->
           </h1>
           <div class="custom-select">
+            
             <select
               style="text-transform: uppercase"
               class="standard-select"
