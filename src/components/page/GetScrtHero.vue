@@ -18,7 +18,7 @@
         <div class="price-select">
           <!-- BORRADOR -->
           <div class="price-select-btn">
-            <v-select  v-model="selected" placeholder="USD" :options="['usd', 'cad', 'eur', 'mxn']"></v-select>
+            <v-select  v-model="selected" placeholder="USD" :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"></v-select>
           </div>
           <h1>
             {{
@@ -26,7 +26,7 @@
                 ? '$'+scrtData.usd
                 : new Intl.NumberFormat(undefined, {
                     style: "currency",
-                    currencyDisplay: "symbol",
+                    currencyDisplay: "narrowSymbol",
                     currency: selected,
                   }).format(scrtData[selected])
             }}
