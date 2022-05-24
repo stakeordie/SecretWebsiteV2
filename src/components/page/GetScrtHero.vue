@@ -18,7 +18,7 @@
         <div class="price-select">
           <!-- BORRADOR -->
           <div class="price-select-btn">
-            <v-select  v-model="selected" :options="['usd', 'cad', 'eur', 'mxn']"></v-select>
+            <v-select  v-model="selected" placeholder="USD" :options="['usd', 'cad', 'eur', 'mxn']"></v-select>
           </div>
           <h1>
             {{
@@ -201,7 +201,7 @@ export default {
                   }
             
             & .v-select{
-                transform: translateY(4px);
+                transform: translateY(4px) ;
 
               & .vs__dropdown-toggle{
                 border: none;
@@ -248,14 +248,7 @@ export default {
                  & .vs__actions{
                       opacity: 0;
                             display: none;
-                        & .vs__open-indicator{
-                          
-
-                          & path{
-                            
-                          }
-                          
-                        }
+                 
                       }
 
                 & .vs__selected-options{
@@ -263,7 +256,7 @@ export default {
                   align-content: center;
                   padding: 0;
 
-                  
+                  position: relative;
 
                   & .vs__selected{
                     align-self: center;
@@ -277,6 +270,11 @@ export default {
                     padding: 0;
                     margin: 0;
                     //margin-right: 16px;
+
+                    position: absolute;
+                    //transform: translateX(3px);
+                    //z-index: 10;
+                    
                   }
 
                   & .vs--select{
@@ -285,17 +283,33 @@ export default {
                     font-size: 24px;
                     color: var(--color-neutral-dark-mode-06);
                     text-transform: uppercase;
+
                     
 
-                   
                   }
 
-                  
 
-                  & .vs__search{
-                    display: none;
+                  & .vs__search,
+                  & .vs__search:focus,
+                  & .vs__search:target,
+                  & .vs__search:active {
+                    //display: none;
+                    background-color: transparent;
+                    border: none;
 
+                    font-family: var(--f-default-headers-font);
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: var(--color-neutral-dark-mode-06);
+                    text-transform: uppercase;
 
+                    padding: 0;
+                    margin-top: 0;
+                    
+                    text-align: center;
+
+                    text-decoration: none;
+                    caret-color: transparent;
                   }
                 }
 

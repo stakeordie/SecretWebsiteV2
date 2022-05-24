@@ -23,12 +23,6 @@
 
 .get-scrt{
 
-    & .content{
-
-        & .box {
-           
-        }
-    }
     
 
     &__cover{
@@ -67,10 +61,6 @@
 
         @include respond-to("<=m"){
             justify-content: center;
-        }
-
-        & img{
-            //margin: auto;
         }
 
         & h3{
