@@ -105,10 +105,49 @@ export default {};
         }
 
         & .btn-blue {
-          background-color: var(--color-newBrand-blue-01) !important;
+          background-color: var(--color-analog-secondary-yellow) !important;
+          
+
+          & .btn-text{
+            color: var(--color-neutral-dark-mode-02) !important;
+
+            & img {
+              -webkit-filter: invert(100%);
+              filter: invert(100%)
+            };
+          }
+
+          &:hover{
+            background-color: var(--color-neutral-dark-mode-02) !important;
+
+            & .btn-text{
+            color: var(--color-neutral-dark-mode-06) !important;
+
+              & img {
+                -webkit-filter: invert(0%);
+                filter: invert(0%)
+              };
+            }
+          }
         }
       }
     }
   }
 }
+
+
+
+
+
+.about-get-scrt-v2{
+
+  .get-scrt-questions{
+
+    & h5{
+            color: var(--color-analog-secondary-yellow);
+        }
+  }
+
+}
+
 </style>
