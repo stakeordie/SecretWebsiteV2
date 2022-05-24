@@ -201,22 +201,62 @@ export default {
                   }
             
             & .v-select{
-                      
+                transform: translateY(4px);
 
               & .vs__dropdown-toggle{
                 border: none;
 
                 border-radius: 26px;
                 overflow: hidden;
-                background-color: var(--color-analog-secondary-orange);
+                background-color: rgba(235, 128, 69, 1);
                 
                 align-content: center;
 
 
-                min-width: 127px;
+                width: 127px;
                 height: 60px;
 
-                padding: 16px;
+                padding: 10px 10px 10px 20px;
+                    margin: auto 0;
+
+                cursor: pointer;
+
+                display: flex;
+
+                &::after{
+                    //position: absolute;
+                    display: flex;
+                    //transform:  translateX(8px);
+                    //top: 12px;
+                    //right: 12px;
+                    content: '' ;
+                    // max-width: 24px;
+                    // max-height: 24px;
+                    min-width: 24px;
+                    height: auto;
+                    //margin: 6px 3.6px ;
+                    background-image: url(../../assets/icon-chevron-down.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+
+                    //opacity: 0;
+
+                    //align-self: center;
+                  }
+
+                 & .vs__actions{
+                      opacity: 0;
+                            display: none;
+                        & .vs__open-indicator{
+                          
+
+                          & path{
+                            
+                          }
+                          
+                        }
+                      }
 
                 & .vs__selected-options{
                   justify-content: center;
@@ -236,7 +276,7 @@ export default {
 
                     padding: 0;
                     margin: 0;
-                    margin-right: 16px;
+                    //margin-right: 16px;
                   }
 
                   & .vs--select{
@@ -245,6 +285,9 @@ export default {
                     font-size: 24px;
                     color: var(--color-neutral-dark-mode-06);
                     text-transform: uppercase;
+                    
+
+                   
                   }
 
                   
@@ -270,40 +313,81 @@ export default {
               }
 
               & .vs__dropdown-menu{
-               background: rgba(198, 77, 21, 1);   
-              border-radius:  0 0 26px 26px; 
+                background: rgba(198, 77, 21, 1);   
+                border-radius:  0 0 26px 26px; 
 
-              min-width: 127px;
+                min-width: 127px;
+                max-width: 127px;
 
-              overflow: scroll;
-              max-height: 180px;
+                overflow: scroll;
+                max-height: 180px;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
 
               & .vs__dropdown-option{
-                font-family: var(--f-default-headers-font);
+                    font-family: var(--f-default-headers-font);
                     font-weight: 700;
                     font-size: 24px;
                     color: var(--color-neutral-dark-mode-06);
                     text-transform: uppercase;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    padding: 10px 10px 10px 20px;
+                    margin: auto 0;
+
+
+                     &::after{
+                    //position: absolute;
+                    display: flex;
+                    transform:  translateX(8px);
+                    //top: 12px;
+                    //right: 12px;
+                    content: '' ;
+                    // max-width: 24px;
+                    // max-height: 24px;
+                    width: 16.82px;
+                    height: 12px;
+                    margin: 6px 3.6px ;
+                    background-image: url(../../assets/check-light-orange.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+
+                    opacity: 0;
+
+                    //align-self: center;
+                  }
+
+                  
+
+                    
                 }
 
                 & .vs__dropdown-option--selected{
                   color: rgba(251, 201, 152, 1);
                   
                   &::after{
-                    //position: absolute;
-                    display: inline-block;
-                    transform: translateY(3px) translateX(8px);
-                    //top: 12px;
-                    //right: 12px;
-                    content: '' ;
-                    width: 24px;
-                    height: 24px;
-                    background-image: url(../../assets/check-light-orange.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: contain;
 
-                    //align-self: center;
+                    opacity: 1;
+                    // //position: absolute;
+                    // display: inline-block;
+                    // transform: translateY(3px) translateX(8px);
+                    // //top: 12px;
+                    // //right: 12px;
+                    // content: '' ;
+                    // width: 24px;
+                    // height: 24px;
+                    // background-image: url(../../assets/check-light-orange.svg);
+                    // background-repeat: no-repeat;
+                    // background-position: center;
+                    // background-size: contain;
+
+                    // //align-self: center;
                   }
                 }
 

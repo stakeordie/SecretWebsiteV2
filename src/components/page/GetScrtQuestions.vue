@@ -49,6 +49,8 @@ export default {};
   border-radius: 10px;
   padding: 26px;
 
+  
+
   @include respond-to("<=m") {
     padding: 26px 16px;
   }
@@ -80,6 +82,10 @@ export default {};
       margin: auto;
 
       &__text {
+         & h5{
+            color: var(--color-analog-secondary-yellow) !important;
+        }
+       
       }
 
       &__btns {
@@ -133,21 +139,6 @@ export default {};
       }
     }
   }
-}
-
-
-
-
-
-.about-get-scrt-v2{
-
-  .get-scrt-questions{
-
-    & h5{
-            color: var(--color-analog-secondary-yellow);
-        }
-  }
-
 }
 
 </style>
