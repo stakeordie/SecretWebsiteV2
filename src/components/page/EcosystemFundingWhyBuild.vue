@@ -9,7 +9,7 @@
             <p class="page-ecosystem-funding__why-build__content__reasons-description">Build applications that can’t be built elsewhere using private data on-chain—from finance to gaming to communication tools.</p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Have interopterability built-in</h4>
+            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Have interoperability built-in</h4>
             <p class="page-ecosystem-funding__why-build__content__reasons-description">With Cosmos IBC integrated plus bridges to 4+ ecosystems (and counting), apps built on Secret Network can be used all across Web3.</p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">

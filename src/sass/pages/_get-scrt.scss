@@ -8,7 +8,7 @@
   &.about-get-scrt,
   &.about-get-scrt-v2 {
     & h5 {
-        color: var(--color-analog-tertiary-yellow);
+        color: var(--color-analog-secondary-orange);
         margin-bottom: 0;
         font-size: 16px;
     }
@@ -23,12 +23,7 @@
 
 .get-scrt{
 
-    & .content{
 
-        & .box {
-           
-        }
-    }
     
 
     &__cover{
@@ -48,22 +43,46 @@
     }
 
     &__price-box{
-        background: url("../../src/assets/get-scrt/get-scrt-yellow-bubble.png") ;
+        background: url("../../src/assets/get-scrt/get-scrt-brown-bubble.png") ;
         background-size: contain ;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 
+    &__align-img{
+        margin: auto;
+    }
+
+    &__block-align{
+        display: flex;
+        align-items: center;
+        
+        
+
+        @include respond-to("<=m"){
+            justify-content: center;
+        }
+
+        & h3{
+            & img{
+                margin: 0;
+            }
+        }
+    }
+
     &__text-block{ 
         text-align: center;
+        justify-content: center;
         max-width: 800px;
         margin: auto;
         padding: var(--f-gutter-xxl) var(--f-gutter);
 
         & h3{
-            
+            justify-content: center;
         }
+
+        
     }
 
     &__privacy {
@@ -129,113 +148,3 @@
 }
 
 
-.simple-layout {
-
-    &.about-get-scrt-v2 {
-        & h5{
-            color: var(--color-analog-secondary-orange);
-        }
-
-        
-
-
-
-        & .get-scrt{
-
-            & .content{
-        
-                & .box {
-                   
-                }
-            }
-
-             
-            
-        
-            &__cover{
-                background: url("../../src/assets/home/new-home-hero-bg.png") ;
-                background-size: cover ;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-        
-            &__price-box{
-                background: url("../../src/assets/get-scrt/get-scrt-brown-bubble.png") ;
-                background-size: contain ;
-                background-position: center;
-                background-repeat: no-repeat;
-        
-            }
-
-            &__align-img{
-                margin: auto;
-            }
-
-            &__block-align{
-                display: flex;
-                align-items: center;
-                
-                
-
-                @include respond-to("<=m"){
-                    justify-content: center;
-                }
-
-                & img{
-                    //margin: auto;
-                }
-
-                & h3{
-                    & img{
-                        margin: 0;
-                    }
-                }
-            }
-        
-            &__text-block{ 
-                text-align: center;
-                justify-content: center;
-                max-width: 800px;
-                margin: auto;
-                padding: var(--f-gutter-xxl) var(--f-gutter);
-
-                & h3{
-                    justify-content: center;
-                }
-        
-                
-            }
-
-            
-        
-            &__privacy {
-                display: grid;
-                justify-content: center;
-                &__text-box { 
-                    display: grid;
-                    grid-template-columns: auto 1fr;
-                    gap: var(--f-gutter-s);
-                    align-items: center;
-                    width: fit-content;
-                    padding: var(--f-gutter) 32px;
-                    border-radius: var(--f-gutter-s);
-                    border: 1px solid var(--color-neutral-dark-mode-04);
-            
-                    &__p {
-                        margin-bottom: 0;
-        
-                        a {
-                            color: var(--color-newBrand-blue-02);
-                            text-decoration: underline;
-                            &:hover {
-                                color: var(--color-newBrand-blue-01);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-       
-    }
-}

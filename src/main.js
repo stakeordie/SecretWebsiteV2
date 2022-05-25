@@ -15,6 +15,8 @@ import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from 'vue-typical';
 import VueSocialSharing from 'vue-social-sharing';
 import VueAnime from 'vue-animejs';
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 
 
 import '@fontsource/hind'
@@ -91,6 +93,9 @@ import HeaderNav from '~/components/HeaderNav.vue';
 import HeaderMegaMenuV2 from '~/components/HeaderMegaMenuV2';
 import FooterMenu from '~/components/FooterMenu.vue';
 
+import LogoCarousel from '~/components/LogoCarousel.vue';
+
+
 
 // Blog
 import BlogAuthor from '~/components/blog/BlogAuthor'
@@ -166,9 +171,7 @@ import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
 import GetScrtQuestions from '~/components/page/GetScrtQuestions'
 import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
 import GetScrtWallets from '~/components/page/GetScrtWallets'
-
 import GetScrtConvertSscrtV2 from '~/components/page/GetScrtConvertSscrtV2'
-
 import AboutSecretNetworkHero from '~/components/page/AboutSecretNetworkHero'
 import AboutSecretNetworkSupported from '~/components/page/AboutSecretNetworkSupported'
 import AboutSecretNetworkMorePrivacy from '~/components/page/AboutSecretNetworkMorePrivacy'
@@ -177,6 +180,9 @@ import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetwor
 import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
 import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
 import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
+
+import AustinEventHero from '~/components/page/AustinEventHero'
+import AustinEventMeet from '~/components/page/AustinEventMeet'
 
 
 
@@ -288,6 +294,8 @@ export default function (Vue, {
   Vue.component('GetScrtQuestions', GetScrtQuestions);
   Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
+  Vue.component('LogoCarousel', LogoCarousel);
+
   
 
 
@@ -349,7 +357,6 @@ export default function (Vue, {
   Vue.component('ServiceJobs', ServiceJobs);
   Vue.component('EcosystemFundingApply', EcosystemFundingApply);
   Vue.component('EcosystemFundingGrant', EcosystemFundingGrant);
-
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
@@ -357,9 +364,7 @@ export default function (Vue, {
   Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
   Vue.component('GetScrtWallets', GetScrtWallets);
   Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
-
   Vue.component('GetScrtConvertSscrtV2', GetScrtConvertSscrtV2);
-  
   Vue.component('AboutSecretNetworkHero', AboutSecretNetworkHero);
   Vue.component('AboutSecretNetworkSupported', AboutSecretNetworkSupported);
   Vue.component('AboutSecretNetworkMorePrivacy', AboutSecretNetworkMorePrivacy);
@@ -368,6 +373,9 @@ export default function (Vue, {
   Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
   Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
   Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
+
+  Vue.component('AustinEventHero', AustinEventHero);
+  Vue.component('AustinEventMeet', AustinEventMeet);
 
 
   
@@ -378,6 +386,7 @@ export default function (Vue, {
   Vue.component('i18n', i18n);
   Vue.component('Deploy', Deploy);
   Vue.component('DeployTemp', DeployTemp);
+  Vue.component("v-select", vSelect);
   Vue.use(VueAnime);
   
 

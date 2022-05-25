@@ -11,25 +11,30 @@
       </div>
       <div class="get-scrt__hero__content__price-box get-scrt__price-box">
         <div class="price-title">
-          <img src="../../assets/getscrt-icon.svg" alt="" />
+          <img src="../../assets/getscrt-icon2.svg" alt="" />
           <h3>SCRT price</h3>
         </div>
         <!-- <h1>{{ scrtData.usd }}</h1> -->
         <div class="price-select">
+          <!-- BORRADOR -->
+          <div class="price-select-btn">
+            <v-select  v-model="selected" placeholder="USD" :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"></v-select>
+          </div>
           <h1>
             {{
               selected === ""
                 ? '$'+scrtData.usd
                 : new Intl.NumberFormat(undefined, {
                     style: "currency",
-                    currencyDisplay: "symbol",
+                    currencyDisplay: "narrowSymbol",
                     currency: selected,
                   }).format(scrtData[selected])
             }}
             <!-- {{ selected === "" ? scrtData.usd : scrtData[selected].toLocaleString(undefined, { style: 'currency', currency: selected }) }} -->
             <!-- {{ selected === "" ? "usd" : selected }} -->
           </h1>
-          <div class="custom-select">
+          <!-- <div class="custom-select">
+            
             <select
               style="text-transform: uppercase"
               class="standard-select"
@@ -40,7 +45,7 @@
               <option>eur</option>
               <option>mxn</option>
             </select>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -157,9 +162,10 @@ export default {
         & img {
           width: 42px;
           height: 42px;
-          background: #fff;
+          //background: #fff;
           border-radius: 50%;
           margin-right: 10px;
+          justify-self: center;
         }
 
         .price-title {
@@ -182,93 +188,335 @@ export default {
 
       .price-select {
         display: flex;
-        align-items: center;
+        //align-items: center;
         justify-content: center;
+        margin-top: 16px;
 
-        & h1 {
-          font-family: Montserrat;
-          font-weight: 600;
-          font-size: 48px;
-          text-transform: uppercase;
-          margin-bottom: 0;
+         &-btn{
+            margin-right: 16px;
+            width: 127px;
+            
+            
+            & .vs--open{
+                    background: rgba(198, 77, 21, 1);   
+                    border-radius: 26px 26px  0 0 ;  
+                  }
+            
+            & .v-select{
+                transform: translateY(4px) ;
+                //position: absolute;
 
-          @include respond-to("<=s") {
-            font-size: 40px;
-            //line-height: var(--f-h1-line-height);
-          }
-        }
+              & .vs__dropdown-toggle{
+                border: none;
 
-        & select {
-          background: transparent;
-          border: none;
-          width: 30px;
-          //width: 250px;
-          height: 30px;
-          transform: translateX(-6px) translateY(0px);
-          text-transform: uppercase;
-          box-shadow: none;
+                border-radius: 26px;
+                overflow: hidden;
+                background-color: rgba(235, 128, 69, 1);
+                
+                align-content: center;
 
-          cursor: pointer;
 
-          &:focus {
-            outline: none;
-          }
-        }
+                width: 127px;
+                height: 60px;
 
-        & .custom-select {
-          height: 20px;
-          width: 20px;
-          align-self: center;
+                padding: 10px 10px 10px 20px;
+                    margin: auto 0;
 
-          position: relative;
-          top: -4px;
-          right: -15px;
+                cursor: pointer;
 
-          @include respond-to("<=s") {
-            top: -3px;
-            right: -10px;
-          }
+                display: flex;
 
-          &:hover {
-            &::after {
-              background-color: var(--color-neutral-dark-mode-04);
+                &::after{
+                    //position: absolute;
+                    display: flex;
+                    //transform:  translateX(8px);
+                    //top: 12px;
+                    //right: 12px;
+                    content: '' ;
+                    // max-width: 24px;
+                    // max-height: 24px;
+                    min-width: 24px;
+                    height: auto;
+                    //margin: 6px 3.6px ;
+                    background-image: url(../../assets/icon-chevron-down.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+
+                    //opacity: 0;
+
+                    //align-self: center;
+                  }
+
+                 & .vs__actions{
+                      opacity: 0;
+                            display: none;
+                 
+                      }
+
+                & .vs__selected-options{
+                  justify-content: center;
+                  align-content: center;
+                  padding: 0;
+
+                  position: relative;
+
+                  & .vs__selected{
+                    align-self: center;
+
+                    font-family: var(--f-default-headers-font);
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: var(--color-neutral-dark-mode-06);
+                    text-transform: uppercase;
+
+                    padding: 0;
+                    margin: 0;
+                    //margin-right: 16px;
+
+                    position: absolute;
+                    //transform: translateX(3px);
+                    //z-index: 10;
+                    
+                  }
+
+                  & .vs--select{
+                    font-family: var(--f-default-headers-font);
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: var(--color-neutral-dark-mode-06);
+                    text-transform: uppercase;
+
+                    
+
+                  }
+
+
+                  & .vs__search,
+                  & .vs__search:focus,
+                  & .vs__search:target,
+                  & .vs__search:active {
+                    //display: none;
+                    background-color: transparent;
+                    border: none;
+
+                    font-family: var(--f-default-headers-font);
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: var(--color-neutral-dark-mode-06);
+                    text-transform: uppercase;
+
+                    padding: 0;
+                    margin-top: 0;
+                    
+                    text-align: center;
+
+                    text-decoration: none;
+                    caret-color: transparent;
+                  }
+                }
+
+                & .vs__actions{
+                  padding: 0;
+
+                  & .vs__clear{
+                    display: none;
+                  }
+
+                  & .vs__open-indicator{
+                    fill: #fff;
+                  }
+                }
+              }
+
+              & .vs__dropdown-menu{
+                background: rgba(198, 77, 21, 1);   
+                border-radius:  0 0 26px 26px; 
+
+                min-width: 127px;
+                max-width: 127px;
+
+                overflow: scroll;
+                max-height: 180px;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
+
+              & .vs__dropdown-option{
+                    font-family: var(--f-default-headers-font);
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: var(--color-neutral-dark-mode-06);
+                    text-transform: uppercase;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    padding: 10px 10px 10px 20px;
+                    margin: auto 0;
+
+
+                     &::after{
+                    //position: absolute;
+                    display: flex;
+                    transform:  translateX(8px);
+                    //top: 12px;
+                    //right: 12px;
+                    content: '' ;
+                    // max-width: 24px;
+                    // max-height: 24px;
+                    width: 16.82px;
+                    height: 12px;
+                    margin: 6px 3.6px ;
+                    background-image: url(../../assets/check-light-orange.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+
+                    opacity: 0;
+
+                    //align-self: center;
+                  }
+
+                  
+
+                    
+                }
+
+                & .vs__dropdown-option--selected{
+                  color: rgba(251, 201, 152, 1);
+                  
+                  &::after{
+
+                    opacity: 1;
+                    // //position: absolute;
+                    // display: inline-block;
+                    // transform: translateY(3px) translateX(8px);
+                    // //top: 12px;
+                    // //right: 12px;
+                    // content: '' ;
+                    // width: 24px;
+                    // height: 24px;
+                    // background-image: url(../../assets/check-light-orange.svg);
+                    // background-repeat: no-repeat;
+                    // background-position: center;
+                    // background-size: contain;
+
+                    // //align-self: center;
+                  }
+                }
+
+                & .vs__dropdown-option--highlight{
+                  background-color: var(--color-analog-secondary-orange);
+                }
+              }
             }
           }
 
-          &::after {
-            content: "";
-            display: table-cell;
-            text-align: center;
-
-            width: 25px;
-            height: 25px;
-            padding: 2px;
-            background-image: url(../../assets/get-scrt/icon-repeat-no-bg.svg);
-            background-repeat: no-repeat;
-            background-size: 18px;
-            background-position: center;
-            background-color: var(--color-neutral-dark-mode-02);
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            right: 0;
-
-            pointer-events: none;
+          & h1{
+            margin: 0;
+            font-size: 54px;
+            width: 148px;
+            
           }
 
-          @include respond-to("<=s") {
-            height: 28px;
-            width: 28px;
 
-            &::after {
-              content: "";
-              width: 28px;
-              height: 28px;
-              background-size: 20px;
-              //padding: 1px;
-            }
-          }
-        }
+
+
+        // & h1 {
+        //   font-family: Montserrat;
+        //   font-weight: 600;
+        //   font-size: 48px;
+        //   text-transform: uppercase;
+        //   margin-bottom: 0;
+
+        //   @include respond-to("<=s") {
+        //     font-size: 40px;
+        //     //line-height: var(--f-h1-line-height);
+        //   }
+        // }
+
+        // & select {
+        //   background: transparent;
+        //   border: none;
+        //   width: 30px;
+        //   //width: 250px;
+        //   height: 30px;
+        //   transform: translateX(-6px) translateY(0px);
+        //   text-transform: uppercase;
+        //   box-shadow: none;
+
+        //   cursor: pointer;
+
+        //   &:focus {
+        //     outline: none;
+        //   }
+        // }
+
+        // & .custom-select {
+        //   height: 20px;
+        //   width: 20px;
+        //   align-self: center;
+
+         
+
+
+
+
+        //   position: relative;
+        //   top: -4px;
+        //   right: -15px;
+
+        //   @include respond-to("<=s") {
+        //     top: -3px;
+        //     right: -10px;
+        //   }
+
+        //   &:hover {
+        //     &::after {
+        //       background-color: var(--color-neutral-dark-mode-04);
+        //     }
+        //   }
+
+        //   &::after {
+        //     content: "";
+        //     display: table-cell;
+        //     text-align: center;
+
+        //     width: 25px;
+        //     height: 25px;
+        //     padding: 2px;
+        //     background-image: url(../../assets/get-scrt/icon-repeat-no-bg.svg);
+        //     background-repeat: no-repeat;
+        //     background-size: 18px;
+        //     background-position: center;
+        //     background-color: var(--color-neutral-dark-mode-02);
+        //     border-radius: 50%;
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+
+        //     pointer-events: none;
+        //   }
+
+        //   @include respond-to("<=s") {
+        //     height: 28px;
+        //     width: 28px;
+
+        //     &::after {
+        //       content: "";
+        //       width: 28px;
+        //       height: 28px;
+        //       background-size: 20px;
+        //       //padding: 1px;
+        //     }
+        //   }
+        // }
+
+        
+        
       }
     }
   }
