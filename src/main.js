@@ -16,6 +16,7 @@ import typical from 'vue-typical';
 import VueSocialSharing from 'vue-social-sharing';
 import VueAnime from 'vue-animejs';
 import vSelect from "vue-select";
+import Countdown from "@whitewizard/countdown"
 import "vue-select/dist/vue-select.css";
 
 
@@ -387,6 +388,7 @@ export default function (Vue, {
   Vue.component('Deploy', Deploy);
   Vue.component('DeployTemp', DeployTemp);
   Vue.component("v-select", vSelect);
+  Vue.component("Countdown", Countdown);
   Vue.use(VueAnime);
   
 
