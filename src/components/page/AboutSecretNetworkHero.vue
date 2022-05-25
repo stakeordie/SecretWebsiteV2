@@ -15,19 +15,19 @@
     </p>
     <div class="about-secret-network-hero__content__list">
       <div class="list-item">
-        <img src="../../assets/about-secret-network/file-yellow.svg" alt="" class="list-icon">
+        <img src="../../assets/about-secret-network/file-orange.svg" alt="" class="list-icon">
         <p class="list-info">
           Privacy-preserving smart contracts
         </p>
       </div>
       <div class="list-item">
-        <img src="../../assets/about-secret-network/lock-yellow.svg" alt="" class="list-icon">
+        <img src="../../assets/about-secret-network/lock-orange.svg" alt="" class="list-icon">
         <p class="list-info">
           Encrypted inputs, outputs, and state by default
         </p>
       </div>
       <div class="list-item">
-        <img src="../../assets/about-secret-network/checked-yellow.svg" alt="" class="list-icon">
+        <img src="../../assets/about-secret-network/checked-orange.svg" alt="" class="list-icon">
         <p class="list-info">
           Transparent underlying ledger; completely auditable
         </p>
@@ -53,7 +53,7 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-hero{
-    padding: 60px 0;
+    padding: 120px 0;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -65,17 +65,17 @@ export default {};
             }
 
     & p{
-        font-size: var(--paragraph-font-size-big);
+        //font-size: var(--paragraph-font-size-big);
         line-height: var(--paragraph-line-height-big);
         margin-bottom: 0;
     }
 
     &__content{
-        max-width: 576px;
-        padding: 36px;
+        max-width: 504px;
+        //padding: 20px;
 
         display: grid;
-        row-gap: 26px;
+        row-gap: 16px;
         margin: auto;
 
         @include respond-to("<=s"){
@@ -83,14 +83,17 @@ export default {};
             }
 
         &__h5{
-            color: var(--color-analog-tertiary-yellow);
+            color: var(--about-color-orange);
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 00;
             margin-bottom: 0;
         }
         &__h1{
             margin-bottom: 0;
-
+            font-family: var(--f-default-headers-font);
+            font-weight: 600;
+            font-size: 54px;
+            line-height: 60px;
             
 
             @include respond-to("<=l"){
@@ -116,17 +119,19 @@ export default {};
 
         &__list{
             display: grid;
-            row-gap: 16px;
+            row-gap: 10px;
+           
 
             & .list-item{
                 display: flex;
                 align-items: center;
+                 font-size: var(--f-default-text-size);
             }
 
             & .list-icon{
-                width: 29px;
-                height: 29px;
-                padding: 5px;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
                 margin-right: 10px;
             }
         }
@@ -138,8 +143,8 @@ export default {};
       align-self: center;
 
       img {
-        max-width: 520px;
-        max-height: 395px;
+        width: 600px;
+        //max-height: 395px;
         margin: auto;
       }
     }
