@@ -193,7 +193,9 @@ export default {
         margin-top: 16px;
 
          &-btn{
-            margin-right: 26px;
+            margin-right: 16px;
+            width: 127px;
+            
             
             & .vs--open{
                     background: rgba(198, 77, 21, 1);   
@@ -202,6 +204,7 @@ export default {
             
             & .v-select{
                 transform: translateY(4px) ;
+                //position: absolute;
 
               & .vs__dropdown-toggle{
                 border: none;
@@ -415,6 +418,8 @@ export default {
           & h1{
             margin: 0;
             font-size: 54px;
+            width: 148px;
+            
           }
 
 
