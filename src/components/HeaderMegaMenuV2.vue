@@ -381,7 +381,7 @@ export default {
     },
     redirectAboutSrct() {
       this.linkCloseMenu();
-      this.$router.push("/about/about-scrt");
+      this.$router.push("/about/get-scrt");
     },
     mapNavArray(array) {
       array.forEach((c) => {

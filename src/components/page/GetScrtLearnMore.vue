@@ -26,7 +26,7 @@ export default {
           url: "../developers",
         },
          {
-          imageUrl: "/img/developers/icon-funding-community.svg",
+          imageUrl: "/img/developers/icon-funding-community-yellow.svg",
           title: "Join the Community",
           description:
             "Become a Secret Agent and advance a better, more empowering web.",
@@ -47,7 +47,7 @@ export default {
   padding: 64px 0;
   
 
-  &__cards{
+  &__cards{ 
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 48px;
@@ -81,5 +81,10 @@ export default {
     
   }
 }
+
+
+
+
+
 
 </style>
