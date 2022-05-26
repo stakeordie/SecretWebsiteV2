@@ -20,6 +20,40 @@ title: 'Secret Network'
 
 
 
+<!-- EVENT BANNER -->
+<column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" >
+
+<block class="dcentral-afterparty__home__countdown">
+
+<countdown format="hours:minutes:seconds" separators="" end="2022-06-08T21:00:00-07:00"></countdown>
+
+### until the party starts
+
+</block>
+
+<block class="dcentral-afterparty__event-info">
+
+![](../src/assets/events/logos/secret-logo-white.svg)
+
+### DCentral Austin Afterparty
+
+Secret Network is the first blockchain with customizable privacy for smart contracts. You get to choose what you share, with whom, and how. This protects users, and empowers creators and builders to design art, games, and apps not possible elsewhere.  
+
+<btn class="center-text no-arrow dcentral-afterparty__event-info__btn" url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137">GET TICKETS NOW</btn>
+
+
+</block>
+
+
+
+</column>
+
+
+
+
+
+
+
 
 
 <!--  -->

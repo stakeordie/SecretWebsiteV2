@@ -1,0 +1,518 @@
+
+@import "@lkmx/flare/src/functions/respond-to";
+
+//////////////////////////
+// General
+//////////////////////////
+
+
+:root{
+    --austin-event-color-accent-01: rgba(232, 80, 74, 1);
+    --austin-event-color-turquoice: rgba(76, 190, 179, 1);
+    --austin-event-color-blue: rgba(85, 150, 220, 1);
+    --austin-event-color-orange: rgba(235, 128, 69, 1);
+}
+
+
+.dcentral-afterparty {
+    --austin-event-color-accent-01: rgba(232, 80, 74, 1);
+    --austin-event-color-turquoice: rgba(76, 190, 179, 1);
+    --austin-event-color-blue: rgba(85, 150, 220, 1);
+    --austin-event-color-orange: rgba(235, 128, 69, 1);
+
+
+    .swirl-wrapper, .swirl-wrapper-bottom{
+        display: none;
+    }
+
+    .simple-footer{
+        display: none;
+
+    }
+
+    .legal{
+        display: none;
+    }
+
+    & .event-cover,
+    &__event-cover{
+
+        background-image: linear-gradient(rgba(21, 26, 32, 0.82), rgba(21, 26, 32, 0.82)), 
+                            url("../../src/assets/events/austin-event.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    & .dark-bg{
+        background-color: var(--color-neutral-dark-mode-02);
+        
+    }
+
+
+    .eyebrow{
+        
+        &--yellow{
+            color: var(--color-analog-secondary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 26px;
+        }
+
+        &--red{
+            color: var(--austin-event-color-accent-01);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            //margin-bottom: 26px;
+        }
+
+        &--orange{
+            color: var(--austin-event-color-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            //margin-bottom: 26px;
+
+            @include respond-to("<=s"){
+                margin-bottom: 26px;
+            }
+        }
+    }
+
+      //////////////////////////
+// HOME BANNER
+//////////////////////////
+
+
+
+
+
+//////////////////////////
+// Kevin Smith
+//////////////////////////
+
+    .kevin-smith {
+        background-image: linear-gradient(rgba(21, 26, 32, 0.62), rgba(21, 26, 32, 0.62)),
+                            url("../../src/assets/events/kevin-smith.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        
+
+        min-height: 600px;
+
+        align-content: center;
+
+        @include respond-to("<=s"){
+            padding: 64px var(--f-gutter);
+
+            background-image: linear-gradient(rgba(21, 26, 32, 0.80), rgba(21, 26, 32, 0.80)),
+            url("../../src/assets/events/kevin-smith.png");
+
+            &__h4{
+                margin: 0;
+            }
+
+            &__h1{
+                font-size: 84px;
+                line-height: 94px;
+            }
+        }
+
+        &__h4{
+            text-align: center;
+        }
+
+        &__h1{
+            font-size: 104px;
+            line-height: 114px;
+            text-align: center;
+            font-family: var(--f-default-headers-font);
+            margin-bottom: 26px;
+
+            @include respond-to("<=s"){
+                font-size: 84px;
+                line-height: 96px;
+            }
+        }
+
+        &__p{
+            max-width: 600px;
+            margin: auto;
+            font-size: var(--paragraph-font-size-big);
+            line-height: var(--paragraph-line-height-big);
+            color: var(--color-neutral-dark-mode-06);
+        }
+    }
+
+
+
+//////////////////////////
+// Killroy
+//////////////////////////
+
+    .killroy{
+
+        &__left{
+            background-image: url("../../src/assets/events/killroy-was-here-bg.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            justify-items: center;
+            text-align: center;
+
+            //height: 533px;
+
+            & .content{
+
+                & .box{
+                    // display: grid;
+                    // grid-template-rows: max(101px) 60px 30px;
+
+                    & p{
+                        //height: 101px;
+                        
+                        & img{
+                           //object-fit: contain;
+                           margin: auto;
+                        }
+                    }
+
+                    & h2{
+                        margin-top: -200px;
+                    }                 
+
+                    
+                }
+            }
+        }
+
+        &__right{
+            padding: 64px var(--f-gutter);
+            justify-items: center;
+            
+            margin: auto;
+
+            
+
+            @include respond-to("<=xs"){
+                padding: 32px;
+            }
+
+            & .content{
+                align-self: center;
+                max-width: 600px;
+            }
+
+            &__vip{
+                display: flex;
+
+                & img{
+                    padding: 3px;
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 7px;
+                }
+
+                &__info{
+                    color: var(--color-neutral-dark-mode-06);
+                }
+            }
+
+            &__h1{
+                font-family: var(--f-default-headers-font);
+
+                @include respond-to("<=s"){
+                   font-size: 48px;
+                   line-height: 60px;
+                }
+            }
+
+            &__p{
+                font-size: var(--paragraph-font-size-big);
+                line-height: var(--paragraph-line-height-big);
+                //ax-width: 600px;
+
+            }
+
+            &__btn{
+                background-color: var(--austin-event-color-accent-01) !important;
+
+                &:hover {
+                    background-color: var(--color-neutral-dark-mode-02) !important;
+                  }
+            }
+
+        }
+    }
+
+
+
+
+
+//////////////////////////
+// Powered by
+//////////////////////////
+
+.powered {
+    background-image: url("../../src/assets/events/powered-by.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+
+    min-height: 600px;
+
+    align-content: center;
+
+    text-align: center;
+
+    @include respond-to("<=s"){
+        padding: 32px;
+
+        &__h4{
+            //margin: 0;
+        }
+
+        &__h1{
+            font-size: 84px;
+            line-height: 94px;
+        }
+    }
+
+    &__h4{
+        //text-align: center;
+    }
+
+    & img{
+       margin: auto;
+       margin-bottom: 26px;
+    }
+
+    &__p{
+        max-width: 710px;
+        margin: auto;
+        font-size: var(--paragraph-font-size-big);
+        line-height: var(--paragraph-line-height-big);
+        color: var(--color-neutral-dark-mode-06);
+
+        margin-bottom: 26px;
+    }
+
+    &__btn{
+        
+        background-color: var(--austin-event-color-orange) !important;
+
+        &:hover {
+            background-color: var(--color-neutral-dark-mode-02) !important;
+          }
+    }
+}
+
+
+
+
+
+
+
+
+//////////////////////////
+// Countdown
+//////////////////////////
+
+
+
+
+  .event__countdown{
+    background-image: url("../../src/assets/events/event-countdown-img.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 64px 0;
+    
+    text-align: center;
+
+    @include respond-to("<=s"){
+        padding: 64px 32px;
+    }
+
+    & h3{
+        font-size: 28px;
+        font-family: montserrat;
+
+        margin-bottom: 26px;
+
+        @include respond-to("<=s"){
+            font-size: 24px;
+        }
+    }
+
+    &__btn{
+        background-color: var(--austin-event-color-turquoice) !important;
+
+        &:hover {
+            background-color: var(--color-neutral-dark-mode-02) !important;
+          }
+    }
+  }
+
+
+
+  //////////////////////////
+// Logo carousel
+//////////////////////////
+
+& .logo-carousel{
+
+    padding: 26px 0;
+
+    & h4{
+        font-size: 16px;
+        color: var(--color-neutral-dark-mode-05);
+        margin: 0;
+        text-align: center;
+
+        
+    }
+}
+
+}
+
+
+
+
+
+
+
+
+
+.countdown-wrap {
+    display: inline-grid;
+    gap: 4px;
+    grid-auto-flow: column;
+    line-height: 60px;
+    max-width: 260px;
+    //margin: 0 auto;
+    justify-content: center;
+}
+
+.countdown-data{
+    font-size: 54px;
+    font-family: montserrat;
+    font-weight: 600;
+
+    flex-wrap: wrap;
+    //width: 110px;
+}
+
+.countdown-data:not(:last-child){
+    margin-left: 10px;
+}
+  
+  
+  .countdown-data:not(:last-child):after {
+    content: ":";
+    margin: 0 0px 0 10px;
+  }
+
+
+
+
+
+
+
+
+
+  //////////////////////////
+// HOME BANNER
+//////////////////////////
+
+.dcentral-afterparty{
+
+    &__home__banner{
+        padding: 52px 0;
+
+        background-image: linear-gradient(rgba(21, 26, 32, 0.82), rgba(21, 26, 32, 0.82)), 
+                            url("../../src/assets/events/austin-event.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        @include respond-to("<=s"){
+            padding: 64px 14px;
+        }
+    }
+
+    &__home__countdown{
+        padding: 64px 0;
+    
+        text-align: center;
+        
+
+        & .content{
+            display: flex;
+            align-self: center;
+            justify-content: center;
+        }
+        
+
+        @include respond-to("<=s"){
+            //padding: 64px 32px;
+        }
+
+        & h3{
+            font-size: 28px;
+            font-family: montserrat;
+
+            margin-bottom: 26px;
+
+            @include respond-to("<=s"){
+                font-size: 24px;
+            }
+        }
+    }
+
+    &__event-info{
+        text-align: center;
+
+        @include respond-to("<=s"){
+            padding: 28px 0;
+        }
+
+        & img {
+            width: 226px;
+            margin: auto;
+
+            @include respond-to("<=s"){
+                width: 200px;
+            }
+        }
+
+        & h3{
+            font-family: var(--f-default-headers-font);
+            font-size: 28px;
+            
+            @include respond-to("<=s"){
+                font-size: 38px;
+                line-height: 50px;
+                font-weight: 700;
+            }
+        }
+
+
+
+        &__btn{
+            background-color: var(--austin-event-color-turquoice) !important;
+
+            &:hover {
+                background-color: var(--color-neutral-dark-mode-02) !important;
+            }
+        }
+    }
+
+
+
+}

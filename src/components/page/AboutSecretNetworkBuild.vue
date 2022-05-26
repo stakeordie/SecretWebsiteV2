@@ -32,17 +32,17 @@ export default {
           description: "Secret Network is built using CosmWasm, enabling it to run on multiple chains using IBC and interact with the Cosmos ecosystem.",
         },
          {
-          imageUrl: "/img/about-secret-network/cosmos-small-icon.svg",
+          imageUrl: "/img/about-secret-network/file-icon.svg",
           title: "Private data, public ledger",
           description: "While data is private, Secret’s code and native coin (SCRT) are public—making it permissionless and providing complete auditability of the blockchain.",
         },
          {
-          imageUrl: "/img/about-secret-network/delegated-small-icon.svg",
+          imageUrl: "/img/about-secret-network/bars-icon.svg",
           title: "Delegated Proof-of-Stake consensus",
           description: "With DPoS, Secret can process close to 10,000 transactions per second with a block time of only 6-7 seconds. It makes the blockchain more environmentally friendly, and allows any token holder to participate in governance.",
         },
          {
-          imageUrl: "/img/about-secret-network/cosmos-small-icon.svg",
+          imageUrl: "/img/about-secret-network/layer-icon.svg",
           title: "Independent consensus layer",
           description: "With its own set of validators + requirements, Secret Network can optimize for privacy and performance, while maintaining the flexibility to upgrade and improve continuously.",
         },
@@ -66,6 +66,7 @@ export default {
         //width: 600px;
         
         text-align: center;
+        margin-bottom: 48px;
 
         & .header-p{
             font-size: var(--paragraph-font-size-big);
@@ -91,6 +92,12 @@ export default {
 
             &__icon{
                 margin-bottom: 12px;
+                background-color: var(--about-color-orange);
+                border-radius: 6px;
+                width: 48px;
+                height: 48px;
+                padding: 12px;
+                
             }
         }
     }

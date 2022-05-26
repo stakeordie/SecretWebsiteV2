@@ -23,7 +23,7 @@ title: "About"
 
 <!-- Intro -->
 
-<column class="spacer-s">
+<column class="spacer-s page__bg__dark">
 
 <block >
 
@@ -44,7 +44,7 @@ title: "About"
 
 
 
-<column class="spacer-s">
+<column class="">
 
 <block class="">
 
@@ -65,7 +65,7 @@ title: "About"
 
 
 
-<!-- Secret Token -->
+<!-- Secret options -->
 <column class="spacer-s" >
 
 <block>
@@ -84,20 +84,20 @@ title: "About"
 
 
 <!-- separator -->
-<column >
+<!-- <column >
 <block>
 
 <hr class="swirl-f"/>
 
 </block>
-</column>
+</column> -->
 
 
 
 
 <!-- How Secret Contracts Work -->
 
-<column >
+<column class="page__bg__dark">
 
 <block >
 
