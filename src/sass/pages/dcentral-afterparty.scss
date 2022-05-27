@@ -269,8 +269,10 @@
 
     text-align: center;
 
+    padding: 124px 0;
+
     @include respond-to("<=s"){
-        padding: 32px;
+        padding: 120px 32px;
 
         &__h4{
             //margin: 0;
@@ -322,9 +324,6 @@
 // Countdown
 //////////////////////////
 
-
-
-
   .event__countdown{
     background-image: url("../../src/assets/events/event-countdown-img.png");
     background-position: center;
@@ -336,20 +335,37 @@
     text-align: center;
 
     @include respond-to("<=s"){
-        padding: 64px 32px;
+        padding: 120px 32px;
+    }
+
+    & .content{
+
+        & .box{
+            position: relative;
+
+            @include respond-to("<=s"){
+                top: 20px;
+            }
+        }
     }
 
     &__wrapper{
         position: absolute;
-            left: -85px;
+            left: -100px;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            top: 60px;
+            top: -50px;
             width: 200px;
 
             @include respond-to("<=s"){
-                top: 20px;
+                position: absolute;
+                //left: -80px;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                top: -35px;
+                width: 200px;
             }
     }
 
@@ -360,7 +376,8 @@
         margin-bottom: 26px;
 
         @include respond-to("<=s"){
-            font-size: 24px;
+            font-size: 22px;
+            line-height: 36px;
         }
     }
 
@@ -424,6 +441,25 @@
     //position: relative;
     //flex-wrap: wrap;
 
+
+    // position: absolute;
+    //         left: -150px;
+    //         right: 0;
+    //         margin-left: auto;
+    //         margin-right: auto;
+    //         top: -60px;
+    //         width: 200px;
+
+    //         @include respond-to("<=s"){
+    //             position: absolute;
+    //             left: -170px;
+    //             right: 0;
+    //             margin-left: auto;
+    //             margin-right: auto;
+    //             top: -60px;
+    //             width: 200px;
+    //         }
+
     
 }
 
@@ -486,32 +522,45 @@
             display: flex;
             align-self: center;
             justify-content: center;
+
+            & .box{
+                position: relative;
+                top: 30px;
+
+            }
         }
 
         &__wrapper{
             //position: absolute;
             //position: relative;
 
+
+
             position: absolute;
-            left: -170px;
+            left: -160px;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            top: -60px;
+            top: -50px;
             width: 200px;
 
             @include respond-to("<=s"){
                 position: absolute;
-                left: -170px;
+                left: -80px;
                 right: 0;
                 margin-left: auto;
                 margin-right: auto;
-                top: -60px;
+                top: -35px;
                 width: 200px;
             }
 
             & .countdown-data{
                 font-size: 72px;
+                
+                @include respond-to("<=s"){
+                    font-size: 54px;
+                    
+                }
             }
 
 
@@ -522,10 +571,14 @@
             //padding: 64px 32px;
         }
 
+        & img{
+            height: 64px;
+        }
+
         & h3{
             font-size: 28px;
             font-family: montserrat;
-
+            font-weight: 600;
             margin-bottom: 26px !important;
 
             @include respond-to("<=s"){
@@ -554,6 +607,7 @@
         & h3{
             font-family: var(--f-default-headers-font);
             font-size: 28px;
+            font-weight: 600;
             
             @include respond-to("<=s"){
                 font-size: 38px;
