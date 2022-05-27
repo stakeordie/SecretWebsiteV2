@@ -136,8 +136,8 @@ title: 'Austin Event'
 <!-- <countdown format="hours:minutes:seconds" separators="" end="2022-06-08T21:00:00-07:00"></countdown> -->
 
 <div class="event__countdown__wrapper">
-<!-- <countdown format="hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700"></countdown> -->
-<countdown format="hours:minutes:seconds" separators="" end="2022-05-27T13:30:00-0700"></countdown>
+<countdown format="hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700"></countdown>
+<!-- <countdown format="hours:minutes:seconds" separators="" end="2022-05-27T13:30:00-0700"></countdown> -->
 </div>
 
 ### until the party starts
