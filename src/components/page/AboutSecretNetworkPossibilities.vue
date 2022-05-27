@@ -1,16 +1,16 @@
 <template>
   <section class="about-secret-network-possibilities">
       <div class="about-secret-network-possibilities__header">
-        <h3 class="about-secret-network-possibilities__header__title">
+        <h2 class="about-secret-network-possibilities__header__title">
             The possibilities Secret Contracts unlock
-        </h3>
+        </h2>
         <p class="about-secret-network-possibilities__header__p">
           A Secret’s smart contracts e.g. “Secret Contracts” are private-by-default. Input, output, and state are
           encrypted and can’t be viewed by others, unless they’re given access. This opens up use cases that aren’t
           possible on public-by-default blockchains.
         </p>
       </div>
-      <div class="about-secret-network-possibilities__content" >
+      <!-- <div class="about-secret-network-possibilities__content" >
         <div class="about-secret-network-possibilities__content__item" v-for="(item, index) in reasons" :key="index">
             <img :src="item.imageUrl" alt=""  class="about-secret-network-possibilities__content__item__icon" />
             <h4 class="about-secret-network-possibilities__content__item__name">{{ item.title }}</h4>
@@ -18,7 +18,7 @@
               {{ item.description}}
             </p>
         </div>
-      </div>
+      </div> -->
   </section>
 </template>
 
@@ -28,12 +28,12 @@ export default {
     return {
       reasons: [
         {
-          imageUrl: "/img/about-secret-network/secret-tokens-icon.svg",
+          imageUrl: "/img/about-secret-network/defi-icon.svg",
           title: "Secret Tokens",
           description: "Explore the possibilities of customizable privacy and build groundbreaking apps in areas ranging from finance to gaming.",
         },
         {
-          imageUrl: "/img/about-secret-network/defi-icon.svg",
+          imageUrl: "/img/about-secret-network/secret-tokens-icon.svg",
           title: "DeFi",
           description: "With over $400M in funding and grants available to any developer to build on Secret Network, no idea is too big.",
         },
@@ -64,7 +64,7 @@ export default {
 
 .about-secret-network-possibilities{
     display: grid;
-    row-gap: var(--f-gutter-l);
+    //row-gap: var(--f-gutter-l);
     text-align: center;
     //padding-bottom: var(--f-gutter-l) ;
     
@@ -81,8 +81,9 @@ export default {
       &__title{
         text-align: center;
         padding: 0;
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 54px;
+        line-height: 60px;
+        font-family: var(--f-default-headers-font);
        
        @include respond-to ("<=s"){
         font-size: var(--f-h3-text-size);

@@ -3,6 +3,9 @@
 
       <!-- Secret Tokens -->
       <div class="about-secret-network-details__container about-1">
+        <div class="about-secret-network-details__container__img">
+          <img src="../../assets/about-secret-network/defi-img.svg" alt="" class="about-img">
+        </div>
         <div class="about-secret-network-details__container__content ">
           <h5 class="about-secret-network-details__container__content__h5"> Secret tokens</h5>
           <h2 class="about-secret-network-details__container__content__h2">Hold and use your tokens in privacy</h2>
@@ -16,21 +19,16 @@
             <btn class="text-center no-arrow btn" url="../about-scrt">Use SCRT</btn>
           </div>
         </div>
-        <div class="about-secret-network-details__container__img">
-          <img src="../../assets/about-secret-network/secret-tokens-img.svg" alt="" class="about-img">
-        </div>
       </div>
+
 <!-- DEFI -->
       <div class="about-secret-network-details__container about-2">
-           <div class="about-secret-network-details__container__img">
-          <img src="../../assets/about-secret-network/defi-img.svg" alt="" class="about-img">
-        </div>
         <div class="about-secret-network-details__container__content ">
           <h5 class="about-secret-network-details__container__content__h5">
                DEFI
                </h5>
           <h2 class="about-secret-network-details__container__content__h2">
-              Stay safe while spending, saving, and trading online
+              Stay safe while spending, saving, and trading
               </h2>
           <p class="about-secret-network-details__container__content__p">
             DeFi apps built with Secret’s privacy-preserving smart contracts provide MEV-resistance by default and
@@ -41,10 +39,17 @@
             <btn class="text-center no-arrow btn" url="../secret-finance">read more</btn>
           </div>
         </div>
+        <div class="about-secret-network-details__container__img">
+          <img src="../../assets/get-scrt/get-scrt-coin.png" alt="" class="about-img">
+          
+        </div>
         </div>
        
 <!-- NFTs -->
       <div class="about-secret-network-details__container about-3">
+         <div class="about-secret-network-details__container__img">
+          <img src="../../assets/about-secret-network/nfts-img.svg" alt="" class="about-img">
+        </div>
         <div class="about-secret-network-details__container__content ">
           <h5 class="about-secret-network-details__container__content__h5">
                NFTS
@@ -60,15 +65,11 @@
             <btn class="text-center no-arrow btn" url="../secret-nfts">read more</btn>
           </div>
         </div>
-        <div class="about-secret-network-details__container__img">
-          <img src="../../assets/about-secret-network/nfts-img.png" alt="" class="about-img">
-        </div>
       </div>
+
 <!-- Gaming -->
       <div class="about-secret-network-details__container about-4">
-          <div class="about-secret-network-details__container__img">
-          <img src="../../assets/about-secret-network/gaming-img.png" alt="" class="about-img">
-        </div>
+        
         <div class="about-secret-network-details__container__content ">
           <h5 class="about-secret-network-details__container__content__h5">
                Gaming
@@ -84,6 +85,9 @@
           <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="#">read more</btn>
           </div>
+        </div>
+        <div class="about-secret-network-details__container__img">
+          <img src="../../assets/about-secret-network/gaming-img.svg" alt="" class="about-img">
         </div>
         
       </div>
@@ -101,7 +105,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-details{
-    padding: 60px 0;
+    //padding: 60px 0;
     display: grid;
     //row-gap: ;
     @include respond-to("<=s"){
@@ -120,6 +124,7 @@ export default {
 
          @include respond-to("<=m"){
             grid-template-columns: 1fr;
+            justify-items: center;
 
             &__content{
               order: 2;
@@ -136,16 +141,25 @@ export default {
         
         &__content{
             align-self: center;
+            max-width: 550px;
+            padding: var(--f-gutter);
 
             &__h5{
                 text-transform: uppercase;
                 font-weight: 700;
                 margin-bottom: 0;
+                color: var(--about-color-orange);
             }
-            &__h2{
+            & h2{
                 //margin-bottom: 0;
                 font-size: 42px;
                 font-family: montserrat;
+
+
+                 @include respond-to("<=s"){
+                  font-size: 32px !important;
+                  line-height: 42px;
+                }
 
             }
 
@@ -176,56 +190,50 @@ export default {
     
 }
 
-.about-1{
 
-    & .about-secret-network-details__container__content{
 
-        h5{
-            color: #C3C4D1;
-        }
-    }
-}
 
-.about-2{
+// .about-1{
 
-    & .about-secret-network-details__container__content{
+//     & .about-secret-network-details__container__content{
 
-        h5{
-            color: #7BBD75;
-        }
-    }
-}
+//         h5{
+//             color: #C3C4D1;
+//         }
+//     }
+// }
 
-.about-3{
+// .about-2{
 
-    & .about-secret-network-details__container__content{
+//     & .about-secret-network-details__container__content{
 
-        h5{
-            color: #8B7AB0;
-        }
-    }
+//         h5{
+//             color: #7BBD75;
+//         }
+//     }
+// }
 
-    & .about-secret-network-details__container__img{
-        object-fit: cover;
-        height: auto;
-        width: auto;
-    }
-}
+// .about-3{
 
-.about-4{
+//     & .about-secret-network-details__container__content{
 
-    & .about-secret-network-details__container__content{
+//         h5{
+//             color: #8B7AB0;
+//         }
+//     }
 
-        h5{
-            color: var(--color-analog-secondary-turquoise);
-        }
-    }
+//     & .about-secret-network-details__container__img{
+//         object-fit: cover;
+//         height: auto;
+//         width: auto;
+//     }
+// }
 
-    & .about-secret-network-details__container__img{
-        object-fit: cover;
-        height: auto;
-        width: auto;
-    }
-}
+// .about-4{
+
+//     & .about-secret-network-details__container__content{
+
+      
+// }
 
 </style>

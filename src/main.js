@@ -16,6 +16,7 @@ import typical from 'vue-typical';
 import VueSocialSharing from 'vue-social-sharing';
 import VueAnime from 'vue-animejs';
 import vSelect from "vue-select";
+import Countdown from "@whitewizard/countdown"
 import "vue-select/dist/vue-select.css";
 
 
@@ -183,6 +184,10 @@ import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
 
 import AustinEventHero from '~/components/page/AustinEventHero'
 import AustinEventMeet from '~/components/page/AustinEventMeet'
+import AustinEventPartnership from '~/components/page/AustinEventPartnership'
+import AustinEventFooter from '~/components/page/AustinEventFooter'
+import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
+
 
 
 
@@ -376,6 +381,9 @@ export default function (Vue, {
 
   Vue.component('AustinEventHero', AustinEventHero);
   Vue.component('AustinEventMeet', AustinEventMeet);
+  Vue.component('AustinEventPartnership', AustinEventPartnership);
+  Vue.component('AustinEventFooter', AustinEventFooter);
+  Vue.component('HomeDcentralAfterpartyBanner', AustinEventFooter);
 
 
   
@@ -387,6 +395,7 @@ export default function (Vue, {
   Vue.component('Deploy', Deploy);
   Vue.component('DeployTemp', DeployTemp);
   Vue.component("v-select", vSelect);
+  Vue.component("Countdown", Countdown);
   Vue.use(VueAnime);
   
 
