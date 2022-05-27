@@ -4,7 +4,7 @@
       <div class="austin-event-hero__container__header">
         <img
           class="event-scrt-logo"
-          src="assets/img/new-secret-logo.svg"
+          src="../../assets/new-secret-logo.svg"
           alt=""
         />
         <h1 class="event-h1">DCentral Afterparty</h1>
