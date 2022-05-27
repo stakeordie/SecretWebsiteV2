@@ -40,7 +40,7 @@ title: 'Secret Network'
 
 ### DCentral Austin Afterparty
 
-Secret Network is the first blockchain with customizable privacy for smart contracts. You get to choose what you share, with whom, and how. This protects users, and empowers creators and builders to design art, games, and apps not possible elsewhere.  
+Music, drinks, and sneak peeks—join us for a special DCentral Austin afterparty with legendary filmmaker Kevin Smith. 
 
 <btn class="center-text no-arrow dcentral-afterparty__event-info__btn" url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137">GET TICKETS NOW</btn>
 

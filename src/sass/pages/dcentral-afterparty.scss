@@ -525,7 +525,7 @@
 
             & .box{
                 position: relative;
-                top: 30px;
+                top: 55px;
 
             }
         }
@@ -608,6 +608,7 @@
             font-family: var(--f-default-headers-font);
             font-size: 28px;
             font-weight: 600;
+            margin-bottom: 10px !important;
             
             @include respond-to("<=s"){
                 font-size: 38px;
