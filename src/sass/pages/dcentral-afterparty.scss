@@ -302,7 +302,7 @@
     }
 
     &__btn{
-        
+        margin-right: 0 !important;
         background-color: var(--austin-event-color-orange) !important;
 
         &:hover {
@@ -331,12 +331,26 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    padding: 64px 0;
+    padding: 120px 0 64px 0;
     
     text-align: center;
 
     @include respond-to("<=s"){
         padding: 64px 32px;
+    }
+
+    &__wrapper{
+        position: absolute;
+            left: -85px;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            top: 60px;
+            width: 200px;
+
+            @include respond-to("<=s"){
+                top: 20px;
+            }
     }
 
     & h3{
@@ -352,6 +366,8 @@
 
     &__btn{
         background-color: var(--austin-event-color-turquoice) !important;
+        margin-right: 0 !important;
+
 
         &:hover {
             background-color: var(--color-neutral-dark-mode-02) !important;
@@ -385,7 +401,13 @@
 
 
 
-
+// position: absolute;
+//     left: -99px;
+//     right: 0;
+//     margin-left: auto;
+//     margin-right: auto;
+//     top: -50px;
+//     width: 200px;
 
 
 
@@ -394,9 +416,15 @@
     gap: 4px;
     grid-auto-flow: column;
     line-height: 60px;
-    max-width: 260px;
+    //max-width: 200px;
     //margin: 0 auto;
-    justify-content: center;
+    //justify-content: center;
+
+    //position: absolute;
+    //position: relative;
+    //flex-wrap: wrap;
+
+    
 }
 
 .countdown-data{
@@ -404,12 +432,14 @@
     font-family: montserrat;
     font-weight: 600;
 
-    flex-wrap: wrap;
-    //width: 110px;
+    //flex-wrap: wrap;
+    //min-width: 80px;
+    
 }
 
-.countdown-data:not(:last-child){
+.countdown-data:not(:first-child) {
     margin-left: 10px;
+    
 }
   
   
@@ -457,6 +487,35 @@
             align-self: center;
             justify-content: center;
         }
+
+        &__wrapper{
+            //position: absolute;
+            //position: relative;
+
+            position: absolute;
+            left: -170px;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            top: -60px;
+            width: 200px;
+
+            @include respond-to("<=s"){
+                position: absolute;
+                left: -170px;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                top: -60px;
+                width: 200px;
+            }
+
+            & .countdown-data{
+                font-size: 72px;
+            }
+
+
+        }
         
 
         @include respond-to("<=s"){
@@ -467,10 +526,11 @@
             font-size: 28px;
             font-family: montserrat;
 
-            margin-bottom: 26px;
+            margin-bottom: 26px !important;
 
             @include respond-to("<=s"){
                 font-size: 24px;
+                margin-bottom: 0 !important;
             }
         }
     }
@@ -506,10 +566,13 @@
 
         &__btn{
             background-color: var(--austin-event-color-turquoice) !important;
+            margin-right: 0 !important;
 
             &:hover {
                 background-color: var(--color-neutral-dark-mode-02) !important;
             }
+
+            
         }
     }
 

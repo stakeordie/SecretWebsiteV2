@@ -25,7 +25,9 @@ title: 'Secret Network'
 
 <block class="dcentral-afterparty__home__countdown">
 
+<div class="dcentral-afterparty__home__countdown__wrapper">
 <countdown format="hours:minutes:seconds" separators="" end="2022-06-08T21:00:00-07:00"></countdown>
+</div>
 
 ### until the party starts
 
