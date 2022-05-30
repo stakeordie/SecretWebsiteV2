@@ -26,7 +26,30 @@ title: 'Secret Network'
 <block class="dcentral-afterparty__home__countdown">
 
 <div class="dcentral-afterparty__home__countdown__wrapper">
-<countdown format="hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700"></countdown>
+<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700">
+<!-- <countdown format="days:hours:minutes:seconds" separators="" end="2021-06-08T19:00:00-0700"> -->
+<div class="paragraph-wrap">
+  <p class="wrap-day">
+  DAYS 
+  </p>
+<div class="">  </div>
+  <p class="wrap-hour">
+  HOURS
+  </p>
+<div class="">  </div>
+  <p class="wrap-min">
+  MIN
+  </p>
+<div class="">  </div>
+  <p class="wrap-sec">
+  SEC
+  </p>
+</div>
+
+</countdown>
+
+
+
 <!-- <countdown format="hours:minutes:seconds" separators="" end="2022-05-27T13:30:00-0700"></countdown> -->
 </div>
 
