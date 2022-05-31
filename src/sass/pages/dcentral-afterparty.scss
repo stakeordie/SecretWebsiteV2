@@ -321,7 +321,7 @@
 
 
 //////////////////////////
-// Countdown
+// Event page Countdown
 //////////////////////////
 
   .event__countdown{
@@ -330,12 +330,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    padding: 120px 0 64px 0;
+    padding: 64px 0;
     
     text-align: center;
 
     @include respond-to("<=s"){
-        padding: 120px 32px;
+        padding: 64px 32px;
     }
 
     & .content{
@@ -343,42 +343,51 @@
         & .box{
             position: relative;
 
-            @include respond-to("<=s"){
-                top: 20px;
-            }
+            // @include respond-to("<=s"){
+            //     top: 20px;
+            // }
         }
     }
 
     &__wrapper{
-        position: absolute;
-            left: -92px;
-            right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            top: -50px;
-            width: 200px;
+        //width: 250px !important;
 
-            @include respond-to("<=s"){
-                position: absolute;
-                //left: -80px;
-                //right: 0;
-                margin-left: auto;
-                margin-right: auto;
-                top: -35px;
-                width: 200px;
+
+            & .countdown-wrap{
+                //grid-template-columns: repeat(4, 95px);
+            }
+
+            & .countdown-data{
+                //font-size: 72px;
+                
+                
+                @include respond-to("<=l"){
+                    //font-size: 54px;
+                    
+                }
+
+                @include respond-to("<=xs"){
+                    font-size: 38px;
+                    
+                }
+
+                &__date-part{
+                    width: 74px;
+                }
             }
     }
 
     & h3{
         font-size: 28px;
-        font-family: montserrat;
+            font-family: montserrat;
+            font-weight: 600;
+            margin-bottom: 26px !important;
+            margin-top: 16px;
 
-        margin-bottom: 26px;
-
-        @include respond-to("<=s"){
-            font-size: 22px;
-            line-height: 36px;
-        }
+            @include respond-to("<=s"){
+                font-size: 20px;
+                margin-bottom: 0 !important;
+            }
     }
 
     &__btn{
@@ -418,71 +427,77 @@
 
 
 
-// position: absolute;
-//     left: -99px;
-//     right: 0;
-//     margin-left: auto;
-//     margin-right: auto;
-//     top: -50px;
-//     width: 200px;
 
+
+
+
+  //////////////////////////
+// Countdown
+//////////////////////////
 
 
 .countdown-wrap {
     display: inline-grid;
-    gap: 4px;
-    grid-auto-flow: column;
+    //gap: 4px;
+    grid-template-columns: repeat(4, 1fr);
     line-height: 60px;
-    //max-width: 200px;
-    //margin: 0 auto;
-    //justify-content: center;
-
-    //position: absolute;
-    //position: relative;
-    //flex-wrap: wrap;
+    row-gap: 12px;
+    margin-left: 16px;
 
 
-    // position: absolute;
-    //         left: -150px;
-    //         right: 0;
-    //         margin-left: auto;
-    //         margin-right: auto;
-    //         top: -60px;
-    //         width: 200px;
+    & .paragraph-wrap{
+        grid-column: 1 / span 4;
+        order: 2;
+        display: grid;
+        grid-template-columns: 104px 32px 104px 32px 104px 32px 104px;
 
-    //         @include respond-to("<=s"){
-    //             position: absolute;
-    //             left: -170px;
-    //             right: 0;
-    //             margin-left: auto;
-    //             margin-right: auto;
-    //             top: -60px;
-    //             width: 200px;
-    //         }
+        & p{
+            font-size: 18px;
+            margin: 0;
+            color: var( --color-analog-primary-white);
 
+            @include respond-to("<=xs"){
+                font-size: 12px;
+            }
+        }
+
+    }
     
+  
 }
 
 .countdown-data{
     font-size: 54px;
     font-family: montserrat;
     font-weight: 600;
+    order: 1;
+    width: 104px ;
 
-    //flex-wrap: wrap;
-    //min-width: 80px;
+    @include respond-to("<=xs"){
+        width: 74px ;
+    }
+
+
+
     
 }
 
 .countdown-data:not(:first-child) {
-    margin-left: 10px;
+    //margin-left: 4px;
     
 }
   
   
-  .countdown-data:not(:last-child):after {
+  .countdown-data:after {
     content: ":";
     margin: 0 0px 0 10px;
   }
+
+  .countdown-data:last-child:after {
+    opacity: 0;
+
+  }
+  
 
 
 
@@ -499,7 +514,7 @@
 .dcentral-afterparty{
 
     &__home__banner{
-        padding: 52px 0;
+        padding: 64px 0;
 
         background-image: linear-gradient(rgba(21, 26, 32, 0.82), rgba(21, 26, 32, 0.82)), 
                             url("../../src/assets/events/austin-event.png");
@@ -513,7 +528,7 @@
     }
 
     &__home__countdown{
-        padding: 64px 0;
+        //padding: 26px 0;
     
         text-align: center;
         
@@ -524,41 +539,57 @@
             justify-content: center;
 
             & .box{
-                position: relative;
-                top: 55px;
 
             }
         }
 
         &__wrapper{
-            //position: absolute;
-            //position: relative;
 
+            .countdown-wrap {
 
+                @include respond-to("<=l"){
+                    row-gap: 6px;
+                }
 
-            position: absolute;
-            left: -160px;
-            right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            top: -50px;
-            width: 200px;
+                @include respond-to("<=xs"){
+                    row-gap: 0;
+                }
 
-            @include respond-to("<=s"){
-                position: absolute;
-                left: -90px;
-                right: 0;
-                margin-left: auto;
-                margin-right: auto;
-                top: -35px;
-                width: 200px;
+                & .paragraph-wrap{
+                    grid-template-columns: 102px 22px 102px 22px 101px 22px 101px;
+
+                    
+            
+                    @include respond-to("<=l"){
+                        grid-template-columns: 80px 20px 80px 20px 80px 20px 80px;
+                    }
+
+                    @include respond-to("<=xs"){
+                        grid-template-columns: 60px 20px 60px 20px 60px 20px 60px;
+                    }
+                }
+                
+              
             }
+
 
             & .countdown-data{
                 font-size: 72px;
+                width: 124px ;
+
+                &__date-part{
+                    //width: 74px;
+                }
                 
-                @include respond-to("<=s"){
+                @include respond-to("<=l"){
                     font-size: 54px;
+                    width: 100px ;
+                    
+                }
+
+                @include respond-to("<=xs"){
+                    font-size: 42px;
+                    width: 80px 
                     
                 }
             }
@@ -579,7 +610,8 @@
             font-size: 28px;
             font-family: montserrat;
             font-weight: 600;
-            margin-bottom: 26px !important;
+            //margin-bottom: 26px !important;
+            margin-top: 16px;
 
             @include respond-to("<=s"){
                 font-size: 24px;
@@ -611,7 +643,7 @@
             margin-bottom: 10px !important;
             
             
-            @include respond-to("<=s"){
+            @include respond-to("<=xs"){
                 font-size: 38px;
                 line-height: 50px;
                 font-weight: 700;
