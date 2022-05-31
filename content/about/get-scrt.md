@@ -149,7 +149,7 @@ title: "Get SCRT"
 
 
 <!-- Convert sSCRT to SCRT -->
-<column class="spacer-s">
+<column class="">
 
 <block>
 
@@ -188,14 +188,17 @@ title: "Get SCRT"
 
 
 
-<column class="spacer-s">
+<column class="" number="2" number-m="2" number-s="1">
 
-<block>
 
-<get-scrt-learn-more>
-    
-</get-scrt-learn-more>
+<general-ctas id="build-on-secret"></general-ctas>
 
 </block>
 
-</column>
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >

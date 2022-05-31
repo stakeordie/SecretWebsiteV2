@@ -148,7 +148,7 @@ title: "About"
 
 
 
-<column class="spacer-s page__block" number="2" number-m="1" number-s="1">
+<column class="spacer-m page__block" number="2" number-m="1" number-s="1">
 
 <block >
 
@@ -192,14 +192,26 @@ Now that Web3 is still in full development we have a chance to turn this around 
 
 
 
-<column >
+<column class="" number="3" number-m="2" number-s="1">
 
-<block>
+<block >
 
-<about-secret-network-ctas>
-    
-</about-secret-network-ctas>
+<general-ctas id="get-started"></general-ctas>
 
 </block>
 
-</column>
+<block >
+
+<general-ctas id="build-on-secret"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >
+
+
