@@ -181,9 +181,14 @@ import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetwor
 import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
 import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
 import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
-
 import AustinEventHero from '~/components/page/AustinEventHero'
 import AustinEventMeet from '~/components/page/AustinEventMeet'
+import AustinEventPartnership from '~/components/page/AustinEventPartnership'
+import AustinEventFooter from '~/components/page/AustinEventFooter'
+import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
+
+import GeneralCtas from '~/components/page/GeneralCtas'
+
 
 
 
@@ -374,9 +379,13 @@ export default function (Vue, {
   Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
   Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
   Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
-
   Vue.component('AustinEventHero', AustinEventHero);
   Vue.component('AustinEventMeet', AustinEventMeet);
+  Vue.component('AustinEventPartnership', AustinEventPartnership);
+  Vue.component('AustinEventFooter', AustinEventFooter);
+  Vue.component('HomeDcentralAfterpartyBanner', AustinEventFooter);
+
+  Vue.component('GeneralCtas', GeneralCtas);
 
 
   
