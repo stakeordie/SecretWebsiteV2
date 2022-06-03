@@ -677,7 +677,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           border-radius: 10px;
           min-height: 257px;
           //min-width: 212px;
-
+          &.hidden {
+            display: none;
+          }
           &:hover {
             background: var(--color-neutral-dark-mode-04);
           }
