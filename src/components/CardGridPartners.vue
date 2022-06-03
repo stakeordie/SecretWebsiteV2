@@ -377,7 +377,7 @@ query {
     ecosystemPartners: allStrapiEcosystemPartners{
     edges{
       node{
-        name
+        title: name
         picture: logo {
           url
         }

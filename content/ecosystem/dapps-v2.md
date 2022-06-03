@@ -1,12 +1,14 @@
 ---
 title: "DApps"
 ---
+
+
 <!-- swirl -->
-<column class="ecosystem__green-swirl__top">
+<column class="ecosystem__green-swirl__top" mode="full">
 
 <block>
 
-<!-- <img class="get-scrt__align-img" src="../../src/assets/header-swirl-green.svg" /> -->
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" /> 
 
 </block>
 
@@ -22,11 +24,12 @@ title: "DApps"
 
 
 
+
 <column id="dapps" class="spacer-s bg-black-gradient">
 
 <block>
 
-<card-grid-v3 title="Secret Apps" header="DApps" collection="dApps" :isPaginated="false"></card-grid-v3>
+<card-grid-v3 title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></card-grid-v3>
 
 </block>
 
@@ -121,7 +124,7 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 <block>
 
-<!-- <img class="get-scrt__align-img" src="../../src/assets/header-swirl-green.svg" /> -->
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" />
 
 </block>
 

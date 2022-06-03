@@ -416,14 +416,12 @@ query {
   ecosystemNft:allStrapiEcosystemNfTs{
     edges{
       node{
-        Name
-        url: Name
+        title: Name
+        url: link
         picture: logo {
           url
         }
         description
-        link
-
 
       }
     }

@@ -27,7 +27,7 @@ title: "Tools"
 
 <block>
 
-<card-grid-v3 header="Tools & Wallets" title="Tools & Wallets" collection="toolsAndWallets" :isPaginated="false"></card-grid-v3>
+<card-grid-v3 header="Tools" title="Tools" collection="toolsAndWallets" :isPaginated="false"></card-grid-v3>
 
 </block>
 

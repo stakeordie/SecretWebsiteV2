@@ -7,7 +7,7 @@ title: "Tools & Wallets"
 
 <block>
 
-<card-grid-v2 header="Tools & Wallets" title="Tools & Wallets" collection="toolsAndWallets" :isPaginated="false"></card-grid-v2>
+<card-grid-v2 header="Tools" title="Tools" collection="toolsAndWallets" :isPaginated="false"></card-grid-v2>
 
 </block>
 
