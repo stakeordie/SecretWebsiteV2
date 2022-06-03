@@ -612,7 +612,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           transition: 0.2s ease;
           border-radius: 10px;
           display: flex;
-          //justify-content: center;
+          &.hidden {
+            display: none;
+          }
 
           &:hover {
             background: var(--color-neutral-dark-mode-04);

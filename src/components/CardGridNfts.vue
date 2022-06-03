@@ -559,6 +559,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     margin-top: 0;
     align-content: start;
     text-align: center;
+    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -666,7 +667,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           transition: 0.2s ease;
           display: flex;
           justify-content: center;
-
+          &.hidden {
+            display: none;
+          }
           
 
           &__overall-link {
