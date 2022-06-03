@@ -80,15 +80,15 @@
                 </div>
               </div>
               
-              <!-- <div
+              <div
                 class="card-element__title-desc"
                 :class="{ 'meta--with-categories': hasCategories }"
               >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4> -->
-                  <!-- <p> {{element.description}} </p> 
+                  <!-- <p> {{element.description}} </p> -->
                 </div> 
-              </div> -->
+              </div>
               <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
@@ -696,6 +696,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &:hover {
             background: var(--color-neutral-dark-mode-04);
           }
+          &.hidden{
+            display: none;
+          }
 
           &__overall-link {
             padding: var(--f-gutter);
@@ -716,6 +719,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
               max-height: 64px;
               width: fit-content;
               
+            }
+          }
+
+          &__title-desc{
+            &__header{
+              display: none;
             }
           }
         }
