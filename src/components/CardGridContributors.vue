@@ -634,10 +634,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     & .elements-container {
       .elements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(212px, 275px));
         gap: var(--f-gutter-l);
+        justify-content: center;
 
-        @include respond-to("<=xs") {
+        @include respond-to("<=s") {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 

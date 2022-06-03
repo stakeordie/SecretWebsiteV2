@@ -650,7 +650,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         gap: var(--f-gutter-l);
         justify-content: center;
 
-        @include respond-to("<=s") {
+        @include respond-to("<=xs") {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 
