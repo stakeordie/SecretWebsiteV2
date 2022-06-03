@@ -190,6 +190,7 @@ title: "Get SCRT"
 
 <column class="" number="2" number-m="2" number-s="1">
 
+<block>
 
 <general-ctas id="build-on-secret"></general-ctas>
 

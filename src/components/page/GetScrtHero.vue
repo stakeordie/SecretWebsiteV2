@@ -2,7 +2,7 @@
   <section class="get-scrt__hero">
     <div class="get-scrt__hero__content">
       <div class="get-scrt__hero__content__info">
-        <h5>Get SCRT</h5>
+        <h5>GET SCRT</h5>
         <h1>How to buy & store Secret</h1>
         <p>
           Get your hands on some SCRT using direct pay, exchanges, or bridging
