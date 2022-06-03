@@ -7,7 +7,7 @@ title: "DApps"
 
 <block>
 
-<card-grid-v2 title="Secret Apps" header="DApps" collection="dApps" :isPaginated="false"></card-grid-v2>
+<card-grid-v2 title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></card-grid-v2>
 
 </block>
 

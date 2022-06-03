@@ -98,6 +98,10 @@ module.exports = {
                 'services-websites',
                 'developer-pathways',
                 'buy-scrt-options',
+                'ecosystem-nf-ts',
+                'ecosystem-partners',
+                'ecosystem-contributors',
+                'ecosystem-validators'
             ],
             localizedTypes: [
                 //complex types

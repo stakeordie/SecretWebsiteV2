@@ -199,12 +199,16 @@ export default {};
 
                 p {
                   margin-bottom: 0;
-                  color: var(--color-newBrand-blue-02);
+                  color: var(--theme-links-default);
                   font-weight: 600;
                 }
 
                 img {
                   transform: translateY(-1px);
+                }
+
+                &:hover p{
+                  color: var(--theme-links-hover)
                 }
               }
             }
@@ -282,13 +286,17 @@ export default {};
 
                   p {
                     margin-bottom: 0;
-                    color: var(--color-newBrand-blue-02);
+                    color: var(--theme-links-default);
                     font-weight: 600;
                   }
 
                   img {
                     transform: translateY(-1px);
                   }
+                }
+
+                &:hover p{
+                  color: var(--theme-links-hover)
                 }
               }
 

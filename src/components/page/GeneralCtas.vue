@@ -33,6 +33,16 @@ export default {
           url: "../about/about-scrt",
         },
         {
+          ctaId: "get-started-with-secret",
+          imageUrl: "/img/about-secret-network/get-started-img.svg",
+          title: "Get started with Secret",
+          description:
+            "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
+          urlTitle: "Get SCRT",
+          url: "../about/about-scrt",
+        },
+
+        {
           ctaId: "build-on-secret",
           imageUrl: "/img/about-secret-network/build-on-secret-img.svg",
           title: "Build on Secret",
@@ -41,6 +51,7 @@ export default {
           urlTitle: "START DEVELOPING",
           url: "../developers",
         },
+
         {
           ctaId: "join-the-community",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
@@ -50,6 +61,26 @@ export default {
           urlTitle: "GET INVOLVED",
           url: "../get-involved/become-secret-agent",
         },
+        {
+          ctaId: "contribute-to-secret",
+          imageUrl: "/img/about-secret-network/join-community-img.svg",
+          title: "Contribute to Secret",
+          description:
+            "Become a Secret Agent and advance a better, more empowering web.  ",
+          urlTitle: "GET INVOLVED",
+          url: "../get-involved/become-secret-agent",
+        },
+
+        {
+          ctaId: "the-partners-supporting-us",
+          imageUrl: "/img/about-secret-network/partners-supporting-img.png",
+          title: "The partners supporting us",
+          description:
+            "Meet the people supporting Secret’s mission and helping drive it’s growth and adoption.  ",
+          urlTitle: "VIEW PARTNERS",
+          url: "../get-involved/become-secret-agent",
+        },
+        
       ],
       // material: [
       //   {
@@ -105,7 +136,7 @@ export default {
 
 .general-ctas__item{
   padding: var(--f-gutter);
-  
+
     &__card{
     
       padding: 16px;
