@@ -680,7 +680,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         //////////////////////////////////////////
         // CARDS
 
-        & .card-element {
+        .card-element {
           border-radius: var(--f-radius);
           overflow: hidden;
           background: var(--theme-card-bg-default);
@@ -724,7 +724,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
           &__title-desc{
             &__header{
-              display: none;
+              // display: none;
+              h4 {
+                font-size: 0px;
+              }
             }
           }
         }
