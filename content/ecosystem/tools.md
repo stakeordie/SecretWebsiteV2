@@ -1,13 +1,13 @@
 ---
-title: "Tools & Wallets"
+title: "Tools"
 ---
 
-<!-- Tools -->
-<column class="spacer-s bg-black-gradient">
+<!-- swirl -->
+<column class="ecosystem__green-swirl__top" mode="full">
 
 <block>
 
-<card-grid-v2 header="Tools" title="Tools" collection="toolsAndWallets" :isPaginated="false"></card-grid-v2>
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" /> 
 
 </block>
 
@@ -21,15 +21,41 @@ title: "Tools & Wallets"
 
 
 
-<column number="2" number-m="1" number-s="1" weight="left" class="ecosystem-pages ecosystem-pages__roadmap">
+
+<!-- Tools -->
+<column class="spacer-s bg-black-gradient">
 
 <block>
 
-## See what Secrets we have in store
+<card-grid-v3 header="Tools" title="Tools" collection="toolsAndWallets" :isPaginated="false"></card-grid-v3>
 
 </block>
 
-<block class="ecosystem-pages ecosystem-pages__action">
+</column>
+
+
+
+
+
+
+
+
+
+<column number="2" number-m="1" number-s="1" weight="left" class="spacer-s bg-dark view-roadmap">
+
+<block>
+
+### See what Secrets we have in store
+
+</block>
+
+<!-- <block class="ecosystem-pages ecosystem-pages__action">
+
+<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
+
+</block> -->
+
+<block class="view-roadmap-btn">
 
 <btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
 
@@ -45,21 +71,31 @@ title: "Tools & Wallets"
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="right">
-
-<block class="ecosystem-pages__two-columns__img">
-
-![](../img/illustration-hand-stone.png)
-
-</block>
+<column class="" >
 
 <block>
 
-### Build (more) with privacy
+<general-ctas id="get-started-with-secret"></general-ctas>
 
-Use Secret’s private-by-default smart contracts to develop trailblazing apps not possible elsewhere.
+</block>
 
-<btn class="text-center no-arrow" url="/developers">VIEW DEV TOOLS</btn>
+
+</column >
+
+
+
+
+
+
+
+
+
+<!-- swirl -->
+<column class="ecosystem__green-swirl__bottom">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" />
 
 </block>
 
@@ -67,28 +103,3 @@ Use Secret’s private-by-default smart contracts to develop trailblazing apps n
 
 
 
-
-
-
-
-
-
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="left">
-
-<block>
-
-### Start using the network
-
-Find out where to buy SCRT, what wallet to store it in, and how to start using Secret dApps. 
-
-<btn class="text-center no-arrow" url="/about/about-scrt">Get SCRT</btn>
-
-</block>
-
-<block class="ecosystem-pages__two-columns__img">
-
-![](../img/illustration-riding-scrt.png)
-
-</block>
-
-</column>
