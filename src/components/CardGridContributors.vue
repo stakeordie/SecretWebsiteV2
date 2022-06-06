@@ -475,7 +475,7 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-contributors {
+.ecosystem-contributors-v2 {
   
   .grid-header-v2 {
     display: grid;
