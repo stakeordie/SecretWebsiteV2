@@ -522,8 +522,8 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-tools-v2,
-.ecosystem-dapps-v2{
+.ecosystem-tools,
+.ecosystem-dapps{
 
   .grid-header-v2 {
     display: grid;

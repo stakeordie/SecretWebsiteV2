@@ -3,11 +3,33 @@ title: "DApps"
 ---
 
 
+<!-- swirl -->
+<column class="ecosystem__green-swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" /> 
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+
+
+
+
+
 <column id="dapps" class="spacer-s bg-black-gradient">
 
 <block>
 
-<card-grid-v2 title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></card-grid-v2>
+<card-grid-v3 title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></card-grid-v3>
 
 </block>
 
@@ -41,15 +63,21 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 
 
-<column number="2" number-m="1" number-s="1" weight="left" class="ecosystem-pages ecosystem-pages__roadmap">
+<column number="2" number-m="1" number-s="1" weight="left" class="spacer-s bg-dark view-roadmap">
 
 <block>
 
-## See what Secrets we have in store
+### See what Secrets we have in store
 
 </block>
 
-<block class="ecosystem-pages ecosystem-pages__action">
+<!-- <block class="ecosystem-pages ecosystem-pages__action">
+
+<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
+
+</block> -->
+
+<block class="view-roadmap-btn">
 
 <btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
 
@@ -65,25 +93,22 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="right">
+<column class="" number="2" number-m="1" number-s="1">
 
-<block class="ecosystem-pages__two-columns__img">
+<block>
 
-![](../img/illustration-hand-stone.png)
+<general-ctas id="get-started-with-secret"></general-ctas>
 
 </block>
 
 <block>
 
-### Build (more) with privacy
-
-Use Secret’s private-by-default smart contracts to develop trailblazing apps not possible elsewhere.
-
-<btn class="text-center no-arrow" url="/developers">VIEW DEV TOOLS</btn>
+<general-ctas id="build-on-secret"></general-ctas>
 
 </block>
 
-</column>
+
+</column >
 
 
 
@@ -93,32 +118,14 @@ Use Secret’s private-by-default smart contracts to develop trailblazing apps n
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="left">
+
+<!-- swirl -->
+<column class="ecosystem__green-swirl__bottom">
 
 <block>
 
-### Start using the network
-
-Find out where to buy SCRT, what wallet to store it in, and how to start using Secret dApps. 
-
-<btn class="text-center no-arrow" url="/about/about-scrt">Get SCRT</btn>
-
-</block>
-
-<block class="ecosystem-pages__two-columns__img">
-
-![](../img/illustration-riding-scrt.png)
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" />
 
 </block>
 
 </column>
-
-
-
-
-
-
-
-
-
-
