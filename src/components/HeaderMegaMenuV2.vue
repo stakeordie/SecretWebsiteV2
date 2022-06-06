@@ -397,11 +397,11 @@ export default {
         Object.entries(result).forEach(([key, value]) => {
           if (key == "Join the Community") {
             let firstArray = value.filter((e, i) => {
-              return i < 3;
+              return i < 4;
             });
 
             let secondArray = value.filter((e, i) => {
-              return i > 2;
+              return i > 3;
             });
 
             c.nav_items.push({
