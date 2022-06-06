@@ -51,8 +51,7 @@
               class="card-element__overall-link"
               :href="element.url"
               target="blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <div class="card-element__header">
                 <img
                   class="card-element__header__logo"
@@ -381,7 +380,7 @@ query {
         picture: logo {
           url
         }
-        link
+        url:link
         order
       }
     }
@@ -689,7 +688,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           text-align: center;
           border-radius: 10px;
           height: 96px;
-          min-width: 212px;
+          
           //display: inline-block;
           justify-content: center;
 
@@ -702,8 +701,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
           &__overall-link {
             padding: var(--f-gutter);
-            justify-items: center;
+            //justify-items: center;
             display: inline-block;
+            min-width: 212px;
           }
 
           &__header {
@@ -712,6 +712,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             display: flex;
             width: 150px;
             height: 64px;
+            margin: auto;
             
 
             &__logo {

@@ -634,12 +634,16 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     & .elements-container {
       .elements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(212px, 212px));
+        grid-template-columns: repeat(5, minmax(212px, 1fr));
         gap: var(--f-gutter-l);
         justify-content: center;
 
         @include respond-to("<=s") {
           grid-template-columns: repeat(auto-fit, minmax(200px, 245px));
+        }
+
+         @include respond-to("<=xl") {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 212px));
         }
 
         .no-results {
