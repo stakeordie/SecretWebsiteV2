@@ -177,7 +177,7 @@ query {
         background: var(--color-neutral-dark-mode-04);
 
           & a{
-            color: var(--color-newBrand-blue-01) !important;
+            //color: var(--color-newBrand-blue-01) !important;
           }
       }
       &__item {
@@ -208,11 +208,11 @@ query {
 
           & a {
             padding: 0;
-            color: var(--color-newBrand-blue-02) !important;
+            //color: var(--theme-links-default) !important;
 
             &:hover{
               span{
-                color: var(--color-newBrand-blue-01) !important;
+                //color: var(--color-newBrand-blue-01) !important;
               }
             }
           }

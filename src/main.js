@@ -59,6 +59,11 @@ import Media from '~/components/cards/Media.vue';
 import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
+import CardGridV3 from '~/components/CardGridV3.vue';
+import CardGridContributors from '~/components/CardGridContributors.vue';
+import CardGridPartners from '~/components/CardGridPartners.vue';
+import CardGridValidators from '~/components/CardGridValidators.vue';
+import CardGridNfts from '~/components/CardGridNfts.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
@@ -193,6 +198,8 @@ import GeneralCtas from '~/components/page/GeneralCtas'
 
 
 
+
+
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
@@ -255,6 +262,11 @@ export default function (Vue, {
   Vue.component('NewMedia', NewMedia);
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
+  Vue.component('CardGridV3', CardGridV3);
+  Vue.component('CardGridContributors', CardGridContributors);
+  Vue.component('CardGridPartners', CardGridPartners);
+  Vue.component('CardGridValidators', CardGridValidators);
+  Vue.component('CardGridNfts', CardGridNfts);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
@@ -383,9 +395,10 @@ export default function (Vue, {
   Vue.component('AustinEventMeet', AustinEventMeet);
   Vue.component('AustinEventPartnership', AustinEventPartnership);
   Vue.component('AustinEventFooter', AustinEventFooter);
-  Vue.component('HomeDcentralAfterpartyBanner', AustinEventFooter);
+  Vue.component('HomeDcentralAfterpartyBanner', HomeDcentralAfterpartyBanner);
 
   Vue.component('GeneralCtas', GeneralCtas);
+  
 
 
   

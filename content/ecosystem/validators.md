@@ -12,7 +12,7 @@ title: "Contributors"
 
 </block>
 
-</column> 
+</column>
 
 
 
@@ -24,7 +24,7 @@ title: "Contributors"
 
 <block>
 
-<card-grid-contributors header="Contributors" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-contributors>
+<card-grid-validators header="Validators" title="Validators" collection="ecosystemValidators" :isPaginated="false"></card-grid-validators>
 
 </block>
 

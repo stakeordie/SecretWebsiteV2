@@ -1,5 +1,5 @@
 ---
-title: "Contributors"
+title: "Partners"
 ---
 
 
@@ -12,7 +12,7 @@ title: "Contributors"
 
 </block>
 
-</column> 
+</column>
 
 
 
@@ -24,7 +24,7 @@ title: "Contributors"
 
 <block>
 
-<card-grid-contributors header="Contributors" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-contributors>
+<card-grid-partners header="Partners" title="Partners" collection="ecosystemPartners" :isPaginated="false"></card-grid-partners>
 
 </block>
 
@@ -42,7 +42,7 @@ title: "Contributors"
 
 <block>
 
-<general-ctas id="the-partners-supporting-us"></general-ctas>
+<general-ctas id="get-started-with-secret"></general-ctas>
 
 </block>
 

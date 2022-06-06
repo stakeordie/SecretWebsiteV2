@@ -1,7 +1,6 @@
 ---
-title: "DApps"
+title: "Tools"
 ---
-
 
 <!-- swirl -->
 <column class="ecosystem__green-swirl__top" mode="full">
@@ -23,33 +22,12 @@ title: "DApps"
 
 
 
-
-
-<column id="dapps" class="spacer-s bg-black-gradient">
-
-<block>
-
-<card-grid-v3 title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></card-grid-v3>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-<column class="cosystem-pages ecosystem-pages__learn-more">
+<!-- Tools -->
+<column class="spacer-s bg-black-gradient">
 
 <block>
 
-Secret dApps are made with Secret Contracts, private smart contracts that encrypt data by default, protecting its user’s data and assets.
-
-<btn class="text-center no-bg" url="/developers">Learn more</btn>
+<card-grid-nfts header="Secret NFT Collections" title="Secret NFT Collections" collection="ecosystemNft" :isPaginated="false"></card-grid-nfts>
 
 </block>
 
@@ -71,12 +49,6 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 </block>
 
-<!-- <block class="ecosystem-pages ecosystem-pages__action">
-
-<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
-
-</block> -->
-
 <block class="view-roadmap-btn">
 
 <btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
@@ -93,7 +65,7 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 
 
-<column class="" number="2" number-m="1" number-s="1">
+<column class="spacer-s" number="2" number-m="1" number-s="1">
 
 <block>
 
@@ -118,7 +90,6 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 
 
-
 <!-- swirl -->
 <column class="ecosystem__green-swirl__bottom">
 
@@ -129,3 +100,6 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 </block>
 
 </column>
+
+
+

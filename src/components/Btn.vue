@@ -124,7 +124,8 @@ export default {
         background: none;
         pointer-events: all;
         span {
-          color: var(--color-developers-blue-02);
+          //color: var(--color-developers-blue-02);
+          color: var(--theme-links-default);
         }
         &:hover {
           background: none;
