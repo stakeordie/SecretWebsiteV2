@@ -21,12 +21,13 @@ title: 'Secret Network'
 
 
 <!-- EVENT BANNER -->
-<column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" >
+<column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" ref="countdownChecker">
 
 <block class="dcentral-afterparty__home__countdown">
 
 <div class="dcentral-afterparty__home__countdown__wrapper">
-<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700">
+
+<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700" @countDownEnd="homePageRemoveCountdown">
 <!-- <countdown format="days:hours:minutes:seconds" separators="" end="2021-06-08T19:00:00-0700"> -->
 <div class="paragraph-wrap">
   <p class="wrap-day">

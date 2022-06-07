@@ -70,6 +70,15 @@ export default {
           urlTitle: "GET INVOLVED",
           url: "../get-involved/become-secret-agent",
         },
+        {
+          ctaId: "champion-privacy-on-web3",
+          imageUrl: "/img/about-secret-network/join-community-img.svg",
+          title: "Champion privacy on Web3",
+          description:
+            "Become a Secret Agent and advance a better, more empowering web.  ",
+          urlTitle: "GET INVOLVED",
+          url: "../get-involved/become-secret-agent",
+        },
 
         {
           ctaId: "the-partners-supporting-us",
