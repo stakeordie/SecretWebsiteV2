@@ -427,6 +427,12 @@ export default function (Vue, {
       searchTrigger: function () {
         document.querySelector('.search-trigger').click();
       },
+
+      homePageRemoveCountdown: function() {
+        setTimeout(() => {
+          this.$refs.countdownChecker.$el.remove();
+        }, 1000);
+      }
     },
   })
 

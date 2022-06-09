@@ -523,7 +523,8 @@ query {
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
 .ecosystem-tools,
-.ecosystem-dapps{
+.ecosystem-dapps,
+.get-involved-international-communities-v2{
 
   .grid-header-v2 {
     display: grid;
@@ -653,9 +654,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           max-width: 400px;
           margin: auto;
           background: var(--color-neutral-dark-mode-04);
-          background-image: url(../assets/icon-search.svg);
+          background-image: url(../assets/search-icon-gray.svg);
           background-repeat: no-repeat;
-          border-color: var(--color-neutral-dark-mode-01);
+          //border-color: var(--color-neutral-dark-mode-01);
+          border: none;
           background-position: 8px;
           padding-left: 32px;
 
