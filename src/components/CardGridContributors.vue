@@ -378,6 +378,7 @@ query {
   ecosystemContributors:allStrapiEcosystemContributors{
     edges{
       node{
+        id
         title: name
         url: link
         picture: logo {
