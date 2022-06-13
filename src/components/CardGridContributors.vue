@@ -374,6 +374,19 @@ query {
       }
     }
   }
+
+  ecosystemContributors:allStrapiEcosystemContributors{
+    edges{
+      node{
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+
+      }
+    }
+  }
     dApps: allStrapiDApps {
     edges {
       node {
@@ -476,7 +489,6 @@ query {
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
 .ecosystem-contributors {
-  
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -643,7 +655,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           grid-template-columns: repeat(auto-fit, minmax(200px, 245px));
         }
 
-         @include respond-to("<=xl") {
+        @include respond-to("<=xl") {
           grid-template-columns: repeat(auto-fit, minmax(200px, 212px));
         }
 
