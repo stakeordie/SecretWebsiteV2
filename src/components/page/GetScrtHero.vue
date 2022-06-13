@@ -22,9 +22,7 @@
           </div>
           <h1>
             {{
-              selected === ""
-                ? '$'+scrtData.usd
-                : new Intl.NumberFormat(undefined, {
+              selected === "" ? '$'+ scrtData.usd.toFixed(2) : new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currencyDisplay: "narrowSymbol",
                     currency: selected,
@@ -73,6 +71,7 @@ export default {
         .then((result) => {
           this.coinGeckoResponse = JSON.parse(result);
           this.scrtData = this.coinGeckoResponse.market_data.current_price;
+          //console.log('holi' + this.scrtData.toString);
           // console.log(this.coinGeckoResponse.market_data.current_price.usd);
         })
         .catch((error) => console.log("error", error));
