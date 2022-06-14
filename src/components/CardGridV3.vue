@@ -222,8 +222,9 @@ export default {
       if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
       if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
 
-      console.log("total array", cardEl.length);
-      console.log("hiddens", hiddenEls.length);
+      // console.log("total array", cardEl.length);
+      // console.log("hiddens", hiddenEls.length);
+      //////////////////////////////////////////////////
       // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
@@ -274,8 +275,9 @@ export default {
     },
     hashToFilter(hash, filter) {
       if (window.location.hash === '#get-scrt') {
-        console.log(window.location.hash)
-        console.log('hit')
+        // console.log(window.location.hash)
+        // console.log('hit')
+        //////////////////////////////////////
         window.scrollTo(0,0)
         // HERE
         this.checkedCategories = ['wallet'];
