@@ -18,7 +18,7 @@
             placeholder="Search"
           />
         </div>
-        <!-- <ul
+        <ul
           class="custom-checkbox"
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
@@ -35,7 +35,7 @@
               <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
             </label>
           </li>
-        </ul> -->
+        </ul>
       </div>
 
       <div class="elements-container">
@@ -175,8 +175,9 @@ export default {
       if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
       if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
 
-      console.log("total array", cardEl.length);
-      console.log("hiddens", hiddenEls.length);
+      // console.log("total array", cardEl.length);
+      // console.log("hiddens", hiddenEls.length);
+      ////////////////////////////////////////////////////////////
       // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
@@ -227,8 +228,9 @@ export default {
     },
     hashToFilter(hash, filter) {
       if (window.location.hash === "#get-scrt") {
-        console.log(window.location.hash);
-        console.log("hit");
+        // console.log(window.location.hash);
+        // console.log("hit");
+        //////////////////////////////////////
         window.scrollTo(0, 0);
         // HERE
         this.checkedCategories = ["wallet"];
@@ -383,6 +385,9 @@ query {
         url: link
         picture: logo {
           url
+        }
+        types{
+          name
         }
 
       }
@@ -544,69 +549,69 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         * {
           margin: 0;
         }
-        // .custom-checkbox {
-        //   // grid-auto-flow: column;
-        //   // grid-template-columns: auto;
-        //   gap: 10px;
-        //   display: flex;
-        //   justify-content: center;
-        //   li {
-        //     text-align: center;
-        //     display: grid;
-        //     align-items: center;
-        //     color: var(--color-neutral-dark-mode-05);
-        //     * {
-        //       margin: 0;
-        //     }
-        //     label {
-        //       padding: 0;
-        //       border: 0;
-        //         transition: 0.2s ease;
+        .custom-checkbox {
+          // grid-auto-flow: column;
+          // grid-template-columns: auto;
+          gap: 10px;
+          display: flex;
+          justify-content: center;
+          li {
+            text-align: center;
+            display: grid;
+            align-items: center;
+            color: var(--color-neutral-dark-mode-05);
+            * {
+              margin: 0;
+            }
+            label {
+              padding: 0;
+              border: 0;
+                transition: 0.2s ease;
 
-        //       &:hover {
-        //         color: var(--color-analog-primary-white);
-        //       }
-        //       span {
-        //         display: grid;
-        //         gap: 2px;
-        //         grid-auto-flow: column;
-        //         align-items: center;
-        //         font-size: 15px;
-        //         text-transform: capitalize;
-        //         border-radius: 100px;
-        //         padding: 2px 8px;
-        //         border: 1px solid var(--color-neutral-dark-mode-04);
-        //         //color: var(--color-neutral-dark-mode-05);
-        //         img {
-        //           // transition: 0.2s ease;
-        //           width: 0px;
-        //           height: 0px;
-        //         }
-        //       }
-        //       input {
-        //         //max-width: 400px;
+              &:hover {
+                color: var(--color-analog-primary-white);
+              }
+              span {
+                display: grid;
+                gap: 2px;
+                grid-auto-flow: column;
+                align-items: center;
+                font-size: 15px;
+                text-transform: capitalize;
+                border-radius: 100px;
+                padding: 2px 8px;
+                border: 1px solid var(--color-neutral-dark-mode-04);
+                //color: var(--color-neutral-dark-mode-05);
+                img {
+                  // transition: 0.2s ease;
+                  width: 0px;
+                  height: 0px;
+                }
+              }
+              input {
+                //max-width: 400px;
 
-        //         &:checked {
-        //           ~ .title {
-        //             color: var(--color-analog-primary-white);
-        //             border-color: var(--color-analog-primary-white);
-        //             img {
-        //               transition: 0.2s ease;
-        //               width: 16px;
-        //               height: 16px;
-        //             }
-        //           }
-        //         }
-        //       }
-        //     }
-        //     span {
-        //       padding: 8px;
-        //       border: 1px solid white;
-        //       border-radius: 4px;
-        //       cursor: pointer;
-        //     }
-        //   }
-        // }
+                &:checked {
+                  ~ .title {
+                    color: var(--color-analog-primary-white);
+                    border-color: var(--color-analog-primary-white);
+                    img {
+                      transition: 0.2s ease;
+                      width: 16px;
+                      height: 16px;
+                    }
+                  }
+                }
+              }
+            }
+            span {
+              padding: 8px;
+              border: 1px solid white;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
+        }
 
         .search-filter {
           max-width: 400px;
