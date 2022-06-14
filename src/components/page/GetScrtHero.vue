@@ -21,8 +21,15 @@
             <v-select  v-model="selected" placeholder="USD" :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"></v-select>
           </div>
           <h1>
-            {{
+            <!-- {{
               selected === "" ? '$'+ scrtData.usd.toFixed(2) : new Intl.NumberFormat(undefined, {
+                    style: "currency",
+                    currencyDisplay: "narrowSymbol",
+                    currency: selected,
+                  }).format(scrtData[selected])
+            }} -->
+            {{
+              selected === "" ? '$'+ scrtData.usd : new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currencyDisplay: "narrowSymbol",
                     currency: selected,
