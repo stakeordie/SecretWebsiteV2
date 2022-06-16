@@ -18,7 +18,7 @@
             placeholder="Search"
           />
         </div>
-        <ul
+        <!-- <ul
           class="custom-checkbox"
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
@@ -32,10 +32,13 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
+              <span class="title"
+                >{{ formatCategory(category.name) }}
+                <img src="../assets/icon-remove-filter.svg" alt=""
+              /></span>
             </label>
           </li>
-        </ul>
+        </ul> -->
       </div>
 
       <div class="elements-container">
@@ -566,7 +569,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             label {
               padding: 0;
               border: 0;
-                transition: 0.2s ease;
+              transition: 0.2s ease;
 
               &:hover {
                 color: var(--color-analog-primary-white);
@@ -671,9 +674,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           justify-items: center;
           gap: var(--f-gutter);
           padding: var(--f-gutter-l) 0;
-          * {
-            //margin: 0;
-          }
+
           img {
             max-width: 150px;
           }
