@@ -13,10 +13,10 @@
 
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="description">{{ $page.post.description }}</p>
-        <g-image class="cover-image" picture :src="coverImage"></g-image>
+        <g-image class="cover-image" onerror="this.onerror=null;this.src='../blog-cover.jpg';" picture :src="coverImage"></g-image>
         <blog-author class="info" :includeShareButtons="true">
           <div class="left">
-            <g-image picture :src="profileImage"></g-image>
+            <g-image picture onerror="this.onerror=null;this.src='../scrt-logo.png';" :src="profileImage"></g-image>
             <div class="author" info>
               <p>{{ $page.post.primary_author.name }}</p>
               <p>
