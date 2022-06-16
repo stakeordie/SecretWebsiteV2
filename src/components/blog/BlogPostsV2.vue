@@ -7,14 +7,14 @@
 
       <blog-card-v2 v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
         <template #image>
-          <g-image v-if="node.feature_image" :src="node.feature_image"></g-image>
+          <g-image onerror="this.onerror=null;this.src='../blog-cover.jpg';" alt="" v-if="node.feature_image" :src="node.feature_image"></g-image>
         </template>
         <template #tag v-if="node.primary_tag">{{ node.primary_tag.name }}</template>
         <h5>{{ node.title }}</h5>
         <!-- <p>{{ node.description | truncate }}</p> -->
         <template #footer>
-          <g-image picture v-if="node.primary_author.profile_image" :src="node.primary_author.profile_image"></g-image>
-          <g-image picture v-else src="@/assets/scrt-logo.png"></g-image>
+          <g-image picture onerror="this.onerror=null;this.src='../scrt-logo.png';" alt="" v-if="node.primary_author.profile_image" :src="node.primary_author.profile_image"></g-image>
+          <g-image  picture v-else src="@/assets/scrt-logo.png"></g-image>
           <div info class="author-info">
             <p>{{ node.primary_author.name }}</p>
             <p>{{ node.date }} · {{ node.reading_time }} min read</p>
