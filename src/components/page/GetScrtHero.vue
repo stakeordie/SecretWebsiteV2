@@ -18,20 +18,22 @@
         <div class="price-select">
           <!-- BORRADOR -->
           <div class="price-select-btn">
-            <v-select  v-model="selected" placeholder="USD" :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"></v-select>
+            <v-select
+              v-model="selected"
+              placeholder="USD"
+              :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"
+            ></v-select>
           </div>
           <h1>
             {{
               selected === ""
-                ? '$'+scrtData.usd
+                ? "$" + Number(scrtData.usd).toFixed(2)
                 : new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currencyDisplay: "narrowSymbol",
                     currency: selected,
                   }).format(scrtData[selected])
             }}
-            <!-- {{ selected === "" ? scrtData.usd : scrtData[selected].toLocaleString(undefined, { style: 'currency', currency: selected }) }} -->
-            <!-- {{ selected === "" ? "usd" : selected }} -->
           </h1>
           <!-- <div class="custom-select">
             
@@ -73,6 +75,7 @@ export default {
         .then((result) => {
           this.coinGeckoResponse = JSON.parse(result);
           this.scrtData = this.coinGeckoResponse.market_data.current_price;
+          //console.log('holi' + this.scrtData.toString);
           // console.log(this.coinGeckoResponse.market_data.current_price.usd);
         })
         .catch((error) => console.log("error", error));
@@ -192,238 +195,220 @@ export default {
         justify-content: center;
         margin-top: 16px;
 
-         &-btn{
-            margin-right: 16px;
-            width: 127px;
-            
-            
-            & .vs--open{
-                    background: rgba(198, 77, 21, 1);   
-                    border-radius: 26px 26px  0 0 ;  
-                  }
-            
-            & .v-select{
-                transform: translateY(4px) ;
+        &-btn {
+          margin-right: 16px;
+          width: 127px;
+
+          & .vs--open {
+            background: rgba(198, 77, 21, 1);
+            border-radius: 26px 26px 0 0;
+          }
+
+          & .v-select {
+            transform: translateY(4px);
+            //position: absolute;
+
+            & .vs__dropdown-toggle {
+              border: none;
+
+              border-radius: 26px;
+              overflow: hidden;
+              background-color: rgba(235, 128, 69, 1);
+
+              align-content: center;
+
+              width: 127px;
+              height: 60px;
+
+              padding: 10px 10px 10px 20px;
+              margin: auto 0;
+
+              cursor: pointer;
+
+              display: flex;
+
+              &::after {
                 //position: absolute;
-
-              & .vs__dropdown-toggle{
-                border: none;
-
-                border-radius: 26px;
-                overflow: hidden;
-                background-color: rgba(235, 128, 69, 1);
-                
-                align-content: center;
-
-
-                width: 127px;
-                height: 60px;
-
-                padding: 10px 10px 10px 20px;
-                    margin: auto 0;
-
-                cursor: pointer;
-
                 display: flex;
+                //transform:  translateX(8px);
+                //top: 12px;
+                //right: 12px;
+                content: "";
+                // max-width: 24px;
+                // max-height: 24px;
+                min-width: 24px;
+                height: auto;
+                //margin: 6px 3.6px ;
+                background-image: url(../../assets/icon-chevron-down.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
 
-                &::after{
-                    //position: absolute;
-                    display: flex;
-                    //transform:  translateX(8px);
-                    //top: 12px;
-                    //right: 12px;
-                    content: '' ;
-                    // max-width: 24px;
-                    // max-height: 24px;
-                    min-width: 24px;
-                    height: auto;
-                    //margin: 6px 3.6px ;
-                    background-image: url(../../assets/icon-chevron-down.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: contain;
+                //opacity: 0;
 
-                    //opacity: 0;
+                //align-self: center;
+              }
 
-                    //align-self: center;
-                  }
+              & .vs__actions {
+                opacity: 0;
+                display: none;
+              }
 
-                 & .vs__actions{
-                      opacity: 0;
-                            display: none;
-                 
-                      }
+              & .vs__selected-options {
+                justify-content: center;
+                align-content: center;
+                padding: 0;
 
-                & .vs__selected-options{
-                  justify-content: center;
-                  align-content: center;
+                position: relative;
+
+                & .vs__selected {
+                  align-self: center;
+
+                  font-family: var(--f-default-headers-font);
+                  font-weight: 700;
+                  font-size: 24px;
+                  color: var(--color-neutral-dark-mode-06);
+                  text-transform: uppercase;
+
                   padding: 0;
+                  margin: 0;
+                  //margin-right: 16px;
 
-                  position: relative;
-
-                  & .vs__selected{
-                    align-self: center;
-
-                    font-family: var(--f-default-headers-font);
-                    font-weight: 700;
-                    font-size: 24px;
-                    color: var(--color-neutral-dark-mode-06);
-                    text-transform: uppercase;
-
-                    padding: 0;
-                    margin: 0;
-                    //margin-right: 16px;
-
-                    position: absolute;
-                    //transform: translateX(3px);
-                    //z-index: 10;
-                    
-                  }
-
-                  & .vs--select{
-                    font-family: var(--f-default-headers-font);
-                    font-weight: 700;
-                    font-size: 24px;
-                    color: var(--color-neutral-dark-mode-06);
-                    text-transform: uppercase;
-
-                    
-
-                  }
-
-
-                  & .vs__search,
-                  & .vs__search:focus,
-                  & .vs__search:target,
-                  & .vs__search:active {
-                    //display: none;
-                    background-color: transparent;
-                    border: none;
-
-                    font-family: var(--f-default-headers-font);
-                    font-weight: 700;
-                    font-size: 24px;
-                    color: var(--color-neutral-dark-mode-06);
-                    text-transform: uppercase;
-
-                    padding: 0;
-                    margin-top: 0;
-                    
-                    text-align: center;
-
-                    text-decoration: none;
-                    caret-color: transparent;
-                  }
+                  position: absolute;
+                  //transform: translateX(3px);
+                  //z-index: 10;
                 }
 
-                & .vs__actions{
+                & .vs--select {
+                  font-family: var(--f-default-headers-font);
+                  font-weight: 700;
+                  font-size: 24px;
+                  color: var(--color-neutral-dark-mode-06);
+                  text-transform: uppercase;
+                }
+
+                & .vs__search,
+                & .vs__search:focus,
+                & .vs__search:target,
+                & .vs__search:active {
+                  //display: none;
+                  background-color: transparent;
+                  border: none;
+
+                  font-family: var(--f-default-headers-font);
+                  font-weight: 700;
+                  font-size: 24px;
+                  color: var(--color-neutral-dark-mode-06);
+                  text-transform: uppercase;
+
                   padding: 0;
+                  margin-top: 0;
 
-                  & .vs__clear{
-                    display: none;
-                  }
+                  text-align: center;
 
-                  & .vs__open-indicator{
-                    fill: #fff;
-                  }
+                  text-decoration: none;
+                  caret-color: transparent;
                 }
               }
 
-              & .vs__dropdown-menu{
-                background: rgba(198, 77, 21, 1);   
-                border-radius:  0 0 26px 26px; 
+              & .vs__actions {
+                padding: 0;
 
-                min-width: 127px;
-                max-width: 127px;
+                & .vs__clear {
+                  display: none;
+                }
 
-                overflow: scroll;
-                max-height: 180px;
+                & .vs__open-indicator {
+                  fill: #fff;
+                }
+              }
+            }
+
+            & .vs__dropdown-menu {
+              background: rgba(198, 77, 21, 1);
+              border-radius: 0 0 26px 26px;
+
+              min-width: 127px;
+              max-width: 127px;
+
+              overflow: scroll;
+              max-height: 180px;
 
               &::-webkit-scrollbar {
                 display: none;
               }
 
-              & .vs__dropdown-option{
-                    font-family: var(--f-default-headers-font);
-                    font-weight: 700;
-                    font-size: 24px;
-                    color: var(--color-neutral-dark-mode-06);
-                    text-transform: uppercase;
+              & .vs__dropdown-option {
+                font-family: var(--f-default-headers-font);
+                font-weight: 700;
+                font-size: 24px;
+                color: var(--color-neutral-dark-mode-06);
+                text-transform: uppercase;
 
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-                    padding: 10px 10px 10px 20px;
-                    margin: auto 0;
+                padding: 10px 10px 10px 20px;
+                margin: auto 0;
 
+                &::after {
+                  //position: absolute;
+                  display: flex;
+                  transform: translateX(8px);
+                  //top: 12px;
+                  //right: 12px;
+                  content: "";
+                  // max-width: 24px;
+                  // max-height: 24px;
+                  width: 16.82px;
+                  height: 12px;
+                  margin: 6px 3.6px;
+                  background-image: url(../../assets/check-light-orange.svg);
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  background-size: contain;
 
-                     &::after{
-                    //position: absolute;
-                    display: flex;
-                    transform:  translateX(8px);
-                    //top: 12px;
-                    //right: 12px;
-                    content: '' ;
-                    // max-width: 24px;
-                    // max-height: 24px;
-                    width: 16.82px;
-                    height: 12px;
-                    margin: 6px 3.6px ;
-                    background-image: url(../../assets/check-light-orange.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: contain;
+                  opacity: 0;
 
-                    opacity: 0;
-
-                    //align-self: center;
-                  }
-
-                  
-
-                    
+                  //align-self: center;
                 }
+              }
 
-                & .vs__dropdown-option--selected{
-                  color: rgba(251, 201, 152, 1);
-                  
-                  &::after{
+              & .vs__dropdown-option--selected {
+                color: rgba(251, 201, 152, 1);
 
-                    opacity: 1;
-                    // //position: absolute;
-                    // display: inline-block;
-                    // transform: translateY(3px) translateX(8px);
-                    // //top: 12px;
-                    // //right: 12px;
-                    // content: '' ;
-                    // width: 24px;
-                    // height: 24px;
-                    // background-image: url(../../assets/check-light-orange.svg);
-                    // background-repeat: no-repeat;
-                    // background-position: center;
-                    // background-size: contain;
+                &::after {
+                  opacity: 1;
+                  // //position: absolute;
+                  // display: inline-block;
+                  // transform: translateY(3px) translateX(8px);
+                  // //top: 12px;
+                  // //right: 12px;
+                  // content: '' ;
+                  // width: 24px;
+                  // height: 24px;
+                  // background-image: url(../../assets/check-light-orange.svg);
+                  // background-repeat: no-repeat;
+                  // background-position: center;
+                  // background-size: contain;
 
-                    // //align-self: center;
-                  }
+                  // //align-self: center;
                 }
+              }
 
-                & .vs__dropdown-option--highlight{
-                  background-color: var(--color-analog-secondary-orange);
-                }
+              & .vs__dropdown-option--highlight {
+                background-color: var(--color-analog-secondary-orange);
               }
             }
           }
+        }
 
-          & h1{
-            margin: 0;
-            font-size: 54px;
-            width: 148px;
-            
-          }
-
-
-
+        & h1 {
+          margin: 0;
+          font-size: 54px;
+          width: 148px;
+        }
 
         // & h1 {
         //   font-family: Montserrat;
@@ -459,11 +444,6 @@ export default {
         //   height: 20px;
         //   width: 20px;
         //   align-self: center;
-
-         
-
-
-
 
         //   position: relative;
         //   top: -4px;
@@ -514,9 +494,6 @@ export default {
         //     }
         //   }
         // }
-
-        
-        
       }
     }
   }
