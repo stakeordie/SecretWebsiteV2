@@ -101,7 +101,7 @@ import HeaderMegaMenuV2 from '~/components/HeaderMegaMenuV2';
 import FooterMenu from '~/components/FooterMenu.vue';
 
 import LogoCarousel from '~/components/LogoCarousel.vue';
-import PartnersLogos from '~/components/PartnersLogos'
+//import PartnersLogos from '~/components/PartnersLogos'
 
 
 
@@ -317,7 +317,7 @@ export default function (Vue, {
   Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   Vue.component('LogoCarousel', LogoCarousel);
-  Vue.component('PartnersLogos', PartnersLogos);
+  //Vue.component('PartnersLogos', PartnersLogos);
 
   
 
