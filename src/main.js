@@ -61,6 +61,7 @@ import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import CardGridV3 from '~/components/CardGridV3.vue';
 import CardGridContributors from '~/components/CardGridContributors.vue';
+import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
 import CardGridPartners from '~/components/CardGridPartners.vue';
 import CardGridValidators from '~/components/CardGridValidators.vue';
 import CardGridNfts from '~/components/CardGridNfts.vue';
@@ -100,6 +101,7 @@ import HeaderMegaMenuV2 from '~/components/HeaderMegaMenuV2';
 import FooterMenu from '~/components/FooterMenu.vue';
 
 import LogoCarousel from '~/components/LogoCarousel.vue';
+import PartnersLogos from '~/components/PartnersLogos'
 
 
 
@@ -200,6 +202,7 @@ import GeneralCtas from '~/components/page/GeneralCtas'
 
 
 
+
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
@@ -264,6 +267,7 @@ export default function (Vue, {
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('CardGridV3', CardGridV3);
   Vue.component('CardGridContributors', CardGridContributors);
+  Vue.component('CardGridContributorFilter', CardGridContributorFilter);
   Vue.component('CardGridPartners', CardGridPartners);
   Vue.component('CardGridValidators', CardGridValidators);
   Vue.component('CardGridNfts', CardGridNfts);
@@ -313,6 +317,7 @@ export default function (Vue, {
   Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   Vue.component('LogoCarousel', LogoCarousel);
+  Vue.component('PartnersLogos', PartnersLogos);
 
   
 
