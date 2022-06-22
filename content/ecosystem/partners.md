@@ -18,6 +18,21 @@ title: "Partners"
 
 
 
+<!-- Tools -->
+<!-- <column class="spacer-s bg-black-gradient">
+
+<block>
+
+<partners-logos header="Partners" title="Partners" collection="ecosystemPartners" :isPaginated="false"></partners-logos>
+
+</block>
+
+</column> -->
+
+
+
+
+
 
 <!-- Tools -->
 <column class="spacer-s bg-black-gradient">
