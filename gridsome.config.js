@@ -165,6 +165,7 @@ module.exports = {
     ],
     templates: {
         GhostPost: '/blog/:slug',
+        GhostTag: '/tag/:slug',
     },
     transformers: {
         remark: {
