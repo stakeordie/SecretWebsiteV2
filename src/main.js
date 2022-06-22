@@ -63,7 +63,7 @@ import CardGridV3 from '~/components/CardGridV3.vue';
 import CardGridContributors from '~/components/CardGridContributors.vue';
 import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
 import CardGridPartners from '~/components/CardGridPartners.vue';
-import CardGridPartnersV2 from '~/components/CardGridPartnersV2.vue';
+//import CardGridPartnersV2 from '~/components/CardGridPartnersV2.vue';
 import CardGridValidators from '~/components/CardGridValidators.vue';
 import CardGridNfts from '~/components/CardGridNfts.vue';
 import Contributors from '~/components/cards/Contributors.vue';
@@ -270,7 +270,7 @@ export default function (Vue, {
   Vue.component('CardGridContributors', CardGridContributors);
   Vue.component('CardGridContributorFilter', CardGridContributorFilter);
   Vue.component('CardGridPartners', CardGridPartners);
-  Vue.component('CardGridPartnersV2', CardGridPartnersV2);
+  //Vue.component('CardGridPartnersV2', CardGridPartnersV2);
   Vue.component('CardGridValidators', CardGridValidators);
   Vue.component('CardGridNfts', CardGridNfts);
   Vue.component('Contributors', Contributors);
