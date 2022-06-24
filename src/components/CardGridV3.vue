@@ -601,6 +601,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             align-items: center;
             font-size: 16px;
             color: var(--color-neutral-dark-mode-05);
+            font-family: hind;
             * {
               margin: 0;
             }
@@ -620,11 +621,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 font-size: 18px;
                 text-transform: capitalize;
                 border-radius: 100px;
-                padding: 6px 16px;
+                padding: 7px 16px 5px 16px;
                 border: none;
                 background-color: var(--color-neutral-dark-mode-04);
                 color: var(--color-neutral-dark-mode-06);
                 font-weight: 600;
+                //transform: translateY(5px);
 
                 transition: 0.2s ease;
                 img {
