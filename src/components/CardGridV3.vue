@@ -599,6 +599,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             text-align: center;
             display: grid;
             align-items: center;
+            font-size: 16px;
             color: var(--color-neutral-dark-mode-05);
             * {
               margin: 0;
@@ -616,12 +617,16 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 gap: 2px;
                 grid-auto-flow: column;
                 align-items: center;
-                font-size: 15px;
+                font-size: 18px;
                 text-transform: capitalize;
                 border-radius: 100px;
-                padding: 2px 8px;
-                border: 1px solid var(--color-neutral-dark-mode-04);
-                //color: var(--color-neutral-dark-mode-05);
+                padding: 6px 16px;
+                border: none;
+                background-color: var(--color-neutral-dark-mode-04);
+                color: var(--color-neutral-dark-mode-06);
+                font-weight: 600;
+
+                transition: 0.2s ease;
                 img {
                   // transition: 0.2s ease;
                   width: 0px;
@@ -633,13 +638,13 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
                 &:checked {
                   ~ .title {
-                    color: var(--color-analog-primary-white);
-                    border-color: var(--color-analog-primary-white);
-                    img {
-                      transition: 0.2s ease;
-                      width: 16px;
-                      height: 16px;
-                    }
+                    background-color: var(--color-ver2-primary-turquoise);
+                    border: none;
+                    // img {
+                    //   transition: 0.2s ease;
+                    //   width: 16px;
+                    //   height: 16px;
+                    // }
                   }
                 }
               }
