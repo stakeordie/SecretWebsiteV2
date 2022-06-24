@@ -61,7 +61,9 @@ import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import CardGridV3 from '~/components/CardGridV3.vue';
 import CardGridContributors from '~/components/CardGridContributors.vue';
+import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
 import CardGridPartners from '~/components/CardGridPartners.vue';
+//import CardGridPartnersV2 from '~/components/CardGridPartnersV2.vue';
 import CardGridValidators from '~/components/CardGridValidators.vue';
 import CardGridNfts from '~/components/CardGridNfts.vue';
 import Contributors from '~/components/cards/Contributors.vue';
@@ -79,6 +81,7 @@ import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
 import ScrollHorizontal from '~/components/ScrollHorizontal.vue';
+import ScrollHorizontalV2 from '~/components/ScrollHorizontalV2.vue';
 import ContentColumns from '~/components/ContentColumns.vue';
 import ContentSwitcher from '~/components/ContentSwitcher.vue';
 import SecretAgentHero from '~/components/SecretAgentHero.vue';
@@ -100,6 +103,7 @@ import HeaderMegaMenuV2 from '~/components/HeaderMegaMenuV2';
 import FooterMenu from '~/components/FooterMenu.vue';
 
 import LogoCarousel from '~/components/LogoCarousel.vue';
+import PartnersLogos from '~/components/PartnersLogos'
 
 
 
@@ -126,6 +130,12 @@ import BlogCardFeaturedV2 from '~/components/blog/BlogCardFeaturedV2'
 import BlogFeaturedPostsV2 from '~/components/blog/BlogFeaturedPostsV2'
 import BlogPostsFeaturedV2 from '~/components/blog/BlogPostsFeaturedV2'
 import BlogFilterV2 from '~/components/blog/BlogFilterV2'
+
+// Learn
+import LearnPostsFeatured from '~/components/blog/LearnPostsFeatured'
+import LearnFeaturedPosts from '~/components/blog/LearnFeaturedPosts'
+import LearnPosts from '~/components/blog/LearnPosts'
+import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -200,6 +210,7 @@ import GeneralCtas from '~/components/page/GeneralCtas'
 
 
 
+
 require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
@@ -264,7 +275,9 @@ export default function (Vue, {
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('CardGridV3', CardGridV3);
   Vue.component('CardGridContributors', CardGridContributors);
+  Vue.component('CardGridContributorFilter', CardGridContributorFilter);
   Vue.component('CardGridPartners', CardGridPartners);
+  //Vue.component('CardGridPartnersV2', CardGridPartnersV2);
   Vue.component('CardGridValidators', CardGridValidators);
   Vue.component('CardGridNfts', CardGridNfts);
   Vue.component('Contributors', Contributors);
@@ -282,6 +295,7 @@ export default function (Vue, {
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
   Vue.component('ScrollHorizontal', ScrollHorizontal);
+  Vue.component('ScrollHorizontalV2', ScrollHorizontalV2);
   Vue.component('ContentColumns', ContentColumns);
   Vue.component('ContentSwitcher', ContentSwitcher);
   Vue.component('SecretAgentHero', SecretAgentHero);
@@ -313,6 +327,7 @@ export default function (Vue, {
   Vue.component('GetScrtLearnMore', GetScrtLearnMore);
 
   Vue.component('LogoCarousel', LogoCarousel);
+  Vue.component('PartnersLogos', PartnersLogos);
 
   
 
@@ -348,6 +363,11 @@ export default function (Vue, {
   Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
   Vue.component('BlogFilterV2', BlogFilterV2);
   
+  //Learn
+  Vue.component('LearnPostsFeatured', LearnPostsFeatured);
+  Vue.component('LearnFeaturedPosts', LearnFeaturedPosts);
+  Vue.component('LearnPosts', LearnPosts);
+  Vue.component('LearnCardFeatured', LearnCardFeatured);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
