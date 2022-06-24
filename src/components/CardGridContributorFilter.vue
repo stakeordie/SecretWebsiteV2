@@ -1,23 +1,13 @@
 <template>
   <div>
-    <!-- GRID HEADER -->
-    <!-- <div class="grid-header-v2">
-      <h2>{{ gridHeaderTitle(header) }}</h2>
-      <p>{{ gridHeaderSubtitle(header) }}</p>
-    </div> --> 
-    <div class="elements-v3">
+    <div class="elements-contributors">
       <!-- FILTER -->
       <div class="filter v3">
-        <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
         <h5 class="mini-title">Explore</h5>
-        <!-- <h2 v-if="!gridHeaderTitle(header)">{{ title }}</h2> -->
+
         <h2>{{ gridHeaderTitle(header) }}</h2>
-          <p>{{ gridHeaderSubtitle(header) }}</p>
-        <!-- <div class="filter-auction" v-if="hasCategories">
-          <h2>{{ gridHeaderTitle(header) }}</h2>
-          <p>{{ gridHeaderSubtitle(header) }}</p>
-          // <button class="btn-clear" v-on:click="resetCheck">Clear</button> 
-        </div> -->
+        <p>{{ gridHeaderSubtitle(header) }}</p>
+
         <div class="search">
           <input
             class="search-filter"
@@ -42,7 +32,10 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
+              <span class="title"
+                >{{ formatCategory(category.name) }}
+                <img src="../assets/icon-remove-filter.svg" alt=""
+              /></span>
             </label>
           </li>
         </ul>
@@ -50,45 +43,8 @@
 
       <div class="elements-container">
         <!-- GRID -->
-        <div class="elements-grid PAGINATED" v-if="isPaginated">
-          <div
-            class="card-element"
-            v-for="element in pagedArray"
-            :key="element.id"
-          >
-            <a :href="element.url" target="blank" rel="noopener noreferrer" class="card-element__country">
-              <img :src="element.picture.url" alt="picture" class="card-element__country__picture" />
-              <div
-                class="meta"
-                :class="{ 'meta--with-categories': hasCategories }"
-              >
-                <div class="m-title">
-                  <h6>{{ element.title }}</h6>
-                </div>
-                <!-- <div class="m-elements"> -->
-                <div
-                  class="m-elements"
-                  :class="evaluateTags(element.types.length)"
-                  v-if="hasCategories"
-                >
-                  <p class="tag-accent"
-                    v-for="(category, id) in element.types"
-                    :key="id"
-                    :class="'accent-' + category.name"
-                  >
-                    {{ formatCategory(category.name) }}
-                  </p>
-                </div>
-                <p class="language" v-if="element.language">
-                  {{ element.language }}
-                </p>
-              </div>
-            </a>
-          </div>
 
-        </div>
-
-        <div class="elements-grid NOPAGINATED" v-else>
+        <div class="elements-grid NOPAGINATED">
           <div
             class="card-element"
             v-for="element in filteredElements"
@@ -111,7 +67,7 @@
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
                 >
-                  <div
+                  <!-- <div
                     class="m-elements card-element__header__tags"
                     :class="evaluateTags(element.types.length)"
                     v-if="hasCategories"
@@ -123,7 +79,7 @@
                     >
                       {{ formatCategory(category.name) }}
                     </p>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div
@@ -132,12 +88,12 @@
               >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
-                  <p>
+                  <!-- <p>
                     {{element.description}}
-                  </p>
+                  </p> -->
                 </div>
               </div>
-                <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn>
+              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -164,7 +120,7 @@
 </template>
 
 <script>
-import LogoVue from "./docs/Logo.vue";
+//import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
 
 const sortBySorting = (first, second) => {
@@ -224,7 +180,7 @@ export default {
 
       // console.log("total array", cardEl.length);
       // console.log("hiddens", hiddenEls.length);
-      //////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////
       // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
@@ -274,13 +230,13 @@ export default {
       this.checkedCategories = [];
     },
     hashToFilter(hash, filter) {
-      if (window.location.hash === '#get-scrt') {
-        // console.log(window.location.hash)
-        // console.log('hit')
+      if (window.location.hash === "#get-scrt") {
+        // console.log(window.location.hash);
+        // console.log("hit");
         //////////////////////////////////////
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0);
         // HERE
-        this.checkedCategories = ['wallet'];
+        this.checkedCategories = ["wallet"];
       }
 
       if (window.location.hash === hash) {
@@ -334,11 +290,11 @@ export default {
       sortedCollection.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
-        if(titleA < titleB) {
-          return -1
+        if (titleA < titleB) {
+          return -1;
         }
-        if(titleA > titleB) {
-          return 1
+        if (titleA > titleB) {
+          return 1;
         }
         return 0;
       });
@@ -420,6 +376,23 @@ query {
         id
         title,
         subtitle
+      }
+    }
+  }
+
+  ecosystemContributors:allStrapiEcosystemContributors{
+    edges{
+      node{
+        id
+        title: name
+        url: link
+        picture: logo {
+          url
+        }
+        types{
+          name
+        }
+
       }
     }
   }
@@ -524,10 +497,7 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-tools,
-.ecosystem-dapps,
-.get-involved-international-communities-v2{
-
+.ecosystem-contributors-v2 {
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -542,12 +512,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
   }
 
-  .elements-v3 {
+  .elements-contributors {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--f-gutter-xl);
-    // background-color: var(--theme-card-grid-bg-color);
-    //padding: 32px 0;
     margin-top: 0;
     align-content: start;
     text-align: center;
@@ -557,25 +525,20 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
 
     @include respond-to("<=s") {
-          //grid-template-columns: repeat(2, 1fr);
-          padding: 32px var(--f-gutter);
-        }
+      padding: 32px var(--f-gutter);
+    }
 
     h5 {
-    color: var(--color-ver2-primary-turquoise);
-    text-transform: uppercase;
-    
+      color: var(--color-ver2-primary-turquoise);
+      text-transform: uppercase;
     }
     h2 {
-        margin-bottom: 48px;
-        font-size: 54px;
-      }
-      p{
-        max-width: 650px;
-      }
-
-    
-  
+      margin-bottom: 48px;
+      font-size: 54px;
+    }
+    p {
+      max-width: 650px;
+    }
 
     h4 {
       color: var(--color-neutral-dark-mode-05);
@@ -599,17 +562,15 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             text-align: center;
             display: grid;
             align-items: center;
-            font-size: 16px;
             color: var(--color-neutral-dark-mode-05);
-            font-family: hind;
             * {
               margin: 0;
             }
             label {
               padding: 0;
               border: 0;
-                transition: 0.2s ease;
-              
+              transition: 0.2s ease;
+
               &:hover {
                 color: var(--color-analog-primary-white);
               }
@@ -618,17 +579,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 gap: 2px;
                 grid-auto-flow: column;
                 align-items: center;
-                font-size: 18px;
+                font-size: 15px;
                 text-transform: capitalize;
                 border-radius: 100px;
-                padding: 7px 16px 5px 16px;
-                border: none;
-                background-color: var(--color-neutral-dark-mode-04);
-                color: var(--color-neutral-dark-mode-06);
-                font-weight: 600;
-                //transform: translateY(5px);
-
-                transition: 0.2s ease;
+                padding: 2px 8px;
+                border: 1px solid var(--color-neutral-dark-mode-04);
+                //color: var(--color-neutral-dark-mode-05);
                 img {
                   // transition: 0.2s ease;
                   width: 0px;
@@ -640,13 +596,13 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
                 &:checked {
                   ~ .title {
-                    background-color: var(--color-ver2-primary-turquoise);
-                    border: none;
-                    // img {
-                    //   transition: 0.2s ease;
-                    //   width: 16px;
-                    //   height: 16px;
-                    // }
+                    color: var(--color-analog-primary-white);
+                    border-color: var(--color-analog-primary-white);
+                    img {
+                      transition: 0.2s ease;
+                      width: 16px;
+                      height: 16px;
+                    }
                   }
                 }
               }
@@ -659,6 +615,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             }
           }
         }
+
         .search-filter {
           max-width: 400px;
           margin: auto;
@@ -670,7 +627,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           background-position: 8px;
           padding-left: 32px;
 
-          &::placeholder{
+          &::placeholder {
             color: var(--color-neutral-dark-mode-06);
             font-size: 16px;
           }
@@ -693,28 +650,22 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
 
-    .elements-container {
-      //margin: auto;
+    //////////////////////////////////////////
+    // CARD GRID
+
+    & .elements-container {
       .elements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--f-gutter);
-        @include respond-to("<=xs") {
-          //grid-template-columns: repeat(2, 1fr);
-          //padding: var(--f-gutter);
-          justify-content: center;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
+        grid-template-columns: repeat(5, minmax(212px, 1fr));
+        gap: var(--f-gutter-l);
+        justify-content: center;
+
+        @include respond-to("<=s") {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 245px));
         }
 
-        
-        
-
-        @include respond-to(">=l") {
-          grid-template-columns: repeat(3, 1fr);
-        }
-
-        @include respond-to(">=xl") {
-          grid-template-columns: repeat(4, 1fr);
+        @include respond-to("<=xl") {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 212px));
         }
 
         .no-results {
@@ -723,15 +674,13 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           justify-items: center;
           gap: var(--f-gutter);
           padding: var(--f-gutter-l) 0;
-          * {
-            margin: 0;
-          }
+
           img {
             max-width: 150px;
           }
           p {
             text-align: center;
-            
+
             span {
               @include respond-to(">=m") {
                 display: block;
@@ -740,7 +689,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           }
         }
 
-        .card-element {
+        //////////////////////////////////////////
+        // CARDS
+
+        & .card-element {
           border-radius: var(--f-radius);
           overflow: hidden;
           background: var(--theme-card-bg-default);
@@ -748,147 +700,195 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           display: grid;
           text-align: center;
           border-radius: 10px;
-          * {
-            margin: 0;
+          min-height: 257px;
+          //min-width: 212px;
+          &.hidden {
+            display: none;
           }
-          
-        
+          &:hover {
+            background: var(--color-neutral-dark-mode-04);
+          }
 
-
-          // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
           &__overall-link {
             display: grid;
             gap: var(--f-gutter);
             padding: var(--f-gutter);
-            grid-template-rows: 64px 1fr 32px;
+            grid-template-rows: 150px auto;
+            //justify-content: center;
+            justify-items: center;
 
-
-            &:hover  .ecosystem .btn-text{
-                color: var( --theme-links-default);
-              }
-
-            &:hover .tag-accent{
-                  border-color: var(--color-neutral-dark-mode-02);
-                }
-
-                .ecosystem{
-                  &:hover{
-              color: var(--color-highkey-secondary-blue);
+            @include respond-to("<=xs") {
+              grid-template-rows: 120px auto;
             }
-                }
           }
+
           &__header {
-            display: grid;
-            grid-template-columns: 64px 1fr;
-            align-items: start;
-            gap: 4px;
+            width: 150px;
+            height: 150px;
+            border-radius: var(--f-radius);
+            overflow: hidden;
+            display: flex;
+
+            @include respond-to("<=xs") {
+              width: 120px;
+              height: 120px;
+            }
+
             &__logo {
-              border-radius: 10px;
-              padding: 0;
-              object-fit: contain;
-
-              width: 64px;
-              height: 64px;
-              background-color: var(--color-neutral-dark-mode-04);
-            }
-
-          
-
-            
-
-            .meta {
-              display: grid;
-              justify-items: end;
-              // gap: 8px;
-            }
-            &__tags {
-              display: flex;
-              flex-flow: wrap-reverse;
-              justify-content: flex-end;
-              gap: 5px;
-              p {
-                font-size: 15px;
-                text-transform: capitalize;
-                border-radius: 100px;
-                padding: 2px 8px;
-                border: 1px solid var(--color-neutral-dark-mode-04);
-
-              }
-              
-            }
-            
-          }
-
-          &__country{
-            display: grid;
-            gap: 16px;
-            padding: var(--f-gutter);
-
-            &__picture{
-              //padding: var(--f-gutter);
-              border-radius: 10px;
+              margin: auto;
             }
           }
-
-          
 
           &__title-desc {
-            display: grid;
-            gap: 8px;
-            text-align: left;
             &__header {
-              display: grid;
-              gap: 8px;
-              align-content: start;
-            }
-            h4 {
-              color: white;
-            }
-            p{
-              min-width: 196px;
+              & .element-grid-title {
+                color: var(--color-analog-primary-white);
+                font-size: 22px;
+                line-height: 30px;
+                margin-bottom: 0;
+              }
             }
           }
-          &.hidden {
-            display: none;
-          }
-
-          & img {
-            object-fit: cover;
-            //width: 100%;
-            aspect-ratio: 1 / 1;
-            
-            
-          }
-
-          &:hover {
-            
-            background: var(--color-neutral-dark-mode-04);
-
-          }
-    
-          * {
-            margin: 0;
-          }
-
-          h6 {
-            color: var(--theme-fg);
-          }
-
-          p {
-            &.tag {
-              text-transform: capitalize;
-            }
-
-            // @each $name, $color in $accent-colors {
-            //   &.accent-#{$name} {
-            //     color: var(--accent-#{$name});
-            //   }
-            // }
-          }
-          
-          
         }
-        
+
+        // .card-element {
+        //   border-radius: var(--f-radius);
+        //   overflow: hidden;
+        //   background: var(--theme-card-bg-default);
+        //   transition: 0.2s ease;
+        //   display: grid;
+        //   text-align: center;
+        //   border-radius: 10px;
+        //   // * {
+        //   //   //margin: 0;
+        //   // }
+
+        //   // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
+        //   &__overall-link {
+        //     display: grid;
+        //     gap: var(--f-gutter);
+        //     padding: var(--f-gutter);
+        //     //grid-template-rows: 64px 1fr ;
+
+        //     &:hover  .ecosystem .btn-text{
+        //         color: var( --theme-links-default);
+        //       }
+
+        //     &:hover .tag-accent{
+        //           border-color: var(--color-neutral-dark-mode-02);
+        //         }
+
+        //         .ecosystem{
+        //            &:hover{
+        //       color: var(--color-highkey-secondary-blue);
+        //     }
+        //         }
+        //   }
+        //   &__header {
+
+        //     border-radius: 10px;
+        //       padding: 0;
+        //       //object-fit: contain;
+
+        //       min-width: 150px;
+        //       height: 150px;
+        //       background-color: var(--color-neutral-dark-mode-06);
+        //     &__logo {
+        //        border-radius: 10px;
+        //       // padding: 0;
+        //       //object-fit: contain;
+        //       margin: auto;
+        //       background-color: var(--color-neutral-dark-mode-04);
+        //     }
+
+        //     .meta {
+        //       display: grid;
+        //       justify-items: end;
+        //       // gap: 8px;
+        //     }
+        //     &__tags {
+        //       display: flex;
+        //       flex-flow: wrap-reverse;
+        //       justify-content: flex-end;
+        //       gap: 5px;
+        //       p {
+        //         font-size: 15px;
+        //         text-transform: capitalize;
+        //         border-radius: 100px;
+        //         padding: 2px 8px;
+        //         border: 1px solid var(--color-neutral-dark-mode-04);
+
+        //       }
+
+        //     }
+
+        //   }
+
+        //   &__country{
+        //     display: grid;
+        //     gap: 16px;
+        //     padding: var(--f-gutter);
+
+        //     &__picture{
+        //       //padding: var(--f-gutter);
+        //       border-radius: 10px;
+        //     }
+        //   }
+
+        //   &__title-desc {
+        //     display: grid;
+        //     gap: 8px;
+        //     text-align: left;
+        //     &__header {
+        //       display: grid;
+        //       gap: 8px;
+        //       align-content: start;
+        //     }
+        //     h4 {
+        //       color: white;
+        //     }
+        //     p{
+        //       min-width: 196px;
+        //     }
+        //   }
+        //   &.hidden {
+        //     display: none;
+        //   }
+
+        //   & img {
+        //     object-fit: cover;
+        //     //width: 100%;
+        //     aspect-ratio: 1 / 1;
+
+        //   }
+
+        //   &:hover {
+
+        //     background: var(--color-neutral-dark-mode-04);
+
+        //   }
+
+        //   * {
+        //     margin: 0;
+        //   }
+
+        //   h6 {
+        //     color: var(--theme-fg);
+        //   }
+
+        //   p {
+        //     &.tag {
+        //       text-transform: capitalize;
+        //     }
+
+        //     // @each $name, $color in $accent-colors {
+        //     //   &.accent-#{$name} {
+        //     //     color: var(--accent-#{$name});
+        //     //   }
+        //     // }
+        //   }
+
+        // }
       }
     }
   }

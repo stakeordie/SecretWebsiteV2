@@ -37,6 +37,7 @@
           </li>
         </ul> -->
       </div>
+      <!-- <partners-logos></partners-logos> -->
 
       <div class="elements-container">
         <!-- GRID -->
@@ -51,44 +52,30 @@
               class="card-element__overall-link"
               :href="element.url"
               target="blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+            >
               <div class="card-element__header">
                 <img
                   class="card-element__header__logo"
                   :src="element.picture.url"
                   alt="picture"
                 />
-                <!-- Categorie tags -->
                 <div
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
                 >
-                  <!-- <div
-                    class="m-elements card-element__header__tags"
-                    :class="evaluateTags(element.types.length)"
-                    v-if="hasCategories"
-                  >
-                    <p class="tag-accent"
-                      v-for="(category, id) in element.types"
-                      :key="id"
-                      :class="'accent-' + category.name"
-                    >
-                      {{ formatCategory(category.name) }}
-                    </p>
-                  </div> -->
+                  
                 </div>
               </div>
-              
+
               <div
                 class="card-element__title-desc"
                 :class="{ 'meta--with-categories': hasCategories }"
               >
                 <div class="card-element__title-desc__header">
-                  <h4 class="element-grid-title">{{ element.title }}</h4> -->
-                  <!-- <p> {{element.description}} </p> -->
-                </div> 
+                  <h4 class="element-grid-title">{{ element.title }}</h4>
+                </div>
               </div>
-              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -489,7 +476,6 @@ query {
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
 .ecosystem-partners {
-  
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -653,7 +639,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         justify-content: center;
 
         @include respond-to("<=xs") {
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         }
 
         .no-results {
@@ -662,11 +648,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           justify-items: center;
           gap: var(--f-gutter);
           padding: var(--f-gutter-l) 0;
-          * {
-            //margin: 0;
-          }
+
           img {
             max-width: 150px;
+            
           }
           p {
             text-align: center;
@@ -691,14 +676,14 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           text-align: center;
           border-radius: 10px;
           height: 96px;
-          
+
           //display: inline-block;
           justify-content: center;
 
           &:hover {
             background: var(--color-neutral-dark-mode-04);
           }
-          &.hidden{
+          &.hidden {
             display: none;
           }
 
@@ -716,18 +701,19 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             width: 150px;
             height: 64px;
             margin: auto;
-            
 
             &__logo {
-              margin:  auto;
+              margin: auto;
               max-height: 64px;
               width: fit-content;
-              
+               @include respond-to("<=xs") {
+                    height: 54px;
+                  }
             }
           }
 
-          &__title-desc{
-            &__header{
+          &__title-desc {
+            &__header {
               // display: none;
               h4 {
                 font-size: 0px;
@@ -735,7 +721,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             }
           }
         }
-
       }
     }
   }

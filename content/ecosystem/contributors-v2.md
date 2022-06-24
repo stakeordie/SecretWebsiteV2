@@ -1,5 +1,5 @@
 ---
-title: "Partners"
+title: "Contributors"
 ---
 
 
@@ -18,28 +18,13 @@ title: "Partners"
 
 
 
-<!-- Tools -->
-<!-- <column class="spacer-s bg-black-gradient">
-
-<block>
-
-<partners-logos header="Partners" title="Partners" collection="ecosystemPartners" :isPaginated="false"></partners-logos>
-
-</block>
-
-</column> -->
-
-
-
-
-
 
 <!-- Tools -->
 <column class="spacer-s bg-black-gradient">
 
 <block>
 
-<card-grid-partners header="Partners" title="Partners" collection="ecosystemPartners" :isPaginated="false"></card-grid-partners>
+<card-grid-contributor-filter header="Contributors" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-contributor-filter>
 
 </block>
 
@@ -57,7 +42,7 @@ title: "Partners"
 
 <block>
 
-<general-ctas id="get-started-with-secret"></general-ctas>
+<general-ctas id="the-partners-supporting-us"></general-ctas>
 
 </block>
 
