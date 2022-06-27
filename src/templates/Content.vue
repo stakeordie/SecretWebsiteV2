@@ -12,6 +12,14 @@ export default {
       title: this.getMetaData("title"),
       meta: [
         {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:image",
+          content: this.getMetaData("ogImage"),
+        },
+        {
           key: "og:title",
           property: "og:title",
           content: this.getMetaData("title"),
@@ -74,7 +82,7 @@ export default {
         filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
     
-      // console.log(filtered);
+      console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];
         console.log(result);
