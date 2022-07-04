@@ -21,7 +21,7 @@
             <v-select
               v-model="selected"
               placeholder="USD"
-              :options="['cad', 'cny', 'gbp', 'jpy', 'mxn', 'usd']"
+              :options="['cad', 'cny','eur', 'gbp', 'jpy', 'mxn', 'usd']"
             ></v-select>
           </div>
           <h1>

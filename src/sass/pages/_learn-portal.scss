@@ -119,7 +119,7 @@
             justify-content: center;
         }
 
-        & a{
+        & a {
             font-size: 16px;
             margin-bottom: 0;
             color: var(--color-neutral-dark-mode-05);
@@ -132,6 +132,10 @@
         &:hover{
               color: var(--color-ver2-tertiary-turquoise);
             }
+
+        &:visited{
+            color: var(--color-neutral-dark-mode-05);
+        }
        
 
         }
