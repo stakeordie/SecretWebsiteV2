@@ -1,375 +1,307 @@
 <template>
-  <default-layout class="blog">
-    <hero-title>
-      <h2>Learn</h2>
-    </hero-title>
-
-    <column number="2">
+  <default-layout class="about-learn-portal learn-post">
+    <!-- HERO -->
+    <column class="spacer-s learn-tag-hero learn-portal__hero" >
       <block>
-        <h3>Dev</h3>
+        <div class="learn-portal__breadcrumb">
+          <a href="../about/learn-portal">Learn Portal</a>
+          <p>/</p>
+          <a href="#">Tag</a>
+        </div>
+        <!-- <img src="../assets/learn-portal/defi-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-defi "> -->
+        <!-- <img  src="../assets/learn-portal/nft-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-nft" /> -->
+        <!-- <img src="../assets/learn-portal/secret-tech-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-tech "> -->
+        <img  src="../assets/learn-portal/dapp-guides-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-dapp" >
+        <div class="learn-tag-hero__content">
+          <h4 class="learn-tag-hero__eyebrow">Eyebrow</h4>
+          <h1 class="learn-tag-hero__title">Learn Tag Title</h1>
+          <p class="learn-tag-hero__p">
+            Secret Network is the first blockchain with private-by-default smart
+            contracts. Encrypted inputs, outputs, and state can be revealed at
+            will, opening up an entirely new design space for dApps.
+          </p>
+        </div>
       </block>
+    </column>
+    
 
-      <block class="justify-right">
-        <scroll-horizontal-v2 tagSlug="dev"></scroll-horizontal-v2>
+
+
+
+
+    <column class="">
+
+    <block>
+
+    <learn-post ></learn-post>
+
+    </block>
+
+    </column>
+
+
+
+
+
+
+
+
+    <!-- SLIDER 1 -->
+    <column number="2" number-s="1" class="learn-featured-tag__header">
+
+    <block class="learn-featured-tag__header-left">
+
+    <h2>How to Use Secret DeFi</h2>
+    <p>New to Secret? Not for long — start with these guides and explainers</p>
+
+    </block>
+
+    <block class="justify-right learn-featured-tag__header-right">
+
+    <scroll-horizontal-v2 tagSlug="dev"></scroll-horizontal-v2>
+
+    </block>
+
+    </column>
+
+
+    <column class="spacer-s horizontal-slider dev" tagSlug="dev" mode="full">
+
+    <block>
+
+    <learn-featured-tag ></learn-featured-tag>
+
+    </block>
+
+    </column>
+
+
+     <!-- SLIDER 1 -->
+    <column number="2" number-s="1" class="learn-featured-tag__header">
+
+    <block class="learn-featured-tag__header-left">
+
+    <h2>Bridge Tutorials</h2>
+    <p>New to Secret? Not for long — start with these guides and explainers</p>
+
+    </block>
+
+    <block class="justify-right learn-featured-tag__header-right">
+
+    <scroll-horizontal-v2 tagSlug="devs"></scroll-horizontal-v2>
+
+    </block>
+
+    </column>
+
+
+    <column class="spacer-s horizontal-slider devs" tagSlug="devs" mode="full">
+
+    <block>
+
+    <learn-featured-tag ></learn-featured-tag>
+
+    </block>
+
+    </column>
+
+
+    <!-- SUPPORT -->
+    <column class="spacer-s page-developers__dev-questions learn-tag-support">
+      <block>
+        <get-scrt-questions></get-scrt-questions>
       </block>
     </column>
 
-    <column class="horizontal-slider dev spacer-s" mode="full">
+
+    <!-- CTAS -->
+    <column class="spacer-s" number="3" number-m="2" number-s="1">
       <block>
-        <learn-featured-posts tag-slug="dev"></learn-featured-posts>
+        <general-ctas id="get-started"></general-ctas>
+      </block>
+
+      <block>
+        <general-ctas id="build-on-secret"></general-ctas>
+      </block>
+
+      <block>
+        <general-ctas id="join-the-community"></general-ctas>
       </block>
     </column>
 
-    <column number="2">
+    <!-- swirl -->
+    <column class="learn-portal__green-swirl__bottom">
       <block>
-        <h3>Ecosystem</h3>
-      </block>
-
-      <block class="justify-right">
-        <scroll-horizontal-v2 tagSlug="ecosystem"></scroll-horizontal-v2>
-      </block>
-    </column>
-    <column class="horizontal-slider ecosystem spacer-s" mode="full">
-      <block>
-        <learn-featured-posts tag-slug="ecosystem"></learn-featured-posts>
+        <img
+          class="get-scrt__align-img"
+          src="../../src/assets/swirl-orange-bottom.svg"
+        />
       </block>
     </column>
 
-    <column class="blog-all-posts">
-      <block>
-        <blog-filter-v2
-          :tags="tags"
-          id="left"
-          @blog-filter:filter-applied="onFilterApplied"
-        ></blog-filter-v2>
-        <section class="all-posts">
-          <!-- <h3>Posts</h3> -->
-          <learn-posts :posts="posts"></learn-posts>
-        </section>
-      </block>
-    </column>
   </default-layout>
 </template>
 
 <script>
-import DefaultLayout from "../layouts/DefaultLayout";
-// import BlogPosts from "@/components/blog/BlogPosts";
-// import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
-
-import LearnFeaturedPosts from '../components/blog/LearnFeaturedPosts.vue';
-import BlogFilterV2 from '../components/blog/BlogFilterV2.vue';
-import LearnPosts from '../components/blog/LearnPosts.vue';
-
-export default {
-  components: {
-    DefaultLayout,
-    LearnFeaturedPosts,
-    BlogFilterV2,
-    LearnPosts,
-  },
-  data() {
-    return {
-      filters: [],
-
-      categories: [
-        {
-          name: "All",
-          content: "All",
-        },
-        {
-          name: "Featured",
-          content: "Featured",
-        },
-        {
-          name: "Announcement",
-          content: "Announcement",
-        },
-        {
-          name: "Blockchain",
-          content: "Blockchain",
-        },
-        {
-          name: "Collaboration",
-          content: "Collaboration",
-        },
-        {
-          name: "Community",
-          content: "Community",
-        },
-        {
-          name: "Cosmos",
-          content: "Cosmos",
-        },
-        {
-          name: "Design",
-          content: "Design",
-        },
-        {
-          name: "Dev",
-          content: "Dev",
-        },
-        {
-          name: "Ecosystem",
-          content: "Ecosystem",
-        },
-        {
-          name: "Governance",
-          content: "Governance",
-        },
-        {
-          name: "Introduction",
-          content: "Introduction",
-        },
-        {
-          name: "Nodes",
-          content: "Nodes",
-        },
-        {
-          name: "Privacy",
-          content: "Privacy",
-        },
-        {
-          name: "Secret Apps",
-          content: "Secret Apps",
-        },
-        {
-          name: "Solutions",
-          content: "Solutions",
-        },
-        {
-          name: "Staking",
-          content: "Staking",
-        },
-      ],
-      selectedContent: "All",
-      appliedFilters: [],
-    };
-  },
-  computed: {
-    filteredCategories: function () {
-      var vm = this;
-      var content = vm.selectedContent;
-
-      if (content === "All") {
-        return vm.categories;
-      } else {
-        return vm.categories.filter(function (category) {
-          return category.content === content;
-        });
-      }
-    },
-
-    posts() {
-      const { edges: posts } = this.$page.posts;
-      const hiddenTag = "hidden";
-      return posts.filter(({ node: post }) => {
-        if (this.appliedFilters.length === 0) {
-          if (!post.primary_tag) return true;
-          else {
-            const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);
-            if (hidden.length == 0) return true;
-          }
-        }
-
-        if (!post.primary_tag) return false;
-
-        return this.appliedFilters.includes(post.primary_tag.slug);
-      });
-    },
-    tags() {
-      const { edges: tags } = this.$page.tags;
-      const { edges: posts } = this.$page.posts;
-      const hiddenTag = "hidden";
-      return tags.filter(({ node: tag }) => {
-        return posts.some(
-          ({ node: post }) =>
-            post.primary_tag?.id == tag.id && tag.name != hiddenTag
-        );
-      });
-    },
-  },
-  methods: {
-    scroll_left() {
-      let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
-      );
-      content.scrollLeft -= 390;
-    },
-    scroll_right() {
-      let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
-      );
-      content.scrollLeft += 390;
-    },
-
-    onFilterApplied(filters) {
-      this.appliedFilters = filters;
-    },
-
-    mapImage() {
-      const arrayPosts = this.$page.posts.edges;
-      arrayPosts.forEach((el) => {
-        if (el.node.feature_image) {
-          const urlSplit = el.node.feature_image.split(":");
-          if (urlSplit[0] !== "https" && urlSplit[0] !== "http") {
-            el.node.feature_image =
-              "https://ghost.scrt.network/" + el.node.feature_image;
-          }
-        } else el.node.feature_image = "https://scrt.network/blog-cover.jpg";
-      });
-    },
-  },
-  mounted() {
-    this.mapImage();
-  },
-  metaInfo: {
-    title:
-      "Learn | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
-  },
-};
+export default {};
 </script>
 
-<page-query>
-  {
-  posts: allGhostPost(
-    sortBy: "published_at"
-    order: DESC
-    filter: { tags: { id: { in: ["62757008e2d5e80021a6c87e", "62757008e2d5e80021a6c893", "62757008e2d5e80021a6c87a"] } } }
-  ) {
-    edges {
-      node {
-        title
-        description: excerpt
-        date: published_at(format: "D MMM YYYY")
-        id
-        slug
-        reading_time
-        feature_image
-        tags {
-          name
-          id
-          slug
-        }
-        primary_tag {
-          name
-          id
-          slug
-        }
-        primary_author {
-          name
-          profile_image
-        }
-      }
-    }
-  }
+<style lang="scss" >
+@import "@lkmx/flare/src/functions/_respond-to.scss";
 
-  tags: allGhostTag {
-    edges {
-      node {
-        name
-        id
-        ghostId
-      }
-    }
-  }
-}
-</page-query>
+.learn-tag-page, 
+  .learn-post {
 
-<style lang="scss">
-@import "@lkmx/flare/src/functions/respond-to";
+  ///////////////////////////////
+  // HERO
 
-.horizontal-slider {
-  .content {
-    overflow: hidden;
+  .learn-tag-hero {
+    position: relative;
+    padding: 16px 32px 64px 32px;
+    min-height: 450px;
 
-    .box {
-      scrollbar-width: none;
-      overflow-x: scroll;
-      overflow: auto;
-      max-width: 99vw;
-      scroll-behavior: smooth;
+    &__content {
+      text-align: center;
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+      padding: 64px 32px;
 
-
-      @include respond-to("<=m") {
-        max-width: 100vw;
-      }
-
-      padding-left: 1rem;
-      padding-right: 1rem;
-
-      @include respond-to(">=l") {
-        padding-left: 3vw;
-      }
-
-      @include respond-to(">=xl") {
-        padding-left: 9vw;
-      }
-
-      @include respond-to(">=xxl") {
-        padding-left: 13vw;
-      }
-
-      @include respond-to("xxxl") {
-        padding-left: 19vw;
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
-
-  .blog-featured-posts {
-    white-space: nowrap;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .blog-card-featured-v2 {
-
-      border-radius: var(--f-radius);
-      //background: var(--theme-card-bg-default);
-      transition: 0.2s ease;
-      cursor: pointer;
-      display: inline-block;
-      /* flex-direction: column; */
-      max-width: 400px;
-      //min-height: 400px;
-      min-height: 400px;
-      white-space: normal;
-      /* justify-content: space-between; */
-      vertical-align: top;
-      margin-right: var(--f-gutter);
       position: relative;
-      overflow: hidden;
+      z-index: 2;
+
+      @include respond-to("<=s") {
+        padding: 64px var(--f-gutter);
+      }
+    }
+
+    &__img {
+      //top: -20px;
+      position: absolute;
+      height: 100%;
+      width: auto ;
+      z-index: 1;
+      opacity: 0.18;
+      bottom: 0;
+
+
+      &-defi {
+        top: -10px;
+        left: 10px;
+        height: auto ;
+
+        @include respond-to("<=l") {
+          left: -50px;
+        }
+
+        @include respond-to("<=xs") {
+          left: -10px;
+          top: 45px
+        }
+      }
+
+      &-nft {
+        right: -80px;
+
+
+        @include respond-to("<=m") {
+          right: -120px;
+        }
+      }
+      
+      &-tech {
+        height: 428px;
+        top: 45px;
+
+        @include respond-to("<=l") {
+          left: -50px;
+        }
+
+        @include respond-to("<=s") {
+          left: -110px;
+        }
+      }
+
+      &-dapp {
+        right: 0;
+        height: 418px;
+        top: 45px;
+
+        @include respond-to("<=m") {
+          //right: -120px;
+        }
+      }
+    }
+
+    &__eyebrow {
+      color: var(--color-neutral-dark-mode-05);
+      margin: 0;
+      font-weight: 700;
+      text-transform: uppercase;
 
       @include respond-to("<=xs") {
-       margin-right: var(--f-gutter);
+        font-size: 18px;
+        line-height: 25px;
       }
     }
-  }
-}
 
-.blog-all-posts {
-  margin-bottom: var(--spacer-1);
+    &__title {
+      max-width: 800px;
+      margin: 0;
+      font-family: var(--f-default-headers-font);
+      font-size: 54px;
+      line-height: var(--f-h1-text-size);
 
-  .content {
-    .box {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: var(--f-gutter-xl);
-
-      @include respond-to("<=m") {
-        grid-template-columns: 1fr;
+      @include respond-to("<=s") {
+        font-size: 40px;
+        line-height: var(--f-h2-text-size);
       }
+    }
 
-      .blog-card {
-        svg {
-          display: none;
+    &__p {
+      max-width: 590px;
+      margin: auto;
+      text-align: left;
+
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
+    }
+  }
+
+
+  ///////////////////////////////
+  // SLIDER
+
+
+    
+
+    .learn-featured-tag__header{
+    
+      &-left{
+
+        h2{
+          font-size: var(--f-h3-text-size);
+          margin-bottom: 0;
         }
       }
     }
+
+    & .learn-tag__slider{
+      
+      
+    }
+
+  
+
+ ///////////////////////////////
+  // SUPPORT
+
+  .learn-tag-support{
+    padding: var(--f-gutter);
   }
+
+  
+
 }
+
 </style>
