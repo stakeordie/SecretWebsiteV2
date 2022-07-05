@@ -1,10 +1,11 @@
 <template>
   <section class="blog-featured-posts">
-    <learn-card-featured
-      v-for="{ node } in posts"
+    <!-- <learn-card-featured
+      v-for="{ node } in posts" 
       :key="node.id"
       :slug="node.slug"
-    >
+    > -->
+    <learn-card-featured v-for="{ node } in posts" :key="node.id" :tag="node.primary_tag != null ? node.primary_tag.name : ''" :slug="node.slug">
       <template #image
         ><g-image
           onerror="this.onerror=null;this.src='../blog-cover.jpg';"

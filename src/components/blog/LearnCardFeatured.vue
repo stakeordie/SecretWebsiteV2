@@ -1,5 +1,5 @@
 <template>
-  <g-link class="blog-card-featured-v2 cta" :class="`accent-`+color" :to="$tp(`/tag/${slug}`)">
+  <g-link class="blog-card-featured-v2 cta" :class="`accent-`+ color" :to="$tp(`/tag/${slug}`)">
  <div class="blog-card-featured-v2-container">
    <div class="blog-card-featured-v2__body">
         <div class="blog-card-featured-v2__tag">
@@ -168,6 +168,7 @@ $accent-colors: (
 
           & .card-tag{
             margin-top: var(--f-gutter);
+            //color: var(--accent-#{$name}-v2);
             
           }
         }
