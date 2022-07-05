@@ -134,8 +134,13 @@ import BlogFilterV2 from '~/components/blog/BlogFilterV2'
 // Learn
 import LearnPostsFeatured from '~/components/blog/LearnPostsFeatured'
 import LearnFeaturedPosts from '~/components/blog/LearnFeaturedPosts'
+import LearnFeaturedTag from '~/components/blog/LearnFeaturedTag'
+import LearnPortalFaq from '~/components/page/LearnPortalFaq'
 import LearnPosts from '~/components/blog/LearnPosts'
 import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
+import LearnFilter from '~/components/blog/LearnFilter'
+import LearnCard from '~/components/blog/LearnCard'
+
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -203,6 +208,7 @@ import AustinEventFooter from '~/components/page/AustinEventFooter'
 import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
 
 import GeneralCtas from '~/components/page/GeneralCtas'
+import LearnPortalHero from '~/components/page/LearnPortalHero'
 
 
 
@@ -366,8 +372,12 @@ export default function (Vue, {
   //Learn
   Vue.component('LearnPostsFeatured', LearnPostsFeatured);
   Vue.component('LearnFeaturedPosts', LearnFeaturedPosts);
+  Vue.component('LearnFeaturedTag', LearnFeaturedTag);
+  Vue.component('LearnPortalFaq', LearnPortalFaq);
   Vue.component('LearnPosts', LearnPosts);
   Vue.component('LearnCardFeatured', LearnCardFeatured);
+  Vue.component('LearnFilter', LearnFilter);
+  Vue.component('LearnCard', LearnCard);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
@@ -418,6 +428,7 @@ export default function (Vue, {
   Vue.component('HomeDcentralAfterpartyBanner', HomeDcentralAfterpartyBanner);
 
   Vue.component('GeneralCtas', GeneralCtas);
+  Vue.component('LearnPortalHero', LearnPortalHero);
   
 
 

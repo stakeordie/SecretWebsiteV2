@@ -23,6 +23,8 @@ export default {
   data() {
     return {
       ctas: [
+
+        //BOTTOM CTAs
         {
           ctaId: "get-started",
           imageUrl: "/img/about-secret-network/get-started-img.svg",
@@ -87,6 +89,53 @@ export default {
           description:
             "Meet the people supporting Secret’s mission and helping drive it’s growth and adoption.  ",
           urlTitle: "VIEW PARTNERS",
+          url: "../get-involved/become-secret-agent",
+        },
+
+        // LEARN PORTAL
+        {
+          ctaId: "secret-defi",
+          imageUrl: "/img/about-secret-network/learn-defi-img.svg",
+          title: "Secret DeFi",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "secret-nfts",
+          imageUrl: "/img/about-secret-network/nfts-img.svg",
+          title: "Secret NFTs",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "why-privacy-matters",
+          imageUrl: "/img/about-secret-network/dao-img.svg",
+          title: "Why Privacy Matters",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "secret-tech",
+          imageUrl: "/img/about-secret-network/learn-tech-img.svg",
+          title: "Secret Tech",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "sapp-guides",
+          imageUrl: "/img/about-secret-network/contract-img.svg",
+          title: "Dapp Guides",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
         

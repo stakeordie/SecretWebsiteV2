@@ -1,0 +1,336 @@
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
+.about-learn-portal {
+    --about-color-orange: var(--color-analog-secondary-orange);
+    --learn-color-secondary-orange: var(--color-ver2-secondary-orange);
+  
+    & .swirl-wrapper,
+    & .swirl-wrapper-bottom{
+        display: none;
+    }
+    & .simple-footer{
+        margin-top: 0;
+    }
+
+    & .get-scrt-questions__banner__content{
+
+        & .text-h5{
+            color: var(--about-color-orange) !important;
+        }
+        
+        & .btn-blue{
+            background-color: var(--about-color-orange) !important;
+            
+
+            & .btn-text{
+                color: var(--color-analog-primary-white) !important;
+
+                & img{
+                    filter: invert(0);
+                }
+                
+            }
+        }
+    }
+
+}
+
+.learn-portal{
+    &__green-swirl__bottom{
+        //background-image: url("../../src/assets/swirl-green-top.svg");
+        // background-repeat: no-repeat;
+        // background-position: bottom;
+        // background-size: cover;
+        height: 230px;
+        position: relative;
+        padding: 0;
+
+        & .content{
+            
+            & .box{
+                
+
+                & img{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    //top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    z-index: -100;
+                    overflow: hidden;
+
+                    @include respond-to("<=m"){
+                        display: none;
+                    }
+                }
+        
+            }
+                
+        }
+
+        @include respond-to(">=xxl"){
+            //top: 0px;
+            
+        }
+
+        @include respond-to("<=l"){
+            height: 200px;
+            top: 0px;
+        }
+
+        @include respond-to("<=m"){
+            height: 180px;
+            background-image: url("../../src/assets/swirl-orange-bottom.svg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        }
+        @include respond-to("<=s"){
+            height: 140px;
+            
+        }
+        @include respond-to("<=s"){
+            //height: 100px;
+            //position: relative;
+        }
+    }
+
+    &__hero{
+        background-color: var(--color-neutral-dark-mode-02);
+        overflow: hidden;
+
+        & .content{
+
+            & .box{
+                padding: 0;
+            }
+        }
+        
+    }
+
+    &__breadcrumb{
+        display: flex;
+        gap: var(--f-gutter);
+        padding: 42px 136px 0 136px;
+        
+        @include respond-to("<=s"){
+            padding: 32px 0 16px 0;
+            justify-content: center;
+        }
+
+        & a {
+            font-size: 16px;
+            margin-bottom: 0;
+            color: var(--color-neutral-dark-mode-05);
+
+            @include respond-to("<=s"){
+            font-size: 12px;
+
+            
+        }
+        &:hover{
+              color: var(--color-ver2-tertiary-turquoise);
+            }
+
+        &:visited{
+            color: var(--color-neutral-dark-mode-05);
+        }
+       
+
+        }
+         & p{
+            margin: 0;
+        }
+    }
+
+    &__topics-s{
+        display: none;
+        @include respond-to('m'){
+            display:flex;
+        }
+    }
+
+    &__topics-l{
+        @include respond-to('m'){
+            display: none;
+        }
+    }
+
+    &__center{
+
+        & .content{
+
+            & .box{
+                padding: 54px 120px 32px 120px !important;
+                text-align: center;
+
+                @include respond-to ('<=m'){
+                    padding: 54px 32px 32px 32px !important;
+                }
+            }
+
+        }
+
+        & h2{
+
+              @include respond-to('<=s'){
+                font-size: 40px;
+                line-height: var(--f-h2-text-size);
+            }
+        }
+        
+        
+        & p{
+            font-size: var(--paragraph-font-size-big);
+            line-height: var(--paragraph-line-height-big);
+        }
+    }
+
+    &__left{
+        padding: 54px 0 0 0 !important;
+
+                @include respond-to ('<=m'){
+                    padding: 54px 32px 0 32px !important;
+                }
+         & .content{
+
+            & .box{
+                
+                .actions{
+                    align-self: center;
+                }
+            }
+
+        }
+
+        & h2{
+
+              @include respond-to('<=s'){
+                font-size: 40px;
+                line-height: var(--f-h2-text-size);
+            }
+        }
+        
+        & p{
+            font-size: var(--paragraph-font-size-big);
+            line-height: var(--paragraph-line-height-big);
+        }
+    }
+
+    &__eyebrow{
+            color: var(--color-analog-secondary-orange);
+            margin-bottom: 16px;
+            font-weight: 600;
+            
+        }
+}
+
+
+.horizontal-slider {
+  .content {
+    overflow: hidden;
+
+    .box {
+      scrollbar-width: none;
+      overflow-x: scroll;
+      overflow: auto;
+      //max-width: 100vw;
+      scroll-behavior: smooth;
+      margin: auto;
+
+      @include respond-to("<=m") {
+        max-width: 100vw;
+      }
+
+    //   padding-left: 1rem;
+      //padding-right: 1rem;
+
+      @include respond-to(">=l") {
+         padding-left: 3vw;
+      }
+
+      @include respond-to(">=xl") {
+        padding-left: 2vw;
+      }
+
+      @include respond-to(">=xxl") {
+        padding-left: 13vw;
+      }
+
+      @include respond-to("xxxl") {
+        padding-left: 19vw;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .blog-featured-posts {
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .blog-card-featured-v2 {
+
+      border-radius: var(--f-radius);
+      //background: var(--theme-card-bg-default);
+      transition: 0.2s ease;
+      cursor: pointer;
+      display: inline-block;
+      /* flex-direction: column; */
+      max-width: 400px;
+      //min-height: 400px;
+      min-height: 400px;
+      white-space: normal;
+      /* justify-content: space-between; */
+      vertical-align: top;
+      margin-right: var(--f-gutter);
+      position: relative;
+      overflow: hidden;
+
+      @include respond-to("<=xs") {
+       margin-right: var(--f-gutter);
+      }
+    }
+  }
+}
+
+
+
+
+
+.learn-featured-tag__header{
+    padding: 0 var(--f-gutter);
+        //grid-template-columns: 2fr 1fr !important;
+    &-left{
+
+            & .content{
+
+              & .box{
+                
+                & p{
+                  font-size: var(--paragraph-font-size-big);
+                }
+              }
+            }
+        }
+
+    &-right{
+
+            & .content{
+
+              & .box{
+                
+                & .actions{
+                  justify-self: flex-end;
+                  align-self: center;
+                }
+              }
+            }
+        }
+  }
