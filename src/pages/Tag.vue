@@ -41,46 +41,6 @@
       </section>
 
 
-      <!-- <section class="learn-post">
-      <section class="learn-post-excerpt">
-
-        
-        
-
-
-       
-        <p class="description">{{ $page.post.description }}</p>
-        <g-image class="cover-image" onerror="this.onerror=null;this.src='../blog-cover.jpg';" picture :src="coverImage"></g-image>
-        <blog-author class="info" :includeShareButtons="true">
-          <div class="left">
-            <g-image picture onerror="this.onerror=null;this.src='../scrt-logo.png';" :src="profileImage"></g-image>
-            <div class="author" info>
-              <p>{{ $page.post.primary_author.name }}</p>
-              <p>
-                {{ $page.post.date }} &#8226; {{ $page.post.reading_time }} min
-                read
-              </p>
-            </div>
-          </div>
-          <div class="share-icons">
-            <ShareNetwork
-              v-for="network in networks"
-              :network="network.network"
-              :key="network.network"
-              :style="{ backgroundColor: network.color }"
-              :url="url"
-              :title="$page.post.title"
-              :description="$page.post.description"
-            >
-              <i :class="network.icon"></i>
-              <span>{{ network.name }}</span>
-            </ShareNetwork>
-          </div>
-        </blog-author>
-      </section>
-      <div class="post-content" v-html="postContent"></div>
-    </section>     -->
-
 
     <!-- SLIDER 1 -->
     <column number="2" number-s="1" class="learn-featured-tag__header">
