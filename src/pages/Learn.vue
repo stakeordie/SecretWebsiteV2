@@ -1,7 +1,7 @@
 <template>
   <default-layout class="about-learn-portal learn-post">
     <!-- HERO -->
-    <column class="spacer-s learn-tag-hero learn-portal__hero" >
+    <column class="spacer-s learn-tag-hero learn-portal__hero">
       <block>
         <div class="learn-portal__breadcrumb">
           <a href="../about/learn-portal">Learn Portal</a>
@@ -11,7 +11,11 @@
         <!-- <img src="../assets/learn-portal/defi-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-defi "> -->
         <!-- <img  src="../assets/learn-portal/nft-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-nft" /> -->
         <!-- <img src="../assets/learn-portal/secret-tech-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-tech "> -->
-        <img  src="../assets/learn-portal/dapp-guides-hero-img.svg" alt="" class="learn-tag-hero__img learn-tag-hero__img-dapp" >
+        <img
+          src="../assets/learn-portal/dapp-guides-hero-img.svg"
+          alt=""
+          class="learn-tag-hero__img learn-tag-hero__img-dapp"
+        />
         <div class="learn-tag-hero__content">
           <h4 class="learn-tag-hero__eyebrow">Eyebrow</h4>
           <h1 class="learn-tag-hero__title">Learn Tag Title</h1>
@@ -23,88 +27,52 @@
         </div>
       </block>
     </column>
-    
-
-
-
-
 
     <column class="">
-
-    <block>
-
-    <learn-post ></learn-post>
-
-    </block>
-
+      <block>
+        <learn-post></learn-post>
+      </block>
     </column>
-
-
-
-
-
-
-
 
     <!-- SLIDER 1 -->
     <column number="2" number-s="1" class="learn-featured-tag__header">
+      <block class="learn-featured-tag__header-left">
+        <h2>How to Use Secret DeFi</h2>
+        <p>
+          New to Secret? Not for long — start with these guides and explainers
+        </p>
+      </block>
 
-    <block class="learn-featured-tag__header-left">
-
-    <h2>How to Use Secret DeFi</h2>
-    <p>New to Secret? Not for long — start with these guides and explainers</p>
-
-    </block>
-
-    <block class="justify-right learn-featured-tag__header-right">
-
-    <scroll-horizontal-v2 tagSlug="dev"></scroll-horizontal-v2>
-
-    </block>
-
+      <block class="justify-right learn-featured-tag__header-right">
+        <scroll-horizontal-v2 tagSlug="dev"></scroll-horizontal-v2>
+      </block>
     </column>
-
 
     <column class="spacer-s horizontal-slider dev" tagSlug="dev" mode="full">
-
-    <block>
-
-    <learn-featured-tag ></learn-featured-tag>
-
-    </block>
-
+      <block>
+        <learn-featured-tag></learn-featured-tag>
+      </block>
     </column>
 
-
-     <!-- SLIDER 1 -->
+    <!-- SLIDER 1 -->
     <column number="2" number-s="1" class="learn-featured-tag__header">
+      <block class="learn-featured-tag__header-left">
+        <h2>Bridge Tutorials</h2>
+        <p>
+          New to Secret? Not for long — start with these guides and explainers
+        </p>
+      </block>
 
-    <block class="learn-featured-tag__header-left">
-
-    <h2>Bridge Tutorials</h2>
-    <p>New to Secret? Not for long — start with these guides and explainers</p>
-
-    </block>
-
-    <block class="justify-right learn-featured-tag__header-right">
-
-    <scroll-horizontal-v2 tagSlug="devs"></scroll-horizontal-v2>
-
-    </block>
-
+      <block class="justify-right learn-featured-tag__header-right">
+        <scroll-horizontal-v2 tagSlug="devs"></scroll-horizontal-v2>
+      </block>
     </column>
-
 
     <column class="spacer-s horizontal-slider devs" tagSlug="devs" mode="full">
-
-    <block>
-
-    <learn-featured-tag ></learn-featured-tag>
-
-    </block>
-
+      <block>
+        <learn-featured-tag></learn-featured-tag>
+      </block>
     </column>
-
 
     <!-- SUPPORT -->
     <column class="spacer-s page-developers__dev-questions learn-tag-support">
@@ -112,7 +80,6 @@
         <get-scrt-questions></get-scrt-questions>
       </block>
     </column>
-
 
     <!-- CTAS -->
     <column class="spacer-s" number="3" number-m="2" number-s="1">
@@ -138,7 +105,6 @@
         />
       </block>
     </column>
-
   </default-layout>
 </template>
 
@@ -146,12 +112,11 @@
 export default {};
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-tag-page, 
-  .learn-post {
-
+.learn-tag-page,
+.learn-post {
   ///////////////////////////////
   // HERO
 
@@ -179,16 +144,15 @@ export default {};
       //top: -20px;
       position: absolute;
       height: 100%;
-      width: auto ;
+      width: auto;
       z-index: 1;
       opacity: 0.18;
       bottom: 0;
 
-
       &-defi {
         top: -10px;
         left: 10px;
-        height: auto ;
+        height: auto;
 
         @include respond-to("<=l") {
           left: -50px;
@@ -196,19 +160,18 @@ export default {};
 
         @include respond-to("<=xs") {
           left: -10px;
-          top: 45px
+          top: 45px;
         }
       }
 
       &-nft {
         right: -80px;
 
-
         @include respond-to("<=m") {
           right: -120px;
         }
       }
-      
+
       &-tech {
         height: 428px;
         top: 45px;
@@ -268,40 +231,26 @@ export default {};
     }
   }
 
-
   ///////////////////////////////
   // SLIDER
 
-
-    
-
-    .learn-featured-tag__header{
-    
-      &-left{
-
-        h2{
-          font-size: var(--f-h3-text-size);
-          margin-bottom: 0;
-        }
+  .learn-featured-tag__header {
+    &-left {
+      h2 {
+        font-size: var(--f-h3-text-size);
+        margin-bottom: 0;
       }
     }
-
-    & .learn-tag__slider{
-      
-      
-    }
-
-  
-
- ///////////////////////////////
-  // SUPPORT
-
-  .learn-tag-support{
-    padding: var(--f-gutter);
   }
 
-  
+  & .learn-tag__slider {
+  }
 
+  ///////////////////////////////
+  // SUPPORT
+
+  .learn-tag-support {
+    padding: var(--f-gutter);
+  }
 }
-
 </style>
