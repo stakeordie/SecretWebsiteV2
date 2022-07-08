@@ -389,7 +389,7 @@ export default {
         },
         {
           title: "About SCRT",
-          path: "/about/about-scrt",
+          path: "/about/get-scrt",
           target: "self",
         },
         {
@@ -462,7 +462,7 @@ export default {
       linksFooterLearn: [
         {
           title: "About the Network",
-          path: "/about/about-scrt",
+          path: "/about/get-scrt",
           external: false,
           target: "self",
         },
@@ -613,7 +613,7 @@ export default {
     checker() {
       if (process.isClient) {
         const path = window.location.pathname;
-        if (path.includes("/about/about-scrt")) {
+        if (path.includes("/about/get-scrt")) {
           this.swirlSpecial = true;
         } else {
           this.swirlSpecial = false;

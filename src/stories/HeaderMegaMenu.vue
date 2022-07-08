@@ -134,7 +134,7 @@ export default {
                 page: {
                   name: "About SCRT",
                   title: "About SCRT",
-                  route: "/about/about-scrt",
+                  route: "/about/get-scrt",
                   locale: "en",
                 },
                 locale: "en",
