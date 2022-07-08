@@ -11,7 +11,7 @@
           and empowers developers to build a better Web3.
         </p>
         <div class="new-home-hero__container__btns">
-          <btn class="text-center no-arrow btn-bigger special" url="../about/about-scrt">
+          <btn class="text-center no-arrow btn-bigger special" url="../about/get-scrt">
           <img class="special-icon" src="../../assets/getscrt-filled-icon.svg" />
             Get SCRT
           </btn>

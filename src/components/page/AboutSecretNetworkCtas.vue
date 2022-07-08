@@ -23,7 +23,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "../about/about-scrt",
+          url: "../get-scrt",
         },
         {
           imageUrl: "/img/about-secret-network/build-on-secret-img.svg",
