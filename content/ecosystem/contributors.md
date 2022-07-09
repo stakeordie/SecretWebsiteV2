@@ -2,12 +2,29 @@
 title: "Contributors"
 ---
 
+
+<!-- swirl -->
+<column class="ecosystem__green-swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" /> 
+
+</block>
+
+</column> 
+
+
+
+
+
+
 <!-- Tools -->
 <column class="spacer-s bg-black-gradient">
 
 <block>
 
-<card-grid-v2 header="Contributors" title="Contributors" collection="contributors" :isPaginated="false"></card-grid-v2>
+<card-grid-contributors header="Contributors" title="Contributors" collection="ecosystemContributors" :isPaginated="false"></card-grid-contributors>
 
 </block>
 
@@ -21,49 +38,22 @@ title: "Contributors"
 
 
 
-<column number="2" number-m="1" number-s="1" weight="left" class="ecosystem-pages ecosystem-pages__roadmap">
+<column class="spacer-s" number="2" number-m="1" number-s="1">
 
 <block>
 
-## See what Secrets we have in store
-
-</block>
-
-<block class="ecosystem-pages ecosystem-pages__action">
-
-<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="right">
-
-<block class="ecosystem-pages__two-columns__img">
-
-![](../img/illustration-hand-stone.png)
+<general-ctas id="the-partners-supporting-us"></general-ctas>
 
 </block>
 
 <block>
 
-### Build (more) with privacy
-
-Use Secret’s private-by-default smart contracts to develop trailblazing apps not possible elsewhere.
-
-<btn class="text-center no-arrow" url="/">VIEW DEV TOOLS</btn>
+<general-ctas id="contribute-to-secret"></general-ctas>
 
 </block>
 
-</column>
+
+</column >
 
 
 
@@ -73,21 +63,12 @@ Use Secret’s private-by-default smart contracts to develop trailblazing apps n
 
 
 
-<column class="ecosystem-pages ecosystem-pages__two-columns" number="2" number-s="1" weight="left">
+<!-- swirl -->
+<column class="ecosystem__green-swirl__bottom">
 
 <block>
 
-### Start using the network
-
-Find out where to buy SCRT, what wallet to store it in, and how to start using Secret dApps. 
-
-<btn class="text-center no-arrow" url="/">Get SCRT</btn>
-
-</block>
-
-<block class="ecosystem-pages__two-columns__img">
-
-![](../img/illustration-riding-scrt.png)
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" />
 
 </block>
 

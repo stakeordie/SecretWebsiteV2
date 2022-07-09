@@ -20,13 +20,25 @@ title: "Get SCRT"
 
 
 
-<column class="spacer-s page-ecosystem__apply" >
+<column class="spacer-s get-scrt__bg-black" number="2" number-m="1" number-s="1">
 
-<block class="">
+<block >
 
-<div class="get-scrt__text-block">
+<div >
 
-### About SCRT
+<img class="get-scrt__align-img" src="../../src/assets/get-scrt/get-scrt-coin.png" />
+    
+</div>
+
+</block>
+
+<block class="get-scrt__block-align">
+
+<div>
+
+##### ABOUT
+
+<h3 class="h3-scrt-logo"><img src="../../src/assets/getscrt-filled-icon.svg" /> <span>SCRT</span></h3>
     
 <p class="get-scrt__p-left">Secret (SCRT) is a cryptocurrency and the native coin of the Secret Network blockchain. Just like Ether (ETH) and Bitcoin (BTC), you hold your Secret (SCRT) in a wallet and spend it when you want to use Secret Network. You can also stake it or use it to participate in governance.</p> 
     
@@ -36,7 +48,7 @@ title: "Get SCRT"
 
 </column>
 
-
+ 
 
 
 
@@ -108,7 +120,7 @@ title: "Get SCRT"
 
 ##### BUY SCRT
 
-### Where to get SCRT
+<h3 class="h3-scrt-logo"><span>Where to get</span> <img src="../../src/assets/getscrt-filled-icon.svg" /> <span>SCRT</span></h3>
     
 <p class=" get-scrt__p">Here are the different ways to get SCRT, from beginner to pro. Note: what methods you can use depend on your jurisdiction (i.e. the country you live in).</p>
     
@@ -137,13 +149,13 @@ title: "Get SCRT"
 
 
 <!-- Convert sSCRT to SCRT -->
-<column class="spacer-s">
+<column class="">
 
 <block>
 
-<get-scrt-convert-sscrt>
+<get-scrt-convert-sscrt-v2>
     
-</get-scrt-convert-sscrt>
+</get-scrt-convert-sscrt-v2>
 
 </block>
 
@@ -176,14 +188,18 @@ title: "Get SCRT"
 
 
 
-<column class="spacer-s">
+<column class="" number="2" number-m="2" number-s="1">
 
 <block>
 
-<get-scrt-learn-more>
-    
-</get-scrt-learn-more>
+<general-ctas id="build-on-secret"></general-ctas>
 
 </block>
 
-</column>
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >

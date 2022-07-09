@@ -5,9 +5,10 @@
 }
 
 .simple-layout {
-  &.about-get-scrt {
+  &.about-get-scrt,
+  &.about-get-scrt-v2 {
     & h5 {
-        color: var(--color-analog-tertiary-yellow);
+        color: var(--color-analog-secondary-orange);
         margin-bottom: 0;
         font-size: 16px;
     }
@@ -22,12 +23,7 @@
 
 .get-scrt{
 
-    & .content{
 
-        & .box {
-           
-        }
-    }
     
 
     &__cover{
@@ -37,19 +33,56 @@
         background-repeat: no-repeat;
     }
 
+    &__bg-black{
+        background-color: var(--color-neutral-dark-mode-02);
+        padding: 26px 0;
+
+        @include respond-to("<=m"){
+            padding: 26px var(--f-gutter-l);
+        }
+    }
+
     &__price-box{
-        background: url("../../src/assets/get-scrt/get-scrt-yellow-bubble.png") ;
+        background: url("../../src/assets/get-scrt/get-scrt-brown-bubble.png") ;
         background-size: contain ;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 
+    &__align-img{
+        margin: auto;
+    }
+
+    &__block-align{
+        display: flex;
+        align-items: center;
+        
+        
+
+        @include respond-to("<=m"){
+            justify-content: center;
+        }
+
+        & h3{
+            & img{
+                margin: 0;
+            }
+        }
+    }
+
     &__text-block{ 
         text-align: center;
+        justify-content: center;
         max-width: 800px;
         margin: auto;
         padding: var(--f-gutter-xxl) var(--f-gutter);
+
+        & h3{
+            justify-content: center;
+        }
+
+        
     }
 
     &__privacy {
@@ -98,3 +131,20 @@
         
     }
 }
+
+
+
+.h3-scrt-logo{
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+
+    & img{
+        margin-left: 10px;
+        margin-right: 5px;
+        height: 32px;
+        width: 32px;
+    }
+}
+
+

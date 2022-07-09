@@ -15,6 +15,9 @@ import InfiniteSlideBar from 'vue-infinite-slide-bar'
 import typical from 'vue-typical';
 import VueSocialSharing from 'vue-social-sharing';
 import VueAnime from 'vue-animejs';
+import vSelect from "vue-select";
+import Countdown from "@whitewizard/countdown"
+import "vue-select/dist/vue-select.css";
 
 
 import '@fontsource/hind'
@@ -56,6 +59,13 @@ import Media from '~/components/cards/Media.vue';
 import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
+import CardGridV3 from '~/components/CardGridV3.vue';
+import CardGridContributors from '~/components/CardGridContributors.vue';
+import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
+import CardGridPartners from '~/components/CardGridPartners.vue';
+//import CardGridPartnersV2 from '~/components/CardGridPartnersV2.vue';
+import CardGridValidators from '~/components/CardGridValidators.vue';
+import CardGridNfts from '~/components/CardGridNfts.vue';
 import Contributors from '~/components/cards/Contributors.vue';
 import Nodes from '~/components/cards/Nodes.vue';
 import MediaFeatured from '~/components/cards/MediaFeatured.vue';
@@ -71,6 +81,7 @@ import ContentNavigator from '~/components/ContentNavigator.vue';
 import ContentNavigatorDocs from '~/components/ContentNavigatorDocs.vue';
 import ContentNavigatorCms from '~/components/ContentNavigatorCms.vue';
 import ScrollHorizontal from '~/components/ScrollHorizontal.vue';
+import ScrollHorizontalV2 from '~/components/ScrollHorizontalV2.vue';
 import ContentColumns from '~/components/ContentColumns.vue';
 import ContentSwitcher from '~/components/ContentSwitcher.vue';
 import SecretAgentHero from '~/components/SecretAgentHero.vue';
@@ -90,6 +101,10 @@ import HeaderNav from '~/components/HeaderNav.vue';
 // import HeaderMegaMenu from '~/components/HeaderMegaMenu.vue';
 import HeaderMegaMenuV2 from '~/components/HeaderMegaMenuV2';
 import FooterMenu from '~/components/FooterMenu.vue';
+
+import LogoCarousel from '~/components/LogoCarousel.vue';
+import PartnersLogos from '~/components/PartnersLogos'
+
 
 
 // Blog
@@ -115,6 +130,17 @@ import BlogCardFeaturedV2 from '~/components/blog/BlogCardFeaturedV2'
 import BlogFeaturedPostsV2 from '~/components/blog/BlogFeaturedPostsV2'
 import BlogPostsFeaturedV2 from '~/components/blog/BlogPostsFeaturedV2'
 import BlogFilterV2 from '~/components/blog/BlogFilterV2'
+
+// Learn
+import LearnPostsFeatured from '~/components/blog/LearnPostsFeatured'
+import LearnFeaturedPosts from '~/components/blog/LearnFeaturedPosts'
+import LearnFeaturedTag from '~/components/blog/LearnFeaturedTag'
+import LearnPortalFaq from '~/components/page/LearnPortalFaq'
+import LearnPosts from '~/components/blog/LearnPosts'
+import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
+import LearnFilter from '~/components/blog/LearnFilter'
+import LearnCard from '~/components/blog/LearnCard'
+
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -166,6 +192,27 @@ import GetScrtConvertSscrt from '~/components/page/GetScrtConvertSscrt'
 import GetScrtQuestions from '~/components/page/GetScrtQuestions'
 import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
 import GetScrtWallets from '~/components/page/GetScrtWallets'
+import GetScrtConvertSscrtV2 from '~/components/page/GetScrtConvertSscrtV2'
+import AboutSecretNetworkHero from '~/components/page/AboutSecretNetworkHero'
+import AboutSecretNetworkSupported from '~/components/page/AboutSecretNetworkSupported'
+import AboutSecretNetworkMorePrivacy from '~/components/page/AboutSecretNetworkMorePrivacy'
+import AboutSecretNetworkDetails from '~/components/page/AboutSecretNetworkDetails'
+import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetworkPossibilities'
+import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
+import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
+import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
+import AustinEventHero from '~/components/page/AustinEventHero'
+import AustinEventMeet from '~/components/page/AustinEventMeet'
+import AustinEventPartnership from '~/components/page/AustinEventPartnership'
+import AustinEventFooter from '~/components/page/AustinEventFooter'
+import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
+
+import GeneralCtas from '~/components/page/GeneralCtas'
+import LearnPortalHero from '~/components/page/LearnPortalHero'
+
+
+
+
 
 
 
@@ -232,6 +279,13 @@ export default function (Vue, {
   Vue.component('NewMedia', NewMedia);
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
+  Vue.component('CardGridV3', CardGridV3);
+  Vue.component('CardGridContributors', CardGridContributors);
+  Vue.component('CardGridContributorFilter', CardGridContributorFilter);
+  Vue.component('CardGridPartners', CardGridPartners);
+  //Vue.component('CardGridPartnersV2', CardGridPartnersV2);
+  Vue.component('CardGridValidators', CardGridValidators);
+  Vue.component('CardGridNfts', CardGridNfts);
   Vue.component('Contributors', Contributors);
   Vue.component('Nodes', Nodes);
   Vue.component('MediaFeatured', MediaFeatured);
@@ -247,6 +301,7 @@ export default function (Vue, {
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
   Vue.component('ScrollHorizontal', ScrollHorizontal);
+  Vue.component('ScrollHorizontalV2', ScrollHorizontalV2);
   Vue.component('ContentColumns', ContentColumns);
   Vue.component('ContentSwitcher', ContentSwitcher);
   Vue.component('SecretAgentHero', SecretAgentHero);
@@ -276,6 +331,9 @@ export default function (Vue, {
   Vue.component('GetScrtBuyByGroups', GetScrtBuyByGroups);
   Vue.component('GetScrtQuestions', GetScrtQuestions);
   Vue.component('GetScrtLearnMore', GetScrtLearnMore);
+
+  Vue.component('LogoCarousel', LogoCarousel);
+  Vue.component('PartnersLogos', PartnersLogos);
 
   
 
@@ -311,6 +369,15 @@ export default function (Vue, {
   Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
   Vue.component('BlogFilterV2', BlogFilterV2);
   
+  //Learn
+  Vue.component('LearnPostsFeatured', LearnPostsFeatured);
+  Vue.component('LearnFeaturedPosts', LearnFeaturedPosts);
+  Vue.component('LearnFeaturedTag', LearnFeaturedTag);
+  Vue.component('LearnPortalFaq', LearnPortalFaq);
+  Vue.component('LearnPosts', LearnPosts);
+  Vue.component('LearnCardFeatured', LearnCardFeatured);
+  Vue.component('LearnFilter', LearnFilter);
+  Vue.component('LearnCard', LearnCard);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
@@ -338,7 +405,6 @@ export default function (Vue, {
   Vue.component('ServiceJobs', ServiceJobs);
   Vue.component('EcosystemFundingApply', EcosystemFundingApply);
   Vue.component('EcosystemFundingGrant', EcosystemFundingGrant);
-
   Vue.component('EcosystemFundingWhyBuild', EcosystemFundingWhyBuild);
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
@@ -346,7 +412,23 @@ export default function (Vue, {
   Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
   Vue.component('GetScrtWallets', GetScrtWallets);
   Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
-  
+  Vue.component('GetScrtConvertSscrtV2', GetScrtConvertSscrtV2);
+  Vue.component('AboutSecretNetworkHero', AboutSecretNetworkHero);
+  Vue.component('AboutSecretNetworkSupported', AboutSecretNetworkSupported);
+  Vue.component('AboutSecretNetworkMorePrivacy', AboutSecretNetworkMorePrivacy);
+  Vue.component('AboutSecretNetworkDetails', AboutSecretNetworkDetails);
+  Vue.component('AboutSecretNetworkPossibilities', AboutSecretNetworkPossibilities);
+  Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
+  Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
+  Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
+  Vue.component('AustinEventHero', AustinEventHero);
+  Vue.component('AustinEventMeet', AustinEventMeet);
+  Vue.component('AustinEventPartnership', AustinEventPartnership);
+  Vue.component('AustinEventFooter', AustinEventFooter);
+  Vue.component('HomeDcentralAfterpartyBanner', HomeDcentralAfterpartyBanner);
+
+  Vue.component('GeneralCtas', GeneralCtas);
+  Vue.component('LearnPortalHero', LearnPortalHero);
   
 
 
@@ -358,6 +440,8 @@ export default function (Vue, {
   Vue.component('i18n', i18n);
   Vue.component('Deploy', Deploy);
   Vue.component('DeployTemp', DeployTemp);
+  Vue.component("v-select", vSelect);
+  Vue.component("Countdown", Countdown);
   Vue.use(VueAnime);
   
 
@@ -374,6 +458,12 @@ export default function (Vue, {
       searchTrigger: function () {
         document.querySelector('.search-trigger').click();
       },
+
+      homePageRemoveCountdown: function() {
+        setTimeout(() => {
+          this.$refs.countdownChecker.$el.remove();
+        }, 1000);
+      }
     },
   })
 

@@ -25,7 +25,7 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
-  // announcement: "announcement",
+ // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
@@ -54,6 +54,8 @@ const colors = {
   explanations: "education",
   
   dev: "developers",
+  developers: "developers",
+  "dev": "developers",
   'tech updates':"developers",
   hackathon:"developers",
   funding:"developers",
@@ -105,7 +107,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: (
-  "blue",
+"blue",
   "turquoise",
   "green",
   "yellow",
@@ -114,11 +116,11 @@ $accent-colors: (
   "red",
   "purple",
   "gray",
-
+  
   "announcement",
   "education",
   "developers",
-  "ecosystem"
+  "ecosystem" 
 );
 
 .new-blog-card {
@@ -172,7 +174,7 @@ $accent-colors: (
           object-fit: cover;
           //width: 368px;
           height: 188px;
-          width: 100%;
+          width: 340px;
 
         }
 

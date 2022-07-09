@@ -61,6 +61,23 @@
     --color-newBrand-blue-01: rgba(96, 160, 220, 1);
     --color-newBrand-blue-02: rgba(171, 205, 237, 1);
 
+
+    //Brand ver2 Primary
+    --color-ver2-primary-turquoise:rgba(76, 190, 179, 1);
+    --color-ver2-primary-yellow: rgba(253, 213, 53, 1);
+    --color-ver2-primary-orange: rgba(235, 128, 69, 1);
+    --color-ver2-primary-blue: var(--color-newBrand-blue-01);
+
+     //Brand ver2 Secondary
+     //--color-ver2-secondary-turquoise:;
+     --color-ver2-secondary-blue: var(--color-newBrand-blue-02);
+     --color-ver2-secondary-orange: rgba(251, 201, 152, 1);
+
+
+     //Brand ver2 Tertiary
+     --color-ver2-tertiary-turquoise:rgba(143, 210, 234, 1);
+
+
     //Docs
     --color-docs-highlighted-dark-mode:white;
     --color-docs-highlighted-light-mode:black;

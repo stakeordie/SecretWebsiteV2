@@ -11,7 +11,7 @@
           and empowers developers to build a better Web3.
         </p>
         <div class="new-home-hero__container__btns">
-          <btn class="text-center no-arrow btn-bigger special" url="../about/about-scrt">
+          <btn class="text-center no-arrow btn-bigger special" url="../about/get-scrt">
           <img class="special-icon" src="../../assets/getscrt-filled-icon.svg" />
             Get SCRT
           </btn>
@@ -23,16 +23,23 @@
       <div class="new-home-hero__container__logos">
         <h6>Supported by</h6>
         <infinite-slide-bar
-          duration="150s"
+          duration="220s"
           :barStyle="{ background: '', padding: '5px 0' }"
         >
-          <div
+        <partners-logos header="Partners" title="Partners" collection="ecosystemPartners" :isPaginated="false"></partners-logos>
+          <!-- <div
             v-for="(investor, index) in secretInvestors"
             :key="index"
-            class="card-secret-agent"
-          >
+            class="card-secret-agent">
+            
+          </div> -->
+          <!-- </div> <div
+            v-for="(investor, index) in secretInvestors"
+            :key="index"
+            class="card-secret-agent">
+            <partners-logos></partners-logos>
             <g-image :src="investor.image" />
-          </div>
+          </div> -->
         </infinite-slide-bar>
       </div>
     </div>
@@ -237,13 +244,13 @@ export default {
       }
 
       & .vifnslb-bar {
-        gap: 96px;
-        margin-right: 96px;
+        //gap: 96px;
+        //margin-right: 96px;
         overflow: hidden;
 
         @include respond-to("<=m") {
-          gap: 64px;
-          margin-right: 64px;
+          //gap: 64px;
+          //margin-right: 64px;
         }
 
         & img {
@@ -253,6 +260,23 @@ export default {
 
     }
   }
+
+  & .partners-logos-container{
+  display: inline-flex;
+  
+
+  & .logo-container{
+    padding: var(--f-gutter) 54px;
+   // width: 120px;
+   opacity: 0.7;
+
+      @include respond-to("<=s") {
+        padding: var(--f-gutter) 32px;
+    }
+  }
 }
+}
+
+
 
 </style>

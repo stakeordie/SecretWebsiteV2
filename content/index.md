@@ -20,6 +20,63 @@ title: 'Secret Network'
 
 
 
+<!-- EVENT BANNER -->
+<!-- <column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" ref="countdownChecker">
+
+<block class="dcentral-afterparty__home__countdown">
+
+<div class="dcentral-afterparty__home__countdown__wrapper">
+<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700" @countDownEnd="homePageRemoveCountdown">
+
+<div class="paragraph-wrap">
+  <p class="wrap-day">
+  DAYS 
+  </p>
+<div class="">  </div>
+  <p class="wrap-hour">
+  HOURS
+  </p>
+<div class="">  </div>
+  <p class="wrap-min">
+  MIN
+  </p>
+<div class="">  </div>
+  <p class="wrap-sec">
+  SEC
+  </p>
+</div>
+
+</countdown>
+
+</div>
+
+### until the party starts
+
+</block>
+
+<block class="dcentral-afterparty__event-info">
+
+![](../src/assets/events/logos/secret-logo-white.svg)
+
+### DCentral Austin Afterparty
+
+Music, drinks, and sneak peeks—join us for a special DCentral Austin afterparty with legendary filmmaker Kevin Smith. 
+
+<btn class="center-text no-arrow dcentral-afterparty__event-info__btn" url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137">GET TICKETS NOW</btn>
+
+
+</block>
+
+
+
+</column> -->
+
+
+
+
+
+
+
 
 
 <!--  -->

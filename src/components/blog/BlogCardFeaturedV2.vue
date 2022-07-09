@@ -20,7 +20,7 @@
   
 
   const colors = {
-    // announcement: "announcement",
+  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
@@ -49,6 +49,8 @@
   explanations: "education",
   
   dev: "developers",
+  developers: "developers",
+  "dev": "developers",
   'tech updates':"developers",
   hackathon:"developers",
   funding:"developers",
@@ -99,7 +101,7 @@
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 $accent-colors: (
-  "blue",
+"blue",
   "turquoise",
   "green",
   "yellow",
@@ -112,7 +114,7 @@ $accent-colors: (
   "announcement",
   "education",
   "developers",
-  "ecosystem"
+  "ecosystem" 
 );
 
   .blog-card-featured-v2 {

@@ -15,8 +15,8 @@
                   Learn how to get SCRT, install a wallet, and start staking your SCRT.
               </p>
               <div class="new-home__call__content__info-btns">
-                  <btn class="text-center no-arrow btn btn-color" url="../about/about-scrt">Get SCRT</btn>
-                  <btn class="text-center no-arrow btn" url="../about/about-scrt">Use SCRT</btn>
+                  <btn class="text-center no-arrow btn btn-color" url="../about/get-scrt">Get SCRT</btn>
+                  <btn class="text-center no-arrow btn" url="../about/get-scrt">Use SCRT</btn>
               </div>
           </div>
 

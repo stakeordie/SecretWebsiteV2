@@ -131,9 +131,151 @@ query {
       font-family: montserrat;
       font-weight: 500;
       line-height: 24px;
+
     }
 
     h4 {
+
+    }
+    p {
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
+      margin-bottom: 0;
+
+    }
+
+    @include respond-to(">=l") {
+      padding-right: 28px;
+      border-right: solid 1px var(--color-neutral-dark-mode-04);
+    }
+    @include respond-to("<=m") {
+      border-bottom: solid 1px var(--color-neutral-dark-mode-04);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    row-gap: 24px;
+    margin-left: 36px;
+
+    @include respond-to("<=m") {
+      margin: 16px 0;
+    }
+
+    @include respond-to("<=xs") {
+      grid-template-columns: 1fr;
+    }
+
+    &__box {
+      border-radius: 10px;
+      padding: var(--f-gutter);
+      margin: 0;
+
+      &:hover{
+        background: var(--color-neutral-dark-mode-04);
+
+          & a{
+            //color: var(--color-newBrand-blue-01) !important;
+          }
+      }
+      &__item {
+        display: grid;
+        grid-gap: 10px;
+        padding: 0;
+        margin: 0;
+        
+
+        & .item-icon{
+          //color: var(--color-developers-blue-01);
+          height: 51px;
+          width: 51px;
+        }
+        
+        &__details {
+          display: grid;
+          grid-gap: 4px;
+          h6 {
+            font-size: var(--f-h5-text-size);
+            margin-bottom: 0;
+            color: white;
+          }
+
+          p {
+            margin-bottom: 0;
+          }
+
+          & a {
+            padding: 0;
+            //color: var(--theme-links-default) !important;
+
+            &:hover{
+              span{
+                //color: var(--color-newBrand-blue-01) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+.about-get-scrt-v2 {
+  .content {
+    .box {
+
+      .get-scrt-buy {
+  display: grid;
+  grid-gap: 68px;
+  //margin-top: 68px;
+
+  &:not(:last-child){
+    padding-bottom: 32px;
+
+  }
+  &:not(:nth-child(2)){
+    padding-top: 120px;
+   
+   @include respond-to("<=m") {
+       padding-top: 32px;
+    }
+  }
+
+  &__inside {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 4px;
+    //margin-bottom: 76px;
+    //padding-top: 64px;
+
+    @include respond-to("<=m") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__description {
+    min-width: 360px;
+    padding: var(--f-gutter-xl) 0;
+
+    h5 {
+      font-family: montserrat;
+      font-weight: 500;
+      line-height: 24px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 22px;
+      line-height: 30px;
 
     }
     p {
@@ -218,6 +360,13 @@ query {
         }
       }
     }
+  }
+}
+ 
+ 
+ 
+ 
+ }
   }
 }
 </style>

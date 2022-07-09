@@ -98,6 +98,10 @@ module.exports = {
                 'services-websites',
                 'developer-pathways',
                 'buy-scrt-options',
+                'ecosystem-nf-ts',
+                'ecosystem-partners',
+                'ecosystem-contributors',
+                'ecosystem-validators'
             ],
             localizedTypes: [
                 //complex types
@@ -160,6 +164,7 @@ module.exports = {
     ],
     templates: {
         GhostPost: '/blog/:slug',
+        GhostTag: '/tag/:slug',
     },
     transformers: {
         remark: {

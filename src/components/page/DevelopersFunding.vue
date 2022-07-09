@@ -32,13 +32,13 @@ export default {
           title: "Ecosystem Fund",
           description:
             "Get long-term financial and strategic support from our top industry partners to scale your Secret project and reach billions of users.",
-          url: "https://scrt.network/blog/secret-network-400m-ecosystem-funding-new-investors",
+          url: "../ecosystem/funding",
         },
         {
           title: "Grants",
           description:
             "Get non-dilutive capital to get your Secret idea off the ground and rapidly gain traction.",
-          url: "https://scrt.network/blog/announcing-secret-network-grant-program",
+          url: "../developers/grants",
         }
       ]
     }
