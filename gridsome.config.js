@@ -74,7 +74,7 @@ module.exports = {
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
             contentTypes: [
-                'faq-items',
+                'faq-item',
                 'secret-agents',
                 'announcements',
                 'external-media-alts',
@@ -109,7 +109,6 @@ module.exports = {
                 'alert-bar',
                 'home-hero',
                 'home-explainer',
-
             ],
             singleTypes: [
                 'alert-bar',
