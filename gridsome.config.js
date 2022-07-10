@@ -74,37 +74,33 @@ module.exports = {
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
             contentTypes: [
-                'faq-item',
-                'secret-agents',
-                'announcements',
-                'external-media-alts',
-                'contributors',
-                'd-apps',
-                'nf-ts',
-                'cool-stuffs',
-                'nodes',
-                'tools-and-wallets',
-                'exchanges',
-                'international-communities',
-                'card-grid-headers',
-                'committees',
-                'nav-item',
-                'page',
-                'services-bots',
-                'services-bridges',
-                'services-ce-xes',
-                'services-de-xes',
-                'services-wallets',
-                'services-websites',
-                'developer-pathways',
-                'buy-scrt-options',
-                'ecosystem-nf-ts',
-                'ecosystem-partners',
-                'ecosystem-contributors',
-                'ecosystem-validators'
+                'faq-item',//
+                /*'secret-agent',//
+                'announcement',//
+                'external-media',//
+                'contributor',//
+                'ecosystem-dapp',//
+                'nft',//
+                'cool-stuff',//
+                'nodes',//
+                'tool-and-wallet',//
+                'exchange',//
+                'international-community',//
+                'card-grid-header',//
+                'committee',//
+                'nav-item',//
+                'page',//
+                'services-bot',//
+                'services-bridge',//
+                'services-cex',//
+                'services-dex',//
+                'services-wallet',//
+                'services-website',//
+                'developer-pathway',// 
+                'scrt-buying-option',//*/
             ],
             localizedTypes: [
-                //complex types
+                /*//complex types
                 //'nav-header' - Middlewear
                 //content-types,
                 'nav-item',
@@ -112,26 +108,26 @@ module.exports = {
                 //single-types
                 'alert-bar',
                 'home-hero',
-                'home-explainer',
+                'home-explainer',*/
             ],
             singleTypes: [
-                'alert-bar',
+                /*'alert-bar',//
                 'home-hero',
-                'home-cta-cards',
+                'home-cta-card',
                 'home-explainer',
                 'home-announcements',
                 'home-featured-media',
                 'about-content',
                 'about-secret-tokens-bridges',
+                'about-scrt',
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
                 'agent-landing-intro-rows',
-                'about-scrt',
                 'nav-header',
                 'nav-header-new',
                 'ecosystem-roadmap',
-                'services-alert',
+                'services-alert',*/
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).
@@ -144,12 +140,12 @@ module.exports = {
     {
         use: '@gridsome/plugin-sitemap',
     },
-    {
+    /*{
         use: '@gridsome/plugin-google-analytics',
         options: {
             id: 'UA-173950488-3'
         }
-    },
+    },*/
     {
         use: '@gridsome/vue-remark',
         options: {
@@ -164,7 +160,6 @@ module.exports = {
     ],
     templates: {
         GhostPost: '/blog/:slug',
-        GhostTag: '/tag/:slug',
     },
     transformers: {
         remark: {
@@ -185,3 +180,5 @@ module.exports = {
         },
     },
 };
+
+
