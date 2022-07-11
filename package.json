@@ -43,5 +43,8 @@
     "@storybook/vue": "^6.3.8",
     "babel-loader": "^8.2.2",
     "vue-loader": "^15.9.8"
+  },
+  "resolutions": {
+    "gridsome/sharp": "0.29.3"
   }
 }
