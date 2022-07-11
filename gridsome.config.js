@@ -46,6 +46,7 @@ function addStyleResource(rule) {
         })
 }
 
+
 module.exports = {
     siteName: 'Secret Network',
     siteUrl: 'http://scrt.network/',
@@ -71,11 +72,12 @@ module.exports = {
     {
         use: '@stakeordie/source-strapi',
         options: {
+            isStrapiV4: process.env.IS_STRAPI_V4,
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
             contentTypes: [
-                'faq-item',//
-                /*'secret-agent',//
+                /*'faq-item',//
+                'secret-agent',//
                 'announcement',//
                 'external-media',//
                 'contributor',//
@@ -111,8 +113,8 @@ module.exports = {
                 'home-explainer',*/
             ],
             singleTypes: [
-                /*'alert-bar',//
-                'home-hero',
+                'alert-bar',//
+                /*'home-hero',
                 'home-cta-card',
                 'home-explainer',
                 'home-announcements',

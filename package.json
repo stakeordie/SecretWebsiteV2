@@ -22,7 +22,7 @@
     "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
     "false": "^0.0.4",
-    "gridsome": "https://gitpkg.now.sh/gridsome/gridsome/gridsome?master",
+    "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-remark-prismjs-all": "^0.3.5",
     "md5": "^2.3.0",

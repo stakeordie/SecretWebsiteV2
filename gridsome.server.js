@@ -6,7 +6,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function(api) {
-  api.loadSource((store) => {
+  /*api.loadSource((store) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api
     store.addSchemaTypes(`
       type StrapiContributors_Types {
@@ -65,5 +65,5 @@ module.exports = function(api) {
 
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  })
+  })*/
 }
