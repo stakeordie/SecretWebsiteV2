@@ -73,38 +73,44 @@ query {
   aboutScrt: allStrapiAboutScrt {
     edges {
       node {
-        aboutScrtGetStarted {
-          id
-          subtitle
-          title
-          message
-          image {
-            url
-          }
-          anchorBuyScrt {
+        attributes {
+          about_scrt_get_started {
             id
-            Title
-            url
-          }
-          anchorStoreScrt {
-            id
-            Title
-            url
-          }
-          anchorStakeScrt {
-            id
-            Title
-            url
-          }
-          anchorScrtApps {
-            id
-            Title
-            url
-          }
-          anchorScrtGovernance {
-            id
-            Title
-            url
+            subtitle
+            title
+            message
+            image {
+              data{
+                attributes {
+                  url
+                }
+              }
+            }
+            anchor_buy_scrt {
+              id
+              title
+              url
+            }
+            anchor_store_scrt {
+              id
+              title
+              url
+            }
+            anchor_stake_scrt {
+              id
+              title
+              url
+            }
+            anchor_scrt_apps {
+              id
+              title
+              url
+            }
+            anchor_scrt_governance {
+              id
+              title
+              url
+            }
           }
         }
       }

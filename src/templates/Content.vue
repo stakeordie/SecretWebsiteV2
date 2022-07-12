@@ -116,15 +116,21 @@ export default {
   strapiPages: allStrapiPage {
     edges {
       node {
-        name
-        title
-        route
-        og_description
-        og_image {
-          url
+        attributes{
+          name
+          title
+          route
+          og_description
+          og_image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          og_title
+          meta_description
         }
-        og_title
-        meta_description
       }
     }
   }

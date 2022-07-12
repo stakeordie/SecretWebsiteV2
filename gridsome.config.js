@@ -75,8 +75,11 @@ module.exports = {
             isStrapiV4: process.env.IS_STRAPI_V4,
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
+            pluralizeOverrides: {
+                'cool-stuff': 'cool-stuff-plural'
+            },
             contentTypes: [
-                /*'faq-item',//
+                'faq-item',//
                 'secret-agent',//
                 'announcement',//
                 'external-media',//
@@ -92,14 +95,14 @@ module.exports = {
                 'committee',//
                 'nav-item',//
                 'page',//
-                'services-bot',//
-                'services-bridge',//
-                'services-cex',//
-                'services-dex',//
-                'services-wallet',//
-                'services-website',//
+                'service-bot',//
+                'service-bridge',//
+                'service-cex',//
+                'service-dex',//
+                'service-wallet',//
+                'service-website',//
                 'developer-pathway',// 
-                'scrt-buying-option',//*/
+                'scrt-buying-option',//
             ],
             localizedTypes: [
                 /*//complex types
@@ -113,23 +116,23 @@ module.exports = {
                 'home-explainer',*/
             ],
             singleTypes: [
-                'alert-bar',//
-                /*'home-hero',
+                'alert-bar',
+                'home-hero',
                 'home-cta-card',
                 'home-explainer',
-                'home-announcements',
+                'home-announcement',
                 'home-featured-media',
                 'about-content',
-                'about-secret-tokens-bridges',
+                'about-subpage',
                 'about-scrt',
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
-                'agent-landing-intro-rows',
+                'agent-landing-intro-row',
                 'nav-header',
                 'nav-header-new',
-                'ecosystem-roadmap',
-                'services-alert',*/
+                //'ecosystem-roadmap',
+                'services-alert',
             ],
             // Possibility to login with a Strapi user,
             // when content types are not publicly available (optional).

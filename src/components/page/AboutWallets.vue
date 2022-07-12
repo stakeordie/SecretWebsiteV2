@@ -1,7 +1,7 @@
 <template>
   <section class="about-wallets__wrapper" :class="aboutScrtWallets">
     <div class="about-wallets__wrapper__loop"
-      v-for="(element, index)  in aboutScrtWallets"
+      v-for="(element, index) in aboutScrtWallets"
       :key="index"
     >
       <h6>{{element.subtitle}}</h6>
@@ -41,19 +41,28 @@ query {
   aboutScrtWallets: allStrapiAboutScrt {
     edges {
       node {
-				walletsToUse {
-          subtitle
-          title
-          message
-          options
-          note
-          whatWalletUseCard {
+        id
+				attributes {
+          wallet_to_use {
             id
-            image {
-              url
-            }
+						subtitle
             title
+            message
+            options
             note
+            what_wallet_use_card {
+              id
+              image {
+                data {
+                  id
+                  attributes {
+                    name
+                  }
+                }
+              }
+              title
+              note
+            }
           }
         }
       }
