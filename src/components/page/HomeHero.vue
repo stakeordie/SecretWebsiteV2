@@ -49,26 +49,20 @@ export default {
     homeHero: allStrapiHomeHero {
       edges {
         node {
-          attributes {
-            title
-            subtitle
-            tagline
-            locale
-            # localizations {
-            #   title
-            #   subtitle
-            #   tagline
-            #   locale
-            # }
-            image {
-              data {
-                attributes {
-                  url
-                  caption
-                  alternativeText
-                }
-              }
-            }
+          title
+          subtitle
+          tagline
+          locale
+          #localizations {
+          #  title
+          #  subtitle
+          #  tagline
+          #  locale
+          #}
+          image {
+            url
+            caption
+            alternativeText
           }
         }
       }

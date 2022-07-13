@@ -102,12 +102,10 @@ query {
   secretAgentEmailBanner: allStrapiAgentLandingEmailForm {
     edges {
       node {
-        attributes {
-          CTA
-          placeholder_text
-          submit_button_text
-          post_submission_message
-        }
+        CTA
+        placeholder_text
+        submit_button_text
+        post_submission_message
       }
     }
   }

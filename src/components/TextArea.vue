@@ -37,62 +37,61 @@ query{
   aboutContent: allStrapiAboutContent{
     edges{
       node{
-        attributes {
-          top{
-            title
-            subtitle
-            body
-          }
-          middle_first{
-            title
-            subtitle
-            body
-          }
-           middle_first{
-            title
-            subtitle
-            body
-          }
-          middle_second{
-            title,
-            subtitle,
-            body
-          },
-          bottom_first{
-            title
-            subtitle
-            body
-          }
-          bottom_second{
-            title
-            subtitle
-            body
-          }
-          bottom_third{
-            title
-            subtitle
-            body
-          }
-          bottom_fourth{
-            title
-            subtitle
-            body
-          }
-          bottom_fifth{
-            title
-            subtitle
-            body
-          }
-          choose_privacy{
-            title
-            subtitle
-            body
-       	  }
+        top{
+          title
+          subtitle
+          body
+        }
+        middle_first{
+          title
+          subtitle
+          body
+        }
+         middle_first{
+          title
+          subtitle
+          body
+        }
+        middle_second{
+          title,
+          subtitle,
+          body
+        },
+        bottom_first{
+          title
+          subtitle
+          body
+        }
+        bottom_second{
+          title
+          subtitle
+          body
+        }
+        bottom_third{
+          title
+          subtitle
+          body
+        }
+        bottom_fourth{
+          title
+          subtitle
+          body
+        }
+        bottom_fifth{
+          title
+          subtitle
+          body
+        }
+        choose_privacy{
+          title
+          subtitle
+          body
         }
       }
     }
   }
 }
+
 </static-query>
 
 <style lang="scss">
