@@ -32,7 +32,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "../about/about-scrt",
+          url: "../get-scrt",
         },
         {
           ctaId: "get-started-with-secret",
@@ -41,7 +41,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "../about/about-scrt",
+          url: "../about/get-scrt",
         },
 
         {
@@ -54,6 +54,8 @@ export default {
           url: "../developers",
         },
 
+        
+
         {
           ctaId: "join-the-community",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
@@ -63,6 +65,8 @@ export default {
           urlTitle: "GET INVOLVED",
           url: "../get-involved/become-secret-agent",
         },
+
+        
         {
           ctaId: "contribute-to-secret",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
@@ -92,38 +96,69 @@ export default {
           url: "../get-involved/become-secret-agent",
         },
 
+        // Ver 2
+        {
+          ctaId: "build-on-secret2",
+          imageUrl: "/img/about-secret-network/build-on-secret-img.svg",
+          title: "Build on Secret",
+          description:
+            "Start building privacy-preserving dApps with Secret smart contracts.  ",
+          urlTitle: "START DEVELOPING",
+          url: "https://chat.scrt.network/",
+        },
+
+        {
+          ctaId: "join-the-community2",
+          imageUrl: "/img/about-secret-network/join-community-img.svg",
+          title: "Join the Community",
+          description:
+            "Become a Secret Agent and advance a better, more empowering web.  ",
+          urlTitle: "GET INVOLVED",
+          url: "https://forum.scrt.network/",
+        },
+
+
         // LEARN PORTAL
         {
-          ctaId: "secret-defi",
+          ctaId: "secret-network",
+          imageUrl: "/img/about-secret-network/secret-network-learn-img.svg",
+          title: "Secret Network",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "scrt-token",
+          imageUrl: "/img/about-secret-network/coin-img.svg",
+          title: "SCRT Token",
+          description:
+            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+          urlTitle: "LEARN MORE",
+          url: "../get-involved/become-secret-agent",
+        },
+        {
+          ctaId: "defi",
           imageUrl: "/img/about-secret-network/learn-defi-img.svg",
-          title: "Secret DeFi",
+          title: "DeFi",
           description:
             "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
         {
-          ctaId: "secret-nfts",
+          ctaId: "creative-work",
           imageUrl: "/img/about-secret-network/nfts-img.svg",
-          title: "Secret NFTs",
+          title: "Creative Work",
           description:
             "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
         {
-          ctaId: "why-privacy-matters",
+          ctaId: "privacy",
           imageUrl: "/img/about-secret-network/dao-img.svg",
-          title: "Why Privacy Matters",
-          description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
-          urlTitle: "LEARN MORE",
-          url: "../get-involved/become-secret-agent",
-        },
-        {
-          ctaId: "secret-tech",
-          imageUrl: "/img/about-secret-network/learn-tech-img.svg",
-          title: "Secret Tech",
+          title: "Privacy",
           description:
             "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
           urlTitle: "LEARN MORE",
@@ -140,33 +175,7 @@ export default {
         },
         
       ],
-      // material: [
-      //   {
-      //     id: "get-started",
-      //     imageUrl: "/img/about-secret-network/get-started-img.svg",
-      //     title: "Get Started",
-      //     description:
-      //       "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
-      //     urlTitle: "Get SCRT",
-      //     url: "../about/about-scrt",
-      //   },
-      //   {
-      //     imageUrl: "/img/about-secret-network/build-on-secret-img.svg",
-      //     title: "Build on Secret",
-      //     description:
-      //       "Start building privacy-preserving dApps with Secret smart contracts.  ",
-      //     urlTitle: "START DEVELOPING",
-      //     url: "../developers",
-      //   },
-      //    {
-      //     imageUrl: "/img/about-secret-network/join-community-img.svg",
-      //     title: "Join the Community",
-      //     description:
-      //       "Become a Secret Agent and advance a better, more empowering web.  ",
-      //     urlTitle: "GET INVOLVED",
-      //     url: "../get-involved/become-secret-agent",
-      //   },
-      // ],
+      
       ctaContent: []
     };
   },
@@ -193,7 +202,11 @@ export default {
 
 
 .general-ctas__item{
-  padding: var(--f-gutter);
+  
+
+  @include respond-to("<=s"){
+    padding: var(--f-gutter);
+  }
 
     &__card{
     
@@ -201,6 +214,9 @@ export default {
       text-align: center;
       max-width: 360px;
       margin: auto;
+       @include respond-to("l"){
+      padding: 0;
+    }
 
       &__img{
         margin: auto;
