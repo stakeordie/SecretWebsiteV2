@@ -58,17 +58,23 @@ export default {
 
 <static-query>
   query {
-  	contributors: allStrapiContributors {
+  	contributors: allStrapiContributor {
       edges {
         node {
-          id,
-          title: name,
-          url: link,
-          picture: logo {
-          	url
-          },
-        	contributor_categories: types {
-            name
+          id
+          attributes {
+            title: name,
+            url: link,
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            contributor_category: type {
+              name
+            }
           }
         }
       }

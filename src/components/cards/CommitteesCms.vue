@@ -150,23 +150,25 @@
 
 
 <static-query>
-query {
-  committees: allStrapiCommittees {
-    edges {
-      node {
-        id,
-        name,
-        charter_link,
-        purpose,
-        goals,
-        responsibilities,
-        date,
-        lead,
-        initiatives,
+  query {
+    committees: allStrapiCommittee {
+      edges {
+        node {
+          id
+          attributes {
+            name
+            charter_link
+            purpose
+            goals
+            responsibilities
+            date
+            lead
+            initiatives
+          }
+        }
       }
     }
   }
-}
 </static-query>
 
 

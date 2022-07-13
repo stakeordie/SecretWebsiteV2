@@ -87,9 +87,16 @@ query {
   strapiEcosystemRoadmap: allStrapiEcosystemRoadmap {
     edges {
       node {
-        ecosystemRoadmap {
-          url
-          updated_at
+        attributes {
+          ecosystemRoadmap
+          {
+            data {
+              attributes {
+                url
+                updatedAt
+              }
+            }
+          }
         }
       }
     }

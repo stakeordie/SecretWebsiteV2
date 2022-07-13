@@ -56,75 +56,30 @@
 
 <static-query>
   query {
-    homeCtaCards: allStrapiHomeCtaCards{
+    homeCtaCards: allStrapiHomeCtaCard{
       edges {
         node {
-          locale
-          card_1 {
-            title
-            subtitle
-            text
-            image {
-              url
-              caption
-              alternativeText
-            }
-            page {
-              route
-            }
-          }
-          card_2 {
-            title
-            subtitle
-            text
-            image {
-              url
-              caption
-              alternativeText
-            }
-            page {
-              route
-            }
-          }
-          card_3 {
-            title
-            subtitle
-            text
-            image {
-              url
-              caption
-              alternativeText
-            }
-            page {
-              route
-            }
-          }
-          card_4 {
-            title
-            subtitle
-            text
-            image {
-              url
-              caption
-              alternativeText
-            }
-            page {
-              route
-            }
-          }
-          localizations {
+          attributes {
             locale
             card_1 {
               title
               subtitle
               text
               image {
-                url
-                caption
-                alternativeText
+                data {
+                  attributes {
+                    url
+                    caption
+                    alternativeText
+                  }
+                }
               }
               page {
-                route
+                data {
+                  attributes {
+                    route
+                  }
+                }
               }
             }
             card_2 {
@@ -132,12 +87,20 @@
               subtitle
               text
               image {
-                url
-                caption
-                alternativeText
+                data {
+                  attributes {
+                    url
+                    caption
+                    alternativeText
+                  }
+                }
               }
               page {
-                route
+                data {
+                  attributes {
+                    route
+                  }
+                }
               }
             }
             card_3 {
@@ -145,12 +108,20 @@
               subtitle
               text
               image {
-                url
-                caption
-                alternativeText
+                data {
+                  attributes {
+                    url
+                    caption
+                    alternativeText
+                  }
+                }
               }
               page {
-                route
+                data {
+                  attributes {
+                    route
+                  }
+                }
               }
             }
             card_4 {
@@ -158,15 +129,110 @@
               subtitle
               text
               image {
-                url
-                caption
-                alternativeText
+                data {
+                  attributes {
+                    url
+                    caption
+                    alternativeText
+                  }
+                }
               }
               page {
-                route
+                data {
+                  attributes {
+                    route
+                  }
+                }
               }
             }
-          }
+            # localizations {
+            #   locale
+            #   card_1 {
+            #     title
+            #     subtitle
+            #     text
+            #     image {
+            #       data {
+            #         attributes {
+            #           url
+            #           caption
+            #           alternativeText
+            #         }
+            #       }
+            #     }
+            #     page {
+            #       data {
+            #         attributes {
+            #           route
+            #         }
+            #       }
+            #     }
+            #   }
+            #   card_2 {
+            #     title
+            #     subtitle
+            #     text
+            #     image {
+            #       data {
+            #         attributes {
+            #           url
+            #           caption
+            #           alternativeText
+            #         }
+            #       }
+            #     }
+            #     page {
+            #       data {
+            #         attributes {
+            #           route
+            #         }
+            #       }
+            #     }
+            #   }
+            #   card_3 {
+            #     title
+            #     subtitle
+            #     text
+            #     image {
+            #       data {
+            #         attributes {
+            #           url
+            #           caption
+            #           alternativeText
+            #         }
+            #       }
+            #     }
+            #     page {
+            #       data {
+            #         attributes {
+            #           route
+            #         }
+            #       }
+            #     }
+            #   }
+            #   card_4 {
+            #     title
+            #     subtitle
+            #     text
+            #     image {
+            #       data {
+            #         attributes {
+            #           url
+            #           caption
+            #           alternativeText
+            #         }
+            #       }
+            #     }
+            #     page {
+            #       data {
+            #         attributes {
+            #           route
+            #         }
+            #       }
+            #     }
+            #   }
+            # }
+        	}
         }
       }
     }

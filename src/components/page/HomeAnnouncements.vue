@@ -15,15 +15,21 @@ export default {
 
 <static-query>
   query{
-    homeAnnouncements: allStrapiHomeAnnouncements {
+    homeAnnouncements: allStrapiHomeAnnouncement {
       edges{
         node{
+          attributes {
             top {
-              id
+              data {
+                id
+              }
             }
             bottom {
-              id
+              data{
+                id
+              }
             }
+          }
         }
       }
     }

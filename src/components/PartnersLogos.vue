@@ -293,15 +293,21 @@ export default {
 <static-query>
 
 query{
-  ecosystemPartners: allStrapiEcosystemPartners{
+  ecosystemPartners: allStrapiEcosystemPartner{
     edges{
       node{
-        title: name
-        picture: logo {
-          url
+        attributes {
+          title: name
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          url:link
+          order
         }
-        url:link
-        order
       }
     }
   }

@@ -104,11 +104,12 @@ export default {
 </script>
 
 <static-query>
-  query {
-    secretAgentHero: allStrapiAgentLandingHero {
-      edges {
-        node {
-          id
+query {
+  secretAgentHero: allStrapiAgentLandingHero {
+    edges {
+      node {
+        id
+        attributes {
           title
           subtitle
           form_button_text
@@ -118,6 +119,7 @@ export default {
       }
     }
   }
+}
 </static-query>
 
 <style lang="scss">

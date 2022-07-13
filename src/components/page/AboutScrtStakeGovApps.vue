@@ -33,26 +33,26 @@ export default {
 </script>
 
 <static-query>
-
-query {
-  aboutScrtStakeGovApps: allStrapiAboutScrt {
-    edges {
-      node {
-				stakeGovernanceApps {
-          id
-          Subtitle
-          title
-          message
-          link {
-            Title
-            url
+  query {
+    aboutScrtStakeGovApps: allStrapiAboutScrt {
+      edges {
+        node {
+          attributes {
+            stake_governance_apps {
+              id
+              Subtitle
+              title
+              message
+              link {
+                title
+                url
+              }
+            }
           }
         }
       }
-    }
-  } 
-}
-
+    } 
+  }
 </static-query>
 
 <style></style>

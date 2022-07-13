@@ -47,15 +47,21 @@ export default {
   	nodes: allStrapiNodes {
       edges {
         node {
-          id,
-          title: name,
-          url: link,
-          picture: logo {
-          	url
-          },
-        	node_categories: types {
-            title:,
-            type
+          id
+          attributes {
+            title: name,
+            url: link,
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            },
+            node_categories: type {
+              title:,
+              type
+            }
           }
         }
       }

@@ -101,31 +101,57 @@ query {
   homeFeaturedMedia: allStrapiHomeFeaturedMedia {
     edges {
       node {
-        title
-        button_text
-        left {
+        attributes {
           title
-          link
-          cover_image {
-            url
+          button_text
+          left {
+            data {
+              attributes {
+                title
+                link
+                cover_image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                type
+              }
+            }
           }
-          type
-        }
-        center {
-          title
-          link
-          cover_image {
-            url
+          center {
+            data {
+              attributes {
+                title
+                link
+                cover_image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                type
+              }
+            }
           }
-          type
-        }
-        right {
-          title
-          link
-          cover_image {
-            url
+          right {
+            data {
+              attributes {
+                title
+                link
+                cover_image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                type
+              }
+            }
           }
-          type
         }
       }
     }

@@ -115,22 +115,32 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMediaAlts(
+  mediaEntries: allStrapiExternalMedia(
     sort: { by: "order", order: ASC }) {
     edges {
       node {
         id: id
-        order
-        title
-        type
-        link
-        cover_image {
-          url
-        }
-        is_featured
-        external_media_source {
-          name
+        attributes{
+          sort
+          title
+          type
           link
+          cover_image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          is_featured
+          external_media_source {
+            data {
+              attributes {
+                name
+                link
+              }
+            }
+          }
         }
       }
     }

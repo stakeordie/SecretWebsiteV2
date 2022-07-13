@@ -81,7 +81,7 @@
                   @click.prevent="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img :src="nav.icon.url" alt="" />
+                    <img :src="nav.icon.data.attributes.url" alt="" />
                     <!-- <img src="../assets/badge.svg" alt="" /> -->
                     <h6>{{ nav.title }}</h6>
                   </div>
@@ -127,11 +127,11 @@
                     :key="indexItem"
                   >
                     <g-link
-                      v-if="secItem.nav_item.display_on_header"
+                      v-if="secItem.nav_item.data.attributes.display_on_header"
                       :to="
-                        secItem.nav_item.page
-                          ? secItem.nav_item.page.route
-                          : secItem.nav_item.external_link
+                        secItem.nav_item.data.attributes.page
+                          ? secItem.nav_item.data.attributes.page.data.attributes.route
+                          : secItem.nav_item.data.attributes.external_link
                       "
                     >
                       <div
@@ -141,7 +141,7 @@
                         <div class="nav__expanded__content__item__img">
                           <img
                             v-if="secItem.nav_item.icon != null"
-                            :src="secItem.nav_item.icon.url"
+                            :src="secItem.nav_item.icon.data.attributes.url"
                             alt=""
                           />
                           <img v-else src="../assets/badge-black.svg" alt="" />
@@ -152,12 +152,12 @@
                           <div
                             class="nav__expanded__content__item__desc__title"
                           >
-                            <span>{{ secItem.nav_item.text }}</span>
+                            <span>{{ secItem.nav_item.data.attributes.text }}</span>
                           </div>
                           <div
                             class="nav__expanded__content__item__desc__descr"
                           >
-                            <span>{{ secItem.nav_item.description }}</span>
+                            <span>{{ secItem.nav_item.data.attributes.description }}</span>
                           </div>
                         </div>
                       </div>
@@ -432,11 +432,11 @@ export default {
     },
     megaMenuItems() {
       const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
-      const content = neWArray.edges.map((it) => it.node.nav_groups);
+      const content = neWArray.edges.map((it) => it.node.attributes.nav_groups);
 
       this.columns = content[0];
       this.mapNavArray(this.columns);
-
+      console.log(this.columns);
       return this.columns;
     },
   },
@@ -454,41 +454,59 @@ export default {
 </script>
 
 <static-query>
-  query {
+query {
   navHeader: allStrapiNavHeader {
     edges {
       node {
-        nav_groups {
-          title
-          id
-          icon {
-            url
-            name
-          }
-          nav_items {
-            sub_category
-            nav_item {
-              text
-              id
-              display_on_header
-              display_on_footer
-              description
-              icon {
-                url
+        attributes {
+          nav_groups {
+            title
+            id
+            icon {
+              data {
+                attributes {
+              		url
+              		name
+                }
               }
-              page {
-                name
-                title
-                route
-                locale
-              }
-              locale
-              external_link
             }
-            sort_name
+            nav_items {
+              sub_category
+              nav_item {
+                data {
+                  id
+                  attributes {
+                    text
+                    display_on_header
+                    display_on_footer
+                    description
+                    icon {
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    page {
+                      data {
+                        attributes {
+                          name
+                          title
+                          route
+                          locale
+                        }
+                      }
+                    }
+                    locale
+                    external_link
+                  }
+                }
+              }
+              sort_name
+            }
           }
         }
-      }
+    	}
     }
   }
 }
@@ -760,10 +778,10 @@ export default {
           }
           &:hover {
             cursor: pointer;
-            a {
-              //color: var(--mega-header-color-nav-exanded-hover);
+            // a {
+            //   //color: var(--mega-header-color-nav-exanded-hover);
               
-            }
+            // }
           }
         }
       }

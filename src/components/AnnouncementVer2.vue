@@ -111,25 +111,39 @@
 
 <static-query>
   query{
-    announcements: allStrapiAnnouncements {
+    announcements: allStrapiAnnouncement {
       edges{
         node{
           id
-          name
-          title
-          text
-          button_one_title
-          button_one_page {
-            route
-          }
-          button_one_page_manual
-          button_two_title
-          button_two_page {
-            route
-          }
-          button_two_page_manual
-          media {
-            url
+          attributes {
+            name
+            title
+            text
+            button_one_title
+            button_one_page {
+              data {
+                attributes {
+                  route
+                }
+              }
+            }
+            button_one_page_manual
+            button_two_title
+            button_two_page {
+              data {
+                attributes {
+                  route
+                }
+              }
+            }
+            button_two_page_manual
+            media {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }

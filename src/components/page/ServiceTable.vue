@@ -239,96 +239,135 @@ export default {
 </script>
 
 <static-query>
-query {
-  servicesCexes: allStrapiServicesCeXes {
-    edges {
-      node {
-        id
-        service_name
-        url
-        logo {
-          url
-        }
-        deposit_status
-        withdraws_status
-        trading_status
-        reported_on
-      }
-    }
-  }
-  servicesDexes: allStrapiServicesDeXes {
-    edges {
-      node {
-        service_name
-        url
-        logo {
-          url
-        }
-        deposit_status
-        withdraws_status
-        trading_status
-        reported_on
-      }
-    }
-  }
-  serviceWallets: allStrapiServicesWallets {
-    edges {
-      node {
-        service_name
-        url
-        logo {
-          url
-        }
-        transaction_status
-        reported_on
-      }
-    }
-  }
-  servicesBridges: allStrapiServicesBridges {
-    edges {
-      node {
-        id
-        service_name
-        url
-        logo {
-          url
-        }
-        in_status
-        out_status
-        amount_time_estimated
-        type_time_estimated
-        reported_on
-      }
-    }
-  }
-  serviceWebsites: allStrapiServicesWebsites {
-    edges {
-      node {
-        service_name
-        url
-        logo {
-          url
-        }
-        status
-        reported_on
-      }
-    }
-  }
-  servicesBots: allStrapiServicesBots {
-    edges {
-      node {
-        id
-        service_name
-        status
-        reported_on
-        url
-        logo {
-          url
+  query {
+    servicesCexes: allStrapiServiceCex {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            deposit_status
+            withdraws_status
+            trading_status
+            reported_on
+          }
         }
       }
     }
+    servicesDexes: allStrapiServiceDex {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            deposit_status
+            withdraws_status
+            trading_status
+            reported_on
+          }
+        }
+      }
+    }
+    serviceWallets: allStrapiServiceWallet {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            transaction_status
+            reported_on
+          }
+        }
+      }
+    }
+    servicesBridges: allStrapiServiceBridge {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            in_status
+            out_status
+            amount_time_estimated
+            type_time_estimated
+            reported_on
+          }
+        }
+      }
+    }
+    serviceWebsites: allStrapiServiceWebsite {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            status
+            reported_on
+          }
+        }
+      }
+    }
+    servicesBots: allStrapiServiceBot {
+      edges {
+        node {
+          id
+          attributes {
+            service_name
+            status
+            reported_on
+            url
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-}
 </static-query>
 
 

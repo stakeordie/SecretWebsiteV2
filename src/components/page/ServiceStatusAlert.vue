@@ -68,8 +68,10 @@ export default {
     servicesAlert: allStrapiServicesAlert {
       edges {
         node {
-          message
-          experiencing_issues
+          attributes {
+            message
+            experiencing_issues
+          }
         }
       }
     }

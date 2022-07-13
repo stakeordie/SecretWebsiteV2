@@ -48,29 +48,43 @@ query {
   aboutScrtMajorFunctions: allStrapiAboutScrt {
     edges {
       node {
-        aboutScrtMajorFunctionsPayingFees {
-          id
-          icon {
-            url
+        attributes {
+          about_scrt_major_functions_paying_fees {
+            id
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            title
+            message
           }
-          title
-          message
-        }
-        aboutScrtMajorFunctionsStaking {
-          id
-          icon {
-            url
+          about_scrt_major_functions_staking {
+            id
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            title
+            message
           }
-          title
-          message
-        }
-        aboutScrtMajorFunctionsGovernance {
-          id
-          icon {
-            url
+          about_scrt_major_functions_governance {
+            id
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            title
+            message
           }
-          title
-          message
         }
       }
     }

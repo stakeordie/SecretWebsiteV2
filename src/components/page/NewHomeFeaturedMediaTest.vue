@@ -80,40 +80,66 @@ export default {
 </script>
 
 <static-query>
-query {
-  homeFeaturedMedia: allStrapiHomeFeaturedMedia {
-    edges {
-      node {
-        title
-        button_text
-        left {
-          title
-          link
-          cover_image {
-            url
-          }
-          type
-        }
-        center {
-          title
-          link
-          cover_image {
-            url
-          }
-          type
-        }
-        right {
-          title
-          link
-          cover_image {
-            url
-          }
-          type
+  query {
+    homeFeaturedMedia: allStrapiHomeFeaturedMedia {
+      edges {
+        node {
+          attributes {
+            title
+            button_text
+            left {
+              data {
+                attributes {
+                  title
+                  link
+                  cover_image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  type
+                }
+              }
+            }
+            center {
+              data {
+                attributes {
+                  title
+                  link
+                  cover_image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  type
+                }
+              }
+            }
+            right {
+              data {
+                attributes {
+                  title
+                  link
+                  cover_image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  type
+                }
+              }
+            }
+          } 
         }
       }
     }
   }
-}
 </static-query>
 
 <style lang="scss">

@@ -205,19 +205,33 @@ $accent-colors: (Article, Podcast, Video);
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMediaAlts(order: DESC, limit: 3,filter: { is_featured: { eq: true } }){
+  mediaEntries: allStrapiExternalMedia (
+    order: DESC, limit: 3, filter: { attributes: { is_featured: { eq: true } } }
+	) {
     edges {
       node {
-        title
-        type
-        link
-        cover_image {
-          url
-        }
-        is_featured
-        external_media_source{
-          name
+        id: id
+        attributes{
+          sort
+          title
+          type
           link
+          cover_image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          is_featured
+          external_media_source {
+            data {
+              attributes {
+                name
+                link
+              }
+            }
+          }
         }
       }
     }

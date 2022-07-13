@@ -415,116 +415,169 @@ export default {
 
 <static-query>
 query {
-  ecosystemNft:allStrapiEcosystemNfTs{
+  ecosystemNft:allStrapiEcosystemNft {
     edges{
       node{
-        title: Name
-        url: link
-        picture: logo {
-          url
-        }
-        description
-
-      }
-    }
-  }
-
-  gridHeaders: allStrapiCardGridHeaders {
-    edges {
-      node {
-        id
-        title,
-        subtitle
-      }
-    }
-  }
-    dApps: allStrapiDApps {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+        attributes {
+          title: name
+          url: link
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          description
         }
       }
     }
   }
-  contributors: allStrapiContributors {
+  gridHeaders: allStrapiCardGridHeader {
     edges {
       node {
         id
-        sort
-        title: name
-        url: link
-        cta_title
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+        attributes {
+          title,
+          subtitle
         }
       }
     }
   }
-  toolsAndWallets: allStrapiToolsAndWallets {
+  ecosystemValidators: allStrapiEcosystemValidator {
     edges {
       node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+        attributes {
+          title: name
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          link
+          order
         }
       }
     }
   }
-    internationalCommunities: allStrapiInternationalCommunities {
+  dApps: allStrapiEcosystemDapp {
     edges {
       node {
         id
-        sort
-        title: name
-        url: link
-        cta_title
-        language: language
-        picture: logo {
-          url
-        }
-        types {
-          name
+        attributes {
+          sort
+          title: name
+          url: link
+          description
+          cta_title
+          picture: logo {
+            data{
+              attributes {
+                url
+              }
+            }
+          }
+          type {
+            name
+          }
         }
       }
     }
   }
-  exchanges: allStrapiExchanges {
+  contributors: allStrapiContributor {
     edges {
       node {
         id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
+        attributes {
+          sort
+          title: name
+          url: link
+          description
+          cta_title
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          type {
+            name
+          }
         }
-        types {
-          name
+      }
+    }
+  }
+  toolsAndWallets: allStrapiToolAndWallet {
+    edges {
+      node {
+        id
+        attributes {
+          sort
+          title: name
+          url: link
+          description
+          cta_title
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          type {
+            name
+          }
+        }
+      }
+    }
+  }
+  internationalCommunities: allStrapiInternationalCommunity {
+    edges {
+      node {
+        id
+        attributes{
+          sort
+          title: name
+          url: link
+          cta_title
+          language: language
+          picture: logo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          type {
+            name
+          }
+        }
+      }
+    }
+  }
+  exchanges: allStrapiExchange {
+    edges {
+      node {
+        id
+        attributes {
+          sort
+          title: name
+          url: link
+          description
+          cta_title
+          picture: logo {
+            data {
+              attributes{
+                url
+              }
+            }
+          }
+          type {
+            name
+          }
         }
       }
     }

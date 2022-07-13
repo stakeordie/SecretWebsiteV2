@@ -66,20 +66,7 @@ query {
   homeExplainer: allStrapiHomeExplainer {
     edges {
       node {
-        title
-        subtitle
-        column_1
-        column_2
-        changing_words {
-          word
-          seconds
-        }
-        button_title
-        page {
-          route
-        }
-        locale
-        localizations {
+        attributes {
           title
           subtitle
           column_1
@@ -89,7 +76,26 @@ query {
             seconds
           }
           button_title
+          page {
+            data {
+              attributes {
+                route
+              }
+            }
+          }
           locale
+          # localizations {
+          #   title
+          #   subtitle
+          #   column_1
+          #   column_2
+          #   changing_words {
+          #     word
+          #     seconds
+          #   }
+          #   button_title
+          #   locale
+          # }
         }
       }
     }

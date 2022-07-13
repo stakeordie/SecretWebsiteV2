@@ -221,17 +221,19 @@
 
 <static-query>
   query{
-    faqs: allStrapiFaqItems (
+    faqs: allStrapiFaqItem (
       sort: {
-        		by: "sort"
-            order: ASC
+        by: "sort"
+        order: ASC
       }
     ){
       edges{
         node{
           id
-          question
-          answer
+          attributes {
+            question
+          	answer
+          }
         }
       }
     }

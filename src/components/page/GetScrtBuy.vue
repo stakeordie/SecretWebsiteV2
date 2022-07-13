@@ -65,30 +65,35 @@ export default {
 </script>
 
 <static-query>
-query {
-  buyScrtOptions: allStrapiBuyScrtOptions {
-    edges {
-      node {
-        id
-        subtitle
-        title
-        description
-        buy_scrt_option {
-          icon {
-            url
+  query {
+    buyScrtOptions: allStrapiScrtBuyingOption {
+      edges {
+        node {
+          id
+          attributes {
+            subtitle
+            title
+            description
+            buy_scrt_option {
+              icon {
+                data {
+                  attributes{
+                    url
+                  }
+                }
+              }
+              order
+              title
+              description
+              cta_title
+              cta_url
+              group
+            }
           }
-          order
-          title
-          description
-          cta_title
-          cta_url
-          group
         }
       }
     }
   }
-}
-
 </static-query>
 
 <style lang="scss">
@@ -134,9 +139,10 @@ query {
 
     }
 
-    h4 {
+    /*h4 {
 
-    }
+    }*/
+
     p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
@@ -176,9 +182,9 @@ query {
       &:hover{
         background: var(--color-neutral-dark-mode-04);
 
-          & a{
+          /*& a{
             //color: var(--color-newBrand-blue-01) !important;
-          }
+          }*/
       }
       &__item {
         display: grid;
@@ -210,11 +216,11 @@ query {
             padding: 0;
             //color: var(--theme-links-default) !important;
 
-            &:hover{
+            /*&:hover{
               span{
                 //color: var(--color-newBrand-blue-01) !important;
               }
-            }
+            }*/
           }
         }
       }

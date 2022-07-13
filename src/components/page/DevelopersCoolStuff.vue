@@ -110,19 +110,25 @@ export default {
 
 <static-query>
   query {
-    coolStuff: allStrapiCoolStuffs {
+    coolStuff: allStrapiCoolStuff {
       edges {
         node {
           id
-          title: name
-          url: link
-          description
-          cta_title
-          logo {
-            url
-          }
-          types {
-            name
+          attributes {
+            title: name
+            url: link
+            description
+            cta_title
+            logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
           }
         }
       }

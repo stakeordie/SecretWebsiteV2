@@ -142,31 +142,37 @@
 
 <static-query>
   query{
-    secretAgents: allStrapiSecretAgents {
-      edges{
-        node{
-          name
-          location
-          image {
-            id
+    secretAgents: allStrapiSecretAgent {
+      edges {
+        node {
+          attributes {
             name
-            alternativeText
-            caption
-            width
-            height
-            formats {
-              thumbnail {
-                url
+            location
+            image {
+              data {
+                id
+                attributes {
+                  name
+                  alternativeText
+                  caption
+                  width
+                  height
+                  formats {
+                    thumbnail {
+                      url
+                    }
+                  }
+                  hash
+                  ext
+                  mime
+                  size
+                  url
+                  provider
+                  createdAt
+                  updatedAt
+                }
               }
             }
-            hash
-            ext
-            mime
-            size
-            url
-            provider
-            created_at
-            updated_at
           }
         }
       }

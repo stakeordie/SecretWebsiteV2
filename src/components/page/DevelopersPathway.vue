@@ -85,19 +85,21 @@ export default {
 
 <static-query>
 query {
-  developerPadthways: allStrapiDeveloperPathways {
+  developerPadthways: allStrapiDeveloperPathway {
     edges {
       node {
         id
-        subtitle
-        title
-        description
-        resource {
-          order
+        attributes {
+          subtitle
           title
           description
-          cta_title
-          cta_url
+          resource {
+            order
+            title
+            description
+            cta_title
+            cta_url
+          }
         }
       }
     }

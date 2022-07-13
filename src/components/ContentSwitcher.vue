@@ -81,27 +81,31 @@
 
 
 <static-query>
-
 query {
   secretAgentBrochure: allStrapiAgentLandingBrochure {
     edges {
       node {
-        title
-        card {
-          id
-          anchor_title
-          card_title
-          subtitle
-          title_short
-          image {
-            url
+        attributes {
+          title
+          card {
+            id
+            anchor_title
+            card_title
+            subtitle
+            title_short
+            image {
+              data{
+                attributes {
+                  url
+                }
+              }
+            }
           }
-        }
+      	}
       }
     }
   }
 }
-
 </static-query>
 
 

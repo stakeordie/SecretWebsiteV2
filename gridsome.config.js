@@ -75,6 +75,7 @@ module.exports = {
             isStrapiV4: process.env.IS_STRAPI_V4,
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
+            pageSize: 1000,
             pluralizeOverrides: {
                 'cool-stuff': 'cool-stuff-plural'
             },
@@ -85,6 +86,9 @@ module.exports = {
                 'external-media',//
                 'contributor',//
                 'ecosystem-dapp',//
+                'ecosystem-nft',//
+                'ecosystem-partner',//
+                'ecosystem-validator',//
                 'nft',//
                 'cool-stuff',//
                 'nodes',//
@@ -131,7 +135,7 @@ module.exports = {
                 'agent-landing-intro-row',
                 'nav-header',
                 'nav-header-new',
-                //'ecosystem-roadmap',
+                'ecosystem-roadmap',
                 'services-alert',
             ],
             // Possibility to login with a Strapi user,

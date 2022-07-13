@@ -125,29 +125,39 @@ export default {
 </script>
 
 <static-query>
-  query {
+query {
   navFooter: allStrapiNavHeader {
     edges {
       node {
-        nav_groups {
-          title
-          id
-          nav_items {
-            nav_item {
-              text
-              id
-              display_on_header
-              display_on_footer
-              page {
-                name
-                title
-                route
-                locale
+        attributes {
+          nav_groups {
+            title
+            id
+            nav_items {
+              nav_item {
+                data {
+                  id
+                  attributes {
+                    text
+                    display_on_header
+                    display_on_footer
+                    page {
+                      data {
+                        attributes {
+                          name
+                          title
+                          route
+                          locale
+                        }
+                      }
+                    }
+                    locale
+                    external_link
+                  }
+                }
               }
-              locale
-              external_link
+              sort_name
             }
-            sort_name
           }
         }
       }

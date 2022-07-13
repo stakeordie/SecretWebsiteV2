@@ -114,31 +114,41 @@ export default {
 </script>
 
 <static-query>
-query {
-  navHeader: allStrapiNavHeader {
-    edges {
-      node {
-        nav_groups {
-          title
-          nav_items {
-            nav_item {
-              text
-              page {
-                name
-                title
-                route
-                locale
+  query {
+    navHeader: allStrapiNavHeader {
+      edges {
+        node {
+          attributes {
+            nav_groups {
+              title
+              nav_items {
+                nav_item {
+                  data {
+                    attributes {
+                      text
+                      page {
+                        data {
+                          attributes {
+                            name
+                            title
+                            route
+                            locale
+                          }
+                        }
+                      }
+                      locale
+                      external_link
+                    }
+                  }
+                }
+                sort_name
               }
-              locale
-              external_link
             }
-            sort_name
           }
         }
       }
     }
   }
-}
 </static-query>
 
 <style lang="scss">

@@ -411,108 +411,157 @@ export default {
 </script>
 
 <static-query>
-query {
-  gridHeaders: allStrapiCardGridHeaders {
-    edges {
-      node {
-        id
-        title,
-        subtitle
-      }
-    }
-  }
-    dApps: allStrapiDApps {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
+  query {
+    gridHeaders: allStrapiCardGridHeader {
+      edges {
+        node {
+          id
+          attributes {
+            title,
+            subtitle
+          }
         }
       }
     }
-  }
-  contributors: allStrapiContributors {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        cta_title
-        description
-        cta_title
-        picture: logo {
-          url
+    ecosystemValidators: allStrapiEcosystemValidator {
+      edges {
+        node {
+          attributes {
+            title: name
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            link
+            order
+          }
         }
-        types {
-          name
+      }
+    }
+    dApps: allStrapiEcosystemDapp {
+      edges {
+        node {
+          id
+          attributes {
+            sort
+            title: name
+            url: link
+            description
+            cta_title
+            picture: logo {
+              data{
+                attributes {
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
+          }
+        }
+      }
+    }
+    contributors: allStrapiContributor {
+      edges {
+        node {
+          id
+          attributes {
+            sort
+            title: name
+            url: link
+            description
+            cta_title
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
+          }
+        }
+      }
+    }
+    toolsAndWallets: allStrapiToolAndWallet {
+      edges {
+        node {
+          id
+          attributes {
+            sort
+            title: name
+            url: link
+            description
+            cta_title
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
+          }
+        }
+      }
+    }
+    internationalCommunities: allStrapiInternationalCommunity {
+      edges {
+        node {
+          id
+          attributes{
+            sort
+            title: name
+            url: link
+            cta_title
+            language: language
+            picture: logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
+          }
+        }
+      }
+    }
+    exchanges: allStrapiExchange {
+      edges {
+        node {
+          id
+          attributes {
+            sort
+            title: name
+            url: link
+            description
+            cta_title
+            picture: logo {
+              data {
+                attributes{
+                  url
+                }
+              }
+            }
+            type {
+              name
+            }
+          }
         }
       }
     }
   }
-  toolsAndWallets: allStrapiToolsAndWallets {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
-        }
-      }
-    }
-  }
-    internationalCommunities: allStrapiInternationalCommunities {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        cta_title
-        language: language
-        picture: logo {
-          url
-        }
-        types {
-          name
-        }
-      }
-    }
-  }
-  exchanges: allStrapiExchanges {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types {
-          name
-        }
-      }
-    }
-  }
-}
 </static-query>
 
 <style lang="scss">

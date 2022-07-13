@@ -17,6 +17,7 @@
 <script>
 import { getLocaleData } from "@/utils";
 
+
 export default {
   props: {
     url: {
@@ -36,12 +37,12 @@ export default {
     checkForStatus() {
       if (process.isClient) {
         let localStorage = window.localStorage.getItem("alertMsg");
-        if (localStorage === this.$static.alertBar.edges[0].node.text) {
+        if (localStorage === this.$static.alertBar.edges[0].node.attributes.text) {
         } else {
           this.isAlertOpen = true;
         }
       }
-      return this.$static.alertBar.edges[0].node.text;
+      return this.$static.alertBar.edges[0].node.attributes.text;
     },
     checkAlertHeight() {
       const body = document.querySelector("body");
@@ -50,11 +51,11 @@ export default {
     closeAlert() {
       this.isAlertOpen = false;
       if (process.isClient) {
-        let alertMsg = this.$static.alertBar.edges[0].node.text;
+        let alertMsg = this.$static.alertBar.edges[0].node.attributes.text;
         localStorage.setItem("alertMsg", `${alertMsg}`);
       }
-      // console.log(this.$static.alertBar.edges[0].node.text)
-      return this.$static.alertBar.edges[0].node.text;
+      console.log("alert   ",this.$static.alertBar.edges[0].node.attributes.text)
+      return this.$static.alertBar.edges[0].node.attributes.text;
     },
     varAlertHeight() {
       const htmlEl = document.querySelector("html");
@@ -90,8 +91,10 @@ export default {
     alertBar: allStrapiAlertBar {
       edges{
         node{
-          text
-          locale
+          attributes {
+            text
+          	locale
+          }
         }
       }
     }
