@@ -130,58 +130,58 @@ export default {
 
 <static-query>
 query {
-  aboutSubpages: allStrapiAboutSecretTokensBridges {
+  aboutSubpages: allStrapiAboutSubpage {
     edges {
       node {
-         AboutSecretTokensBridges{
-          heroColor
-          heroImage {
+         AboutSecretTokensBridges: about_secret_tokens_bridges{
+          heroColor: hero_color
+          heroImage: hero_image {
             url
           }
-          heroSubtitle
-          heroTitle
-          heroBody
-          mainContent
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
         }
-        aboutSecretFinance {
-          heroColor
-          heroImage {
+        aboutSecretFinance: about_secret_finance {
+          heroColor: hero_color
+          heroImage: hero_image {
             url
           }
-          heroSubtitle
-          heroTitle
-          heroBody
-          mainContent
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
         }
-        secretNfts {
-          heroColor
-          heroImage {
+        secretNfts: secret_nfts {
+          heroColor: hero_color
+          heroImage: hero_image {
             url
           }
-          heroSubtitle
-          heroTitle
-          heroBody
-          mainContent
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
         }
         faq {
-          heroColor
-          heroImage {
+          heroColor: hero_color
+          heroImage: hero_image {
             url
           }
-          heroSubtitle
-          heroTitle
-          heroBody
-          mainContent
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
         }
-        secretContracts{
-          heroColor
-          heroImage {
+        secretContracts: secret_contracts {
+          heroColor: hero_color
+          heroImage: hero_image {
             url
           }
-          heroSubtitle
-          heroTitle
-          heroBody
-          mainContent
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
         }
       }
     }

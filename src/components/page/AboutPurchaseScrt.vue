@@ -171,24 +171,24 @@ query {
   aboutScrtPurchase: allStrapiAboutScrt {
     edges {
       node {
-				aboutScrtPurchase {
+				aboutScrtPurchase: about_scrt_purchase {
           subtitle
           title
           message
         }
-        purchaseMehtodCluster {
+        purchaseMehtodCluster: purchase_method_cluster {
           id
           level
-          clusterTitle
+          clusterTitle: cluster_title
           description
           note
           image {
             id
 						url
           }
-          linkWithImage {
+          linkWithImage: link_with_image {
             id
-            clusterTitle
+            clusterTitle: cluster_title
             title
             url
             image {
