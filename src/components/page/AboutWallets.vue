@@ -41,13 +41,13 @@ query {
   aboutScrtWallets: allStrapiAboutScrt {
     edges {
       node {
-				wallets_to_use {
+				wallet_to_use {
           subtitle
           title
           message
           options
           note
-          whatWalletUseCard {
+          whatWalletUseCard: what_wallet_use_card {
             id
             image {
               url

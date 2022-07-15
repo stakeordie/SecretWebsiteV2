@@ -85,7 +85,7 @@ export default {
 
 <static-query>
 query {
-  developerPadthways: allStrapiDeveloperPathways {
+  developerPadthways: allStrapiDeveloperPathway {
     edges {
       node {
         id
