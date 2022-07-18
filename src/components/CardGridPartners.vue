@@ -174,6 +174,7 @@ export default {
       });
     },
     gridHeaderTitle(x) {
+      //console.log(this.$static.gridHeaders.edges)
       let headers = this.$static.gridHeaders.edges;
       for (let i = 0; i < headers.length; i++) {
         let headerEdge = headers[i];
@@ -362,6 +363,18 @@ query {
     }
   }
   ecosystemValidators: allStrapiEcosystemValidator {
+    edges {
+      node {
+        title: name
+        picture: logo {
+        	url
+        }
+        link
+        order
+      }
+    }
+  }
+  ecosystemPartners: allStrapiEcosystemPartner {
     edges {
       node {
         title: name

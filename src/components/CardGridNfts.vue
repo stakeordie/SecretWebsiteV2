@@ -376,6 +376,7 @@ export default {
     },
 
     collections() {
+      console.log(this.collection);
       return this.$static[this.collection].edges.map((it) => it.node);
     },
 
@@ -450,6 +451,20 @@ query {
         }
         types: type {
           name
+        }
+      }
+    }
+  }
+  ecosystemNfts: allStrapiEcosystemNft {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        description
+        picture: logo {
+          url
         }
       }
     }

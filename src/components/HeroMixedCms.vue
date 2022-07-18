@@ -8,7 +8,7 @@
       <div class="hero-mixed-side-right">
         <img
           class="hero-mixed-side-right-img"
-          :src="element.heroImage[0].url"
+          :src="element.heroImage.url"
           alt="hero image"
         />
       </div>

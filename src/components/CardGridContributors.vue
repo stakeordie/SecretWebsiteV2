@@ -409,7 +409,7 @@ query {
       }
     }
   }
-  contributors: allStrapiContributor {
+  ecosystemContributors: allStrapiContributor {
     edges {
       node {
         id
