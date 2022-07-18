@@ -24,7 +24,7 @@ title: "SCRT Website"
 
 </hero-mixed>
 
-<content-navigator-docs>
+<!-- <content-navigator-docs>
 
 ### SCRT Website
 
@@ -68,4 +68,4 @@ Usually the website is brought up at [http://localhost:8080](http://localhost:80
 
 https://secret-website-development.onrender.com
 
-</content-navigator-docs>
+</content-navigator-docs> -->
