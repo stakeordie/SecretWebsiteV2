@@ -62,6 +62,16 @@ module.exports = {
         },
     },
     {
+        use: '@gridsome/vue-remark',
+        options: {
+            baseDir: './docs',
+            pathPrefix: '/docs',
+            typeName: 'Doc',
+            template: './src/templates/Docs.vue',
+            //plugins: ['@gridsome/remark-prismjs']
+        }
+    },
+    {
         use: '@gridsome/source-ghost',
         options: {
             typeName: 'Ghost',
@@ -155,16 +165,6 @@ module.exports = {
             id: 'UA-173950488-3'
         }
     },*/
-    {
-        use: '@gridsome/vue-remark',
-        options: {
-            baseDir: './docs',
-            pathPrefix: '/docs',
-            typeName: 'Doc',
-            template: './src/templates/Docs.vue',
-            plugins: ['@gridsome/remark-prismjs']
-        }
-    },
     //   ...optionalPlugins
     ],
     templates: {
