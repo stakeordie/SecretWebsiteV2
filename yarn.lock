@@ -2314,10 +2314,10 @@
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
 
-"@stakeordie/source-strapi@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@stakeordie/source-strapi/-/source-strapi-0.3.0.tgz#a6b0306852a8545db3bccfca0ce7f1ee65eb0809"
-  integrity sha512-+MfKJFCtXMQk5wsCN/KH9nsKHsgIZ4qhhFE4tKR+6QxWtSKmKFVWWcUVQHfVfG+Q4UAcew+yt8xWrPEm36u6Ig==
+"@stakeordie/source-strapi@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@stakeordie/source-strapi/-/source-strapi-0.4.0.tgz#25f5951a27d081157ad2acb6eb46376bb0168b9b"
+  integrity sha512-kSgWNRBgCdDU+k7mUYEf6QOEwao+p4+aVsGt0SXSwPxUmbRRRdp5hv8Rih149jfw/6VmF7Ww5Xx2nKYkrVA6pA==
   dependencies:
     axios "^0.19.0"
     lodash "^4.17.11"
