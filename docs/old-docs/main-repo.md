@@ -3,7 +3,7 @@ title: "SCRT Website"
 ---
 
 
-<hero-mixed bg-color="#FF144E" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
+<!-- <hero-mixed bg-color="#FF144E" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
 
 <template v-slot:title>
 
@@ -22,7 +22,7 @@ title: "SCRT Website"
 
 </template>
 
-</hero-mixed>
+</hero-mixed> -->
 
 <!-- <content-navigator-docs>
 
