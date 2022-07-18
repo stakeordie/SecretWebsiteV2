@@ -37,13 +37,13 @@ export default {
       scroll_left() {
         let content = document.querySelector(".media-featured > .--flare-block > .content > .box");
         content.scrollLeft -= 390;
-        console.log('left');
+        //console.log('left');
       },
       scroll_right() {
         let content = document.querySelector(".media-featured > .--flare-block > .content > .box");
         content.scrollLeft += 390;
-        console.log('right');
-        console.log(content);
+        //console.log('right');
+        //console.log(content);
       },
 
       onFilterApplied(filters) {
