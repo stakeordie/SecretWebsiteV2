@@ -1,6 +1,8 @@
 <template>
   <default-layout class="content">
-    <VueRemarkContent />
+    <ClientOnly>
+      <VueRemarkContent />
+    </ClientOnly>
   </default-layout>
 </template>
 
@@ -46,8 +48,8 @@ export default {
 }
 
 :deep(p) > img {
-    max-width: 100%;
-  }
+  max-width: 100%;
+}
 
 .markdown {
   padding-bottom: 50vh;
