@@ -32,11 +32,11 @@ export default {
 @import "../sass/docs/config/_colors.scss";
 @import "../sass/docs/config/_mixins.scss";
 @import "../sass/docs/config/_functions.scss";
-:deep() > p {
+::v-deep > p {
   opacity: .8;
 }
 
-:deep() > h2 {
+::v-deep > h2 {
   padding-top: 100px;
   margin-top: -80px;
 
@@ -45,7 +45,7 @@ export default {
   }
 }
 
-:deep() > p > img {
+::v-deep > p > img {
     max-width: 100%;
   }
 
