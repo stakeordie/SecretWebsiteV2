@@ -68,7 +68,7 @@ module.exports = {
             pathPrefix: '/docs',
             typeName: 'Doc',
             template: './src/templates/Docs.vue',
-            //plugins: ['@gridsome/remark-prismjs']
+            plugins: ['@gridsome/remark-prismjs']
         }
     },
     {
