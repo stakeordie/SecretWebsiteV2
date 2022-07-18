@@ -15,7 +15,7 @@
           <div class="card-element__header">
             <img
               class="card-element__header__logo"
-              :src="element.logo[0].url"
+              :src="element.logo.url"
               alt="picture"
             />
             <!-- Categorie tags -->

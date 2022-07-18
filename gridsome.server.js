@@ -63,7 +63,26 @@ module.exports = function(api) {
     }
   })
 
-  api.createPages(({ createPage }) => {
+  api.createPages( async ({ createPage, graphql }) => {
+    const { data } = await graphql(`{
+      secretAgents: allStrapiSecretAgent {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }`)
+    
+    data.secretAgents.edges.forEach(({ node }) => {
+      createPage({
+        path: `/agent/${node.name}`,
+        component: './src/templates/test.vue',
+        context: {
+          agentName: node.name
+        }
+      })
+    })
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   })
 }
