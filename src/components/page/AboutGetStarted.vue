@@ -73,7 +73,7 @@ query {
   aboutScrt: allStrapiAboutScrt {
     edges {
       node {
-        aboutScrtGetStarted {
+        aboutScrtGetStarted: about_scrt_get_started{
           id
           subtitle
           title
@@ -81,29 +81,29 @@ query {
           image {
             url
           }
-          anchorBuyScrt {
+          anchorBuyScrt: anchor_buy_scrt{
             id
-            Title
+            Title: title
             url
           }
-          anchorStoreScrt {
+          anchorStoreScrt: anchor_store_scrt{
             id
-            Title
+            Title: title
             url
           }
-          anchorStakeScrt {
+          anchorStakeScrt: anchor_stake_scrt{
             id
-            Title
+            Title: title
             url
           }
-          anchorScrtApps {
+          anchorScrtApps: anchor_scrt_apps{
             id
-            Title
+            Title: title
             url
           }
-          anchorScrtGovernance {
+          anchorScrtGovernance: anchor_scrt_governance{
             id
-            Title
+            Title: title
             url
           }
         }

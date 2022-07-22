@@ -221,7 +221,7 @@
 
 <static-query>
   query{
-    faqs: allStrapiFaqItems (
+    faqs: allStrapiFaqItem (
       sort: {
         		by: "sort"
             order: ASC

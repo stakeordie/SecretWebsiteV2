@@ -293,7 +293,7 @@ export default {
 <static-query>
 
 query{
-  ecosystemPartners: allStrapiEcosystemPartners{
+  ecosystemPartners: allStrapiEcosystemPartner {
     edges{
       node{
         title: name

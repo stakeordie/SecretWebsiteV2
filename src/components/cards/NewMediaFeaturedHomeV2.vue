@@ -41,13 +41,13 @@ export default {
       scroll_left() {
         let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
         content.scrollLeft -= 390;
-        console.log('left');
+        //console.log('left');
       },
       scroll_right() {
         let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
         content.scrollLeft += 390;
-        console.log('right');
-        console.log(content);
+        //console.log('right');
+        //console.log(content);
       },
 
       onFilterApplied(filters) {
@@ -205,7 +205,8 @@ $accent-colors: (Article, Podcast, Video);
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMediaAlts(order: DESC, limit: 3,filter: { is_featured: { eq: true } }){
+  mediaEntries: allStrapiExternalMedia(
+    order: DESC, limit: 3,filter: { is_featured: { eq: true } }){
     edges {
       node {
         title

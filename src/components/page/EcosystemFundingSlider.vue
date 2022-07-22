@@ -158,7 +158,7 @@ export default {
 
       let curSlide = 0;
       const maxSlide = slides.length;
-      console.log(maxSlide);
+      //console.log(maxSlide);
 
       const createDots = function () {
         slides.forEach(function (_, i) {
@@ -225,7 +225,7 @@ export default {
       btnLeft.addEventListener('click', prevSlide);
 
       document.addEventListener('keydown', function (e) {
-        console.log(e);
+        //console.log(e);
         if (e.key === 'ArrowLeft') prevSlide();
         e.key === 'ArrowRight' && nextSlide();
       });
@@ -450,8 +450,8 @@ export default {
             fill: var(--flui-slider-arrow-chevron-color);
           }
         }
-        &:hover {
-        }
+        // &:hover {
+        // }
       }
     }
   }

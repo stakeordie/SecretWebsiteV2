@@ -151,7 +151,7 @@
 
 <static-query>
 query {
-  committees: allStrapiCommittees {
+  committees: allStrapiCommittee {
     edges {
       node {
         id,

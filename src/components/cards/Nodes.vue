@@ -53,7 +53,7 @@ export default {
           picture: logo {
           	url
           },
-        	node_categories: types {
+        	node_categories: type {
             title:,
             type
           }

@@ -454,7 +454,7 @@ export default {
 </script>
 
 <static-query>
-  query {
+query {
   navHeader: allStrapiNavHeader {
     edges {
       node {
@@ -760,10 +760,10 @@ export default {
           }
           &:hover {
             cursor: pointer;
-            a {
-              //color: var(--mega-header-color-nav-exanded-hover);
+            // a {
+            //   //color: var(--mega-header-color-nav-exanded-hover);
               
-            }
+            // }
           }
         }
       }

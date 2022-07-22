@@ -9,45 +9,45 @@ module.exports = function(api) {
   api.loadSource((store) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api
     store.addSchemaTypes(`
-      type StrapiContributors_Types {
+      type StrapiContributor_Types {
         id: Int
         name: String
       }
-      type StrapiDApps_Types {
+      type StrapiEcosystemDapp_Types {
         id: Int
         name: String
       }
-      type StrapiToolsAndWallets_Types {
+      type StrapiToolAndWallet_Types {
         id: Int
         name: String
       }
-      type StrapiInternationalCommunities_Types {
+      type StrapiInternationalCommunity_Types {
         id: Int
         name: String
       }
-      type StrapiExchanges_Types {
+      type StrapiExchange_Types {
         id: Int
         name: String
       }
-      type StrapiContributors implements Node @infer {
+      type StrapiContributor implements Node @infer {
         sort: Int
-        types: [StrapiContributors_Types]
+        types: [StrapiContributor_Types]
       }
-      type StrapiDApps implements Node @infer {
+      type StrapiEcosystemDapp implements Node @infer {
         sort: Int
-        types: [StrapiDApps_Types]
+        types: [StrapiEcosystemDapp_Types]
       }
-      type StrapiToolsAndWallets implements Node @infer {
+      type StrapiToolAndWallet implements Node @infer {
         sort: Int
-        types: [StrapiToolsAndWallets_Types]
+        types: [StrapiToolAndWallet_Types]
       }
-      type StrapiExchanges implements Node @infer {
+      type StrapiExchange implements Node @infer {
         sort: Int
-        types: [StrapiExchanges_Types]
+        types: [StrapiExchange_Types]
       }
-      type StrapiInternationalCommunities implements Node @infer {
+      type StrapiInternationalCommunity implements Node @infer {
         sort: Int
-        types: [StrapiInternationalCommunities_Types]
+        types: [StrapiInternationalCommunity_Types]
       }
     `)
 
@@ -63,7 +63,26 @@ module.exports = function(api) {
     }
   })
 
-  api.createPages(({ createPage }) => {
+  api.createPages( async ({ createPage, graphql }) => {
+    // const { data } = await graphql(`{
+    //   secretAgents: allStrapiSecretAgent {
+    //     edges {
+    //       node {
+    //         name
+    //       }
+    //     }
+    //   }
+    // }`)
+    
+    // data.secretAgents.edges.forEach(({ node }) => {
+    //   createPage({
+    //     path: `/agent/${node.name}`,
+    //     component: './src/templates/test.vue',
+    //     context: {
+    //       agentName: node.name
+    //     }
+    //   })
+    // })
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   })
 }

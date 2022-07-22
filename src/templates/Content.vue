@@ -82,10 +82,10 @@ export default {
         filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
     
-      console.log(filtered);
+      //console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];
-        console.log(result);
+        //console.log(result);
       } else {
         result = "Secret Network";
       }

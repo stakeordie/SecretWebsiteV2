@@ -66,7 +66,7 @@ export default {
 
 <static-query>
 query {
-  buyScrtOptions: allStrapiBuyScrtOptions {
+  buyScrtOptions: allStrapiScrtBuyingOption {
     edges {
       node {
         id
@@ -88,7 +88,6 @@ query {
     }
   }
 }
-
 </static-query>
 
 <style lang="scss">
@@ -134,9 +133,10 @@ query {
 
     }
 
-    h4 {
+    // h4 {
 
-    }
+    // }
+    
     p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
@@ -176,9 +176,9 @@ query {
       &:hover{
         background: var(--color-neutral-dark-mode-04);
 
-          & a{
-            //color: var(--color-newBrand-blue-01) !important;
-          }
+          // & a{
+          //   //color: var(--color-newBrand-blue-01) !important;
+          // }
       }
       &__item {
         display: grid;
@@ -210,11 +210,11 @@ query {
             padding: 0;
             //color: var(--theme-links-default) !important;
 
-            &:hover{
-              span{
-                //color: var(--color-newBrand-blue-01) !important;
-              }
-            }
+            // &:hover{
+            //   span{
+            //     //color: var(--color-newBrand-blue-01) !important;
+            //   }
+            // }
           }
         }
       }

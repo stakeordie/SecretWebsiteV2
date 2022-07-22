@@ -355,7 +355,7 @@ export default {
 
 <static-query>
 query {
-  gridHeaders: allStrapiCardGridHeaders {
+  gridHeaders: allStrapiCardGridHeader {
     edges {
       node {
         id
@@ -364,20 +364,19 @@ query {
       }
     }
   }
-
-  ecosystemValidators: allStrapiEcosystemValidators{
-    edges{
-      node{
+  ecosystemValidators: allStrapiEcosystemValidator {
+    edges {
+      node {
         title: name
         picture: logo {
-          url
+        	url
         }
         link
         order
       }
     }
   }
-    dApps: allStrapiDApps {
+  dApps: allStrapiEcosystemDapp {
     edges {
       node {
         id
@@ -389,13 +388,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  contributors: allStrapiContributors {
+  contributors: allStrapiContributor {
     edges {
       node {
         id
@@ -408,13 +407,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  toolsAndWallets: allStrapiToolsAndWallets {
+  toolsAndWallets: allStrapiToolAndWallet {
     edges {
       node {
         id
@@ -426,13 +425,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-    internationalCommunities: allStrapiInternationalCommunities {
+  internationalCommunities: allStrapiInternationalCommunity {
     edges {
       node {
         id
@@ -444,13 +443,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  exchanges: allStrapiExchanges {
+  exchanges: allStrapiExchange {
     edges {
       node {
         id
@@ -462,7 +461,7 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
