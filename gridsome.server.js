@@ -64,25 +64,56 @@ module.exports = function(api) {
   })
 
   api.createPages( async ({ createPage, graphql }) => {
-    // const { data } = await graphql(`{
-    //   secretAgents: allStrapiSecretAgent {
-    //     edges {
-    //       node {
-    //         name
-    //       }
-    //     }
-    //   }
-    // }`)
+    const { data } = await graphql(`{
+      dynamicPages: allStrapiDynamicPage {
+        edges {
+          node {
+            name
+            template
+            route
+            Components {
+              comp_name
+              content
+              collection
+              title
+                header
+              is_paginated
+            }
+          }
+        }
+      }
+    }`)
     
-    // data.secretAgents.edges.forEach(({ node }) => {
-    //   createPage({
-    //     path: `/agent/${node.name}`,
-    //     component: './src/templates/test.vue',
-    //     context: {
-    //       agentName: node.name
-    //     }
-    //   })
+    data.dynamicPages.edges.forEach(({ node }) => {
+      createPage({
+        path: `${node.route}`,
+        component: `./src/templates/${node.template.toLowerCase()}.vue`,
+        context: {
+          components: node.Components
+        }
+      })
+    })
+    //Use the Pages API here: https://gridsome.org/docs/pages-api/
+
+    // createPage({
+    //   path: `/test`,
+    //   component: './src/templates/test.vue',
+    //   context: {
+    //     components: [
+    //       {
+    //         name: "hero-title",
+    //         content: "Hello"
+    //       },
+    //       {
+    //         name: "hero-title",
+    //         content: "World"
+    //       },
+    //       {
+    //         name: "hero-title",
+    //         content: "!"
+    //       }
+    //     ]
+    //   }
     // })
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
   })
 }
