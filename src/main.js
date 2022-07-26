@@ -140,6 +140,16 @@ import LearnPosts from '~/components/blog/LearnPosts'
 import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
 import LearnFilter from '~/components/blog/LearnFilter'
 import LearnCard from '~/components/blog/LearnCard'
+import LearnArticleColumnDouble from '~/components/learn/LearnArticleColumnDouble'
+import LearnArticleColumnSingle from '~/components/learn/LearnArticleColumnSingle'
+import LearnArticleHero from '~/components/learn/LearnArticleHero'
+import LearnArticleImage from '~/components/learn/LearnArticleImage'
+
+
+
+import Breadcrumbs from '~/components/Breadcrumbs'
+
+
 
 
 // Page Specific
@@ -378,6 +388,15 @@ export default function (Vue, {
   Vue.component('LearnCardFeatured', LearnCardFeatured);
   Vue.component('LearnFilter', LearnFilter);
   Vue.component('LearnCard', LearnCard);
+  Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
+  Vue.component('LearnArticleColumnSignle', LearnArticleColumnSingle);
+  Vue.component('LearnArticleHero', LearnArticleHero);
+  Vue.component('LearnArticleImage', LearnArticleImage);
+  
+  
+  
+  Vue.component('Breadcrumbs', Breadcrumbs);
+
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
