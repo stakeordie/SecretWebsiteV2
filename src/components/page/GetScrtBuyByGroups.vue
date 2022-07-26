@@ -99,7 +99,7 @@ export default {
 
 <static-query>
 query {
-  buyScrtOptions: allStrapiBuyScrtOptions {
+  buyScrtOptions: allStrapiScrtBuyingOption {
     edges {
       node {
         id
@@ -166,9 +166,10 @@ query {
       line-height: 24px;
     }
 
-    h4 {
+    // h4 {
 
-    }
+    // }
+
     p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);

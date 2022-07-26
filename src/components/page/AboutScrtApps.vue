@@ -38,13 +38,13 @@ query {
   aboutScrtStakeGovApps: allStrapiAboutScrt {
     edges {
       node {
-				stakeGovernanceApps {
+				stakeGovernanceApps: stake_governance_apps {
           id
           Subtitle
           title
           message
           link {
-            Title
+            Title: title
             url
           }
         }

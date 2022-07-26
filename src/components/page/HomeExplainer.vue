@@ -79,18 +79,18 @@ query {
           route
         }
         locale
-        localizations {
-          title
-          subtitle
-          column_1
-          column_2
-          changing_words {
-            word
-            seconds
-          }
-          button_title
-          locale
-        }
+        # localizations {
+        #   title
+        #   subtitle
+        #   column_1
+        #   column_2
+        #   changing_words {
+        #     word
+        #     seconds
+        #   }
+        #   button_title
+        #   locale
+        # }
       }
     }
   }

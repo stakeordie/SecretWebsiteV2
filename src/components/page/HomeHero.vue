@@ -53,12 +53,12 @@ export default {
           subtitle
           tagline
           locale
-          localizations {
-            title
-            subtitle
-            tagline
-            locale
-          }
+          #localizations {
+          #  title
+          #  subtitle
+          #  tagline
+          #  locale
+          #}
           image {
             url
             caption

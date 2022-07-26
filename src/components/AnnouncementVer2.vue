@@ -111,7 +111,7 @@
 
 <static-query>
   query{
-    announcements: allStrapiAnnouncements {
+    announcements: allStrapiAnnouncement {
       edges{
         node{
           id

@@ -240,7 +240,7 @@ export default {
 
 <static-query>
 query {
-  servicesCexes: allStrapiServicesCeXes {
+  servicesCexes: allStrapiServiceCex {
     edges {
       node {
         id
@@ -256,7 +256,7 @@ query {
       }
     }
   }
-  servicesDexes: allStrapiServicesDeXes {
+  servicesDexes: allStrapiServiceDex {
     edges {
       node {
         service_name
@@ -271,7 +271,7 @@ query {
       }
     }
   }
-  serviceWallets: allStrapiServicesWallets {
+  serviceWallets: allStrapiServiceWallet {
     edges {
       node {
         service_name
@@ -284,7 +284,7 @@ query {
       }
     }
   }
-  servicesBridges: allStrapiServicesBridges {
+  servicesBridges: allStrapiServiceBridge {
     edges {
       node {
         id
@@ -301,7 +301,7 @@ query {
       }
     }
   }
-  serviceWebsites: allStrapiServicesWebsites {
+  serviceWebsites: allStrapiServiceWebsite {
     edges {
       node {
         service_name
@@ -314,7 +314,7 @@ query {
       }
     }
   }
-  servicesBots: allStrapiServicesBots {
+  servicesBots: allStrapiServiceBot {
     edges {
       node {
         id

@@ -15,7 +15,7 @@ export default {
 
 <static-query>
   query{
-    homeAnnouncements: allStrapiHomeAnnouncements {
+    homeAnnouncements: allStrapiHomeAnnouncement {
       edges{
         node{
             top {

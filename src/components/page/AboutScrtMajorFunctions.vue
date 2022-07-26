@@ -48,7 +48,7 @@ query {
   aboutScrtMajorFunctions: allStrapiAboutScrt {
     edges {
       node {
-        aboutScrtMajorFunctionsPayingFees {
+        aboutScrtMajorFunctionsPayingFees: about_scrt_major_functions_paying_fees {
           id
           icon {
             url
@@ -56,7 +56,7 @@ query {
           title
           message
         }
-        aboutScrtMajorFunctionsStaking {
+        aboutScrtMajorFunctionsStaking: about_scrt_major_functions_staking {
           id
           icon {
             url
@@ -64,7 +64,7 @@ query {
           title
           message
         }
-        aboutScrtMajorFunctionsGovernance {
+        aboutScrtMajorFunctionsGovernance: about_scrt_major_functions_governance {
           id
           icon {
             url

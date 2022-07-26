@@ -27,7 +27,7 @@ title: "Tools"
 
 <block>
 
-<card-grid-nfts header="Secret NFT Collections" title="Secret NFT Collections" collection="ecosystemNft" :isPaginated="false"></card-grid-nfts>
+<card-grid-nfts header="Secret NFT Collections" title="Secret NFT Collections" collection="ecosystemNfts" :isPaginated="false"></card-grid-nfts>
 
 </block>
 
