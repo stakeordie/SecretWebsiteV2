@@ -141,6 +141,11 @@ import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
 import LearnFilter from '~/components/blog/LearnFilter'
 import LearnCard from '~/components/blog/LearnCard'
 
+import LearnArticleColumnDouble from '~/components/learn/LearnArticleColumnDouble'
+import LearnArticleColumnSingle from '~/components/learn/LearnArticleColumnSingle'
+import LearnArticleHero from '~/components/learn/LearnArticleHero'
+import LearnArticleImage from '~/components/learn/LearnArticleImage'
+import Breadcrumbs from '~/components/Breadcrumbs'
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -430,9 +435,11 @@ export default function (Vue, {
   Vue.component('GeneralCtas', GeneralCtas);
   Vue.component('LearnPortalHero', LearnPortalHero);
   
-
-
-  
+  Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
+  Vue.component('LearnArticleColumnSignle', LearnArticleColumnSingle);
+  Vue.component('LearnArticleHero', LearnArticleHero);
+  Vue.component('LearnArticleImage', LearnArticleImage);
+  Vue.component('Breadcrumbs', Breadcrumbs);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
