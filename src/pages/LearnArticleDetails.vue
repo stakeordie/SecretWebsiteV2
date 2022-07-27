@@ -66,12 +66,13 @@ export default {
 
 .learn-article-details {
   &__content {
-    display: grid;
-    gap: 64px;
+    
 
     & .content {
       & .box {
-        padding: 0;
+        display: grid;
+    gap: 64px;
+
       }
     }
 

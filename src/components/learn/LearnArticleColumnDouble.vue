@@ -1,6 +1,5 @@
 <template>
   <div class="learn-article-column-double">
-    
     <!-- **COLUMN 1 -->
     <div class="learn-article-column-double__col-1">
       <vue-markdown>
@@ -15,7 +14,34 @@
       </vue-markdown>
     </div>
 
-    
+    <!-- **COLUMN 1 -->
+    <div class="learn-article-column-double__col-1">
+      <vue-markdown>
+        {{ data }}
+      </vue-markdown>
+    </div>
+
+    <!-- ** COLUMN 2-->
+    <div class="learn-article-column-double__col-2">
+      <vue-markdown>
+        {{ data2 }}
+      </vue-markdown>
+    </div>
+
+    <!-- **COLUMN 1 -->
+    <div class="learn-article-column-double__col-1">
+      <vue-markdown>
+        {{ data3 }}
+      </vue-markdown>
+    </div>
+
+    <!-- ** COLUMN 2-->
+    <div class="learn-article-column-double__col-2">
+      <vue-markdown>
+        {{ img }}
+      </vue-markdown>
+
+    </div>
   </div>
 </template>
 
@@ -27,9 +53,28 @@ export default {
 ### H3 Title
 
 Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare blandit interdum quisque sed habitasse augue orci. Volutpat amet ut nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit ut.  
-  
+          
 Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermentum libero magna suspendisse sed tristique mi. Praesent ut ultricies dignissim mi nunc in sit ac. Aliquet purus posuere ac justo, condimentum lorem. Risus sit aenean nisl nibh id dictum. Enim rhoncus vehicula vel sodales velit. Enim sit sit non at nulla. Tellus ultrices enim elit nulla faucibus. Mi nunc, leo commodo leo rhoncus placerat.
 
+        `,
+
+      data2: `
+
+Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare blandit interdum quisque sed habitasse augue orci. Volutpat amet ut nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit ut.  
+          
+Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermentum libero magna suspendisse sed tristique mi. Praesent ut ultricies dignissim mi nunc in sit ac. Aliquet purus posuere ac justo, condimentum lorem. Risus sit aenean nisl nibh id dictum. Enim rhoncus vehicula vel sodales velit. Enim sit sit non at nulla. Tellus ultrices enim elit nulla faucibus. Mi nunc, leo commodo leo rhoncus placerat.
+
+        `,
+
+      data3: `
+### H3 Title
+
+Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare blandit interdum quisque sed habitasse augue orci. Volutpat amet ut nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit ut.  
+          
+      `,
+
+      img: ` 
+![](img/learn-cover.jpg)
 `,
     };
   },
@@ -39,17 +84,20 @@ Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermen
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-article-column-double{
-    display: grid;
-      gap: 26px;
-      // gap: 54px;
-      grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
+.learn-article-column-double {
+  display: grid;
+  gap: 26px;
+  // gap: 54px;
+  grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
 
+  @include respond-to("<=m") {
+    grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
+  }
 
-    &__col-1,
-    &__col-2{
-        padding: var(--f-gutter);
-    }
+  &__col-1,
+  &__col-2 {
+    padding: var(--f-gutter);
+  }
 }
 
 // .learn-article-column-double {
