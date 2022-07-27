@@ -2,7 +2,7 @@
   <div class="learn-article-column-single">
     <div class="learn-article-column__text">
       <vue-markdown>
-        {{data}}
+        {{ data }}
       </vue-markdown>
     </div>
   </div>
@@ -37,16 +37,29 @@ Similar to how Ethereum has ERC-20 tokens (a fungible token standard for Ethereu
     display: grid;
     gap: 26px;
 
-    .title__align-center {
-      text-align: center;
+    .learn-article-column__text {
+      display: grid;
+      // gap: 26px;
+
+      .title__align-center {
+        text-align: center;
+      }
     }
-  }
 
-  & .content {
-    width: 100%;
+    & .content {
+      width: 100%;
 
-    & .box {
-      padding: 0;
+      & .box {
+        padding: 0;
+      }
+    }
+
+    & .content {
+      width: 100%;
+
+      & .box {
+        padding: 0;
+      }
     }
   }
 }

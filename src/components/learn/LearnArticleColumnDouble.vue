@@ -4,7 +4,7 @@
 
     <div class="learn-article-column-double__paragraph">
       <vue-markdown>
-        {{data}}
+        {{ data }}
       </vue-markdown>
     </div>
 
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
       data: `### H3 Title
 
@@ -65,9 +65,9 @@ Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermen
 
 Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare blandit interdum quisque sed habitasse augue orci. Volutpat amet ut nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit ut.  
   
-Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermentum libero magna suspendisse sed tristique mi. Praesent ut ultricies dignissim mi nunc in sit ac. Aliquet purus posuere ac justo, condimentum lorem. Risus sit aenean nisl nibh id dictum. Enim rhoncus vehicula vel sodales velit. Enim sit sit non at nulla. Tellus ultrices enim elit nulla faucibus. Mi nunc, leo commodo leo rhoncus placerat.`
-    }
-  }
+Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermentum libero magna suspendisse sed tristique mi. Praesent ut ultricies dignissim mi nunc in sit ac. Aliquet purus posuere ac justo, condimentum lorem. Risus sit aenean nisl nibh id dictum. Enim rhoncus vehicula vel sodales velit. Enim sit sit non at nulla. Tellus ultrices enim elit nulla faucibus. Mi nunc, leo commodo leo rhoncus placerat.`,
+    };
+  },
 };
 </script>
 
@@ -81,29 +81,27 @@ Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui diam fermen
   &__paragraph,
   &__paragraph-img {
     display: grid;
-    gap: 26px;
-    // gap: 54px;
-    grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
+    gap: 64px;
 
-    .learn-article-column__text {
+    &__paragraph,
+    &__paragraph-img {
       display: grid;
       gap: 26px;
-      padding: var(--f-gutter);
-    }
+      // gap: 54px;
+      grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
 
-    & .content {
-      width: 100%;
-
-      & .box {
-        padding: 0;
-      }
-    }
-  }
-
-  &__paragraph-img {
-    @include respond-to("<=s") {
       .learn-article-column__text {
-        order: 1;
+        display: grid;
+        // gap: 26px;
+        padding: var(--f-gutter);
+      }
+
+      & .content {
+        width: 100%;
+
+        & .box {
+          padding: 0;
+        }
       }
     }
 
