@@ -83,6 +83,13 @@ export default {
     display: grid;
     gap: 64px;
 
+    & .content {
+
+            & .box {
+            padding: 0;
+            }
+        }
+
     @include respond-to("<=s"){
       padding: 32px;
     }

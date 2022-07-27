@@ -23,9 +23,9 @@ export default {};
 
 .general-breadcrumbs{
   .content{
-    // padding: 0;
+    padding: 0;
     .box{
-      padding: var(--f-gutter) var(--f-gutter) 0 var(--f-gutter);
+      padding: var(--f-gutter) 0 0 0;
 
     }
   }
@@ -42,8 +42,8 @@ export default {};
 
 
     @include respond-to("<=s") {
-      padding: 32px 0 16px 0;
-      justify-content: center;
+      // padding: 32px 0 16px 0;
+      // justify-content: center;
     }
     & a {
       font-size: 16px;
