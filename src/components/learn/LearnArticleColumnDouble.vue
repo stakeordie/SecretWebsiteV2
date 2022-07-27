@@ -2,7 +2,7 @@
   <div class="learn-article-column-double">
     <!-- **DOUBLE PARAGRAPH -->
 
-    <div class="learn-article-column-double__paragraph">
+    <div class="learn-article-column-double__col-1">
       <vue-markdown>
         {{ data }}
       </vue-markdown>
@@ -10,43 +10,10 @@
 
     <!-- ** PARAGRAPH + IMAGE-->
 
-    <div class="learn-article-column-double__paragraph-img">
-      <div class="learn-article-column__text">
-        <h3 class="learn-article-column__title">H3 Title</h3>
-        <p class="learn-article-column__paragraph">
-          Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare
-          blandit interdum quisque sed habitasse augue orci. Volutpat amet ut
-          nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas
-          mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus
-          arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet.
-          Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit
-          ut.
-        </p>
-      </div>
-
-      <block class="">
-        <learn-article-image> </learn-article-image>
-      </block>
-    </div>
-
-    <!-- ** IMAGE + PARAGRAPH -->
-
-    <div class="learn-article-column-double__paragraph-img">
-      <block class="">
-        <learn-article-image> </learn-article-image>
-      </block>
-      <div class="learn-article-column__text">
-        <h3 class="learn-article-column__title">H3 Title</h3>
-        <p class="learn-article-column__paragraph">
-          Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare
-          blandit interdum quisque sed habitasse augue orci. Volutpat amet ut
-          nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas
-          mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus
-          arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet.
-          Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit
-          ut.
-        </p>
-      </div>
+    <div class="learn-article-column-double__col-2">
+      <vue-markdown>
+        {{ data }}
+      </vue-markdown>
     </div>
   </div>
 </template>
