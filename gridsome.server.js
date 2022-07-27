@@ -1,3 +1,4 @@
+const client = require('./src/apis/strapiv4')
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
 // Learn more: https://gridsome.org/docs/server-api/
@@ -63,57 +64,18 @@ module.exports = function(api) {
     }
   })
 
-  api.createPages( async ({ createPage, graphql }) => {
-    const { data } = await graphql(`{
-      dynamicPages: allStrapiDynamicPage {
-        edges {
-          node {
-            name
-            template
-            route
-            Components {
-              comp_name
-              content
-              collection
-              title
-                header
-              is_paginated
-            }
-          }
-        }
-      }
-    }`)
-    
-    data.dynamicPages.edges.forEach(({ node }) => {
+  api.createPages( async ({ createPage }) => {
+
+    const { data } = await client.allStrapiDynamicPage()
+
+    data.forEach(({ attributes }) => {
       createPage({
-        path: `${node.route}`,
-        component: `./src/templates/${node.template.toLowerCase()}.vue`,
+        path: `${attributes.route}`,
+        component: `./src/templates/${attributes.template.toLowerCase()}.vue`,
         context: {
-          components: node.Components
+          components: attributes.Components
         }
       })
     })
-    //Use the Pages API here: https://gridsome.org/docs/pages-api/
-
-    // createPage({
-    //   path: `/test`,
-    //   component: './src/templates/test.vue',
-    //   context: {
-    //     components: [
-    //       {
-    //         name: "hero-title",
-    //         content: "Hello"
-    //       },
-    //       {
-    //         name: "hero-title",
-    //         content: "World"
-    //       },
-    //       {
-    //         name: "hero-title",
-    //         content: "!"
-    //       }
-    //     ]
-    //   }
-    // })
   })
 }
