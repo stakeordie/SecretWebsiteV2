@@ -66,6 +66,21 @@ module.exports = function(api) {
 
   api.createPages( async ({ createPage }) => {
 
+    // const {dyn_pages} = await client.allStrapiDynamicPage()
+
+    // dyn_pages.forEach(({ route, template }) => {
+    //   const { data } = await client.getPages(route)
+    //   data.forEach(({ attributes }) => { 
+    //     createPage({
+    //       path: `${attributes.route}`,
+    //       component: `./src/templates/${template.toLowerCase()}.vue`,
+    //       context: {
+    //         components: attributes.Components
+    //       }
+    //     })
+    //   })
+    // })
+
     const { data } = await client.allStrapiDynamicPage()
 
     data.forEach(({ attributes }) => {

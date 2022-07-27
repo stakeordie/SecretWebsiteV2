@@ -11,6 +11,10 @@
     <column class="learn-article-details__content spacer-s">
 
       <block class="">
+        <faq> </faq>
+      </block>
+
+      <block class="">
         <learn-article-hero> </learn-article-hero>
       </block>
       
@@ -69,8 +73,9 @@
 <script>
 import LearnArticleColumnSingle from '../components/learn/LearnArticleColumnSingle.vue';
 import LearnArticleHero from '../components/learn/LearnArticleHero.vue';
+import Breadcrumbs from '../components/Breadcrumbs.vue';
 export default {
-  components: { LearnArticleHero, LearnArticleColumnSingle },};
+  components: { LearnArticleHero, LearnArticleColumnSingle, Breadcrumbs },};
 </script>
 
 <style lang="scss">
