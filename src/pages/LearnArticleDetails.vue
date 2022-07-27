@@ -108,7 +108,7 @@ export default {
     ul {
       max-width: auto;
       width: 100%;
-      margin: 0;
+      // margin: 0;
     }
 
     h1 {

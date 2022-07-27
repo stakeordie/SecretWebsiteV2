@@ -35,8 +35,9 @@
             arcu id tincidunt. Mattis neque morbi eget eget ultrices sed
             aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non
             pulvinar sit ut.
-            <br />
-                <br />
+
+          </p>
+          <p class="learn-article-column__paragraph">
                 Massa lectus at aliquet mauris habitant elementum purus. Aliquam dui
                 diam fermentum libero magna suspendisse sed tristique mi. Praesent ut
                 ultricies dignissim mi nunc in sit ac. Aliquet purus posuere ac justo,
@@ -114,7 +115,7 @@ export default {};
 
         .learn-article-column__text{
             display: grid;
-            gap: 26px;
+            // gap: 26px;
             padding: var(--f-gutter);
         }
 

@@ -16,8 +16,8 @@
         Secret Network itself, not of applications built on the network.) You can
         think of the relationship between SCRT and Secret Network as similar to
         the relationship between ETH and Ethereum. 
-        <br />
-        <br />
+        </p>
+        <p class="learn-article-column__paragraph">
         Similar to how Ethereum has
         ERC-20 tokens (a fungible token standard for Ethereum), Secret Network has
         SNIP-20 tokens, or <a href="">Secret Tokens</a>, based on a fungible token standard for
@@ -48,7 +48,7 @@ export default {};
 
 .learn-article-column__text{
             display: grid;
-            gap: 26px;
+            // gap: 26px;
 
             .title__align-center {
                 text-align: center;
