@@ -103,17 +103,19 @@ export default {};
 
 .learn-article-column-double {
     display: grid;
-    gap: 80px;
+    gap: 64px;
 
     &__paragraph,
     &__paragraph-img{
         display: grid;
-        gap: 52px;
+        gap: 26px;
+        // gap: 54px;
         grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
 
         .learn-article-column__text{
             display: grid;
             gap: 26px;
+            padding: var(--f-gutter);
         }
 
         & .content {
@@ -138,42 +140,5 @@ export default {};
             align-self: center;
         }
     }
-//   display: grid;
-//   gap: 52px;
-//   grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
-//   //   padding: var(--f-gutter);
-
-//   //   @include respond-to("<=s") {
-//   //     padding: var(--f-gutter);
-//   //   }
-
-//   .learn-article-column {
-//     // align-self: center;
-//     display: grid;
-//     gap: 16px;
-
-//     &__text {
-//       display: grid;
-
-//       align-content: baseline;
-//       // grid-template-rows: 36.5px auto;
-
-//       @include respond-to(">=l") {
-//         grid-template-rows: 36.5px auto;
-//         gap: 26px;
-//       }
-
-//       @include respond-to("<=s") {
-//       }
-//     }
-//   }
-
-//   & .content {
-//     width: 100%;
-
-//     & .box {
-//       padding: 0;
-//     }
-//   }
 }
 </style>

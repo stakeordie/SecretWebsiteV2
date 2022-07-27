@@ -1,6 +1,7 @@
 <template>
   <default-layout class="learn-article-details about-learn-portal learn-post">
-    <column>
+        <!-- Breadcrumbs -->
+    <column class="general-breadcrumbs">
 
       <block class="">
         <breadcrumbs> </breadcrumbs>
@@ -80,7 +81,7 @@ export default {
 
   &__content {
     display: grid;
-    gap: 80px;
+    gap: 64px;
 
     @include respond-to("<=s"){
       padding: 32px;
@@ -128,13 +129,14 @@ export default {
       color: var(--color-analog-primary-white);
     }
 
+    p{
+
+    }
+
     ul {
       li {
         list-style: disc;
       }
-    }
-
-    blockquote {
     }
     
     figcaption {
@@ -172,9 +174,6 @@ export default {
         margin-bottom: 0;
       }
     }
-  }
-
-  & .learn-tag__slider {
   }
 }
 </style>

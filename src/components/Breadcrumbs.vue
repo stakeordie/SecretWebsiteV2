@@ -21,6 +21,16 @@ export default {};
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
+.general-breadcrumbs{
+  .content{
+    // padding: 0;
+    .box{
+      padding: var(--f-gutter) var(--f-gutter) 0 var(--f-gutter);
+
+    }
+  }
+}
+
 .learn-breadcrumbs {
   padding: 26px 42px 0 42px;
 
@@ -47,6 +57,12 @@ export default {};
         color: var(--color-ver2-tertiary-turquoise);
       }
     }
+
+    & p{
+      margin-bottom: 0;
+    }
   }
 }
+
+
 </style>

@@ -2,9 +2,9 @@
   <div class="learn-article-column-single">
 
     <div class="learn-article-column__text">
-        <h3 class="learn-article-column__title title__align-center">
+        <!-- <h3 class="learn-article-column__title title__align-center">
         H3 Title
-        </h3>
+        </h3> -->
         <h3 class="learn-article-column__title">H3 Title</h3>
 
         <p class="learn-article-column__paragraph">
@@ -41,15 +41,28 @@ export default {};
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article-column-single {
-  max-width: 710px;
+  max-width: 742px;
   margin: auto;
+  padding: var(--f-gutter);
 
-//   @include respond-to("<=s") {
-//     padding: var(--f-gutter);
-//   }
 
-  .title__align-center {
-    text-align: center;
-  }
+.learn-article-column__text{
+            display: grid;
+            gap: 26px;
+
+            .title__align-center {
+                text-align: center;
+            }
+        }
+
+        & .content {
+            width: 100%;
+
+            & .box {
+            padding: 0;
+            }
+        }
+
+
 }
 </style>

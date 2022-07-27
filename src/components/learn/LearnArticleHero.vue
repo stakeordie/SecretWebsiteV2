@@ -1,7 +1,7 @@
 <template>
   <div class="learn-article-hero">
      
-          <img src="../../assets/blog-cover.jpg" alt="" class="learn-post__img" />
+          <img src="../../assets/learn-cover.jpg" alt="" class="learn-post__img" />
 
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article-hero{
-    padding: 0 42px;
+    padding:  42px;
 
     @include respond-to("<=s"){
       padding: 0 0;
