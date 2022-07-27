@@ -1,6 +1,6 @@
 <template>
   <div class="learn-article-column-single">
-    <div class="learn-article-column__text">
+    <div class="learn-article-column-single__content">
       <vue-markdown>
         {{ data }}
       </vue-markdown>
@@ -33,18 +33,6 @@ Similar to how Ethereum has ERC-20 tokens (a fungible token standard for Ethereu
   margin: auto;
   padding: var(--f-gutter);
 
-  .learn-article-column__text {
-    display: grid;
-    gap: 26px;
-
-    .learn-article-column__text {
-      display: grid;
-      // gap: 26px;
-
-      .title__align-center {
-        text-align: center;
-      }
-    }
 
     & .content {
       width: 100%;
@@ -53,14 +41,5 @@ Similar to how Ethereum has ERC-20 tokens (a fungible token standard for Ethereu
         padding: 0;
       }
     }
-
-    & .content {
-      width: 100%;
-
-      & .box {
-        padding: 0;
-      }
-    }
-  }
 }
 </style>
