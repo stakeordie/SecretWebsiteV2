@@ -1,39 +1,25 @@
 <template>
   <default-layout class="learn-article-details about-learn-portal learn-post">
-        <!-- Breadcrumbs -->
+    <!-- Breadcrumbs -->
     <column class="general-breadcrumbs">
-
-      <block class="">
+      <block>
         <breadcrumbs> </breadcrumbs>
       </block>
     </column>
 
-
     <column class="learn-article-details__content spacer-s">
-
-      <block class="">
+      <block>
         <learn-article-hero> </learn-article-hero>
-      </block>
-      
-      <block class="">
+
         <learn-article-column-single> </learn-article-column-single>
-      </block>
-      
-      <block class="">
+
         <learn-article-image> </learn-article-image>
-      </block>
-      
-      <block class="">
-        <learn-article-column-double> </learn-article-column-double>
-      </block>
 
-      <block class="">
+        <learn-article-column-double> </learn-article-column-double>
+
         <learn-article-column-single> </learn-article-column-single>
       </block>
-      
-
     </column>
-
 
     <!-- SLIDER 1 -->
     <column number="2" number-s="1" class="learn-featured-tag__header">
@@ -68,33 +54,32 @@
 </template>
 
 <script>
-import LearnArticleColumnSingle from '../components/learn/LearnArticleColumnSingle.vue';
-import LearnArticleHero from '../components/learn/LearnArticleHero.vue';
+import LearnArticleColumnSingle from "../components/learn/LearnArticleColumnSingle.vue";
+import LearnArticleHero from "../components/learn/LearnArticleHero.vue";
 export default {
-  components: { LearnArticleHero, LearnArticleColumnSingle },};
+  components: { LearnArticleHero, LearnArticleColumnSingle },
+};
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article-details {
-
   &__content {
     display: grid;
     gap: 64px;
 
     & .content {
+      & .box {
+        padding: 0;
+      }
+    }
 
-            & .box {
-            padding: 0;
-            }
-        }
-
-    @include respond-to("<=s"){
+    @include respond-to("<=s") {
       padding: 32px;
     }
 
-    @include respond-to("<=s"){
+    @include respond-to("<=s") {
       gap: 40px;
     }
 
@@ -136,8 +121,7 @@ export default {
       color: var(--color-analog-primary-white);
     }
 
-    p{
-
+    p {
     }
 
     ul {
@@ -145,7 +129,7 @@ export default {
         list-style: disc;
       }
     }
-    
+
     figcaption {
       font-size: 16px;
       color: var(--theme-card-text-color);
@@ -155,7 +139,7 @@ export default {
       margin: auto;
       line-height: 24px;
 
-      @include respond-to("<=m"){
+      @include respond-to("<=m") {
         font-size: 12px;
         line-height: 20px;
       }
@@ -168,7 +152,6 @@ export default {
         color: var(--color-ver2-tertiary-turquoise);
       }
     }
-
   }
 
   ///////////////////////////////

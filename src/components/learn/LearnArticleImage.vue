@@ -1,16 +1,22 @@
 <template>
   <div class="learn-article-image">
-    <img src="../../assets/learn-image.jpg" alt="" class="learn-post__img" />
+    <img :src="imgUrl" :alt="imgTitle" class="learn-post__img" />
     <figcaption class="img-caption">
-      Caption text caption text caption text caption text caption text caption
-      text caption text caption text caption text caption text caption text
-      caption text caption text caption text caption text caption text
+      {{imgCaption}}
     </figcaption>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: function() {
+    return {
+      imgUrl: "img/learn-cover.jpg",
+      imgTitle: "Image title",
+      imgCaption: "Cillum non aliquip ad esse dolore quis pariatur. Esse velit dolor eu aute. Cillum non aliquip ad esse dolore quis pariatur. Esse velit dolor eu aute.",
+    }
+  }
+};
 </script>
 
 <style lang="scss">

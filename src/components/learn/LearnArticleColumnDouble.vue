@@ -23,7 +23,7 @@
 export default {
   data: function () {
     return {
-      data: ` 
+      data: `
 ### H3 Title
 
 Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare blandit interdum quisque sed habitasse augue orci. Volutpat amet ut nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus arcu id tincidunt. Mattis neque morbi eget eget ultrices sed aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non pulvinar sit ut.  
