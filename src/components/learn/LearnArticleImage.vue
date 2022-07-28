@@ -1,16 +1,19 @@
 <template>
   <div class="learn-article-image">
-    <img src="../../assets/blog-cover.jpg" alt="" class="learn-post__img" />
+    <img :src="image.url" alt="" class="learn-post__img" />
     <figcaption class="img-caption">
-      Caption text caption text caption text caption text caption text caption
-      text caption text caption text caption text caption text caption text
-      caption text caption text caption text caption text caption text
+      {{ caption }}
     </figcaption>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    image: Object,
+    caption: String
+  }
+};
 </script>
 
 <style lang="scss">

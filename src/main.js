@@ -436,7 +436,7 @@ export default function (Vue, {
   Vue.component('LearnPortalHero', LearnPortalHero);
   
   Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
-  Vue.component('LearnArticleColumnSignle', LearnArticleColumnSingle);
+  Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
   Vue.component('LearnArticleHero', LearnArticleHero);
   Vue.component('LearnArticleImage', LearnArticleImage);
   Vue.component('Breadcrumbs', Breadcrumbs);

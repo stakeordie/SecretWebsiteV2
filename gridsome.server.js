@@ -65,32 +65,97 @@ module.exports = function(api) {
   })
 
   api.createPages( async ({ createPage }) => {
-
-    // const {dyn_pages} = await client.allStrapiDynamicPage()
-
-    // dyn_pages.forEach(({ route, template }) => {
-    //   const { data } = await client.getPages(route)
-    //   data.forEach(({ attributes }) => { 
-    //     createPage({
-    //       path: `${attributes.route}`,
-    //       component: `./src/templates/${template.toLowerCase()}.vue`,
-    //       context: {
-    //         components: attributes.Components
-    //       }
-    //     })
-    //   })
-    // })
-
     const { data } = await client.allStrapiDynamicPage()
-
-    data.forEach(({ attributes }) => {
-      createPage({
-        path: `${attributes.route}`,
-        component: `./src/templates/${attributes.template.toLowerCase()}.vue`,
-        context: {
-          components: attributes.Components
-        }
+    for (const dynamicPage of data) {
+      const { attributes } = dynamicPage
+      const { api_endpoint, template_name } = attributes
+      const response = await client.getDynamicPage(api_endpoint)
+      const { data } = expandPropsToParent(response, 'attributes')
+      data.forEach(page => {
+        Object.keys(page).forEach(key => {
+          if (key.startsWith('comp_')) {
+            const comp_name =  key.replace('comp_', '').replace(/_/g, '-')
+            page[key].comp_name = comp_name
+            page.components.push(page[key])
+          }
+        })
+        page.components
+            .filter(component => component.__component != null)
+            .forEach(component => component.comp_name = component.__component.split('.')[1])
+        page.components
+            .filter(component => component.image != null)
+            .forEach(component => {
+              const data = expandPropsToParent(component, 'data')
+              component.image = expandPropsToParent(data, 'image')
+            })
+        console.log(page.components);
+        createPage({
+          path: `${page.route}`,
+          component: `./src/templates/${template_name.toLowerCase()}.vue`,
+          context: {
+            components: page.components
+          }
+        })
       })
-    })
+    }
   })
+}
+
+function expandPropsToParent(input, prop) {
+  let result;
+
+  if (input instanceof Array) {
+    result = [];
+  } else {
+    result = {};
+  }
+
+  if (!input) return null;
+
+
+  const keys = Object.keys(input);
+  for (const key of keys) {
+    if (key === prop) {
+      if(input[prop] === null) {
+        result = null;
+      } else {
+        const attrKeys = Object.keys(input[prop]);
+        for (const attrKey of attrKeys) {
+          if (typeof input[prop][attrKey] === "object") {
+            const innerConversion = expandPropsToParent(input[prop][attrKey], prop);
+            if (input instanceof Array) {
+              result.push(innerConversion);
+            } else {
+              result[attrKey] = innerConversion;
+            }
+          } else {
+            const value = input[prop][attrKey];
+            if (input instanceof Array) {
+              result.push(value);
+            } else {
+              result[attrKey] = value;
+            }
+          }
+        }
+      }
+    } else {
+      if (typeof input[key] === "object") {
+        const innerConversion = expandPropsToParent(input[key], prop);
+        if (input instanceof Array) {
+          result.push(innerConversion);
+        } else {
+          result[key] = innerConversion;
+        }
+      } else {
+        const value = input[key];
+        if (input instanceof Array) {
+          result.push(value);
+        } else {
+          result[key] = value;
+        }
+      }
+    }
+  }
+
+  return result;
 }

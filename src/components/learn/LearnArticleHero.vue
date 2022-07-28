@@ -1,14 +1,14 @@
 <template>
   <div class="learn-article-hero">
-     
-          <img src="../../assets/blog-cover.jpg" alt="" class="learn-post__img" />
-
-    </div>
+    <img :src="image.url" alt="" class="learn-post__img" />
+  </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    image: Object
+  }
 }
 </script>
 

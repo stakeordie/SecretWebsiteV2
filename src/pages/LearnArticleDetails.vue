@@ -11,10 +11,6 @@
     <column class="learn-article-details__content spacer-s">
 
       <block class="">
-        <faq> </faq>
-      </block>
-
-      <block class="">
         <learn-article-hero> </learn-article-hero>
       </block>
       
