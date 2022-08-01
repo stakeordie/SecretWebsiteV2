@@ -20,26 +20,22 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article-image{
-    
-
     display: grid;
     gap: 16px;
+    padding: var(--f-gutter);
+    .img-caption {
+      font-size: 16px;
+      color: var(--theme-card-text-color);
 
-    
+      text-align: center;
+      max-width: 710px;
+      margin: auto;
+      line-height: 24px;
 
-    // figcaption {
-    //   font-size: 16px;
-    //   color: var(--theme-card-text-color);
-
-    //   text-align: center;
-    //   max-width: 710px;
-    //   margin: auto;
-    //   line-height: 24px;
-
-    //   @include respond-to("<=m"){
-    //     font-size: 12px;
-    //     line-height: 20px;
-    //   }
-    // }
+      @include respond-to("<=m") {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
 }
 </style>

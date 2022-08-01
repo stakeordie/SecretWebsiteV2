@@ -72,11 +72,22 @@ module.exports = function(api) {
       const response = await client.getDynamicPage(api_endpoint)
       const { data } = expandPropsToParent(response, 'attributes')
       data.forEach(page => {
+        page.components = []
         Object.keys(page).forEach(key => {
           if (key.startsWith('comp_')) {
-            const comp_name =  key.replace('comp_', '').replace(/_/g, '-')
+            const keys = key.split('_')
+            const order = +keys[1]
+            const comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
             page[key].comp_name = comp_name
+            page[key].order = order
             page.components.push(page[key])
+          } else if (key.startsWith('components_')) {
+            const keys = key.split('_')
+            const order = +keys[1]
+            page[key].forEach(component => {
+              component.order = order
+            })
+            page.components.push(...page[key])
           }
         })
         page.components
@@ -88,7 +99,7 @@ module.exports = function(api) {
               const data = expandPropsToParent(component, 'data')
               component.image = expandPropsToParent(data, 'image')
             })
-        console.log(page.components);
+        page.components.sort((a, b) => a - b)
         createPage({
           path: `${page.route}`,
           component: `./src/templates/${template_name.toLowerCase()}.vue`,

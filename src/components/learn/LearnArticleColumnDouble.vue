@@ -1,62 +1,21 @@
 <template>
   <div class="learn-article-column-double">
-      <div class="learn-article-column-double__paragraph">
-        <div class="learn-article-column__text">
-          <h3 class="learn-article-column__title">{{ first_paragraph_title }}</h3>
-          <p class="learn-article-column__paragraph">
-            {{ this.first_paragraph }}
-          </p>
-        </div>
-        <div class="learn-article-column__text">
-          <h3 class="learn-article-column__title">{{ this.second_paragraph_title }}</h3>
-          <p class="learn-article-column__paragraph">
-            {{ this.second_paragraph }}
-          </p>
-        </div>
+      <div class="learn-article-column-double__col-1">
+        <h3 class="learn-article-column-double__title">
+          {{ first_paragraph_title }}
+        </h3>
+        <p class="learn-article-column-double__paragraph">
+          {{ first_paragraph }}
+        </p>
       </div>
-    <!-- ** PARAGRAPH + IMAGE-->
-
-      <!-- <div class="learn-article-column-double__paragraph-img">
-        <div class="learn-article-column__text">
-          <h3 class="learn-article-column__title">H3 Title</h3>
-          <p class="learn-article-column__paragraph">
-            Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare
-            blandit interdum quisque sed habitasse augue orci. Volutpat amet ut
-            nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas
-            mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus
-            arcu id tincidunt. Mattis neque morbi eget eget ultrices sed
-            aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non
-            pulvinar sit ut.
-          </p>
-        </div>
-
-        <block class="">
-            <learn-article-image> </learn-article-image>
-        </block>
-      </div> -->
-
-
-      <!-- ** IMAGE + PARAGRAPH -->
-
-      <!-- <div class="learn-article-column-double__paragraph-img">
-        <block class="">
-            <learn-article-image> </learn-article-image>
-        </block>
-        <div class="learn-article-column__text">
-          <h3 class="learn-article-column__title">H3 Title</h3>
-          <p class="learn-article-column__paragraph">
-            Facilisi nunc sapien velit sollicitudin viverra enim nec. Ornare
-            blandit interdum quisque sed habitasse augue orci. Volutpat amet ut
-            nisi, in mauris sagittis scelerisque quis. Sit sed felis egestas
-            mollis risus aliquam vitae, eget adipiscing. At aenean lorem tellus
-            arcu id tincidunt. Mattis neque morbi eget eget ultrices sed
-            aliquet. Porttitor amet, urna et in venenatis. Tortor metus, non
-            pulvinar sit ut.
-          </p>
-        </div>
-      </div> -->
-
-
+      <div class="learn-article-column-double__col-2">
+        <h3 class="learn-article-column-double__title">
+          {{ second_paragraph_title }}
+        </h3>
+        <p class="learn-article-column-double__paragraph" >
+          {{ second_paragraph }}
+        </p>
+      </div>
   </div>
 </template>
 
@@ -76,77 +35,26 @@ export default {
 
 .learn-article-column-double {
     display: grid;
-    gap: 80px;
-
-    &__paragraph,
-    &__paragraph-img{
-        display: grid;
-        gap: 52px;
-        grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
-
-        .learn-article-column__text{
-            display: grid;
-            gap: 26px;
-        }
-
-        & .content {
-            width: 100%;
-
-            & .box {
-            padding: 0;
-            }
-        }
+    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
+    @include respond-to("<=m") {
+      grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
     }
-
-    &__paragraph-img{
-
-        @include respond-to("<=s") {
-            
-            .learn-article-column__text{
-                order: 1;
-            }
-        }
-        
-        .learn-article-column__text{
-            align-self: center;
-        }
+    &__col-1,
+    &__col-2 {
+      padding: var(--f-gutter);
     }
-//   display: grid;
-//   gap: 52px;
-//   grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
-//   //   padding: var(--f-gutter);
-
-//   //   @include respond-to("<=s") {
-//   //     padding: var(--f-gutter);
-//   //   }
-
-//   .learn-article-column {
-//     // align-self: center;
-//     display: grid;
-//     gap: 16px;
-
-//     &__text {
-//       display: grid;
-
-//       align-content: baseline;
-//       // grid-template-rows: 36.5px auto;
-
-//       @include respond-to(">=l") {
-//         grid-template-rows: 36.5px auto;
-//         gap: 26px;
-//       }
-
-//       @include respond-to("<=s") {
-//       }
-//     }
-//   }
-
-//   & .content {
-//     width: 100%;
-
-//     & .box {
-//       padding: 0;
-//     }
-//   }
+    p {
+      max-width: auto;
+      width: 100%;
+      line-height: 28px;
+      color: var(--color-analog-primary-white);
+    }
+    h3 {
+      max-width: auto;
+      width: 100%;
+      font-size: 28px;
+      line-height: 36.4px;
+    }
 }
 </style>
