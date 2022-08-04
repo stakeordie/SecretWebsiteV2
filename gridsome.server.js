@@ -79,12 +79,14 @@ module.exports = function(api) {
             let order = +key.split('_')[1]
             if (Number.isInteger(order)) {
               maxSort = order
+              page[key].order = order
+              page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
             } else {
               maxSort += 1
               order = maxSort
+              page[key].order = order
+              page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
             }
-            page[key].order = order
-            page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
             page.currentComponents.push(page[key])
           } else if (key.startsWith('components')) {
             let order = +key.split('_')[1]
@@ -107,7 +109,7 @@ module.exports = function(api) {
               const data = expandPropsToParent(component, 'data')
               component.image = expandPropsToParent(data, 'image')
             })
-        page.components.sort((a, b) => a.order - b.order)
+        page.currentComponents.sort((a, b) => a.order - b.order)
         createPage({
           path: `${page.route}`,
           component: `./src/templates/${template_name.toLowerCase()}.vue`,
