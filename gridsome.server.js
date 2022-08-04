@@ -75,7 +75,7 @@ module.exports = function(api) {
         page.currentComponents = []
         let maxSort = 0
         Object.keys(page).forEach(key => {
-          if (key.startsWith('comp_')) {
+          if (key.startsWith('comp_') && page[key] != null) {
             let order = +key.split('_')[1]
             if (Number.isInteger(order)) {
               maxSort = order
