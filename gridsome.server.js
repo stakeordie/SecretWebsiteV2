@@ -112,7 +112,7 @@ module.exports = function(api) {
         page.currentComponents.sort((a, b) => a.order - b.order)
         createPage({
           path: `${page.route}`,
-          component: `./src/templates/${template_name.toLowerCase()}.vue`,
+          component: `./src/templates/${template_name}.vue`,
           context: {
             components: page.currentComponents
           }
