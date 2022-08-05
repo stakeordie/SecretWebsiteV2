@@ -117,7 +117,7 @@ module.exports = {
                 'service-website',//
                 'developer-pathway',// 
                 'scrt-buying-option',//
-                'dynamic-page'
+                //'dynamic-page'
             ],
             localizedTypes: [
                 /*//complex types
