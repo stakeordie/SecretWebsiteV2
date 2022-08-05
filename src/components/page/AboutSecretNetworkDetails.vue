@@ -14,9 +14,9 @@
             your tokens are Secret, balances, transaction details, and token metadata can only be accessed with a
             viewing key.
           </p>
-          <div class="about-secret-network-details__container__content__btns">
+          <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="../secret-tokens-bridges">read more</btn>
-            <btn class="text-center no-arrow btn" url="../get-scrt">Use SCRT</btn>
+            <btn class="text-center no-arrow btn" url="../about-scrt">Use SCRT</btn>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
             protect its users from hackers and front-runners. This includes exchanges, market makers, lending protocols,
             and more.
           </p>
-          <div class="about-secret-network-details__container__content__btns">
+          <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="../secret-finance">read more</btn>
           </div>
         </div>
@@ -61,7 +61,7 @@
             With Secret NFTs’ private metadata and ownership, creators can control who can access their content and in
             what way, protect the identity of their fans, and create art and entertainment not possible elsewhere.
           </p>
-          <div class="about-secret-network-details__container__content__btns">
+          <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="../secret-nfts">read more</btn>
           </div>
         </div>
@@ -82,7 +82,7 @@
             real competitive gaming—instead of a game of chain analysis—and opens up a world of new design
             possibilities.
           </p>
-          <div class="about-secret-network-details__container__content__btns">
+          <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="#">read more</btn>
           </div>
         </div>
@@ -168,47 +168,6 @@ export default {
                 line-height: var(--paragraph-line-height-big);
                 //margin-bottom: 0;
                 
-            }
-
-            &__btns{
-              
-              display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-
-                @include respond-to ("<=m"){
-                    grid-template-columns: 1fr;
-                    
-                }
-
-                & .btn{
-                    padding: 10px 10px ;
-                    margin: 0 ;
-
-                    max-width: fit-content ;
-                    min-width: 160px;
-
-                    justify-content: center;
-
-                    @include respond-to("<=m"){
-                        max-width: 100% ;
-                    }
-
-                    span{
-                  font-size: 20px;
-                  font-weight: 700;
-                  letter-spacing: 1px;
-                }
-                }
-
-                & .btn-color:hover{
-                  
-                    background-color: var(--color-neutral-dark-mode-02);
-                
-                }
-
-                
-              
             }
         }
         

@@ -64,22 +64,15 @@ export default {
 
     &__header{
         //width: 600px;
-        display: grid;
-        gap: 10px;
+        
         text-align: center;
         margin-bottom: 48px;
-
-        & .header-h4{
-          margin-bottom: 0;
-
-        }
 
         & .header-p{
             font-size: var(--paragraph-font-size-big);
             //padding: 0 16px;
             max-width: 600px;
             margin: auto;
-            line-height: 30px;
         }
     }
 
@@ -95,7 +88,7 @@ export default {
             }
 
         &__item{
-            padding: 26px 10px;
+            padding: 26px 16px;
 
             &__icon{
                 margin-bottom: 12px;

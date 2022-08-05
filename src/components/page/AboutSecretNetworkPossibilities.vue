@@ -1,6 +1,5 @@
 <template>
   <section class="about-secret-network-possibilities">
-    <img class="bg-img" src="../../assets/about-secret-network/bg-orange-bubble.svg" />
       <div class="about-secret-network-possibilities__header">
         <h2 class="about-secret-network-possibilities__header__title">
             The possibilities Secret Contracts unlock
@@ -68,59 +67,26 @@ export default {
     //row-gap: var(--f-gutter-l);
     text-align: center;
     //padding-bottom: var(--f-gutter-l) ;
-    position: relative;
-    padding: 54px 0;
     
     @include respond-to ("<=s"){
       padding: var(--f-gutter);
       row-gap: var(--f-gutter);
     }
 
-    .bg-img{
-      position: absolute;
-      top: 0;
-      left: 340px;
-      width: 487px;
-
-
-      
-
-      @include respond-to ("<=l"){
-        left: 235px;
-      }
-      
-      @include respond-to ("<=m"){
-        left: 120px;
-      }
-      @include respond-to ("<=s"){
-        left: 50px;
-      }
-      @include respond-to ("<=xs"){
-        left: 0px;
-      }
-
-      
-      
-    }
-
     &__header{
       max-width: 800px;
       padding: 10px;
       margin: auto;
-      display: grid;
-      gap: 26px;
 
       &__title{
         text-align: center;
         padding: 0;
-        margin-bottom: 0;
         font-size: 54px;
         line-height: 60px;
         font-family: var(--f-default-headers-font);
        
        @include respond-to ("<=s"){
-        font-size: 36px;
-        line-height: 46px;
+        font-size: var(--f-h3-text-size);
       }
         
       }

@@ -11,13 +11,7 @@
             encrypted and can’t be viewed by others, unless they’re given access. This opens up use cases that aren’t
             possible on public-by-default blockchains.
           </p>
-          <!-- <div class="about-secret-network-details__container__content__btns">
-            <btn class="text-center no-arrow btn" url="../../graypaper" >Read the GrayPaper</btn>
-          </div> -->
-
-          <div class="about-secret-network-details__container__content__btns">
-            <btn class="text-center no-arrow btn" url="../../graypaper">read th graypaper</btn>
-          </div>
+          <btn class="no-arrow" url="../../graypaper" >Read the GrayPaper</btn>
     </div>
     
     <div class="about-secret-network-contracts__container">
@@ -34,7 +28,7 @@
            Every validator on Secret Network runs their code inside a TEE so no one—not even the nodes operating on the
            network—can access the information being decrypted and processed.
            </p>
-           <div class="about-secret-network-details__container__content__btns">
+           <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="#">read more</btn>
           </div>
       </div>
@@ -52,7 +46,7 @@
            Viewing keys can be shared with third parties like auditors, wallets, and explorers. They allow users to
            maintain control over their data and decide what is shared—and with who.
          </p>
-           <div class="about-secret-network-details__container__content__btns">
+           <div class="new-home__call__content__info-btns">
             <btn class="text-center no-arrow btn" url="#">read more</btn>
           </div>
       </div>
@@ -90,17 +84,6 @@ export default {
 .about-secret-network-contracts{
   padding: 120px 0;
 
-  & .about-secret-network-details__container__content__btns{
-              & .btn{
-                grid-column: 2;
-
-                 @include respond-to("<=m"){
-                  //grid-template-columns: 1fr;
-                  grid-column: 1 / 2;
-                }
-              }
-            }
-
     @include respond-to("<=s"){
             padding: 64px var(--f-gutter);
             }
@@ -127,12 +110,6 @@ export default {
           width: 600px;
           height: auto;
         }
-
-        & .header-h2{
-          font-family: var(--f-default-headers-font);
-          font-size: 42px;
-          line-height: 48px;
-        }
         
 
         & .header-p{
@@ -144,7 +121,6 @@ export default {
             margin-bottom: 24px;
             text-align: left;
         }
-
     }
 
      &__container{
@@ -172,27 +148,19 @@ export default {
 
             & h3{
                 @include respond-to("<=m"){
-                  //font-size: 22px;
+                  font-size: 22px;
                 }
             }
 
             & img{
               margin: auto;
               margin-bottom: 26px;
-
-              @include respond-to("<=m"){
-                  height: 150px;
-                }
-
-
             }
 
             & .p{
               font-size: var(--paragraph-font-size-big);
             line-height: var(--paragraph-line-height-big);
             }
-
-            
 
             & .new-home__call__content__info-btns{
 
