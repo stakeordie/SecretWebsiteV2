@@ -65,60 +65,65 @@ module.exports = function(api) {
   })
 
   api.createPages( async ({ createPage }) => {
-    const { data } = await client.allStrapiDynamicPage()
-    for (const dynamicPage of data) {
-      const { attributes } = dynamicPage
-      const { api_endpoint, template_name } = attributes
-      const response = await client.getDynamicPage(api_endpoint)
-      const { data } = expandPropsToParent(response, 'attributes')
-      data.forEach(page => {
-        page.currentComponents = []
-        let maxSort = 0
-        Object.keys(page).forEach(key => {
-          if (key.startsWith('comp_') && page[key] != null) {
-            let order = +key.split('_')[1]
-            if (Number.isInteger(order)) {
-              maxSort = order
-              page[key].order = order
-              page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
-            } else {
-              maxSort += 1
-              order = maxSort
-              page[key].order = order
-              page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
+    try {
+      const { data } = await client.allStrapiDynamicPage()
+      for (const dynamicPage of data) {
+        const { attributes } = dynamicPage
+        const { api_endpoint, template_name } = attributes
+        const response = await client.getDynamicPage(api_endpoint)
+        const { data } = expandPropsToParent(response, 'attributes')
+        data.forEach(page => {
+          page.currentComponents = []
+          let maxSort = 0
+          Object.keys(page).forEach(key => {
+            if (key.startsWith('comp_') && page[key] != null) {
+              let order = +key.split('_')[1]
+              if (Number.isInteger(order)) {
+                maxSort = order
+                page[key].order = order
+                page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
+              } else {
+                maxSort += 1
+                order = maxSort
+                page[key].order = order
+                page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
+              }
+              page.currentComponents.push(page[key])
+            } else if (key.startsWith('components')) {
+              let order = +key.split('_')[1]
+              if (Number.isInteger(order)) {
+                maxSort = order
+              } else {
+                maxSort += 1
+                order = maxSort
+              }
+              page[key].forEach(component => component.order = order)
+              page.currentComponents.push(...page[key])
             }
-            page.currentComponents.push(page[key])
-          } else if (key.startsWith('components')) {
-            let order = +key.split('_')[1]
-            if (Number.isInteger(order)) {
-              maxSort = order
-            } else {
-              maxSort += 1
-              order = maxSort
+          })
+          page.currentComponents
+              .filter(component => component.__component != null)
+              .forEach(component => component.comp_name = component.__component.split('.')[1])
+          page.currentComponents
+              .filter(component => component.image != null)
+              .forEach(component => {
+                const data = expandPropsToParent(component, 'data')
+                component.image = expandPropsToParent(data, 'image')
+              })
+          page.currentComponents.sort((a, b) => a.order - b.order)
+          createPage({
+            path: `${page.route}`,
+            component: `./src/templates/${template_name}.vue`,
+            context: {
+              components: page.currentComponents
             }
-            page[key].forEach(component => component.order = order)
-            page.currentComponents.push(...page[key])
-          }
+          })
         })
-        page.currentComponents
-            .filter(component => component.__component != null)
-            .forEach(component => component.comp_name = component.__component.split('.')[1])
-        page.currentComponents
-            .filter(component => component.image != null)
-            .forEach(component => {
-              const data = expandPropsToParent(component, 'data')
-              component.image = expandPropsToParent(data, 'image')
-            })
-        page.currentComponents.sort((a, b) => a.order - b.order)
-        createPage({
-          path: `${page.route}`,
-          component: `./src/templates/${template_name}.vue`,
-          context: {
-            components: page.currentComponents
-          }
-        })
-      })
+      }
+    } catch (error) {
+      console.log(error);
     }
+    
   })
 }
 
