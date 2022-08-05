@@ -29,32 +29,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "@lkmx/flare/src/functions/_respond-to.scss";
-
-.learn-article-column-double {
-    display: grid;
-    gap: 26px;
-    grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
-    @include respond-to("<=m") {
-      grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
-    }
-    &__col-1,
-    &__col-2 {
-      padding: var(--f-gutter);
-    }
-    p {
-      max-width: auto;
-      width: 100%;
-      line-height: 28px;
-      color: var(--color-analog-primary-white);
-    }
-    h3 {
-      max-width: auto;
-      width: 100%;
-      font-size: 28px;
-      line-height: 36.4px;
-    }
-}
-</style>

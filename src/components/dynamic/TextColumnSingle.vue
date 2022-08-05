@@ -32,34 +32,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "@lkmx/flare/src/functions/_respond-to.scss";
-
-.learn-article-column-single {
-  max-width: 742px;
-  &--narrow {
-    max-width: 485px;
-  }
-  &--wide {
-    max-width: 843px;
-  }
-  margin: auto;
-  padding: var(--f-gutter);
-  .title__align-center {
-    text-align: center;
-  }
-  p {
-    max-width: auto;
-    width: 100%;
-    line-height: 28px;
-    color: var(--color-analog-primary-white);
-  }
-  h3 {
-    max-width: auto;
-    width: 100%;
-    font-size: 28px;
-    line-height: 36.4px;
-  }
-}
-</style>

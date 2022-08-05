@@ -69,8 +69,8 @@ module.exports = function(api) {
       const { data } = await client.allStrapiDynamicPage()
       for (const dynamicPage of data) {
         const { attributes } = dynamicPage
-        const { api_endpoint, template_name } = attributes
-        const response = await client.getDynamicPage(api_endpoint)
+        const { page_set, template } = attributes
+        const response = await client.getDynamicPage(page_set)
         const { data } = expandPropsToParent(response, 'attributes')
         data.forEach(page => {
           page.currentComponents = []
@@ -89,7 +89,7 @@ module.exports = function(api) {
                 page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
               }
               page.currentComponents.push(page[key])
-            } else if (key.startsWith('components')) {
+            } else if (key.startsWith('Components')) {
               let order = +key.split('_')[1]
               if (Number.isInteger(order)) {
                 maxSort = order
@@ -113,7 +113,7 @@ module.exports = function(api) {
           page.currentComponents.sort((a, b) => a.order - b.order)
           createPage({
             path: `${page.route}`,
-            component: `./src/templates/${template_name}.vue`,
+            component: `./src/templates/${template}.vue`,
             context: {
               components: page.currentComponents
             }
