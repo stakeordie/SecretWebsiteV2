@@ -1,13 +1,13 @@
 <template>
-  <div class="learn-article-column-single" :class="widthArticleClass">
-    <div class="learn-article-column__text">
-        <h3 class="learn-article-column__title title__align-center">
+  <div class="text-column-single" :class="widthArticleClass">
+    <div class="text-column__text">
+        <h3 class="text-column__title title__align-center">
           {{ this.paragraph_title }}
         </h3>
-        <h4 class="learn-article-column__title">
+        <h4 class="text-column__title">
           {{ this.paragraph_subtitle }}
         </h4>
-        <p class="learn-article-column__paragraph">
+        <p class="text-column__paragraph">
           {{ this.paragraph }}
         </p>
     </div>
@@ -25,8 +25,9 @@ export default {
   computed: {
     widthArticleClass()  {
       return {
-        'learn-article-column-single--narrow': this.width && this.width === 'narrow',
-        'learn-article-column-single--wide': this.width && this.width === 'wide'
+        'text-column-single--narrow': this.width && this.width === 'narrow',
+        'text-column-single--standard': this.width && this.width === 'standard',
+        'text-column-single--wide': this.width && this.width === 'wide'
       }
     }
   }

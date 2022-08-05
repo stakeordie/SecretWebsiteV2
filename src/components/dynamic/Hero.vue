@@ -1,5 +1,5 @@
 <template>
-  <div class="learn-article-hero">
+  <div class="hero">
     <img :src="image.url" alt="" class="learn-post__img" />
   </div>
 </template>

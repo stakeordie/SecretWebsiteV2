@@ -16,10 +16,13 @@
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .content {
-  .learn-article-column-single {
+  .text-column-single {
   max-width: 742px;
   &--narrow {
     max-width: 485px;
+  }
+  &--standard {
+    max-width: 600px;
   }
   &--wide {
     max-width: 843px;
@@ -42,7 +45,7 @@
     line-height: 36.4px;
   }
   }
-  .learn-article-column-double {
+  .text-column-double {
     display: grid;
     gap: 26px;
     grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
@@ -66,14 +69,14 @@
       line-height: 36.4px;
     }
   }
-  .learn-article-hero {
+  .hero {
     padding: 0 42px;
 
     @include respond-to("<=s"){
       padding: 0 0;
     }
   }
-  .learn-article-image {
+  .image {
     display: grid;
     gap: 16px;
     padding: var(--f-gutter);

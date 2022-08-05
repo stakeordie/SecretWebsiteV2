@@ -1,18 +1,18 @@
 <template>
-  <div class="learn-article-column-double">
-      <div class="learn-article-column-double__col-1">
-        <h3 class="learn-article-column-double__title">
+  <div class="text-column-double">
+      <div class="text-column-double__col-1">
+        <h3 class="text-column-double__title">
           {{ first_paragraph_title }}
         </h3>
-        <p class="learn-article-column-double__paragraph">
+        <p class="text-column-double__paragraph">
           {{ first_paragraph }}
         </p>
       </div>
-      <div class="learn-article-column-double__col-2">
-        <h3 class="learn-article-column-double__title">
+      <div class="text-column-double__col-2">
+        <h3 class="text-column-double__title">
           {{ second_paragraph_title }}
         </h3>
-        <p class="learn-article-column-double__paragraph" >
+        <p class="text-column-double__paragraph" >
           {{ second_paragraph }}
         </p>
       </div>

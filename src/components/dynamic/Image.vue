@@ -1,5 +1,5 @@
 <template>
-  <figure class="learn-article-image">
+  <figure class="image">
     <img :src="image.url" alt="" class="learn-post__img" />
     <figcaption class="img-caption">
       {{ caption }}
