@@ -142,7 +142,7 @@
 
 <static-query>
   query{
-    secretAgents: allStrapiSecretAgents {
+    secretAgents: allStrapiSecretAgent {
       edges{
         node{
           name
@@ -165,8 +165,8 @@
             size
             url
             provider
-            created_at
-            updated_at
+            created_at: createdAt
+            updated_at: updatedAt
           }
         }
       }

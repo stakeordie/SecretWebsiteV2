@@ -89,7 +89,7 @@ query {
       node {
         ecosystemRoadmap {
           url
-          updated_at
+          updated_at: updatedAt
         }
       }
     }

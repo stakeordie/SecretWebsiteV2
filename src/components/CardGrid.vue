@@ -314,7 +314,7 @@ export default {
 
 <static-query>
 query {
-  gridHeaders: allStrapiCardGridHeaders {
+  gridHeaders: allStrapiCardGridHeader {
     edges {
       node {
         id
@@ -323,82 +323,104 @@ query {
       }
     }
   }
-    dApps: allStrapiDApps {
+  ecosystemValidators: allStrapiEcosystemValidator {
+    edges {
+      node {
+        title: name
+        picture: logo {
+        	url
+        }
+        link
+        order
+      }
+    }
+  }
+  dApps: allStrapiEcosystemDapp {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  contributors: allStrapiContributors {
+  contributors: allStrapiContributor {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        cta_title
+        description
+        cta_title
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  toolsAndWallets: allStrapiToolsAndWallets {
+  toolsAndWallets: allStrapiToolAndWallet {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-    internationalCommunities: allStrapiInternationalCommunities {
+  internationalCommunities: allStrapiInternationalCommunity {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        cta_title
         language: language
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  exchanges: allStrapiExchanges {
+  exchanges: allStrapiExchange {
     edges {
       node {
         id
         sort
         title: name
         url: link
+        description
+        cta_title
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }

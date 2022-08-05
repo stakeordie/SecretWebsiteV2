@@ -46,6 +46,7 @@ function addStyleResource(rule) {
         })
 }
 
+
 module.exports = {
     siteName: 'Secret Network',
     siteUrl: 'http://scrt.network/',
@@ -61,6 +62,16 @@ module.exports = {
         },
     },
     {
+        use: '@gridsome/vue-remark',
+        options: {
+            baseDir: './docs',
+            pathPrefix: '/docs',
+            typeName: 'Doc',
+            template: './src/templates/Docs.vue',
+            plugins: ['@gridsome/remark-prismjs']
+        }
+    },
+    {
         use: '@gridsome/source-ghost',
         options: {
             typeName: 'Ghost',
@@ -71,40 +82,44 @@ module.exports = {
     {
         use: '@stakeordie/source-strapi',
         options: {
+            isStrapiV4: process.env.IS_STRAPI_V4,
             apiURL: process.env.GRIDSOME_STRAPI_URL,
             queryLimit: 1000, // Defaults to 100
+            pageSize: 1000,
+            pluralizeOverrides: {
+                'cool-stuff': 'cool-stuff-plural'
+            },
             contentTypes: [
-                'faq-items',
-                'secret-agents',
-                'announcements',
-                'external-media-alts',
-                'contributors',
-                'd-apps',
-                'nf-ts',
-                'cool-stuffs',
-                'nodes',
-                'tools-and-wallets',
-                'exchanges',
-                'international-communities',
-                'card-grid-headers',
-                'committees',
-                'nav-item',
-                'page',
-                'services-bots',
-                'services-bridges',
-                'services-ce-xes',
-                'services-de-xes',
-                'services-wallets',
-                'services-websites',
-                'developer-pathways',
-                'buy-scrt-options',
-                'ecosystem-nf-ts',
-                'ecosystem-partners',
-                'ecosystem-contributors',
-                'ecosystem-validators'
+                'faq-item',//
+                'secret-agent',//
+                'announcement',//
+                'external-media',//
+                'contributor',//
+                'ecosystem-dapp',//
+                'ecosystem-nft',//
+                'ecosystem-partner',//
+                'ecosystem-validator',//
+                'nft',//
+                'cool-stuff',//
+                'nodes',//
+                'tool-and-wallet',//
+                'exchange',//
+                'international-community',//
+                'card-grid-header',//
+                'committee',//
+                'nav-item',//
+                'page',//
+                'service-bot',//
+                'service-bridge',//
+                'service-cex',//
+                'service-dex',//
+                'service-wallet',//
+                'service-website',//
+                'developer-pathway',// 
+                'scrt-buying-option',//
             ],
             localizedTypes: [
-                //complex types
+                /*//complex types
                 //'nav-header' - Middlewear
                 //content-types,
                 'nav-item',
@@ -112,23 +127,22 @@ module.exports = {
                 //single-types
                 'alert-bar',
                 'home-hero',
-                'home-explainer',
-
+                'home-explainer',*/
             ],
             singleTypes: [
                 'alert-bar',
                 'home-hero',
-                'home-cta-cards',
+                'home-cta-card',
                 'home-explainer',
-                'home-announcements',
+                'home-announcement',
                 'home-featured-media',
                 'about-content',
-                'about-secret-tokens-bridges',
+                'about-subpage',
+                'about-scrt',
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
-                'agent-landing-intro-rows',
-                'about-scrt',
+                'agent-landing-intro-row',
                 'nav-header',
                 'nav-header-new',
                 'ecosystem-roadmap',
@@ -145,27 +159,16 @@ module.exports = {
     {
         use: '@gridsome/plugin-sitemap',
     },
-    {
+    /*{
         use: '@gridsome/plugin-google-analytics',
         options: {
             id: 'UA-173950488-3'
         }
-    },
-    {
-        use: '@gridsome/vue-remark',
-        options: {
-            baseDir: './docs',
-            pathPrefix: '/docs',
-            typeName: 'Doc',
-            template: './src/templates/Docs.vue',
-            plugins: ['@gridsome/remark-prismjs']
-        }
-    },
+    },*/
     //   ...optionalPlugins
     ],
     templates: {
         GhostPost: '/blog/:slug',
-        GhostTag: '/tag/:slug',
     },
     transformers: {
         remark: {
@@ -186,3 +189,5 @@ module.exports = {
         },
     },
 };
+
+

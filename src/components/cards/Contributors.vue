@@ -58,7 +58,7 @@ export default {
 
 <static-query>
   query {
-  	contributors: allStrapiContributors {
+  	contributors: allStrapiContributor {
       edges {
         node {
           id,

@@ -61,7 +61,7 @@ export default {
 
 <static-query>
 query {
-  secretAgentIntroRows: allStrapiAgentLandingIntroRows {
+  secretAgentIntroRows: allStrapiAgentLandingIntroRow {
     edges {
       node {
         row {

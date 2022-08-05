@@ -414,7 +414,7 @@ export default {
 
 <static-query>
 query {
-  gridHeaders: allStrapiCardGridHeaders {
+  gridHeaders: allStrapiCardGridHeader {
     edges {
       node {
         id
@@ -423,7 +423,19 @@ query {
       }
     }
   }
-    dApps: allStrapiDApps {
+  ecosystemValidators: allStrapiEcosystemValidator {
+    edges {
+      node {
+        title: name
+        picture: logo {
+        	url
+        }
+        link
+        order
+      }
+    }
+  }
+  dApps: allStrapiEcosystemDapp {
     edges {
       node {
         id
@@ -435,13 +447,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  contributors: allStrapiContributors {
+  contributors: allStrapiContributor {
     edges {
       node {
         id
@@ -454,13 +466,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  toolsAndWallets: allStrapiToolsAndWallets {
+  toolsAndWallets: allStrapiToolAndWallet {
     edges {
       node {
         id
@@ -472,13 +484,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-    internationalCommunities: allStrapiInternationalCommunities {
+  internationalCommunities: allStrapiInternationalCommunity {
     edges {
       node {
         id
@@ -490,13 +502,13 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }
     }
   }
-  exchanges: allStrapiExchanges {
+  exchanges: allStrapiExchange {
     edges {
       node {
         id
@@ -508,7 +520,7 @@ query {
         picture: logo {
           url
         }
-        types {
+        types: type {
           name
         }
       }

@@ -30,10 +30,10 @@ query {
   aboutScrtCommunitySupport: allStrapiAboutScrt {
     edges {
       node {
-        communitySupport {
+        community_support {
           title
           link {
-            Title
+            title
             url
           }
         }
