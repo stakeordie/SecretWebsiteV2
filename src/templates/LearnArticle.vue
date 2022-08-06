@@ -69,14 +69,14 @@
       line-height: 36.4px;
     }
   }
-  .hero {
+  .article-hero {
     padding: 0 42px;
 
     @include respond-to("<=s"){
       padding: 0 0;
     }
   }
-  .image {
+  .article-image {
     display: grid;
     gap: 16px;
     padding: var(--f-gutter);
