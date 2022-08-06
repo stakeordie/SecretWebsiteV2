@@ -215,6 +215,11 @@ import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpar
 import GeneralCtas from '~/components/page/GeneralCtas'
 import LearnPortalHero from '~/components/page/LearnPortalHero'
 
+// Dynamic
+import TextColumnSingle from '~/components/dynamic/TextColumnSingle'
+import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
+import ArticleHero from '~/components/dynamic/ArticleHero'
+import ArticleImage from '~/components/dynamic/ArticleImage'
 
 
 
@@ -383,6 +388,12 @@ export default function (Vue, {
   Vue.component('LearnCardFeatured', LearnCardFeatured);
   Vue.component('LearnFilter', LearnFilter);
   Vue.component('LearnCard', LearnCard);
+
+  // Dynamic
+  Vue.component('TextColumnSingle', TextColumnSingle);
+  Vue.component('TextColumnDouble', TextColumnDouble);
+  Vue.component('ArticleHero', ArticleHero);
+  Vue.component('ArticleImage', ArticleImage);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);

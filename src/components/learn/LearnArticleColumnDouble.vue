@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article-column-double {
