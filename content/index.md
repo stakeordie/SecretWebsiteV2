@@ -19,6 +19,22 @@ title: 'Secret Network'
 
 
 
+<!-- Logo Carousel -->
+<column class=" spacer-s new-home__bg logo-carousel">
+
+<block>
+
+#### Supported by
+
+<logo-carousel></logo-carousel>
+
+</block>
+
+</column>
+
+
+
+
 
 <!-- EVENT BANNER -->
 <!-- <column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" ref="countdownChecker">
@@ -243,14 +259,25 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 
 
 
-<column class="spacer-s">
+<!-- General CTAs -->
+<column class="spacer-s" number="3" number-m="2" number-s="1">
 
-<block>
+<block >
 
-<new-home-mission-ctas>
-    
-</new-home-mission-ctas>
+<general-ctas id="get-started"></general-ctas>
 
 </block>
 
-</column>
+<block >
+
+<general-ctas id="build-on-secret"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >
