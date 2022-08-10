@@ -2,79 +2,51 @@
 title: "About"
 ---
 
-<!-- Page title -->
-<column>
+
+<!-- <column class="about__swirl__top" mode="full">
+
 <block>
-<hero-title>
 
+<img class="get-scrt__align-img" src="../../src/assets/swirl-about-top.svg" /> 
 
-
-
-
-
-
-
-
-## About Secret Network
-
-</hero-title>
 </block>
+
+</column> -->
+
+
+
+
+
+
+
+<!-- Hero -->
+<column class=" page__cover">
+
+<block >
+
+<about-secret-network-hero>
+
+</about-secret-network-hero>
+
+</block>
+
 </column>
+
+
+
+
+
+
 
 <!-- Intro -->
-<column number="2" number-s="1" weight="left">
 
-<block>
+<column class="spacer-s page__bg__dark">
 
-<text-area section="top" color="accent-yellow" class="homogenize-headings"></text-area>
+<block >
 
-</block>
+<about-secret-network-more-privacy>
 
-</column>
-
-
-
-
-
-
-
-
-<!-- Ethereum, Monero´s, Cosmos, SCRT Network -->
-<column number="1" number-s="1">
-
-<card-structure>
-
-</card-structure>
-
-</column>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- What Is Secret(SCRT)? -->
-<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="middle_second" color="accent-yellow" class="homogenize-headings"></text-area>
+</about-secret-network-more-privacy>
 
 </block>
 
@@ -87,12 +59,17 @@ title: "About"
 
 
 
-<!-- Button Read Graypaper -->
-<column class="no-padding-box--top">
 
-<block>
 
-<btn class="no-arrow" url="/graypaper">Read the Graypaper</btn>
+<!-- Use cases -->
+
+<column class="">
+
+<block class="">
+
+<about-secret-network-cases>
+
+</about-secret-network-cases>
 
 </block>
 
@@ -106,175 +83,130 @@ title: "About"
 
 
 <!-- separator -->
-<column>
+<!-- <column >
 <block>
 
-<hr class="swirl-d"/>
+<hr class="swirl-f"/>
 
 </block>
-</column>
-
-
-
-
-
-
-<!-- WHAT CAN SECRET CONTRACTS DO? -->
-<column class="accent-green" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="bottom_first" color="accent-yellow" class="homogenize-headings"></text-area>
-
-</block>
-
-</column>
-
-
-
-
-
-
-<!--SCRT Details -->
-
-<column class="about-cards" number="1" number-s="1">
-
-<block>
-
-<text-area section="bottom_second" color="accent-orange" link="/about/secret-tokens-bridges"></text-area>
-
-<text-area section="bottom_third" color="accent-blue" link="/about/secret-tokens-bridges"></text-area>
-
-<text-area section="bottom_fourth" color="accent-green" link="/about/secret-finance"></text-area>
-
-<text-area section="bottom_fifth" color="accent-purple" link="/about/secret-nfts"></text-area>
-
-</block>
-
-</column>
-
-<!-- End SCRT Details -->
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- separator -->
-<column>
-<block>
-
-<hr class="swirl-e"/>
-
-</block>
-</column>
-
-
-
-
-
-
-
-
-
-<!-- Privacy Important -->
-<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="middle_first" color="accent-yellow" class="homogenize-headings"></text-area>
-
-</block>
-
-<!-- <block>
-
-<card-current-price>
-
-</card-current-price>
-
-</block> -->
-
-</column>
-
-
-
-
-
-
-
-
-
-<!-- Buttons Get SCRTs - Supported Wallets -->
-<column class="no-padding-box--top spacer-s supported-wallets">
-
-<block>
-
-<btn class="no-arrow bg-invert" url="/ecosystem/overview#exchange-and-wallet-support">Get SCRT</btn>
-
-<btn class="" url="/ecosystem/overview#exchange-and-wallet-support">Supported Wallets</btn>
-
-</block>
-
-<block class="learn-more">
-
-<!-- <p><a href="http://localhost:8080//blog/wrapped-scrt-is-live-on-ethereum">Learn more about wSCRT</a></p> -->
-
-</block>
-
-</column>
-
-
-<!-- Privacy Important -->
-<column class="no-padding-box--bottom" number="2" number-s="1" weight="left">
-
-<block>
-
-<text-area section="choose_privacy" color="accent-yellow" class="homogenize-headings"></text-area>
-
-</block>
-
-<!-- <block>
-
-<card-current-price>
-
-</card-current-price>
-
-</block> -->
-
-</column>
-
-
-
-
-<!-- Card stats -->
-<!-- <card-stats class="spacer-s"></card-stats> -->
-
-
-
-<!-- block header -->
-<!-- <column id="faq">
-
-<block>
-
-### FAQ
-
-</block>
-
 </column> -->
 
-<!-- FAQ -->
-<!-- <column>
 
-<block>
 
-<faq></faq>
+
+<!-- Technology -->
+
+<column class="page__bg__dark">
+
+<block >
+
+<about-secret-network-contracts></about-secret-network-contracts>
 
 </block>
 
-</column> -->
+</column>
+
+
+
+
+
+
+
+<!-- Our vision -->
+<column >
+
+<block >
+
+<about-secret-network-build></about-secret-network-build>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+<!-- Supported by -->
+<column class=" page__bg__black " >
+
+<block >
+
+<about-secret-network-supported></about-secret-network-supported>
+
+</block>
+
+</column >
+
+
+
+
+
+
+
+
+<!-- Our mission -->
+<column class="spacer-s page__block page__bg__dark" mode="slim">
+
+<block >
+
+<div >
+<h4 class="big-title-eyebrow">OUR MISSION</h4>
+
+<h1 class="big-title"> Privacy is a human right & necessity </h1>
+    
+</div>
+
+</block>
+
+<block >
+
+<div >
+
+<p class="page__text-xbig">
+    We believe the decentralized web—powered by blockchain technology—has the potential to empower creators, business owners, and individuals like never before. But to get there, we need privacy.
+    <br />
+    <br />
+    While transparency in blockchain serves an important purpose, total openness is not sustainable. And it will, ironically, cripple our ability to express ourselves, connect with others, and our capacity for creativity and innovation.
+    <br />
+    <br />
+    Now that Web3 is still in full development we have a chance to turn this around and create a web that’s truly empowering.
+</p>
+
+</div>
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+<!-- General CTAs -->
+<column class="spacer-s" number="3" number-m="2" number-s="1">
+
+<block >
+
+<general-ctas id="get-started"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="build-on-secret"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >
+
