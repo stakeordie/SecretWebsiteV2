@@ -60,6 +60,8 @@ import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import CardGridV3 from '~/components/CardGridV3.vue';
+import CardGridExchanges from '~/components/CardGridExchanges.vue';
+import EcosystemExperiencingIssues from '~/components/page/EcosystemExperiencingIssues.vue';
 import CardGridContributors from '~/components/CardGridContributors.vue';
 import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
 import CardGridPartners from '~/components/CardGridPartners.vue';
@@ -291,6 +293,8 @@ export default function (Vue, {
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('CardGridV3', CardGridV3);
+  Vue.component('CardGridExchanges', CardGridExchanges);
+  Vue.component('EcosystemExperiencingIssues', EcosystemExperiencingIssues);
   Vue.component('CardGridContributors', CardGridContributors);
   Vue.component('CardGridContributorFilter', CardGridContributorFilter);
   Vue.component('CardGridPartners', CardGridPartners);
