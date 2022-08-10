@@ -205,6 +205,7 @@ import AboutSecretNetworkDetails from '~/components/page/AboutSecretNetworkDetai
 import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetworkPossibilities'
 import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
 import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
+import AboutSecretNetworkCases from '~/components/page/AboutSecretNetworkCases'
 import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
 import AustinEventHero from '~/components/page/AustinEventHero'
 import AustinEventMeet from '~/components/page/AustinEventMeet'
@@ -436,6 +437,7 @@ export default function (Vue, {
   Vue.component('AboutSecretNetworkPossibilities', AboutSecretNetworkPossibilities);
   Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
   Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
+  Vue.component('AboutSecretNetworkCases', AboutSecretNetworkCases);
   Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
   Vue.component('AustinEventHero', AustinEventHero);
   Vue.component('AustinEventMeet', AustinEventMeet);
