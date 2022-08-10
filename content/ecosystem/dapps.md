@@ -120,7 +120,7 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 
 
 <!-- swirl -->
-<column class="ecosystem__green-swirl__bottom">
+<column class="ecosystem__green-swirl__bottom" mode="full">
 
 <block>
 

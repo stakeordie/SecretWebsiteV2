@@ -1,23 +1,13 @@
 <template>
   <div>
-    <!-- GRID HEADER -->
-    <!-- <div class="grid-header-v2">
-      <h2>{{ gridHeaderTitle(header) }}</h2>
-      <p>{{ gridHeaderSubtitle(header) }}</p>
-    </div> --> 
-    <div class="elements-v3">
+    <div class="elements-exchanges">
       <!-- FILTER -->
       <div class="filter v3">
-        <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
         <h5 class="mini-title">Explore</h5>
-        <!-- <h2 v-if="!gridHeaderTitle(header)">{{ title }}</h2> -->
+
         <h2>{{ gridHeaderTitle(header) }}</h2>
-          <p>{{ gridHeaderSubtitle(header) }}</p>
-        <!-- <div class="filter-auction" v-if="hasCategories">
-          <h2>{{ gridHeaderTitle(header) }}</h2>
-          <p>{{ gridHeaderSubtitle(header) }}</p>
-          // <button class="btn-clear" v-on:click="resetCheck">Clear</button> 
-        </div> -->
+        <p>{{ gridHeaderSubtitle(header) }}</p>
+
         <div class="search">
           <input
             class="search-filter"
@@ -50,68 +40,22 @@
 
       <div class="elements-container">
         <!-- GRID -->
-        <div class="elements-grid PAGINATED" v-if="isPaginated">
-          <div
-            class="card-element"
-            v-for="element in pagedArray"
-            :key="element.id"
-          >
-            <a :href="element.url" target="blank" rel="noopener noreferrer" class="card-element__country">
-              <img :src="element.picture.url" alt="picture" class="card-element__country__picture" />
-              <div
-                class="meta"
-                :class="{ 'meta--with-categories': hasCategories }"
-              >
-                <div class="m-title">
-                  <h6>{{ element.title }}</h6>
-                </div>
-                <!-- <div class="m-elements"> -->
-                <div
-                  class="m-elements"
-                  :class="evaluateTags(element.types.length)"
-                  v-if="hasCategories"
-                >
-                  <p class="tag-accent"
-                    v-for="(category, id) in element.types"
-                    :key="id"
-                    :class="'accent-' + category.name"
-                  >
-                    {{ formatCategory(category.name) }}
-                  </p>
-                </div>
-                <p class="language" v-if="element.language">
-                  {{ element.language }}
-                </p>
-              </div>
-            </a>
-          </div>
 
-        </div>
-
-        <div class="elements-grid NOPAGINATED" v-else>
+        <div class="elements-grid NOPAGINATED">
           <div
             class="card-element"
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a
-              class="card-element__overall-link"
-              :href="element.url"
-              target="blank"
-              rel="noopener noreferrer"
-            >
+            <a class="card-element__overall-link" :href="element.url"
+              target="blank" rel="noopener noreferrer">
               <div class="card-element__header">
-                <img
-                  class="card-element__header__logo"
-                  :src="element.picture.url"
-                  alt="picture"
-                />
+                <img class="card-element__header__logo" :src="element.picture.url"
+                  alt="picture" />
                 <!-- Categorie tags -->
-                <div
-                  class="meta"
-                  :class="{ 'meta--with-categories': hasCategories }"
-                >
-                  <div
+                <div class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }">
+                  <!-- <div
                     class="m-elements card-element__header__tags"
                     :class="evaluateTags(element.types.length)"
                     v-if="hasCategories"
@@ -123,21 +67,18 @@
                     >
                       {{ formatCategory(category.name) }}
                     </p>
-                  </div>
+                  </div> -->
                 </div>
               </div>
-              <div
-                class="card-element__title-desc"
-                :class="{ 'meta--with-categories': hasCategories }"
-              >
+              <div class="card-element__title-desc" :class="{ 'meta--with-categories': hasCategories }">
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
-                  <p>
+                  <!-- <p>
                     {{element.description}}
-                  </p>
+                  </p> -->
                 </div>
               </div>
-                <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
+              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -164,7 +105,7 @@
 </template>
 
 <script>
-import LogoVue from "./docs/Logo.vue";
+//import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
 
 const sortBySorting = (first, second) => {
@@ -224,7 +165,7 @@ export default {
 
       // console.log("total array", cardEl.length);
       // console.log("hiddens", hiddenEls.length);
-      //////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////
       // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
@@ -274,13 +215,13 @@ export default {
       this.checkedCategories = [];
     },
     hashToFilter(hash, filter) {
-      if (window.location.hash === '#get-scrt') {
-        // console.log(window.location.hash)
-        // console.log('hit')
-        //////////////////////////////////////
-        window.scrollTo(0,0)
+      if (window.location.hash === "#get-scrt") {
+        // console.log(window.location.hash);
+        // console.log("hit");
+        ///////////////////////////////////////
+        window.scrollTo(0, 0);
         // HERE
-        this.checkedCategories = ['wallet'];
+        this.checkedCategories = ["wallet"];
       }
 
       if (window.location.hash === hash) {
@@ -334,11 +275,11 @@ export default {
       sortedCollection.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
-        if(titleA < titleB) {
-          return -1
+        if (titleA < titleB) {
+          return -1;
         }
-        if(titleA > titleB) {
-          return 1
+        if (titleA > titleB) {
+          return 1;
         }
         return 0;
       });
@@ -536,10 +477,8 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-tools,
-.ecosystem-dapps,
-.get-involved-international-communities-v2{
-
+.ecosystem-exchanges {
+  
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -554,12 +493,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
   }
 
-  .elements-v3 {
+  .elements-exchanges {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--f-gutter-xl);
-    // background-color: var(--theme-card-grid-bg-color);
-    //padding: 32px 0;
     margin-top: 0;
     align-content: start;
     text-align: center;
@@ -569,25 +506,20 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
 
     @include respond-to("<=s") {
-          //grid-template-columns: repeat(2, 1fr);
-          padding: 32px var(--f-gutter);
-        }
+      padding: 32px var(--f-gutter);
+    }
 
     h5 {
-    color: var(--color-ver2-primary-turquoise);
-    text-transform: uppercase;
-    
+      color: var(--color-ver2-primary-turquoise);
+      text-transform: uppercase;
     }
     h2 {
-        margin-bottom: 48px;
-        font-size: 54px;
-      }
-      p{
-        max-width: 650px;
-      }
-
-    
-  
+      margin-bottom: 48px;
+      font-size: 54px;
+    }
+    p {
+      max-width: 650px;
+    }
 
     h4 {
       color: var(--color-neutral-dark-mode-05);
@@ -598,9 +530,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         justify-content: center;
         gap: var(--f-gutter);
         padding: 26px 0 var(--f-gutter) 0;
+
         * {
           margin: 0;
         }
+
         .custom-checkbox {
           // grid-auto-flow: column;
           // grid-template-columns: auto;
@@ -671,6 +605,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             }
           }
         }
+
         .search-filter {
           max-width: 400px;
           margin: auto;
@@ -682,7 +617,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           background-position: 8px;
           padding-left: 32px;
 
-          &::placeholder{
+          &::placeholder {
             color: var(--color-neutral-dark-mode-06);
             font-size: 16px;
           }
@@ -705,28 +640,25 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
 
-    .elements-container {
-      //margin: auto;
+
+    //////////////////////////////////////////
+    // CARDS GRID
+
+    & .elements-container {
       .elements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--f-gutter);
-        @include respond-to("<=xs") {
-          //grid-template-columns: repeat(2, 1fr);
-          //padding: var(--f-gutter);
-          justify-content: center;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
-        }
+        grid-template-columns: repeat(auto-fit, minmax(245px, 272px));
+        gap: var(--f-gutter-l);
+        justify-content: center;
 
         
         
-
-        @include respond-to(">=l") {
-          grid-template-columns: repeat(3, 1fr);
+        @include respond-to("<=m") {
+          grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
         }
 
-        @include respond-to(">=xl") {
-          grid-template-columns: repeat(4, 1fr);
+        @include respond-to("<=s") {
+          grid-template-columns: repeat(auto-fit, minmax(184px, 1fr));
         }
 
         .no-results {
@@ -735,15 +667,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           justify-items: center;
           gap: var(--f-gutter);
           padding: var(--f-gutter-l) 0;
-          * {
-            margin: 0;
-          }
+
           img {
             max-width: 150px;
           }
           p {
-            text-align: center;
-            
+
             span {
               @include respond-to(">=m") {
                 display: block;
@@ -752,156 +681,67 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           }
         }
 
-        .card-element {
+        //////////////////////////////////////////
+        // CARDS
+
+        & .card-element {
           border-radius: var(--f-radius);
           overflow: hidden;
           background: var(--theme-card-bg-default);
           transition: 0.2s ease;
-          display: grid;
-          text-align: center;
           border-radius: 10px;
-          * {
-            margin: 0;
-          }
-          
-        
-
-
-          // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
-          &__overall-link {
-            display: grid;
-            gap: var(--f-gutter);
-            padding: var(--f-gutter);
-            // grid-template-rows: 64px 1fr 32px;
-            grid-template-rows: 64px 1fr auto;
-
-
-            &:hover  .ecosystem .btn-text{
-                color: var( --theme-links-default);
-              }
-
-            &:hover .tag-accent{
-                  border-color: var(--color-neutral-dark-mode-02);
-                }
-
-                .ecosystem{
-                  &:hover{
-              color: var(--color-highkey-secondary-blue);
-            }
-                }
-          }
-          &__header {
-            display: grid;
-            grid-template-columns: 64px 1fr;
-            align-items: start;
-            gap: 4px;
-            &__logo {
-              border-radius: 10px;
-              padding: 0;
-              object-fit: contain;
-
-              width: 64px;
-              height: 64px;
-              background-color: var(--color-neutral-dark-mode-04);
-            }
-
-          
-
-            
-
-            .meta {
-              display: grid;
-              justify-items: end;
-              // gap: 8px;
-            }
-            &__tags {
-              display: flex;
-              flex-flow: wrap-reverse;
-              justify-content: flex-end;
-              gap: 5px;
-              p {
-                font-size: 15px;
-                text-transform: capitalize;
-                border-radius: 100px;
-                padding: 2px 8px;
-                border: 1px solid var(--color-neutral-dark-mode-04);
-
-              }
-              
-            }
-            
-          }
-
-          &__country{
-            display: grid;
-            gap: 16px;
-            padding: var(--f-gutter);
-
-            &__picture{
-              //padding: var(--f-gutter);
-              border-radius: 10px;
-            }
-          }
-
-          
-
-          &__title-desc {
-            display: grid;
-            gap: 8px;
-            text-align: left;
-            &__header {
-              display: grid;
-              gap: 8px;
-              align-content: start;
-            }
-            h4 {
-              color: white;
-            }
-            p{
-              min-width: 196px;
-            }
-          }
+          display: flex;
           &.hidden {
             display: none;
           }
 
-          & img {
-            object-fit: cover;
-            //width: 100%;
-            aspect-ratio: 1 / 1;
-            
-            
-          }
-
           &:hover {
-            
             background: var(--color-neutral-dark-mode-04);
-
-          }
-    
-          * {
-            margin: 0;
           }
 
-          h6 {
-            color: var(--theme-fg);
-          }
+          &__overall-link {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 64px 1fr;
+            gap: 16px;
+            padding: var(--f-gutter);
 
-          p {
-            &.tag {
-              text-transform: capitalize;
+            @include respond-to("<=s") {
+              gap: 10px;
+              grid-template-columns: 48px 1fr;
             }
-
-            // @each $name, $color in $accent-colors {
-            //   &.accent-#{$name} {
-            //     color: var(--accent-#{$name});
-            //   }
-            // }
           }
-          
-          
+
+          &__header {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: grid;
+            align-content: center;
+
+            @include respond-to("<=s") {
+                  width: 48px;
+                  height: 48px;
+                }
+          }
+
+          &__title-desc {
+            &__header {
+              & .element-grid-title {
+                color: var(--color-analog-primary-white);
+                font-size: 18px;
+                line-height: 25px;
+                margin-bottom: 0;
+
+                @include respond-to("<=s") {
+                  font-size: 16px;
+                  line-height: 23px;
+                }
+              }
+            }
+          }
         }
-        
       }
     }
   }
