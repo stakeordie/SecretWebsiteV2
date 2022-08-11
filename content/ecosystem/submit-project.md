@@ -2,20 +2,19 @@
 title: "Submit Project"
 ---
 
-<!-- Page title -->
-<column class="submit-proyect-page-title">
+
+<!-- swirl -->
+<column class="ecosystem__green-swirl__top" mode="full">
 
 <block>
 
-<hero-title>
-
-## Ecosystem Roadmap
-
-</hero-title>
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" /> 
 
 </block>
 
-</column>
+</column> 
+
+
 
 
 
@@ -24,6 +23,21 @@ title: "Submit Project"
 <block>
 
 <submit-project />
+
+</block>
+
+</column>
+
+
+
+
+
+<!-- swirl -->
+<column class="ecosystem__green-swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" />
 
 </block>
 
