@@ -196,16 +196,22 @@ title: 'Developer Resources'
 
 
 
-<column>
+<!-- General CTAs -->
+<column class="spacer-s" number="2" number-m="2" number-s="1">
 
-<block>
+<block >
 
-<developers-call-action></developers-call-action>
+<general-ctas id="get-started"></general-ctas>
 
 </block>
 
-</column> 
+<block >
 
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >
 
 
 
