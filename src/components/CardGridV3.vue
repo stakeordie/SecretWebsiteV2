@@ -56,7 +56,7 @@
             v-for="element in pagedArray"
             :key="element.id"
           >
-            <a :href="element.url" target="blank" rel="noopener noreferrer" class="card-element__country">
+            <a :href="element.url ? element.url : ''" target="blank" rel="noopener noreferrer" class="card-element__country">
               <img :src="element.picture.url" alt="picture" class="card-element__country__picture" />
               <div
                 class="meta"
@@ -96,7 +96,7 @@
           >
             <a
               class="card-element__overall-link"
-              :href="element.url"
+              :href="element.url ? element.url : ''"
               target="blank"
               rel="noopener noreferrer"
             >
