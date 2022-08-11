@@ -159,12 +159,12 @@ module.exports = {
     {
         use: '@gridsome/plugin-sitemap',
     },
-    /*{
+    {
         use: '@gridsome/plugin-google-analytics',
         options: {
             id: 'UA-173950488-3'
         }
-    },*/
+    },
     //   ...optionalPlugins
     ],
     templates: {
@@ -189,5 +189,4 @@ module.exports = {
         },
     },
 };
-
 
