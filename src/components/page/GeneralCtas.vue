@@ -32,7 +32,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "../get-scrt",
+          url: "/about/get-scrt",
         },
         {
           ctaId: "get-started-v2",
@@ -41,7 +41,7 @@ export default {
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
-          url: "../about/get-scrt",
+          url: "/about/get-scrt",
         },
         {
           ctaId: "get-started-with-secret",
@@ -72,7 +72,7 @@ export default {
           description:
             "Become a Secret Agent and advance a better, more empowering web.  ",
           urlTitle: "GET INVOLVED",
-          url: "https://discord.com/invite/SJK32GY",
+          url: "/get-involved/become-secret-agent",
         },
 
         
