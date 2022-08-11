@@ -1,13 +1,20 @@
 <template>
   <div class="ecosystem-submit-project">
-    <div v-show="!formIsSubmited" class="ecosystem-submit-project__message">
-      <h3>Submit Your Project</h3>
-      <p>
-        The Secret Network ecosystem roadmap is a community effort, stewarded by
-        the Secret Foundation, to showcase all the projects currently in
-        development. Any developer can request to add their project to the
-        roadmap.
-      </p>
+    <div class="ecosystem-submit-project__header">
+      <div class="scrt-pdf-viewer__intro__content">
+        <h5 class="scrt-pdf-viewer__intro__content__eyebrow">
+          SUBMISSION FORM
+        </h5>
+        <h3>Add Your Project to the Roadmap</h3>
+        <p>
+          The Secret Network ecosystem roadmap is a community effort, stewarded
+          by the Secret <span class="breakline">
+            Foundation, to showcase all the projects currently in
+            development. Any developer can
+          </span> request to add their project to the
+          roadmap.
+        </p>
+      </div>
     </div>
     <div v-show="!formIsSubmited" class="ecosystem-submit-project__form">
       <form @submit.prevent="signup()">
@@ -212,8 +219,8 @@
               </p>
             </div>
             <p class="description-invalid">
-              You must be a developer of the project to submit it for inclusion on
-              the roadmap.
+              You must be a developer of the project to submit it for inclusion
+              on the roadmap.
             </p>
           </label>
         </fieldset>
@@ -222,6 +229,7 @@
         <button class="submit-form" type="submit">SUBMIT</button>
       </form>
     </div>
+
     <!-- Thank you -->
     <div v-show="formIsSubmited" class="ecosystem-submit-project__thankyou">
       <h3>
@@ -234,23 +242,22 @@
         >
           <path
             d="M7.5 19.5L13.5 25.5L28.5 10.5"
-            stroke="#5AA361"
+            stroke="#4CBEB3"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
         </svg>
 
-        Project Submitted
+        Project Submitted!
       </h3>
       <p>
-        Thank you for submitting your project. A member of the Secret Foundation
-        will be in touch to help coordinate your including your project on the
-        roadmap.
+        Thank you for submitting your project. A member of the Secret Foundation will be in touch to help include your project on the roadmap.
       </p>
-      <a href="/ecosystem/ecosystem-roadmap"
-        >Go back to the Ecosystem Roadmap page</a
-      >
+
+      <btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap"
+        >RETURN TO MAIN PAGE
+      </btn>
     </div>
   </div>
 </template>
@@ -274,7 +281,9 @@ export default {
   },
   methods: {
     async signup() {
-      const thankYouEl = document.querySelector('.ecosystem-submit-project__thankyou');
+      const thankYouEl = document.querySelector(
+        ".ecosystem-submit-project__thankyou"
+      );
 
       try {
         const response = await fetch(
@@ -362,6 +371,31 @@ export default {
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 .ecosystem-submit-project {
+  &__header {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 52px;
+    .scrt-pdf-viewer__intro {
+      &__content {
+        max-width: 768px;
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        gap: var(--f-gutter);
+        &__eyebrow {
+          color: var(--color-ver2-primary-turquoise);
+        }
+        .breakline {
+          @include respond-to(">=l") {
+           display: block;       
+          }
+        }
+        * {
+          margin: 0;
+        }
+      }
+    }
+  }
   &__message {
     max-width: 742px;
     p {
@@ -392,6 +426,7 @@ export default {
       display: grid;
       gap: 0;
       margin-bottom: calc(var(--f-gutter) - 1px);
+
       * {
         margin: 0;
       }
@@ -409,11 +444,12 @@ export default {
       input {
         max-height: 38px;
         margin-bottom: 5px;
+
         // &:invalid {
         //   transform: scale(2);
         // }
         &.invalid {
-          border: 1px solid var(--color-analog-secondary-red);
+          border: 1px solid var(--color-ver2-primary-red);
         }
         &[type="radio"] {
           transform: scale(1.2);
@@ -426,6 +462,7 @@ export default {
         &.release-date,
         &.contact-info {
           max-width: 465px;
+          background-color: var(--color-neutral-dark-mode-04);
         }
         &.contact-info {
           min-height: 43px;
@@ -434,6 +471,7 @@ export default {
         &.other {
           max-width: 405px;
           margin-top: -8px;
+          background-color: var(--color-neutral-dark-mode-04);
         }
       }
       textarea {
@@ -441,9 +479,10 @@ export default {
           max-width: 690px;
           min-height: 101px;
           margin-bottom: 5px;
+          background-color: var(--color-neutral-dark-mode-04);
         }
         &.invalid {
-          border: 1px solid var(--color-analog-secondary-red);
+          border: 1px solid var(--color-ver2-primary-red);
         }
       }
     }
@@ -452,7 +491,7 @@ export default {
       font-size: 14px;
       color: var(--color-analog-primary-white);
       span {
-        color: var(--color-analog-secondary-red);
+        color: var(--color-ver2-primary-red);
       }
     }
     .description,
@@ -461,7 +500,7 @@ export default {
       line-height: 20px;
     }
     .description-invalid {
-      color: var(--color-analog-secondary-red);
+      color: var(--color-ver2-primary-red);
       // display: none;
     }
     .radio {
@@ -489,19 +528,19 @@ export default {
       }
     }
     .dev-consent {
-      margin-top:25px;
+      margin-top: 25px;
     }
     .consent {
       display: grid;
       grid-template-columns: 24px 1fr;
       position: relative;
-      gap: 8px;
+      gap: 16px;
       align-items: start;
       justify-content: start;
       border: 1px solid var(--color-neutral-dark-mode-05);
       box-sizing: border-box;
       border-radius: 6px;
-      padding: var(--f-gutter) calc(var(--f-gutter) - 5px);
+      padding: var(--f-gutter);
       max-width: 690px;
       transform: translateY(-18px);
       max-height: 92px;
@@ -516,6 +555,7 @@ export default {
         p {
           font-size: 14px !important;
           line-height: 21px;
+          color: var(--color-neutral-dark-mode-06);
         }
       }
       .description-invalid {
@@ -525,10 +565,20 @@ export default {
       }
     }
     .submit-form {
-      max-width: 300px;
+      // max-width: 300px;
+      margin-top: 26px;
       min-height: 46px;
-      background: var(--theme-fg);
-      color: var(--theme-bg);
+      background: var(--color-neutral-dark-mode-04);
+      width: 300px;
+      // color: var(--theme-bg);
+
+      font-weight: 700;
+      font-family: var(--f-default-text-font);
+      letter-spacing: 1px;
+
+      @include respond-to("<=s") {
+        width: 100%;
+      }
       &:hover {
         background: var(--color-neutral-dark-mode-02);
         color: var(--theme-fg);
@@ -539,20 +589,25 @@ export default {
     display: grid;
     gap: var(--f-gutter);
     max-width: 710px;
+    text-align: center;
+    margin: auto;
     * {
       margin: 0;
     }
     h3 {
-      display: grid;
-      color: var(--color-analog-secondary-green);
-      gap: 4px;
-      grid-template-columns: 36px 1fr;
+      display: flex;
+      // color: var(--color-analog-secondary-green);
+      gap: 12px;
+      justify-content: center;
     }
-    p,
-    a {
+    p {
       font-size: var(--paragraph-font-size-big);
       line-height: 28px;
       letter-spacing: -0.15px;
+    }
+    a {
+      text-align: center;
+      justify-self: center;
     }
   }
 }
