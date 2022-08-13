@@ -2,10 +2,12 @@
   <section class="about-secret-network-cases">
     <div class="about-secret-network-cases__header">
       <div class="header-content">
-        <h4 class="about-secret-network-header__h5">USE CASES</h4>
-        <h1 class="about-secret-network-header__h1">
-          The possibilities <span>Secret Contracts unlock</span>
-        </h1>
+        <div class="header">
+          <h4 class="about-secret-network-header__h5">USE CASES</h4>
+          <h1 class="about-secret-network-header__h1">
+            The possibilities <span>Secret Contracts unlock</span>
+          </h1>
+        </div>
         <p class="about-secret-network-header__p">
           Secret’s smart contracts e.g. “Secret Contracts” are
           private-by-default. Input, output, and state are encrypted and can’t
@@ -21,8 +23,10 @@
         v-for="(item, index) in material"
         :key="index" >
         <img :src="item.imageUrl" alt="" />
-        <h5>{{ item.eyebrow }}</h5>
-        <h2>{{ item.title }}</h2>
+        <div class="about-secret-network-cases__title">
+          <h5>{{ item.eyebrow }}</h5>
+          <h2>{{ item.title }}</h2>
+        </div>
         <p>
           {{ item.description }}
         </p>
@@ -79,7 +83,12 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-cases {
-
+  
+  &__title {
+    display: grid;
+    gap: var(--f-gutter-s);
+    *{margin: 0;}
+  }
     & h4,
     & h5 {
         color: var(--color-ver2-primary-orange);
@@ -143,9 +152,9 @@ export default {
     &__topic{
         
         display: grid;
-        gap: 10px;
+        gap: var(--f-gutter-l);
         padding: var(--f-gutter);
-
+        align-self: stretch;  
         & img{
             margin: auto;
             height: 300px;
