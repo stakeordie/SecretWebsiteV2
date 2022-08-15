@@ -202,7 +202,7 @@
         }
         
         @include respond-to("<=l"){
-            background-size: auto, cover;
+            background-size: contain, cover;
             background-position-y: 10px, center ;
             margin-top: 6px;
             
