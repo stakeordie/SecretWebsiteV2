@@ -72,7 +72,9 @@
           height: 100%;
           overflow: hidden;
           object-fit: cover;
-          object-position: bottom;
+          // object-position: bottom;
+          object-position: top;
+          object-fit: contain;
 
           @include respond-to("<=xxxl") {
             display: none;

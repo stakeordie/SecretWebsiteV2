@@ -536,9 +536,11 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-tools,
-.ecosystem-dapps,
-.get-involved-international-communities-v2{
+// .ecosystem-tools,
+// .ecosystem-dapps,
+// .get-involved-international-communities-v2,
+// .get-involved-international-communities{
+  
 
   .grid-header-v2 {
     display: grid;
@@ -905,5 +907,46 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
   }
+// }
+
+
+.get-involved-international-communities{
+
+  .elements-v3 {
+
+    .filter {
+
+      &.v3 {
+
+        .custom-checkbox {
+         
+          li {
+            
+            label {
+              
+              span {
+               
+                transition: 0.2s ease;
+
+              }
+              input {
+
+                &:checked {
+                  ~ .title {
+                    background-color: var(--color-ver2-primary-yellow);
+                    border: none;
+                    color: var( --color-neutral-dark-mode-01);
+
+                  }
+                }
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
 }
 </style>

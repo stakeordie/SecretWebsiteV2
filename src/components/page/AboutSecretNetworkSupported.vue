@@ -146,6 +146,11 @@ export default {};
         width: 100%;
       }
     }
+    a {
+      @include respond-to(">=l") {
+        min-width: 342px;
+      }
+    }
   }
 }
 </style>

@@ -9,12 +9,14 @@
     </div>
 
     <div class="about-secret-network-hero__content">
-      <h4 class="about-secret-network-hero__content__h5">
-        About SECRET NETWORK
-      </h4>
-      <h1 class="about-secret-network-hero__content__h1">
-        Powering Web3 Privacy
-      </h1>
+      <div class="about-secret-network-hero__content__header">
+        <h4 class="about-secret-network-hero__content__header__h5">
+          About SECRET NETWORK
+        </h4>
+        <h1 class="about-secret-network-hero__content__header__h1">
+          Powering Web3 Privacy
+        </h1>
+      </div>
       <p class="about-secret-network-hero__content__p">
         Secret Network is the first mainnet blockchain with privacy-preserving
         smart contracts launched in 2020. This makes it possible to build apps
@@ -65,7 +67,7 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-hero {
-  padding: 62px 0 120px 0;
+  padding: var(--f-gutter-xxxl) 0 120px 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -87,30 +89,31 @@ export default {};
     @include respond-to("<=s") {
       padding: var(--f-gutter);
     }
-
-    &__h5 {
-      color: var(--color-ver2-primary-turquoise);
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 0;
-      font-family: var(--f-default-text-font);
-      letter-spacing: 1px;
-    }
-    &__h1 {
-      // margin-bottom: 0;
-      font-family: var(--f-default-headers-font);
-      font-weight: 600;
-      font-size: 54px;
-      line-height: 60px;
-
-      // @include respond-to("<=l") {
-      //   font-size: 54px;
-      //   line-height: 60px;
-      // }
-
-      @include respond-to("<=s") {
-        // font-size: 36px;
-        // line-height: 50px;
+    &__header {
+      &__h5 {
+        color: var(--color-ver2-primary-turquoise);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 0;
+        font-family: var(--f-default-text-font);
+        letter-spacing: 1px;
+      }
+      &__h1 {
+        // margin-bottom: 0;
+        font-family: var(--f-default-headers-font);
+        font-weight: 600;
+        font-size: 54px;
+        line-height: 60px;
+  
+        // @include respond-to("<=l") {
+        //   font-size: 54px;
+        //   line-height: 60px;
+        // }
+  
+        @include respond-to("<=s") {
+          // font-size: 36px;
+          // line-height: 50px;
+        }
       }
     }
 
@@ -122,7 +125,7 @@ export default {};
     &__list {
       display: grid;
       row-gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 26px;
 
       & .list-item {
         display: flex;

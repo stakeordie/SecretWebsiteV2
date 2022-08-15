@@ -155,7 +155,7 @@ title: "About"
 <div >
 <h4 class="big-title-eyebrow">OUR MISSION</h4>
 
-<h1 class="big-title"> Privacy is a human right & necessity </h1>
+<h1 class="big-title"> Privacy is a human right <span>& necessity</span> </h1>
     
 </div>
 
