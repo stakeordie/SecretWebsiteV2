@@ -5,7 +5,7 @@
         <div class="header">
           <h4 class="about-secret-network-header__h5">USE CASES</h4>
           <h1 class="about-secret-network-header__h1">
-            The possibilities <span>Secret Contracts unlock</span>
+            The possibilities Secret Contracts unlock
           </h1>
         </div>
         <p class="about-secret-network-header__p">
@@ -21,16 +21,23 @@
       <div
         class="about-secret-network-cases__content__topic"
         v-for="(item, index) in material"
-        :key="index" >
+        :key="index"
+      >
         <img :src="item.imageUrl" alt="" />
         <div class="about-secret-network-cases__title">
           <h5>{{ item.eyebrow }}</h5>
-          <h2>{{ item.title }}</h2>
+          <h3>{{ item.title }}</h3>
         </div>
         <p>
           {{ item.description }}
         </p>
-        <btn v-if="item.url" class="center-text no-arrow ctas-button" :url="item.url ? item.url : ''"> READ MORE</btn>
+        <btn
+          v-if="item.url"
+          class="center-text no-arrow ctas-button"
+          :url="item.url ? item.url : ''"
+        >
+          READ MORE</btn
+        >
       </div>
     </div>
   </section>
@@ -52,7 +59,7 @@ export default {
         {
           imageUrl: "/img/about-secret-network/learn-defi-img.svg",
           eyebrow: "SECRET DEFI",
-          title: "Stay safe while spending, saving, and trading.",
+          title: "Stay safe while spending, saving, and trading",
           description:
             "DeFi apps built with Secret’s privacy-preserving smart contracts provide MEV-resistance by default and protect its users from hackers and front-runners. This includes exchanges, market makers, lending protocols, and more. ",
           url: "../secret-finance",
@@ -83,24 +90,26 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about-secret-network-cases {
-  
   &__title {
     display: grid;
-    gap: var(--f-gutter-s);
-    *{margin: 0;}
+    gap: var(--f-gutter-xxs);
+    * {
+      margin: 0;
+    }
   }
-    & h4,
-    & h5 {
-        color: var(--color-ver2-primary-orange);
-      }
-      & p {
-        font-size: var(--paragraph-font-size-big);
-        line-height: var(--paragraph-line-height-big);
-      }
+  & h4,
+  & h5 {
+    color: var(--color-ver2-primary-orange);
+  }
+  & p {
+    font-size: var(--paragraph-font-size-big);
+    line-height: var(--paragraph-line-height-big);
+  }
   &__header {
     border-bottom: solid 1px var(--color-neutral-dark-mode-04);
     padding: 42px 0;
-
+    display: grid;
+    gap: var(--f-gutter-xxs);
     .header-content {
       padding: var(--f-gutter);
 
@@ -109,18 +118,19 @@ export default {
       }
 
       & h4,
-    & h5 {
+      & h5 {
         color: var(--color-ver2-primary-orange);
       }
 
       & h1 {
         display: grid;
+        font-size: 36px;
+        line-height: 32px;
       }
-      
     }
   }
 
-  &__content{
+  &__content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
     gap: 54px;
@@ -128,39 +138,35 @@ export default {
     padding: 42px 0;
     align-items: baseline;
 
-    @include respond-to(">=xxl"){
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-        gap: 36px;
+    @include respond-to(">=xxl") {
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 36px;
     }
 
+    @include respond-to("<=m") {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 36px;
 
-    @include respond-to("<=m"){
-        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-        gap: 36px;
-
-            &__topic{
+      &__topic {
         padding: var(--f-gutter);
 
-        & img{
-            margin: auto;
-            height: 200px !important;
+        & img {
+          margin: auto;
+          height: 200px !important;
         }
-
-     }
+      }
     }
 
-    &__topic{
-        
-        display: grid;
-        gap: var(--f-gutter-l);
+    &__topic {
+      display: grid;
+      gap: var(--f-gutter-l);
+      padding: var(--f-gutter);
+      align-self: stretch;
+      & img {
+        margin: auto;
+        height: 300px;
         padding: var(--f-gutter);
-        align-self: stretch;  
-        & img{
-            margin: auto;
-            height: 300px;
-            padding: var(--f-gutter);
-        }
-
+      }
     }
   }
 }

@@ -1,12 +1,14 @@
 <template>
   <section class="about-secret-network-technology">
-    
-
     <div class="about-secret-network-technology__header">
       <div class="about-secret-network-technology__header__info">
         <div class="about-secret-network-technology__header__info__content">
-          <h4 class="">TECHNOLOGY</h4>
-          <h1 class="">How Secret <span>Contracts work </span></h1>
+          <div
+            class="about-secret-network-technology__header__info__content__header"
+          >
+            <h4 class="">TECHNOLOGY</h4>
+            <h1 class="">How Secret Contracts work</h1>
+          </div>
           <p class="">
             Secret Network is the first blockchain with privacy-preserving smart
             contracts. This makes it possible to build apps that are
@@ -27,17 +29,16 @@
           Read the GrayPaper</btn
         >
       </div>
-       <img src="../../assets/about-secret-network/contract-img.svg" alt="" >
+      <img src="../../assets/about-secret-network/contract-img.svg" alt="" />
     </div>
 
     <div class="about-secret-network-technology__content">
       <div class="about-secret-network-technology__content__item">
-         <img
-          src="../../assets/about-secret-network/chip-icon.svg"
-          alt=""
-        />
-        <div class="item-text">
+        <div class="about-secret-network-technology__content__item__header">
+          <img src="../../assets/about-secret-network/chip-icon.svg" alt="" />
           <h4>TEEs for computing over encrypted data</h4>
+        </div>
+        <div class="item-text">
           <p>
             Trusted Execution Environments (TEEs) function like a “black box”
             for data processing, and enable nodes to verify transactions within
@@ -51,21 +52,19 @@
         </div>
       </div>
       <div class="about-secret-network-technology__content__item">
-        <img
-          src="../../assets/about-secret-network/key-icon.svg"
-          alt=""
-        />
-        <div class="item-text">
+        <div class="about-secret-network-technology__content__item__header">
+          <img src="../../assets/about-secret-network/key-icon.svg" alt="" />
           <h4>Viewing keys for access control</h4>
+        </div>
+        <div class="item-text">
           <p>
             Since data is encrypted and private by default, Secret Network users
-            have viewing keys to access their sensitive data. 
+            have viewing keys to access their sensitive data.
             <br />
             <br />
-            Viewing keys can
-            be shared with third parties like auditors, wallets, and explorers.
-            They allow users to maintain control over their data and decide what
-            is shared—and with who.
+            Viewing keys can be shared with third parties like auditors,
+            wallets, and explorers. They allow users to maintain control over
+            their data and decide what is shared—and with who.
           </p>
         </div>
       </div>
@@ -97,9 +96,8 @@ export default {};
     gap: 64px;
     padding: 64px 0;
 
-    @include respond-to("<=s"){
+    @include respond-to("<=s") {
       grid-template-columns: 1fr;
-
     }
 
     &__info {
@@ -107,11 +105,22 @@ export default {};
       gap: 26px;
 
       &__content {
-        & h1{
+        display: grid;
+        gap: var(--f-gutter);
+        &__header {
           display: grid;
-        }
-        & h4 {
-          color: var(--color-ver2-primary-red);
+          gap: var(--f-gutter-xxs);
+          * {
+            margin: 0;
+          }
+          & h1 {
+            display: grid;
+            font-size: 36px;
+            line-height: 42px;
+          }
+          & h4 {
+            color: var(--color-ver2-primary-red);
+          }
         }
       }
     }
@@ -129,7 +138,6 @@ export default {};
           width: 36px;
           height: 36px;
           opacity: 0.3;
-          
         }
 
         & h6 {
@@ -145,33 +153,36 @@ export default {};
     & img {
       align-self: center;
       margin: auto;
-
-      
     }
   }
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     padding: 42px 0;
     gap: 36px;
-
+    align-items: flex-start;
+    
     &__item {
-      display: flex;
+      display: grid;
       gap: 16px;
       padding: var(--f-gutter);
 
-      @include respond-to("<=m"){
+      @include respond-to("<=m") {
         padding: 32px;
       }
-      
-      @include respond-to("<=xs"){
+
+      @include respond-to("<=xs") {
         padding: var(--f-gutter);
       }
-
-      img {
-        width: 36px;
-        height: 36px;
+      &__header {
+        display: grid;
+        gap: var(--f-gutter);
+        *{margin: 0;}
+        img {
+          width: 36px;
+          height: 36px;
+        }
       }
 
       .item-text {
@@ -185,6 +196,5 @@ export default {};
       }
     }
   }
-
 }
 </style>

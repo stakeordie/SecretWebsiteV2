@@ -3,10 +3,14 @@
     <div class="about-secret-network-vision__header">
       <div class="about-secret-network-vision__header__info">
         <div class="about-secret-network-vision__header__info__content">
-          <h4 class="">OUR VISION</h4>
-          <h1 class="">
-            Building to become <span> <i>the</i> Web3 privacy hub</span>
-          </h1>
+          <div
+            class="about-secret-network-vision__header__info__content__header"
+          >
+            <h4 class="">OUR VISION</h4>
+            <h4 class="">
+              Building to become the Web3 <span>privacy hub</span>
+            </h4>
+          </div>
           <p class="">
             How we’re optimizing for interoperability, scalability, and
             decentralization.
@@ -18,7 +22,10 @@
 
     <div class="about-secret-network-vision__content">
       <div class="about-secret-network-vision__content__item">
-        <img src="../../assets/about-secret-network/cosmos-blue-icon.svg" alt="" />
+        <img
+          src="../../assets/about-secret-network/cosmos-blue-icon.svg"
+          alt=""
+        />
         <div class="item-text">
           <h4>Cosmos IBC-enabled</h4>
           <p>
@@ -28,7 +35,10 @@
         </div>
       </div>
       <div class="about-secret-network-vision__content__item">
-        <img src="../../assets/about-secret-network/delegated-blue-icon.svg" alt="" />
+        <img
+          src="../../assets/about-secret-network/delegated-blue-icon.svg"
+          alt=""
+        />
         <div class="item-text">
           <h4>Private data, public ledger</h4>
           <p>
@@ -39,7 +49,10 @@
         </div>
       </div>
       <div class="about-secret-network-vision__content__item">
-        <img src="../../assets/about-secret-network/private-public-blue-icon.svg" alt="" />
+        <img
+          src="../../assets/about-secret-network/private-public-blue-icon.svg"
+          alt=""
+        />
         <div class="item-text">
           <h4>Delegated Proof-of-Stake consensus</h4>
           <p>
@@ -51,7 +64,10 @@
         </div>
       </div>
       <div class="about-secret-network-vision__content__item">
-        <img src="../../assets/about-secret-network/consensus-blue-icon.svg" alt="" />
+        <img
+          src="../../assets/about-secret-network/consensus-blue-icon.svg"
+          alt=""
+        />
         <div class="item-text">
           <h4>Independent consensus layer</h4>
           <p>
@@ -98,22 +114,25 @@ export default {};
       grid-template-columns: 1fr;
     }
 
-    
-
     &__info {
       display: grid;
       gap: 26px;
 
       &__content {
-        & h1 {
+        &__header {
           display: grid;
-          
-          @include respond-to("<=m") {
-            display: block;
+          gap: var(--f-gutter-xxs);
+          & h1 {
+            display: grid;
+            font-size: 36px;
+            line-height: 42px;
+            @include respond-to("<=m") {
+              display: block;
+            }
           }
-        }
-        & h4 {
-          color: var(--color-ver2-primary-blue);
+          & h4 {
+            color: var(--color-ver2-primary-blue);
+          }
         }
       }
     }
@@ -137,11 +156,11 @@ export default {};
       gap: 16px;
       padding: var(--f-gutter);
 
-       @include respond-to("<=m"){
+      @include respond-to("<=m") {
         padding: 32px;
       }
-      
-      @include respond-to("<=xs"){
+
+      @include respond-to("<=xs") {
         padding: var(--f-gutter);
       }
 
@@ -152,8 +171,9 @@ export default {};
 
       .item-text {
         display: grid;
-        gap: 16px;
+        gap: 10px;
         align-content: baseline;
+        *{margin: 0;}
         & h4 {
           text-transform: none;
           letter-spacing: 0;

@@ -1,9 +1,10 @@
 <template>
   <section class="about-secret-network-privacy">
     <div class="about-secret-network-privacy__intro">
-      <h4>ESSENTIAL FOR WEB3</h4>
-
-      <h2 class="intro__title">Why we need privacy</h2>
+      <div class="about-secret-network-privacy__intro__header">
+        <h4>ESSENTIAL FOR WEB3</h4>
+        <h2 class="intro__title">Why we need privacy</h2>
+      </div>
       <p class="intro__p">
         Ethereum’s big innovation was to put smart contracts on the blockchain:
       pieces of code that execute automatically once pre-set conditions are met.
@@ -71,10 +72,13 @@ export default {};
     margin: auto;
     max-width: 550px;
     display: grid;
-    gap: 10px;
-
-    & h4 {
-      color: var(--color-ver2-secondary-cream);
+    gap: var(--f-gutter);
+    &__header {
+      display: grid;
+      gap: 0;
+      & h4 {
+        color: var(--color-ver2-secondary-cream);
+      }
     }
 
     .intro__title {
