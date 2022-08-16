@@ -3,7 +3,7 @@
     <section class="page-grants__hero">
       <div class="page-grants__hero__content">
         <div class="page-grants__hero__content__image">
-          <img src="../../assets/grants-hero.png" alt="" />
+          <img src="../../assets/grants-hero.svg" alt="" />
         </div>
         <div class="page-grants__hero__content__info">
           <h5 class="page-grants__hero__content__info-label">GRANTS</h5>
@@ -11,8 +11,8 @@
             Kickstart your Secret project
           </h2>
           <p class="page-grants__hero__content__info-description">
-            Get long-term financial and strategic support to build on Secret
-            Network, provided by leading investors in the field.
+            Apply for a Secret Grant and get the financial & strategic support
+            you need to rapidly gain traction.
           </p>
           <a
             target="blank"
@@ -35,14 +35,14 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-grants {
-  padding-top: var(--f-gutter-xxxl);
+  // padding-top: var(--f-gutter-xxxl);
 
   @include respond-to("<=m") {
-    padding-top: var(--f-gutter-xxl);
+    padding-top: var(--f-gutter-xl);
   }
 
   @include respond-to("<=s") {
-    padding-top: var(--f-gutter-xl);
+    padding-top: var(--f-gutter-l);
   }
 
   &__hero {
@@ -75,7 +75,7 @@ export default {};
       }
 
       &__info-label {
-        color: var(--color-newBrand-blue-01);
+        color: var(--color-ver2-primary-blue);
       }
 
       &__info-title {
@@ -99,11 +99,11 @@ export default {};
         font-size: 18px;
         text-align: center;
         font-weight: bold;
-        font-weight: 600;
-        letter-spacing: 1.2px;
+        font-weight: 700;
+        letter-spacing: 1px;
         text-transform: uppercase;
         width: fit-content;
-        color: white;
+        color: var( --color-analog-primary-white);
         background: var(--theme-card-button-bg);
         padding: 18px 42px 17px 42px;
         border-radius: var(--f-gutter-s);
