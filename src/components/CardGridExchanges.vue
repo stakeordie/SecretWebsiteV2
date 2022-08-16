@@ -478,7 +478,6 @@ query {
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
 .ecosystem-exchanges {
-  
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -536,8 +535,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         }
 
         .custom-checkbox {
-          // grid-auto-flow: column;
-          // grid-template-columns: auto;
           gap: 10px;
           display: flex;
           justify-content: center;
@@ -572,27 +569,19 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 background-color: var(--color-neutral-dark-mode-04);
                 color: var(--color-neutral-dark-mode-06);
                 font-weight: 600;
-                //transform: translateY(5px);
 
                 transition: 0.2s ease;
                 img {
-                  // transition: 0.2s ease;
                   width: 0px;
                   height: 0px;
                 }
               }
               input {
-                //max-width: 400px;
 
                 &:checked {
                   ~ .title {
                     background-color: var(--color-ver2-primary-turquoise);
                     border: none;
-                    // img {
-                    //   transition: 0.2s ease;
-                    //   width: 16px;
-                    //   height: 16px;
-                    // }
                   }
                 }
               }
@@ -612,7 +601,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           background: var(--color-neutral-dark-mode-04);
           background-image: url(../assets/search-icon-gray.svg);
           background-repeat: no-repeat;
-          //border-color: var(--color-neutral-dark-mode-01);
           border: none;
           background-position: 8px;
           padding-left: 32px;

@@ -528,7 +528,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         display: grid;
         justify-content: center;
         gap: var(--f-gutter);
-        padding-bottom: var(--f-gutter);
+        padding: 26px 0 var(--f-gutter) 0;
 
         text-align: center;
         * {

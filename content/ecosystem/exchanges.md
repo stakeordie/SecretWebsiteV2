@@ -11,7 +11,7 @@ title: "Exchanges"
 
 </block>
 
-</column>
+</column> 
 
 
 
@@ -20,7 +20,7 @@ title: "Exchanges"
 
 
 <!-- Explore -->
-<column class="spacer-s bg-black-gradient">
+<column class="spacer-s ">
 
 <block>
 
