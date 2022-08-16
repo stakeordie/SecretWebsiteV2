@@ -2,6 +2,21 @@
 title: "Grants"
 ---
 
+<column class="blue__swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-blue-top.svg" /> 
+
+</block>
+
+</column>
+
+
+
+
+
+
 <!-- Tools -->
 <column class="spacer-s">
 
@@ -14,9 +29,6 @@ title: "Grants"
 </block>
 
 </column>
-
-
-
 
 
 
@@ -43,8 +55,6 @@ title: "Grants"
 
 
 
-
-
 <column class="spacer-s">
 
 <grants-build>
@@ -58,10 +68,7 @@ title: "Grants"
 
 
 
-
-
-
-<column class="spacer-s page-ecosystem__apply" >
+<!-- <column class="spacer-s page-ecosystem__apply" >
 
 <block class="">
 
@@ -77,7 +84,7 @@ title: "Grants"
 
 </block>
 
-</column>
+</column> -->
 
 
 
@@ -112,15 +119,38 @@ title: "Grants"
 
 
 
+<!-- General CTAs -->
+<column class="spacer-s" number="3" number-m="2" number-s="1">
+
+<block >
+
+<general-ctas id="get-started"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="build-on-secret"></general-ctas>
+
+</block>
+
+<block >
+
+<general-ctas id="join-the-community"></general-ctas>
+
+</block>
+
+</column >
 
 
-<column class="spacer-s">
+
+
+
+<column class="blue__swirl__bottom" mode="full">
 
 <block>
 
-<new-home-mission-ctas>
-    
-</new-home-mission-ctas>
+<img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" /> 
 
 </block>
 
