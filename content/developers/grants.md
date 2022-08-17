@@ -94,7 +94,7 @@ title: "Grants"
 
 
 
-<column class="spacer-s" >
+<!-- <column class="spacer-s" >
 
 <block class="">
 
@@ -110,7 +110,7 @@ title: "Grants"
 
 </block>
 
-</column>
+</column> -->
 
 
 
