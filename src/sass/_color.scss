@@ -55,7 +55,7 @@
     --color-neutral-light-mode-03: rgba(249, 243, 231, 1);
     --color-neutral-light-mode-04: rgba(252, 249, 243, 1);
     --color-neutral-light-mode-05: rgba(133, 133, 133, 1);
-    --color-neutral-light-mode-045: #5F5E5C;
+    --color-neutral-light-mode-045: rgb(95, 94, 92);
 
     //New Brand
     --color-newBrand-blue-01: rgba(96, 160, 220, 1);
@@ -65,17 +65,23 @@
     //Brand ver2 Primary
     --color-ver2-primary-turquoise:rgba(76, 190, 179, 1);
     --color-ver2-primary-yellow: rgba(253, 213, 53, 1);
+    --color-ver2-primary-dark-blue: rgba(17, 34, 50, 1);
+    
     --color-ver2-primary-orange: rgba(235, 128, 69, 1);
-    --color-ver2-primary-blue: var(--color-newBrand-blue-01);
+    --color-ver2-primary-red: rgba(232, 80, 74, 1);
+    --color-ver2-primary-blue: rgba(85, 150, 220, 1);
+    --color-ver2-primary-purple: rgba(139, 122, 176, 1);
 
      //Brand ver2 Secondary
      //--color-ver2-secondary-turquoise:;
      --color-ver2-secondary-blue: var(--color-newBrand-blue-02);
      --color-ver2-secondary-orange: rgba(251, 201, 152, 1);
+     --color-ver2-secondary-cream: rgba(232, 205, 174, 1);
 
 
      //Brand ver2 Tertiary
      --color-ver2-tertiary-turquoise:rgba(143, 210, 234, 1);
+     --color-ver2-tertiary-yellow:rgba(192, 122, 2, 1);
 
 
     //Docs

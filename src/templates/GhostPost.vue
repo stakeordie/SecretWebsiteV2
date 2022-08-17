@@ -104,8 +104,11 @@ export default {
           content: this.coverImage,
         },
         {
-          key: "twitter:image",
-          property: "twitter:image",
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:image",
           content: this.coverImage,
         },
       ],

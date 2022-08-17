@@ -56,7 +56,7 @@
             v-for="element in pagedArray"
             :key="element.id"
           >
-            <a :href="element.url" target="blank" rel="noopener noreferrer" class="card-element__country">
+            <a :href="element.url ? element.url : ''" target="blank" rel="noopener noreferrer" class="card-element__country">
               <img :src="element.picture.url" alt="picture" class="card-element__country__picture" />
               <div
                 class="meta"
@@ -96,7 +96,7 @@
           >
             <a
               class="card-element__overall-link"
-              :href="element.url"
+              :href="element.url ? element.url : ''"
               target="blank"
               rel="noopener noreferrer"
             >
@@ -137,7 +137,7 @@
                   </p>
                 </div>
               </div>
-                <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn>
+                <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -536,9 +536,11 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-tools,
-.ecosystem-dapps,
-.get-involved-international-communities-v2{
+// .ecosystem-tools,
+// .ecosystem-dapps,
+// .get-involved-international-communities-v2,
+// .get-involved-international-communities{
+  
 
   .grid-header-v2 {
     display: grid;
@@ -597,7 +599,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         display: grid;
         justify-content: center;
         gap: var(--f-gutter);
-        padding-bottom: var(--f-gutter);
+        padding: 26px 0 var(--f-gutter) 0;
         * {
           margin: 0;
         }
@@ -772,7 +774,8 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             display: grid;
             gap: var(--f-gutter);
             padding: var(--f-gutter);
-            grid-template-rows: 64px 1fr 32px;
+            // grid-template-rows: 64px 1fr 32px;
+            grid-template-rows: 64px 1fr auto;
 
 
             &:hover  .ecosystem .btn-text{
@@ -904,5 +907,46 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
   }
+// }
+
+
+.get-involved-international-communities{
+
+  .elements-v3 {
+
+    .filter {
+
+      &.v3 {
+
+        .custom-checkbox {
+         
+          li {
+            
+            label {
+              
+              span {
+               
+                transition: 0.2s ease;
+
+              }
+              input {
+
+                &:checked {
+                  ~ .title {
+                    background-color: var(--color-ver2-primary-yellow);
+                    border: none;
+                    color: var( --color-neutral-dark-mode-01);
+
+                  }
+                }
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
 }
 </style>

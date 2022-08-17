@@ -1,3 +1,5 @@
+const client = require('./src/apis/strapiv4')
+const pluralize = require('pluralize')
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
 // Learn more: https://gridsome.org/docs/server-api/
@@ -63,26 +65,126 @@ module.exports = function(api) {
     }
   })
 
-  api.createPages( async ({ createPage, graphql }) => {
-    // const { data } = await graphql(`{
-    //   secretAgents: allStrapiSecretAgent {
-    //     edges {
-    //       node {
-    //         name
-    //       }
-    //     }
-    //   }
-    // }`)
+  api.createPages( async ({ createPage }) => {
+    try {
+      const { data } = await client.allStrapiDynamicPage()
+      let pageSetEndpoint
+      for (const dynamicPage of data) {
+        const { attributes } = dynamicPage
+        const { page_set, template } = attributes
+        pageSetEndpoint = pluralize("dynamic-" + page_set.replace(" ", "-").toLowerCase())
+        const response = await client.getDynamicPage(pageSetEndpoint)
+        const { data } = expandPropsToParent(response, 'attributes')
+        data.forEach(page => {
+          page.currentComponents = []
+          let maxSort = 0
+          Object.keys(page).forEach(key => {
+            if (key.startsWith('comp_') && page[key] != null) {
+              let order = +key.split('_')[1]
+              if (Number.isInteger(order)) {
+                maxSort = order
+                page[key].order = order
+                page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
+              } else {
+                maxSort += 1
+                order = maxSort
+                page[key].order = order
+                page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
+              }
+              page.currentComponents.push(page[key])
+            } else if (key.startsWith('Components')) {
+              let order = +key.split('_')[1]
+              if (Number.isInteger(order)) {
+                maxSort = order
+              } else {
+                maxSort += 1
+                order = maxSort
+              }
+              page[key].forEach(component => component.order = order)
+              page.currentComponents.push(...page[key])
+            }
+          })
+          page.currentComponents
+              .filter(component => component.__component != null)
+              .forEach(component => component.comp_name = component.__component.split('.')[1])
+          page.currentComponents
+              .filter(component => component.image != null)
+              .forEach(component => {
+                const data = expandPropsToParent(component, 'data')
+                component.image = expandPropsToParent(data, 'image')
+              })
+          page.currentComponents.sort((a, b) => a.order - b.order)
+          createPage({
+            path: `${page.route}`,
+            component: `./src/templates/${template}.vue`,
+            context: {
+              components: page.currentComponents
+            }
+          })
+        })
+      }
+    } catch (error) {
+      console.log(error);
+    }
     
-    // data.secretAgents.edges.forEach(({ node }) => {
-    //   createPage({
-    //     path: `/agent/${node.name}`,
-    //     component: './src/templates/test.vue',
-    //     context: {
-    //       agentName: node.name
-    //     }
-    //   })
-    // })
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
   })
+}
+
+function expandPropsToParent(input, prop) {
+  let result;
+
+  if (input instanceof Array) {
+    result = [];
+  } else {
+    result = {};
+  }
+
+  if (!input) return null;
+
+
+  const keys = Object.keys(input);
+  for (const key of keys) {
+    if (key === prop) {
+      if(input[prop] === null) {
+        result = null;
+      } else {
+        const attrKeys = Object.keys(input[prop]);
+        for (const attrKey of attrKeys) {
+          if (typeof input[prop][attrKey] === "object") {
+            const innerConversion = expandPropsToParent(input[prop][attrKey], prop);
+            if (input instanceof Array) {
+              result.push(innerConversion);
+            } else {
+              result[attrKey] = innerConversion;
+            }
+          } else {
+            const value = input[prop][attrKey];
+            if (input instanceof Array) {
+              result.push(value);
+            } else {
+              result[attrKey] = value;
+            }
+          }
+        }
+      }
+    } else {
+      if (typeof input[key] === "object") {
+        const innerConversion = expandPropsToParent(input[key], prop);
+        if (input instanceof Array) {
+          result.push(innerConversion);
+        } else {
+          result[key] = innerConversion;
+        }
+      } else {
+        const value = input[key];
+        if (input instanceof Array) {
+          result.push(value);
+        } else {
+          result[key] = value;
+        }
+      }
+    }
+  }
+
+  return result;
 }

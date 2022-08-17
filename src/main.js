@@ -60,6 +60,8 @@ import NewMedia from '~/components/cards/NewMedia.vue';
 import CardGrid from '~/components/CardGrid.vue';
 import CardGridV2 from '~/components/CardGridV2.vue';
 import CardGridV3 from '~/components/CardGridV3.vue';
+import CardGridExchanges from '~/components/CardGridExchanges.vue';
+import EcosystemExperiencingIssues from '~/components/page/EcosystemExperiencingIssues.vue';
 import CardGridContributors from '~/components/CardGridContributors.vue';
 import CardGridContributorFilter from '~/components/CardGridContributorFilter.vue';
 import CardGridPartners from '~/components/CardGridPartners.vue';
@@ -141,6 +143,11 @@ import LearnCardFeatured from '~/components/blog/LearnCardFeatured'
 import LearnFilter from '~/components/blog/LearnFilter'
 import LearnCard from '~/components/blog/LearnCard'
 
+import LearnArticleColumnDouble from '~/components/learn/LearnArticleColumnDouble'
+import LearnArticleColumnSingle from '~/components/learn/LearnArticleColumnSingle'
+import LearnArticleHero from '~/components/learn/LearnArticleHero'
+import LearnArticleImage from '~/components/learn/LearnArticleImage'
+import Breadcrumbs from '~/components/Breadcrumbs'
 
 // Page Specific
 import HomeHero from '~/components/page/HomeHero.vue';
@@ -200,6 +207,7 @@ import AboutSecretNetworkDetails from '~/components/page/AboutSecretNetworkDetai
 import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetworkPossibilities'
 import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
 import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
+import AboutSecretNetworkCases from '~/components/page/AboutSecretNetworkCases'
 import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
 import AustinEventHero from '~/components/page/AustinEventHero'
 import AustinEventMeet from '~/components/page/AustinEventMeet'
@@ -210,6 +218,11 @@ import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpar
 import GeneralCtas from '~/components/page/GeneralCtas'
 import LearnPortalHero from '~/components/page/LearnPortalHero'
 
+// Dynamic
+import TextColumnSingle from '~/components/dynamic/TextColumnSingle'
+import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
+import ArticleHero from '~/components/dynamic/ArticleHero'
+import ArticleImage from '~/components/dynamic/ArticleImage'
 
 
 
@@ -280,6 +293,8 @@ export default function (Vue, {
   Vue.component('CardGrid', CardGrid);
   Vue.component('CardGridV2', CardGridV2);
   Vue.component('CardGridV3', CardGridV3);
+  Vue.component('CardGridExchanges', CardGridExchanges);
+  Vue.component('EcosystemExperiencingIssues', EcosystemExperiencingIssues);
   Vue.component('CardGridContributors', CardGridContributors);
   Vue.component('CardGridContributorFilter', CardGridContributorFilter);
   Vue.component('CardGridPartners', CardGridPartners);
@@ -379,6 +394,12 @@ export default function (Vue, {
   Vue.component('LearnFilter', LearnFilter);
   Vue.component('LearnCard', LearnCard);
 
+  // Dynamic
+  Vue.component('TextColumnSingle', TextColumnSingle);
+  Vue.component('TextColumnDouble', TextColumnDouble);
+  Vue.component('ArticleHero', ArticleHero);
+  Vue.component('ArticleImage', ArticleImage);
+
   //Page Specific
   Vue.component('HomeHero', HomeHero);
   Vue.component('HomeExplainer', HomeExplainer);
@@ -420,6 +441,7 @@ export default function (Vue, {
   Vue.component('AboutSecretNetworkPossibilities', AboutSecretNetworkPossibilities);
   Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
   Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
+  Vue.component('AboutSecretNetworkCases', AboutSecretNetworkCases);
   Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
   Vue.component('AustinEventHero', AustinEventHero);
   Vue.component('AustinEventMeet', AustinEventMeet);
@@ -430,9 +452,11 @@ export default function (Vue, {
   Vue.component('GeneralCtas', GeneralCtas);
   Vue.component('LearnPortalHero', LearnPortalHero);
   
-
-
-  
+  Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
+  Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
+  Vue.component('LearnArticleHero', LearnArticleHero);
+  Vue.component('LearnArticleImage', LearnArticleImage);
+  Vue.component('Breadcrumbs', Breadcrumbs);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);

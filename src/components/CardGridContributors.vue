@@ -543,13 +543,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         display: grid;
         justify-content: center;
         gap: var(--f-gutter);
-        padding-bottom: var(--f-gutter);
+        padding: 26px 0 var(--f-gutter) 0;
         * {
           margin: 0;
         }
         .custom-checkbox {
-          // grid-auto-flow: column;
-          // grid-template-columns: auto;
           gap: 10px;
           display: flex;
           justify-content: center;
@@ -579,15 +577,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 border-radius: 100px;
                 padding: 2px 8px;
                 border: 1px solid var(--color-neutral-dark-mode-04);
-                //color: var(--color-neutral-dark-mode-05);
                 img {
-                  // transition: 0.2s ease;
                   width: 0px;
                   height: 0px;
                 }
               }
               input {
-                //max-width: 400px;
 
                 &:checked {
                   ~ .title {
@@ -617,7 +612,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           background: var(--color-neutral-dark-mode-04);
           background-image: url(../assets/search-icon-gray.svg);
           background-repeat: no-repeat;
-          //border-color: var(--color-neutral-dark-mode-01);
           border: none;
           background-position: 8px;
           padding-left: 32px;
@@ -745,145 +739,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             }
           }
         }
-
-        // .card-element {
-        //   border-radius: var(--f-radius);
-        //   overflow: hidden;
-        //   background: var(--theme-card-bg-default);
-        //   transition: 0.2s ease;
-        //   display: grid;
-        //   text-align: center;
-        //   border-radius: 10px;
-        //   // * {
-        //   //   //margin: 0;
-        //   // }
-
-        //   // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
-        //   &__overall-link {
-        //     display: grid;
-        //     gap: var(--f-gutter);
-        //     padding: var(--f-gutter);
-        //     //grid-template-rows: 64px 1fr ;
-
-        //     &:hover  .ecosystem .btn-text{
-        //         color: var( --theme-links-default);
-        //       }
-
-        //     &:hover .tag-accent{
-        //           border-color: var(--color-neutral-dark-mode-02);
-        //         }
-
-        //         .ecosystem{
-        //            &:hover{
-        //       color: var(--color-highkey-secondary-blue);
-        //     }
-        //         }
-        //   }
-        //   &__header {
-
-        //     border-radius: 10px;
-        //       padding: 0;
-        //       //object-fit: contain;
-
-        //       min-width: 150px;
-        //       height: 150px;
-        //       background-color: var(--color-neutral-dark-mode-06);
-        //     &__logo {
-        //        border-radius: 10px;
-        //       // padding: 0;
-        //       //object-fit: contain;
-        //       margin: auto;
-        //       background-color: var(--color-neutral-dark-mode-04);
-        //     }
-
-        //     .meta {
-        //       display: grid;
-        //       justify-items: end;
-        //       // gap: 8px;
-        //     }
-        //     &__tags {
-        //       display: flex;
-        //       flex-flow: wrap-reverse;
-        //       justify-content: flex-end;
-        //       gap: 5px;
-        //       p {
-        //         font-size: 15px;
-        //         text-transform: capitalize;
-        //         border-radius: 100px;
-        //         padding: 2px 8px;
-        //         border: 1px solid var(--color-neutral-dark-mode-04);
-
-        //       }
-
-        //     }
-
-        //   }
-
-        //   &__country{
-        //     display: grid;
-        //     gap: 16px;
-        //     padding: var(--f-gutter);
-
-        //     &__picture{
-        //       //padding: var(--f-gutter);
-        //       border-radius: 10px;
-        //     }
-        //   }
-
-        //   &__title-desc {
-        //     display: grid;
-        //     gap: 8px;
-        //     text-align: left;
-        //     &__header {
-        //       display: grid;
-        //       gap: 8px;
-        //       align-content: start;
-        //     }
-        //     h4 {
-        //       color: white;
-        //     }
-        //     p{
-        //       min-width: 196px;
-        //     }
-        //   }
-        //   &.hidden {
-        //     display: none;
-        //   }
-
-        //   & img {
-        //     object-fit: cover;
-        //     //width: 100%;
-        //     aspect-ratio: 1 / 1;
-
-        //   }
-
-        //   &:hover {
-
-        //     background: var(--color-neutral-dark-mode-04);
-
-        //   }
-
-        //   * {
-        //     margin: 0;
-        //   }
-
-        //   h6 {
-        //     color: var(--theme-fg);
-        //   }
-
-        //   p {
-        //     &.tag {
-        //       text-transform: capitalize;
-        //     }
-
-        //     // @each $name, $color in $accent-colors {
-        //     //   &.accent-#{$name} {
-        //     //     color: var(--accent-#{$name});
-        //     //   }
-        //     // }
-        //   }
-
-        // }
       }
     }
   }

@@ -41,44 +41,21 @@ title: "Tools"
 
 
 
-<column number="2" number-m="1" number-s="1" weight="left" class="spacer-s bg-dark view-roadmap">
 
-<block>
+<!-- General CTAs -->
+<column class="spacer-s" number="2" number-m="2" number-s="1">
 
-### See what Secrets we have in store
+<block >
 
-</block>
-
-<!-- <block class="ecosystem-pages ecosystem-pages__action">
-
-<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
-
-</block> -->
-
-<block class="view-roadmap-btn">
-
-<btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap">View Roadmap</btn>
+<general-ctas id="get-started"></general-ctas>
 
 </block>
 
-</column>
+<block >
 
-
-
-
-
-
-
-
-
-<column class="" >
-
-<block>
-
-<general-ctas id="get-started-with-secret"></general-ctas>
+<general-ctas id="build-on-secret"></general-ctas>
 
 </block>
-
 
 </column >
 
@@ -91,7 +68,7 @@ title: "Tools"
 
 
 <!-- swirl -->
-<column class="ecosystem__green-swirl__bottom">
+<column class="ecosystem__green-swirl__bottom" mode="full">
 
 <block>
 

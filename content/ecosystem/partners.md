@@ -79,7 +79,7 @@ title: "Partners"
 
 
 <!-- swirl -->
-<column class="ecosystem__green-swirl__bottom">
+<column class="ecosystem__green-swirl__bottom" mode="full">
 
 <block>
 
