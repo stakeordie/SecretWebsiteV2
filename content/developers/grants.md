@@ -104,7 +104,7 @@ title: "Grants"
     
 <p class="page-ecosystem__grant__content__p">Apply for our $225M+ Ecosystem Fund to get long-term financial & strategic support to scale your Secret project.</p>
     
-<btn class="no-arrow" url="../ecosystem/funding" >READ MORE</btn>
+<btn class="no-arrow" url="https://github.com/scrtlabs/Grants" >READ MORE</btn>
 
 </div>
 
