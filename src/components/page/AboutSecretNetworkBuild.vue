@@ -7,9 +7,9 @@
             class="about-secret-network-vision__header__info__content__header"
           >
             <h4 class="">OUR VISION</h4>
-            <h4 class="">
+            <h1 class="">
               Building to become the Web3 <span>privacy hub</span>
-            </h4>
+            </h1>
           </div>
           <p class="">
             How we’re optimizing for interoperability, scalability, and
