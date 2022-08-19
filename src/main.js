@@ -221,6 +221,7 @@ import LearnPortalHero from '~/components/page/LearnPortalHero'
 // Dynamic
 import TextColumnSingle from '~/components/dynamic/TextColumnSingle'
 import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
+import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
 
@@ -397,6 +398,7 @@ export default function (Vue, {
   // Dynamic
   Vue.component('TextColumnSingle', TextColumnSingle);
   Vue.component('TextColumnDouble', TextColumnDouble);
+  Vue.component('TextImageColumnDouble', TextImageColumnDouble);
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
 
