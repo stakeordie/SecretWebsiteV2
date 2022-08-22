@@ -9,7 +9,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="get-involved-become-secret-agent__hero bg-black-gradient">
+<column class="get-involved-become-secret-agent__hero">
 
 <block>
 
