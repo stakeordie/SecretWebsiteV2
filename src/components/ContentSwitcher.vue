@@ -139,8 +139,8 @@ query {
         gap: var(--f-gutter-xs);
 
         @include respond-to("<=m") {
-          grid-auto-flow: column;
-          justify-items: start;
+          // grid-auto-flow: column;
+          justify-items: center;
         }
         &--mobile {
           display: none;       

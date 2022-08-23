@@ -4,10 +4,27 @@
       <div class="secret-agent__hero__container__left">
         <h2>{{ hero.title }} Become a <span>Secret Agent</span>.</h2>
         <p>{{ hero.subtitle }}</p>
-        <form v-if="!formSubmitted" @submit.prevent="submitForm" class="validate secret-agent-form">
-          <input type="email" v-model="email" value="" name="email" class="required email secret-agent-form__input"
-            placeholder="enter your email" required />
-          <button type="submit" value="Subscribe" name="subscribe" class="btn button" :disabled="loading">
+        <form
+          v-if="!formSubmitted"
+          @submit.prevent="submitForm"
+          class="validate secret-agent-form"
+        >
+          <input
+            type="email"
+            v-model="email"
+            value=""
+            name="email"
+            class="required email secret-agent-form__input"
+            placeholder="enter your email"
+            required
+          />
+          <button
+            type="submit"
+            value="Subscribe"
+            name="subscribe"
+            class="btn button"
+            :disabled="loading"
+          >
             <span class="btn-text">{{ hero.form_button_text }}</span>
           </button>
         </form>
@@ -151,10 +168,10 @@ export default {
       }
 
       .secret-agent-form {
-        // display: grid;
-        // grid-auto-flow: column;
-        // grid-template-columns: 1fr 149px;
-        // gap: var(--f-gutter-s);
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 149px;
+        gap: var(--f-gutter-s);
 
         @include respond-to("<=s") {
           grid-auto-flow: row;
@@ -164,17 +181,18 @@ export default {
         &__input {
           background: transparent !important;
           border: 1px solid var(--color-analog-primary-white) !important;
+          height: 50px;
         }
 
         input {
-          display: none;
+          // display: none;
           &::placeholder {
             color: white;
           }
         }
         button {
           margin: 0 !important;
-          height: 100%;
+          height: 50px;
           background: var(--color-ver2-primary-yellow) !important;
           color: var(--color-neutral-dark-mode-01) !important;
           width: 149px !important;
