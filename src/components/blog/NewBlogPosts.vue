@@ -1,7 +1,7 @@
 <template>
   <section class="new-blog-grid">
     <div class="new-blog-grid__title">
-      <h5 class="new-blog-grid__title-h5">LATEST BLOG POSTS</h5>
+      <h5 class="new-blog-grid__title-h5">BLOG POSTS</h5>
       
       <div class="new-blog-grid__title-btns">
         <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</btn>

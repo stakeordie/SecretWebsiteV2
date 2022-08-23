@@ -96,10 +96,13 @@ export default {
 .get-involved-become-secret-agent__hero {
   // background: red ;
   background-image: url("../assets/enrollment-background.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: right;
 }
 
 .secret-agent__hero{
-  padding: 72px 0;
+  padding: 120px 0 70px 0;
   &__container{
     padding: var(--f-gutter);
     display: grid;

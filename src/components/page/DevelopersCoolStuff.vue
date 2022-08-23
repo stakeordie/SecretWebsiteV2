@@ -39,9 +39,9 @@
               </p>
             </div>
           </div>
-          <btn class="ecosystem" url="">{{
+          <!-- <btn class="ecosystem" url="">{{
             element.cta_title ? element.cta_title : "VISIT SITE"
-          }}</btn>
+          }}</btn> -->
         </a>
       </div>
     </div>
@@ -173,7 +173,7 @@ export default {
         display: grid;
         gap: var(--f-gutter);
         padding: var(--f-gutter);
-        grid-template-rows: 64px 1fr 32px;
+        grid-template-rows: 64px 1fr ;
 
         .ecosystem{
           margin-top: 0;
