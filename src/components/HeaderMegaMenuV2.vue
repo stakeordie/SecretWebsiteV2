@@ -506,6 +506,7 @@ export default {
     },
   },
   mounted() {
+    this.activeMenu();
     this.resizeWindow();
     this.megaMenuColumns();
     if (process.isClient) {
