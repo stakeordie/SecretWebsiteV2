@@ -7,9 +7,8 @@
         <h4 class="text-column__title">
           {{ this.paragraph_subtitle }}
         </h4>
-        <p class="text-column__paragraph">
-          {{ this.paragraph }}
-        </p>
+        <vue-markdown :source="paragraph" class="text-column__paragraph">
+        </vue-markdown>
     </div>
   </div>
 </template>

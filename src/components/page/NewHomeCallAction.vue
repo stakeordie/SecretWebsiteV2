@@ -97,7 +97,13 @@ export default {
             
             order: 1;
             margin: 0 auto;
+
+            img {
+                margin: auto;
+                height: 200px !important;
+                }
             }
+            
         }
         
         &__info{
@@ -168,11 +174,11 @@ export default {
     }
     .action2{
         & h5{
-            color: var(--color-analog-secondary-blue);
+            color: var(--color-ver2-primary-blue);
         }
         & .new-home__call__content__info-btns{
             & .btn-color{
-                background-color: var(--color-analog-secondary-blue);
+                background-color: var(--color-ver2-primary-blue);
                 &:hover{
                     background-color: var(--color-neutral-dark-mode-02);
                 }

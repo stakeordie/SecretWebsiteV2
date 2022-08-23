@@ -1,10 +1,11 @@
 <template>
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
-      <h5 class="featured-media-header__title">FEATURED MEDIA</h5>
+      <h5 class="featured-media-header__title">Other MEDIA</h5>
       
       <div class="new-blog-grid__title-btns">
-        <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn>
+        <btn class="link-arrow " style="justify-content:right" url="/media/features">VIEW ALL</btn>
+        <!-- <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn> -->
       </div>
     </div>
 

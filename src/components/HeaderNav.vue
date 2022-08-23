@@ -7,7 +7,7 @@
         class="flui-header-nav__items__single-item"
       >
         <a class="flui-header-nav__items__single-item__top-anchor">
-          {{ item.title }}
+          {{ item.title }} + XX
           <svg
             class="flui-header-nav__items__single-item__top-anchor__chevron"
             width="24"
