@@ -32,6 +32,7 @@
               <ul class="nav">
                 <li
                   class="nav__content"
+                  :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   v-for="(nav, index) in megaMenuItems"
                   :key="index"
                   @click.prevent="toggleMegaMenu(index)"
@@ -459,7 +460,10 @@ export default {
             }
           }
           if (el.text.toLowerCase() === "ecosystem") {
-            if (path.includes("/ecosystem") || path.includes("/service-status")) {
+            if (
+              path.includes("/ecosystem") ||
+              path.includes("/service-status")
+            ) {
               el.classList.add("active-ecosystem");
             } else {
               el.classList.remove("active-ecosystem");
@@ -513,7 +517,7 @@ export default {
       this.scrollPosition();
     }
   },
-  
+
   watch: {
     $route: {
       handler(to, from) {
@@ -584,7 +588,7 @@ query {
   --mega-header-gap-searchbar: 10px;
   --mega-header-width-searchbar: 219px;
   --mega-header-gap-nav: 10px;
-  --mega-header-background-nav-expanded: rgba(43, 52, 64, 1);
+  --mega-header-background-nav-expanded: rgba(26, 33, 40, 1);
   --mega-header-color-nav-exanded: rgba(240, 242, 245, 1);
   --mega-header-color-nav-exanded-hover: var(--color-newBrand-blue-01);
   --mega-header-gap-social-media: 4px;
@@ -811,6 +815,33 @@ query {
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
+          &:hover {
+            &.learn {
+              a {
+                color: var(--color-ver2-secondary-red);
+              }
+            }
+            &.build {
+              a {
+                color: var(--color-ver2-primary-blue);
+              }
+            }
+            &.ecosystem {
+              a {
+                color: var(--color-ver2-primary-turquoise);
+              }
+            }
+            &.get-involved {
+              a {
+                color: var(--color-ver2-secondary-yellow);
+              }
+            }
+            &.resources {
+              a {
+                color: var(--color-ver2-secondary-purple);
+              }
+            }
+          }
           .active- {
             &about {
               color: var(--color-ver2-secondary-red);
@@ -829,8 +860,33 @@ query {
             }
           }
           &.activeNav {
-            background: var(--mega-header-background-nav-expanded);
+            // background: var(--mega-header-background-nav-expanded);
             border-radius: 10px 10px 0px 0px;
+            &.learn {
+              a {
+                color: var(--color-ver2-secondary-red);
+              }
+            }
+            &.build {
+              a {
+                color: var(--color-ver2-primary-blue);
+              }
+            }
+            &.ecosystem {
+              a {
+                color: var(--color-ver2-primary-turquoise);
+              }
+            }
+            &.get-involved {
+              a {
+                color: var(--color-ver2-secondary-yellow);
+              }
+            }
+            &.resources {
+              a {
+                color: var(--color-ver2-secondary-purple);
+              }
+            }
           }
           @include respond-to("<=m") {
             padding: var(--f-gutter);
@@ -973,8 +1029,8 @@ query {
               hr {
                 display: block;
                 width: 100%;
-                height: 3px;
-                background: #303c4a;
+                height: 2px;
+                background: rgba(48, 60, 74, 1);
                 margin: 24px 0px 0px 0px;
               }
               &.emptytitle {
