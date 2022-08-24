@@ -215,6 +215,7 @@ export default {
       video{
         // -object-fit: contain;
         width: 100%;
+        cursor: pointer;
       }
 
        @include respond-to("<=m") {

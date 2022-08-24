@@ -1,7 +1,7 @@
 <template>
   <div :class="filteredBrochure" class="content-switcher">
     <aside class="content-switcher__sidebar">
-      <h3 class="content-switcher__sidebar__header">What You’ll Do:</h3>
+      <h3 class="content-switcher__sidebar__header">What you’ll do:</h3>
       <nav class="content-switcher__sidebar__navigation">
         <a :class="{active: selectedAnchor == index}" href="" v-on:click="getContentID(index)" v-for="(nav, index) in navigationBrochure" :key="index">
           <span class="content-switcher__sidebar__navigation--desktop">{{nav.card_title}}</span>
