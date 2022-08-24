@@ -79,6 +79,7 @@
               <div class="nav__expanded__content__titles">
                 <div
                   class="nav__expanded__content__titles__content"
+                  :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   @click.prevent="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
@@ -986,6 +987,23 @@ query {
             }
             &.hidden__submenu {
               padding: 0px;
+            }
+            &:not(.hidden__submenu) {
+              .learn {
+                color: var(--color-ver2-secondary-red);
+              }
+              .build {
+                color: var(--color-ver2-primary-blue);
+              }
+              .ecosystem {
+                color: var(--color-ver2-primary-turquoise);
+              }
+              .get-involved {
+                color: var(--color-ver2-secondary-yellow);
+              }
+              .resources {
+                color: var(--color-ver2-secondary-purple);
+              }
             }
             @include respond-to("<=l") {
               padding-top: 0px;
