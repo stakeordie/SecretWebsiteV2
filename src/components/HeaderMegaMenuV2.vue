@@ -32,6 +32,7 @@
               <ul class="nav">
                 <li
                   class="nav__content"
+                  :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   v-for="(nav, index) in megaMenuItems"
                   :key="index"
                   @click.prevent="toggleMegaMenu(index)"
@@ -78,6 +79,7 @@
               <div class="nav__expanded__content__titles">
                 <div
                   class="nav__expanded__content__titles__content"
+                  :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   @click.prevent="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
@@ -421,6 +423,74 @@ export default {
         });
       });
     },
+    activeMenu() {
+      if (process.isClient) {
+        let navItems = [];
+        let navFinder = [];
+        let path = [];
+
+        let getNavItems = function () {
+          return document
+            .querySelectorAll(".nav__content")
+            .forEach((it) => navItems.push(it.firstChild));
+        };
+        let getPath = function () {
+          path = window.location.pathname;
+          return path;
+        };
+
+        getNavItems();
+        getPath();
+
+        navFinder = navItems.filter((el) => {
+          // if (el.text === "Resources") {
+          //   el.classList.add("mystyle");
+          // }
+          if (el.text.toLowerCase() === "learn") {
+            if (path.includes("/about")) {
+              el.classList.add("active-about");
+            } else {
+              el.classList.remove("active-about");
+            }
+          }
+          if (el.text.toLowerCase() === "build") {
+            if (path.includes("/developers")) {
+              el.classList.add("active-build");
+            } else {
+              el.classList.remove("active-build");
+            }
+          }
+          if (el.text.toLowerCase() === "ecosystem") {
+            if (
+              path.includes("/ecosystem") ||
+              path.includes("/service-status")
+            ) {
+              el.classList.add("active-ecosystem");
+            } else {
+              el.classList.remove("active-ecosystem");
+            }
+          }
+          if (el.text.toLowerCase() === "get involved") {
+            if (path.includes("/get-involved")) {
+              el.classList.add("active-get-involved");
+            } else {
+              el.classList.remove("active-get-involved");
+            }
+          }
+          if (el.text.toLowerCase() === "resources") {
+            if (path.includes("/blog") || path.includes("/media")) {
+              el.classList.add("active-resources");
+            } else {
+              el.classList.remove("active-resources");
+            }
+          }
+        });
+
+        console.log(navFinder);
+        console.log(path);
+        console.log(path.includes("/media"));
+      }
+    },
   },
 
   computed: {
@@ -441,11 +511,21 @@ export default {
     },
   },
   mounted() {
+    this.activeMenu();
     this.resizeWindow();
     this.megaMenuColumns();
     if (process.isClient) {
       this.scrollPosition();
     }
+  },
+
+  watch: {
+    $route: {
+      handler(to, from) {
+        this.activeMenu();
+        return;
+      },
+    },
   },
   beforeDestroy() {
     this.scrollPosition();
@@ -509,9 +589,9 @@ query {
   --mega-header-gap-searchbar: 10px;
   --mega-header-width-searchbar: 219px;
   --mega-header-gap-nav: 10px;
-  --mega-header-background-nav-expanded: rgba(43, 52, 64, 1);
+  --mega-header-background-nav-expanded: rgba(26, 33, 40, 1);
   --mega-header-color-nav-exanded: rgba(240, 242, 245, 1);
-  --mega-header-color-nav-exanded-hover:var(--color-newBrand-blue-01);
+  --mega-header-color-nav-exanded-hover: var(--color-newBrand-blue-01);
   --mega-header-gap-social-media: 4px;
   --mega-header-color-social-medial: rgba(240, 242, 245, 1);
   --mega-header-color-social-media-icon: var(--color-analog-primary-white);
@@ -736,10 +816,78 @@ query {
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
-
+          &:hover {
+            &.learn {
+              a {
+                color: var(--color-ver2-secondary-red);
+              }
+            }
+            &.build {
+              a {
+                color: var(--color-ver2-primary-blue);
+              }
+            }
+            &.ecosystem {
+              a {
+                color: var(--color-ver2-primary-turquoise);
+              }
+            }
+            &.get-involved {
+              a {
+                color: var(--color-ver2-secondary-yellow);
+              }
+            }
+            &.resources {
+              a {
+                color: var(--color-ver2-secondary-purple);
+              }
+            }
+          }
+          .active- {
+            &about {
+              color: var(--color-ver2-secondary-red);
+            }
+            &build {
+              color: var(--color-ver2-primary-blue);
+            }
+            &ecosystem {
+              color: var(--color-ver2-primary-turquoise);
+            }
+            &get-involved {
+              color: var(--color-ver2-secondary-yellow);
+            }
+            &resources {
+              color: var(--color-ver2-secondary-purple);
+            }
+          }
           &.activeNav {
-            background: var(--mega-header-background-nav-expanded);
+            // background: var(--mega-header-background-nav-expanded);
             border-radius: 10px 10px 0px 0px;
+            &.learn {
+              a {
+                color: var(--color-ver2-secondary-red);
+              }
+            }
+            &.build {
+              a {
+                color: var(--color-ver2-primary-blue);
+              }
+            }
+            &.ecosystem {
+              a {
+                color: var(--color-ver2-primary-turquoise);
+              }
+            }
+            &.get-involved {
+              a {
+                color: var(--color-ver2-secondary-yellow);
+              }
+            }
+            &.resources {
+              a {
+                color: var(--color-ver2-secondary-purple);
+              }
+            }
           }
           @include respond-to("<=m") {
             padding: var(--f-gutter);
@@ -762,7 +910,7 @@ query {
             cursor: pointer;
             // a {
             //   //color: var(--mega-header-color-nav-exanded-hover);
-              
+
             // }
           }
         }
@@ -840,6 +988,23 @@ query {
             &.hidden__submenu {
               padding: 0px;
             }
+            &:not(.hidden__submenu) {
+              .learn {
+                color: var(--color-ver2-secondary-red);
+              }
+              .build {
+                color: var(--color-ver2-primary-blue);
+              }
+              .ecosystem {
+                color: var(--color-ver2-primary-turquoise);
+              }
+              .get-involved {
+                color: var(--color-ver2-secondary-yellow);
+              }
+              .resources {
+                color: var(--color-ver2-secondary-purple);
+              }
+            }
             @include respond-to("<=l") {
               padding-top: 0px;
             }
@@ -882,8 +1047,8 @@ query {
               hr {
                 display: block;
                 width: 100%;
-                height: 3px;
-                background: #303c4a;
+                height: 2px;
+                background: rgba(48, 60, 74, 1);
                 margin: 24px 0px 0px 0px;
               }
               &.emptytitle {

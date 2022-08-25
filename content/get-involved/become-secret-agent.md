@@ -9,7 +9,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="get-involved-become-secret-agent__hero bg-black-gradient">
+<column class="get-involved-become-secret-agent__hero">
 
 <block>
 
@@ -112,7 +112,7 @@ title: 'Become a Secret Agent'
 
 
 
-<column class="bg-black get-involved-become-secret-agent__join-mission">
+<column class=" get-involved-become-secret-agent__join-mission">
 
 <block>
 
@@ -134,6 +134,20 @@ title: 'Become a Secret Agent'
 <block>
 
 <content-switcher></content-switcher>
+
+</block>
+
+</column>
+
+
+
+
+<!-- Swirl bottom -->
+<column class="blue__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" /> 
 
 </block>
 

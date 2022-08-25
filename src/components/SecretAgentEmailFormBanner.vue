@@ -172,7 +172,7 @@ query {
           // gap: var(--f-gutter);
         }
         &__input {
-          background: transparent !important;
+          // background: transparent !important;
           border: 1px solid var(--color-analog-primary-white) !important;
         }
         input {

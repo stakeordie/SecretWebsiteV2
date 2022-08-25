@@ -4,17 +4,17 @@
         <h3 class="text-column-double__title">
           {{ first_paragraph_title }}
         </h3>
-        <p class="text-column-double__paragraph">
-          {{ first_paragraph }}
-        </p>
+        <vue-markdown :source="first_paragraph" class="text-column-double__paragraph">
+          <!-- {{ first_paragraph }} -->
+        </vue-markdown>
       </div>
       <div class="text-column-double__col-2">
         <h3 class="text-column-double__title">
           {{ second_paragraph_title }}
         </h3>
-        <p class="text-column-double__paragraph" >
-          {{ second_paragraph }}
-        </p>
+        <vue-markdown :source="second_paragraph" class="text-column-double__paragraph" >
+          <!-- {{ second_paragraph }} 999 -->
+        </vue-markdown>
       </div>
   </div>
 </template>
