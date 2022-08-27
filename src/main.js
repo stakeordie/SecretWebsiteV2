@@ -224,6 +224,7 @@ import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
 import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
+import ArticleCarousel from '~/components/dynamic/ArticleCarousel'
 
 
 
@@ -401,6 +402,7 @@ export default function (Vue, {
   Vue.component('TextImageColumnDouble', TextImageColumnDouble);
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
+  Vue.component('ArticleCarousel', ArticleCarousel);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);

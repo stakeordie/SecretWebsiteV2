@@ -1,5 +1,5 @@
 <template>
-  <default-layout class="content">
+  <default-layout class="content learn-article">
     <column class="spacer-s bg-black-gradient">
       <div v-for="component in $context.components">
         <block>
@@ -8,6 +8,26 @@
           </component>
         </block>
       </div>
+    </column>
+
+    <!-- Controlls  -->
+    <column number="2" class="page-developers__horizontal-scroll">
+      <block class="new-home__block-header">
+        <h3>Learn More About NFTs (Minting & Buying)</h3>
+        <p>
+          New to Secret? Not for long — start with these guides and explainers
+        </p>
+      </block>
+
+      <block class="justify-right">
+        <scroll-horizontal></scroll-horizontal>
+      </block>
+    </column>
+
+    <column class="page-developers__cool-stuff horizontal-slider" mode="full">
+      <block>
+        <article-carousel></article-carousel>
+      </block>
     </column>
   </default-layout>
 </template>
@@ -81,11 +101,11 @@
     }
 
     &.right {
-       .text-image-column-double__col-1 {
+      .text-image-column-double__col-1 {
         order: 1;
       }
 
-       .text-image-column-double__col-2 {
+      .text-image-column-double__col-2 {
         order: 2;
       }
     }
