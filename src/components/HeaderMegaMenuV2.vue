@@ -486,9 +486,9 @@ export default {
           }
         });
 
-        console.log(navFinder);
-        console.log(path);
-        console.log(path.includes("/media"));
+        // console.log(navFinder);
+        // console.log(path);
+        // console.log(path.includes("/media"));
       }
     },
   },

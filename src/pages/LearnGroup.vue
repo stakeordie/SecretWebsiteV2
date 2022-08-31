@@ -28,11 +28,7 @@
       </block>
     </column>
 
-    <column class="">
-      <block>
-        <learn-post></learn-post>
-      </block>
-    </column>
+        <carousel></carousel>
 
     <!-- SLIDER 1 -->
     <column number="2" number-s="1" class="learn-featured-tag__header">
