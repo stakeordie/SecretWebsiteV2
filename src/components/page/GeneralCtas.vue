@@ -142,7 +142,7 @@ export default {
           imageUrl: "/img/about-secret-network/secret-network-learn-img.svg",
           title: "Secret Network",
           description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+            "Learn the ins & outs of the Secret Network blockchain: our mission, design, tech, & more.",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
@@ -151,7 +151,7 @@ export default {
           imageUrl: "/img/about-secret-network/coin-img.svg",
           title: "SCRT Token",
           description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+            "Learn all things SCRT—the coin that powers the Secret blockchain—and how to get & use it.",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
@@ -160,7 +160,7 @@ export default {
           imageUrl: "/img/about-secret-network/learn-defi-img.svg",
           title: "DeFi",
           description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+            "Find out how privacy impacts DeFi, and how to protect your financial assets using Secret DeFi.",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
@@ -169,7 +169,7 @@ export default {
           imageUrl: "/img/about-secret-network/nfts-img.svg",
           title: "Creative Work",
           description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+            "Find out how privacy can empower creators and how to get started with Secret NFTs.",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
@@ -178,7 +178,7 @@ export default {
           imageUrl: "/img/about-secret-network/dao-img.svg",
           title: "Privacy",
           description:
-            "Volutpat in feugiat suscipit accumsan egestas scelerisque cras faucibus mi. ",
+            "Learn everything about Web3 privacy, how it works, and why it matters.",
           urlTitle: "LEARN MORE",
           url: "../get-involved/become-secret-agent",
         },
