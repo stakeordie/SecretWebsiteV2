@@ -114,6 +114,7 @@ module.exports = function(api) {
                 component.image = expandPropsToParent(data, 'image')
               })
           page.currentComponents.sort((a, b) => a.order - b.order)
+          console.log(page.currentComponents);
           createPage({
             path: `${page.route}`,
             component: `./src/templates/${template}.vue`,
