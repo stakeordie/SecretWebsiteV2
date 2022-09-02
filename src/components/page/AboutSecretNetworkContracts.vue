@@ -162,7 +162,10 @@ export default {};
     padding: 42px 0;
     gap: 36px;
     align-items: flex-start;
-    
+    @include respond-to("<=s") {
+      grid-template-columns: 1fr;
+    }
+
     &__item {
       display: grid;
       gap: 16px;
@@ -178,7 +181,9 @@ export default {};
       &__header {
         display: grid;
         gap: var(--f-gutter);
-        *{margin: 0;}
+        * {
+          margin: 0;
+        }
         img {
           width: 36px;
           height: 36px;

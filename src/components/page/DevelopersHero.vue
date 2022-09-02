@@ -11,7 +11,16 @@
           contracts. Encrypted inputs, outputs, and state can be revealed at
           will, opening up an entirely new design space for dApps.
         </p>
-        <btn class="text-center no-arrow" url="https://discord.gg/PzdQ9bfvcX">Join our Dev Community</btn>
+        <div class="page-developers__hero__content__info__ctas">
+          <btn
+            class="text-center no-arrow"
+            url="https://docs.scrt.network/secret-network-documentation/development/getting-started"
+            >GET STARTED</btn
+          >
+          <btn class="text-center no-arrow join" url="https://discord.gg/PzdQ9bfvcX"
+            >Join our Dev Community</btn
+          >
+        </div>
       </div>
     </div>
     <div class="page-developers__hero__bg-img">
@@ -28,7 +37,6 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developers__hero {
-
   min-height: 494px;
   padding: var(--f-gutter-xxl);
 
@@ -47,7 +55,7 @@ export default {};
     position: relative;
     padding: var(--f-gutter);
     margin: auto;
-    top:24px;
+    top: 24px;
 
     @include respond-to("<=s") {
       padding: 0;
@@ -55,15 +63,14 @@ export default {};
 
     &__title {
       display: grid;
-    grid-gap:20px;
+      grid-gap: 4px;
       text-align: center;
       h1 {
         font-family: var(--f-default-headers-font);
         font-size: 54px;
-        
+
         line-height: 60px;
-        letter-spacing: 0.5px;
-        
+        // letter-spacing: 0.5px;
 
         span {
           color: var(--color-newBrand-blue-02);
@@ -76,8 +83,8 @@ export default {};
         font-weight: 500;
         font-size: var(--f-h4-text-size);
         letter-spacing: 0.2px;
-        color: var(--color-neutral-dark-mode-05);
-        line-height: 24px;
+        color: #94A4B8;
+        line-height: 30px;
         text-align: center;
         margin: auto;
 
@@ -92,6 +99,7 @@ export default {};
       justify-content: center;
       align-items: center;
       justify-items: center;
+      gap: 26px;
 
       p {
         font-size: var(--paragraph-font-size-big);
@@ -105,22 +113,32 @@ export default {};
         }
       }
 
-      a{
+      a {
         margin-right: 0;
       }
-       .text-center{
+      .text-center {
         background-color: var(--color-newBrand-blue-01) !important;
-        width:400px;
+        width: 400px;
         margin-right: 0;
         padding: 0;
 
-        &::before{
+        &::before {
           margin: 0;
         }
-
-        .btn-text{
-          letter-spacing: 1px;
-          font-size: var(--f-h6-text-size);
+      }
+      &__ctas {
+        display: grid;
+        grid-auto-flow: column;
+        gap: var(--f-gutter);
+        .btn {
+          min-width: 300px;
+          &.join {
+            background: var(--color-neutral-dark-mode-04) !important;
+          }
+          &-text {
+            letter-spacing: 1px;
+            font-size: var(--f-h6-text-size);
+          }
         }
       }
     }
@@ -142,7 +160,7 @@ export default {};
       width: 480px;
       left: 30%;
     }
-     @include respond-to("<=xs") {
+    @include respond-to("<=xs") {
       width: 480px;
       left: 12%;
     }
