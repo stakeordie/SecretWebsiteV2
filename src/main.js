@@ -35,6 +35,7 @@ import ThemeMode from '~/components/animated/ThemeMode.vue';
 import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
+import DynamicBreadcrumb from '~/components/DynamicBreadcrumb';
 import Announcement from '~/components/Announcement.vue';
 import AnnouncementVer2 from '~/components/AnnouncementVer2.vue';
 import Navigation from '~/components/Navigation.vue';
@@ -265,6 +266,7 @@ export default function (Vue, {
   Vue.component('ThemeMode', ThemeMode);
   Vue.component('ThemeColor', ThemeColor);
   Vue.component('AlertBar', AlertBar);
+  Vue.component('DynamicBreadcrumb', DynamicBreadcrumb);
   Vue.component('Announcement', Announcement);
   Vue.component('AnnouncementVer2', AnnouncementVer2);
 
