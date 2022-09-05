@@ -1,5 +1,6 @@
 <template>
   <default-layout class="learn-article">
+    <dynamic-breadcrumb :route="$context.route" />
     <column class="spacer-s bg-black-gradient learn-article__content">
       <div v-for="component in $context.components">
         <block>

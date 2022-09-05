@@ -1,5 +1,6 @@
 <template>
   <default-layout class="learn-subpage">
+    <dynamic-breadcrumb :route="$context.route" />
     <column
       class="page-developers__cool-stuff horizontal-slider"
       mode="full"
@@ -20,6 +21,7 @@
           src="../../src/assets/swirl-orange-bottom.svg"
         />
       </block>
+
     </column>
   </default-layout>
 </template>
