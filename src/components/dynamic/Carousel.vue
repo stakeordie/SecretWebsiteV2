@@ -16,7 +16,6 @@
       </div>
     </div>
     <div class="items horizontal-slider learn-carousel__item">
-      <p>{{ image }}</p>
       <div
         class="card-element item"
         v-for="(element, index) in articlesCarousel.data.learn_pages"
@@ -31,7 +30,7 @@
           <div class="card-element__header">
             <img
               class="card-element__header__logo"
-              src="/img/learn/learnThumbnail-00002.jpg"
+              :src="element.card_image.data.url"
               alt="picture"
             />
           </div>
@@ -53,25 +52,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      routeUrls: Array(),
-    };
-  },
   props: {
-    route: {
-      type: String,
-      required: false,
-    },
     dynamic_page_groups_learn_article: Object,
     title: String,
     subtitle: String,
-    image: Object,
-  },
-  computed: {
-    routeArray() {
-      return this.route.split("/");
-    },
+    card_image: Object,
   },
 
   methods: {
