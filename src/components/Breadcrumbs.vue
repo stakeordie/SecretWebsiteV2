@@ -3,6 +3,7 @@
     <div class="learn-breadcrumbs__content">
       <a href="../about/learn-portal">Learn Portal</a>
       <p>/</p>
+      <dynamic-breadcrumb :route="$context.route" />
       <a href="#">Tag</a>
       <p>/</p>
       <a href="#">Category</a>

@@ -1,9 +1,19 @@
 <template>
   <default-layout class="learn-subpage">
-    <dynamic-breadcrumb :route="$context.route" />
+    <column class="comp-name__dynamic-breadcrumb">
+      <block>
+        <dynamic-breadcrumb :route="$context.route" />
+      </block>
+    </column>
     <column
       class="horizontal-slider"
-      mode="full"
+      :class="'comp-name__' + component.comp_name"
+      :mode="
+        component.comp_name === 'carousel' ||
+        component.comp_name === 'learn-header'
+          ? 'full'
+          : 'normal'
+      "
       v-for="(component, index) in $context.components"
       :key="index"
     >
@@ -13,6 +23,7 @@
         </component>
       </block>
     </column>
+
     <!-- Swirl bottom -->
     <column class="blue__swirl__bottom" mode="full">
       <block>
@@ -21,118 +32,92 @@
           src="../../src/assets/swirl-orange-bottom.svg"
         />
       </block>
-
     </column>
   </default-layout>
 </template>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
+
 .learn-subpage {
+  .comp-name {
+    &__dynamic-breadcrumb {
+      .content {
+        height: 0;
+        .box {
+          height: 0;
+          .dynamic-breadcrumb {
+            position: absolute;
+          }
+        }
+      }
+    }
+    &__learn-header {
+      .box {
+        padding: 0;
+      }
+    }
+    &__carousel {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
+  .learn-header {
+    display: grid;
+    gap: var(--f-gutter);
+    justify-items: center;
+    text-align: center;
+    height: 572px;
+    align-content: center;
+    background: #11151a;
+    position: relative;
+    * {
+      margin: 0;
+    }
+    &__subtitle {
+      font-family: "Hind";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #94a4b8;
+      z-index: 1;
+    }
+    &__title {
+      font-family: "Hind";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 60px;
+      z-index: 1;
+    }
+    &__about-text {
+      max-width: 591px;
+      z-index: 1;
+    }
+    &__image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 0;
+      opacity: 0.1;
+    }
+  }
+  & .swirl-wrapper {
+    .top {
+      opacity: 0;
+    }
+  }
   & .swirl-wrapper-bottom {
     display: none;
   }
-
   & .simple-footer {
     margin-top: 0;
   }
 }
-
-// .learn-article {
-//   &__carouselItem {
-//     white-space: nowrap;
-//     display: grid;
-//     grid-auto-flow: column;
-//     justify-content: start;
-
-//     &::-webkit-scrollbar {
-//       display: none;
-//     }
-//     .card-element {
-//       border-radius: var(--f-radius);
-//       overflow: hidden;
-//       background: var(--theme-card-bg-default);
-//       transition: 0.2s ease;
-//       display: inline-flex;
-//       text-align: center;
-//       border-radius: 10px;
-//       max-width: 400px;
-//       min-width: 400px;
-
-//       margin-right: var(--f-gutter-l);
-
-//       white-space: normal;
-//       justify-content: space-between;
-//       vertical-align: top;
-//       position: relative;
-//       * {
-//         margin: 0;
-//       }
-//       &__overall-link {
-//         display: grid;
-//         gap: 10px;
-//         padding: var(--f-gutter);
-//       }
-//       &__header {
-//         display: grid;
-//         grid-template-columns: 1fr;
-//         align-items: start;
-//         gap: 4px;
-//       }
-//       &__title-desc {
-//         display: grid;
-//         gap: 8px;
-//         text-align: left;
-//         &__header {
-//           display: grid;
-//           gap: 0;
-//           align-content: start;
-//         }
-//         .element-grid {
-//           &-main-tag {
-//             font-family: "Hind";
-//             font-style: normal;
-//             font-weight: 700;
-//             font-size: 16px;
-//             line-height: 24px;
-//             color: #fbc998;
-//             display: flex;
-//             align-items: center;
-//             letter-spacing: 1px;
-//             text-transform: uppercase;
-//           }
-//           &-title {
-//             color: white;
-//           }
-//         }
-//       }
-//       &.hidden {
-//         display: none;
-//       }
-
-//       img {
-//         object-fit: cover;
-//         width: 100%;
-//         height: 206px;
-//       }
-//       &:hover {
-//         background: var(--color-neutral-dark-mode-04);
-//       }
-
-//       * {
-//         margin: 0;
-//       }
-
-//       h6 {
-//         color: var(--theme-fg);
-//       }
-
-//       p {
-//         &.tag {
-//           text-transform: capitalize;
-//         }
-//       }
-//     }
-//   }
-// }
 </style>

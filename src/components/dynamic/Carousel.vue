@@ -53,17 +53,25 @@
 
 <script>
 export default {
+  data() {
+    return {
+      routeUrls: Array(),
+    };
+  },
   props: {
+    route: {
+      type: String,
+      required: false,
+    },
     dynamic_page_groups_learn_article: Object,
     title: String,
     subtitle: String,
     image: Object,
   },
-
-  data() {
-    return {
-      
-    };
+  computed: {
+    routeArray() {
+      return this.route.split("/");
+    },
   },
 
   methods: {
@@ -113,6 +121,7 @@ export default {
     right: 0;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 var(--f-gutter-l);
     @include respond-to(">=l") {
       width: var(--f-breakpoint-xxl);
     }

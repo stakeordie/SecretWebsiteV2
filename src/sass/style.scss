@@ -164,7 +164,7 @@ body {
   &.index {
     main { padding-top: 52px; }
   }
-  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq):not(.about-secret-contracts):not(.get-involved-become-secret-agent):not(.learn-portal) {
+  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq):not(.about-secret-contracts):not(.get-involved-become-secret-agent):not(.learn-portal):not(.learn-subpage) {
     main { padding-top: 44px; }
   }
   // TODO Lets try to make this for all pages that requires to handle this.
