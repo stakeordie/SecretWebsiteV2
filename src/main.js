@@ -226,6 +226,7 @@ import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
 import Carousel from '~/components/dynamic/Carousel'
+import LearnHeader from '~/components/dynamic/LearnHeader'
 
 
 
@@ -462,6 +463,7 @@ export default function (Vue, {
   Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
   Vue.component('LearnArticleHero', LearnArticleHero);
   Vue.component('LearnArticleImage', LearnArticleImage);
+  Vue.component('LearnHeader', LearnHeader);
   Vue.component('Breadcrumbs', Breadcrumbs);
 
   //External Libraries

@@ -1,13 +1,18 @@
 <template>
-  <div class="mover learn-carousel">
+  <div class="mover learn-carousel" :class="'carouselId-' + idCarousel">
     <div class="learn-carousel__header">
       <div class="learn-carousel__header__description">
         <h3>{{ title }}</h3>
         <p>{{ subtitle }}</p>
       </div>
       <div class="learn-carousel__header__controls">
-        <h3>{{ title }}</h3>
-        <p>{{ subtitle }}</p>
+        <button class="theme padding-small control" @click="scroll_left">
+          <img src="../../assets/icon-circle-left.svg" alt="left" />
+        </button>
+
+        <button class="theme padding-small control" @click="scroll_right">
+          <img src="../../assets/icon-circle-right.svg" alt="right" />
+        </button>
       </div>
     </div>
     <div class="items horizontal-slider learn-carousel__item">
@@ -32,12 +37,8 @@
           </div>
           <div class="card-element__title-desc">
             <div class="card-element__title-desc__header">
-              <!-- <p>{{dynamic_page_groups_learn_article}}</p> -->
               <h6 class="element-grid-main-tag">{{ tagCarousel }}</h6>
               <h5 class="element-grid-title">{{ element.name }}</h5>
-              <!-- <div v-for="(article, index) in element.learn_pages" :key="index">
-                <h5 class="element-grid-title">{{ article.name }}</h5>
-              </div> -->
             </div>
           </div>
         </a>
@@ -61,65 +62,20 @@ export default {
 
   data() {
     return {
-      articlesCarousel: [],
-      tagCarousel: [],
-      articles: [
-        //BOTTOM CTAs
-        {
-          imageUrl: "/img/learn/learnThumbnail-00001.jpg",
-          mainTag: "Tutorial",
-          title: "Secret-BSC Bridge",
-          url: "/learn/test",
-        },
-        {
-          imageUrl: "/img/learn/learnThumbnail-00002.jpg",
-          mainTag: "Tutorial",
-          title: "Secret-XRM Bridge",
-          url: "/learn/test",
-        },
-        {
-          imageUrl: "/img/learn/learnThumbnail-00003.jpg",
-          mainTag: "Tutorial",
-          title: "How to buy SCRT using Osmosis ZOne & ATOM",
-          url: "/learn/test",
-        },
-        {
-          imageUrl: "/img/learn/learnThumbnail-00004.jpg",
-          mainTag: "Tutorial",
-          title: "How to buy SCRT using Switchwhere",
-          url: "/learn/test",
-        },
-        {
-          imageUrl: "/img/learn/learnThumbnail-00005.jpg",
-          mainTag: "Tutorial",
-          title: "How to buy SCRT using Transak on Secret Swap",
-          url: "/learn/test",
-        },
-        {
-          imageUrl: "/img/learn/learnThumbnail-00006.jpg",
-          mainTag: "Tutorial",
-          title: "How to Stake SCRT",
-          url: "/learn/test",
-        },
-      ],
+      
     };
   },
 
   methods: {
     scroll_left() {
-      let content = document.querySelector(
-        ".media-featured > .--flare-block > .content > .box"
-      );
-      content.scrollLeft -= 390;
-      console.log("left");
+      let content = document.querySelector(`.carouselId-${this.idCarousel}`);
+      content.parentElement.scrollLeft -= 390;
+      console.log(content);
+      console.log(content.parentElement);
     },
     scroll_right() {
-      let content = document.querySelector(
-        ".media-featured > .--flare-block > .content > .box"
-      );
-      content.scrollLeft += 390;
-      // console.log("right");
-      // console.log(content);
+      let content = document.querySelector(`.carouselId-${this.idCarousel}`);
+      content.parentElement.scrollLeft += 390;
     },
     onFilterApplied(filters) {
       this.appliedFilters = filters;
@@ -127,17 +83,25 @@ export default {
     carouselItems() {
       this.articlesCarousel = this.dynamic_page_groups_learn_article;
       this.tagCarousel = this.articlesCarousel.data.name;
+      console.log(this.articlesCarousel);
       return this.articlesCarousel;
     },
+    idCarouselTagger() {
+      this.idCarousel = this.dynamic_page_groups_learn_article.data.id;
+      console.log(this.idCarousel);
+      return this.idCarousel;
+    },
   },
-
+  mounted() {},
   beforeMount() {
+    this.idCarouselTagger();
     this.carouselItems();
   },
 };
 </script>
 
 <style lang="scss">
+@import "@lkmx/flare/src/functions/_respond-to.scss";
 .learn-carousel {
   display: grid;
   &__header {
@@ -145,8 +109,29 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1200px;
     position: absolute;
-    background: lightcoral;
-    width: var(--f-breakpoint-xxl);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    @include respond-to(">=l") {
+      width: var(--f-breakpoint-xxl);
+    }
+    &__description {
+      display: grid;
+      gap: 0;
+      * {
+        margin: 0;
+      }
+    }
+    &__controls {
+      display: grid;
+      gap: 0;
+      justify-content: end;
+      grid-auto-flow: column;
+      * {
+        margin: 0;
+      }
+    }
   }
   &__item {
     white-space: nowrap;

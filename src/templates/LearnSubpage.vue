@@ -2,7 +2,7 @@
   <default-layout class="learn-subpage">
     <dynamic-breadcrumb :route="$context.route" />
     <column
-      class="page-developers__cool-stuff horizontal-slider"
+      class="horizontal-slider"
       mode="full"
       v-for="(component, index) in $context.components"
       :key="index"
