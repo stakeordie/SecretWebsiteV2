@@ -227,6 +227,7 @@ import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
 import Carousel from '~/components/dynamic/Carousel'
 import LearnHeader from '~/components/dynamic/LearnHeader'
+import Callout from '~/components/dynamic/Callout'
 
 
 
@@ -406,6 +407,7 @@ export default function (Vue, {
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
   Vue.component('Carousel', Carousel);
+  Vue.component('Callout', Callout);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);

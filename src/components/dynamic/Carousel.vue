@@ -1,5 +1,5 @@
 <template>
-  <div class="mover learn-carousel" :class="'carouselId-' + idCarousel">
+  <div class="learn-carousel" :class="'carouselId-' + idCarousel">
     <div class="learn-carousel__header">
       <div class="learn-carousel__header__description">
         <h3>{{ title }}</h3>
@@ -63,8 +63,6 @@ export default {
     scroll_left() {
       let content = document.querySelector(`.carouselId-${this.idCarousel}`);
       content.parentElement.scrollLeft -= 390;
-      console.log(content);
-      console.log(content.parentElement);
     },
     scroll_right() {
       let content = document.querySelector(`.carouselId-${this.idCarousel}`);
@@ -76,12 +74,10 @@ export default {
     carouselItems() {
       this.articlesCarousel = this.dynamic_page_groups_learn_article;
       this.tagCarousel = this.articlesCarousel.data.name;
-      console.log(this.articlesCarousel);
       return this.articlesCarousel;
     },
     idCarouselTagger() {
       this.idCarousel = this.dynamic_page_groups_learn_article.data.id;
-      console.log(this.idCarousel);
       return this.idCarousel;
     },
   },

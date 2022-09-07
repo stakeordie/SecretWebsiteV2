@@ -1,6 +1,6 @@
 <template>
   <div class="dynamic-breadcrumb">
-    <a v-for="(item, index) in routeArray" :href="item" :key="index">
+    <a v-for="(item, index) in routeArray" href="/learn" :key="index">
       <span class="name">{{ item }}</span> <span class="dash">/</span>
     </a>
   </div>
@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss">
 .dynamic-breadcrumb {
-  padding: var(--f-gutter);
+  padding: var(--f-gutter) 0;
   z-index: 2;
   a {
     font-family: "Montserrat";

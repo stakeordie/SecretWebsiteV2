@@ -1,31 +1,22 @@
 <template>
   <default-layout class="learn-article">
-    <dynamic-breadcrumb :route="$context.route" />
-    <column class="spacer-s bg-black-gradient learn-article__content">
-      <div v-for="component in $context.components">
-        <block>
-          <component :is="component.comp_name" v-bind="component">
-            {{ component.content ? component.content : "" }}
-          </component>
-        </block>
-      </div>
-    </column>
-
-    <column number="2" class="page-developers__horizontal-scroll">
-      <block class="new-home__block-header">
-        <h3>Learn More</h3>
-        <p>
-          New to Secret? Not for long — start with these guides and explainers
-        </p>
-      </block>
-
-      <block class="justify-right">
-        <scroll-horizontal></scroll-horizontal>
+    <column>
+      <block>
+        <dynamic-breadcrumb :route="$context.route" />
       </block>
     </column>
-
-    <column class="page-developers__cool-stuff horizontal-slider" mode="full">
-      <block class="bucket"></block>
+    <column
+      class="bg-black-gradient learn-article__content"
+      :class="component.comp_name === 'carousel' ? 'horizontal-slider' : ''"
+      :mode="component.comp_name === 'carousel' ? 'full' : 'normal'"
+      v-for="(component, index) in $context.components"
+      :key="index"
+    >
+      <block>
+        <component :is="component.comp_name" v-bind="component">
+          {{ component.content ? component.content : "" }}
+        </component>
+      </block>
     </column>
 
     <!-- Swirl bottom -->
@@ -51,9 +42,9 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.moving();
-    }, 1000);
+    // setTimeout(() => {
+    //   this.moving();
+    // }, 1000);
   },
 };
 </script>
@@ -62,6 +53,23 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article {
+  .comp-name {
+    &__dynamic-breadcrumb {
+      .content {
+        height: 0;
+        .box {
+          height: 0;
+          .dynamic-breadcrumb {
+            position: absolute;
+          }
+        }
+      }
+    }
+    &__carousel {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
   &__content {
     ul {
       list-style: inherit;
@@ -69,10 +77,10 @@ export default {
     .text-column-single {
       max-width: 742px;
       &--narrow {
-        max-width: 485px;
+        max-width: 742px;
       }
       &--standard {
-        max-width: 600px;
+        max-width: 742px;
       }
       &--wide {
         max-width: 843px;
@@ -180,8 +188,12 @@ export default {
       }
     }
     .article-hero {
-      padding: 0 42px;
-
+      // padding: 0 42px;
+      .learn-post__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       @include respond-to("<=s") {
         padding: 0 0;
       }

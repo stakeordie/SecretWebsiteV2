@@ -3,7 +3,7 @@
     <p class="learn-header__subtitle">{{sub_title}}</p>
     <h1 class="learn-header__title">{{title}}</h1>
     <p class="learn-header__about-text">{{about_text}}</p>
-    <img class="learn-header__image" :src="background_image.data.formats.medium.url"/>
+    <img v-if="background_image.data.url" class="learn-header__image" :src="background_image.data.url"/>
   </div>
 </template>
 

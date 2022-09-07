@@ -24,6 +24,12 @@
       </block>
     </column>
 
+    <column>
+      <block>
+        <callout></callout>
+      </block>
+    </column>
+
     <!-- Swirl bottom -->
     <column class="blue__swirl__bottom" mode="full">
       <block>
@@ -71,6 +77,7 @@
     align-content: center;
     background: #11151a;
     position: relative;
+    overflow: hidden;
     * {
       margin: 0;
     }
@@ -103,9 +110,17 @@
     &__image {
       position: absolute;
       top: 0;
-      right: 0;
+      right: -10%;
       z-index: 0;
-      opacity: 0.1;
+      opacity: 0.3;
+      height: 110%;
+      width: auto;
+      @include respond-to("<=s") {
+        height: auto;
+        width: 100%;
+        bottom: 0;
+        top: initial;
+      }
     }
   }
   & .swirl-wrapper {
