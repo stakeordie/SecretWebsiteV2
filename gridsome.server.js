@@ -1,5 +1,6 @@
 const client = require('./src/apis/strapiv4')
 const pluralize = require('pluralize')
+
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
 // Learn more: https://gridsome.org/docs/server-api/
@@ -81,6 +82,11 @@ module.exports = function(api) {
           Object.keys(page).forEach(key => {
             if (key.startsWith('comp_') && page[key] != null) {
               let order = +key.split('_')[1]
+              if(Array.isArray(page[key])) {
+                page[key] = { 
+                  compArray: page[key]
+                }
+              }
               if (Number.isInteger(order)) {
                 maxSort = order
                 page[key].order = order
@@ -91,6 +97,7 @@ module.exports = function(api) {
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
               }
+              //console.log(page[key])
               page.currentComponents.push(page[key])
             } else if (key.startsWith('Components')) {
               let order = +key.split('_')[1]
@@ -107,6 +114,7 @@ module.exports = function(api) {
           page.currentComponents
               .filter(component => component.__component != null)
               .forEach(component => component.comp_name = component.__component.split('.')[1])
+              
           page.currentComponents
               .filter(component => component.image != null)
               .forEach(component => {
@@ -181,6 +189,7 @@ function expandPropsToParent(input, prop) {
         if (input instanceof Array) {
           result.push(value);
         } else {
+          // Null values or "result" being null will fail
           result[key] = value;
         }
       }
