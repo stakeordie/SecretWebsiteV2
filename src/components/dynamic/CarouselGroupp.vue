@@ -53,10 +53,14 @@
 <script>
 export default {
   props: {
-    dynamic_page_groups_learn_article: Object,
-    title: String,
-    subtitle: String,
-    card_image: Object,
+    carousels: [
+      {
+        dynamic_page_groups_learn_article: Object,
+        title: String,
+        subtitle: String,
+        card_image: Object,
+      }
+    ]
   },
 
   methods: {

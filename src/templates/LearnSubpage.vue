@@ -24,12 +24,6 @@
       </block>
     </column>
 
-    <column>
-      <block>
-        <callout></callout>
-      </block>
-    </column>
-
     <!-- Swirl bottom -->
     <column class="blue__swirl__bottom" mode="full">
       <block>

@@ -226,8 +226,11 @@ import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
 import Carousel from '~/components/dynamic/Carousel'
+import CarouselGroupp from '~/components/dynamic/CarouselGroupp'
 import LearnHeader from '~/components/dynamic/LearnHeader'
+import CalloutBox from '~/components/dynamic/CalloutBox'
 import Callout from '~/components/dynamic/Callout'
+import CtaGrid from '~/components/dynamic/CtaGrid'
 
 
 
@@ -407,7 +410,10 @@ export default function (Vue, {
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
   Vue.component('Carousel', Carousel);
+  Vue.component('CarouselGroupp', CarouselGroupp);
+  Vue.component('CalloutBox', CalloutBox);
   Vue.component('Callout', Callout);
+  Vue.component('CtaGrid', CtaGrid);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
