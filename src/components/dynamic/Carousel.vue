@@ -15,7 +15,7 @@
         </button>
       </div>
     </div>
-    <div class="items horizontal-slider learn-carousel__item">
+    <div class="items learn-carousel__item">
       <div
         class="card-element item"
         v-for="(element, index) in articlesCarousel.data.learn_pages"
@@ -43,10 +43,6 @@
         </a>
       </div>
     </div>
-
-    <!-- </block>
-    
-    </column> -->
   </div>
 </template>
 
@@ -63,10 +59,12 @@ export default {
     scroll_left() {
       let content = document.querySelector(`.carouselId-${this.idCarousel}`);
       content.parentElement.scrollLeft -= 390;
+      content.scrollLeft -= 390;
     },
     scroll_right() {
       let content = document.querySelector(`.carouselId-${this.idCarousel}`);
       content.parentElement.scrollLeft += 390;
+      content.scrollLeft += 390;
     },
     onFilterApplied(filters) {
       this.appliedFilters = filters;

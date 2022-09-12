@@ -6,18 +6,21 @@
       </block>
     </column>
     <column
-      class="horizontal-slider"
-      :class="'comp-name__' + component.comp_name"
+      class="bg-black-gradient learn-article__content"
+      :class="
+        [
+          component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
+          'comp-name__' + component.comp_name
+        ]
+      "
       :mode="
-        component.comp_name === 'carousel' ||
-        component.comp_name === 'learn-header'
-          ? 'full'
-          : 'normal'
+        component.comp_name === 'carousel-group' || component.comp_name === 'learn-header' ? 'full' : 'normal'
       "
       v-for="(component, index) in $context.components"
       :key="index"
     >
       <block class="">
+        <!-- <h1>{{component.comp_name}}</h1> -->
         <component :is="component.comp_name" v-bind="component">
           {{ component.content ? component.content : "" }}
         </component>
@@ -57,9 +60,35 @@
         padding: 0;
       }
     }
-    &__carousel {
-      padding-top: 64px;
-      padding-bottom: 64px;
+    &__carousel-group {
+      .content {
+        .box {
+          overflow-x: inherit;
+          overflow: inherit;
+          scroll-behavior: inherit;
+          margin: inherit;
+          padding-left: 0;
+          padding-right: 0;
+          .carousel-group-helper {
+            overflow: hidden;
+            .learn-carousel {
+              padding-top: 0;
+              padding-bottom: 64px;
+              scrollbar-width: none;
+              overflow-x: scroll;
+              overflow: auto;
+              scroll-behavior: smooth;
+              margin: auto;
+              &::-webkit-scrollbar {
+                display: none;
+              }
+              &__item {
+                padding-left: var(--f-gutter-l);
+              }
+            }
+          }
+        }
+      }
     }
   }
   .learn-header {
