@@ -5,8 +5,12 @@
       :key="index"
       class="cta-grid__item__card"
     >
+    <!-- <p>{{ctas}}</p> -->
       <div v-for="(el, index) in item.preconfiged_cta" :key="index">
-        <!-- <img class="cta-grid__item__card__img" alt="" /> -->
+        <img 
+          :src="el.cta.image.data.url"
+          class="cta-grid__item__card__img" 
+          alt="" />
         <h4 class="cta-grid__item__card__h4">
           {{ el.cta.title }}
         </h4>
@@ -14,7 +18,7 @@
           {{ el.cta.subtitle }}
         </p>
 
-        <!-- <btn class="center-text no-arrow ctas-button" :url="item.url">{{ item.urlTitle }}</btn> -->
+        <btn class="center-text no-arrow ctas-button" :url="el.cta.button.link">{{ el.cta.button.text }}</btn>
       </div>
     </div>
   </section>

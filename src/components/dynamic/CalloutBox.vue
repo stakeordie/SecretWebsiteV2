@@ -21,6 +21,7 @@
               :class="button.is_primary ? 'main-btn' : ''"
               :url="button.link"
               >
+              <img class="special-icon " :src="button.icon.data.url" alt="">
               {{ button.text }}</btn
             >
           </div>
