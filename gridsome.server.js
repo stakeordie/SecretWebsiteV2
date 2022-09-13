@@ -69,12 +69,25 @@ module.exports = function(api) {
   api.createPages( async ({ createPage }) => {
     try {
       const { data } = await client.allStrapiDynamicPage()
-      let pageSetEndpoint
+      let pageSetEndpoint = {
+        plural: "",
+        singular: ""
+      }
+      let response
       for (const dynamicPage of data) {
         const { attributes } = dynamicPage
         const { page_set, template } = attributes
-        pageSetEndpoint = pluralize("dynamic-" + page_set.replace(" ", "-").toLowerCase())
-        const response = await client.getDynamicPage(pageSetEndpoint)
+        pageSetEndpoint.plural = pluralize("dynamic-" + page_set.replace(" ", "-").toLowerCase())
+        pageSetEndpoint.singular = "dynamic-" + page_set.replace(" ", "-").toLowerCase()
+        console.log("endpoint: ", pageSetEndpoint);
+        try {
+          response = await client.getDynamicPage(pageSetEndpoint.plural)
+        } catch (error) {
+          response = await client.getDynamicPage(pageSetEndpoint.singular)
+        }
+        if(!Array.isArray(response.data)) {
+          response.data = [ response.data ]
+        }
         const { data } = expandPropsToParent(response, 'attributes')
         data.forEach(page => {
           page.currentComponents = []
