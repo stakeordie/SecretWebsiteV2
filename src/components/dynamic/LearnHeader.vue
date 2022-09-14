@@ -14,6 +14,7 @@ export default {
     title: String,
     about_text: String,
     background_image: Object,
+    searchDataset: Object
   },
   computed: {
     widthArticleClass()  {

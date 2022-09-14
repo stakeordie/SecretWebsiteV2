@@ -68,16 +68,19 @@ module.exports = function(api) {
 
   api.createPages( async ({ createPage }) => {
     try {
-      const searchEndpoints = [
+      const searchDataSets = [
         {
           endpoint: 'dynamic-learn-articles',
-          name: 'LearnArticle'
+          name: 'LearnArticle',
+          injectInto: [
+            'carousel',
+            'learn-header'
+          ]
         }
       ]
-      const searchDataset = {}
-      for(let i=0; i < searchEndpoints.length; i++) {
-        let searchResult = await client.getDynamicPage(searchEndpoints[i].endpoint);
-        searchDataset[searchEndpoints[i].name] = searchResult;
+      for(let i=0; i < searchDataSets.length; i++) {
+        let searchResult = await client.getDynamicPage(searchDataSets[i].endpoint);
+        searchDataSets[i].dataSet = searchResult
       }
       const { data } = await client.allStrapiDynamicPage()
       let pageSetEndpoint = {
@@ -145,9 +148,15 @@ module.exports = function(api) {
                 const data = expandPropsToParent(component, 'data')
                 component.image = expandPropsToParent(data, 'image')
               })
+          /* Add Search Datasets to components */    
           page.currentComponents.forEach(component => {
-            const data = expandPropsToParent(searchDataset,'data');
-            component.searchDataset = expandPropsToParent(data,'attributes');
+            component.searchDataset = {}
+            searchDataSets.forEach(search => {
+              if(search.injectInto.indexOf(component.comp_name) > -1) {
+                const data = expandPropsToParent(search.dataSet,'data');
+                component.searchDataset[search.name] = expandPropsToParent(data,'attributes');
+              }
+            })
           })
           page.currentComponents.sort((a, b) => a.order - b.order)
           createPage({

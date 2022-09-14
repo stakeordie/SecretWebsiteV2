@@ -82,9 +82,6 @@ export default {
       return this.idCarousel;
     },
   },
-  created() {
-    console.log(this)
-  },
   beforeMount() {
     this.idCarouselTagger();
     this.carouselItems();
