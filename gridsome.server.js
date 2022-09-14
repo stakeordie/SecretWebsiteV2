@@ -74,10 +74,10 @@ module.exports = function(api) {
           name: 'LearnArticle'
         }
       ]
-      const searchDataSet = {}
+      const searchDataset = {}
       for(let i=0; i < searchEndpoints.length; i++) {
         let searchResult = await client.getDynamicPage(searchEndpoints[i].endpoint);
-        searchDataSet[searchEndpoints[i].name] = searchResult;
+        searchDataset[searchEndpoints[i].name] = searchResult;
       }
       const { data } = await client.allStrapiDynamicPage()
       let pageSetEndpoint = {
@@ -146,8 +146,8 @@ module.exports = function(api) {
                 component.image = expandPropsToParent(data, 'image')
               })
           page.currentComponents.forEach(component => {
-            const data = expandPropsToParent(searchDataSet,'data');
-            component.searchDataSet = expandPropsToParent(data,'attributes');
+            const data = expandPropsToParent(searchDataset,'data');
+            component.searchDataset = expandPropsToParent(data,'attributes');
           })
           page.currentComponents.sort((a, b) => a.order - b.order)
           createPage({
