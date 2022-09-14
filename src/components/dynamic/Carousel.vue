@@ -132,7 +132,6 @@ export default {
         let contentSubpage = document.querySelector(
           `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
         );
-        console.log(contentSubpage);
         contentSubpage.parentElement.scrollLeft -= 390;
         contentSubpage.scrollLeft -= 390;
       } else {
@@ -146,7 +145,6 @@ export default {
         let contentSubpage = document.querySelector(
           `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
         );
-        console.log(contentSubpage);
         contentSubpage.parentElement.scrollLeft += 390;
         contentSubpage.scrollLeft += 390;
       } else {
