@@ -231,6 +231,7 @@ import LearnHeader from '~/components/dynamic/LearnHeader'
 import CalloutBox from '~/components/dynamic/CalloutBox'
 import Callout from '~/components/dynamic/Callout'
 import CtaGrid from '~/components/dynamic/CtaGrid'
+import Search from '~/components/dynamic/Search'
 
 
 
@@ -414,6 +415,7 @@ export default function (Vue, {
   Vue.component('CalloutBox', CalloutBox);
   Vue.component('Callout', Callout);
   Vue.component('CtaGrid', CtaGrid);
+  Vue.component('Search', Search);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
