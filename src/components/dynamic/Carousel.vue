@@ -1,11 +1,13 @@
 <template>
-  <div 
-    class="learn-carousel" 
+  <div
+    class="learn-carousel"
     :class="[
-      dynamic_page_groups_learn_article.data ? 'carouselId-' + dynamic_page_groups_learn_article.data.id : '',
-      'carouselId-' + idCarousel
-      ]"
-    >
+      dynamic_page_groups_learn_article.data
+        ? 'carouselId-' + dynamic_page_groups_learn_article.data.id
+        : '',
+      dynamic_learn_article_group.data ? 'carouselId-' + idCarousel : '',
+    ]"
+  >
     <div class="learn-carousel__header">
       <div class="learn-carousel__header__description">
         <h3>{{ title }}</h3>
@@ -22,10 +24,14 @@
       </div>
     </div>
     <!-- PORTAL -->
-    <div class="items learn-carousel__item" v-if="dynamic_learn_article_group.data">
+    <div
+      class="items learn-carousel__item"
+      v-if="dynamic_learn_article_group.data"
+    >
       <div
         class="card-element item"
-        v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles.data"
+        v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles
+          .data"
         :key="index"
       >
         <a
@@ -54,7 +60,10 @@
       </div>
     </div>
     <!-- SUBBPAGE / ARTICLE -->
-    <div class="items learn-carousel__item" v-if="dynamic_page_groups_learn_article.data">
+    <div
+      class="items learn-carousel__item"
+      v-if="dynamic_page_groups_learn_article.data"
+    >
       <!-- <h6>LOL</h6> -->
       <!-- <h6>{{dynamic_page_groups_learn_article.data.learn_pages.dynamic_learn_article}}</h6> -->
       <div
@@ -77,11 +86,21 @@
           </div>
           <div class="card-element__title-desc">
             <div class="card-element__title-desc__header">
-              <div v-for="(tag, index) in element.dynamic_learn_article.data.tags.data" :key="index">
+              <div
+                v-for="(tag, index) in element.dynamic_learn_article.data.tags
+                  .data"
+                :key="index"
+              >
                 <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
               </div>
               <!-- <h6 class="element-grid-main-tag">{{ tagCarousel }}</h6> -->
-              <h5 class="element-grid-title">{{ element.dynamic_learn_article.title ? element.dynamic_learn_article.title : 'null' }}</h5>
+              <h5 class="element-grid-title">
+                {{
+                  element.dynamic_learn_article.title
+                    ? element.dynamic_learn_article.title
+                    : "null"
+                }}
+              </h5>
             </div>
           </div>
         </a>
@@ -98,44 +117,64 @@ export default {
     title: String,
     subtitle: String,
     card_image: Object,
-    searchDataset: Object
+    searchDataset: Object,
   },
 
   data: function () {
     return {
-      idCarousel: ''
+      idCarousel: "",
     };
   },
 
   methods: {
     scroll_left() {
-      let content = document.querySelector(`.carouselId-${this.idCarousel}`);
-      content.parentElement.scrollLeft -= 390;
-      content.scrollLeft -= 390;
+      if (this.dynamic_page_groups_learn_article.data) {
+        let contentSubpage = document.querySelector(
+          `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
+        );
+        console.log(contentSubpage);
+        contentSubpage.parentElement.scrollLeft -= 390;
+        contentSubpage.scrollLeft -= 390;
+      } else {
+        let content = document.querySelector(`.carouselId-${this.idCarousel}`);
+        content.parentElement.scrollLeft -= 390;
+        content.scrollLeft -= 390;
+      }
     },
     scroll_right() {
-      let content = document.querySelector(`.carouselId-${this.idCarousel}`);
-      content.parentElement.scrollLeft += 390;
-      content.scrollLeft += 390;
+      if (this.dynamic_page_groups_learn_article.data) {
+        let contentSubpage = document.querySelector(
+          `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
+        );
+        console.log(contentSubpage);
+        contentSubpage.parentElement.scrollLeft += 390;
+        contentSubpage.scrollLeft += 390;
+      } else {
+        let content = document.querySelector(`.carouselId-${this.idCarousel}`);
+        content.parentElement.scrollLeft += 390;
+        content.scrollLeft += 390;
+      }
+
+      // contentSubpage.parentElement.scrollLeft += 390;
+      // contentSubpage.scrollLeft += 390;
     },
     onFilterApplied(filters) {
       this.appliedFilters = filters;
     },
     carouselItems() {
       this.articlesCarousel = this.dynamic_learn_article_group;
-        // this.tagCarousel = this.articlesCarousel.data.name;
-      
+      // this.tagCarousel = this.articlesCarousel.data.name;
+
       this.articlesCarouselSubpage = this.dynamic_page_groups_learn_article;
 
+      console.log(this.articlesCarousel);
+      console.log(this.articlesCarouselSubpage);
 
-      if(this.articlesCarousel) {
-        console.log(this.articlesCarousel)
+      if (this.articlesCarousel) {
         return this.articlesCarousel;
-      } else if(this.articlesCarouselSubpage) {
-        console.log(this.articlesCarouselSubpage.data.id)
+      } else if (this.articlesCarouselSubpage) {
         return this.articlesCarouselSubpage;
       }
-
     },
     idCarouselTagger() {
       this.idCarousel = this.dynamic_learn_article_group.data.id;
@@ -144,7 +183,7 @@ export default {
   },
   beforeMount() {
     this.carouselItems();
-    if(this.dynamic_page_groups_learn_article) {
+    if (!this.dynamic_page_groups_learn_article) {
       this.idCarouselTagger();
     }
   },
