@@ -68,20 +68,24 @@ module.exports = function(api) {
 
   api.createPages( async ({ createPage }) => {
     try {
+
+      // SEARCH CONFIG
       const searchDataSets = [
         {
           endpoint: 'dynamic-learn-articles',
           name: 'LearnArticle',
           injectInto: [
-            'carousel',
-            'learn-header'
-          ]
+            'card-search'
+          ],
         }
       ]
+
       for(let i=0; i < searchDataSets.length; i++) {
         let searchResult = await client.getDynamicPage(searchDataSets[i].endpoint);
         searchDataSets[i].dataSet = searchResult
       }
+      // SEARCH CONFIG
+
       const { data } = await client.allStrapiDynamicPage()
       let pageSetEndpoint = {
         plural: "",
