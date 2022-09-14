@@ -66,7 +66,7 @@ export default {
       }
     }
     &__carousel {
-      padding-top: 64px;
+      padding-top: 100px;
       padding-bottom: 64px;
     }
   }

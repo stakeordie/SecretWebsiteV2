@@ -71,6 +71,7 @@
           padding-right: 0;
           .carousel-group-helper {
             overflow: hidden;
+            padding-top: 64px;
             .learn-carousel {
               padding-top: 0;
               padding-bottom: 64px;
