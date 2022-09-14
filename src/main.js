@@ -228,7 +228,7 @@ import ArticleImage from '~/components/dynamic/ArticleImage'
 import Carousel from '~/components/dynamic/Carousel'
 import CarouselGroup from '~/components/dynamic/CarouselGroup'
 import LearnHeader from '~/components/dynamic/LearnHeader'
-import CalloutBox from '~/components/dynamic/CalloutBox'
+import OptionalCalloutBox from '~/components/dynamic/OptionalCalloutBox'
 import Callout from '~/components/dynamic/Callout'
 import CtaGrid from '~/components/dynamic/CtaGrid'
 import Search from '~/components/dynamic/Search'
@@ -412,7 +412,7 @@ export default function (Vue, {
   Vue.component('ArticleImage', ArticleImage);
   Vue.component('Carousel', Carousel);
   Vue.component('CarouselGroup', CarouselGroup);
-  Vue.component('CalloutBox', CalloutBox);
+  Vue.component('OptionalCalloutBox', OptionalCalloutBox);
   Vue.component('Callout', Callout);
   Vue.component('CtaGrid', CtaGrid);
   Vue.component('Search', Search);

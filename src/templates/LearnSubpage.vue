@@ -20,7 +20,7 @@
       :key="index"
     >
       <block class="">
-        <!-- <h1>{{component.comp_name}}</h1> -->
+        <!-- <h6>{{component}}</h6> -->
         <component :is="component.comp_name" v-bind="component">
           {{ component.content ? component.content : "" }}
         </component>
