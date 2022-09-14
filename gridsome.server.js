@@ -112,7 +112,7 @@ module.exports = function(api) {
               }
               //console.log(page[key])
               page.currentComponents.push(page[key])
-            } else if (key.startsWith('Components')) {
+            } else if (key.toLowerCase().startsWith('components')) {
               let order = +key.split('_')[1]
               if (Number.isInteger(order)) {
                 maxSort = order
