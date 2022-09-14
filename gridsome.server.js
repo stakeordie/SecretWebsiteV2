@@ -69,12 +69,15 @@ module.exports = function(api) {
   api.createPages( async ({ createPage }) => {
     try {
       const searchEndpoints = [
-        'dynamic-learn-articles'
+        {
+          endpoint: 'dynamic-learn-articles',
+          name: 'LearnArticle'
+        }
       ]
-      const searchDataSets = []
+      const searchDataSet = {}
       for(let i=0; i < searchEndpoints.length; i++) {
-        let searchResult = await client.getDynamicPage(searchEndpoints[i]);
-        searchDataSets[i] = searchResult;
+        let searchResult = await client.getDynamicPage(searchEndpoints[i].endpoint);
+        searchDataSet[searchEndpoints[i].name] = searchResult;
       }
       const { data } = await client.allStrapiDynamicPage()
       let pageSetEndpoint = {
@@ -112,13 +115,11 @@ module.exports = function(api) {
                 maxSort = order
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
-                page[key].searchDataSets = searchDataSets;
               } else {
                 maxSort += 1
                 order = maxSort
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
-                page[key].searchDataSets = searchDataSets;
               }
               //console.log(page[key])
               page.currentComponents.push(page[key])
@@ -144,14 +145,17 @@ module.exports = function(api) {
                 const data = expandPropsToParent(component, 'data')
                 component.image = expandPropsToParent(data, 'image')
               })
+          page.currentComponents.forEach(component => {
+            const data = expandPropsToParent(searchDataSet,'data');
+            component.searchDataSet = expandPropsToParent(data,'attributes');
+          })
           page.currentComponents.sort((a, b) => a.order - b.order)
           createPage({
             path: `${page.route}`,
             component: `./src/templates/${template}.vue`,
             context: {
               components: page.currentComponents,
-              route: page.route,
-              searchDataSets
+              route: page.route
             }
           })
         })
