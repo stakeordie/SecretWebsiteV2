@@ -18,5 +18,5 @@ module.exports = {
     },
     getDynamicPage(name) {
         return managePromise(axios.get(`${apiUrl}/api/${name}?populate=deep`))
-    }
+    },
 }

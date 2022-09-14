@@ -54,6 +54,7 @@ export default {
     title: String,
     subtitle: String,
     card_image: Object,
+    searchDataSets: Array
   },
 
   methods: {

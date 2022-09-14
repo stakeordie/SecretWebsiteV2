@@ -27,17 +27,6 @@
       </block>
     </column>
 
-
-     <column>
-    
-    <block>
-    
-    <search title="Secret DApps" header="Secret DApps" collection="dApps" :isPaginated="false"></search>
-    
-    </block>
-    
-    </column>
-
     <!-- Swirl bottom -->
     <column class="blue__swirl__bottom" mode="full">
       <block>

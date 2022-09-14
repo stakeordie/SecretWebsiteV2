@@ -68,6 +68,14 @@ module.exports = function(api) {
 
   api.createPages( async ({ createPage }) => {
     try {
+      const searchEndpoints = [
+        'dynamic-learn-articles'
+      ]
+      const searchDataSets = []
+      for(let i=0; i < searchEndpoints.length; i++) {
+        let searchResult = await client.getDynamicPage(searchEndpoints[i]);
+        searchDataSets[i] = searchResult;
+      }
       const { data } = await client.allStrapiDynamicPage()
       let pageSetEndpoint = {
         plural: "",
@@ -79,7 +87,7 @@ module.exports = function(api) {
         const { page_set, template } = attributes
         pageSetEndpoint.plural = pluralize("dynamic-" + page_set.replace(" ", "-").toLowerCase())
         pageSetEndpoint.singular = "dynamic-" + page_set.replace(" ", "-").toLowerCase()
-        console.log("endpoint: ", pageSetEndpoint);
+        console.log("Endpoint API Route: ", pageSetEndpoint);
         try {
           response = await client.getDynamicPage(pageSetEndpoint.plural)
         } catch (error) {
@@ -104,11 +112,13 @@ module.exports = function(api) {
                 maxSort = order
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_${order}_`, '').replace(/_/g, '-')
+                page[key].searchDataSets = searchDataSets;
               } else {
                 maxSort += 1
                 order = maxSort
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
+                page[key].searchDataSets = searchDataSets;
               }
               //console.log(page[key])
               page.currentComponents.push(page[key])
@@ -140,7 +150,8 @@ module.exports = function(api) {
             component: `./src/templates/${template}.vue`,
             context: {
               components: page.currentComponents,
-              route: page.route
+              route: page.route,
+              searchDataSets
             }
           })
         })
