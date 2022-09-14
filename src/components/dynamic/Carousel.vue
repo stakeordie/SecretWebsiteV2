@@ -18,19 +18,19 @@
     <div class="items learn-carousel__item">
       <div
         class="card-element item"
-        v-for="(element, index) in articlesCarousel.data.learn_pages"
+        v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles.data"
         :key="index"
       >
         <a
           class="card-element__overall-link"
-          :href="element.dynamic_learn_article.data.route"
+          :href="element.route"
           target="blank"
           rel="noopener noreferrer"
         >
           <div class="card-element__header">
             <img
               class="card-element__header__logo"
-              :src="element.card_image.data.url"
+              :src="element.thumbnail_image.data.url"
               alt="picture"
             />
           </div>
@@ -50,6 +50,7 @@
 export default {
   props: {
     dynamic_page_groups_learn_article: Object,
+    dynamic_learn_article_group: Object,
     title: String,
     subtitle: String,
     card_image: Object,
@@ -70,17 +71,18 @@ export default {
       this.appliedFilters = filters;
     },
     carouselItems() {
-      this.articlesCarousel = this.dynamic_page_groups_learn_article;
-      this.tagCarousel = this.articlesCarousel.data.title;
+      this.articlesCarousel = this.dynamic_learn_article_group;
+      this.tagCarousel = this.articlesCarousel.data.name;
       console.log(this.articlesCarousel)
       return this.articlesCarousel;
     },
     idCarouselTagger() {
-      this.idCarousel = this.dynamic_page_groups_learn_article.data.id;
+      this.idCarousel = this.dynamic_learn_article_group.data.id;
       return this.idCarousel;
     },
   },
-  mounted() {
+  created() {
+    console.log(this)
   },
   beforeMount() {
     this.idCarouselTagger();
