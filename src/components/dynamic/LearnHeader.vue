@@ -1,8 +1,8 @@
 <template>
   <div class="learn-header">
-    <p class="learn-header__subtitle">{{sub_title}}</p>
+    <p class="learn-header__subtitle">{{eyebrow_text}}</p>
     <h1 class="learn-header__title">{{title}}</h1>
-    <p class="learn-header__about-text">{{about_text}}</p>
+    <p class="learn-header__about-text">{{subtitle}}</p>
     <img v-if="background_image.data.url" class="learn-header__image" :src="background_image.data.url"/>
   </div>
 </template>
@@ -10,11 +10,10 @@
 <script>
 export default {
   props: {
-    sub_title: String,
+    eyebrow_text: String,
     title: String,
-    about_text: String,
-    background_image: Object,
-    searchDataset: Object
+    subtitle: String,
+    background_image: Object
   },
   computed: {
     widthArticleClass()  {

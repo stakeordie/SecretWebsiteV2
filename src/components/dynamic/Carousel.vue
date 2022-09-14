@@ -2,8 +2,8 @@
   <div
     class="learn-carousel"
     :class="[
-      dynamic_page_groups_learn_article.data
-        ? 'carouselId-' + dynamic_page_groups_learn_article.data.id
+      dynamic_learn_article_group.data
+        ? 'carouselId-' + dynamic_learn_article_group.data.id
         : '',
       dynamic_learn_article_group.data ? 'carouselId-' + idCarousel : '',
     ]"
@@ -62,7 +62,7 @@
     <!-- SUBBPAGE / ARTICLE -->
     <div
       class="items learn-carousel__item"
-      v-if="dynamic_page_groups_learn_article.data"
+      v-if="dynamic_learn_article_group.data"
     >
       <!-- <h6>LOL</h6> -->
       <!-- <h6>{{dynamic_page_groups_learn_article.data.learn_pages.dynamic_learn_article}}</h6> -->
@@ -112,7 +112,6 @@
 <script>
 export default {
   props: {
-    dynamic_page_groups_learn_article: Object,
     dynamic_learn_article_group: Object,
     title: String,
     subtitle: String,
@@ -128,9 +127,9 @@ export default {
 
   methods: {
     scroll_left() {
-      if (this.dynamic_page_groups_learn_article.data) {
+      if (this.dynamic_learn_article_group.data) {
         let contentSubpage = document.querySelector(
-          `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
+          `.carouselId-${this.dynamic_learn_article_group.data.id}`
         );
         contentSubpage.parentElement.scrollLeft -= 390;
         contentSubpage.scrollLeft -= 390;
@@ -141,9 +140,9 @@ export default {
       }
     },
     scroll_right() {
-      if (this.dynamic_page_groups_learn_article.data) {
+      if (this.dynamic_learn_article_group.data) {
         let contentSubpage = document.querySelector(
-          `.carouselId-${this.dynamic_page_groups_learn_article.data.id}`
+          `.carouselId-${this.dynamic_learn_article_group.data.id}`
         );
         contentSubpage.parentElement.scrollLeft += 390;
         contentSubpage.scrollLeft += 390;
@@ -163,7 +162,7 @@ export default {
       this.articlesCarousel = this.dynamic_learn_article_group;
       // this.tagCarousel = this.articlesCarousel.data.name;
 
-      this.articlesCarouselSubpage = this.dynamic_page_groups_learn_article;
+      this.articlesCarouselSubpage = this.dynamic_learn_article_group;
 
       console.log(this.articlesCarousel);
       console.log(this.articlesCarouselSubpage);
@@ -181,7 +180,7 @@ export default {
   },
   beforeMount() {
     this.carouselItems();
-    if (!this.dynamic_page_groups_learn_article) {
+    if (!this.dynamic_learn_article_group) {
       this.idCarouselTagger();
     }
   },
