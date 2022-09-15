@@ -108,7 +108,7 @@
       text-align: center;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #94a4b8;
+      color: var(--color-ver2-primary-orange);
       z-index: 1;
     }
     &__title {
