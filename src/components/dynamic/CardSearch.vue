@@ -4,7 +4,7 @@
       <!-- FILTER -->
       <div class="filter v3">
         <h5 class="mini-title">Explore</h5>
-        <h2>{{ gridHeaderTitle(header) }}</h2>
+        <h2>{{ title }}</h2>
         <div class="search">
           <input
             class="search-filter"
@@ -20,7 +20,7 @@
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
         >
-          <li v-for="(category, index) of categories" :key="index">
+          <!-- <li v-for="(category, index) of categories" :key="index">
             <label v-on:click="searchFilterReset">
               <input
                 :id="category.name"
@@ -28,12 +28,13 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
+              {{category.name}}
               <span class="title"
                 >{{ formatCategory(category.name) }}
                 <img src="../../assets/icon-remove-filter.svg" alt=""
               /></span>
             </label>
-          </li>
+          </li> -->
         </ul>
       </div>
 
@@ -43,11 +44,7 @@
           <!-- Default state -->
           <div class="no-results" v-if="!searchInputValue && checkedCategories.length === 0">
             <img src="../../assets/illustration-search-default.svg" alt="" />
-            <h3>Search or Select a Topic</h3>
-            <p>
-              Search for topics or view all articles, guides, and tutorials
-              <span>by topic using the provided tags.</span>
-            </p>
+            <p>{{empty_subtitle}}</p>
           </div>
           <!-- Results -->
           <div class="elements-grid__helper" v-if="searchInputValue || checkedCategories.length >= 1">
@@ -58,14 +55,14 @@
             >
               <a
                 class="card-element__overall-link"
-                :href="element.url ? element.url : ''"
+                :href="element.route ? element.route : ''"
                 target="blank"
                 rel="noopener noreferrer"
               >
                 <div class="card-element__header">
                   <img
                     class="card-element__header__logo"
-                    :src="element.picture.url"
+                    :src="element.comp_1_article_hero.image.formats.thumbnail.url"
                     alt="picture"
                   />
                 </div>
@@ -86,11 +83,8 @@
             </div>
           <div class="no-results" v-if="searchNoResults ">
             <img src="../../assets/illustration-no-matches.svg" alt="" />
-            <h3>No matches found</h3>
-            <p>
-              Please try another search or use one of
-              <span>the predefined filters.</span>
-            </p>
+            <h3>{{no_results_title}}</h3>
+            <p>{{no_results_subtitle}}</p>
           </div>
           </div>
         </div>
@@ -121,11 +115,18 @@ export default {
   props: {
     props: ["value"],
     title: { type: String, required: true },
-    collection: { type: String, required: true },
+    collection: { type: String, required: false },
     header: { type: String, required: false, default: "" },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
     hasCategories: { type: Boolean, default: true },
+    searchDataset: { type: Object, required: true },
+    spotlight_title: String,
+    source_api: String,
+    empty_title: String,
+    empty_subtitle: String,
+    no_results_title: String,
+    no_results_subtitle: String
   },
 
   methods: {
@@ -165,7 +166,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -179,7 +179,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -210,22 +209,20 @@ export default {
 
   computed: {
     filteredElements() {
-      const sortedCollection = this.collections;
-      for (const [i, element] of sortedCollection.entries()) {
-        if (element.sort == null) {
-          element.sort = 99999;
-        }
-      }
-      sortedCollection.sort(function (a, b) {
+      // for (const [i, element] of sortedCollection.entries()) {
+      //   if (element.sort == null) {
+      //     element.sort = 99999;
+      //   }
+      // }
+      const sortedCollection = this.collections.sort((a, b) => {
+        if(a.title == null || b.title == null) return 0;
+
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
-        if (titleA < titleB) {
-          return -1;
-        }
-        if (titleA > titleB) {
-          return 1;
-        }
-        return 0;
+
+        if (titleA < titleB) return -1;
+        if (titleA > titleB) return 1;
+        else return 0;
       });
       if (!this.checkedCategories.length) {
         return sortedCollection;
@@ -243,7 +240,8 @@ export default {
     },
 
     collections() {
-      return this.$static[this.collection].edges.map((it) => it.node);
+      const { meta, ...newCollection } = {...this.searchDataset.LearnArticle}
+      return Object.values(newCollection);
     },
 
     categories() {
