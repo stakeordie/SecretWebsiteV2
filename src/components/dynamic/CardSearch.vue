@@ -3,7 +3,7 @@
     <div class="learn-search">
       <!-- FILTER -->
       <div class="filter v3">
-        <h5 class="mini-title">Explore</h5>
+        <h5 class="mini-title">{{ spotlight_title }}</h5>
         <h2>{{ title }}</h2>
         <div class="search">
           <input
@@ -20,21 +20,20 @@
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
         >
-          <!-- <li v-for="(category, index) of categories" :key="index">
-            <label v-on:click="searchFilterReset">
+          <li v-for="(category, index) of categories" :key="index">
+            <label @click="searchFilterReset">
               <input
-                :id="category.name"
+                :id="category"
                 type="checkbox"
-                :value="category.name"
+                :value="category"
                 v-model="checkedCategories"
               />
-              {{category.name}}
-              <span class="title"
-                >{{ formatCategory(category.name) }}
-                <img src="../../assets/icon-remove-filter.svg" alt=""
-              /></span>
+              <span class="title">
+                {{ formatCategory(category) }}
+                <img src="../../assets/icon-remove-filter.svg" alt="" />
+              </span>
             </label>
-          </li> -->
+          </li>
         </ul>
       </div>
 
@@ -42,14 +41,21 @@
         <!-- GRID -->
         <div class="elements-grid NOPAGINATED">
           <!-- Default state -->
-          <div class="no-results" v-if="!searchInputValue && checkedCategories.length === 0">
+          <div
+            class="no-results"
+            v-if="!searchInputValue && checkedCategories.length === 0"
+          >
             <img src="../../assets/illustration-search-default.svg" alt="" />
-            <p>{{empty_subtitle}}</p>
+            <h3>{{ empty_title }}</h3>
+            <p>{{ empty_subtitle }}</p>
           </div>
           <!-- Results -->
-          <div class="elements-grid__helper" v-if="searchInputValue || checkedCategories.length >= 1">
+          <div
+            class="elements-grid__helper"
+            v-if="searchInputValue || checkedCategories.length >= 1"
+          >
             <div
-              class="card-element"
+              class="card-element search-card"
               v-for="element in filteredElements"
               :key="element.id"
             >
@@ -62,7 +68,9 @@
                 <div class="card-element__header">
                   <img
                     class="card-element__header__logo"
-                    :src="element.comp_1_article_hero.image.formats.thumbnail.url"
+                    :src="
+                      element.comp_1_article_hero.image.formats.thumbnail.url
+                    "
                     alt="picture"
                   />
                 </div>
@@ -71,8 +79,12 @@
                   :class="{ 'meta--with-categories': hasCategories }"
                 >
                   <div class="card-element__meta__header">
-                    <h6 class="card-element__meta__header__tag">
-                      {{ element.title }}
+                    <h6
+                      v-for="({ tag }, index) in element.tags"
+                      :key="index"
+                      class="card-element__meta__header__tag"
+                    >
+                      {{ tag.toUpperCase() }}
                     </h6>
                     <h5 class="card-element__meta__header__title">
                       {{ element.title }}
@@ -81,11 +93,11 @@
                 </div>
               </a>
             </div>
-          <div class="no-results" v-if="searchNoResults ">
-            <img src="../../assets/illustration-no-matches.svg" alt="" />
-            <h3>{{no_results_title}}</h3>
-            <p>{{no_results_subtitle}}</p>
-          </div>
+            <div class="no-results" v-if="searchNoResults">
+              <img src="../../assets/illustration-no-matches.svg" alt="" />
+              <h3>{{ no_results_title }}</h3>
+              <p class="no_results_subtitle">{{ no_results_subtitle }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -94,12 +106,6 @@
 </template>
 
 <script>
-const sortBySorting = (first, second) => {
-  if (first.sort === null) return 1;
-  if (second.sort === null) return -1;
-  return first.sort - second.sort;
-};
-
 export default {
   data() {
     return {
@@ -122,16 +128,15 @@ export default {
     hasCategories: { type: Boolean, default: true },
     searchDataset: { type: Object, required: true },
     spotlight_title: String,
-    source_api: String,
     empty_title: String,
     empty_subtitle: String,
     no_results_title: String,
-    no_results_subtitle: String
+    no_results_subtitle: String,
   },
 
   methods: {
     searchFilter() {
-      const cardEl = document.querySelectorAll(".card-element");
+      const cardEl = document.querySelectorAll(".search-card");
       let hiddenEls = [];
       this.resetCheck();
       this.search = this.searchInputValue.toLowerCase();
@@ -153,37 +158,11 @@ export default {
     },
     searchFilterReset() {
       this.search = "";
-      const cardEl = document.querySelectorAll(".card-element");
+      const cardEl = document.querySelectorAll(".search-card");
       this.searchInputValue = "";
       cardEl.forEach((item) => {
         item.classList.remove("hidden");
       });
-    },
-    gridHeaderTitle(x) {
-      let headers = this.$static.gridHeaders.edges;
-      for (let i = 0; i < headers.length; i++) {
-        let headerEdge = headers[i];
-        let headerTitle = headerEdge.node.title;
-        let headerSubtitle = headerEdge.node.subtitle;
-        if (headerTitle == x) {
-          headerTitle = this.$static.gridHeaders.edges[i].node.title;
-          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
-          return headerTitle;
-        }
-      }
-    },
-    gridHeaderSubtitle(x) {
-      let headers = this.$static.gridHeaders.edges;
-      for (let i = 0; i < headers.length; i++) {
-        let headerEdge = headers[i];
-        let headerTitle = headerEdge.node.title;
-        let headerSubtitle = headerEdge.node.subtitle;
-        if (headerTitle == x) {
-          headerTitle = this.$static.gridHeaders.edges[i].node.title;
-          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
-          return headerSubtitle;
-        }
-      }
     },
     formatCategory(category) {
       if (!category) return "";
@@ -195,7 +174,6 @@ export default {
     resetCheck() {
       this.checkedCategories = [];
     },
-
     evaluateTags(size) {
       if (!size) return;
 
@@ -209,28 +187,25 @@ export default {
 
   computed: {
     filteredElements() {
-      // for (const [i, element] of sortedCollection.entries()) {
-      //   if (element.sort == null) {
-      //     element.sort = 99999;
-      //   }
-      // }
       const sortedCollection = this.collections.sort((a, b) => {
-        if(a.title == null || b.title == null) return 0;
+        if (a.title == null || b.title == null) return 0;
 
-        let titleA = a.title.toLowerCase();
-        let titleB = b.title.toLowerCase();
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
 
         if (titleA < titleB) return -1;
         if (titleA > titleB) return 1;
-        else return 0;
+        return 0;
       });
+
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
-      const collection = sortedCollection.filter((post) =>
-        post.types.some((tag) => this.checkedCategories.includes(tag.name))
+      return sortedCollection.filter(({ tags }) =>
+        Object.values(tags).some(({ tag }) =>
+          this.checkedCategories.includes(tag)
+        )
       );
-      return collection;
     },
 
     pagedArray() {
@@ -240,30 +215,16 @@ export default {
     },
 
     collections() {
-      const { meta, ...newCollection } = {...this.searchDataset.LearnArticle}
+      const { meta, ...newCollection } = { ...this.searchDataset.LearnArticle };
       return Object.values(newCollection);
     },
 
     categories() {
-      const data = this.$static[this.collection].edges.filter((element) => {
-        return element.node.types.length > 0;
+      const data = [];
+      this.collections.forEach((elem) => {
+        Object.values(elem.tags).forEach(({ tag }) => data.push(tag));
       });
-
-      const categoryData = data.map((item) => {
-        return {
-          name: item.node.types[0]?.name,
-        };
-      });
-
-      let uniqueCategories = [];
-
-      categoryData.filter((cat) => {
-        if (!uniqueCategories.find((cat_some) => cat_some.name == cat.name)) {
-          uniqueCategories.push(cat);
-        }
-      });
-
-      return uniqueCategories;
+      return [...new Set(data)];
     },
   },
 
@@ -271,123 +232,6 @@ export default {
   updated() {},
 };
 </script>
-
-<static-query>
-query {
-  gridHeaders: allStrapiCardGridHeader {
-    edges {
-      node {
-        id
-        title,
-        subtitle
-      }
-    }
-  }
-  ecosystemValidators: allStrapiEcosystemValidator {
-    edges {
-      node {
-        title: name
-        picture: logo {
-        	url
-        }
-        link
-        order
-      }
-    }
-  }
-  dApps: allStrapiEcosystemDapp {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types: type {
-          name
-        }
-      }
-    }
-  }
-  contributors: allStrapiContributor {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        cta_title
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types: type {
-          name
-        }
-      }
-    }
-  }
-  toolsAndWallets: allStrapiToolAndWallet {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types: type {
-          name
-        }
-      }
-    }
-  }
-  internationalCommunities: allStrapiInternationalCommunity {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        cta_title
-        language: language
-        picture: logo {
-          url
-        }
-        types: type {
-          name
-        }
-      }
-    }
-  }
-  exchanges: allStrapiExchange {
-    edges {
-      node {
-        id
-        sort
-        title: name
-        url: link
-        description
-        cta_title
-        picture: logo {
-          url
-        }
-        types: type {
-          name
-        }
-      }
-    }
-  }
-}
-</static-query>
 
 <style lang="scss">
 @import "../../sass/functions/theme";
@@ -410,6 +254,16 @@ query {
     //grid-template-columns: repeat(2, 1fr);
     padding: 32px var(--f-gutter);
   }
+
+  .mini-title {
+    color: var(--color-ver2-primary-orange);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: var(--f-default-headers-font);
+  }
+
   .filter {
     &.v3 {
       display: grid;
@@ -466,7 +320,7 @@ query {
             input {
               &:checked {
                 ~ .title {
-                  background-color: var(--color-ver2-primary-turquoise);
+                  background-color: var(--color-ver2-primary-orange);
                   border: none;
                 }
               }
@@ -599,6 +453,7 @@ query {
           max-width: 150px;
         }
         p {
+          max-width: 405px;
           text-align: center;
 
           span {
@@ -606,6 +461,10 @@ query {
               display: block;
             }
           }
+        }
+
+        .no_results_subtitle {
+          max-width: 190px;
         }
       }
     }
