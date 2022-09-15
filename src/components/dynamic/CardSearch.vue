@@ -3,8 +3,10 @@
     <div class="learn-search">
       <!-- FILTER -->
       <div class="filter v3">
-        <h5 class="mini-title">{{ spotlight_title }}</h5>
-        <h2>{{ title }}</h2>
+        <div class="titles">
+          <h5 class="mini-title">{{ spotlight_title }}</h5>
+          <h2>{{ title }}</h2>
+        </div>
         <div class="search">
           <input
             class="search-filter"
@@ -255,27 +257,30 @@ export default {
     padding: 32px var(--f-gutter);
   }
 
-  .mini-title {
-    color: var(--color-ver2-primary-orange);
-    text-transform: uppercase;
-  }
-
-  h2 {
-    font-family: var(--f-default-headers-font);
+  .titles {
+    .mini-title {
+      color: var(--color-ver2-primary-orange);
+      text-transform: uppercase;
+    }
+  
+    h2 {
+      font-family: var(--f-default-headers-font);
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 42px;
+    }
   }
 
   .filter {
     &.v3 {
       display: grid;
       justify-content: center;
-      gap: var(--f-gutter);
+      gap: 32px;
       padding: 26px 0 var(--f-gutter) 0;
       * {
         margin: 0;
       }
       .custom-checkbox {
-        // grid-auto-flow: column;
-        // grid-template-columns: auto;
         gap: 10px;
         display: flex;
         justify-content: center;
