@@ -1,16 +1,23 @@
 <template>
-  <section class="cta-grid" :class="'cta-grid-columns__c' + ctaGroupColumns">
+  <section
+    class="cta-grid"
+    :class="[
+      'cta-grid-columns__c' + columns,
+      ctaGroupColumns > 3 && ctaGroupColumns < 6 ? 'center-middle' : '',
+    ]"
+  >
     <div
       v-for="(item, index) in ctaGroup"
       :key="index"
       class="cta-grid__item__card"
     >
-    <!-- <p>{{ctas}}</p> -->
+      <!-- <p>{{ctas}}</p> -->
       <div v-for="(el, index) in item.preconfiged_cta" :key="index">
-        <img 
+        <img
           :src="el.cta.image.data.url"
-          class="cta-grid__item__card__img" 
-          alt="" />
+          class="cta-grid__item__card__img"
+          alt=""
+        />
         <h4 class="cta-grid__item__card__h4">
           {{ el.cta.title }}
         </h4>
@@ -18,7 +25,11 @@
           {{ el.cta.subtitle }}
         </p>
 
-        <btn class="center-text no-arrow ctas-button" :url="el.cta.button.link">{{ el.cta.button.text }}</btn>
+        <btn
+          class="center-text no-arrow ctas-button"
+          :url="el.cta.button.link"
+          >{{ el.cta.button.text }}</btn
+        >
       </div>
     </div>
   </section>
@@ -28,6 +39,7 @@
 export default {
   props: {
     ctas: Array,
+    columns: Number,
   },
   data() {
     return {
@@ -51,7 +63,12 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .cta-grid {
-  display: grid;
+   display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   gap: var(--f-gutter-xl);
   &.cta-grid-columns__ {
     background: blue;
@@ -69,6 +86,9 @@ export default {
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
       }
+      &.center-middle {
+        
+      }
     }
   }
   @include respond-to("<=s") {
@@ -79,7 +99,7 @@ export default {
       padding: 16px;
       text-align: center;
       max-width: 360px;
-      margin: auto;
+      // margin: auto;
       @include respond-to("l") {
         padding: 0;
       }
