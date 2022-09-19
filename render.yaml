@@ -10,3 +10,6 @@ services:
       - type: redirect
         source: /agents
         destination: https://scrt.network/get-involved/become-secret-agent
+      - type: redirect
+        source: /agents/*
+        destination: https://scrt.network/get-involved/become-secret-agent
