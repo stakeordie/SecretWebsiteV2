@@ -225,6 +225,7 @@ import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
 import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
+import ArticleVideo from '~/components/dynamic/ArticleVideo'
 import Carousel from '~/components/dynamic/Carousel'
 import CarouselGroup from '~/components/dynamic/CarouselGroup'
 import LearnHeader from '~/components/dynamic/LearnHeader'
@@ -410,6 +411,7 @@ export default function (Vue, {
   Vue.component('TextImageColumnDouble', TextImageColumnDouble);
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
+  Vue.component('ArticleVideo', ArticleVideo);
   Vue.component('Carousel', Carousel);
   Vue.component('CarouselGroup', CarouselGroup);
   Vue.component('OptionalCalloutBox', OptionalCalloutBox);

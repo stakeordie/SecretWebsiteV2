@@ -217,6 +217,31 @@ export default {
         }
       }
     }
+    .article-video {
+      display: grid;
+      gap: 16px;
+      padding: var(--f-gutter);
+      justify-content: center;
+      video {
+        width: 100%;
+        height: auto;
+        max-width: 710px;
+      }
+      .img-caption {
+        font-size: 16px;
+        color: var(--theme-card-text-color);
+
+        text-align: center;
+        max-width: 710px;
+        margin: auto;
+        line-height: 24px;
+
+        @include respond-to("<=m") {
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
+    }
     .mover {
       display: none;
     }
