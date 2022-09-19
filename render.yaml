@@ -1,0 +1,12 @@
+services:
+  # A static site
+  - type: web
+    name: Secret Network Website
+    env: static
+    buildCommand: yarn build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true # optional
+    routes:
+      - type: redirect
+        source: /agents
+        destination: https://scrt.network/get-involved/become-secret-agent
