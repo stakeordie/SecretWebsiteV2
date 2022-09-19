@@ -6,6 +6,8 @@ services:
     buildCommand: yarn build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true # optional
+    envVars:
+      - fromGroup: scrt-web
     routes:
       - type: redirect
         source: /agents
