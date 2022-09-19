@@ -1,7 +1,7 @@
 services:
   # A static site
   - type: web
-    name: Secret Network Website
+    name: Secret Network Website Dev
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
