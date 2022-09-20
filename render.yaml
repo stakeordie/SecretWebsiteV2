@@ -8,6 +8,9 @@ services:
     pullRequestPreviewsEnabled: true # optional
     envVars:
       - fromGroup: scrt-web
+    buildFilter:
+      ignoredPaths:
+      - render.yaml
     routes:
       - type: redirect
         source: /agents
