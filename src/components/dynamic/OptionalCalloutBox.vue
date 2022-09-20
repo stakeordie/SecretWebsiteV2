@@ -1,8 +1,8 @@
 <template>
   <section class="page-developer-questions">
-    <div class="learn-callout">
+    <div class="learn-callout" v-if="!custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="calloutBox.image.data.url"/>
+        <img :src="calloutBox.image.data.url" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -20,8 +20,46 @@
               class="text-center no-arrow"
               :class="button.is_primary ? 'main-btn' : ''"
               :url="button.link"
-              >
-              <img class="special-icon " :src="button.icon.data.url" alt="">
+            >
+              <img
+                class="special-icon"
+                v-if="button.icon.data"
+                :src="button.icon.data.url"
+                alt=""
+              />
+              {{ button.text }}</btn
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="learn-callout" v-if="custom_callout_box">
+      <div class="learn-callout__image">
+        <img :src="calloutBoxCustom.image.data.url" />
+      </div>
+      <div class="learn-callout__content">
+        <h6 class="learn-callout__content__eyebrow">
+          {{ calloutBoxCustom.title }}
+        </h6>
+        <h4 class="learn-callout__content__title">
+          {{ calloutBoxCustom.subtitle }}
+        </h4>
+        <p class="learn-callout__content__text">
+          {{ calloutBoxCustom.cta_text }}
+        </p>
+        <div class="learn-callout__content__buttons">
+          <div v-for="(button, index) in calloutBoxCustom.button" :key="index">
+            <btn
+              class="text-center no-arrow"
+              :class="button.is_primary ? 'main-btn' : ''"
+              :url="button.link"
+            >
+              <img
+                class="special-icon"
+                v-if="button.icon.data"
+                :src="button.icon.data.url"
+                alt=""
+              />
               {{ button.text }}</btn
             >
           </div>
@@ -33,25 +71,26 @@
 
 <script>
 export default {
-   props: {
-    preconfiged_callout_box: Object
+  props: {
+    preconfiged_callout_box: Object,
+    custom_callout_box: Object,
   },
   data: function () {
     return {
-      calloutBox:'',
+      calloutBox: "",
     };
   },
   methods: {
     calloutItems() {
-      this.calloutBox = this.preconfiged_callout_box.data.callout_box
-      this.calloutBox2 = this.preconfiged_callout_box.data
+      this.calloutBox = this.preconfiged_callout_box.data.callout_box;
+      this.calloutBoxCustom = this.custom_callout_box;
       // console.log(this.calloutBox2)
-      return this.calloutBox
-    }
+      return this.calloutBox;
+    },
   },
   beforeMount() {
-    this.calloutItems()
-  }
+    this.calloutItems();
+  },
 };
 </script>
 
