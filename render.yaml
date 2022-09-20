@@ -14,4 +14,4 @@ services:
     routes:
       - type: redirect
         source: /agents
-        destination: https://apple.com
+        destination: https://google.com
