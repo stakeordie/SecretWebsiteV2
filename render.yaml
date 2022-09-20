@@ -17,4 +17,4 @@ services:
         destination: https://github.com
       - type: redirect
         source: /products
-        destination: https://apple.com
+        destination: 
