@@ -18,3 +18,6 @@ services:
       - type: redirect
         source: /B-agents/*
         destination: https://scrt.network/get-involved/become-secret-agent
+      - type: redirect
+        source: /C-agents/*
+        destination: https://scrt.network/get-involved/become-secret-agent
