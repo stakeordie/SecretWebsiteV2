@@ -12,4 +12,3 @@ services:
       ignoredPaths:
       - render.yaml
     routes:
-
