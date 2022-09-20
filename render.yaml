@@ -12,3 +12,9 @@ services:
       ignoredPaths:
       - render.yaml
     routes:
+      - type: redirect
+        source: /agents
+        destination: https://github.com
+      - type: redirect
+        source: /products
+        destination: https://google.com
