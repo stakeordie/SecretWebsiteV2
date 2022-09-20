@@ -15,3 +15,6 @@ services:
       - type: redirect
         source: /agents
         destination: https://github.com
+      - type: redirect
+        source: /products
+        destination: https://apple.com
