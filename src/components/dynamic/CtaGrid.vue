@@ -11,27 +11,39 @@
       :key="index"
       class="cta-grid__item__card"
     >
-      <!-- <p>{{ctas}}</p> -->
+    <!-- PRE-CONFIG -->
       <div v-for="(el, index) in item.preconfiged_cta" :key="index">
+        <div v-if="item.custom_cta">
+        <!-- <small>{{item.custom_cta}}</small> -->
+      </div>
         <img
-          :src="el.cta.image.data.url"
+          :src="!item.create_custom ? el.cta.image.data.url : item.custom_cta.image.data.url"
           class="cta-grid__item__card__img"
           alt=""
         />
+        <!-- <img
+          :src="el==--.cta.image.data.url"
+          class="cta-grid__item__card__img"
+          alt=""
+        /> -->
         <h4 class="cta-grid__item__card__h4">
-          {{ el.cta.title }}
+          {{ !item.create_custom ? el.cta.title : item.custom_cta.title }}
         </h4>
         <p class="cta-grid__item__card__p">
-          {{ el.cta.subtitle }}
+          {{ !item.create_custom ? el.cta.subtitle : item.custom_cta.subtitle}}
         </p>
 
         <btn
           class="center-text no-arrow ctas-button"
-          :url="el.cta.button.link"
-          >{{ el.cta.button.text }}</btn
+          :url="!item.create_custom ? el.cta.button.link : item.custom_cta.button.link"
+          >{{ !item.create_custom ? el.cta.button.text : item.custom_cta.button.text}}</btn
         >
       </div>
-    </div>
+
+        
+      </div>
+
+    
   </section>
 </template>
 
