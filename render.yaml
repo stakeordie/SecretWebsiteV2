@@ -1,13 +1,16 @@
 services:
   # A static site
   - type: web
-    name: Secret Network Website Dev
+    name: Secret Network Website Staging BP
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true # optional
     envVars:
       - fromGroup: scrt-web
+    buildFilter:
+      ignoredPaths:
+      - render.yaml
     routes:
       - type: redirect
         source: /agents
