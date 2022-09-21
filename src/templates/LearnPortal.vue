@@ -1,10 +1,5 @@
 <template>
   <default-layout class="learn-subpage">
-    <column class="comp-name__dynamic-breadcrumb">
-      <block>
-        <dynamic-breadcrumb :route="$context.route" />
-      </block>
-    </column>
     <column
       class="bg-black-gradient learn-article__content"
       :class="[

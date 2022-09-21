@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div
       v-if="dynamic_learn_article_group"
       class="learn-carousel"
@@ -25,15 +25,14 @@
           </button>
         </div>
       </div>
-      <!-- PORTAL -->
       <div
         class="items learn-carousel__item"
         v-if="dynamic_learn_article_group.data"
       >
         <div
           class="card-element item"
-          v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles
-            .data"
+          v-for="(element, index) in articlesCarousel.data
+            .dynamic_learn_articles.data"
           :key="index"
         >
           <a
@@ -45,7 +44,11 @@
             <div class="card-element__header">
               <img
                 class="card-element__header__logo"
-                :src="element.thumbnail_image.data.url"
+                :src="
+                  element.thumbnail_image.data.url
+                    ? element.thumbnail_image.data.url
+                    : ''
+                "
                 alt="picture"
               />
             </div>
@@ -54,66 +57,21 @@
                 <div v-for="(tag, index) in element.tags.data" :key="index">
                   <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
                 </div>
-                <!-- <h6 class="element-grid-main-tag">{{ element.tags.data.tag }}</h6> -->
                 <h5 class="element-grid-title">{{ element.title }}</h5>
               </div>
             </div>
           </a>
         </div>
       </div>
-      <!-- SUBBPAGE / ARTICLE -->
-      <!-- <div
-        class="items learn-carousel__item"
-        v-if="dynamic_learn_article_group.data"
-      > -->
-        <!-- <h6>LOL</h6> -->
-        <!-- <h6>{{dynamic_page_groups_learn_article.data.learn_pages.dynamic_learn_article}}</h6> -->
-        <!-- <div
-          class="card-element item"
-          v-for="(element, index) in articlesCarouselSubpage.data.learn_pages"
-          :key="index"
-        >
-          <a
-            class="card-element__overall-link"
-            :href="element.dynamic_learn_article.data.route"
-            target="blank"
-            rel="noopener noreferrer"
-          >
-            <div class="card-element__header">
-              <img
-                class="card-element__header__logo"
-                :src="element.card_image.data.url"
-                alt="picture"
-              />
-            </div>
-            <div class="card-element__title-desc">
-              <div class="card-element__title-desc__header">
-                <div
-                  v-for="(tag, index) in element.dynamic_learn_article.data.tags
-                    .data"
-                  :key="index"
-                >
-                  <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
-                </div> -->
-                <!-- <h6 class="element-grid-main-tag">{{ tagCarousel }}</h6> -->
-                <!-- <h5 class="element-grid-title">
-                  {{
-                    element.dynamic_learn_article.title
-                      ? element.dynamic_learn_article.title
-                      : "null"
-                  }}
-                </h5>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div> -->
     </div>
-    <div v-else style="font-size: xx-large; border:1px solid white; padding: 10px 30px;">
-      A CAROUSEL DEFINED HERE IS MISSING AN ARTICLE GROUP - CHECK THE ENTRY IN STRAPI
+    <div
+      v-else
+      style="font-size: xx-large; border: 1px solid white; padding: 10px 30px"
+    >
+      A CAROUSEL DEFINED HERE IS MISSING AN ARTICLE GROUP - CHECK THE ENTRY IN
+      STRAPI
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -128,57 +86,41 @@ export default {
 
   data: function () {
     return {
-      idCarousel: ""
+      idCarousel: "",
     };
   },
 
   methods: {
     scroll_left() {
-      if (this.dynamic_learn_article_group.data) {
-        let contentSubpage = document.querySelector(
-          `.carouselId-${this.dynamic_learn_article_group.data.id}`
-        );
-        contentSubpage.parentElement.scrollLeft -= 390;
-        contentSubpage.scrollLeft -= 390;
+      let carouselId = document.querySelector(`.carouselId-${this.dynamic_learn_article_group.data.id}`);
+      let carouselBox = carouselId.closest(".box");
+      let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
+      
+      if (!carouselGroupHelper) {
+        carouselBox.scrollLeft -= 390;
       } else {
-        let content = document.querySelector(`.carouselId-${this.idCarousel}`);
-        content.parentElement.scrollLeft -= 390;
-        content.scrollLeft -= 390;
+        carouselId.scrollLeft -= 390;
       }
     },
     scroll_right() {
-      if (this.dynamic_learn_article_group.data) {
-        let contentSubpage = document.querySelector(
-          `.carouselId-${this.dynamic_learn_article_group.data.id}`
-        );
-        contentSubpage.parentElement.scrollLeft += 390;
-        contentSubpage.scrollLeft += 390;
-      } else {
-        let content = document.querySelector(`.carouselId-${this.idCarousel}`);
-        content.parentElement.scrollLeft += 390;
-        content.scrollLeft += 390;
-      }
+      let carouselId = document.querySelector(
+        `.carouselId-${this.dynamic_learn_article_group.data.id}`
+      );
+      let carouselBox = carouselId.closest(".box");
+      let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
 
-      // contentSubpage.parentElement.scrollLeft += 390;
-      // contentSubpage.scrollLeft += 390;
+      if (!carouselGroupHelper) {
+        carouselBox.scrollLeft += 390;
+      } else {
+        carouselId.scrollLeft += 390;
+      }
     },
     onFilterApplied(filters) {
       this.appliedFilters = filters;
     },
     carouselItems() {
       this.articlesCarousel = this.dynamic_learn_article_group;
-      // this.tagCarousel = this.articlesCarousel.data.name;
-
-      //this.articlesCarouselSubpage = this.dynamic_learn_article_group;
-
-      console.log(this.articlesCarousel);
-      //console.log(this.articlesCarouselSubpage);
-
-      // if (this.articlesCarousel) {
       return this.articlesCarousel;
-      // } else if (this.articlesCarouselSubpage) {
-      //   return this.articlesCarouselSubpage;
-      // }
     },
     idCarouselTagger() {
       this.idCarousel = this.dynamic_learn_article_group.data.id;
@@ -192,8 +134,8 @@ export default {
     }
   },
   created() {
-    console.log(this.dynamic_learn_article_group)
-  }
+
+  },
 };
 </script>
 
