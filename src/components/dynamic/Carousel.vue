@@ -1,112 +1,119 @@
 <template>
-  <div
-    class="learn-carousel"
-    :class="[
-      dynamic_learn_article_group.data
-        ? 'carouselId-' + dynamic_learn_article_group.data.id
-        : '',
-      dynamic_learn_article_group.data ? 'carouselId-' + idCarousel : '',
-    ]"
-  >
-    <div class="learn-carousel__header">
-      <div class="learn-carousel__header__description">
-        <h3>{{ title }}</h3>
-        <p>{{ subtitle }}</p>
-      </div>
-      <div class="learn-carousel__header__controls">
-        <button class="theme padding-small control" @click="scroll_left">
-          <img src="../../assets/icon-circle-left.svg" alt="left" />
-        </button>
+  <div >
+    <div
+      v-if="dynamic_learn_article_group"
+      class="learn-carousel"
+      :class="[
+        dynamic_learn_article_group.data
+          ? 'carouselId-' + dynamic_learn_article_group.data.id
+          : '',
+        dynamic_learn_article_group.data ? 'carouselId-' + idCarousel : '',
+      ]"
+    >
+      <div class="learn-carousel__header">
+        <div class="learn-carousel__header__description">
+          <h3>{{ title }}</h3>
+          <p>{{ subtitle }}</p>
+        </div>
+        <div class="learn-carousel__header__controls">
+          <button class="theme padding-small control" @click="scroll_left">
+            <img src="../../assets/icon-circle-left.svg" alt="left" />
+          </button>
 
-        <button class="theme padding-small control" @click="scroll_right">
-          <img src="../../assets/icon-circle-right.svg" alt="right" />
-        </button>
+          <button class="theme padding-small control" @click="scroll_right">
+            <img src="../../assets/icon-circle-right.svg" alt="right" />
+          </button>
+        </div>
       </div>
-    </div>
-    <!-- PORTAL -->
-    <div
-      class="items learn-carousel__item"
-      v-if="dynamic_learn_article_group.data"
-    >
+      <!-- PORTAL -->
       <div
-        class="card-element item"
-        v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles
-          .data"
-        :key="index"
+        class="items learn-carousel__item"
+        v-if="dynamic_learn_article_group.data"
       >
-        <a
-          class="card-element__overall-link"
-          :href="element.route"
-          target="blank"
-          rel="noopener noreferrer"
+        <div
+          class="card-element item"
+          v-for="(element, index) in articlesCarousel.data.dynamic_learn_articles
+            .data"
+          :key="index"
         >
-          <div class="card-element__header">
-            <img
-              class="card-element__header__logo"
-              :src="element.thumbnail_image.data.url"
-              alt="picture"
-            />
-          </div>
-          <div class="card-element__title-desc">
-            <div class="card-element__title-desc__header">
-              <div v-for="(tag, index) in element.tags.data" :key="index">
-                <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
-              </div>
-              <!-- <h6 class="element-grid-main-tag">{{ element.tags.data.tag }}</h6> -->
-              <h5 class="element-grid-title">{{ element.title }}</h5>
+          <a
+            class="card-element__overall-link"
+            :href="element.route"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <div class="card-element__header">
+              <img
+                class="card-element__header__logo"
+                :src="element.thumbnail_image.data.url"
+                alt="picture"
+              />
             </div>
-          </div>
-        </a>
+            <div class="card-element__title-desc">
+              <div class="card-element__title-desc__header">
+                <div v-for="(tag, index) in element.tags.data" :key="index">
+                  <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
+                </div>
+                <!-- <h6 class="element-grid-main-tag">{{ element.tags.data.tag }}</h6> -->
+                <h5 class="element-grid-title">{{ element.title }}</h5>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
+      <!-- SUBBPAGE / ARTICLE -->
+      <!-- <div
+        class="items learn-carousel__item"
+        v-if="dynamic_learn_article_group.data"
+      > -->
+        <!-- <h6>LOL</h6> -->
+        <!-- <h6>{{dynamic_page_groups_learn_article.data.learn_pages.dynamic_learn_article}}</h6> -->
+        <!-- <div
+          class="card-element item"
+          v-for="(element, index) in articlesCarouselSubpage.data.learn_pages"
+          :key="index"
+        >
+          <a
+            class="card-element__overall-link"
+            :href="element.dynamic_learn_article.data.route"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <div class="card-element__header">
+              <img
+                class="card-element__header__logo"
+                :src="element.card_image.data.url"
+                alt="picture"
+              />
+            </div>
+            <div class="card-element__title-desc">
+              <div class="card-element__title-desc__header">
+                <div
+                  v-for="(tag, index) in element.dynamic_learn_article.data.tags
+                    .data"
+                  :key="index"
+                >
+                  <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
+                </div> -->
+                <!-- <h6 class="element-grid-main-tag">{{ tagCarousel }}</h6> -->
+                <!-- <h5 class="element-grid-title">
+                  {{
+                    element.dynamic_learn_article.title
+                      ? element.dynamic_learn_article.title
+                      : "null"
+                  }}
+                </h5>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div> -->
     </div>
-    <!-- SUBBPAGE / ARTICLE -->
-    <div
-      class="items learn-carousel__item"
-      v-if="dynamic_learn_article_group.data"
-    >
-      <!-- <h6>LOL</h6> -->
-      <!-- <h6>{{dynamic_page_groups_learn_article.data.learn_pages.dynamic_learn_article}}</h6> -->
-      <div
-        class="card-element item"
-        v-for="(element, index) in articlesCarouselSubpage.data.learn_pages"
-        :key="index"
-      >
-        <a
-          class="card-element__overall-link"
-          :href="element.dynamic_learn_article.data.route"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <div class="card-element__header">
-            <img
-              class="card-element__header__logo"
-              :src="element.card_image.data.url"
-              alt="picture"
-            />
-          </div>
-          <div class="card-element__title-desc">
-            <div class="card-element__title-desc__header">
-              <div
-                v-for="(tag, index) in element.dynamic_learn_article.data.tags
-                  .data"
-                :key="index"
-              >
-                <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
-              </div>
-              <!-- <h6 class="element-grid-main-tag">{{ tagCarousel }}</h6> -->
-              <h5 class="element-grid-title">
-                {{
-                  element.dynamic_learn_article.title
-                    ? element.dynamic_learn_article.title
-                    : "null"
-                }}
-              </h5>
-            </div>
-          </div>
-        </a>
-      </div>
+    <div v-else style="font-size: xx-large; border:1px solid white; padding: 10px 30px;">
+      A CAROUSEL DEFINED HERE IS MISSING AN ARTICLE GROUP - CHECK THE ENTRY IN STRAPI
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -121,7 +128,7 @@ export default {
 
   data: function () {
     return {
-      idCarousel: "",
+      idCarousel: ""
     };
   },
 
@@ -162,16 +169,16 @@ export default {
       this.articlesCarousel = this.dynamic_learn_article_group;
       // this.tagCarousel = this.articlesCarousel.data.name;
 
-      this.articlesCarouselSubpage = this.dynamic_learn_article_group;
+      //this.articlesCarouselSubpage = this.dynamic_learn_article_group;
 
       console.log(this.articlesCarousel);
-      console.log(this.articlesCarouselSubpage);
+      //console.log(this.articlesCarouselSubpage);
 
-      if (this.articlesCarousel) {
-        return this.articlesCarousel;
-      } else if (this.articlesCarouselSubpage) {
-        return this.articlesCarouselSubpage;
-      }
+      // if (this.articlesCarousel) {
+      return this.articlesCarousel;
+      // } else if (this.articlesCarouselSubpage) {
+      //   return this.articlesCarouselSubpage;
+      // }
     },
     idCarouselTagger() {
       this.idCarousel = this.dynamic_learn_article_group.data.id;
@@ -179,8 +186,8 @@ export default {
     },
   },
   beforeMount() {
-    this.carouselItems();
-    if (!this.dynamic_learn_article_group) {
+    if (this.dynamic_learn_article_group) {
+      this.carouselItems();
       this.idCarouselTagger();
     }
   },
