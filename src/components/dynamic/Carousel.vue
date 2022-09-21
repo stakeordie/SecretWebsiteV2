@@ -184,6 +184,9 @@ export default {
       this.idCarouselTagger();
     }
   },
+  created() {
+    console.log(this.dynamic_learn_article_group)
+  }
 };
 </script>
 

@@ -87,6 +87,7 @@ module.exports = function(api) {
       // SEARCH CONFIG
 
       const { data } = await client.allStrapiDynamicPage()
+      console.log("DATA = page_set and template of dynamic page sets")
       let pageSetEndpoint = {
         plural: "",
         singular: ""
@@ -101,12 +102,22 @@ module.exports = function(api) {
         try {
           response = await client.getDynamicPage(pageSetEndpoint.plural)
         } catch (error) {
-          response = await client.getDynamicPage(pageSetEndpoint.singular)
+          try {
+            response = await client.getDynamicPage(pageSetEndpoint.singular)
+          } catch (e) {
+            console.error(
+              "\u001b[1;31m Page Set query for endpoint " + pageSetEndpoint.singular + " FAILED. It may be the case that the collection is empty. Here is the Error: ", e)
+            continue;
+          }
         }
+        //console.log("page_set responses: ", response)
         if(!Array.isArray(response.data)) {
           response.data = [ response.data ]
         }
-        const { data } = expandPropsToParent(response, 'attributes')
+        response = expandPropsToParent(response, 'attributes');
+        //console.log("page_set response after expansion ", response)
+        const { data } = response
+        //console.log("Help", data);
         data.forEach(page => {
           page.currentComponents = []
           let maxSort = 0
@@ -128,7 +139,6 @@ module.exports = function(api) {
                 page[key].order = order
                 page[key].comp_name = key.replace(`comp_`, '').replace(/_/g, '-')
               }
-              //console.log(page[key])
               page.currentComponents.push(page[key])
             } else if (key.toLowerCase().startsWith('components')) {
               let order = +key.split('_')[1]
@@ -163,6 +173,7 @@ module.exports = function(api) {
             })
           })
           page.currentComponents.sort((a, b) => a.order - b.order)
+          console.log("Creating a page with the route: ", page.route)
           createPage({
             path: `${page.route}`,
             component: `./src/templates/${template}.vue`,
@@ -174,7 +185,7 @@ module.exports = function(api) {
         })
       }
     } catch (error) {
-      console.log(error);
+      console.log("An Errror Occured", error);
     }
     
   })

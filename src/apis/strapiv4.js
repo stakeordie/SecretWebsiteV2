@@ -12,11 +12,14 @@ const managePromise = (promise) => {
     })
 }
 
+let res
+
 module.exports = {
     allStrapiDynamicPage() {
         return managePromise(axios.get(`${apiUrl}/api/dynamic-page-sets?populate=deep`))
     },
     getDynamicPage(name) {
-        return managePromise(axios.get(`${apiUrl}/api/${name}?populate=deep`))
+        res = managePromise(axios.get(`${apiUrl}/api/${name}?populate=deep`))
+        return res
     },
 }
