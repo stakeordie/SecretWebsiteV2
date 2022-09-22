@@ -35,10 +35,15 @@
                   :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   v-for="(nav, index) in megaMenuItems"
                   :key="index"
-                  @click.prevent="toggleMegaMenu(index)"
+                  @click="
+                    nav.is_dropdown === false ? '' : toggleMegaMenu(index)
+                  "
                 >
-                  <a href="/">{{ nav.title }}</a>
+                  <a :href="nav.is_dropdown === false ? nav.path : ''">
+                    {{ nav.title }}
+                  </a>
                   <img
+                    v-show="nav.is_dropdown !== false"
                     class="nav__content__chevron"
                     src="../assets/icon-chevron-down.svg"
                     alt="arrow down icon"
@@ -80,14 +85,17 @@
                 <div
                   class="nav__expanded__content__titles__content"
                   :class="nav.title.toLowerCase().replace(/\s/g, '-')"
-                  @click.prevent="openSubMenu(index)"
+                  @click="
+                    nav.is_dropdown === false ? '' : openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img :src="nav.icon.url" alt="" />
+                    <img  :src="nav.icon.url" alt="" />
                     <!-- <img src="../assets/badge.svg" alt="" /> -->
-                    <h6>{{ nav.title }}</h6>
+                    <h6 v-if="nav.title !== 'Learn'">{{ nav.title }}</h6>
+                    <a class="spc_learn" :href="learnPath" v-if="nav.title === 'Learn'">{{ nav.title }}</a>
                   </div>
                   <img
+                    v-show="nav.is_dropdown !== false"
                     class="nav__expanded__content__chevron"
                     :class="{ arrow_up: subMenuIndex == index }"
                     src="../assets/icon-chevron-down.svg"
@@ -276,6 +284,7 @@ export default {
       columns: [],
       miniMenuIsOpen: false,
       subMenuIndex: -1,
+      learnPath : '',
     };
   },
   methods: {
@@ -442,25 +451,33 @@ export default {
         getNavItems();
         getPath();
 
+
         navFinder = navItems.filter((el) => {
           // if (el.text === "Resources") {
           //   el.classList.add("mystyle");
           // }
-          if (el.text.toLowerCase() === "learn") {
+          if (el.outerText.toLowerCase() === "about") {
             if (path.includes("/about")) {
               el.classList.add("active-about");
             } else {
               el.classList.remove("active-about");
             }
           }
-          if (el.text.toLowerCase() === "build") {
+          if (el.outerText.toLowerCase() === "learn") {
+            if (path.includes("/learn")) {
+              el.classList.add("active-learn");
+            } else {
+              el.classList.remove("active-learn");
+            }
+          }
+          if (el.outerText.toLowerCase() === "build") {
             if (path.includes("/developers")) {
               el.classList.add("active-build");
             } else {
               el.classList.remove("active-build");
             }
           }
-          if (el.text.toLowerCase() === "ecosystem") {
+          if (el.outerText.toLowerCase() === "ecosystem") {
             if (
               path.includes("/ecosystem") ||
               path.includes("/service-status")
@@ -470,14 +487,14 @@ export default {
               el.classList.remove("active-ecosystem");
             }
           }
-          if (el.text.toLowerCase() === "get involved") {
+          if (el.outerText.toLowerCase() === "get involved") {
             if (path.includes("/get-involved")) {
               el.classList.add("active-get-involved");
             } else {
               el.classList.remove("active-get-involved");
             }
           }
-          if (el.text.toLowerCase() === "resources") {
+          if (el.outerText.toLowerCase() === "resources") {
             if (path.includes("/blog") || path.includes("/media")) {
               el.classList.add("active-resources");
             } else {
@@ -486,6 +503,7 @@ export default {
           }
         });
 
+        // console.log(navItems);
         // console.log(navFinder);
         // console.log(path);
         // console.log(path.includes("/media"));
@@ -503,10 +521,19 @@ export default {
     megaMenuItems() {
       const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
       const content = neWArray.edges.map((it) => it.node.nav_groups);
-
       this.columns = content[0];
       this.mapNavArray(this.columns);
 
+      // console.log(this.columns);
+
+      // const found = this.columns.findIndex((element) => {
+      //   element.id === 2
+      // });
+      // console.log('FFFOUND', found)
+      const findLearnItem = this.columns.findIndex((nav) => nav.title==='Learn');
+      this.learnPath = this.columns[findLearnItem].path
+      // console.log('FFFOUND', findLearnItem)
+      // console.log(this.learnPath)
       return this.columns;
     },
   },
@@ -541,6 +568,8 @@ query {
         nav_groups {
           title
           id
+          is_dropdown
+          path
           icon {
             url
             name
@@ -816,10 +845,18 @@ query {
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
+          &.not-dropdown {
+            // background: red;
+          }
           &:hover {
-            &.learn {
+            &.about {
               a {
                 color: var(--color-ver2-secondary-red);
+              }
+            }
+            &.learn {
+              a {
+                color: var(--color-ver2-primary-orange);
               }
             }
             &.build {
@@ -847,6 +884,9 @@ query {
             &about {
               color: var(--color-ver2-secondary-red);
             }
+            &learn {
+              color: var(--color-ver2-primary-orange);
+            }
             &build {
               color: var(--color-ver2-primary-blue);
             }
@@ -863,6 +903,11 @@ query {
           &.activeNav {
             // background: var(--mega-header-background-nav-expanded);
             border-radius: 10px 10px 0px 0px;
+            &.about {
+              a {
+                color: var(--color-ver2-secondary-red);
+              }
+            }
             &.learn {
               a {
                 color: var(--color-ver2-secondary-red);
@@ -989,8 +1034,11 @@ query {
               padding: 0px;
             }
             &:not(.hidden__submenu) {
-              .learn {
+              .about {
                 color: var(--color-ver2-secondary-red);
+              }
+              &learn {
+              color: var(--color-ver2-primary-orange);
               }
               .build {
                 color: var(--color-ver2-primary-blue);
@@ -1023,6 +1071,15 @@ query {
                   h6 {
                     margin: 0;
                     font-size: 18px;
+                  }
+                  .spc_learn {
+                    margin: 0;
+                    font-size: 18px;
+                    color: green;
+                    font-family: var(--f-h6-text-font);
+                    font-weight: var(--f-h6-text-weight);
+                    color: var(--f-h6-text-color);
+                    line-height: var(--f-h6-line-height);
                   }
                 }
               }
