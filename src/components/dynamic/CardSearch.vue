@@ -22,16 +22,16 @@
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
         >
-          <li v-for="(category, index) of categories" :key="index">
+          <li v-for="(category, index) of featured_tags.data" :key="index">
             <label @click="searchFilterReset">
               <input
                 :id="category"
                 type="checkbox"
-                :value="category"
+                :value="category.tag"
                 v-model="checkedCategories"
               />
               <span class="title">
-                {{ formatCategory(category) }}
+                {{category.tag}}
                 <img src="../../assets/icon-remove-filter.svg" alt="" />
               </span>
             </label>
@@ -134,6 +134,7 @@ export default {
     empty_subtitle: String,
     no_results_title: String,
     no_results_subtitle: String,
+    featured_tags: Object,
   },
 
   methods: {
