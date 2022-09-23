@@ -1,7 +1,7 @@
 services:
   # A static site
   - type: web
-    name: Secret Network Website Staging BP
+    name: Secret Network Website Development Build
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
@@ -14,7 +14,7 @@ services:
     routes:
       - type: redirect
         source: /agents
-        destination: https://github.com
+        destination: https://scrt.network/get-involved/become-secret-agent
       - type: redirect
-        source: /products
-        destination: https://google.com
+        source: /agents/*
+        destination: https://scrt.network/get-involved/become-secret-agent

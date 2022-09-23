@@ -35,6 +35,7 @@ import ThemeMode from '~/components/animated/ThemeMode.vue';
 import ThemeColor from '~/components/animated/ThemeColor.vue';
 import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
+import DynamicBreadcrumb from '~/components/DynamicBreadcrumb';
 import Announcement from '~/components/Announcement.vue';
 import AnnouncementVer2 from '~/components/AnnouncementVer2.vue';
 import Navigation from '~/components/Navigation.vue';
@@ -224,6 +225,14 @@ import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
 import TextImageColumnDouble from '~/components/dynamic/TextImageColumnDouble'
 import ArticleHero from '~/components/dynamic/ArticleHero'
 import ArticleImage from '~/components/dynamic/ArticleImage'
+import ArticleVideo from '~/components/dynamic/ArticleVideo'
+import Carousel from '~/components/dynamic/Carousel'
+import CarouselGroup from '~/components/dynamic/CarouselGroup'
+import LearnHeader from '~/components/dynamic/LearnHeader'
+import OptionalCalloutBox from '~/components/dynamic/OptionalCalloutBox'
+import Callout from '~/components/dynamic/Callout'
+import CtaGrid from '~/components/dynamic/CtaGrid'
+import CardSearch from '~/components/dynamic/CardSearch'
 
 
 
@@ -264,6 +273,7 @@ export default function (Vue, {
   Vue.component('ThemeMode', ThemeMode);
   Vue.component('ThemeColor', ThemeColor);
   Vue.component('AlertBar', AlertBar);
+  Vue.component('DynamicBreadcrumb', DynamicBreadcrumb);
   Vue.component('Announcement', Announcement);
   Vue.component('AnnouncementVer2', AnnouncementVer2);
 
@@ -401,6 +411,13 @@ export default function (Vue, {
   Vue.component('TextImageColumnDouble', TextImageColumnDouble);
   Vue.component('ArticleHero', ArticleHero);
   Vue.component('ArticleImage', ArticleImage);
+  Vue.component('ArticleVideo', ArticleVideo);
+  Vue.component('Carousel', Carousel);
+  Vue.component('CarouselGroup', CarouselGroup);
+  Vue.component('OptionalCalloutBox', OptionalCalloutBox);
+  Vue.component('Callout', Callout);
+  Vue.component('CtaGrid', CtaGrid);
+  Vue.component('CardSearch', CardSearch);
 
   //Page Specific
   Vue.component('HomeHero', HomeHero);
@@ -458,6 +475,7 @@ export default function (Vue, {
   Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
   Vue.component('LearnArticleHero', LearnArticleHero);
   Vue.component('LearnArticleImage', LearnArticleImage);
+  Vue.component('LearnHeader', LearnHeader);
   Vue.component('Breadcrumbs', Breadcrumbs);
 
   //External Libraries
