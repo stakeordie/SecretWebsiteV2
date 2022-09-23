@@ -1,14 +1,16 @@
 services:
-  # A static site
   - type: web
     name: Secret Website (Development)
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true # optional
+    pullRequestPreviewsEnabled: true
     envVars:
       - fromGroup: scrt-web
     buildFilter:
       ignoredPaths:
-      - render.yaml
+        - render.yaml
     routes:
+      - type: redirect
+        source: /test
+        destination: /about/secret-nfts
