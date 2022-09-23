@@ -13,4 +13,4 @@ services:
     routes:
       - type: redirect
         source: /test
-        destination: /about/secret-nfts
+        destination: /about/*
