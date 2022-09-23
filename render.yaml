@@ -14,3 +14,6 @@ services:
       - type: redirect
         source: /test
         destination: /about/secret-nfts
+      - type: redirect
+        source: /about
+        destination: /about/about-secret-network/
