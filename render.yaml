@@ -13,4 +13,4 @@ services:
     routes:
       - type: redirect
         source: /test
-        destination: /get-involved/become-secret-agent/*
+        destination: /test/*
