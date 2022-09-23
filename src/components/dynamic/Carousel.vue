@@ -31,8 +31,7 @@
       >
         <div
           class="card-element item"
-          v-for="(element, index) in articlesCarousel
-            .dynamic_learn_articles"
+          v-for="(element, index) in dynamic_learn_article_group.dynamic_learn_articles"
           :key="index"
         >
           <a
@@ -118,10 +117,6 @@ export default {
     onFilterApplied(filters) {
       this.appliedFilters = filters;
     },
-    carouselItems() {
-      this.articlesCarousel = this.dynamic_learn_article_group;
-      return this.articlesCarousel;
-    },
     idCarouselTagger() {
       this.idCarousel = this.dynamic_learn_article_group.id;
       return this.idCarousel;
@@ -129,7 +124,6 @@ export default {
   },
   beforeMount() {
     if (this.dynamic_learn_article_group) {
-      this.carouselItems();
       this.idCarouselTagger();
     }
   },
