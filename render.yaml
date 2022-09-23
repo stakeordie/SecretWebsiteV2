@@ -12,9 +12,3 @@ services:
       ignoredPaths:
       - render.yaml
     routes:
-      - type: redirect
-        source: /agents
-        destination: https://scrt.network/get-involved/become-secret-agent
-      - type: redirect
-        source: /agents/*
-        destination: https://scrt.network/get-involved/become-secret-agent
