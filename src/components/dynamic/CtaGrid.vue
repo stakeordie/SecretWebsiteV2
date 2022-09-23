@@ -11,39 +11,44 @@
       :key="index"
       class="cta-grid__item__card"
     >
-    <!-- PRE-CONFIG -->
-      <div v-for="(el, index) in item.preconfiged_cta" :key="index">
-        <div v-if="item.custom_cta">
-        <!-- <small>{{item.custom_cta}}</small> -->
-      </div>
-        <img
-          :src="!item.create_custom ? el.cta.image.data.url : item.custom_cta.image.data.url"
-          class="cta-grid__item__card__img"
-          alt=""
-        />
-        <!-- <img
-          :src="el==--.cta.image.data.url"
-          class="cta-grid__item__card__img"
-          alt=""
-        /> -->
-        <h4 class="cta-grid__item__card__h4">
-          {{ !item.create_custom ? el.cta.title : item.custom_cta.title }}
-        </h4>
-        <p class="cta-grid__item__card__p">
-          {{ !item.create_custom ? el.cta.subtitle : item.custom_cta.subtitle}}
-        </p>
+      <img
+        :src="
+          !item.create_custom
+            ? item.preconfiged_cta.cta.image.url
+            : item.custom_cta.image.url
+        "
+        class="cta-grid__item__card__img"
+        alt=""
+      />
+      <h4 class="cta-grid__item__card__h4">
+        {{
+          !item.create_custom
+            ? item.preconfiged_cta.cta.title
+            : item.custom_cta.title
+        }}
+      </h4>
+      <p class="cta-grid__item__card__p">
+        {{
+          !item.create_custom
+            ? item.preconfiged_cta.cta.subtitle
+            : item.custom_cta.subtitle
+        }}
+      </p>
 
-        <btn
-          class="center-text no-arrow ctas-button"
-          :url="!item.create_custom ? el.cta.button.link : item.custom_cta.button.link"
-          >{{ !item.create_custom ? el.cta.button.text : item.custom_cta.button.text}}</btn
-        >
-      </div>
-
-        
-      </div>
-
-    
+      <btn
+        class="center-text no-arrow ctas-button"
+        :url="
+          !item.create_custom
+            ? item.preconfiged_cta.cta.button.link
+            : item.custom_cta.button.link
+        "
+        >{{
+          !item.create_custom
+            ? item.preconfiged_cta.cta.button.text
+            : item.custom_cta.button.text
+        }}</btn
+      >
+    </div>
   </section>
 </template>
 
@@ -63,6 +68,7 @@ export default {
     getCtaContent() {
       this.ctaGroup = this.ctas;
       this.ctaGroupColumns = this.ctaGroup.length;
+      console.log(this.ctaGroup);
     },
   },
   beforeMount() {
@@ -75,12 +81,12 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .cta-grid {
-   display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   gap: var(--f-gutter-xl);
   &.cta-grid-columns__ {
     background: blue;
@@ -99,7 +105,6 @@ export default {
         grid-template-columns: 1fr;
       }
       &.center-middle {
-        
       }
     }
   }

@@ -134,7 +134,7 @@ export default {
     }
   },
   created() {
-    console.log(this.dynamic_learn_article_group)
+    // console.log(this.dynamic_learn_article_group)
   },
 };
 </script>

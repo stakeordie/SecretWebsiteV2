@@ -22,7 +22,7 @@
           :class="'selected-' + selectedTag"
           v-if="hasCategories"
         >
-          <li v-for="(category, index) of featured_tags.data" :key="index">
+          <li v-for="(category, index) of featured_tags" :key="index">
             <label @click="searchFilterReset">
               <input
                 :id="category"
