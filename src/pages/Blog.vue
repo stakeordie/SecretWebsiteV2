@@ -1,5 +1,15 @@
 <template>
   <default-layout class="blog">
+    <!-- swirl -->
+<column class="blog__swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
+
+</block>
+
+</column>
     <hero-title>
       <h2>Secret Network Blog</h2>
     </hero-title>
@@ -38,6 +48,17 @@
         </section>
       </block>
     </column>
+
+    <!-- swirl -->
+<column class="blog__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
+
+</block>
+
+</column>
   </default-layout>
 </template>
 
@@ -263,6 +284,123 @@ export default {
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
+.media-features,
+.blog{
+  overflow: hidden;
+
+  & .swirl-wrapper,
+  & .swirl-wrapper-bottom{
+    display: none;
+  }
+
+  & .simple-footer {
+    margin-top: 0;
+  }
+
+  &__swirl__top{
+    position: relative;
+    padding: 0;
+    top: 24px;
+
+    & .content {
+      & .box {
+        padding: 0;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          object-fit: cover;
+          object-position: bottom;
+
+          @include respond-to("<=xxxl") {
+            display: none;
+          }
+        }
+      }
+    }
+    @include respond-to(">=xxxl") {
+    }
+
+    @include respond-to(">=xxl") {
+    }
+
+    @include respond-to("<=xxxl") {
+      height: 148px;
+      background-image: url("../../src/assets/swirl-purple-top.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+
+    @include respond-to("<=s") {
+      height: 140px;
+    }
+    @include respond-to("<=s") {
+      position: relative;
+    }
+  }
+
+  &__swirl__bottom{
+    //background-image: url("../../src/assets/swirl-green-top.svg");
+    // background-repeat: no-repeat;
+    // background-position: bottom;
+    // background-size: cover;
+    height: 230px;
+    position: relative;
+    padding: 0;
+
+    & .content{
+        
+        & .box{
+            
+
+            & img{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                width: 100%;
+                z-index: -100;
+                overflow: hidden;
+
+                @include respond-to("<=m"){
+                    display: none;
+                }
+            }
+    
+        }
+            
+    }
+
+    @include respond-to(">=xxl"){
+        top: 0px;
+    }
+
+    @include respond-to("<=l"){
+        height: 200px;
+        top: 0px;
+    }
+
+    @include respond-to("<=m"){
+        height: 180px;
+        background-image: url("../../src/assets/swirl-purple-bottom.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    }
+    @include respond-to("<=s"){
+        height: 140px;
+        
+    }
+    @include respond-to("<=s"){
+        //height: 100px;
+        position: relative;
+    }
+  }
+
+  
+}
 
 .horizontal-slider {
   .content {

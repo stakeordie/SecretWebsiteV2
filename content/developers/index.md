@@ -219,3 +219,24 @@ title: 'Developer Resources'
 
 
 
+<!-- swirl -->
+<!-- <column class="developers__swirl__bottom">
+
+<block>
+
+<img class="" src="../../src/assets/swirl-dev-blue-bottom.svg" />
+
+</block>
+
+</column> -->
+
+<!-- swirl -->
+<column class="developers__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-dev-blue-bottom.svg" />
+
+</block>
+
+</column>

@@ -50,7 +50,7 @@ export default {};
   display: block;
 
   &__content {
-    display: grid;
+    // display: grid;
     z-index: 5;
     position: relative;
     padding: var(--f-gutter);
@@ -118,7 +118,7 @@ export default {};
       }
       .text-center {
         background-color: var(--color-newBrand-blue-01) !important;
-        width: 400px;
+        max-width: 400px;
         margin-right: 0;
         padding: 0;
 
@@ -127,9 +127,13 @@ export default {};
         }
       }
       &__ctas {
-        display: grid;
-        grid-auto-flow: column;
+        display: flex;
+        // grid-auto-flow: column;
         gap: var(--f-gutter);
+
+        @include respond-to('<=s'){
+          flex-direction: column;
+        }
         .btn {
           min-width: 300px;
           &.join {
