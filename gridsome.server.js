@@ -119,6 +119,7 @@ module.exports = function(api) {
         const { data } = response
         //console.log("Help", data);
         data.forEach(page => {
+          page = expandPropsToParent(page, 'data');
           page.currentComponents = []
           let maxSort = 0
           Object.keys(page).forEach(key => {

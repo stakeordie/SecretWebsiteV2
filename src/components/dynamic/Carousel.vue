@@ -4,10 +4,10 @@
       v-if="dynamic_learn_article_group"
       class="learn-carousel"
       :class="[
-        dynamic_learn_article_group.data
-          ? 'carouselId-' + dynamic_learn_article_group.data.id
+        dynamic_learn_article_group
+          ? 'carouselId-' + dynamic_learn_article_group.id
           : '',
-        dynamic_learn_article_group.data ? 'carouselId-' + idCarousel : '',
+        dynamic_learn_article_group ? 'carouselId-' + idCarousel : '',
       ]"
     >
       <div class="learn-carousel__header">
@@ -27,12 +27,12 @@
       </div>
       <div
         class="items learn-carousel__item"
-        v-if="dynamic_learn_article_group.data"
+        v-if="dynamic_learn_article_group"
       >
         <div
           class="card-element item"
-          v-for="(element, index) in articlesCarousel.data
-            .dynamic_learn_articles.data"
+          v-for="(element, index) in articlesCarousel
+            .dynamic_learn_articles"
           :key="index"
         >
           <a
@@ -45,8 +45,8 @@
               <img
                 class="card-element__header__logo"
                 :src="
-                  element.thumbnail_image.data.url
-                    ? element.thumbnail_image.data.url
+                  element.thumbnail_image.url
+                    ? element.thumbnail_image.url
                     : ''
                 "
                 alt="picture"
@@ -54,7 +54,7 @@
             </div>
             <div class="card-element__title-desc">
               <div class="card-element__title-desc__header">
-                <div v-for="(tag, index) in element.tags.data" :key="index">
+                <div v-for="(tag, index) in element.tags" :key="index">
                   <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
                 </div>
                 <h5 class="element-grid-title">{{ element.title }}</h5>
@@ -92,7 +92,7 @@ export default {
 
   methods: {
     scroll_left() {
-      let carouselId = document.querySelector(`.carouselId-${this.dynamic_learn_article_group.data.id}`);
+      let carouselId = document.querySelector(`.carouselId-${this.dynamic_learn_article_group.id}`);
       let carouselBox = carouselId.closest(".box");
       let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
       
@@ -104,7 +104,7 @@ export default {
     },
     scroll_right() {
       let carouselId = document.querySelector(
-        `.carouselId-${this.dynamic_learn_article_group.data.id}`
+        `.carouselId-${this.dynamic_learn_article_group.id}`
       );
       let carouselBox = carouselId.closest(".box");
       let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
@@ -123,7 +123,7 @@ export default {
       return this.articlesCarousel;
     },
     idCarouselTagger() {
-      this.idCarousel = this.dynamic_learn_article_group.data.id;
+      this.idCarousel = this.dynamic_learn_article_group.id;
       return this.idCarousel;
     },
   },
@@ -134,7 +134,7 @@ export default {
     }
   },
   created() {
-
+    console.log(this.dynamic_learn_article_group)
   },
 };
 </script>

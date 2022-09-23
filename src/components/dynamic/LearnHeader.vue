@@ -3,7 +3,7 @@
     <p class="learn-header__subtitle">{{eyebrow_text}}</p>
     <h1 class="learn-header__title">{{title}}</h1>
     <p class="learn-header__about-text">{{subtitle}}</p>
-    <img v-if="background_image.data.url" class="learn-header__image" :src="background_image.data.url"/>
+    <img v-if="background_image.url" class="learn-header__image" :src="background_image.url"/>
   </div>
 </template>
 
