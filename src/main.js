@@ -201,15 +201,16 @@ import GetScrtQuestions from '~/components/page/GetScrtQuestions'
 import GetScrtLearnMore from '~/components/page/GetScrtLearnMore'
 import GetScrtWallets from '~/components/page/GetScrtWallets'
 import GetScrtConvertSscrtV2 from '~/components/page/GetScrtConvertSscrtV2'
-import AboutSecretNetworkHero from '~/components/page/AboutSecretNetworkHero'
-import AboutSecretNetworkSupported from '~/components/page/AboutSecretNetworkSupported'
-import AboutSecretNetworkMorePrivacy from '~/components/page/AboutSecretNetworkMorePrivacy'
-import AboutSecretNetworkDetails from '~/components/page/AboutSecretNetworkDetails'
-import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetworkPossibilities'
-import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
-import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
-import AboutSecretNetworkCases from '~/components/page/AboutSecretNetworkCases'
-import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
+import AboutSecretNetwork from '~/components/page/AboutSecretNetwork'
+// import AboutSecretNetworkHero from '~/components/page/AboutSecretNetworkHero'
+// import AboutSecretNetworkSupported from '~/components/page/AboutSecretNetworkSupported'
+// import AboutSecretNetworkMorePrivacy from '~/components/page/AboutSecretNetworkMorePrivacy'
+// import AboutSecretNetworkDetails from '~/components/page/AboutSecretNetworkDetails'
+// import AboutSecretNetworkPossibilities from '~/components/page/AboutSecretNetworkPossibilities'
+// import AboutSecretNetworkBuild from '~/components/page/AboutSecretNetworkBuild'
+// import AboutSecretNetworkContracts from '~/components/page/AboutSecretNetworkContracts'
+// import AboutSecretNetworkCases from '~/components/page/AboutSecretNetworkCases'
+// import AboutSecretNetworkCtas from '~/components/page/AboutSecretNetworkCtas'
 import AustinEventHero from '~/components/page/AustinEventHero'
 import AustinEventMeet from '~/components/page/AustinEventMeet'
 import AustinEventPartnership from '~/components/page/AustinEventPartnership'
@@ -453,15 +454,16 @@ export default function (Vue, {
   Vue.component('GetScrtWallets', GetScrtWallets);
   Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
   Vue.component('GetScrtConvertSscrtV2', GetScrtConvertSscrtV2);
-  Vue.component('AboutSecretNetworkHero', AboutSecretNetworkHero);
-  Vue.component('AboutSecretNetworkSupported', AboutSecretNetworkSupported);
-  Vue.component('AboutSecretNetworkMorePrivacy', AboutSecretNetworkMorePrivacy);
-  Vue.component('AboutSecretNetworkDetails', AboutSecretNetworkDetails);
-  Vue.component('AboutSecretNetworkPossibilities', AboutSecretNetworkPossibilities);
-  Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
-  Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
-  Vue.component('AboutSecretNetworkCases', AboutSecretNetworkCases);
-  Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
+  Vue.component('AboutSecretNetwork', AboutSecretNetwork);
+  // Vue.component('AboutSecretNetworkHero', AboutSecretNetworkHero);
+  // Vue.component('AboutSecretNetworkSupported', AboutSecretNetworkSupported);
+  // Vue.component('AboutSecretNetworkMorePrivacy', AboutSecretNetworkMorePrivacy);
+  // Vue.component('AboutSecretNetworkDetails', AboutSecretNetworkDetails);
+  // Vue.component('AboutSecretNetworkPossibilities', AboutSecretNetworkPossibilities);
+  // Vue.component('AboutSecretNetworkBuild', AboutSecretNetworkBuild);
+  // Vue.component('AboutSecretNetworkContracts', AboutSecretNetworkContracts);
+  // Vue.component('AboutSecretNetworkCases', AboutSecretNetworkCases);
+  // Vue.component('AboutSecretNetworkCtas', AboutSecretNetworkCtas);
   Vue.component('AustinEventHero', AustinEventHero);
   Vue.component('AustinEventMeet', AustinEventMeet);
   Vue.component('AustinEventPartnership', AustinEventPartnership);
