@@ -1,5 +1,15 @@
 <template>
-  <default-layout>
+  <default-layout class="blog">
+     <!-- swirl -->
+<column class="purple__swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
+
+</block>
+
+</column>
     <section class="blog-post">
       <section class="blog-post-excerpt">
 
@@ -43,6 +53,17 @@
       </section>
       <div class="post-content" v-html="postContent"></div>
     </section>
+   
+    <!-- swirl -->
+<column class="purple__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
+
+</block>
+
+</column>
   </default-layout>
 </template>
 
@@ -262,6 +283,8 @@ $accent-colors: (
   "recap",
 
 );
+
+
 
 .blog-post {
   background: var(--theme-card-bg-default);

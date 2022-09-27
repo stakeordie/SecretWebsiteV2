@@ -4,7 +4,7 @@ title: 'Featured Media'
 
 
  <!-- swirl -->
-<column class="blog__swirl__top" mode="full">
+<column class="purple__swirl__top" mode="full">
 
 <block>
 
@@ -95,7 +95,7 @@ title: 'Featured Media'
 
 
 <!-- swirl -->
-<column class="blog__swirl__bottom" mode="full">
+<column class="purple__swirl__bottom" mode="full">
 
 <block>
 
