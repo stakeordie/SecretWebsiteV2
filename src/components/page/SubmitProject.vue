@@ -1,6 +1,6 @@
 <template>
   <div class="ecosystem-submit-project">
-    <div class="ecosystem-submit-project__header">
+    <div v-show="!formIsSubmited" class="ecosystem-submit-project__header">
       <div class="scrt-pdf-viewer__intro__content">
         <h5 class="scrt-pdf-viewer__intro__content__eyebrow">
           SUBMISSION FORM
@@ -375,14 +375,20 @@ export default {
     display: grid;
     justify-content: center;
     margin-bottom: 52px;
+    padding-top: 26px;
     .scrt-pdf-viewer__intro {
       &__content {
         max-width: 768px;
         display: grid;
         justify-items: center;
         text-align: center;
-        gap: var(--f-gutter);
+        // gap: var(--f-gutter);
         &__eyebrow {
+          
+          margin-bottom: 0;
+          font-family: var(--f-default-text-font);
+          letter-spacing: 1px;
+          margin-bottom: 0;
           color: var(--color-ver2-primary-turquoise);
         }
         .breakline {
@@ -390,9 +396,9 @@ export default {
            display: block;       
           }
         }
-        * {
-          margin: 0;
-        }
+        // * {
+        //   margin: 0;
+        // }
       }
     }
   }
@@ -591,6 +597,7 @@ export default {
     max-width: 710px;
     text-align: center;
     margin: auto;
+    padding: 68px 0;
     * {
       margin: 0;
     }
