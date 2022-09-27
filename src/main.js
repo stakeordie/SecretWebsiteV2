@@ -33,12 +33,12 @@ import '@fontsource/montserrat/700.css'
 
 import ThemeMode from '~/components/animated/ThemeMode.vue';
 import ThemeColor from '~/components/animated/ThemeColor.vue';
-import Type from '~/components/Type.vue';
+// import Type from '~/components/Type.vue';
 import AlertBar from '~/components/AlertBar.vue';
-import DynamicBreadcrumb from '~/components/DynamicBreadcrumb';
+
 import Announcement from '~/components/Announcement.vue';
 import AnnouncementVer2 from '~/components/AnnouncementVer2.vue';
-import Navigation from '~/components/Navigation.vue';
+// import Navigation from '~/components/Navigation.vue';
 import ThemedImage from '~/components/ThemedImage.vue';
 import ImagePlaceholder from '~/components/ImagePlaceholder.vue';
 import HeroTitle from '~/components/HeroTitle.vue';
@@ -234,7 +234,7 @@ import OptionalCalloutBox from '~/components/dynamic/OptionalCalloutBox'
 import Callout from '~/components/dynamic/Callout'
 import CtaGrid from '~/components/dynamic/CtaGrid'
 import CardSearch from '~/components/dynamic/CardSearch'
-
+import DynamicBreadcrumb from '~/components/DynamicBreadcrumb';
 
 
 
@@ -275,35 +275,35 @@ export default function (Vue, {
   Vue.component('ThemeColor', ThemeColor);
   Vue.component('AlertBar', AlertBar);
   Vue.component('DynamicBreadcrumb', DynamicBreadcrumb);
-  Vue.component('Announcement', Announcement);
+  // Vue.component('Announcement', Announcement);
   Vue.component('AnnouncementVer2', AnnouncementVer2);
 
   Vue.component('DefaultLayout', DefaultLayout);
-  Vue.component('DocsLayout', DocsLayout);
-  Vue.component('DocsHeroLayout', DocsHeroLayout);
+  // Vue.component('DocsLayout', DocsLayout);
+  // Vue.component('DocsHeroLayout', DocsHeroLayout);
   Vue.component('ThemedImage', ThemedImage);
   Vue.component('ImagePlaceholder', ImagePlaceholder);
-  Vue.component('Navigation', Navigation);
-  Vue.component('Type', Type);
+  // Vue.component('Navigation', Navigation);
+  // Vue.component('Type', Type);
   Vue.component('HeroTitle', HeroTitle);
   Vue.component('HeroMixed', HeroMixed);
   Vue.component('HeroMixedCms', HeroMixedCms);
-  Vue.component('TextArea', TextArea);
+  // Vue.component('TextArea', TextArea);
   Vue.component('CardSimple', CardSimple);
   // Vue.component('CardSimpleDynamic', CardSimpleDynamic);
-  Vue.component('card-cta', CardCTA);
+  // Vue.component('card-cta', CardCTA);
   Vue.component('CardMinimal', CardMinimal);
   Vue.component('CardBlock', CardBlock);
   Vue.component('CardMedia', CardMedia);
-  Vue.component('NewCardMedia', NewCardMedia);
+  // Vue.component('NewCardMedia', NewCardMedia);
   Vue.component('CardSecretAgent', CardSecretAgent);
-  Vue.component('CardStats', CardStats);
-  Vue.component('CardStructure', CardStructure);
-  Vue.component('CardCurrentPrice', CardCurrentPrice);
-  Vue.component('Media', Media);
+  // Vue.component('CardStats', CardStats);
+  // Vue.component('CardStructure', CardStructure);
+  // Vue.component('CardCurrentPrice', CardCurrentPrice);
+  // Vue.component('Media', Media);
   Vue.component('NewMedia', NewMedia);
-  Vue.component('CardGrid', CardGrid);
-  Vue.component('CardGridV2', CardGridV2);
+  // Vue.component('CardGrid', CardGrid);
+  // Vue.component('CardGridV2', CardGridV2);
   Vue.component('CardGridV3', CardGridV3);
   Vue.component('CardGridExchanges', CardGridExchanges);
   Vue.component('EcosystemExperiencingIssues', EcosystemExperiencingIssues);
@@ -313,34 +313,34 @@ export default function (Vue, {
   //Vue.component('CardGridPartnersV2', CardGridPartnersV2);
   Vue.component('CardGridValidators', CardGridValidators);
   Vue.component('CardGridNfts', CardGridNfts);
-  Vue.component('Contributors', Contributors);
-  Vue.component('Nodes', Nodes);
-  Vue.component('MediaFeatured', MediaFeatured);
+  // Vue.component('Contributors', Contributors);
+  // Vue.component('Nodes', Nodes);
+  // Vue.component('MediaFeatured', MediaFeatured);
   Vue.component('NewMediaFeatured', NewMediaFeatured);
-  Vue.component('Committees', Committees);
+  // Vue.component('Committees', Committees);
   Vue.component('CommitteesCms', CommitteesCms);
   Vue.component('Btn', Btn);
-  Vue.component('FluiButton', FluiButton);
+  // Vue.component('FluiButton', FluiButton);
   Vue.component('Faq', Faq);
   Vue.component('Colors', Colors);
   Vue.component('MediaChannels', MediaChannels);
-  Vue.component('ContentNavigator', ContentNavigator);
+  // Vue.component('ContentNavigator', ContentNavigator);
   Vue.component('ContentNavigatorDocs', ContentNavigatorDocs);
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
   Vue.component('ScrollHorizontal', ScrollHorizontal);
   Vue.component('ScrollHorizontalV2', ScrollHorizontalV2);
-  Vue.component('ContentColumns', ContentColumns);
+  // Vue.component('ContentColumns', ContentColumns);
   Vue.component('ContentSwitcher', ContentSwitcher);
   Vue.component('SecretAgentHero', SecretAgentHero);
   Vue.component('SecretAgentEmailFormBanner', SecretAgentEmailFormBanner);
-  Vue.component('AboutGetStarted', AboutGetStarted);
-  Vue.component('AboutPurchaseScrt', AboutPurchaseScrt);
-  Vue.component('AboutWallets', AboutWallets);
-  Vue.component('AboutScrtMajorFunctions', AboutScrtMajorFunctions);
-  Vue.component('AboutScrtCommunitySupport', AboutScrtCommunitySupport);
-  Vue.component('AboutScrtStakeGovApps', AboutScrtStakeGovApps);
-  Vue.component('AboutScrtApps', AboutScrtApps);
-  Vue.component('HeaderNav', HeaderNav);
+  // Vue.component('AboutGetStarted', AboutGetStarted);
+  // Vue.component('AboutPurchaseScrt', AboutPurchaseScrt);
+  // Vue.component('AboutWallets', AboutWallets);
+  // Vue.component('AboutScrtMajorFunctions', AboutScrtMajorFunctions);
+  // Vue.component('AboutScrtCommunitySupport', AboutScrtCommunitySupport);
+  // Vue.component('AboutScrtStakeGovApps', AboutScrtStakeGovApps);
+  // Vue.component('AboutScrtApps', AboutScrtApps);
+  // Vue.component('HeaderNav', HeaderNav);
   // Vue.component('HeaderMegaMenu', HeaderMegaMenu);
   Vue.component('HeaderMegaMenuV2', HeaderMegaMenuV2);
   Vue.component('FooterMenu', FooterMenu);
@@ -349,8 +349,8 @@ export default function (Vue, {
   Vue.component('NewHomeCallAction', NewHomeCallAction);
   Vue.component('NewHomeMission', NewHomeMission);
   Vue.component('NewHomeAnnouncement', NewHomeAnnouncement);
-  Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
-  Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
+  // Vue.component('NewHomeFeaturedMedia', NewHomeFeaturedMedia);
+  // Vue.component('NewHomeFeaturedMediaTest', NewHomeFeaturedMediaTest);
   Vue.component('NewHomeMissionCtas', NewHomeMissionCtas);
   Vue.component('GrantsBuild', GrantsBuild);
   Vue.component('GetScrtHero', GetScrtHero);
@@ -388,23 +388,23 @@ export default function (Vue, {
   //BlogV2
   Vue.component('NewBlogCard', NewBlogCard);
   Vue.component('NewBlogLatestPosts', NewBlogLatestPosts);
-  Vue.component('NewBlogPosts', NewBlogPosts);
-  Vue.component('BlogCardV2', BlogCardV2);
-  Vue.component('BlogPostsV2', BlogPostsV2);
-  Vue.component('BlogCardFeaturedV2', BlogCardFeaturedV2);
-  Vue.component('BlogFeaturedPostsV2', BlogFeaturedPostsV2);
-  Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
-  Vue.component('BlogFilterV2', BlogFilterV2);
+  // Vue.component('NewBlogPosts', NewBlogPosts);
+  // Vue.component('BlogCardV2', BlogCardV2);
+  // Vue.component('BlogPostsV2', BlogPostsV2);
+  // Vue.component('BlogCardFeaturedV2', BlogCardFeaturedV2);
+  // Vue.component('BlogFeaturedPostsV2', BlogFeaturedPostsV2);
+  // Vue.component('BlogPostsFeaturedV2', BlogPostsFeaturedV2);
+  // Vue.component('BlogFilterV2', BlogFilterV2);
   
   //Learn
-  Vue.component('LearnPostsFeatured', LearnPostsFeatured);
-  Vue.component('LearnFeaturedPosts', LearnFeaturedPosts);
-  Vue.component('LearnFeaturedTag', LearnFeaturedTag);
-  Vue.component('LearnPortalFaq', LearnPortalFaq);
-  Vue.component('LearnPosts', LearnPosts);
-  Vue.component('LearnCardFeatured', LearnCardFeatured);
-  Vue.component('LearnFilter', LearnFilter);
-  Vue.component('LearnCard', LearnCard);
+  // Vue.component('LearnPostsFeatured', LearnPostsFeatured);
+  // Vue.component('LearnFeaturedPosts', LearnFeaturedPosts);
+  // Vue.component('LearnFeaturedTag', LearnFeaturedTag);
+  // Vue.component('LearnPortalFaq', LearnPortalFaq);
+  // Vue.component('LearnPosts', LearnPosts);
+  // Vue.component('LearnCardFeatured', LearnCardFeatured);
+  // Vue.component('LearnFilter', LearnFilter);
+  // Vue.component('LearnCard', LearnCard);
 
   // Dynamic
   Vue.component('TextColumnSingle', TextColumnSingle);
@@ -421,10 +421,10 @@ export default function (Vue, {
   Vue.component('CardSearch', CardSearch);
 
   //Page Specific
-  Vue.component('HomeHero', HomeHero);
-  Vue.component('HomeExplainer', HomeExplainer);
-  Vue.component('HomeAnnouncements', HomeAnnouncements);
-  Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
+  // Vue.component('HomeHero', HomeHero);
+  // Vue.component('HomeExplainer', HomeExplainer);
+  // Vue.component('HomeAnnouncements', HomeAnnouncements);
+  // Vue.component('HomeFeaturedMedia', HomeFeaturedMedia);
   Vue.component('DevelopersHero', DevelopersHero);
   Vue.component('DevelopersFeatures', DevelopersFeatures);
   Vue.component('DevelopersStartHere', DevelopersStartHere);
@@ -434,8 +434,8 @@ export default function (Vue, {
   Vue.component('DevelopersAdvanced', DevelopersAdvanced);
   Vue.component('DevelopersQuestions', DevelopersQuestions);
   Vue.component('DevelopersFunding', DevelopersFunding);
-  Vue.component('DevelopersCallAction', DevelopersCallAction);
-  Vue.component('DevelopersCallSecond', DevelopersCallSecond);
+  // Vue.component('DevelopersCallAction', DevelopersCallAction);
+  // Vue.component('DevelopersCallSecond', DevelopersCallSecond);
   Vue.component('DevelopersCoolStuff', DevelopersCoolStuff);
   Vue.component('ServiceTable', ServiceTable);
   Vue.component('ServiceStatusAlert', ServiceStatusAlert);
@@ -450,7 +450,7 @@ export default function (Vue, {
   Vue.component('EcosystemFundingCtas', EcosystemFundingCtas);
   Vue.component('EcosystemFundingSlider', EcosystemFundingSlider);
   Vue.component('GrantsHero', GrantsHero);
-  Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
+  // Vue.component('GetScrtConvertSscrt', GetScrtConvertSscrt);
   Vue.component('GetScrtWallets', GetScrtWallets);
   Vue.component('NewMediaFeaturedHomeV2', NewMediaFeaturedHomeV2);
   Vue.component('GetScrtConvertSscrtV2', GetScrtConvertSscrtV2);
@@ -473,12 +473,12 @@ export default function (Vue, {
   Vue.component('GeneralCtas', GeneralCtas);
   Vue.component('LearnPortalHero', LearnPortalHero);
   
-  Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
-  Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
-  Vue.component('LearnArticleHero', LearnArticleHero);
-  Vue.component('LearnArticleImage', LearnArticleImage);
+  // Vue.component('LearnArticleColumnDouble', LearnArticleColumnDouble);
+  // Vue.component('LearnArticleColumnSingle', LearnArticleColumnSingle);
+  // Vue.component('LearnArticleHero', LearnArticleHero);
+  // Vue.component('LearnArticleImage', LearnArticleImage);
   Vue.component('LearnHeader', LearnHeader);
-  Vue.component('Breadcrumbs', Breadcrumbs);
+  // Vue.component('Breadcrumbs', Breadcrumbs);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
