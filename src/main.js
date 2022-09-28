@@ -329,7 +329,7 @@ export default function (Vue, {
   Vue.component('ContentNavigatorCms', ContentNavigatorCms);
   Vue.component('ScrollHorizontal', ScrollHorizontal);
   Vue.component('ScrollHorizontalV2', ScrollHorizontalV2);
-  // Vue.component('ContentColumns', ContentColumns);
+  Vue.component('ContentColumns', ContentColumns);
   Vue.component('ContentSwitcher', ContentSwitcher);
   Vue.component('SecretAgentHero', SecretAgentHero);
   Vue.component('SecretAgentEmailFormBanner', SecretAgentEmailFormBanner);
