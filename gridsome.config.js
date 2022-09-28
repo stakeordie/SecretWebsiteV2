@@ -90,8 +90,6 @@ module.exports = {
                 'cool-stuff': 'cool-stuff-plural'
             },
             contentTypes: [
-                'faq-item',//
-                'secret-agent',//
                 'announcement',//
                 'external-media',//
                 'contributor',//
@@ -101,7 +99,6 @@ module.exports = {
                 'ecosystem-validator',//
                 'nft',//
                 'cool-stuff',//
-                'nodes',//
                 'tool-and-wallet',//
                 'exchange',//
                 'international-community',//
@@ -131,20 +128,13 @@ module.exports = {
             ],
             singleTypes: [
                 'alert-bar',
-                'home-hero',
-                'home-cta-card',
-                'home-explainer',
                 'home-announcement',
-                'home-featured-media',
-                'about-content',
                 'about-subpage',
-                'about-scrt',
                 'agent-landing-brochure',
                 'agent-landing-email-form',
                 'agent-landing-hero',
                 'agent-landing-intro-row',
                 'nav-header',
-                'nav-header-new',
                 'ecosystem-roadmap',
                 'services-alert',
             ],
