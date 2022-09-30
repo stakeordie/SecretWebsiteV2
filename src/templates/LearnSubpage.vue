@@ -158,5 +158,9 @@
   & .simple-footer {
     margin-top: 0;
   }
+  [comp_name~="cta-grid"]{
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 }
 </style>

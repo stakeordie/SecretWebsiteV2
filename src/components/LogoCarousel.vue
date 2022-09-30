@@ -64,7 +64,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 .logo-carousel__container{
     padding: 24px 0 0 0;
-    
+    // background: lightgoldenrodyellow; // 🍎
     &__logos {
       //margin-top: 68px;
       max-width: 100%;
@@ -85,6 +85,7 @@ export default {
         gap: 96px;
         margin-right: 96px;
         overflow: hidden;
+        display: flex;
         @include respond-to("<=m") {
           gap: 64px;
           margin-right: 64px;

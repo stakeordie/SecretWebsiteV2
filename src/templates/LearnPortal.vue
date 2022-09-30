@@ -145,5 +145,8 @@
   & .simple-footer {
     margin-top: 0;
   }
+  [comp_name~="cta-grid"], [comp_name~="card-search"] {
+    padding-bottom: 64px;
+  }
 }
 </style>
