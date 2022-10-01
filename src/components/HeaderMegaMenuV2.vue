@@ -531,7 +531,7 @@ export default {
       // });
       // console.log('FFFOUND', found)
       const findLearnItem = this.columns.findIndex((nav) => nav.title==='Learn');
-      this.learnPath = this.columns[findLearnItem].path
+      // this.learnPath = this.columns[findLearnItem].path
       // console.log('FFFOUND', findLearnItem)
       // console.log(this.learnPath)
       return this.columns;
