@@ -83,7 +83,7 @@ export default {};
     h4{
       font-family: var(--f-default-headers-font) !important;
       color: var(--color-analog-primary-white) !important;
-      margin-bottom: 0;
+      // margin-bottom: 0;
     }
 
     &__list{

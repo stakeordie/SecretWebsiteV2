@@ -1,20 +1,19 @@
 services:
-  # A static site
   - type: web
-    name: Secret Network Website Development Build
+    name: Secret Website (Development)
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
-    pullRequestPreviewsEnabled: true # optional
+    pullRequestPreviewsEnabled: true
     envVars:
       - fromGroup: scrt-web
     buildFilter:
       ignoredPaths:
-      - render.yaml
+        - render.yaml
     routes:
       - type: redirect
-        source: /agents
-        destination: https://scrt.network/get-involved/become-secret-agent
+        source: /test
+        destination: /test/abc
       - type: redirect
-        source: /agents/*
-        destination: https://scrt.network/get-involved/become-secret-agent
+        source: /redirectme
+        destination: /learn

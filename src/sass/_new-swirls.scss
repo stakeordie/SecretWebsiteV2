@@ -1,60 +1,23 @@
 @import "@lkmx/flare/src/functions/respond-to";
 
-.ecosystem-tools,
-.ecosystem-dapps,
-.ecosystem-contributors,
-.ecosystem-contributors-v2,
-.ecosystem-partners,
-.ecosystem-validators,
-.ecosystem-exchanges,
-.ecosystem-nfts,
-.ecosystem-ecosystem-roadmap,
-.ecosystem-submit-project {
+
+.media-features,
+.blog{
   overflow: hidden;
 
-  & .swirl-wrapper,
-  & .swirl-wrapper-bottom {
+  .swirl-wrapper,
+  .swirl-wrapper-bottom{
     display: none;
   }
 
-  & .simple-footer {
+  .simple-footer {
     margin-top: 0;
   }
+ }
 
-  & .bg-dark {
-    background-color: var(--color-neutral-dark-mode-02);
-    padding: 64px 0;
-  }
+  // PURPLE
 
-  & .view-roadmap {
-    h3 {
-      font-size: 36px;
-      line-height: 48px;
-    }
-
-    &-btn {
-      & .content {
-        & .box {
-          text-align: end;
-        }
-      }
-    }
-
-    @include respond-to("<=m") {
-      padding: var(--f-gutter-xl);
-    }
-
-    @include respond-to("<=s") {
-      padding: var(--f-gutter-l);
-      font-size: 28px;
-      line-height: 40px;
-    }
-  } 
-}
-
-.ecosystem {
-  
-  &__green-swirl__top{
+  .purple__swirl__top{
     position: relative;
     padding: 0;
     top: 24px;
@@ -84,7 +47,7 @@
 
     @include respond-to("<=xxxl") {
       height: 148px;
-      background-image: url("../../src/assets/swirl-green-top.svg");
+      background-image: url("../../src/assets/swirl-purple-top.svg");
       background-repeat: no-repeat;
       background-position: bottom;
       background-size: cover;
@@ -98,7 +61,7 @@
     }
   }
 
-  &__green-swirl__bottom{
+  .purple__swirl__bottom{
     //background-image: url("../../src/assets/swirl-green-top.svg");
     // background-repeat: no-repeat;
     // background-position: bottom;
@@ -141,7 +104,7 @@
 
     @include respond-to("<=m"){
         height: 180px;
-        background-image: url("../../src/assets/swirl-green-bottom.svg");
+        background-image: url("../../src/assets/swirl-purple-bottom.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -155,4 +118,3 @@
         position: relative;
     }
   }
-}

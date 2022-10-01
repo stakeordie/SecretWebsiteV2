@@ -3,11 +3,45 @@ title: "About"
 ---
 
 
-<!-- <column class="about__swirl__top" mode="full">
+<column class="about__swirl__top" mode="full">
 
 <block>
 
 <img class="get-scrt__align-img" src="../../src/assets/swirl-about-top.svg" /> 
+
+</block>
+
+</column>
+
+
+
+
+
+
+
+<!-- content -->
+<column class="about-secret-network-page" >
+
+<block >
+
+<about-secret-network>
+
+</about-secret-network>
+
+</block>
+
+</column>
+
+
+
+<!-- Hero -->
+<!-- <column class=" page__cover">
+
+<block >
+
+<about-secret-network-hero>
+
+</about-secret-network-hero>
 
 </block>
 
@@ -19,28 +53,9 @@ title: "About"
 
 
 
-<!-- Hero -->
-<column class=" page__cover">
-
-<block >
-
-<about-secret-network-hero>
-
-</about-secret-network-hero>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
 <!-- Intro -->
 
-<column class="spacer-s page__bg__dark">
+<!-- <column class="spacer-s bg-black">
 
 <block >
 
@@ -50,7 +65,7 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 
 
@@ -63,7 +78,7 @@ title: "About"
 
 <!-- Use cases -->
 
-<column class="">
+<!-- <column class="">
 
 <block class="">
 
@@ -73,30 +88,16 @@ title: "About"
 
 </block>
 
-</column>
-
-
-
-
-
-
-
-
-<!-- separator -->
-<!-- <column >
-<block>
-
-<hr class="swirl-f"/>
-
-</block>
 </column> -->
+
+
 
 
 
 
 <!-- Technology -->
 
-<column class="page__bg__dark">
+<!-- <column class="page__bg__dark">
 
 <block >
 
@@ -104,7 +105,7 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 
 
@@ -113,7 +114,7 @@ title: "About"
 
 
 <!-- Our vision -->
-<column >
+<!-- <column >
 
 <block >
 
@@ -121,7 +122,7 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 
 
@@ -130,7 +131,7 @@ title: "About"
 
 
 <!-- Supported by -->
-<column class=" page__bg__black " >
+<!-- <column class=" page__bg__black " >
 
 <block >
 
@@ -138,7 +139,7 @@ title: "About"
 
 </block>
 
-</column >
+</column > -->
 
 
 
@@ -148,7 +149,7 @@ title: "About"
 
 
 <!-- Our mission -->
-<column class="spacer-s page__block page__bg__dark" mode="slim">
+<!-- <column class="spacer-s page__block page__bg__dark" mode="slim">
 
 <block >
 
@@ -179,7 +180,7 @@ title: "About"
 
 </block>
 
-</column>
+</column> -->
 
 
 
