@@ -2,6 +2,21 @@
 title: 'Featured Media'
 ---
 
+
+ <!-- swirl -->
+<column class="purple__swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
+
+</block>
+
+</column>
+
+
+
+
 <column>
 
 <block>
@@ -76,3 +91,16 @@ title: 'Featured Media'
 
 
 
+
+
+
+<!-- swirl -->
+<column class="purple__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
+
+</block>
+
+</column>

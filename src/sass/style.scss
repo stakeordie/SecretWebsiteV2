@@ -10,6 +10,7 @@
 @import "sajari";
 @import "tags-color";
 @import "logo-carousel";
+@import "new-swirls";
 
 // pages
 @import "pages/home";
@@ -32,6 +33,7 @@
 @import "pages/ecosystem-pages-v2";
 @import "pages/get-involved";
 @import "pages/learn-portal";
+
 
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -155,7 +157,7 @@ body {
 }
 
 .simple-layout {
-  &.ecosystem-funding {
+  &.ecosystem-funding, &.learn-article {
     .swirl-wrapper {
       opacity: 0;
     }
@@ -164,7 +166,7 @@ body {
   &.index {
     main { padding-top: 52px; }
   }
-  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq):not(.about-secret-contracts):not(.get-involved-become-secret-agent) {
+  &:not(.index):not(.about-secret-tokens-bridges):not(.about-secret-finance):not(.about-secret-nfts):not(.about-faq):not(.about-secret-contracts):not(.get-involved-become-secret-agent):not(.learn-portal):not(.learn-subpage) {
     main { padding-top: 44px; }
   }
   // TODO Lets try to make this for all pages that requires to handle this.

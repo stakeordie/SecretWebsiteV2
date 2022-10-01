@@ -1,5 +1,15 @@
 <template>
   <default-layout class="blog">
+    <!-- swirl -->
+<column class="purple__swirl__top" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
+
+</block>
+
+</column>
     <hero-title>
       <h2>Secret Network Blog</h2>
     </hero-title>
@@ -38,6 +48,17 @@
         </section>
       </block>
     </column>
+
+    <!-- swirl -->
+<column class="purple__swirl__bottom" mode="full">
+
+<block>
+
+<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
+
+</block>
+
+</column>
   </default-layout>
 </template>
 
@@ -263,6 +284,7 @@ export default {
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
+
 
 .horizontal-slider {
   .content {

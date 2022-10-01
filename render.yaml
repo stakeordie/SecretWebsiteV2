@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: Secret Website (Development)
+    env: static
+    buildCommand: yarn build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - fromGroup: scrt-web
+    buildFilter:
+      ignoredPaths:
+        - render.yaml
+    routes:
+      - type: redirect
+        source: /test
+        destination: /test/abc
+      - type: redirect
+        source: /redirectme
+        destination: /learn
