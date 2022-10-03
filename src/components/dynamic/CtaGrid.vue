@@ -68,7 +68,7 @@ export default {
     getCtaContent() {
       this.ctaGroup = this.ctas;
       this.ctaGroupColumns = this.ctaGroup.length;
-      console.log(this.ctaGroup);
+      // console.log(this.ctaGroup);
     },
   },
   beforeMount() {
