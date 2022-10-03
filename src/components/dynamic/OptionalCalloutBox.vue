@@ -2,20 +2,20 @@
   <section class="page-developer-questions">
     <div class="learn-callout" v-if="!custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="calloutBox.image.data.url" />
+        <img :src="preconfiged_callout_box.callout_box.image.url" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
-          {{ calloutBox.title }}
+          {{ preconfiged_callout_box.callout_box.title }}
         </h6>
         <h4 class="learn-callout__content__title">
-          {{ calloutBox.subtitle }}
+          {{ preconfiged_callout_box.callout_box.subtitle }}
         </h4>
         <p class="learn-callout__content__text">
-          {{ calloutBox.cta_text }}
+          {{ preconfiged_callout_box.callout_box.cta_text }}
         </p>
         <div class="learn-callout__content__buttons">
-          <div v-for="(button, index) in calloutBox.button" :key="index">
+          <div v-for="(button, index) in preconfiged_callout_box.callout_box.button" :key="index">
             <btn
               class="text-center no-arrow"
               :class="button.is_primary ? 'main-btn' : ''"
@@ -23,8 +23,8 @@
             >
               <img
                 class="special-icon"
-                v-if="button.icon.data"
-                :src="button.icon.data.url"
+                v-if="button.icon"
+                :src="button.icon.url"
                 alt=""
               />
               {{ button.text }}</btn
@@ -35,7 +35,7 @@
     </div>
     <div class="learn-callout" v-if="custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="calloutBoxCustom.image.data.url" />
+        <img v-if="calloutBoxCustom.image" :src="calloutBoxCustom.image.url" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -56,8 +56,8 @@
             >
               <img
                 class="special-icon"
-                v-if="button.icon.data"
-                :src="button.icon.data.url"
+                v-if="button.icon"
+                :src="button.icon.url"
                 alt=""
               />
               {{ button.text }}</btn
@@ -82,9 +82,9 @@ export default {
   },
   methods: {
     calloutItems() {
-      this.calloutBox = this.preconfiged_callout_box.data.callout_box;
+      this.calloutBox = this.preconfiged_callout_box.callout_box.callout_box;
       this.calloutBoxCustom = this.custom_callout_box;
-      // console.log(this.calloutBox2)
+      console.log(this.calloutBox)
       return this.calloutBox;
     },
   },
