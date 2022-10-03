@@ -2,7 +2,7 @@
   <section class="page-developer-questions">
     <div class="learn-callout" v-if="!custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="calloutBox.image.url" />
+        <img v-if="calloutBox.image" :src="calloutBox.image.url" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -35,7 +35,7 @@
     </div>
     <div class="learn-callout" v-if="custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="calloutBoxCustom.image.url" />
+        <img v-if="calloutBoxCustom.image" :src="calloutBoxCustom.image.url" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -84,7 +84,7 @@ export default {
     calloutItems() {
       this.calloutBox = this.preconfiged_callout_box.callout_box;
       this.calloutBoxCustom = this.custom_callout_box;
-      // console.log(this.calloutBox2)
+      console.log(this.calloutBox)
       return this.calloutBox;
     },
   },
