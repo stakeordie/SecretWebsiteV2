@@ -28,7 +28,7 @@
     </column>
 
     <!-- Swirl bottom -->
-    <column class="blue__swirl__bottom" mode="full">
+    <column class="orange__swirl__bottom" mode="full">
       <block>
         <img
           class="get-scrt__align-img"
@@ -83,6 +83,15 @@
               &::-webkit-scrollbar {
                 display: none;
               }
+
+              &__header{
+                &__description{
+                  p{
+                    font-size: var(--paragraph-font-size-big);
+                    line-height: var(--paragraph-line-height-big);
+                  }
+                }
+              }
               &__item {
                 padding-left: var(--f-gutter-l);
               }
@@ -118,9 +127,10 @@
       text-transform: uppercase;
       color: #94a4b8;
       z-index: 1;
+      // color: var(--color-analog-secondary-orange);
     }
     &__title {
-      font-family: "Hind";
+      font-family: "Montserrat" ;
       font-style: normal;
       font-weight: 600;
       font-size: 54px;
@@ -130,6 +140,9 @@
     &__about-text {
       max-width: 591px;
       z-index: 1;
+
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
     }
     &__image {
       position: absolute;

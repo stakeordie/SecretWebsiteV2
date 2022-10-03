@@ -99,6 +99,10 @@ export default {
     gap: 10px;
     align-content: center;
     max-width: 500px;
+
+    @include respond-to("<=s") {
+       min-width: 100%;
+      }
     * {
       margin: 0;
     }
