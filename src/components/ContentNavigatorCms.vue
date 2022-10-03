@@ -157,12 +157,12 @@ query {
             color: var(--color-analog-primary-white);
 
             &:hover {
-              color: var(--color-analog-secondary-orange);
+              color: var(--aboutSp-accent);
             }
           }
 
           &:hover {
-            color: var(--color-analog-secondary-orange);
+            color: var(--aboutSp-accent);
           }
 
           &.h3 {
@@ -229,6 +229,9 @@ query {
             width: 120px;
             height: 4px;
             background: var(--color-analog-secondary-yellow);
+          }
+          a {
+            color: var(--aboutSp-accent);
           }
         }
       }

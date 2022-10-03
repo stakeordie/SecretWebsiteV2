@@ -122,6 +122,8 @@ export default {
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
+      const accentColor = document.querySelector('.simple-layout')
+      accentColor.style.setProperty('--aboutSp-accent', content[0].heroColor)
       return content;
     },
   }
@@ -285,7 +287,7 @@ query {
           line-height: 25px;
           text-transform: uppercase;
           letter-spacing: 1px;
-          color: var(--color-analog-secondary-yellow);
+          color: var(--aboutSp-accent);
         }
       }
 
