@@ -23,8 +23,31 @@
       </block>
     </column>
 
+    <!-- General CTAs -->
+    <column class="spacer-s" number="3" number-m="2" number-s="1">
+
+    <block >
+
+    <general-ctas id="get-started"></general-ctas>
+
+    </block>
+
+    <block >
+
+    <general-ctas id="build-on-secret"></general-ctas>
+
+    </block>
+
+    <block >
+
+    <general-ctas id="join-the-community"></general-ctas>
+
+    </block>
+
+    </column >
+
     <!-- Swirl bottom -->
-    <column class="blue__swirl__bottom" mode="full">
+    <column class="orange__swirl__bottom" mode="full">
       <block>
         <img
           class="get-scrt__align-img"
@@ -71,6 +94,14 @@
             display: none;
           }
           .learn-carousel {
+            &__header{
+                &__description{
+                  p{
+                    font-size: var(--paragraph-font-size-big);
+                    line-height: var(--paragraph-line-height-big);
+                  }
+                }
+              }
             &__item {
               padding-left: var(--f-gutter-l);
             }
@@ -107,7 +138,7 @@
       z-index: 1;
     }
     &__title {
-      font-family: "Hind";
+      font-family: "montserrat";
       font-style: normal;
       font-weight: 600;
       font-size: 54px;
@@ -117,6 +148,8 @@
     &__about-text {
       max-width: 591px;
       z-index: 1;
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
     }
     &__image {
       position: absolute;

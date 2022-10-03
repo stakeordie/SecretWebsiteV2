@@ -140,19 +140,23 @@ export default {
   &__header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 1200px;
-    position: absolute;
+    // max-width: 1200px;
+    // position: absolute;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     padding: 0 var(--f-gutter-l);
     @include respond-to(">=l") {
-      width: var(--f-breakpoint-xxl);
+      // width: var(--f-breakpoint-xxl);
     }
     &__description {
       display: grid;
       gap: 0;
+      p{
+                    font-size: var(--paragraph-font-size-big);
+                    line-height: var(--paragraph-line-height-big);
+                  }
       * {
         margin: 0;
       }
@@ -172,7 +176,8 @@ export default {
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
-    padding-top: 100px;
+    overflow: hidden;
+    // padding-top: 100px;
 
     &::-webkit-scrollbar {
       display: none;
