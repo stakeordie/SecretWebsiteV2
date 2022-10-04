@@ -228,10 +228,10 @@ query {
           hr {
             width: 120px;
             height: 4px;
-            background: var(--color-analog-secondary-yellow);
+            background: var(--aboutSp-accent);
           }
           a {
-            color: var(--aboutSp-accent);
+            // color: var(--aboutSp-accent);
           }
         }
       }

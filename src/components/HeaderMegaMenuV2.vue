@@ -63,12 +63,12 @@
 
             <!-- SCRT-BTN -->
             
-            <!-- <div class="logo-bar__content__btnSrct">
+            <div class="logo-bar__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
-            </div> -->
+            </div>
 
           </div>
           <!-- nav items HEADINGS DESKTOP -->
