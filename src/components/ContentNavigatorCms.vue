@@ -141,6 +141,10 @@ query {
 
   .content-navigator {
     padding-top: var(--f-gutter-xl);
+    
+    ul{
+      list-style: disc;
+    }
 
     .content-navigation {
       nav {
