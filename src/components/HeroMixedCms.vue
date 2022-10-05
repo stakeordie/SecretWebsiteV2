@@ -5,7 +5,7 @@
         class="hero-mixed-side-left"
         v-bind:style="{ 'background-color': element.heroColor }"
       ></div>
-      <div class="hero-mixed-side-right">
+       <div class="hero-mixed-side-right">
         <img
           class="hero-mixed-side-right-img"
           :src="element.heroImage.url"
@@ -93,22 +93,22 @@ export default {
       );
 
       // ON RESIZE VALUES
-      let onResize = function() {
-        currentBrowserWidth = window.innerWidth || document.body.clientWidth;
-        if (Math.abs(previosBrowserWidth - currentBrowserWidth) > 1) {
-          leftDistance = heroMessageEl.getBoundingClientRect().left;
-          bottomLayer.setAttribute(
-            "style",
-            `grid-template-columns: ${leftDistance +
-              heroMessageEl.offsetWidth / 2 +
-              "px"} 1fr;`
-          );
-          // bottomLayerSideRightImg.setAttribute(
-          //   "style",
-          //   `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
-          // );
-        }
-      };
+      // let onResize = function() {
+      //   currentBrowserWidth = window.innerWidth || document.body.clientWidth;
+      //   if (Math.abs(previosBrowserWidth - currentBrowserWidth) > 1) {
+      //     leftDistance = heroMessageEl.getBoundingClientRect().left;
+      //     bottomLayer.setAttribute(
+      //       "style",
+      //       `grid-template-columns: ${leftDistance +
+      //         heroMessageEl.offsetWidth / 2 +
+      //         "px"} 1fr;`
+      //     );
+      //     // bottomLayerSideRightImg.setAttribute(
+      //     //   "style",
+      //     //   `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
+      //     // );
+      //   }
+      // };
       window.addEventListener("resize", function() {
         onResize();
       });
@@ -122,6 +122,8 @@ export default {
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
+      const accentColor = document.querySelector('.simple-layout')
+      accentColor.style.setProperty('--aboutSp-accent', content[0].heroColor)
       return content;
     },
   }
@@ -183,6 +185,36 @@ query {
           heroBody: hero_body
           mainContent: main_content
         }
+        aboutSecretBridges: about_secret_bridges {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretDaos: about_secret_daos {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretGaming: about_secret_gaming {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
       }
     }
   }
@@ -193,49 +225,73 @@ query {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
+.about {
+  &-secret-tokens-bridges,
+  &-secret-finance,
+  &-secret-gaming,
+  &-secret-daos,
+  &-secret-bridges,
+  &-secret-nfts,
+  &-secret-contracts {
+    .swirl-wrapper {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+
 .hero-mixed {
   display: grid;
   position: relative;
   height: 593px;
+  overflow: hidden;
+
+  @include respond-to('<=m'){
+              
+  height: auto !important;
+            }
 
   &-layer-bottom {
-    position: absolute;
+    // position: absolute;
     inset: 0;
 
     .content {
+       width: 100%;
+      height: 100%;
+      
       .box {
-        display: grid;
-        grid-template-columns: 25% 75%;
-        grid-auto-flow: column;
-        @include respond-to("<=m") {
-          grid-auto-flow: row;
-          grid-template-columns: repeat(2, 1fr);
-        }
         position: absolute;
-        inset: 0;
+        // inset: 0;
         padding: 0;
+        width: 100%;
 
         .hero-mixed-side {
-          &-left {
-            background: #ffc7c0;
-          }
+        //   &-left {
+        //     background: #ffc7c0;
+        //   }
 
           &-right {
             background: black;
-            display: flex;
-            overflow: hidden;
-            justify-items: center;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              max-width: none;
+
+            @include respond-to('<=xs'){
+                display: flex;
+                width: fit-content;
+                height: inherit;
+
+              }
+            &-img {
+                width: 100%;
+                object-fit: cover;
+              @include respond-to('<=s'){
+                width: 100%;
+                object-fit: cover;
+              }
             }
+            
           }
         }
       }
+    
     }
   }
 
@@ -244,6 +300,7 @@ query {
     display: grid;
     justify-items: center;
     align-items: center;
+    padding-top: 100px;
 
     .hero-message {
       display: grid;
@@ -255,7 +312,7 @@ query {
       @include respond-to("<=m") {
         padding: var(--f-gutter-l);
         width: calc(100% - var(--f-gutter));
-        gap: var(--f-gutter-l);
+        gap: 8px;
       }
 
       * {
@@ -270,10 +327,10 @@ query {
           color: white;
         }
         @include respond-to("<=m") {
-          gap: var(--f-gutter-s);
+          gap: 8px;
           h2 {
             font-size: var(--f-h2-text-size-s);
-            line-height: var(--f-gutter);
+            line-height: 32px;
           }
         }
 
@@ -285,7 +342,7 @@ query {
           line-height: 25px;
           text-transform: uppercase;
           letter-spacing: 1px;
-          color: var(--color-analog-secondary-yellow);
+          color: var(--aboutSp-accent);
         }
       }
 

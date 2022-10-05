@@ -383,8 +383,11 @@ export default {
             margin: 0;
             display: grid;
             height: fit-content;
-            gap: 20px;
+            gap: 16px;
             padding-top: 11px;
+            @include respond-to("<=m") {
+                gap: 4px;
+              }
             &__title {
               padding: var(--f-gutter);
               font-weight: 600;
@@ -411,10 +414,10 @@ export default {
                 grid-template-columns: auto 1fr;
                 align-items: center;
                 gap: var(--f-gutter-xxs);
-                line-height: var(--mega-header-line-height-nav-expanded);
+                // line-height: var(--mega-header-line-height-nav-expanded);
                 font-weight: 400;
                 font-size: var(--mega-header-text-size-nav-expanded);
-                height: var(--mega-header-space-l);
+                // height: var(--mega-header-space-l);
                 /* height: var(--mega-header-height-list-nav-expanded); */
                 &:hover {
                   color: var(--mega-header-color-nav-exanded-hover) !important;

@@ -1,5 +1,5 @@
 ---
-title: "Secret Tokens / Bridges"
+title: "Secret Tokens"
 ---
 
 <hero-mixed-cms section="AboutSecretTokensBridges">
