@@ -30,29 +30,29 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
-      showVideo: false
+      showVideo: false,
     };
   },
   props: {
     accent: {
       type: String,
-      required: false
+      required: false,
     },
     bgColor: {
       type: String,
-      required: false
+      required: false,
     },
     bgImage: {
       type: String,
-      required: false
+      required: false,
     },
     specialMargin: {
       type: Boolean,
       require: false,
-      default: true
-    }
+      default: true,
+    },
   },
   methods: {
     modifyMainMargin() {
@@ -83,9 +83,9 @@ export default {
       let leftDistance = heroMessageEl.getBoundingClientRect().left;
       bottomLayer.setAttribute(
         "style",
-        `grid-template-columns: ${leftDistance +
-          heroMessageEl.offsetWidth / 2 +
-          "px"} 1fr;`
+        `grid-template-columns: ${
+          leftDistance + heroMessageEl.offsetWidth / 2 + "px"
+        } 1fr;`
       );
 
       // ON RESIZE VALUES
@@ -105,10 +105,10 @@ export default {
       //     // );
       //   }
       // };
-      window.addEventListener("resize", function() {
+      window.addEventListener("resize", function () {
         onResize();
       });
-    }
+    },
   },
   mounted() {
     this.modifyMainMargin();
@@ -122,7 +122,7 @@ export default {
     //     return true;
     //   }
     // }
-  }
+  },
 };
 </script>
 
@@ -134,37 +134,24 @@ export default {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-.about{
-  &-secret-tokens-bridges,
-  &-secret-finance,
-  &-secret-nfts,
-  &-secret-contracts{
-    .swirl-wrapper {
-    opacity: 0;
-    display: none;
-  }
-}
-}
-
 .hero-mixed {
   display: grid;
   position: relative;
   height: 593px;
   overflow: hidden;
 
-  @include respond-to('<=m'){
-              
-  height: auto !important;
-            }
+  @include respond-to("<=m") {
+    height: auto !important;
+  }
 
   &-layer-bottom {
     // position: absolute;
     inset: 0;
 
     .content {
-       width: 100%;
+      width: 100%;
       height: 100%;
-      
+
       .box {
         position: absolute;
         // inset: 0;
@@ -172,32 +159,29 @@ export default {
         width: 100%;
 
         .hero-mixed-side {
-        //   &-left {
-        //     background: #ffc7c0;
-        //   }
+          //   &-left {
+          //     background: #ffc7c0;
+          //   }
 
           &-right {
             background: black;
 
-            @include respond-to('<=xs'){
-                display: flex;
-                width: fit-content;
-                height: inherit;
-
-              }
+            @include respond-to("<=xs") {
+              display: flex;
+              width: fit-content;
+              height: inherit;
+            }
             &-img {
-                width: 100%;
-                object-fit: cover;
-              @include respond-to('<=s'){
+              width: 100%;
+              object-fit: cover;
+              @include respond-to("<=s") {
                 width: 100%;
                 object-fit: cover;
               }
             }
-            
           }
         }
       }
-    
     }
   }
 

@@ -129,6 +129,36 @@ query {
           heroBody: hero_body
           mainContent: main_content
         }
+        aboutSecretBridges: about_secret_bridges {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretDaos: about_secret_daos {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretGaming: about_secret_gaming {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
       }
     }
   }
