@@ -122,8 +122,10 @@ export default {
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
-      const accentColor = document.querySelector('.simple-layout')
-      accentColor.style.setProperty('--aboutSp-accent', content[0].heroColor)
+      if(process.isClient) {
+        const accentColor = document.querySelector('.simple-layout')
+        accentColor.style.setProperty('--aboutSp-accent', content[0].heroColor)
+      }
       return content;
     },
   }
