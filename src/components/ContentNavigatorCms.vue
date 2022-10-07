@@ -129,6 +129,36 @@ query {
           heroBody: hero_body
           mainContent: main_content
         }
+        aboutSecretBridges: about_secret_bridges {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretDaos: about_secret_daos {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
+        aboutSecretGaming: about_secret_gaming {
+          heroColor: hero_color
+          heroImage: hero_image {
+            url
+          }
+          heroSubtitle: hero_subtitle
+          heroTitle: hero_title
+          heroBody: hero_body
+          mainContent: main_content
+        }
       }
     }
   }
@@ -141,6 +171,10 @@ query {
 
   .content-navigator {
     padding-top: var(--f-gutter-xl);
+    
+    ul{
+      list-style: disc;
+    }
 
     .content-navigation {
       nav {
@@ -157,12 +191,12 @@ query {
             color: var(--color-analog-primary-white);
 
             &:hover {
-              color: var(--color-analog-secondary-orange);
+              color: var(--aboutSp-accent);
             }
           }
 
           &:hover {
-            color: var(--color-analog-secondary-orange);
+            color: var(--aboutSp-accent);
           }
 
           &.h3 {
@@ -228,7 +262,10 @@ query {
           hr {
             width: 120px;
             height: 4px;
-            background: var(--color-analog-secondary-yellow);
+            background: var(--aboutSp-accent);
+          }
+          a {
+            // color: var(--aboutSp-accent);
           }
         }
       }

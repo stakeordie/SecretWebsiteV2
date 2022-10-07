@@ -20,7 +20,7 @@
     </column>
 
     <!-- Swirl bottom -->
-    <column class="blue__swirl__bottom" mode="full">
+    <column class="orange__swirl__bottom" mode="full">
       <block>
         <img
           class="get-scrt__align-img"

@@ -60,12 +60,16 @@
                 <p>Search</p>
               </div>
             </div>
+
+            <!-- SCRT-BTN -->
+            
             <div class="logo-bar__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
+
           </div>
           <!-- nav items HEADINGS DESKTOP -->
         </div>
