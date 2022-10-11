@@ -289,7 +289,7 @@ export default {
           title: "Hold and use your tokens in privacy",
           description:
             "With Secret Bridges and the SNIP-20 standard you can bridge over and make any token privacy-preserving. Once your tokens are Secret, balances, transaction details, and token metadata can only be accessed with a viewing key. ",
-          url: "../about/secret-tokens-bridges",
+          url: "/about/secret-tokens-bridges",
         },
         {
           imageUrl: "/img/about-secret-network/learn-defi-img.svg",
@@ -297,7 +297,7 @@ export default {
           title: "Stay safe while spending, saving, and trading",
           description:
             "DeFi apps built with Secret’s privacy-preserving smart contracts provide MEV-resistance by default and protect its users from hackers and front-runners. This includes exchanges, market makers, lending protocols, and more. ",
-          url: "../about/secret-finance",
+          url: "/about/secret-finance",
         },
         {
           imageUrl: "/img/about-secret-network/nft-purple-img.svg",
@@ -305,7 +305,7 @@ export default {
           title: "Fully own all of your creative work",
           description:
             "With Secret NFTs’ private metadata and ownership, creators can control who can access their content and in what way, protect the identity of their fans, and create art and entertainment not possible elsewhere.",
-          url: "../about/secret-nfts",
+          url: "/about/secret-nfts",
         },
         {
           imageUrl: "/img/about-secret-network/game-img.svg",
