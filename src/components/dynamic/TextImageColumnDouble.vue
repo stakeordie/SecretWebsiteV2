@@ -1,7 +1,13 @@
 <template>
   <div class="text-image-column-double "  :class="image_position">
       <div class="text-image-column-double__col-1 ">
-        <h3 class="text-image-column-double__title">
+        <!-- <h6 style="color:red">navigation_level: {{this.navigation_level}}</h6> -->
+        <h3 
+          class="text-image-column-double__title"
+          :id="this.paragraph_title ? this.paragraph_title.toLowerCase().replace(/\s+/g, '-') : ''"
+          :is-anchor="this.is_anchor"
+          :nav_level="this.navigation_level"
+        >
           {{ this.paragraph_title }}
         </h3>
         <vue-markdown :source="paragraph" class="text-image-column-double__paragraph">
@@ -24,6 +30,8 @@ export default {
     image: Object,
     image_description: String,
     image_position: String,
+    is_anchor: Boolean,
+    navigation_level: String,
   },
 
 };
