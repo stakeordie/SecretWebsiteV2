@@ -84,7 +84,6 @@ export default {
     calloutItems() {
       this.calloutBox = this.preconfiged_callout_box.callout_box.callout_box;
       this.calloutBoxCustom = this.custom_callout_box;
-      console.log(this.calloutBox)
       return this.calloutBox;
     },
   },

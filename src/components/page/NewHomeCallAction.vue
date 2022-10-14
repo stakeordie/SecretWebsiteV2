@@ -36,7 +36,7 @@
               </p>
               <div class="new-home__call__content__info-btns">
                   <btn class="text-center no-arrow btn btn-color" url="../developers">START BUILDING</btn>
-                  <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn>
+                  <!-- <btn class="text-center no-arrow btn" url="../ecosystem/funding">FundING</btn> -->
                   <btn class="text-center no-arrow btn" url="../developers/grants">Grants</btn>
               </div>
           </div>
