@@ -1,24 +1,127 @@
 <template>
   <default-layout class="learn-article">
+    <!-- Breadcrumb -->
     <column>
       <block>
         <dynamic-breadcrumb :route="$context.route" />
       </block>
     </column>
+    <!-- Hero -->
     <column
-      class="bg-black-gradient learn-article__content"
-      :class="component.comp_name === 'carousel' ? 'horizontal-slider' : ''"
-      :mode="component.comp_name === 'carousel' ? 'full' : 'normal'"
-      v-for="(component, index) in $context.components"
-      :key="index"
+      class="bg-black-gradient learn-article__content learn-hero"
     >
       <block>
-        <component :is="component.comp_name" v-bind="component">
-          {{ component.content ? component.content : "" }}
-        </component>
+        <div>
+          <div v-for="(component, index) in $context.components"
+                :key="index">
+            <component v-if="component.comp_name === 'article-hero'" id="example-content" :is="component.comp_name" v-bind="component">
+              {{ component.content ? component.content : "" }}
+            </component>
+          </div>
+        </div>
       </block>
     </column>
-
+    <!-- Main content -->
+    <column
+      class="bg-black-gradient learn-article__content"
+    >
+      <block>
+        <nav  class="learn-anchors">
+          <div
+            v-for="(anchor_lvl_1, index) in anchorListFinal"
+            :key="index"
+            class="learn-anchors__grid"
+          >
+            <div :class="'lvl--0' + anchor_lvl_1.nav_level" class="anchor">
+              <a class="anchor__title" :href="'#' + anchor_lvl_1.id">{{
+                anchor_lvl_1.title
+              }}</a>
+              <button
+                type="button"
+                class="anchor__control"
+                v-on:click="anchor_lvl_1.isOpen = !anchor_lvl_1.isOpen"
+              >
+                <img
+                  :class="anchor_lvl_1.isOpen ? 'anchor__control--is-open' : 'anchor__control--is-closed'"
+                  v-show="anchor_lvl_1.nested !== 0"
+                  src="../assets/chev-learn.svg" alt="" />
+                  <!-- <p>{{anchor_lvl_1.nested}}</p> -->
+              </button>
+            </div>
+            <div
+              v-show="anchor_lvl_1.isOpen"
+              v-for="(anchor_lvl_2, index) in anchor_lvl_1.nested"
+              :key="index"
+              class="parent-control"
+              :class="'parent-' + anchor_lvl_2.idParent"
+            >
+              <div :class="'lvl--0' + anchor_lvl_2.nav_level" class="anchor">
+                <a
+                  class="anchor__title"
+                  :href="'#' + anchor_lvl_2.id"
+                  :class="'anchor__title-0' + anchor_lvl_2.nav_level"
+                  >{{ anchor_lvl_2.title }}</a
+                >
+                <button
+                  type="button"
+                  class="anchor__control"
+                  v-on:click="anchor_lvl_2.isOpen = !anchor_lvl_2.isOpen"
+                >
+                  <img
+                    :class="anchor_lvl_2.isOpen ? 'anchor__control--is-open' : 'anchor__control--is-closed'"
+                    v-show="anchor_lvl_2.nested.length !== 0"
+                    src="../assets/chev-learn.svg" alt="" />
+                  <!-- <span>{{anchor_lvl_2.nested.length !== 0 }}</span> -->
+                </button>
+              </div>
+              <div
+                v-show="anchor_lvl_2.isOpen"
+                v-for="(anchor_lvl_3, index) in anchor_lvl_2.nested"
+                :key="index"
+                class="parent-control"
+                :class="'parent-' + anchor_lvl_3.idParent"
+              >
+                <div :class="'lvl--0' + anchor_lvl_3.nav_level" class="anchor">
+                  <a
+                    class="anchor__title"
+                    :href="'#' + anchor_lvl_3.id"
+                    :class="'anchor__title-0' + anchor_lvl_3.nav_level"
+                    >{{ anchor_lvl_3.title }}</a
+                  >
+                  <a href="" class="anchor__control">
+                    <!-- <img src="../assets/chev-learn.svg" alt="" /> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div>
+          <div v-for="(component, index) in $context.components"
+                :key="index">
+            <component v-if="component.comp_name !== 'carousel' && component.comp_name !== 'article-hero'" id="example-content" :is="component.comp_name" v-bind="component">
+              {{ component.content ? component.content : "" }}
+            </component>
+          </div>
+        </div>
+      </block>
+    </column>
+    <!-- Carousel -->
+    <column
+    mode="full"
+      class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
+    >
+      <block>
+        <div>
+          <div v-for="(component, index) in $context.components"
+                :key="index">
+            <component v-if="component.comp_name === 'carousel'" id="example-content" :is="component.comp_name" v-bind="component">
+              {{ component.content ? component.content : "" }}
+            </component>
+          </div>
+        </div>
+      </block>
+    </column>
     <!-- Swirl bottom -->
     <column class="orange__swirl__bottom" mode="full">
       <block>
@@ -33,18 +136,110 @@
 
 <script>
 export default {
+  data: function () {
+    return {
+      anchorList: [],
+      anchorListFinal: [],
+      submenuIsOpen: true
+    };
+  },
   methods: {
-    moving() {
-      const newNode = document.querySelector(".mover");
-      const parentDiv = document.querySelector(".bucket > .content > .box");
+    // collapseSubmenu(arg) {
+    //   let submenuTarget;
+    //   submenuTarget = document.querySelectorAll(arg);
+    //   this.submenuIsOpen = !this.submenuIsOpen;
 
-      parentDiv.insertBefore(newNode, parentDiv.firstElementChild);
+
+
+    //   console.log(this.submenuIsOpen);
+    //   console.log()
+
+    //   for (let i = 0; i < submenuTarget.length; i++) {
+    //     if (!this.submenuIsOpen) {
+    //       submenuTarget[i].classList.add("hidding");
+    //       setTimeout(() => {
+    //         submenuTarget[i].classList.add("erased");
+    //       }, 200);
+    //     }
+    //     if (this.submenuIsOpen) {
+    //       submenuTarget[i].classList.remove("hidding");
+    //       submenuTarget[i].classList.remove("erased");
+    //     }
+    //   }
+    // },
+
+    getAnchors() {
+      let anchors = [];
+      let matches = document.querySelectorAll('[is-anchor="true"]');
+      anchors = [...matches];
+
+      let lastSecondLevelId = null;
+      let lastThirdLevelId = null;
+
+      for (let i = 0; i < anchors.length; i++) {
+        if (
+          Number(anchors[i].attributes.nav_level.value) === 2 &&
+          Number(anchors[i - 1].attributes.nav_level.value) === 1
+        )
+          lastSecondLevelId = anchors[i - 1].id;
+
+        if (
+          Number(anchors[i].attributes.nav_level.value) === 3 &&
+          Number(anchors[i - 1].attributes.nav_level.value) === 2
+        )
+          lastThirdLevelId = anchors[i - 1].id;
+
+        let idSpecial =
+          Number(anchors[i].attributes.nav_level.value) > 1
+            ? i > 0 && Number(anchors[i].attributes.nav_level.value) === 2
+              ? lastSecondLevelId
+                ? lastSecondLevelId
+                : anchors[i - 1].id
+              : lastThirdLevelId
+              ? lastThirdLevelId
+              : ""
+            : "";
+
+        this.anchorList.push({
+          nav_level: Number(anchors[i].attributes.nav_level.value),
+          title: anchors[i].innerText,
+          id: anchors[i].id,
+          idParent: idSpecial,
+          nested: [],
+          isOpen: true,
+        });
+      }
+
+      this.anchorList.forEach((a) => {
+        if (a.nav_level === 1) {
+          this.anchorListFinal.push(a);
+        }
+
+        if (a.nav_level === 2) {
+          this.anchorListFinal
+            .find((element) => {
+              return element.id === a.idParent;
+            })
+            .nested.push(a);
+        }
+
+        if (a.nav_level === 3) {
+          this.anchorListFinal.forEach((f) => {
+            f.nested
+              .find((element) => {
+                return element.id === a.idParent;
+              })
+              .nested.push(a);
+          });
+        }
+      });
+
+      //   console.log(this.anchorList);
+      console.log(this.anchorListFinal);
     },
   },
   mounted() {
-    // setTimeout(() => {
-    //   this.moving();
-    // }, 1000);
+    this.getAnchors();
   },
 };
 </script>
@@ -53,66 +248,157 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article {
+  .learn-anchors {
+    position: sticky;
+    top: 150px;
+    display: grid;
+    gap: 10px;
+    align-self: baseline;
+    background: #1a2128;
+    border-radius: 10px;
+    padding: var(--f-gutter);
+    @include respond-to("<=m") {
+     position: inherit;       
+    }
+    &__grid {
+      display: grid;
+      gap: var(--f-gutter-xxs);
+      .parent-control {
+        transition: 0.2s ease;
+        height: auto;
+        max-height: 600px;
+        &.hidding {
+          opacity: 0;
+          max-height: 0px;
+        }
+        &.erased {
+          display: none;
+        }
+      }
+    }
+    .anchor {
+      display: grid;
+      grid-template-columns: 1fr 24px;
+      gap: var(--f-gutter-xl);
+      // padding: 6px 0;
+      min-height: 32px;
+      justify-content: space-between;
+      &__title {
+        font-family: "Hind";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #d1d5db;
+        display: flex;
+        align-items: center;
+        &-02 {
+          padding-left: 11px;
+          border-left: 2px solid #b2bfcd;
+        }
+        &-03 {
+          margin-left: 22px;
+          padding-left: 11px;
+          border-left: 2px solid #b2bfcd;
+        }
+        &:hover {
+          font-weight: 700;
+          color: #ffffff;
+        }
+      }
+      &__control {
+        display: flex;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        align-self: center;
+        transition: 0.2s ease;
+        &--is-open {
+          transition: 0.2s ease;
+          transform: rotate(0);
+        }
+        &--is-closed {
+          transition: 0.2s ease;
+          transform: rotate(180deg);
+        }
+      }
+      &.lvl {
+        &--01 {
+          padding-left: 0;
+        }
+
+        &--02 {
+          padding-left: 11px;
+        }
+
+        &--03 {
+          margin-left: 11px;
+          margin-top: var(--f-gutter-xxs);
+          padding-left: 11px;
+          border-left: 2px solid #b2bfcd;
+        }
+      }
+    }
+  }
+
   .comp-name {
     &__dynamic-breadcrumb {
       .content {
         height: 0;
+  
         .box {
           height: 0;
+
           .dynamic-breadcrumb {
             position: absolute;
           }
         }
       }
     }
+
     &__carousel {
       padding-top: 100px;
       padding-bottom: 64px;
     }
   }
+
   &__content {
+    &:not(.learn-hero):not(.learn-carousel) {
+      .content {
+        .box {
+          display: grid;
+          grid-template-columns: 272px 1fr;
+          gap: 26px;
+          @include respond-to("<=m") {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    }
     ul {
       list-style: inherit;
     }
+
     .text-column-single {
-      max-width: 742px;
+      // max-width: 742px;
+
       &--narrow {
-        max-width: 742px;
+        // max-width: 742px;
       }
+
       &--standard {
-        max-width: 742px;
+        // max-width: 742px;
       }
+
       &--wide {
-        max-width: 843px;
+        // max-width: 843px;
       }
-      margin: auto;
-      padding: var(--f-gutter);
+
+      // margin: auto;
+      padding: var(--f-gutter) 26px;
+
       .title__align-center {
         text-align: center;
-      }
-      p {
-        max-width: auto;
-        width: 100%;
-        line-height: 28px;
-        color: var(--color-analog-primary-white);
-      }
-      h3 {
-        max-width: auto;
-        width: 100%;
-        font-size: 28px;
-        line-height: 36.4px;
-      }
-    }
-    .text-column-double {
-      display: grid;
-      gap: 26px;
-      grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
-      @include respond-to("<=m") {
-        grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
-      }
-      &__col-1,
-      &__col-2 {
-        padding: var(--f-gutter);
       }
 
       p {
@@ -121,6 +407,35 @@ export default {
         line-height: 28px;
         color: var(--color-analog-primary-white);
       }
+
+      h3 {
+        max-width: auto;
+        width: 100%;
+        font-size: 28px;
+        line-height: 36.4px;
+      }
+    }
+
+    .text-column-double {
+      display: grid;
+      gap: 26px;
+      grid-template-columns: repeat(2, 1fr);
+      @include respond-to("<=m") {
+        grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
+      }
+
+      &__col-1,
+      &__col-2 {
+        padding: var(--f-gutter) 26px;
+      }
+
+      p {
+        max-width: auto;
+        width: 100%;
+        line-height: 28px;
+        color: var(--color-analog-primary-white);
+      }
+
       h3 {
         max-width: auto;
         width: 100%;
@@ -170,6 +485,7 @@ export default {
         line-height: 28px;
         color: var(--color-analog-primary-white);
       }
+
       h3 {
         max-width: auto;
         width: 100%;
@@ -187,6 +503,7 @@ export default {
         line-height: 24px;
       }
     }
+
     .article-hero {
       // padding: 0 42px;
       .learn-post__img {
@@ -194,14 +511,17 @@ export default {
         height: 100%;
         object-fit: cover;
       }
+
       @include respond-to("<=s") {
         padding: 0 0;
       }
     }
+
     .article-image {
       display: grid;
       gap: 16px;
       padding: var(--f-gutter);
+
       .img-caption {
         font-size: 16px;
         color: var(--theme-card-text-color);
@@ -217,16 +537,19 @@ export default {
         }
       }
     }
+
     .article-video {
       display: grid;
       gap: 16px;
       padding: var(--f-gutter);
       justify-content: center;
+
       video {
         width: 100%;
         height: auto;
         max-width: 710px;
       }
+
       .img-caption {
         font-size: 16px;
         color: var(--theme-card-text-color);
@@ -242,15 +565,18 @@ export default {
         }
       }
     }
+
     .mover {
       display: none;
     }
   }
+
   .mover {
     &:not(:nth-child(1)) {
       display: none;
     }
   }
+
   & .swirl-wrapper-bottom {
     display: none;
   }
