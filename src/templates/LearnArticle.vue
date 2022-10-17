@@ -253,6 +253,7 @@ export default {
     top: 150px;
     display: grid;
     gap: 10px;
+    // gap: 10px;
     align-self: baseline;
     background: #1a2128;
     border-radius: 10px;
@@ -262,7 +263,7 @@ export default {
     }
     &__grid {
       display: grid;
-      gap: var(--f-gutter-xxs);
+      gap: 0;
       .parent-control {
         transition: 0.2s ease;
         height: auto;
@@ -295,15 +296,23 @@ export default {
         &-02 {
           padding-left: 11px;
           border-left: 2px solid #b2bfcd;
+          padding-top: 4px;
+          padding-bottom: 4px;
         }
         &-03 {
           margin-left: 22px;
           padding-left: 11px;
           border-left: 2px solid #b2bfcd;
+          padding-top: 4px;
+          padding-bottom: 4px;
         }
         &:hover {
-          font-weight: 700;
+          // font-weight: 700;
           color: #ffffff;
+        }
+        &:focus {
+          color: #ffffff;
+          font-weight: 700;
         }
       }
       &__control {
@@ -325,15 +334,21 @@ export default {
       &.lvl {
         &--01 {
           padding-left: 0;
+
+
         }
 
         &--02 {
+
+
           padding-left: 11px;
         }
 
         &--03 {
+
+
           margin-left: 11px;
-          margin-top: var(--f-gutter-xxs);
+          margin-top: 0;
           padding-left: 11px;
           border-left: 2px solid #b2bfcd;
         }
@@ -413,6 +428,8 @@ export default {
         width: 100%;
         font-size: 28px;
         line-height: 36.4px;
+        padding-top: 6em;
+        margin-top: -6em;
       }
     }
 
