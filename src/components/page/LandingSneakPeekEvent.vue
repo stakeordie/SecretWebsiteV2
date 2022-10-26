@@ -227,9 +227,11 @@ export default {};
   }
 
   &__countdown__wrapper {
+    max-width: 416px;
 
       @include respond-to('<=m') {
         align-self: center;
+        // max-width: 180px;
       }
 
 
@@ -250,10 +252,11 @@ export default {};
           .wrap-sec {
             grid-row: 1;
             color: var(--color-analog-primary-white);
+            text-align: center;
 
-            @include respond-to("<=xs") {
+            @include respond-to("<=m") {
 
-              font-size: 16px;
+              font-size: 14px;
             }
 
 
@@ -294,10 +297,11 @@ export default {};
   order: 1;
   width: 104px;
 
-  @include respond-to("<=xs") {
-    max-width: 74px;
+  @include respond-to("<=m") {
+   max-width: 70px;
 
     font-size: 28px;
+    text-align: center;
   }
 
 
