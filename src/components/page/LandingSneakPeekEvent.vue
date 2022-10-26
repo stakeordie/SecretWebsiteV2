@@ -156,7 +156,7 @@ export default {};
       color: var(--color-ver2-secondary-blue);
       text-transform: uppercase;
       margin-bottom: 4px;
-			margin-top: 39px;
+			margin-top: 20px;
       @include respond-to("<=s") {
         margin-top: 39px;
       }
@@ -226,7 +226,7 @@ export default {};
       width: 204px !important;
       margin-left: 0 !important;
       // margin-top: 26px;
-      margin-bottom: 26px !important;
+      // margin-bottom: 26px !important;
 			span {
 				font-size: 16px !important;
 			}
