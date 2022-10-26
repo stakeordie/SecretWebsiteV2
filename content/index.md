@@ -115,7 +115,7 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 ### until Secret Summit
 #### COMING IN DECEMBER
 
-<btn class="center-text no-arrow " url="">LEARN MORE</btn>
+<btn class="center-text no-arrow " url="../summit">LEARN MORE</btn>
 
 </block>
 
