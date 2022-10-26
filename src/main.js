@@ -129,9 +129,12 @@ import AustinEventMeet from '~/components/page/AustinEventMeet'
 import AustinEventPartnership from '~/components/page/AustinEventPartnership'
 import AustinEventFooter from '~/components/page/AustinEventFooter'
 import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
+import LandingEventSneakPeek from '~/components/page/LandingEventSneakPeek'
 
 import GeneralCtas from '~/components/page/GeneralCtas'
 import LearnPortalHero from '~/components/page/LearnPortalHero'
+
+import LandingSneakPeekEvent from '~/components/page/LandingSneakPeekEvent'
 
 // Dynamic
 import TextColumnSingle from '~/components/dynamic/TextColumnSingle'
@@ -306,6 +309,9 @@ export default function (Vue, {
   Vue.component('GeneralCtas', GeneralCtas);
   Vue.component('LearnPortalHero', LearnPortalHero);
   Vue.component('LearnHeader', LearnHeader);
+  Vue.component('LandingEventSneakPeek', LandingEventSneakPeek);
+
+    Vue.component('LandingSneakPeekEvent', LandingSneakPeekEvent);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
