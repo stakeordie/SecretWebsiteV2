@@ -129,6 +129,7 @@ import AustinEventMeet from '~/components/page/AustinEventMeet'
 import AustinEventPartnership from '~/components/page/AustinEventPartnership'
 import AustinEventFooter from '~/components/page/AustinEventFooter'
 import HomeDcentralAfterpartyBanner from '~/components/page/HomeDcentralAfterpartyBanner'
+import LandingEventSneakPeek from '~/components/page/LandingEventSneakPeek'
 
 import GeneralCtas from '~/components/page/GeneralCtas'
 import LearnPortalHero from '~/components/page/LearnPortalHero'
@@ -306,6 +307,7 @@ export default function (Vue, {
   Vue.component('GeneralCtas', GeneralCtas);
   Vue.component('LearnPortalHero', LearnPortalHero);
   Vue.component('LearnHeader', LearnHeader);
+  Vue.component('LandingEventSneakPeek', LandingEventSneakPeek);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);
