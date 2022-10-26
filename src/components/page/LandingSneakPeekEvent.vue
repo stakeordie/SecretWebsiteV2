@@ -59,7 +59,9 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
-
+	@include respond-to("<=s") {
+		background-image: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
+	}
   .swirl-wrapper,
   .swirl-wrapper-bottom {
     display: none;
@@ -72,12 +74,14 @@ export default {};
 }
 
 .summit-event {
-  height: 100vh;
   display: grid;
   grid-auto-rows: min-content;
   gap: 26px;
   align-content: center;
-  position: fixed;
+  @include respond-to(">=m") {
+    height: 100vh;
+    position: fixed;
+  }
 
   &__content {
     max-width: 640px;
@@ -87,45 +91,60 @@ export default {};
 
     @include respond-to("<=m") {
       margin: auto;
-      text-align: center;
+      text-align: left;
     }
   }
 
   &__heading {
     * {
       margin: 0;
+      margin: auto;
+      text-align: center;
     }
     &__eyebrow {
       color: var(--color-ver2-secondary-blue);
       text-transform: uppercase;
       margin-bottom: 4px;
+      @include respond-to("<=s") {
+        margin-top: 39px;
+      }
     }
 
     &__title {
       font-family: montserrat;
       margin-bottom: 10px;
+      @include respond-to("<=s") {
+        font-size: 42px;
+        line-height: 48px;
+      }
     }
     &__subtitle {
       text-transform: uppercase;
       margin-bottom: var(--f-gutter);
+      @include respond-to("<=s") {
+        font-size: 22px;
+        line-height: 36.5px;
+      }
     }
   }
 
   &__description {
     * {
-        color: #ffffff;
-        font-size: 18px;
+      color: #ffffff;
+      font-size: 18px;
     }
     &__list {
-			padding-left: 0;
-			margin-bottom: var(--f-gutter);
-        li {
-          display: grid;
-          grid-template-columns: 28px 1fr;
-          gap: 12px;
-          align-items: flex-end;
-          *{margin: 0;}
+      padding-left: 0;
+      margin-bottom: var(--f-gutter);
+      li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 12px;
+        align-items: flex-end;
+        * {
+          margin: 0;
         }
+      }
     }
     &__paragraph {
       font-size: var(--paragraph-font-size-big);
@@ -136,10 +155,15 @@ export default {};
       background-color: var(--color-ver2-primary-blue) !important;
       width: 204px !important;
       margin-left: 0 !important;
-    	margin-top: 26px;
-    	margin-bottom: 26px;
+      margin-top: 26px;
+      margin-bottom: 26px !important;
       @include respond-to("<=m") {
         max-width: 100% !important;
+      }
+			@include respond-to("<=s") {
+        margin-left: auto !important;
+        margin-right: auto !important;
+				display: block !important;
       }
     }
   }
