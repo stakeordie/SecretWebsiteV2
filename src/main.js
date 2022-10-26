@@ -134,6 +134,8 @@ import LandingEventSneakPeek from '~/components/page/LandingEventSneakPeek'
 import GeneralCtas from '~/components/page/GeneralCtas'
 import LearnPortalHero from '~/components/page/LearnPortalHero'
 
+import LandingSneakPeekEvent from '~/components/page/LandingSneakPeekEvent'
+
 // Dynamic
 import TextColumnSingle from '~/components/dynamic/TextColumnSingle'
 import TextColumnDouble from '~/components/dynamic/TextColumnDouble'
@@ -308,6 +310,8 @@ export default function (Vue, {
   Vue.component('LearnPortalHero', LearnPortalHero);
   Vue.component('LearnHeader', LearnHeader);
   Vue.component('LandingEventSneakPeek', LandingEventSneakPeek);
+
+    Vue.component('LandingSneakPeekEvent', LandingSneakPeekEvent);
 
   //External Libraries
   Vue.component('InfiniteSlideBar', InfiniteSlideBar);

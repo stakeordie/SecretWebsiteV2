@@ -19,18 +19,7 @@ title: 'Secret Network'
 
 
 
-<!-- Logo Carousel -->
-<column class=" spacer-s new-home__bg logo-carousel">
 
-<block>
-
-#### Supported by
-
-<logo-carousel></logo-carousel>
-
-</block>
-
-</column>
 
 
 
@@ -87,6 +76,100 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 
 </column> -->
 
+
+
+
+
+
+<!-- EVENT BANNER -->
+
+<column class="summit-banner">
+
+<block class="summit-banner__countdown">
+
+<div class="summit-banner__countdown__wrapper">
+<countdown format="days:hours:minutes:seconds" separators="" end="2022-12-15T06:00:00-0800" @countDownEnd="homePageRemoveCountdown">
+
+<div class="paragraph-wrap">
+  <p class="wrap-day">
+  DAYS 
+  </p>
+<div class="">  </div>
+  <p class="wrap-hour">
+  HOURS
+  </p>
+<div class="">  </div>
+  <p class="wrap-min">
+  MIN
+  </p>
+<div class="">  </div>
+  <p class="wrap-sec">
+  SEC
+  </p>
+</div>
+
+</countdown>
+
+</div>
+
+### until Secret Summit
+#### COMING IN DECEMBER
+
+<btn class="center-text no-arrow " url="">LEARN MORE</btn>
+
+</block>
+
+</column>
+
+<!-- <column class=" spacer-s  dcentral-afterparty__home__banner" number="2" number-m="1" number-s="1" ref="countdownChecker">
+
+<block class="dcentral-afterparty__home__countdown">
+
+<div class="dcentral-afterparty__home__countdown__wrapper">
+<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700" @countDownEnd="homePageRemoveCountdown">
+
+<div class="paragraph-wrap">
+  <p class="wrap-day">
+  DAYS 
+  </p>
+<div class="">  </div>
+  <p class="wrap-hour">
+  HOURS
+  </p>
+<div class="">  </div>
+  <p class="wrap-min">
+  MIN
+  </p>
+<div class="">  </div>
+  <p class="wrap-sec">
+  SEC
+  </p>
+</div>
+
+</countdown>
+
+</div>
+
+### until the party starts
+
+</block>
+
+<block class="dcentral-afterparty__event-info">
+
+![](../src/assets/events/logos/secret-logo-white.svg)
+
+### DCentral Austin Afterparty
+
+Music, drinks, and sneak peeks—join us for a special DCentral Austin afterparty with legendary filmmaker Kevin Smith. 
+
+<btn class="center-text no-arrow dcentral-afterparty__event-info__btn" url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137">GET TICKETS NOW</btn>
+
+
+</block>
+
+
+
+</column> -->
 
 
 
@@ -244,6 +327,23 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 <new-home-mission>
     
 </new-home-mission>
+
+</block>
+
+</column>
+
+
+
+
+
+<!-- Logo Carousel -->
+<column class=" spacer-s new-home__bg logo-carousel">
+
+<block>
+
+#### Supported by
+
+<logo-carousel></logo-carousel>
 
 </block>
 
