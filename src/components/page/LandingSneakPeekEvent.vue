@@ -78,9 +78,21 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-	background-position-y: -63px;
 	@include respond-to("<=s") {
 		background-image: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
+	}
+	@include respond-to(">=m") {
+		background-image: url("../../assets/events/summit/secret-summit-graphic-2-medium-portrait.svg");
+		background-position-x: right;
+		background-position-y: 63px;
+	}
+	@include respond-to(">=l") {
+		background-image: url("../../assets/events/summit/secret-summit-graphic-2-medium.svg");
+		background-position-y: 0px;
+	}
+	@include respond-to(">=xl") {
+		background-image: url('../../assets/events/summit/secret-summit-graphic-2.svg');
+		background-position-y: -63px;
 	}
   .swirl-wrapper,
   .swirl-wrapper-bottom {
