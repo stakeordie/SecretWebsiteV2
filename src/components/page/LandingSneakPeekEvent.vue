@@ -32,7 +32,7 @@
           Let’s talk about the past,
           present, and future of Web3 privacy together.
         </p>
-        <btn class="no-arrow" url=""> SAVE MY SPOT </btn>
+        <btn class="no-arrow" url="https://secretsummit2022.eventbrite.com">SAVE MY SPOT</btn>
       </div>
 
       <div class="summit-event__countdown__wrapper">
@@ -77,7 +77,8 @@ export default {};
   background-image: url('../../assets/events/summit/secret-summit-graphic-2.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
+  background-position: center;
+	background-position-y: -63px;
 	@include respond-to("<=s") {
 		background-image: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
 	}
@@ -108,14 +109,14 @@ export default {};
     }
 
   p {
-    font-size: var(--paragraph-font-size-big);
-    line-height: var(--paragraph-line-height-big);
+    font-size: 18px;
+    line-height: 27px;
     color: var(--color-neutral-dark-mode-06);
   }
 
 
   &__content {
-    
+    max-width: 640px;
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -131,7 +132,7 @@ export default {};
     * {
       margin: 0;
       margin: auto;
-      text-align: center;
+      text-align: left;
     }
 
     @include respond-to('<=m') {
@@ -143,6 +144,7 @@ export default {};
       color: var(--color-ver2-secondary-blue);
       text-transform: uppercase;
       margin-bottom: 4px;
+			margin-top: 39px;
       @include respond-to("<=s") {
         margin-top: 39px;
       }
@@ -211,8 +213,11 @@ export default {};
       background-color: var(--color-ver2-primary-blue) !important;
       width: 204px !important;
       margin-left: 0 !important;
-      margin-top: 26px;
+      // margin-top: 26px;
       margin-bottom: 26px !important;
+			span {
+				font-size: 16px !important;
+			}
       @include respond-to("<=m") {
         // width: 100% !important;
       }
