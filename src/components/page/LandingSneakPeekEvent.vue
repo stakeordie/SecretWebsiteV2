@@ -244,9 +244,11 @@ export default {};
   }
 
   &__countdown__wrapper {
+    max-width: 416px;
 
-      @include respond-to('<=m') {
+      @include respond-to('<=s') {
         align-self: center;
+        // max-width: 180px;
       }
 
 
@@ -258,8 +260,9 @@ export default {};
           grid-column: 1 / span 4;
           grid-row: 2;
           display: grid;
-
+          opacity: 0.8;
           grid-template-columns: repeat(4, 1fr);
+          margin-top: -4px;
 
           .wrap-day,
           .wrap-hour,
@@ -267,10 +270,15 @@ export default {};
           .wrap-sec {
             grid-row: 1;
             color: var(--color-analog-primary-white);
+            text-align: center;
+            margin-right: 10px;
+            margin-bottom: 0;
+            font-size: 16px;
 
-            @include respond-to("<=xs") {
+            @include respond-to("<=s") {
 
-              font-size: 16px;
+              font-size: 14px;
+              margin-right: 8px;
             }
 
 
@@ -303,21 +311,103 @@ export default {};
 
 
 
+.countdown-wrap{
+  @include respond-to("<=s") {
+    max-width: 345px;
+    margin: auto;
+    }
+  .countdown-data {
+    font-size: 54px;
+    font-family: montserrat;
+    font-weight: 600;
+    order: 1;
+    width: 104px;
+    text-align: end;
 
-.countdown-data {
+    @include respond-to("<=s") {
+    max-width: 70px;
+
+      font-size: 28px;
+      text-align: center;
+    }
+
+  }
+}
+
+
+.summit-banner{
+
+  .summit-banner__countdown{
+    margin: 26px auto 26px auto ;
+  }
+  
+
+  h3{
+    margin: 0;
+  }
+background-image: url("../../assets/events/summit/secret-summit-graphic-home.svg");
+// background-position:top ;
+background-size: cover;
+// height: 303px;
+
+text-align: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+	//  background-position-y: 00px;
+	@include respond-to("<=s") {
+		background-image: linear-gradient(rgba(26, 27, 40, 0.6), rgba(26, 27, 40, 0.6)), 
+    url("../../assets/events/summit/secret-summit-graphic-home-mobile.svg");
+    // background-position-y: 0;
+    // background-position: right;
+	}
+
+
+  .summit-event__countdown__wrapper{
+    margin: auto;
+    margin-bottom: 8px;
+
+
+    .countdown-data {
   font-size: 54px;
   font-family: montserrat;
   font-weight: 600;
   order: 1;
   width: 104px;
+  text-align: end;
 
-  @include respond-to("<=xs") {
-    max-width: 74px;
+  @include respond-to("<=s") {
+   max-width: 70px;
 
     font-size: 28px;
+    text-align: end;
   }
 
 
+
+
+}
+  }
+
+  .button {
+      background-color: var(--color-ver2-primary-blue) !important;
+      width: 204px !important;
+      margin-left: 0 !important;
+      // margin-top: 26px;
+      margin-bottom: 26px !important;
+			span {
+				font-size: 16px !important;
+			}
+      // @include respond-to("<=m") {
+      //   // width: 100% !important;
+      // }
+			// @include respond-to("<=s") {
+      //   margin-left: auto !important;
+      //   margin-right: auto !important;
+			// 	display: block !important;
+      // }
+    }
 
 
 }

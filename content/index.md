@@ -87,7 +87,7 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 
 <block class="summit-banner__countdown">
 
-<div class="summit-banner__countdown__wrapper">
+<div class="summit-event__countdown__wrapper">
 <countdown format="days:hours:minutes:seconds" separators="" end="2022-12-15T06:00:00-0800" @countDownEnd="homePageRemoveCountdown">
 
 <div class="paragraph-wrap">
