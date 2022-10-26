@@ -77,8 +77,10 @@ export default {};
   background-image: url('../../assets/events/summit/secret-summit-graphic-2.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top, right;
-
+  background-position: top;
+	@include respond-to("<=s") {
+		background-image: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
+	}
   .swirl-wrapper,
   .swirl-wrapper-bottom {
     display: none;
@@ -91,12 +93,14 @@ export default {};
 }
 
 .summit-event {
-  height: 100vh;
   display: grid;
   grid-auto-rows: min-content;
   gap: 26px;
   align-content: center;
-  position: fixed;
+  @include respond-to(">=m") {
+    height: 100vh;
+    position: fixed;
+  }
 
    @include respond-to('<=m') {
      
@@ -119,16 +123,15 @@ export default {};
 
     @include respond-to('<=m') {
       margin: auto;
-      padding: var(--f-gutter);
-      // text-align: center;
-      // max-width: 328px;
-
+      text-align: left;
     }
   }
 
   &__heading {
     * {
       margin: 0;
+      margin: auto;
+      text-align: center;
     }
 
     @include respond-to('<=m') {
@@ -140,18 +143,15 @@ export default {};
       color: var(--color-ver2-secondary-blue);
       text-transform: uppercase;
       margin-bottom: 4px;
-
-      @include respond-to('<=m') {
-        font-size: 18px;
-        line-height: 30px;
+      @include respond-to("<=s") {
+        margin-top: 39px;
       }
     }
 
     &__title {
       font-family: montserrat;
       margin-bottom: 10px;
-
-      @include respond-to('<=s') {
+      @include respond-to("<=s") {
         font-size: 42px;
         line-height: 48px;
       }
@@ -160,31 +160,32 @@ export default {};
     &__subtitle {
       text-transform: uppercase;
       margin-bottom: var(--f-gutter);
-
-      @include respond-to('<=s') {
+      @include respond-to("<=s") {
         font-size: 22px;
-        line-height: 30px;
+        line-height: 36.5px;
       }
     }
 
   }
 
   &__description {
-    max-width: 640px;
-
-    @include respond-to('<=m') {
-        text-align: center;
-
-        .summit-event__description__paragraph,
-        .summit-event__description__list
-        {
-          text-align: left !important;
+    * {
+      color: #ffffff;
+      font-size: 18px;
+    }
+    &__list {
+      padding-left: 0;
+      margin-bottom: var(--f-gutter);
+      li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 12px;
+        align-items: flex-end;
+        * {
+          margin: 0;
         }
-
-
       }
-
-
+    }
     &__paragraph {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
@@ -209,14 +210,17 @@ export default {};
     .button {
       background-color: var(--color-ver2-primary-blue) !important;
       width: 204px !important;
-      // margin-left: 0 !important;
+      margin-left: 0 !important;
       margin-top: 26px;
-      margin-bottom: 26px;
-
+      margin-bottom: 26px !important;
       @include respond-to("<=m") {
         // width: 100% !important;
       }
-
+			@include respond-to("<=s") {
+        margin-left: auto !important;
+        margin-right: auto !important;
+				display: block !important;
+      }
     }
 
 
