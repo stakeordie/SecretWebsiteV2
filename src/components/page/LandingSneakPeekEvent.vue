@@ -127,6 +127,9 @@ export default {
       opacity: 1;
     }
     @include respond-to("<=s") {
+      overflow-y: scroll;
+      padding-top: calc(230px + var(--sum-heights));
+      padding-bottom: 33px;
       background: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
        @include bgSpecs();
     }
@@ -161,7 +164,7 @@ export default {
       // align-content: center;
       flex-direction: column;
       gap: 16px;
-      padding: 16px 16px 26px;
+      padding: 16px;
       background: rgba(26, 29, 40, 0.6);
       backdrop-filter: blur(5px);
 
@@ -176,6 +179,9 @@ export default {
         // text-align: left;
 
         // transform: translateX(0px);
+      }
+      @include respond-to("<=s") {
+        max-width: calc(100% - 16px) !important;
       }
       
       @include respond-to("<=m") {
@@ -214,7 +220,7 @@ export default {
         // margin-top: 20px;
        
        @include respond-to("<=s") {
-          margin-top: 39px;
+          margin-top: 0;
         }
 
          @include respond-to("<=l") {
@@ -322,7 +328,7 @@ export default {
         height: fit-content;
 
         @include respond-to("<=s") {
-          padding: 8px;
+          // padding: 8px;
         }
       }
     }
