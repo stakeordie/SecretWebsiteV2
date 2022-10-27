@@ -2,7 +2,7 @@
 title: 'Secret Summit'
 ---
 
-<column>
+<column class="no-padding" mode="full">
 
 <block>
 

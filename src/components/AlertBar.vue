@@ -48,6 +48,13 @@ export default {
       return body.setAttribute("style", `--ab-height:0px`);
     },
     closeAlert() {
+      let sneakPeek = document.querySelector(".landing-event-sneak-peek");
+
+      if (sneakPeek) {
+        console.log('existe')
+        sneakPeek.style.setProperty("--sum-heights", 68 + "px");
+      }
+
       this.isAlertOpen = false;
       if (process.isClient) {
         let alertMsg = this.$static.alertBar.edges[0].node.text;
