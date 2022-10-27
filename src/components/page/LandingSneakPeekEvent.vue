@@ -35,7 +35,11 @@
         <btn class="no-arrow" url="https://secretsummit2022.eventbrite.com">SAVE MY SPOT</btn>
       </div>
 
-      <div class="summit-event__countdown__wrapper">
+      
+      <event-countdown></event-countdown>
+
+
+       <!-- <div class="summit-event__countdown__wrapper">
         <countdown format="days:hours:minutes:seconds" separators="" end="2022-12-15T06:00:00-0800"
           @countDownEnd="homePageRemoveCountdown">
 
@@ -59,11 +63,10 @@
 
         </countdown>
         
-      </div>
+      </div> -->
 
       
     </div>
-    <!-- <img src="../../assets/events/summit/secret-summit-graphic-2.svg" alt="" class="summit-event__bg-img"> -->
   </section>
 </template>
 
@@ -87,12 +90,12 @@ export default {};
 		background-position-y: 63px;
 	}
 	@include respond-to(">=l") {
-		background-image: url("../../assets/events/summit/secret-summit-graphic-2-medium.svg");
+		background-image: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
 		background-position-y: 0px;
 	}
 	@include respond-to(">=xl") {
 		background-image: url('../../assets/events/summit/secret-summit-graphic-2.svg');
-		background-position-y: -63px;
+		background-position-y: 50px;
 	}
   .swirl-wrapper,
   .swirl-wrapper-bottom {
@@ -128,11 +131,16 @@ export default {};
 
 
   &__content {
-    max-width: 640px;
+    max-width: 672px;
     display: flex;
     align-content: center;
     flex-direction: column;
     gap: 16px;
+    padding: 16px 16px 26px 16px;
+
+    background-color: rgba(26, 29, 40, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
 
     @include respond-to('<=m') {
       margin: auto;
@@ -242,146 +250,16 @@ export default {};
 
 
   }
-
-  &__countdown__wrapper {
-    max-width: 416px;
-
-      @include respond-to('<=s') {
-        align-self: center;
-        // max-width: 180px;
-        width: 240px;
-      }
-
-
-      .countdown-wrap {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-
-        @include respond-to("<=s") {
-
-              
-            }
-
-        .paragraph-wrap {
-          grid-column: 1 / span 4;
-          grid-row: 2;
-          display: grid;
-          opacity: 0.8;
-          grid-template-columns: repeat(4, 1fr);
-          // margin-top: -4px;
-
-          .wrap-day,
-          .wrap-hour,
-          .wrap-min,
-          .wrap-sec {
-            grid-row: 1;
-            color: var(--color-analog-primary-white);
-            text-align: center;
-             margin-right: 24px;
-            margin-bottom: 0;
-            font-size: 16px;
-
-            @include respond-to("<=s") {
-
-              font-size: 14px;
-              margin-right: 8px;
-            }
-
-
-          }
-
-        }
-
-        .countdown-data{
-          font-size: 54px;
-          font-family: montserrat;
-          font-weight: 600;
-          order: 1;
-           max-width: 90px;
-          text-align: end;
-          height: 72px;
-
-          @include respond-to("<=s") {
-          //  max-width: 70px;
-
-            font-size: 28px;
-            // text-align: center;
-          }
-
-           @include respond-to("<=s") {
-            height: 40px;
-            }
-        }
-
-        .countdown-data:not(:first-child) {
-          //margin-left: 4px;
-
-        }
-
-
-        .countdown-data:after {
-          content: ":";
-          margin: 0 0px 0 10px;
-        }
-
-        .countdown-data:last-child:after {
-          opacity: 0;
-
-        }
-
-      }
-
-    }
 }
 
 
 
-.summit-banner{
-
-  .summit-banner__countdown{
-    margin: 26px auto 26px auto ;
-  }
+.event__countdown__wrapper{
   
-
-  h3{
-    margin: 0;
-  }
-background-image: url("../../assets/events/summit/secret-summit-graphic-home.svg");
-background-size: cover;
-
-text-align: center;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-	@include respond-to("<=s") {
-		background-image: linear-gradient(rgba(26, 27, 40, 0.6), rgba(26, 27, 40, 0.6)), 
-    url("../../assets/events/summit/secret-summit-graphic-home-mobile.svg");
-
-	}
-
-
-  .summit-event__countdown__wrapper{
-    margin: auto;
-    margin-bottom: 8px;
-
-  }
-
-  .button {
-      background-color: var(--color-ver2-primary-blue) !important;
-      width: 204px !important;
-      margin-left: 0 !important;
-      margin-bottom: 26px !important;
-
-			span {
-				font-size: 16px !important;
-			}
-
-    }
-
+  @include respond-to('<=m') {
+        align-self: center;
+       
+      }
 
 }
-
 </style>
