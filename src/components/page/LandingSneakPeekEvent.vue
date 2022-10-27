@@ -107,6 +107,7 @@ export default {
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
+  // background-position-y: 69px;
 }
 .summit {
   .landing-event-sneak-peek {
@@ -134,10 +135,11 @@ export default {
        @include bgSpecs();
     }
     @include bgSpecs();
-    @include respond-to(">=m") {
-      background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
+    @include respond-to("<=m") {
+      background: url("../../assets/events/summit/secret-summit-graphic-2-medium-portrait.svg");
       @include bgSpecs();
       background-position-x: right;
+      background-position-y: 69px;
     }
     @include respond-to(">=l") {
       background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
@@ -279,6 +281,7 @@ export default {
           grid-template-columns: 28px 1fr;
           gap: 12px;
           align-items: center;
+
 
           * {
             margin: 0;
