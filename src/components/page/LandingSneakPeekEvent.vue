@@ -272,7 +272,7 @@ export default {
           display: grid;
           grid-template-columns: 28px 1fr;
           gap: 12px;
-          align-items: flex-end;
+          align-items: center;
 
           * {
             margin: 0;
