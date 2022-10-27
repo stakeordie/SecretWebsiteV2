@@ -50,24 +50,7 @@
         >
       </div>
 
-      <div class="landing-event-sneak-peek__countdown__wrapper">
-        <countdown
-          format="days:hours:minutes:seconds"
-          separators=""
-          end="2022-12-15T06:00:00-0800"
-          @countDownEnd="homePageRemoveCountdown"
-        >
-          <div class="paragraph-wrap">
-            <p class="wrap-day">DAYS</p>
-            <div class=""></div>
-            <p class="wrap-hour">HOURS</p>
-            <div class=""></div>
-            <p class="wrap-min">MIN</p>
-            <div class=""></div>
-            <p class="wrap-sec">SEC</p>
-          </div>
-        </countdown>
-      </div>
+    <event-countdown></event-countdown>
     </div>
   </section>
 </template>
@@ -145,15 +128,16 @@ export default {
     }
     @include respond-to("<=s") {
       background: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
+       @include bgSpecs();
     }
     @include bgSpecs();
     @include respond-to(">=m") {
-      background: url("../../assets/events/summit/secret-summit-graphic-2-medium-portrait.svg");
+      background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
       @include bgSpecs();
       background-position-x: right;
     }
     @include respond-to(">=l") {
-      background: url("../../assets/events/summit/secret-summit-graphic-2-medium.svg");
+      background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
@@ -174,7 +158,7 @@ export default {
     &__content {
       max-width: 640px;
       display: flex;
-      align-content: center;
+      // align-content: center;
       flex-direction: column;
       gap: 16px;
       padding: 16px 16px 26px;
@@ -182,9 +166,32 @@ export default {
       backdrop-filter: blur(5px);
 
       border-radius: 16px;
-      @include respond-to("<=m") {
+
+      // transform: translateX(-240px);
+
+
+      @include respond-to("<=l") {
         margin: auto;
-        text-align: left;
+        max-width: 544px !important;
+        // text-align: left;
+
+        // transform: translateX(0px);
+      }
+      
+      @include respond-to("<=m") {
+       transform: translateX(0);
+      }
+
+      @include respond-to(">=l") {
+       transform: translateX(-200px);
+      }
+
+      @include respond-to(">=xl") {
+       transform: translateX(-250px);
+      }
+
+      @include respond-to(">=xxl") {
+       transform: translateX(-300px);
       }
     }
 
@@ -192,10 +199,10 @@ export default {
       * {
         margin: 0;
         margin: auto;
-        text-align: left;
+        // text-align: left;
       }
 
-      @include respond-to("<=m") {
+      @include respond-to("<=l") {
         // margin: auto;
         text-align: center;
       }
@@ -205,15 +212,20 @@ export default {
         text-transform: uppercase;
         margin-bottom: 4px;
         // margin-top: 20px;
-        @include respond-to("<=s") {
+       
+       @include respond-to("<=s") {
           margin-top: 39px;
+        }
+
+         @include respond-to("<=l") {
+          font-size: 18px;
         }
       }
 
       &__title {
         font-family: montserrat;
         margin-bottom: 10px;
-        @include respond-to("<=s") {
+        @include respond-to("<=l") {
           font-size: 42px;
           line-height: 48px;
         }
@@ -222,7 +234,7 @@ export default {
       &__subtitle {
         text-transform: uppercase;
         margin-bottom: var(--f-gutter);
-        @include respond-to("<=s") {
+        @include respond-to("<=l") {
           font-size: 22px;
           line-height: 36.5px;
         }
@@ -280,7 +292,7 @@ export default {
         @include respond-to("<=m") {
           // width: 100% !important;
         }
-        @include respond-to("<=s") {
+        @include respond-to("<=l") {
           margin-left: auto !important;
           margin-right: auto !important;
           display: block !important;
@@ -288,84 +300,7 @@ export default {
       }
     }
 
-    &__countdown__wrapper {
-      max-width: 416px;
-
-      @include respond-to("<=s") {
-        align-self: center;
-        // max-width: 180px;
-        width: 240px;
-      }
-
-      .countdown-wrap {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-
-        @include respond-to("<=s") {
-        }
-
-        .paragraph-wrap {
-          grid-column: 1 / span 4;
-          grid-row: 2;
-          display: grid;
-          opacity: 0.8;
-          grid-template-columns: repeat(4, 1fr);
-          // margin-top: -4px;
-
-          .wrap-day,
-          .wrap-hour,
-          .wrap-min,
-          .wrap-sec {
-            grid-row: 1;
-            color: var(--color-analog-primary-white);
-            text-align: center;
-            margin-right: 24px;
-            margin-bottom: 0;
-            font-size: 16px;
-
-            @include respond-to("<=s") {
-              font-size: 14px;
-              margin-right: 8px;
-            }
-          }
-        }
-
-        .countdown-data {
-          font-size: 54px;
-          font-family: montserrat;
-          font-weight: 600;
-          order: 1;
-          max-width: 90px;
-          text-align: end;
-          height: 72px;
-
-          @include respond-to("<=s") {
-            //  max-width: 70px;
-
-            font-size: 28px;
-            // text-align: center;
-          }
-
-          @include respond-to("<=s") {
-            height: 40px;
-          }
-        }
-
-        .countdown-data:not(:first-child) {
-          //margin-left: 4px;
-        }
-
-        .countdown-data:after {
-          content: ":";
-          margin: 0 0px 0 10px;
-        }
-
-        .countdown-data:last-child:after {
-          opacity: 0;
-        }
-      }
-    }
+   
     &__content {
       max-width: 700px;
       padding: var(--f-gutter);
@@ -385,10 +320,53 @@ export default {
       .box {
         padding: 0;
         height: fit-content;
+
+        @include respond-to("<=s") {
+          padding: 8px;
+        }
       }
     }
   }
-}
+
+  .event__countdown__wrapper{
+
+    @include respond-to('<=l') {
+        // align-self: center;
+        width: 240px;
+        align-self: center;
+      }
+   .countdown-wrap{
+
+          .wrap-day,
+          .wrap-hour,
+          .wrap-min,
+          .wrap-sec {
+
+            @include respond-to("<=l") 
+            {
+
+              font-size: 14px;
+              margin-right: 8px;
+            }
+
+
+          }
+
+          .countdown-data{
+
+           @include respond-to("<=l") {
+            height: 40px;
+            font-size: 28px ;
+            }
+
+          }
+        }
+   } 
+
+  }
+
+
+
 
 
 </style>
