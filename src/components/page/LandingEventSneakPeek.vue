@@ -49,37 +49,37 @@ export default {
 </script>
 
 <style lang="scss">
-.summit {
-  .landing-event-sneak-peek {
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // height: calc(100vh - var(--sum-heights));
-    padding-top: var(--headerHeight);
+// .summit {
+//   .landing-event-sneak-peek {
+//     background: black;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     // height: calc(100vh - var(--sum-heights));
+//     padding-top: var(--headerHeight);
 
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 100%;
-    &__content {
-      max-width: 700px;
-      padding: var(--f-gutter);
-    }
-  }
-  .swirl-wrapper, .swirl-wrapper-bottom {
-    display: none;
-  }
-  .simple-footer, .legal {
-    display: none;
-  }
-  .no-padding {
-    margin-bottom: 0;
-    .content {
-      .box {
-        padding: 0;
-      }
-    }
-  }
-}
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//     height: 100%;
+//     &__content {
+//       max-width: 700px;
+//       padding: var(--f-gutter);
+//     }
+//   }
+//   .swirl-wrapper, .swirl-wrapper-bottom {
+//     display: none;
+//   }
+//   .simple-footer, .legal {
+//     display: none;
+//   }
+//   .no-padding {
+//     margin-bottom: 0;
+//     .content {
+//       .box {
+//         padding: 0;
+//       }
+//     }
+//   }
+// }
 </style>

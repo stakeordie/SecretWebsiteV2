@@ -83,39 +83,12 @@ Music, drinks, and sneak peeks—join us for a special DCentral Austin afterpart
 
 <!-- EVENT BANNER -->
 
-<column class="summit-banner">
+<column class="event-banner">
 
 <block class="summit-banner__countdown">
 
-<div class="summit-event__countdown__wrapper">
-<countdown format="days:hours:minutes:seconds" separators="" end="2022-12-15T06:00:00-0800" @countDownEnd="homePageRemoveCountdown">
+<home-event-banner-countdown></home-event-banner-countdown>
 
-<div class="paragraph-wrap">
-  <p class="wrap-day">
-  DAYS 
-  </p>
-<div class="">  </div>
-  <p class="wrap-hour">
-  HOURS
-  </p>
-<div class="">  </div>
-  <p class="wrap-min">
-  MIN
-  </p>
-<div class="">  </div>
-  <p class="wrap-sec">
-  SEC
-  </p>
-</div>
-
-</countdown>
-
-</div>
-
-### until Secret Summit
-#### COMING IN DECEMBER
-
-<btn class="center-text no-arrow " url="../summit">LEARN MORE</btn>
 
 </block>
 
