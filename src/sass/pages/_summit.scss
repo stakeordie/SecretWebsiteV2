@@ -1,0 +1,82 @@
+
+
+
+// .content{
+//     .box{
+//         text-align: center;
+//     }
+// }
+//     &__countdown{
+
+//         &__wrapper{
+//             text-align: center;
+
+
+//             .countdown-wrap,
+//             .countdown-ended{
+//                 display: inline-grid;
+//     //gap: 4px;
+//     grid-template-columns: repeat(4, 1fr);
+//     line-height: 60px;
+//     row-gap: 12px;
+//     margin-left: 16px;
+
+
+//     & .paragraph-wrap{
+//         grid-column: 1 / span 4;
+//         order: 2;
+//         display: grid;
+//         grid-template-columns: 104px 32px 104px 32px 104px 32px 104px;
+
+//         & p{
+//             font-size: 18px;
+//             margin: 0;
+//             color: var( --color-analog-primary-white);
+
+//             @include respond-to("<=xs"){
+//                 font-size: 12px;
+//             }
+//         }
+
+//     }
+    
+  
+// }
+
+// .countdown-data{
+//     font-size: 54px;
+//     font-family: montserrat;
+//     font-weight: 600;
+//     order: 1;
+//     width: 104px ;
+
+//     @include respond-to("<=xs"){
+//         width: 74px ;
+//     }
+
+
+
+    
+// }
+
+// .countdown-data:not(:first-child) {
+//     //margin-left: 4px;
+    
+// }
+  
+  
+//   .countdown-data:after {
+//     content: ":";
+//     margin: 0 0px 0 10px;
+//   }
+
+//   .countdown-data:last-child:after {
+//     opacity: 0;
+
+//   }
+//             }
+//         }
+//     }    
+
+
+
