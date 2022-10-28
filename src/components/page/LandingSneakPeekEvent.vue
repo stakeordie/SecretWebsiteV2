@@ -143,10 +143,22 @@ export default {
     }
     @include respond-to(">=l") {
       background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
+      overflow-y: scroll;
+      padding-top: calc(var(--sum-heights));
+      padding-bottom: 50px;
+      &::-webkit-scrollbar {
+      // display: none;
+    }
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
       background: url("../../assets/events/summit/secret-summit-graphic-2.svg");
+      overflow-y: scroll;
+      padding-top: calc(var(--sum-heights));
+      padding-bottom: 50px;
+      &::-webkit-scrollbar {
+      // display: none;
+    }
       @include bgSpecs();
     }
     display: grid;
