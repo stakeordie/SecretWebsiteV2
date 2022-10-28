@@ -22,21 +22,21 @@
               src="../../assets/events/summit/check-circle.svg"
               alt="summit"
             />
-            <p>Cutting-edge research</p>
+            <p>The possibilities private smart contracts unlock</p>
           </li>
           <li class="landing-event-sneak-peek__description__list--item">
             <img
               src="../../assets/events/summit/check-circle.svg"
               alt="summit"
             />
-            <p>The possibilities smart contracts unlock</p>
+            <p>Cutting-edge cryptography research</p>
           </li>
           <li class="landing-event-sneak-peek__description__list--item">
             <img
               src="../../assets/events/summit/check-circle.svg"
               alt="summit"
             />
-            <p>Transparent underlying ledger; completely auditable</p>
+            <p>What dApps are building on Secret right now</p>
           </li>
         </ul>
         <p class="landing-event-sneak-peek__description__paragraph">
