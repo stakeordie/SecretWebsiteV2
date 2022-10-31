@@ -21,6 +21,8 @@
         </div>
       </block>
     </column>
+
+    
     <!-- Main content -->
     <column
       class="bg-black-gradient learn-article__content"
