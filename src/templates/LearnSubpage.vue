@@ -6,7 +6,7 @@
       </block>
     </column>
     <column
-      class="bg-black-gradient learn-article__content"
+      class="bg-black-gradient learn-subpage__content"
       :class="
         [
           component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
