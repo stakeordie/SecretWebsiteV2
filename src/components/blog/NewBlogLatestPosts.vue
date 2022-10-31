@@ -17,6 +17,7 @@ export default {
   methods: {
     filterlatestPost() {
       const { edges: posts } = this.$static.posts;
+      console.log({ edges: posts })
       const hiddenTag = "hidden";
       this.latestPost = posts.filter(({ node: post }) => {
         if (!post.primary_tag) return true;
@@ -48,7 +49,7 @@ export default {
 
 <static-query>
 {
-  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3, filter: {tags:{id: {ne: "62460c5faa18ef05f57689b1"}}}) {
+  posts: allGhostPost(sortBy: "published_at", order: DESC, limit: 3, filter: {tags:{id: {ne: "62757008e2d5e80021a6c898"}}}) {
     edges {
       node {
         title
