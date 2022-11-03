@@ -1,7 +1,7 @@
 <template>
   <default-layout class="learn-subpage">
     <column
-      class="bg-black-gradient learn-article__content"
+      class="bg-black-gradient learn-subpage__content"
       :class="[
         component.comp_name === 'carousel' ? 'horizontal-slider' : '',
         'comp-name__' + component.comp_name,
@@ -24,7 +24,7 @@
     </column>
 
     <!-- General CTAs -->
-    <column class="spacer-s" number="3" number-m="2" number-s="1">
+    <!-- <column class="spacer-s" number="3" number-m="2" number-s="1">
 
     <block >
 
@@ -44,7 +44,7 @@
 
     </block>
 
-    </column >
+    </column > -->
 
     <!-- Swirl bottom -->
     <column class="orange__swirl__bottom" mode="full">

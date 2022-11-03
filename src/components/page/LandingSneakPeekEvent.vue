@@ -50,13 +50,23 @@
         >
       </div>
 
-    <event-countdown></event-countdown>
+      <event-countdown></event-countdown>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+  metaInfo() {
+    return {
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-FS23DKM3PL%22%3E",
+          async: true,
+        },
+      ],
+    };
+  },
   methods: {
     sneakPeek() {
       let sumHeights = 0;
@@ -69,12 +79,13 @@ export default {
       swirlTop.classList.add("remove");
       swirlBottom.classList.add("remove");
 
-      if(alertBar) {
-        sumHeights = [header][0].previousSibling.offsetHeight + [header][0].offsetHeight;
+      if (alertBar) {
+        sumHeights =
+          [header][0].previousSibling.offsetHeight + [header][0].offsetHeight;
       }
-      if(!alertBar) {
+      if (!alertBar) {
         sumHeights = [header][0].offsetHeight;
-        console.log('test')
+        console.log("test");
       }
       sneakPeek.style.setProperty("--sum-heights", sumHeights + "px");
       sneakPeek.style.setProperty(
@@ -83,19 +94,25 @@ export default {
       );
 
       // setTimeout(() => {
-        sneakPeek.classList.add("visible")
+      sneakPeek.classList.add("visible");
       // }, 500);
 
       console.log(sumHeights);
-      console.log([header][0].offsetHeight)
-      console.log([header][0].previousSibling.offsetHeight)
+      console.log([header][0].offsetHeight);
+      console.log([header][0].previousSibling.offsetHeight);
       // console.log([header][0].previousSibling.className)
     },
   },
   mounted() {
     setTimeout(() => {
       this.sneakPeek();
-    }, 100);
+      const functionScript = document.createElement("script");
+      functionScript.innerHTML = `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS23DKM3PL');`;
+      document.head.appendChild(functionScript);
+    }, 100); 
   },
 };
 </script>
@@ -132,7 +149,7 @@ export default {
       padding-top: calc(230px + var(--sum-heights));
       padding-bottom: 33px;
       background: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
-       @include bgSpecs();
+      @include bgSpecs();
     }
     @include bgSpecs();
     @include respond-to("<=m") {
@@ -147,8 +164,8 @@ export default {
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
       &::-webkit-scrollbar {
-      // display: none;
-    }
+        // display: none;
+      }
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
@@ -157,8 +174,8 @@ export default {
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
       &::-webkit-scrollbar {
-      // display: none;
-    }
+        // display: none;
+      }
       @include bgSpecs();
     }
     display: grid;
@@ -186,7 +203,6 @@ export default {
 
       // transform: translateX(-240px);
 
-
       @include respond-to("<=l") {
         margin: auto;
         max-width: 544px !important;
@@ -197,21 +213,21 @@ export default {
       @include respond-to("<=s") {
         max-width: calc(100% - 16px) !important;
       }
-      
+
       @include respond-to("<=m") {
-       transform: translateX(0);
+        transform: translateX(0);
       }
 
       @include respond-to(">=l") {
-       transform: translateX(-200px);
+        transform: translateX(-200px);
       }
 
       @include respond-to(">=xl") {
-       transform: translateX(-250px);
+        transform: translateX(-250px);
       }
 
       @include respond-to(">=xxl") {
-       transform: translateX(-300px);
+        transform: translateX(-300px);
       }
     }
 
@@ -232,12 +248,12 @@ export default {
         text-transform: uppercase;
         margin-bottom: 4px;
         // margin-top: 20px;
-       
-       @include respond-to("<=s") {
+
+        @include respond-to("<=s") {
           margin-top: 0;
         }
 
-         @include respond-to("<=l") {
+        @include respond-to("<=l") {
           font-size: 18px;
         }
       }
@@ -294,7 +310,6 @@ export default {
           gap: 12px;
           align-items: center;
 
-
           * {
             margin: 0;
           }
@@ -321,7 +336,6 @@ export default {
       }
     }
 
-   
     &__content {
       max-width: 700px;
       padding: var(--f-gutter);
@@ -349,45 +363,30 @@ export default {
     }
   }
 
-  .event__countdown__wrapper{
-
-    @include respond-to('<=l') {
-        // align-self: center;
-        width: 240px;
-        align-self: center;
-      }
-   .countdown-wrap{
-
-          .wrap-day,
-          .wrap-hour,
-          .wrap-min,
-          .wrap-sec {
-
-            @include respond-to("<=l") 
-            {
-
-              font-size: 14px;
-              margin-right: 8px;
-            }
-
-
-          }
-
-          .countdown-data{
-
-           @include respond-to("<=l") {
-            height: 40px;
-            font-size: 28px ;
-            }
-
-          }
+  .event__countdown__wrapper {
+    @include respond-to("<=l") {
+      // align-self: center;
+      width: 240px;
+      align-self: center;
+    }
+    .countdown-wrap {
+      .wrap-day,
+      .wrap-hour,
+      .wrap-min,
+      .wrap-sec {
+        @include respond-to("<=l") {
+          font-size: 14px;
+          margin-right: 8px;
         }
-   } 
+      }
 
+      .countdown-data {
+        @include respond-to("<=l") {
+          height: 40px;
+          font-size: 28px;
+        }
+      }
+    }
   }
-
-
-
-
-
+}
 </style>
