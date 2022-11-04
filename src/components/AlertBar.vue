@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isAlertOpen" class="alert-bar" :style="varAlertHeight">
+  <div v-if="isAlertOpen" class="alert-bar" :style="alertStyles">
     <vue-markdown v-if="isAlertOpen" class="alert-content" ref="msg">{{
       alertMessage.text
     }}</vue-markdown>
@@ -28,42 +28,35 @@ export default {
     return {
       isAlertOpen: true,
       alertHeight: "68px",
-      message:
-        "SecretSwap - the first front-running resistant, cross-chain DEX - is now LIVE on mainnet. [CLICK HERE](https://scrt.network/blog/secretswap-is-live-on-mainnet) to learn more.",
     };
   },
   methods: {
-    checkForStatus() {
+    validateStatus() {
       if (process.isClient) {
-        let localStorage = window.localStorage.getItem("alertMsg");
-        if (localStorage === this.$static.alertBar.edges[0].node.text) {
+        const localData = localStorage.getItem("alertMsg");
+        const message = this.$static.alertBar.edges[0].node.text;
+        if (localData === message) {
+          this.isAlertOpen = false;
         } else {
           this.isAlertOpen = true;
         }
       }
-      return this.$static.alertBar.edges[0].node.text;
-    },
-    checkAlertHeight() {
-      const body = document.querySelector("body");
-      return body.setAttribute("style", `--ab-height:0px`);
     },
     closeAlert() {
-      let sneakPeek = document.querySelector(".landing-event-sneak-peek");
+      const sneakPeek = document.querySelector(".landing-event-sneak-peek");
 
       if (sneakPeek) {
-        console.log('existe')
         sneakPeek.style.setProperty("--sum-heights", 68 + "px");
       }
 
       this.isAlertOpen = false;
       if (process.isClient) {
-        let alertMsg = this.$static.alertBar.edges[0].node.text;
-        localStorage.setItem("alertMsg", `${alertMsg}`);
+        const alertMsg = this.$static.alertBar.edges[0].node.text;
+        localStorage.setItem("alertMsg", alertMsg.toString());
       }
-      // console.log(this.$static.alertBar.edges[0].node.text)
       return this.$static.alertBar.edges[0].node.text;
     },
-    varAlertHeight() {
+    alertStyles() {
       const htmlEl = document.querySelector("html");
       return this.isAlertOpen
         ? htmlEl.setAttribute("style", `--ab-height:${this.alertHeight}`)
@@ -79,15 +72,12 @@ export default {
       );
     },
   },
-  beforeMount() {
-    this.checkForStatus();
-  },
   mounted() {
-    this.checkForStatus();
-    this.varAlertHeight();
+    this.validateStatus();
+    this.alertStyles();
   },
   updated() {
-    this.varAlertHeight();
+    this.alertStyles();
   },
 };
 </script>
