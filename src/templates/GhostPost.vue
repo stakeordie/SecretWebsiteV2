@@ -1,32 +1,44 @@
 <template>
   <default-layout class="blog">
-     <!-- swirl -->
-<column class="purple__swirl__top" mode="full">
-
-<block>
-
-<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
-
-</block>
-
-</column>
+    <!-- swirl -->
+    <column class="purple__swirl__top" mode="full">
+      <block>
+        <img
+          class="get-scrt__align-img"
+          src="../../src/assets/swirl-purple-top.svg"
+        />
+      </block>
+    </column>
     <section class="blog-post">
       <section class="blog-post-excerpt">
-
-        <p class="tag"  :class="`accent-` + $page.post.primary_tag.name" tag v-if="$page.post.primary_tag">
+        <p
+          class="tag"
+          :class="`accent-` + $page.post.primary_tag.name"
+          tag
+          v-if="$page.post.primary_tag"
+        >
           {{ $page.post.primary_tag.name }}
         </p>
-        
+
         <!-- <p class="tag"  tag v-if="$page.post.primary_tag">
           {{ $page.post.primary_tag.name }}
         </p> -->
 
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="description">{{ $page.post.description }}</p>
-        <g-image class="cover-image" onerror="this.onerror=null;this.src='../blog-cover.jpg';" picture :src="coverImage"></g-image>
+        <g-image
+          class="cover-image"
+          onerror="this.onerror=null;this.src='../blog-cover.jpg';"
+          picture
+          :src="coverImage"
+        ></g-image>
         <blog-author class="info" :includeShareButtons="true">
           <div class="left">
-            <g-image picture onerror="this.onerror=null;this.src='../scrt-logo.png';" :src="profileImage"></g-image>
+            <g-image
+              picture
+              onerror="this.onerror=null;this.src='../scrt-logo.png';"
+              :src="profileImage"
+            ></g-image>
             <div class="author" info>
               <p>{{ $page.post.primary_author.name }}</p>
               <p>
@@ -53,45 +65,35 @@
       </section>
       <div class="post-content" v-html="postContent"></div>
     </section>
-   
+
     <!-- swirl -->
-<column class="purple__swirl__bottom" mode="full">
-
-<block>
-
-<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
-
-</block>
-
-</column>
+    <column class="purple__swirl__bottom" mode="full">
+      <block>
+        <img
+          class="get-scrt__align-img"
+          src="../../src/assets/swirl-purple-bottom.svg"
+        />
+      </block>
+    </column>
   </default-layout>
 </template>
 
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
-import BlogCardV2 from "@/components/blog/BlogCardV2";
-import BlogPostsV2 from "@/components/blog/BlogPostsV2"
 
-const url = `https://scrt.network`;
-
-
+const url = "https://scrt.network";
 
 export default {
   components: {
     DefaultLayout,
     BlogAuthor,
-    BlogCardV2,
-    BlogPostsV2,
   },
-
-
 
   metaInfo() {
     return {
       title: this.titleMeta,
       meta: [
-        
         {
           name: "title",
           content: this.titleMeta,
@@ -167,8 +169,7 @@ export default {
           return this.$page.post.feature_image;
         }
         return "https://ghost.scrt.network/" + this.$page.post.feature_image;
-      }
-      else return "https://scrt.network/blog-cover.jpg"
+      } else return "https://scrt.network/blog-cover.jpg";
     },
     postContent() {
       const transformedPost = this.$page.post.content.replace(
@@ -246,8 +247,6 @@ $accent-colors: (
   "red",
   "purple",
   "gray",
-
-
   "blockchain",
   "nodes",
   "collaboration",
@@ -263,14 +262,11 @@ $accent-colors: (
   "Introduction",
   "null",
   "undefined",
-
-  
   "announcement",
   "education",
   "developers",
   "dev",
   "ecosystem",
-
   "how-to",
   "explanations",
   "texk-updates",
@@ -280,11 +276,8 @@ $accent-colors: (
   "dapp-launches",
   "nft-launches",
   "reports",
-  "recap",
-
+  "recap"
 );
-
-
 
 .blog-post {
   background: var(--theme-card-bg-default);
@@ -310,12 +303,12 @@ $accent-colors: (
 
     .tag {
       text-transform: uppercase;
-        font-size: var(--f-default-text-size);
-        font-weight: 700;
-        font-family: hind;
-        letter-spacing: 1px;
+      font-size: var(--f-default-text-size);
+      font-weight: 700;
+      font-family: hind;
+      letter-spacing: 1px;
 
-        padding-top: 10px;
+      padding-top: 10px;
 
       @each $name, $color in $accent-colors {
         &.accent-#{$name} {

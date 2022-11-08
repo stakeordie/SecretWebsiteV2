@@ -16,28 +16,35 @@
           solutions.
         </p>
         <div class="by__links">
-            <a href="https://scrtlabs.com/" target="_blank" class="by__links__link">
-                SCRTLABS.COM
-                <img src="../../assets/events/arrow-left.svg" alt=""/></a>
+          <a
+            href="https://scrtlabs.com/"
+            target="_blank"
+            class="by__links__link"
+          >
+            SCRTLABS.COM
+            <img src="../../assets/events/arrow-left.svg" alt=""
+          /></a>
         </div>
       </div>
 
       <div class="austin-event-partnership__container__cont foundation">
         <div class="by__img">
-          <img
-            src="../../assets/events/logos/legendao-logo.png"
-            alt=""
-          />
+          <img src="../../assets/events/logos/legendao-logo.png" alt="" />
         </div>
         <p class="by__p">
           Legendao is the first-ever NFT Mint Lab designed to be its own
           universe, providing users with a gamified experience and enabling them
           to obtain unique and exclusive Secret NFTs.
         </p>
-       <div class="by__links">
-            <a href="https://legendao.io/" target="_blank" class="by__links__link">
-                LEGENDAO.IO
-                <img src="../../assets/events/arrow-left.svg" alt=""/></a>
+        <div class="by__links">
+          <a
+            href="https://legendao.io/"
+            target="_blank"
+            class="by__links__link"
+          >
+            LEGENDAO.IO
+            <img src="../../assets/events/arrow-left.svg" alt=""
+          /></a>
         </div>
       </div>
     </div>
@@ -97,17 +104,16 @@ export default {};
       }
 
       .by__links {
-        
-        &__link{
+        &__link {
           display: flex;
           color: var(--color-neutral-dark-mode-05) !important;
           font-weight: 700;
 
-          &:hover{
+          &:hover {
             color: var(--theme-links-hover) !important;
           }
 
-          & img{
+          & img {
             margin-left: 12px;
           }
         }

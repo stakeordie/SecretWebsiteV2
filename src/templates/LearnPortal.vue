@@ -94,14 +94,14 @@
             display: none;
           }
           .learn-carousel {
-            &__header{
-                &__description{
-                  p{
-                    font-size: var(--paragraph-font-size-big);
-                    line-height: var(--paragraph-line-height-big);
-                  }
+            &__header {
+              &__description {
+                p {
+                  font-size: var(--paragraph-font-size-big);
+                  line-height: var(--paragraph-line-height-big);
                 }
               }
+            }
             &__item {
               padding-left: var(--f-gutter-l);
             }
@@ -178,7 +178,8 @@
   & .simple-footer {
     margin-top: 0;
   }
-  [comp_name~="cta-grid"], [comp_name~="card-search"] {
+  [comp_name~="cta-grid"],
+  [comp_name~="card-search"] {
     padding-bottom: 64px;
   }
 }

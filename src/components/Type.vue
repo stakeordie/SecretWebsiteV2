@@ -8,23 +8,22 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      title: {
-        type: String,
-        required: false
-      }
-    }
-  }
+export default {
+  props: {
+    title: {
+      type: String,
+      required: false,
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-
 .content-type {
   border: 1px solid black;
   margin-bottom: var(--f-gutter);
   padding: var(--f-gutter-xxl) var(--f-gutter) var(--f-gutter) var(--f-gutter);
-  position:relative;
+  position: relative;
   background: var(--theme-card-variant);
   h6 {
     position: absolute;
@@ -36,5 +35,4 @@
     display: inline-block;
   }
 }
-  
 </style>

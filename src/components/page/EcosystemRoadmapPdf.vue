@@ -5,7 +5,7 @@
       :key="index"
       class="scrt-pdf-viewer__intro"
     >
-    <!-- Title -->
+      <!-- Title -->
       <div class="scrt-pdf-viewer__title">
         <p class="scrt-pdf-viewer__intro__date">{{ roadmap.updated_at }}</p>
         <h1>Ecosystem Roadmap</h1>
@@ -21,8 +21,7 @@
       <!-- PDF -->
 
       <ClientOnly>
-        <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url">
-          </pdf>
+        <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url"> </pdf>
       </ClientOnly>
 
       <div class="scrt-pdf-viewer__intro__download">
@@ -33,26 +32,26 @@
 </template>
 
 <script>
-
 // import pdf from 'vue-pdf-cdn'
 
 export default {
- 
   components: {
-      // pdf
-      pdf: () =>
-        import ('vue-pdf-cdn').then(pdf => pdf ).catch(),
-    },
+    // pdf
+    pdf: () =>
+      import("vue-pdf-cdn")
+        .then((pdf) => pdf)
+        .catch(),
+  },
 
   data() {
     return {
       isClient2: false,
-    }
+    };
   },
 
   methods: {
     isClient() {
-      if(process.isClient) {
+      if (process.isClient) {
         this.isClient2 = true;
         console.log(this.isClient2);
       }
@@ -101,38 +100,33 @@ query {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .scrt-pdf-viewer {
+  &__title {
+    padding-top: 26px;
 
-  
-  &__title{
-      padding-top: 26px;
-      
-      h1{
+    h1 {
       font-family: var(--f-default-headers-font);
       font-size: 54px;
       font-weight: 700;
       line-height: 60px;
-
-      }
     }
+  }
   &__intro {
     text-align: center;
-    
-    
+
     &__date {
       // margin-bottom: 3px;
 
       text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 0;
-    font-family: var(--f-default-text-font);
-    letter-spacing: 1px;
-    margin-bottom: 0;
-    color: var(--color-ver2-primary-turquoise);
+      font-weight: 600;
+      margin-bottom: 0;
+      font-family: var(--f-default-text-font);
+      letter-spacing: 1px;
+      margin-bottom: 0;
+      color: var(--color-ver2-primary-turquoise);
 
       @include respond-to("<=s") {
         font-size: var(--f-h5-text-size);
       }
-
     }
     &__file {
       margin-bottom: var(--f-gutter);
@@ -152,7 +146,7 @@ query {
         max-width: 710px;
         font-size: 20px;
         line-height: 28px;
-        letter-spacing: -.15px;
+        letter-spacing: -0.15px;
         margin: auto;
       }
     }

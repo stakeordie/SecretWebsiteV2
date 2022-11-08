@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const baseURL = process.env.GRIDSOME_MAILCHIMP_WORKER_BASE_URL;
 
@@ -8,6 +8,6 @@ export default {
   subscribe(email, emailMd5) {
     if (!email) return;
     const req = { email, emailMd5 };
-    return client.post('', req);
-  }
-}
+    return client.post("", req);
+  },
+};

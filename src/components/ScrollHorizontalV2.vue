@@ -15,23 +15,27 @@ export default {
   props: {
     tagSlug: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   methods: {
-      scroll_left() {
-        let content = document.querySelector(`.horizontal-slider.${this.tagSlug} > .--flare-block > .content > .box`);
-        content.scrollLeft -= 390;
-      },
-      scroll_right() {
-        let content = document.querySelector(`.horizontal-slider.${this.tagSlug} > .--flare-block > .content > .box`);
-        content.scrollLeft += 390;
-      },
-
-      onFilterApplied(filters) {
-        this.appliedFilters = filters;
-      }
+    scroll_left() {
+      let content = document.querySelector(
+        `.horizontal-slider.${this.tagSlug} > .--flare-block > .content > .box`
+      );
+      content.scrollLeft -= 390;
     },
+    scroll_right() {
+      let content = document.querySelector(
+        `.horizontal-slider.${this.tagSlug} > .--flare-block > .content > .box`
+      );
+      content.scrollLeft += 390;
+    },
+
+    onFilterApplied(filters) {
+      this.appliedFilters = filters;
+    },
+  },
 };
 </script>
 

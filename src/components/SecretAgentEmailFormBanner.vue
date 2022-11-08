@@ -9,7 +9,7 @@
         <h2>{{ element.CTA }}</h2>
       </div>
       <div class="secret-agent-email-banner__container--right">
-         <form
+        <form
           v-if="!formSubmitted"
           @submit.prevent="submitForm"
           class="validate secret-agent-form"
@@ -58,15 +58,15 @@
 </template>
 
 <script>
-import mailchimp from '@/apis/mailchimp';
-import md5 from 'md5';
+import mailchimp from "@/apis/mailchimp";
+import md5 from "md5";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       loading: false,
       formSubmitted: false,
-      email: ''
+      email: "",
     };
   },
   methods: {
@@ -86,14 +86,16 @@ export default {
       } finally {
         this.loading = false;
       }
-    }
+    },
   },
   computed: {
     secretAgentEmailBanner() {
-      const content = this.$static.secretAgentEmailBanner.edges.map(it => it.node);
+      const content = this.$static.secretAgentEmailBanner.edges.map(
+        (it) => it.node
+      );
       return content;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -135,13 +137,13 @@ query {
       // justify-content: center;
       gap: var(--f-gutter);
       * {
-          margin: 0;
-        }
+        margin: 0;
+      }
       h2 {
         font-size: 48px;
         @include respond-to("<=s") {
           font-size: 36px;
-          text-align: center;       
+          text-align: center;
         }
         span {
           color: var(--color-analog-secondary-yellow);
@@ -168,7 +170,7 @@ query {
         gap: var(--f-gutter-s);
         @include respond-to("<=s") {
           grid-auto-flow: row;
-         grid-template-columns: 1fr;       
+          grid-template-columns: 1fr;
           // gap: var(--f-gutter);
         }
         &__input {
@@ -190,7 +192,7 @@ query {
       }
       .success {
         display: grid;
-        color: #5AA361;
+        color: #5aa361;
         align-items: center;
         grid-auto-flow: column;
         gap: var(--f-gutter-xs);

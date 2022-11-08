@@ -4,9 +4,13 @@
     <div class="mega-header">
       <div class="mega-header__logo-bar">
         <div class="mega-header__logo-bar__content__image">
-          <img src="./assets/icon-close.svg" alt="close icon" class="close">
+          <img src="./assets/icon-close.svg" alt="close icon" class="close" />
           <img src="./assets/scrt-logo--white.svg" alt="secret network logo" />
-          <img src="./assets/search-icon--small.svg" alt="close icon" class="search">
+          <img
+            src="./assets/search-icon--small.svg"
+            alt="close icon"
+            class="search"
+          />
         </div>
         <div class="mega-header__logo-bar__content__searchbar">
           <div class="mega-header__logo-bar--searchbar">
@@ -23,9 +27,12 @@
           :key="index"
         >
           <a v-on:click="toggleMegaMenu" href="/">{{ nav.title }}</a>
-          <img 
-          :class="chevron"
-          class="mega-header__nav__content__chevron" src="./assets/icon-chevron-down.svg" alt="arrow down icon" />
+          <img
+            :class="chevron"
+            class="mega-header__nav__content__chevron"
+            src="./assets/icon-chevron-down.svg"
+            alt="arrow down icon"
+          />
         </li>
       </ul>
     </div>
@@ -74,7 +81,10 @@
             <a href="" alt="youtube">Youtube</a>
           </div>
           <div class="mega-header__social-media__icon-content">
-            <img src="./assets/icon-social-instagram.svg" alt="instagram image" />
+            <img
+              src="./assets/icon-social-instagram.svg"
+              alt="instagram image"
+            />
             <a href="" alt="instagram">Instagram</a>
           </div>
         </div>
@@ -82,26 +92,40 @@
       <!-- Social media mobile -->
       <div class="mega-header__mobile__social-media">
         <div class="mega-header__mobile__social-media__content">
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="discord"><img src="./assets/discord.svg" alt="discord image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="telegram"><img src="./assets/telegram.svg" alt="telegram image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">        
-            <a href="" alt="twitter"><img src="./assets/twitter.svg" alt="twitter image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="instagram"><img src="./assets/icon-social-instagram.svg" alt="instagram image" /></a>
-          </div>
-          <div class="mega-header__mobile__social-media__icon-content">            
-            <a href="" alt="youtube"><img src="./assets/youtube.svg" alt="youtube image" /></a>
+          <div class="mega-header__mobile__social-media__icon-content">
+            <a href="" alt="discord"
+              ><img src="./assets/discord.svg" alt="discord image"
+            /></a>
           </div>
           <div class="mega-header__mobile__social-media__icon-content">
-            <a href="" alt="forums"><img src="./assets/message-circle.svg" alt="message image" /></a>
-          </div>          
+            <a href="" alt="telegram"
+              ><img src="./assets/telegram.svg" alt="telegram image"
+            /></a>
+          </div>
+          <div class="mega-header__mobile__social-media__icon-content">
+            <a href="" alt="twitter"
+              ><img src="./assets/twitter.svg" alt="twitter image"
+            /></a>
+          </div>
+          <div class="mega-header__mobile__social-media__icon-content">
+            <a href="" alt="instagram"
+              ><img
+                src="./assets/icon-social-instagram.svg"
+                alt="instagram image"
+            /></a>
+          </div>
+          <div class="mega-header__mobile__social-media__icon-content">
+            <a href="" alt="youtube"
+              ><img src="./assets/youtube.svg" alt="youtube image"
+            /></a>
+          </div>
+          <div class="mega-header__mobile__social-media__icon-content">
+            <a href="" alt="forums"
+              ><img src="./assets/message-circle.svg" alt="message image"
+            /></a>
+          </div>
         </div>
-      </div>      
+      </div>
     </div>
   </header>
 </template>
@@ -334,14 +358,14 @@ export default {
   methods: {
     toggleMegaMenu(e) {
       e.preventDefault();
-      this.megaMenuIsOpen = !this.megaMenuIsOpen
-    }
+      this.megaMenuIsOpen = !this.megaMenuIsOpen;
+    },
   },
   computed: {
     chevron() {
-        return this.megaMenuIsOpen ? 'arrow-up' : '';
-    }
-  }
+      return this.megaMenuIsOpen ? "arrow-up" : "";
+    },
+  },
 };
 </script>
 
@@ -401,7 +425,8 @@ export default {
           height: 58px;
           justify-self: center;
         }
-        .close, .search {
+        .close,
+        .search {
           width: 24px;
           height: 24px;
           align-self: center;
@@ -517,7 +542,7 @@ export default {
   &__social-media {
     display: grid;
     justify-content: end;
-    background-color: var(--mega-header-background-nav-expanded);    
+    background-color: var(--mega-header-background-nav-expanded);
     padding-bottom: var(--f-gutter);
     @include respond-to("<=m") {
       justify-content: start;
@@ -560,9 +585,9 @@ export default {
   }
   &__mobile {
     &__social-media {
-    @include respond-to(">m") {
-      display: none;
-    }      
+      @include respond-to(">m") {
+        display: none;
+      }
       &__content {
         display: grid;
         grid-auto-flow: column;
@@ -576,7 +601,7 @@ export default {
           display: block;
           margin: auto;
         }
-      }      
+      }
     }
   }
 }

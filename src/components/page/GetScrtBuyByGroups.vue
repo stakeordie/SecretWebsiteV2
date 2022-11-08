@@ -1,6 +1,10 @@
 <template>
   <section class="get-scrt-buy">
-    <div class="get-scrt-buy__inside" v-for="(path, index) in sectionContent" :key="index" >
+    <div
+      class="get-scrt-buy__inside"
+      v-for="(path, index) in sectionContent"
+      :key="index"
+    >
       <div class="get-scrt-buy__description">
         <h5 v-if="path.node.subtitle">
           {{ path.node.subtitle }}
@@ -11,10 +15,13 @@
       <div class="get-scrt-buy__content">
         <div>
           <h6 class="get-scrt-buy__content__title">Secret Dexes</h6>
-          <div  v-for="(resource, index) in path.node.resource" :key="index">
-            <ul class="get-scrt-buy__content__box" v-if="resource.group === 'Secret Dexes'">
-              <a  :href="resource.cta_url">
-              <li class="get-scrt-buy__content__box__item">
+          <div v-for="(resource, index) in path.node.resource" :key="index">
+            <ul
+              class="get-scrt-buy__content__box"
+              v-if="resource.group === 'Secret Dexes'"
+            >
+              <a :href="resource.cta_url">
+                <li class="get-scrt-buy__content__box__item">
                   <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
                   <img class="item-icon" :src="resource.icon.url" alt="" />
                   <div class="get-scrt-buy__content__box__item__details">
@@ -22,20 +29,23 @@
                     <p>{{ resource.description }}</p>
                     <p>{{ resource.buy_scrt_option }}</p>
                     <btn class="link-arrow" :url="resource.cta_url">
-                      {{resource.cta_title}}
-                      </btn>
+                      {{ resource.cta_title }}
+                    </btn>
                   </div>
-              </li>
+                </li>
               </a>
             </ul>
           </div>
         </div>
         <div>
           <h6 class="get-scrt-buy__content__title">Ethereum Dexes</h6>
-          <div  v-for="(resource, index) in path.node.resource" :key="index">
-            <ul class="get-scrt-buy__content__box" v-if="resource.group === 'Ethereum Dexes'">
-              <a  :href="resource.cta_url">
-              <li class="get-scrt-buy__content__box__item">
+          <div v-for="(resource, index) in path.node.resource" :key="index">
+            <ul
+              class="get-scrt-buy__content__box"
+              v-if="resource.group === 'Ethereum Dexes'"
+            >
+              <a :href="resource.cta_url">
+                <li class="get-scrt-buy__content__box__item">
                   <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
                   <img class="item-icon" :src="resource.icon.url" alt="" />
                   <div class="get-scrt-buy__content__box__item__details">
@@ -43,10 +53,10 @@
                     <p>{{ resource.description }}</p>
                     <p>{{ resource.buy_scrt_option }}</p>
                     <btn class="link-arrow" :url="resource.cta_url">
-                      {{resource.cta_title}}
-                      </btn>
+                      {{ resource.cta_title }}
+                    </btn>
                   </div>
-              </li>
+                </li>
               </a>
             </ul>
           </div>
@@ -65,35 +75,34 @@ export default {
     },
   },
   data() {
-    return {      
-      sectionContent: []
+    return {
+      sectionContent: [],
     };
   },
   methods: {
-    getSectionContent(){
-      this.sectionContent = this.$static.buyScrtOptions.edges.filter(
-        (it) =>{          
-          if(it.node.id == this.pathId){
-            it.node.resource = it.node.buy_scrt_option.sort((a,b) => a.order - b.order);
-            // console.log(it.node.buy_scrt_option.group)
-            it.node.buy_scrt_option.filter(i => {
-              // console.log(i.group)
-            })
-              return it;
-            // it.node.buy_scrt_option.filter((gr) => {
-            //   if(gr.group === 'Secret Dexes:') {
-            //     console.log(gr)
-            //   }
-            // })
-          };      
-        } 
-      )      
-    }
+    getSectionContent() {
+      this.sectionContent = this.$static.buyScrtOptions.edges.filter((it) => {
+        if (it.node.id == this.pathId) {
+          it.node.resource = it.node.buy_scrt_option.sort(
+            (a, b) => a.order - b.order
+          );
+          // console.log(it.node.buy_scrt_option.group)
+          it.node.buy_scrt_option.filter((i) => {
+            // console.log(i.group)
+          });
+          return it;
+          // it.node.buy_scrt_option.filter((gr) => {
+          //   if(gr.group === 'Secret Dexes:') {
+          //     console.log(gr)
+          //   }
+          // })
+        }
+      });
+    },
   },
-  mounted(){
+  mounted() {
     this.getSectionContent();
-  }
- 
+  },
 };
 </script>
 
@@ -132,15 +141,14 @@ query {
   grid-gap: 68px;
   //margin-top: 68px;
 
-  &:not(:last-child){
+  &:not(:last-child) {
     padding-bottom: 32px;
-
   }
-  &:not(:nth-child(2)){
+  &:not(:nth-child(2)) {
     padding-top: 120px;
-   
-   @include respond-to("<=m") {
-       padding-top: 32px;
+
+    @include respond-to("<=m") {
+      padding-top: 32px;
     }
   }
 
@@ -174,7 +182,6 @@ query {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
       margin-bottom: 0;
-
     }
 
     @include respond-to(">=l") {
@@ -209,26 +216,25 @@ query {
       padding: var(--f-gutter);
       margin: 0;
 
-      &:hover{
+      &:hover {
         background: var(--color-neutral-dark-mode-04);
 
-          & a{
-            color: var(--color-newBrand-blue-01) !important;
-          }
+        & a {
+          color: var(--color-newBrand-blue-01) !important;
+        }
       }
       &__item {
         display: grid;
         grid-gap: 10px;
         padding: 0;
         margin: 0;
-        
 
-        & .item-icon{
+        & .item-icon {
           //color: var(--color-developers-blue-01);
           height: 51px;
           width: 51px;
         }
-        
+
         &__details {
           display: grid;
           grid-gap: 4px;
@@ -246,8 +252,8 @@ query {
             padding: 0;
             color: var(--color-newBrand-blue-02) !important;
 
-            &:hover{
-              span{
+            &:hover {
+              span {
                 color: var(--color-newBrand-blue-01) !important;
               }
             }

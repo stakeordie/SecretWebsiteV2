@@ -1,20 +1,37 @@
 <template>
   <section class="partners-logos-container">
-          <div  class="logo-container" v-for="element in filteredElements" :key="element.id">
-            <a class="logo__link" :href="element.url" target="blank"
-              rel="noopener noreferrer">
-              <div class="logo__link__element">
-                <img class="logo__link__element__img" :src="element.picture.url" alt="picture" />
-                <div class="meta" :class="{ 'meta--with-categories': hasCategories }" >
-                </div>
-              </div>
-              <div class="logo__link__element__cat" :class="{ 'meta--with-categories': hasCategories }">
-                <div class="logo__link__element__cat__header">
-                  <h4 class="logo__link__element__cat__title">{{ element.title }}</h4>
-                </div>
-              </div>
-            </a> 
-          </div> 
+    <div
+      class="logo-container"
+      v-for="element in filteredElements"
+      :key="element.id"
+    >
+      <a
+        class="logo__link"
+        :href="element.url"
+        target="blank"
+        rel="noopener noreferrer"
+      >
+        <div class="logo__link__element">
+          <img
+            class="logo__link__element__img"
+            :src="element.picture.url"
+            alt="picture"
+          />
+          <div
+            class="meta"
+            :class="{ 'meta--with-categories': hasCategories }"
+          ></div>
+        </div>
+        <div
+          class="logo__link__element__cat"
+          :class="{ 'meta--with-categories': hasCategories }"
+        >
+          <div class="logo__link__element__cat__header">
+            <h4 class="logo__link__element__cat__title">{{ element.title }}</h4>
+          </div>
+        </div>
+      </a>
+    </div>
   </section>
 </template>
 
@@ -285,9 +302,7 @@ export default {
     this.hash("#contributors", "contributors", "#contributors");
   },
   updated() {},
-
-
- }
+};
 </script>
 
 <static-query>
@@ -310,12 +325,9 @@ query{
 </static-query>
 
 <style lang="scss">
-
-.partners-logos-container{
-
-& .logo__link__element__cat{
+.partners-logos-container {
+  & .logo__link__element__cat {
     display: none;
   }
 }
-
 </style>

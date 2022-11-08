@@ -3,14 +3,13 @@
 </template>
 
 <script>
-import BlogPostsFeaturedV2 from './BlogPostsFeaturedV2.vue';
-
+import BlogPostsFeaturedV2 from "./BlogPostsFeaturedV2.vue";
 
 export default {
   components: { BlogPostsFeaturedV2 },
   data() {
     return {
-    postFeaturedV2: [],
+      postFeaturedV2: [],
     };
   },
   methods: {

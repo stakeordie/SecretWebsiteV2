@@ -2,23 +2,63 @@
   <div class="page-ecosystem-funding">
     <section class="page-ecosystem-funding__why-build">
       <div class="page-ecosystem-funding__why-build__content">
-        <h3 class="page-ecosystem-funding__why-build__content__title">Why build on Secret?</h3>
+        <h3 class="page-ecosystem-funding__why-build__content__title">
+          Why build on Secret?
+        </h3>
         <div class="page-ecosystem-funding__why-build__content__reasons">
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Make an Impact</h4>
-            <p class="page-ecosystem-funding__why-build__content__reasons-description">Build applications that can’t be built elsewhere using private data on-chain—from finance to gaming to communication tools.</p>
+            <h4
+              class="page-ecosystem-funding__why-build__content__reasons-title"
+            >
+              Make an Impact
+            </h4>
+            <p
+              class="page-ecosystem-funding__why-build__content__reasons-description"
+            >
+              Build applications that can’t be built elsewhere using private
+              data on-chain—from finance to gaming to communication tools.
+            </p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Have interoperability built-in</h4>
-            <p class="page-ecosystem-funding__why-build__content__reasons-description">With Cosmos IBC integrated plus bridges to 4+ ecosystems (and counting), apps built on Secret Network can be used all across Web3.</p>
+            <h4
+              class="page-ecosystem-funding__why-build__content__reasons-title"
+            >
+              Have interoperability built-in
+            </h4>
+            <p
+              class="page-ecosystem-funding__why-build__content__reasons-description"
+            >
+              With Cosmos IBC integrated plus bridges to 4+ ecosystems (and
+              counting), apps built on Secret Network can be used all across
+              Web3.
+            </p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Access our thriving user base</h4>
-            <p class="page-ecosystem-funding__why-build__content__reasons-description">Tap into Secret Network’s bustling ecosystem with 100,000+ users, over 50 applications, and billions of dollars in historical volume.</p>
+            <h4
+              class="page-ecosystem-funding__why-build__content__reasons-title"
+            >
+              Access our thriving user base
+            </h4>
+            <p
+              class="page-ecosystem-funding__why-build__content__reasons-description"
+            >
+              Tap into Secret Network’s bustling ecosystem with 100,000+ users,
+              over 50 applications, and billions of dollars in historical
+              volume.
+            </p>
           </div>
           <div class="page-ecosystem-funding__why-build__content__reasons-item">
-            <h4 class="page-ecosystem-funding__why-build__content__reasons-title">Join a first mover</h4>
-            <p class="page-ecosystem-funding__why-build__content__reasons-description">Our privacy-preserving smart contracts have been live on mainnet since 2020, and we’ve been racing ever since.</p>
+            <h4
+              class="page-ecosystem-funding__why-build__content__reasons-title"
+            >
+              Join a first mover
+            </h4>
+            <p
+              class="page-ecosystem-funding__why-build__content__reasons-description"
+            >
+              Our privacy-preserving smart contracts have been live on mainnet
+              since 2020, and we’ve been racing ever since.
+            </p>
           </div>
         </div>
       </div>
@@ -27,9 +67,7 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss">
@@ -37,11 +75,10 @@ export default {
 
 .page-ecosystem-funding {
   &__why-build {
-    
     &__content {
       display: grid;
       gap: var(--f-gutter-m);
-      padding-top: var(--f-gutter-xl) ;
+      padding-top: var(--f-gutter-xl);
       // padding-top: var(--f-gutter-xxl);
       // padding-bottom: var(--f-gutter-xxl);
 
@@ -51,7 +88,7 @@ export default {
       }
 
       &__title {
-      text-align: center;
+        text-align: center;
       }
 
       &__reasons {
@@ -68,7 +105,6 @@ export default {
       &__reasons-item {
         display: grid;
         padding: var(--f-gutter-l) var(--f-gutter);
-
       }
 
       &__reasons-title {

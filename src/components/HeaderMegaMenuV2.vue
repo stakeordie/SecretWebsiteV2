@@ -62,14 +62,13 @@
             </div>
 
             <!-- SCRT-BTN -->
-            
+
             <div class="logo-bar__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
                 <img src="../assets/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
-
           </div>
           <!-- nav items HEADINGS DESKTOP -->
         </div>
@@ -89,14 +88,18 @@
                 <div
                   class="nav__expanded__content__titles__content"
                   :class="nav.title.toLowerCase().replace(/\s/g, '-')"
-                  @click="
-                    nav.is_dropdown === false ? '' : openSubMenu(index)"
+                  @click="nav.is_dropdown === false ? '' : openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img  :src="nav.icon.url" alt="" />
+                    <img :src="nav.icon.url" alt="" />
                     <!-- <img src="../assets/badge.svg" alt="" /> -->
                     <h6 v-if="nav.title !== 'Learn'">{{ nav.title }}</h6>
-                    <a class="spc_learn" :href="learnPath" v-if="nav.title === 'Learn'">{{ nav.title }}</a>
+                    <a
+                      class="spc_learn"
+                      :href="learnPath"
+                      v-if="nav.title === 'Learn'"
+                      >{{ nav.title }}</a
+                    >
                   </div>
                   <img
                     v-show="nav.is_dropdown !== false"
@@ -288,7 +291,7 @@ export default {
       columns: [],
       miniMenuIsOpen: false,
       subMenuIndex: -1,
-      learnPath : '',
+      learnPath: "",
     };
   },
   methods: {
@@ -455,7 +458,6 @@ export default {
         getNavItems();
         getPath();
 
-
         navFinder = navItems.filter((el) => {
           // if (el.text === "Resources") {
           //   el.classList.add("mystyle");
@@ -534,7 +536,9 @@ export default {
       //   element.id === 2
       // });
       // console.log('FFFOUND', found)
-      const findLearnItem = this.columns.findIndex((nav) => nav.title==='Learn');
+      const findLearnItem = this.columns.findIndex(
+        (nav) => nav.title === "Learn"
+      );
       // this.learnPath = this.columns[findLearnItem].path
       // console.log('FFFOUND', findLearnItem)
       // console.log(this.learnPath)
@@ -1042,7 +1046,7 @@ query {
                 color: var(--color-ver2-secondary-red);
               }
               &learn {
-              color: var(--color-ver2-primary-orange);
+                color: var(--color-ver2-primary-orange);
               }
               .build {
                 color: var(--color-ver2-primary-blue);

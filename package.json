@@ -6,7 +6,8 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "storybook": "start-storybook -s ./src/stories/assets -p 6006",
-    "build-storybook": "build-storybook -s ./src/stories/assets"
+    "build-storybook": "build-storybook -s ./src/stories/assets",
+    "lint": "npx eslint --ext .js,.vue ./src"
   },
   "dependencies": {
     "@fontsource/hind": "^4.2.2",
@@ -42,6 +43,8 @@
     "@storybook/addon-links": "^6.3.8",
     "@storybook/vue": "^6.3.8",
     "babel-loader": "^8.2.2",
+    "eslint": "^8.27.0",
+    "eslint-plugin-vue": "^9.7.0",
     "vue-loader": "^15.9.8"
   },
   "resolutions": {

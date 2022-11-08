@@ -10,18 +10,15 @@ export default {
     includeShareButtons: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
-    shareButtons: function() {
-      return this.includeShareButtons ? "share-buttons": ""
-    }
-  }
-}
+    shareButtons: function () {
+      return this.includeShareButtons ? "share-buttons" : "";
+    },
+  },
+};
 </script>
 
-
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

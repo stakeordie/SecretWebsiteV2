@@ -17,32 +17,30 @@
 </template>
 
 <script>
-import Sidebar from '../components/docs/Sidebar.vue';
+import Sidebar from "../components/docs/Sidebar.vue";
 export default {
   components: {
     Sidebar,
   },
-  data: function() {
+  data: function () {
     return {
       showVideo: false,
-      isFaqOpen: true
+      isFaqOpen: true,
     };
   },
   props: {
     accent: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   methods: {
     toggleFaq() {
       this.isFaqOpen = !this.isFaqOpen;
     },
   },
-  mounted() {
-
-  },
-  computed: {}
+  mounted() {},
+  computed: {},
 };
 </script>
 

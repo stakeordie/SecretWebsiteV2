@@ -1,6 +1,6 @@
 <template>
   <div v-if="isAlertOpen" class="alert-bar" :style="varAlertHeight">
-    <div class="alert-content" ref="msg">{{alertMessage.text}}</div>
+    <div class="alert-content" ref="msg">{{ alertMessage.text }}</div>
     <a @click="closeAlert" href="" class="close-alert">
       <img
         src="../assets/icon-menu-close.svg"
@@ -24,7 +24,7 @@ export default {
     message: {
       type: String,
       required: true,
-    }
+    },
   },
   data: function () {
     return {

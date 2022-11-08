@@ -65,7 +65,7 @@
 export default {
   mounted() {
     const activateAnimation = document.querySelector("#activateAnimationColor");
-    let checkBodyThemeMode = function() {
+    let checkBodyThemeMode = function () {
       let result = document.body.getAttribute("theme");
       return result;
     };
@@ -121,7 +121,7 @@ export default {
             50
           );
       } else {
-         // From COLOR to NON-COLOR
+        // From COLOR to NON-COLOR
         const timeline = this.$anime
           .timeline()
           .add(
@@ -163,10 +163,10 @@ export default {
               targets: ".superposition",
               easing: "easeInQuad",
               opacity: 1,
-            }, 10
+            },
+            10
           );
       }
-     
     });
   },
 };
@@ -177,8 +177,6 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .animate-color {
-
   display: grid;
-
 }
 </style>

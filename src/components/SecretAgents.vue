@@ -1,17 +1,18 @@
 <template>
   <div>
     <ul>
-      <li v-for="secretAgent in $static.secretAgents.edges" :key="secretAgent.node.last_name">
-        {{secretAgent.node.first_name}} {{secretAgent.node.last_name}}
+      <li
+        v-for="secretAgent in $static.secretAgents.edges"
+        :key="secretAgent.node.last_name"
+      >
+        {{ secretAgent.node.first_name }} {{ secretAgent.node.last_name }}
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <static-query>
@@ -28,6 +29,4 @@ export default {
   }
 </static-query>
 
-<style>
-
-</style>
+<style></style>

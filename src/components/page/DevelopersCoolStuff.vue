@@ -21,7 +21,8 @@
             <!-- Categorie tags -->
             <div class="meta meta--with-categories">
               <div class="m-elements card-element__header__tags">
-                <p class="tag-accent"
+                <p
+                  class="tag-accent"
                   v-for="(category, id) in element.types"
                   :key="id"
                   :class="'accent-' + category.name"
@@ -87,18 +88,17 @@ export default {
 
   computed: {
     coolStuff() {
-      
       const coolStuffArr = this.$static.coolStuff.edges.map((it) => {
         return it.node;
       });
       coolStuffArr.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
-        if(titleA < titleB) {
-          return -1
+        if (titleA < titleB) {
+          return -1;
         }
-        if(titleA > titleB) {
-          return 1
+        if (titleA > titleB) {
+          return 1;
         }
         return 0;
       });
@@ -141,8 +141,6 @@ export default {
     grid-auto-flow: column;
     justify-content: start;
 
-
-
     &::-webkit-scrollbar {
       display: none;
     }
@@ -173,22 +171,22 @@ export default {
         display: grid;
         gap: var(--f-gutter);
         padding: var(--f-gutter);
-        grid-template-rows: 64px 1fr ;
+        grid-template-rows: 64px 1fr;
 
-        .ecosystem{
+        .ecosystem {
           margin-top: 0;
 
-          &:hover{
+          &:hover {
             color: var(--color-highkey-secondary-blue);
           }
         }
-         &:hover  .ecosystem .btn-text{
-              color: var(--color-newBrand-blue-01);
-            }
+        &:hover .ecosystem .btn-text {
+          color: var(--color-newBrand-blue-01);
+        }
 
-         &:hover .tag-accent{
-                border-color: var(--color-neutral-dark-mode-02);
-              }
+        &:hover .tag-accent {
+          border-color: var(--color-neutral-dark-mode-02);
+        }
       }
       &__header {
         display: grid;
@@ -245,7 +243,7 @@ export default {
       //   transform: var(--card-hover-transform);
       //   box-shadow: var(--card-hover-shadow) var(--accent-gray);
       // }
-      &:hover{
+      &:hover {
         background: var(--color-neutral-dark-mode-04);
       }
 

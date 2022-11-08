@@ -17,7 +17,9 @@
             url="https://docs.scrt.network/secret-network-documentation/development/getting-started"
             >GET STARTED</btn
           >
-          <btn class="text-center no-arrow join" url="https://discord.gg/PzdQ9bfvcX"
+          <btn
+            class="text-center no-arrow join"
+            url="https://discord.gg/PzdQ9bfvcX"
             >Join our Dev Community</btn
           >
         </div>
@@ -83,7 +85,7 @@ export default {};
         font-weight: 500;
         font-size: var(--f-h4-text-size);
         letter-spacing: 0.2px;
-        color: #94A4B8;
+        color: #94a4b8;
         line-height: 30px;
         text-align: center;
         margin: auto;
@@ -131,7 +133,7 @@ export default {};
         // grid-auto-flow: column;
         gap: var(--f-gutter);
 
-        @include respond-to('<=s'){
+        @include respond-to("<=s") {
           flex-direction: column;
         }
         .btn {

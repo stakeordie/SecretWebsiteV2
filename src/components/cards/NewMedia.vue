@@ -150,7 +150,6 @@ $accent-colors: ("Article", "Podcast", "Video");
 // 	}
 // }
 
-
 .featured-media {
   .content {
     .box {
@@ -223,83 +222,83 @@ $accent-colors: ("Article", "Podcast", "Video");
         grid-template-columns: 1fr;
       }
 
-.item {
-      display: grid;
-      padding: var(--f-gutter);
-      border-radius: var(--f-gutter-s);
-      background: var(--color-neutral-dark-mode-03);
-      height: 300px;
-      // width: 350px;
-      transition: 0.2s ease;
-      cursor: pointer;
-      // align-content: start;
-      // position: relative;
-
-      &:hover {
-        transform: none;
-      }
-
-      a {
+      .item {
         display: grid;
-        // grid-template-columns: 1fr;
-        // grid-template-rows: auto auto auto;
-        width: 100%;
-        height: fit-content;
-        // max-width: 200px;
-        // min-width: 200px;
+        padding: var(--f-gutter);
+        border-radius: var(--f-gutter-s);
+        background: var(--color-neutral-dark-mode-03);
+        height: 300px;
+        // width: 350px;
+        transition: 0.2s ease;
+        cursor: pointer;
         // align-content: start;
         // position: relative;
-        // padding: var(--f-gutter);
 
-        img {
-          // order: 1;
-          // position: absolute;
+        &:hover {
+          transform: none;
+        }
+
+        a {
+          display: grid;
+          // grid-template-columns: 1fr;
+          // grid-template-rows: auto auto auto;
+          width: 100%;
+          height: fit-content;
+          // max-width: 200px;
+          // min-width: 200px;
+          // align-content: start;
+          // position: relative;
           // padding: var(--f-gutter);
-          border-radius: var(--f-gutter-s);
-          // left: 0;
-          // right: 0;
-          // height: 290px;
-          width: 100%;
-          object-fit: cover;
-          //width: 368px;
-          height: 150px;
-        }
 
-        .type {
-          // order: 2;
-          margin-top: var(--f-gutter-s);
-          margin-bottom: 0;
-          line-height: 24px;
-          text-transform: uppercase;
-          font-weight: 600;
-          width: 100%;
-          white-space: normal;
-        }
-
-        h6 {
-          // order: 3;
-          margin-bottom: 0;
-          color: var(--color-analog-primary-white);
-          width: 100%;
-          white-space: normal;
-        }
-      }
-
-      @each $name, $color in $accent-colors {
-        &.accent-#{$name} {
-          &:hover {
-            background: var(--color-neutral-dark-mode-04);
-            box-shadow: none;
+          img {
+            // order: 1;
+            // position: absolute;
+            // padding: var(--f-gutter);
+            border-radius: var(--f-gutter-s);
+            // left: 0;
+            // right: 0;
+            // height: 290px;
+            width: 100%;
+            object-fit: cover;
+            //width: 368px;
+            height: 150px;
           }
 
           .type {
-            // color: var(--accent-#{$name});
-            color: var(--accent-#{$name}-v2);
-            letter-spacing: 1px;
+            // order: 2;
+            margin-top: var(--f-gutter-s);
+            margin-bottom: 0;
+            line-height: 24px;
+            text-transform: uppercase;
+            font-weight: 600;
+            width: 100%;
+            white-space: normal;
+          }
+
+          h6 {
+            // order: 3;
+            margin-bottom: 0;
+            color: var(--color-analog-primary-white);
+            width: 100%;
+            white-space: normal;
+          }
+        }
+
+        @each $name, $color in $accent-colors {
+          &.accent-#{$name} {
+            &:hover {
+              background: var(--color-neutral-dark-mode-04);
+              box-shadow: none;
+            }
+
+            .type {
+              // color: var(--accent-#{$name});
+              color: var(--accent-#{$name}-v2);
+              letter-spacing: 1px;
+            }
           }
         }
       }
-    }
 
       // .item {
       //   border-radius: var(--f-radius);

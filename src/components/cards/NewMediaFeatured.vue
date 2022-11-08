@@ -23,33 +23,37 @@ export default {
   props: {
     url: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
 
   data() {
     return {
-      mediaItems: []
+      mediaItems: [],
     };
   },
 
   methods: {
-      scroll_left() {
-        let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
-        content.scrollLeft -= 390;
-        //console.log('left');
-      },
-      scroll_right() {
-        let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
-        content.scrollLeft += 390;
-        //console.log('right');
-        //console.log(content);
-      },
-
-      onFilterApplied(filters) {
-        this.appliedFilters = filters;
-      }
+    scroll_left() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box"
+      );
+      content.scrollLeft -= 390;
+      //console.log('left');
     },
+    scroll_right() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box"
+      );
+      content.scrollLeft += 390;
+      //console.log('right');
+      //console.log(content);
+    },
+
+    onFilterApplied(filters) {
+      this.appliedFilters = filters;
+    },
+  },
 
   computed: {
     filterMediaItems() {
@@ -58,11 +62,11 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image.url
+          picture: it.cover_image.url,
         };
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -101,9 +105,9 @@ $accent-colors: (Article, Podcast, Video);
 // 	}
 // }
 
-  .new-media-featured {
+.new-media-featured {
   position: relative;
-  
+
   .content {
     .box {
       overflow-x: scroll;
@@ -278,8 +282,4 @@ $accent-colors: (Article, Podcast, Video);
     // }
   }
 }
-
-
-
-
 </style>
