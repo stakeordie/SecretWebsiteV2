@@ -75,10 +75,10 @@ export default {
     localImage() {
       if (this.uploadedImage) {
         return this.uploadedImage;
+      } else if (process.isClient) {
+        return localStorage.getItem(this.title.replace(" ", ""));
       } else {
-        if (process.isClient) {
-          return localStorage.getItem(this.title.replace(" ", ""));
-        }
+        return "";
       }
     },
     cssProps() {

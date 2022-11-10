@@ -14,6 +14,7 @@ export default {
   },
   methods: {
     filterPostsFeatured() {
+      console.log(this.$static)
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
       this.postFeaturedV2 = posts.filter(({ node: post }) => {

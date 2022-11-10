@@ -13,6 +13,7 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "vue/multi-word-component-names": "off",
     "vue/require-prop-type-constructor": "off",
+    "vue/no-side-effects-in-computed-properties": "warn",
     indent: [
       "error",
       2,

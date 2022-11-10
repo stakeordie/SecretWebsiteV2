@@ -29,7 +29,7 @@ export default {
     };
   },
   props: {
-    tags: undefined,
+    tags: Array,
   },
   methods: {
     applyFilter(event) {
@@ -50,7 +50,8 @@ export default {
 
   computed: {
     theFilters() {
-      return this.tags.sort((f1, f2) =>
+      const tags = [...this.tags];
+      return tags.sort((f1, f2) =>
         f1.node.name === f2.node.name ? 0 : f1.node.name > f2.node.name ? 1 : -1
       );
     },

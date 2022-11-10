@@ -51,6 +51,9 @@
       </div>
 
       <event-countdown></event-countdown>
+      <general-ctas id="get-started"></general-ctas>
+      <general-ctas id="build-on-secret"></general-ctas>
+      <general-ctas id="join-the-community"></general-ctas>
     </div>
   </section>
 </template>
@@ -112,7 +115,7 @@ export default {
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
-    }, 100); 
+    }, 100);
   },
 };
 </script>

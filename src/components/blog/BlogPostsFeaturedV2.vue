@@ -13,7 +13,7 @@
           :src="node.feature_image"
         ></g-image
       ></template>
-      <template class="card-tag" #tag v-if="node.primary_tag">{{
+      <template #tag v-if="node.primary_tag">{{
         node.primary_tag.name
       }}</template>
       <h5>{{ node.title }}</h5>

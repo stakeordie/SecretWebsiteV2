@@ -1,6 +1,10 @@
 <template>
   <div class="media-channels-wrapper">
-    <div v-for="mediaChannel in mediaChannels" class="media-channel">
+    <div
+      v-for="(mediaChannel, index) in mediaChannels"
+      class="media-channel"
+      :key="index"
+    >
       <a :href="mediaChannel.url" target="blank" rel="noopener noreferrer"
         ><img
           :src="require(`@/assets${mediaChannel.picture}`)"

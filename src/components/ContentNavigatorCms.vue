@@ -14,6 +14,10 @@
       ></nav>
     </block>
     <block class="content-body">
+      <pre>
+      <!-- {{JSON.stringify(sectionContent[0].mainContent, null, 2)}} -->
+      {{sectionContent[0].mainContent}}
+      </pre>
       <vue-markdown
         v-for="(element, index) in sectionContent"
         :key="index"
@@ -76,6 +80,7 @@ export default {
   },
   computed: {
     sectionContent() {
+      console.log(this.$static.aboutSubpages.edges)
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
