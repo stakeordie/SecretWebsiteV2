@@ -106,11 +106,6 @@ export default {
       // setTimeout(() => {
       sneakPeek.classList.add("visible");
       // }, 500);
-
-      console.log(sumHeights);
-      console.log([header][0].offsetHeight);
-      console.log([header][0].previousSibling.offsetHeight);
-      // console.log([header][0].previousSibling.className)
     },
   },
   mounted() {
@@ -134,7 +129,6 @@ export default {
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
-  // background-position-y: 69px;
 }
 .summit-index {
   background: url("../../assets/events/summit/secret-summit-background.svg");
@@ -230,21 +224,14 @@ export default {
     &__content {
       max-width: 640px;
       display: flex;
-      // align-content: center;
       flex-direction: column;
       gap: 16px;
       padding: 16px;
-
       border-radius: 16px;
-
-      // transform: translateX(-240px);
 
       @include respond-to("<=l") {
         margin: auto;
         max-width: 544px !important;
-        // text-align: left;
-
-        // transform: translateX(0px);
       }
       @include respond-to("<=s") {
         max-width: calc(100% - 16px) !important;
@@ -271,11 +258,9 @@ export default {
       * {
         margin: 0;
         margin: auto;
-        // text-align: left;
       }
 
       @include respond-to("<=l") {
-        // margin: auto;
         text-align: center;
       }
 
@@ -298,6 +283,7 @@ export default {
       &__title {
         font-family: montserrat;
         margin-bottom: 10px;
+        font-weight: bold;
         @include respond-to("<=l") {
           font-size: 42px;
           line-height: 48px;
@@ -357,13 +343,10 @@ export default {
         background-color: var(--color-ver2-primary-blue) !important;
         width: 204px !important;
         margin-left: 0 !important;
-        // margin-top: 26px;
-        // margin-bottom: 26px !important;
         span {
           font-size: 16px !important;
         }
         @include respond-to("<=m") {
-          // width: 100% !important;
         }
         @include respond-to("<=l") {
           margin-left: auto !important;
@@ -392,17 +375,12 @@ export default {
       .box {
         padding: 0;
         height: fit-content;
-
-        @include respond-to("<=s") {
-          // padding: 8px;
-        }
       }
     }
   }
 
   .event__countdown__wrapper {
     @include respond-to("<=l") {
-      // align-self: center;
       width: 240px;
       align-self: center;
     }
