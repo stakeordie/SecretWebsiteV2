@@ -10,10 +10,10 @@
       </p>
       <btn
         class="page-ecosystem__grant__content__btn center-text no-arrow"
-        url="../blog/announcing-secret-network-grant-program">
-        GET A GRANT
-        </btn
+        url="../blog/announcing-secret-network-grant-program"
       >
+        GET A GRANT
+      </btn>
     </div>
   </section>
 </template>
@@ -33,11 +33,11 @@ export default {};
     margin: 42px auto;
     padding: 16px;
 
-    &__p{
-            font-size: var(--paragraph-font-size-big);
-            line-height: var(--paragraph-line-height-big);
-            color: var(--color-neutral-dark-mode-06);
-        }
+    &__p {
+      font-size: var(--paragraph-font-size-big);
+      line-height: var(--paragraph-line-height-big);
+      color: var(--color-neutral-dark-mode-06);
+    }
   }
 }
 </style>

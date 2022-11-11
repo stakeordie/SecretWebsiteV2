@@ -73,7 +73,6 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 26px;
 
-   
     vertical-align: top;
 
     @include respond-to("<=m") {
@@ -87,7 +86,6 @@ export default {
     }
 
     &__reason {
-      
       padding: var(--f-gutter);
 
       h6 {
@@ -95,12 +93,12 @@ export default {
         line-height: 30px;
         padding-top: var(--f-gutter);
       }
-      
+
       p {
         font-size: 16px;
         text-align: left;
 
-        @include respond-to("<=s"){
+        @include respond-to("<=s") {
           text-align: center;
         }
       }

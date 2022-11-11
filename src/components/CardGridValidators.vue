@@ -47,14 +47,23 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a class="card-element__overall-link" :href="element.url"
-              target="blank" rel="noopener noreferrer">
+            <a
+              class="card-element__overall-link"
+              :href="element.url"
+              target="blank"
+              rel="noopener noreferrer"
+            >
               <div class="card-element__header">
-                <img class="card-element__header__logo" :src="element.picture.url"
-                  alt="picture" />
+                <img
+                  class="card-element__header__logo"
+                  :src="element.picture.url"
+                  alt="picture"
+                />
                 <!-- Categorie tags -->
-                <div class="meta"
-                  :class="{ 'meta--with-categories': hasCategories }">
+                <div
+                  class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }"
+                >
                   <!-- <div
                     class="m-elements card-element__header__tags"
                     :class="evaluateTags(element.types.length)"
@@ -70,7 +79,10 @@
                   </div> -->
                 </div>
               </div>
-              <div class="card-element__title-desc" :class="{ 'meta--with-categories': hasCategories }">
+              <div
+                class="card-element__title-desc"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
                   <!-- <p>
@@ -478,7 +490,6 @@ query {
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
 .ecosystem-validators {
-  
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -569,7 +580,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
 
-
     //////////////////////////////////////////
     // CARDS GRID
 
@@ -595,7 +605,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             max-width: 150px;
           }
           p {
-
             span {
               @include respond-to(">=m") {
                 display: block;

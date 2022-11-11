@@ -6,21 +6,21 @@
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive } from "vue";
 export default {
- name: 'flui-button',
+  name: "flui-button",
 
- props: {
-   label: {
-     type: String,
-     default: 'normal',
-   },
-   fullMode: {
-     type: Boolean,
-     default: false,
-   }
- },
- computed: {
+  props: {
+    label: {
+      type: String,
+      default: "normal",
+    },
+    fullMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
     classes() {
       return {
         "flui-button__mode--full": this.fullMode,
@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit('onClick');
+      this.$emit("onClick");
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -49,9 +49,10 @@ export default {
   &:hover {
     background: var(--flui-button-bg-hover-color);
     border: 1px solid var(--flui-button-bg-hover-color);
-  } 
+  }
   &:focus {
-    box-shadow: 0 0 0 2px var(--flui-button-text-color), 0 0 0px 3px var(--flui-button-bg-color);
+    box-shadow: 0 0 0 2px var(--flui-button-text-color),
+      0 0 0px 3px var(--flui-button-bg-color);
   }
   &:active {
     transform: translateY(1px);

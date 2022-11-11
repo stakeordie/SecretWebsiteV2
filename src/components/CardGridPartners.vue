@@ -63,9 +63,7 @@
                 <div
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
-                >
-                  
-                </div>
+                ></div>
               </div>
 
               <div
@@ -663,7 +661,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
           img {
             max-width: 150px;
-            
           }
           p {
             text-align: center;
@@ -718,9 +715,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
               margin: auto;
               max-height: 64px;
               width: fit-content;
-               @include respond-to("<=xs") {
-                    height: 54px;
-                  }
+              @include respond-to("<=xs") {
+                height: 54px;
+              }
             }
           }
 

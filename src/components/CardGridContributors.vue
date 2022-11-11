@@ -583,7 +583,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 }
               }
               input {
-
                 &:checked {
                   ~ .title {
                     color: var(--color-analog-primary-white);

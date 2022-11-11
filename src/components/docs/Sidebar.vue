@@ -38,12 +38,7 @@ query Menu {
 </static-query>
 
 <script>
-import GitLink from "./GitLink.vue";
-
 export default {
-  components: {
-    GitLink
-  },
   methods: {
     isItemActive(itemPath) {
       if (this.$route.path == itemPath) {
@@ -51,8 +46,8 @@ export default {
       } else {
         return "";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

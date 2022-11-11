@@ -135,7 +135,9 @@
 
     <section class="about-secret-network-technology tech-n-vision">
       <div class="about-content">
-        <div class="about-secret-network-technology__header tech-n-vision__header">
+        <div
+          class="about-secret-network-technology__header tech-n-vision__header"
+        >
           <div class="header-left">
             <div class="header">
               <h4 class="about-secret-network__eyebrow">TECHNOLOGY</h4>
@@ -148,30 +150,40 @@
             </p>
             <div class="logos">
               <div class="logos__item item1">
-                <img src="../../assets/about-secret-network/rust-logo.svg" alt="" />
+                <img
+                  src="../../assets/about-secret-network/rust-logo.svg"
+                  alt=""
+                />
                 <h6 class="logos_item__p">Coded in Rust</h6>
               </div>
               <div class="logos__item item2">
-                <img src="../../assets/about-secret-network/wasm-logo.svg" alt="" />
+                <img
+                  src="../../assets/about-secret-network/wasm-logo.svg"
+                  alt=""
+                />
                 <h6 class="logos_item__p">Compiled with WASM</h6>
               </div>
             </div>
             <btn class="center-text no-arrow ctas-button" url="../../graypaper">
-              Read the GrayPaper</btn>
+              Read the GrayPaper</btn
+            >
           </div>
           <div class="header-right">
-            <img src="../../assets/about-secret-network/contract-img.svg" alt="" />
+            <img
+              src="../../assets/about-secret-network/contract-img.svg"
+              alt=""
+            />
           </div>
         </div>
 
-        <div class="
-            about-secret-network-technology__content
-            tech-n-vision__content
-          ">
-          <div class="
-              about-secret-network-technology__content__item
-              tech-n-vision__content__item
-            " v-for="(item, index) in technology" :key="index">
+        <div
+          class="about-secret-network-technology__content tech-n-vision__content"
+        >
+          <div
+            class="about-secret-network-technology__content__item tech-n-vision__content__item"
+            v-for="(item, index) in technology"
+            :key="index"
+          >
             <img :src="item.imageUrl" alt="" />
             <div class="item-description">
               <h4>{{ item.title }}</h4>
@@ -198,13 +210,21 @@
             </p>
           </div>
           <div class="header-right">
-            <img src="../../assets/about-secret-network/vision-img.png" alt="" />
+            <img
+              src="../../assets/about-secret-network/vision-img.png"
+              alt=""
+            />
           </div>
         </div>
 
-        <div class="about-secret-network-vision__content tech-n-vision__content">
-          <div class="about-secret-network-vision__content__item tech-n-vision__content__item " 
-          v-for="(item, index) in vision" :key="index">
+        <div
+          class="about-secret-network-vision__content tech-n-vision__content"
+        >
+          <div
+            class="about-secret-network-vision__content__item tech-n-vision__content__item"
+            v-for="(item, index) in vision"
+            :key="index"
+          >
             <img :src="item.imageUrl" alt="" />
             <div class="item-description">
               <h4>{{ item.title }}</h4>
@@ -225,7 +245,10 @@
         <div class="about-secret-network-supported__container">
           <div class="about-secret-network-supported__container__cont labs">
             <div class="by__img">
-              <img src="../../assets/about-secret-network/scrt-labs-pink-logo.svg" alt="" />
+              <img
+                src="../../assets/about-secret-network/scrt-labs-pink-logo.svg"
+                alt=""
+              />
             </div>
             <p class="by__p">
               SCRT Labs is the driving force and the founding core development
@@ -234,9 +257,14 @@
               decentralized technologies.
             </p>
           </div>
-          <div class="about-secret-network-supported__container__cont foundation">
+          <div
+            class="about-secret-network-supported__container__cont foundation"
+          >
             <div class="by__img">
-              <img src="../../assets/about-secret-network/secret-foundation-logo.svg" alt="" />
+              <img
+                src="../../assets/about-secret-network/secret-foundation-logo.svg"
+                alt=""
+              />
             </div>
             <p class="by__p">
               The foundation supporting Secret Network's global presence,
@@ -250,30 +278,43 @@
     </section>
     <section class="supported__btns">
       <div class="about-content">
-        <btn class="center-text no-arrow ctas-button" url="../../ecosystem/contributors">
-          VIEW ALL CONTRIBUTORS</btn>
-        <btn class="center-text no-arrow ctas-button" url="../../ecosystem/partners">
-          VIEW ALL PARTNERS</btn>
+        <btn
+          class="center-text no-arrow ctas-button"
+          url="../../ecosystem/contributors"
+        >
+          VIEW ALL CONTRIBUTORS</btn
+        >
+        <btn
+          class="center-text no-arrow ctas-button"
+          url="../../ecosystem/partners"
+        >
+          VIEW ALL PARTNERS</btn
+        >
       </div>
     </section>
 
-    <section class="about-secret-network-mission spacer-s" >
+    <section class="about-secret-network-mission spacer-s">
       <div class="about-content">
         <div class="about-secret-network-mission__header">
           <h4 class="about-secret-network__eyebrow">OUR MISSION</h4>
-          <h2 class=""> Privacy is a human right <span>& necessity</span> </h2>
+          <h2 class="">Privacy is a human right <span>& necessity</span></h2>
         </div>
         <p class="">
-          We believe the decentralized web—powered by blockchain technology—has the potential to empower creators, business owners, and individuals like never before. But to get there, we need privacy.
+          We believe the decentralized web—powered by blockchain technology—has
+          the potential to empower creators, business owners, and individuals
+          like never before. But to get there, we need privacy.
           <br />
           <br />
-          While transparency in blockchain serves an important purpose, total openness is not sustainable. And it will, ironically, cripple our ability to express ourselves, connect with others, and our capacity for creativity and innovation.
+          While transparency in blockchain serves an important purpose, total
+          openness is not sustainable. And it will, ironically, cripple our
+          ability to express ourselves, connect with others, and our capacity
+          for creativity and innovation.
           <br />
           <br />
-          Now that Web3 is still in full development we have a chance to turn this around and create a web that’s truly empowering.
-      </p>
+          Now that Web3 is still in full development we have a chance to turn
+          this around and create a web that’s truly empowering.
+        </p>
       </div>
-      
     </section>
   </div>
 </template>
@@ -334,7 +375,7 @@ export default {
           title: "Viewing keys for access control",
           description: `Since data is encrypted and private by default, Secret Network users
               have viewing keys to access their sensitive data.
-              ${''}
+              ${""}
               Viewing keys can be shared with third parties like auditors,
               wallets, and explorers. They allow users to maintain control over
               their data and decide what is shared—and with who. `,
@@ -371,7 +412,6 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-
 .about-secret-network {
   &-hero,
   .about-content,
@@ -381,21 +421,21 @@ export default {
     margin: auto;
   }
 
-  &-page{
+  &-page {
     .content {
-    width: 100%;
+      width: 100%;
 
-    .box {
-      padding: 0;
+      .box {
+        padding: 0;
+      }
     }
-  }
   }
 
   .about-content {
     padding: 96px 16px;
   }
 
-   h1 {
+  h1 {
     font-size: 54px;
     line-height: 60px;
     font-family: var(--f-default-headers-font);
@@ -405,7 +445,7 @@ export default {
     }
   }
 
-   h2 {
+  h2 {
     font-size: 36px;
     line-height: 42px;
     font-family: var(--f-default-headers-font);
@@ -432,7 +472,7 @@ export default {
     }
   }
 
-   h5 {
+  h5 {
     font-family: var(--f-default-headers-font);
     margin-bottom: 0;
   }
@@ -540,7 +580,7 @@ export default {
       // margin: auto;
     }
 
-     @include respond-to("<=s") {
+    @include respond-to("<=s") {
       // display: none;
       // order: 2;
       // width: 280px;
@@ -582,15 +622,13 @@ export default {
       max-height: 550px;
       margin: auto;
 
-      
-
-      @include respond-to('<=m'){
+      @include respond-to("<=m") {
         order: 1;
       }
 
       @include respond-to("<=s") {
-      max-width: 400px !important;
-    }
+        max-width: 400px !important;
+      }
     }
   }
 
@@ -601,8 +639,6 @@ export default {
     // max-width: 550px;
     display: grid;
     gap: var(--f-gutter);
-
-
 
     @include respond-to("<=m") {
       max-width: 504px;
@@ -630,8 +666,8 @@ export default {
 }
 
 .about-secret-network-cases {
-   h4,
-   h5 {
+  h4,
+  h5 {
     color: var(--color-ver2-primary-orange);
   }
   &__title {
@@ -641,8 +677,8 @@ export default {
     //   margin: 0;
     // }
   }
-  
-   p {
+
+  p {
     font-size: var(--paragraph-font-size-big);
     line-height: var(--paragraph-line-height-big);
   }
@@ -651,10 +687,9 @@ export default {
     padding: 42px var(--f-gutter);
     // padding: var(--f-gutter);
 
-     p {
+    p {
       max-width: 800px;
     }
-
 
     @include respond-to("<=s") {
       max-width: 504px;
@@ -682,7 +717,7 @@ export default {
       &__topic {
         padding: var(--f-gutter);
 
-         img {
+        img {
           margin: auto;
           height: 200px !important;
         }
@@ -701,15 +736,14 @@ export default {
       align-self: stretch;
       align-content: baseline;
 
-       h5{
-
+      h5 {
       }
 
-       h3 {
+      h3 {
         margin-bottom: 0;
       }
 
-       img {
+      img {
         margin: auto;
         height: 300px;
         padding: var(--f-gutter);
@@ -726,7 +760,7 @@ export default {
 
   &__header {
     display: grid;
-    
+
     gap: 64px;
     padding: 42px var(--f-gutter);
     // padding: 64px 0;
@@ -782,13 +816,9 @@ export default {
         // padding: 32px;
       }
 
-      
-
-       h4{
+      h4 {
         margin-bottom: 10px;
       }
-
-      
     }
   }
 }
@@ -797,11 +827,10 @@ export default {
   background-color: var(--color-neutral-dark-mode-02);
 
   &__header {
-
     @include respond-to(">=m") {
-        grid-template-columns: 2fr 1fr;
-        gap: 32px;
-      }
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+    }
     .header-left {
       .header {
         & h4 {
@@ -818,7 +847,7 @@ export default {
           align-items: center;
           gap: 10px;
 
-           img {
+          img {
             width: 36px;
             height: 36px;
             opacity: 0.3;
@@ -836,10 +865,8 @@ export default {
     }
   }
 
-  &__content{
-
-    &__item{
-
+  &__content {
+    &__item {
       p {
         font-size: var(--paragraph-font-size-big);
         line-height: var(--paragraph-line-height-big);
@@ -849,38 +876,29 @@ export default {
 }
 
 .about-secret-network-vision {
-
   &__header {
     @include respond-to(">=m") {
       grid-template-columns: 3fr 2fr;
     }
 
-     .header-left{
+    .header-left {
       align-content: center;
 
-        .header {
-
-       h4 {
-        color: var(--color-ver2-primary-blue);
+      .header {
+        h4 {
+          color: var(--color-ver2-primary-blue);
+        }
       }
     }
-    }
-
-   
   }
 
   &__content {
-
     &__item {
       display: flex;
       gap: 12px;
       align-items: flex-start;
-
-      
     }
   }
-
-
 }
 
 .about-secret-network-supported {
@@ -928,10 +946,10 @@ export default {
       display: grid;
       gap: 16px;
 
-       .by__img{
+      .by__img {
         height: 64px;
 
-        img{
+        img {
           height: 100%;
         }
       }
@@ -942,13 +960,12 @@ export default {
 .supported__btns {
   background-color: rgba(8, 10, 12, 1);
 
-  .about-content{
-    padding:  26px var(--f-gutter);
+  .about-content {
+    padding: 26px var(--f-gutter);
     display: flex;
     gap: 26px;
     justify-content: center;
 
-    
     @include respond-to("<=s") {
       flex-direction: column;
       max-width: 504px;
@@ -960,14 +977,12 @@ export default {
       margin-right: 0;
     }
   }
-
-  
 }
 
-.about-secret-network-mission{
+.about-secret-network-mission {
   background-color: var(--color-neutral-dark-mode-02);
 
-  .about-content{
+  .about-content {
     max-width: 800px;
     display: grid;
 
@@ -976,28 +991,26 @@ export default {
       max-width: 504px;
       margin: auto;
     }
-    
   }
 
-  &__header{
+  &__header {
     text-align: center;
     padding: var(--f-gutter);
-    
-     h4{
-      color: var(--color-ver2-primary-purple);
 
+    h4 {
+      color: var(--color-ver2-primary-purple);
     }
 
-     h2{
+    h2 {
       display: grid;
 
-      @include respond-to("<=s"){
+      @include respond-to("<=s") {
         display: inline;
       }
     }
   }
 
-   p{
+  p {
     font-size: 26px;
     line-height: 39px;
     padding: var(--f-gutter);

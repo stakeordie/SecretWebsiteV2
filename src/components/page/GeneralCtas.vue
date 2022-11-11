@@ -1,15 +1,19 @@
 <template>
   <section class="general-ctas__item">
-    <div class="general-ctas__item__card" v-for="(item, index) in ctaContent" :key="index">
+    <div
+      class="general-ctas__item__card"
+      v-for="(item, index) in ctaContent"
+      :key="index"
+    >
       <img class="general-ctas__item__card__img" :src="item.imageUrl" alt="" />
-          <h4 class="general-ctas__item__card__h4">{{ item.title }}</h4>
-          <p class="general-ctas__item__card__p">{{ item.description }}</p>
-          
-          <btn class="center-text no-arrow ctas-button" :url="item.url">{{ item.urlTitle }}</btn>
+      <h4 class="general-ctas__item__card__h4">{{ item.title }}</h4>
+      <p class="general-ctas__item__card__p">{{ item.description }}</p>
+
+      <btn class="center-text no-arrow ctas-button" :url="item.url">{{
+        item.urlTitle
+      }}</btn>
     </div>
   </section>
-
-
 </template>
 
 <script>
@@ -18,12 +22,11 @@ export default {
     id: {
       type: String,
       default: "",
-    }
+    },
   },
   data() {
     return {
       ctas: [
-
         //BOTTOM CTAs
         {
           ctaId: "get-started",
@@ -63,8 +66,6 @@ export default {
           url: "../../developers",
         },
 
-        
-
         {
           ctaId: "join-the-community",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
@@ -75,7 +76,6 @@ export default {
           url: "/get-involved/become-secret-agent",
         },
 
-        
         {
           ctaId: "contribute-to-secret",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
@@ -106,7 +106,7 @@ export default {
         },
 
         // Ver 2
-         {
+        {
           ctaId: "get-started2",
           imageUrl: "/img/about-secret-network/get-started-img.svg",
           title: "Get Started",
@@ -134,7 +134,6 @@ export default {
           urlTitle: "GET INVOLVED",
           url: "https://forum.scrt.network/",
         },
-
 
         // LEARN PORTAL
         {
@@ -202,73 +201,61 @@ export default {
           urlTitle: "View All SECRET DAPPS",
           url: "../ecosystem/dapps",
         },
-        
       ],
-      
-      ctaContent: []
+
+      ctaContent: [],
     };
   },
   methods: {
-    getCtaContent(){
-      this.ctaContent = this.ctas.filter(
-        (it) =>{          
-          if(it.ctaId == this.id){
-            return it;
-          };      
-        } 
-      )      
-    }
+    getCtaContent() {
+      this.ctaContent = this.ctas.filter((it) => {
+        if (it.ctaId == this.id) {
+          return it;
+        }
+      });
+    },
   },
-  mounted(){
+  mounted() {
     this.getCtaContent();
-  }
-
-}
+  },
+};
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-
-.general-ctas__item{
-  
-
-  @include respond-to("<=s"){
+.general-ctas__item {
+  @include respond-to("<=s") {
     padding: var(--f-gutter);
   }
 
-    &__card{
-    
-      padding: 16px;
-      text-align: center;
-      max-width: 360px;
-      margin: auto;
-       @include respond-to("l"){
+  &__card {
+    padding: 16px;
+    text-align: center;
+    max-width: 360px;
+    margin: auto;
+    @include respond-to("l") {
       padding: 0;
     }
 
-      &__img{
-        margin: auto;
-        margin-bottom: 16px;
-        height: 150px;
-        width: auto;
-      }
-
-       & h4 {
-          text-transform: none;
-          letter-spacing: 0;
-          font-family: var(--f-default-headers-font);
-          margin-bottom: 10px;
-        }
-
-      & .ctas-button{
-        margin-right: 0 !important;
-        padding-left: 0;
-      }
-        
+    &__img {
+      margin: auto;
+      margin-bottom: 16px;
+      height: 150px;
+      width: auto;
     }
-    
+
+    & h4 {
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--f-default-headers-font);
+      margin-bottom: 10px;
+    }
+
+    & .ctas-button {
+      margin-right: 0 !important;
+      padding-left: 0;
+    }
+  }
 }
-
-
 </style>

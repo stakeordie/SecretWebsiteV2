@@ -9,8 +9,8 @@ export default {
   props: {
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
 
   mounted() {
@@ -24,6 +24,6 @@ export default {
         it.innerText = msg;
       }
     }
-  }
-}
+  },
+};
 </script>

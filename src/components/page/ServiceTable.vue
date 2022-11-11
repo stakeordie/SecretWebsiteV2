@@ -65,7 +65,13 @@
           <img class="item-img" :src="item.node.logo.url" alt="" />
           <div class="item-info">
             <h6>{{ item.node.service_name }}</h6>
-            <a rel="noopener noreferrer" :href="item.node.url" class="item-link" target="blank">{{ item.node.url }}</a>
+            <a
+              rel="noopener noreferrer"
+              :href="item.node.url"
+              class="item-link"
+              target="blank"
+              >{{ item.node.url }}</a
+            >
           </div>
         </li>
         <li
@@ -165,21 +171,33 @@ export default {
       let value = "";
       switch (itemNumber) {
         case 1:
-          if (this.indexTables == 0 || this.indexTables == 1) value = item.node["deposit_status"];
-          else if (this.indexTables == 2) value = item.node["transaction_status"];
+          if (this.indexTables == 0 || this.indexTables == 1)
+            value = item.node["deposit_status"];
+          else if (this.indexTables == 2)
+            value = item.node["transaction_status"];
           else if (this.indexTables == 3) value = item.node["in_status"];
           else if (this.indexTables > 3) value = item.node["status"];
           break;
         case 2:
-          if (this.indexTables == 0 || this.indexTables == 1) value = item.node["withdraws_status"];
+          if (this.indexTables == 0 || this.indexTables == 1)
+            value = item.node["withdraws_status"];
           else value = item.node["out_status"];
           break;
         case 3:
-          if (this.indexTables == 0 || this.indexTables == 1) value = item.node["trading_status"];
-          else {                     
-            if(!item.node["amount_time_estimated"] || item.node["amount_time_estimated"] == 0) value = " "
-            else value = item.node["amount_time_estimated"] + " " + item.node["type_time_estimated"];
-          }        
+          if (this.indexTables == 0 || this.indexTables == 1)
+            value = item.node["trading_status"];
+          else {
+            if (
+              !item.node["amount_time_estimated"] ||
+              item.node["amount_time_estimated"] == 0
+            )
+              value = " ";
+            else
+              value =
+                item.node["amount_time_estimated"] +
+                " " +
+                item.node["type_time_estimated"];
+          }
           break;
       }
       return value;
@@ -197,18 +215,23 @@ export default {
     // },
   },
   filters: {
-    formatDate(value) {      
-      if (!value || !new Date(value).toISOString() || new Date(value).getFullYear() == 0) return " ";            
-      let time = value.match(/\d\d:\d\d/); 
-      let fullDate = new Date(value);      
+    formatDate(value) {
+      if (
+        !value ||
+        !new Date(value).toISOString() ||
+        new Date(value).getFullYear() == 0
+      )
+        return " ";
+      let time = value.match(/\d\d:\d\d/);
+      let fullDate = new Date(value);
       var dd = fullDate.getDate();
       var mm = fullDate.getMonth() + 1; //January is 0!
       var yyyy = fullDate.getFullYear();
-            
+
       if (dd < 10) dd = "0" + dd;
       if (mm < 10) mm = "0" + mm;
       var dateISO = dd + "/" + mm + "/" + yyyy;
-      let finalDate = time + '  ' + dateISO;
+      let finalDate = time + "  " + dateISO;
 
       return finalDate;
     },
@@ -330,7 +353,6 @@ query {
   }
 }
 </static-query>
-
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";

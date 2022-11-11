@@ -78,13 +78,11 @@ export default {
     @include respond-to("<=s") {
       font-size: var(--f-h6-text-size);
     }
-
   }
   &__cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 26px;
-    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr 1fr;
@@ -98,25 +96,24 @@ export default {
       background: var(--color-neutral-dark-mode-03);
       padding: var(--f-gutter-l);
       border-radius: 10px;
-       &:hover{
+      &:hover {
         background: var(--color-neutral-dark-mode-04);
       }
 
       &__content {
         margin-top: 10px;
 
-        h6{
+        h6 {
           font-size: var(--f-h4-text-size);
           font-family: var(--f-default-headers-font);
         }
-        p{
+        p {
           font-size: var(--f-default-text-size);
         }
 
         .link-arrow {
           padding: 0;
           margin-top: 0%;
-          
         }
       }
     }

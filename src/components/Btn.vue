@@ -1,5 +1,10 @@
 <template>
-  <a class="btn button" :href="url" :target="isExternal ? '_blank' : ''" :rel="isExternal ? 'noopener noreferrer' : ''">
+  <a
+    class="btn button"
+    :href="url"
+    :target="isExternal ? '_blank' : ''"
+    :rel="isExternal ? 'noopener noreferrer' : ''"
+  >
     <span class="btn-text">
       <slot></slot>
     </span>
@@ -73,7 +78,7 @@ export default {
     .btn {
       font-weight: bold;
       width: 100%;
-      place-content: center center; 
+      place-content: center center;
       display: inline-flex;
       background: var(--theme-card-button-bg);
       color: var(--theme-fg);
@@ -104,7 +109,7 @@ export default {
       }
       &.ecosystem {
         justify-content: start;
-        place-content: center start; 
+        place-content: center start;
         padding-left: 0;
         padding-right: 0;
         background: none;
@@ -118,7 +123,7 @@ export default {
       }
       &.link-arrow {
         justify-content: start;
-        place-content: center start; 
+        place-content: center start;
         padding-left: 0;
         padding-right: 0;
         background: none;
@@ -131,7 +136,6 @@ export default {
           background: none;
         }
       }
-
 
       &.bg-invert {
         background: var(--theme-fg);
@@ -158,13 +162,13 @@ export default {
         }
       }
 
-      .btn-color{
+      .btn-color {
         transform: translateY(1px);
         //vertical-align: middle;
         color: var(--theme-fg);
-        
+
         &:hover {
-        background: var(--color-neutral-dark-mode-02);
+          background: var(--color-neutral-dark-mode-02);
           span {
             transform: translateY(2px);
             color: var(--color-analog-primary-white);
@@ -179,22 +183,17 @@ export default {
       }
 
       &.no-arrow {
+        .themed-image {
+          display: none;
+        }
 
-        .themed-image{
-            display: none;
-          }
-          
         img {
           display: none !important;
-           &.special-icon {
-        
-          display: inline-block !important;
-      }
+          &.special-icon {
+            display: inline-block !important;
+          }
         }
       }
-
-      
-
 
       &.full {
         width: 100%;

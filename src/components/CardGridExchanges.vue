@@ -32,7 +32,10 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title">{{ formatCategory(category.name) }} <img src="../assets/icon-remove-filter.svg" alt="" /></span>
+              <span class="title"
+                >{{ formatCategory(category.name) }}
+                <img src="../assets/icon-remove-filter.svg" alt=""
+              /></span>
             </label>
           </li>
         </ul>
@@ -47,14 +50,23 @@
             v-for="element in filteredElements"
             :key="element.id"
           >
-            <a class="card-element__overall-link" :href="element.url"
-              target="blank" rel="noopener noreferrer">
+            <a
+              class="card-element__overall-link"
+              :href="element.url"
+              target="blank"
+              rel="noopener noreferrer"
+            >
               <div class="card-element__header">
-                <img class="card-element__header__logo" :src="element.picture.url"
-                  alt="picture" />
+                <img
+                  class="card-element__header__logo"
+                  :src="element.picture.url"
+                  alt="picture"
+                />
                 <!-- Categorie tags -->
-                <div class="meta"
-                  :class="{ 'meta--with-categories': hasCategories }">
+                <div
+                  class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }"
+                >
                   <!-- <div
                     class="m-elements card-element__header__tags"
                     :class="evaluateTags(element.types.length)"
@@ -70,7 +82,10 @@
                   </div> -->
                 </div>
               </div>
-              <div class="card-element__title-desc" :class="{ 'meta--with-categories': hasCategories }">
+              <div
+                class="card-element__title-desc"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
                   <!-- <p>
@@ -551,8 +566,8 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             label {
               padding: 0;
               border: 0;
-                transition: 0.2s ease;
-              
+              transition: 0.2s ease;
+
               &:hover {
                 color: var(--color-analog-primary-white);
               }
@@ -577,7 +592,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 }
               }
               input {
-
                 &:checked {
                   ~ .title {
                     background-color: var(--color-ver2-primary-turquoise);
@@ -628,7 +642,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
 
-
     //////////////////////////////////////////
     // CARDS GRID
 
@@ -639,8 +652,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         gap: var(--f-gutter-l);
         justify-content: center;
 
-        
-        
         @include respond-to("<=m") {
           grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
         }
@@ -660,7 +671,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             max-width: 150px;
           }
           p {
-
             span {
               @include respond-to(">=m") {
                 display: block;
@@ -709,9 +719,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             align-content: center;
 
             @include respond-to("<=s") {
-                  width: 48px;
-                  height: 48px;
-                }
+              width: 48px;
+              height: 48px;
+            }
           }
 
           &__title-desc {

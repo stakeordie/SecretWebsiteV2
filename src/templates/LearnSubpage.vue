@@ -7,14 +7,15 @@
     </column>
     <column
       class="bg-black-gradient learn-subpage__content"
-      :class="
-        [
-          component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
-          'comp-name__' + component.comp_name
-        ]
-      "
+      :class="[
+        component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
+        'comp-name__' + component.comp_name,
+      ]"
       :mode="
-        component.comp_name === 'carousel-group' || component.comp_name === 'learn-header' ? 'full' : 'normal'
+        component.comp_name === 'carousel-group' ||
+        component.comp_name === 'learn-header'
+          ? 'full'
+          : 'normal'
       "
       v-for="(component, index) in $context.components"
       :key="index"
@@ -84,9 +85,9 @@
                 display: none;
               }
 
-              &__header{
-                &__description{
-                  p{
+              &__header {
+                &__description {
+                  p {
                     font-size: var(--paragraph-font-size-big);
                     line-height: var(--paragraph-line-height-big);
                   }
@@ -130,7 +131,7 @@
       // color: var(--color-analog-secondary-orange);
     }
     &__title {
-      font-family: "Montserrat" ;
+      font-family: "Montserrat";
       font-style: normal;
       font-weight: 600;
       font-size: 54px;
@@ -171,7 +172,7 @@
   & .simple-footer {
     margin-top: 0;
   }
-  [comp_name~="cta-grid"]{
+  [comp_name~="cta-grid"] {
     padding-top: 64px;
     padding-bottom: 64px;
   }

@@ -7,14 +7,16 @@
       </block>
     </column>
     <!-- Hero -->
-    <column
-      class="bg-black-gradient learn-article__content learn-hero"
-    >
+    <column class="bg-black-gradient learn-article__content learn-hero">
       <block>
         <div>
-          <div v-for="(component, index) in $context.components"
-                :key="index">
-            <component v-if="component.comp_name === 'article-hero'" id="example-content" :is="component.comp_name" v-bind="component">
+          <div v-for="(component, index) in $context.components" :key="index">
+            <component
+              v-if="component.comp_name === 'article-hero'"
+              id="example-content"
+              :is="component.comp_name"
+              v-bind="component"
+            >
               {{ component.content ? component.content : "" }}
             </component>
           </div>
@@ -22,13 +24,10 @@
       </block>
     </column>
 
-    
     <!-- Main content -->
-    <column
-      class="bg-black-gradient learn-article__content"
-    >
+    <column class="bg-black-gradient learn-article__content">
       <block>
-        <nav  class="learn-anchors">
+        <nav class="learn-anchors">
           <div
             v-for="(anchor_lvl_1, index) in anchorListFinal"
             :key="index"
@@ -44,10 +43,16 @@
                 v-on:click="anchor_lvl_1.isOpen = !anchor_lvl_1.isOpen"
               >
                 <img
-                  :class="anchor_lvl_1.isOpen ? 'anchor__control--is-open' : 'anchor__control--is-closed'"
+                  :class="
+                    anchor_lvl_1.isOpen
+                      ? 'anchor__control--is-open'
+                      : 'anchor__control--is-closed'
+                  "
                   v-show="anchor_lvl_1.nested !== 0"
-                  src="../assets/chev-learn.svg" alt="" />
-                  <!-- <p>{{anchor_lvl_1.nested}}</p> -->
+                  src="../assets/chev-learn.svg"
+                  alt=""
+                />
+                <!-- <p>{{anchor_lvl_1.nested}}</p> -->
               </button>
             </div>
             <div
@@ -70,9 +75,15 @@
                   v-on:click="anchor_lvl_2.isOpen = !anchor_lvl_2.isOpen"
                 >
                   <img
-                    :class="anchor_lvl_2.isOpen ? 'anchor__control--is-open' : 'anchor__control--is-closed'"
+                    :class="
+                      anchor_lvl_2.isOpen
+                        ? 'anchor__control--is-open'
+                        : 'anchor__control--is-closed'
+                    "
                     v-show="anchor_lvl_2.nested.length !== 0"
-                    src="../assets/chev-learn.svg" alt="" />
+                    src="../assets/chev-learn.svg"
+                    alt=""
+                  />
                   <!-- <span>{{anchor_lvl_2.nested.length !== 0 }}</span> -->
                 </button>
               </div>
@@ -99,9 +110,16 @@
           </div>
         </nav>
         <div>
-          <div v-for="(component, index) in $context.components"
-                :key="index">
-            <component v-if="component.comp_name !== 'carousel' && component.comp_name !== 'article-hero'" id="example-content" :is="component.comp_name" v-bind="component">
+          <div v-for="(component, index) in $context.components" :key="index">
+            <component
+              v-if="
+                component.comp_name !== 'carousel' &&
+                component.comp_name !== 'article-hero'
+              "
+              id="example-content"
+              :is="component.comp_name"
+              v-bind="component"
+            >
               {{ component.content ? component.content : "" }}
             </component>
           </div>
@@ -110,14 +128,18 @@
     </column>
     <!-- Carousel -->
     <column
-    mode="full"
+      mode="full"
       class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
     >
       <block>
         <div>
-          <div v-for="(component, index) in $context.components"
-                :key="index">
-            <component v-if="component.comp_name === 'carousel'" id="example-content" :is="component.comp_name" v-bind="component">
+          <div v-for="(component, index) in $context.components" :key="index">
+            <component
+              v-if="component.comp_name === 'carousel'"
+              id="example-content"
+              :is="component.comp_name"
+              v-bind="component"
+            >
               {{ component.content ? component.content : "" }}
             </component>
           </div>
@@ -142,7 +164,7 @@ export default {
     return {
       anchorList: [],
       anchorListFinal: [],
-      submenuIsOpen: true
+      submenuIsOpen: true,
     };
   },
   methods: {
@@ -150,8 +172,6 @@ export default {
     //   let submenuTarget;
     //   submenuTarget = document.querySelectorAll(arg);
     //   this.submenuIsOpen = !this.submenuIsOpen;
-
-
 
     //   console.log(this.submenuIsOpen);
     //   console.log()
@@ -261,7 +281,7 @@ export default {
     border-radius: 10px;
     padding: var(--f-gutter);
     @include respond-to("<=m") {
-     position: inherit;       
+      position: inherit;
     }
     &__grid {
       display: grid;
@@ -336,19 +356,13 @@ export default {
       &.lvl {
         &--01 {
           padding-left: 0;
-
-
         }
 
         &--02 {
-
-
           padding-left: 11px;
         }
 
         &--03 {
-
-
           margin-left: 11px;
           margin-top: 0;
           padding-left: 11px;
@@ -362,7 +376,7 @@ export default {
     &__dynamic-breadcrumb {
       .content {
         height: 0;
-  
+
         .box {
           height: 0;
 

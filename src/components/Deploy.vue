@@ -206,7 +206,7 @@ export default {
           display: grid;
           text-align: center;
           @include respond-to("<=m") {
-            text-align: left;  
+            text-align: left;
           }
           .header {
             color: var(--color-analog-secondary-gray);
@@ -244,7 +244,7 @@ export default {
         margin: 0;
         transition: 2s ease;
         @include respond-to("<=m") {
-         text-align: left !important;       
+          text-align: left !important;
         }
         &.vanish {
           color: var(--color-analog-tertiary-yellow);

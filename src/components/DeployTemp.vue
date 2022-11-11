@@ -34,7 +34,8 @@
 
       <section class="scrt-deploytemp__control__status" v-if="deployment">
         <p class="scrt-deploytemp__control__status__message vanish">
-          Deploy started at <span> {{currentTime}} </span>, it can take up to 8 minutes
+          Deploy started at <span> {{ currentTime }} </span>, it can take up to
+          8 minutes
         </p>
       </section>
     </section>
@@ -48,14 +49,18 @@ export default {
       counterClicks: 0,
       showDeployButton: false,
       deployment: false,
-      currentTime: ""
+      currentTime: "",
     };
   },
   methods: {
     deploy() {
-      this.deployment = true;  
+      this.deployment = true;
       var currentDate = new Date();
-      this.currentTime = currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })   
+      this.currentTime = currentDate.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
       fetch(
         "https://api.render.com/deploy/srv-c9pcuons437om8ugf2k0?key=2fvI1p8NSa4"
       );
@@ -65,8 +70,7 @@ export default {
       if (this.counterClicks == 5) {
         this.showDeployButton = true;
       }
-    }
-    
+    },
   },
   mounted() {},
 };
@@ -130,5 +134,4 @@ export default {
     }
   }
 }
-
 </style>

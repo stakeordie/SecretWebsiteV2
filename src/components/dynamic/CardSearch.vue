@@ -31,7 +31,7 @@
                 v-model="checkedCategories"
               />
               <span class="title">
-                {{category.tag}}
+                {{ category.tag }}
                 <img src="../../assets/icon-remove-filter.svg" alt="" />
               </span>
             </label>
@@ -263,7 +263,7 @@ export default {
       color: var(--color-ver2-primary-orange);
       text-transform: uppercase;
     }
-  
+
     h2 {
       font-family: var(--f-default-headers-font);
       font-size: 36px;

@@ -130,7 +130,7 @@
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
                   <p>
-                    {{element.description}}
+                    {{ element.description }}
                   </p>
                   <!-- <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -574,7 +574,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     margin-top: 0;
     align-content: start;
     text-align: center;
-    
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -642,12 +641,10 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
       }
     }
 
-
     //////////////////////////////////////////
     // CARDS GRID
 
     & .elements-container {
-
       .elements-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 275px));
@@ -686,7 +683,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &.hidden {
             display: none;
           }
-          
 
           &__overall-link {
             display: grid;
@@ -695,8 +691,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             @include respond-to("<=xs") {
               gap: 12px;
             }
-            
-            
 
             & .card-element__header {
               position: relative;
@@ -709,9 +703,9 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 width: auto;
               }
             }
-            
+
             &:hover .card-element__title-desc {
-            background: var(--color-neutral-dark-mode-04);
+              background: var(--color-neutral-dark-mode-04);
             }
           }
 

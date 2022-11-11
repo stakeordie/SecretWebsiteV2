@@ -20,9 +20,7 @@
             </div>
             <div class="service-jobs__list__item__link__container__meta">
               <span
-                class="
-                  service-jobs__list__item__link__container__meta__position
-                "
+                class="service-jobs__list__item__link__container__meta__position"
                 >{{ item.title }}</span
               >
               <span
@@ -31,10 +29,7 @@
               >
 
               <span
-                class="
-                  service-jobs__list__item__link__container__meta__info
-                  location
-                "
+                class="service-jobs__list__item__link__container__meta__info location"
               >
                 <img
                   src="	https://secretjobs.niceboard.co/static/img/icon-location.png"
@@ -62,13 +57,10 @@
             </div>
             <div class="service-jobs__list__item__link__container__actions">
               <span
-                class="
-                  service-jobs__list__item__link__container__actions__timeago
-                "
+                class="service-jobs__list__item__link__container__actions__timeago"
               >
                 {{ item.published_at | formatDate }}
               </span>
-              
             </div>
           </div>
         </a>
@@ -139,7 +131,7 @@ export default {
   computed: {
     jobsItems() {
       const content = this.mapArray(this.columns);
-      
+
       return content;
     },
   },
@@ -251,13 +243,10 @@ export default {
               font-size: 11px;
               font-weight: 300;
             }
-
-            
           }
         }
       }
     }
   }
 }
-
 </style>
