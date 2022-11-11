@@ -134,6 +134,7 @@ import GeneralCtas from "~/components/page/GeneralCtas";
 import LearnPortalHero from "~/components/page/LearnPortalHero";
 
 import LandingSneakPeekEvent from "~/components/page/LandingSneakPeekEvent";
+import SummitThankYou from "~/components/page/SummitThankYou";
 
 // Dynamic
 import TextColumnSingle from "~/components/dynamic/TextColumnSingle";
@@ -293,6 +294,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("LearnPortalHero", LearnPortalHero);
   Vue.component("LearnHeader", LearnHeader);
   Vue.component("LandingEventSneakPeek", LandingEventSneakPeek);
+  Vue.component("SummitThankYou", SummitThankYou);
 
   Vue.component("LandingSneakPeekEvent", LandingSneakPeekEvent);
 
