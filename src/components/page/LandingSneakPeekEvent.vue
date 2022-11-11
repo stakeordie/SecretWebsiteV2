@@ -136,7 +136,7 @@ export default {
   background-attachment: fixed;
   // background-position-y: 69px;
 }
-.summit {
+.summit-index {
    background: url("../../assets/events/summit/secret-summit-background.svg");
    @include bgSpecs();
 
