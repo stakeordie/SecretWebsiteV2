@@ -121,7 +121,7 @@ body {
   }
 } */
 
-.summit-thankyou {
+.summit-thank-you {
   background: url("../../assets/events/summit/secret-summit-background.svg");
   .landing-event-sneak-peek {
     transition: 0.2s ease;
