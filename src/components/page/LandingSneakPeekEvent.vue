@@ -45,15 +45,22 @@
           Let’s talk about the past, present, and future of Web3 privacy
           together.
         </p>
-        <btn class="no-arrow" url="https://secretsummit2022.eventbrite.com"
-          >SAVE MY SPOT</btn
+
+        <a
+          class="landing-event-sneak-peek__cta"
+          href="http://secretsummit2022.eventbrite.com"
+          target="_blank"
+          rel="noopener noreferrer"
         >
+          <img
+            src="../../assets/events/summit/check-circle-lightest.svg"
+            alt="check icon"
+          />
+          <span>Save my spot</span>
+        </a>
       </div>
 
       <event-countdown></event-countdown>
-      <general-ctas id="get-started"></general-ctas>
-      <general-ctas id="build-on-secret"></general-ctas>
-      <general-ctas id="join-the-community"></general-ctas>
     </div>
   </section>
 </template>
@@ -130,6 +137,9 @@ export default {
   // background-position-y: 69px;
 }
 .summit {
+   background: url("../../assets/events/summit/secret-summit-background.svg");
+   @include bgSpecs();
+
   .landing-event-sneak-peek {
     transition: 0.2s ease;
     opacity: 0;
@@ -143,7 +153,8 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../../assets/events/summit/secret-summit-graphic-2.svg");
+    background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
+    @include bgSpecs();
     &.visible {
       opacity: 1;
     }
@@ -151,35 +162,28 @@ export default {
       overflow-y: scroll;
       padding-top: calc(230px + var(--sum-heights));
       padding-bottom: 33px;
-      background: url("../../assets/events/summit/secret-summit-graphic-2-mobile.svg");
-      @include bgSpecs();
+      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left top;
     }
-    @include bgSpecs();
     @include respond-to("<=m") {
-      background: url("../../assets/events/summit/secret-summit-graphic-2-medium-portrait.svg");
-      @include bgSpecs();
+      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
       background-position-x: right;
       background-position-y: 69px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left top;
     }
     @include respond-to(">=l") {
-      background: url("../../assets/events/summit/secret-summit-graphic-landscape.svg");
       overflow-y: scroll;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
-      &::-webkit-scrollbar {
-        // display: none;
-      }
-      @include bgSpecs();
     }
     @include respond-to(">=xl") {
-      background: url("../../assets/events/summit/secret-summit-graphic-2.svg");
       overflow-y: scroll;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
-      &::-webkit-scrollbar {
-        // display: none;
-      }
-      @include bgSpecs();
     }
     display: grid;
     grid-auto-rows: min-content;
@@ -192,6 +196,37 @@ export default {
       color: var(--color-neutral-dark-mode-06);
     }
 
+    &__cta {
+      background: var(--color-newBrand-blue-03);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      max-width: 261px;
+      padding: 22px 0;
+      border-radius: 100px;
+
+      font-size: 20px !important;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      @include respond-to("<=m") {
+        margin: auto;
+      }
+
+      &:hover {
+        color: inherit;
+      }
+
+      span {
+        padding-top: 3px;
+      }
+    }
+
     &__content {
       max-width: 640px;
       display: flex;
@@ -199,8 +234,6 @@ export default {
       flex-direction: column;
       gap: 16px;
       padding: 16px;
-      background: rgba(26, 29, 40, 0.6);
-      backdrop-filter: blur(5px);
 
       border-radius: 16px;
 
@@ -250,7 +283,8 @@ export default {
         color: var(--color-ver2-secondary-blue);
         text-transform: uppercase;
         margin-bottom: 4px;
-        // margin-top: 20px;
+        font-weight: 700;
+        letter-spacing: 1px;
 
         @include respond-to("<=s") {
           margin-top: 0;
