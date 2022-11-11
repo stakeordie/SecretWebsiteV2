@@ -2,30 +2,34 @@
   <div class="blog-filter">
     <h4>Filters</h4>
     <ul>
-      <li v-for="{node:filter} in theFilters"
-          :key="filter.name | lowerCase"
-          @click="applyFilter">
-        {{ filter.name | capitalize}}
+      <li
+        v-for="{ node: filter } in theFilters"
+        :key="filter.name | lowerCase"
+        @click="applyFilter"
+      >
+        {{ filter.name | capitalize }}
         <div class="checkbox">
-          <input type="checkbox" :id="filter.name | lowerCase" :value="filter.name | lowerCase">
+          <input
+            type="checkbox"
+            :id="filter.name | lowerCase"
+            :value="filter.name | lowerCase"
+          />
           <label :for="filter.name | lowerCase"></label>
         </div>
-
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      appliedFilters: []
-    }
+      appliedFilters: [],
+    };
   },
-  props:{
-    tags:undefined
+  props: {
+    tags: Array,
   },
   methods: {
     applyFilter(event) {
@@ -34,36 +38,38 @@ export default {
       if (checked) {
         this.appliedFilters.push(value);
       } else {
-        const index = this.appliedFilters.findIndex(it => it === value);
+        const index = this.appliedFilters.findIndex((it) => it === value);
         if (index != -1) {
           this.appliedFilters.splice(index, 1);
         }
       }
 
-      this.$emit('blog-filter:filter-applied', this.appliedFilters);
-    }
+      this.$emit("blog-filter:filter-applied", this.appliedFilters);
+    },
   },
 
   computed: {
     theFilters() {
-      return this.tags.sort((f1, f2) => f1.node.name === f2.node.name ? 0 : f1.node.name > f2.node.name ? 1 : -1)
-    }
+      const tags = [...this.tags];
+      return tags.sort((f1, f2) =>
+        f1.node.name === f2.node.name ? 0 : f1.node.name > f2.node.name ? 1 : -1
+      );
+    },
   },
-  filters:{
+  filters: {
     capitalize: function (value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     },
     lowerCase: function (value) {
-      if (!value) return ''
-      value = value.toString()
+      if (!value) return "";
+      value = value.toString();
       return value.toLowerCase();
-    }
+    },
   },
-}
+};
 </script>
-
 
 <style lang="scss">
 @import "../../sass/functions/theme";
@@ -79,7 +85,7 @@ export default {
       // flex-flow: wrap;
       grid-template-columns: min-content auto;
       display: grid;
-      grid-template-columns: repeat(6,auto);
+      grid-template-columns: repeat(6, auto);
     }
     li {
       display: flex;
@@ -99,7 +105,7 @@ export default {
           background-image: url("../../assets/icon-checkbox-unchecked.svg");
         }
 
-        input[type=checkbox] {
+        input[type="checkbox"] {
           visibility: hidden;
 
           &:checked + label {
@@ -113,5 +119,4 @@ export default {
     }
   }
 }
-
 </style>

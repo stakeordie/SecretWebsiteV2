@@ -1,15 +1,14 @@
 <template>
   <default-layout class="blog">
     <!-- swirl -->
-<column class="purple__swirl__top" mode="full">
-
-<block>
-
-<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" /> 
-
-</block>
-
-</column>
+    <column class="purple__swirl__top" mode="full">
+      <block>
+        <img
+          class="get-scrt__align-img"
+          src="../../src/assets/swirl-purple-top.svg"
+        />
+      </block>
+    </column>
     <hero-title>
       <h2>Secret Network Blog</h2>
     </hero-title>
@@ -50,15 +49,14 @@
     </column>
 
     <!-- swirl -->
-<column class="purple__swirl__bottom" mode="full">
-
-<block>
-
-<img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" />
-
-</block>
-
-</column>
+    <column class="purple__swirl__bottom" mode="full">
+      <block>
+        <img
+          class="get-scrt__align-img"
+          src="../../src/assets/swirl-purple-bottom.svg"
+        />
+      </block>
+    </column>
   </default-layout>
 </template>
 
@@ -67,9 +65,9 @@ import DefaultLayout from "../layouts/DefaultLayout";
 // import BlogPosts from "@/components/blog/BlogPosts";
 // import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
 
-import BlogFeaturedPostsV2 from '../components/blog/BlogFeaturedPostsV2.vue';
-import BlogFilterV2 from '../components/blog/BlogFilterV2.vue';
-import BlogPostsV2 from '../components/blog/BlogPostsV2.vue';
+import BlogFeaturedPostsV2 from "../components/blog/BlogFeaturedPostsV2.vue";
+import BlogFilterV2 from "../components/blog/BlogFilterV2.vue";
+import BlogPostsV2 from "../components/blog/BlogPostsV2.vue";
 
 export default {
   components: {
@@ -285,7 +283,6 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-
 .horizontal-slider {
   .content {
     overflow: hidden;
@@ -296,7 +293,6 @@ export default {
       overflow: auto;
       max-width: 99vw;
       scroll-behavior: smooth;
-
 
       @include respond-to("<=m") {
         max-width: 100vw;
@@ -335,7 +331,6 @@ export default {
     }
 
     .blog-card-featured-v2 {
-
       border-radius: var(--f-radius);
       //background: var(--theme-card-bg-default);
       transition: 0.2s ease;
@@ -353,7 +348,7 @@ export default {
       overflow: hidden;
 
       @include respond-to("<=xs") {
-       margin-right: var(--f-gutter);
+        margin-right: var(--f-gutter);
       }
     }
   }

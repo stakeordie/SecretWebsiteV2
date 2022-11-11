@@ -10,8 +10,6 @@
       <p>/</p>
       <a href="#">Article </a>
     </div>
-
-
   </div>
 </template>
 
@@ -25,12 +23,10 @@ export default {};
 .learn-breadcrumbs {
   padding: 26px 42px 0 42px;
 
-  &__content{
+  &__content {
     padding: var(--f-gutter);
     display: flex;
     gap: var(--f-gutter);
-  
-
 
     @include respond-to("<=s") {
       padding: 32px 0 16px 0;

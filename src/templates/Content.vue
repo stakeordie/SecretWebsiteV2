@@ -81,7 +81,7 @@ export default {
       } else {
         filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
-    
+
       //console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];

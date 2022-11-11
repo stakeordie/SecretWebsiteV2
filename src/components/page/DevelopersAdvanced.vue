@@ -5,7 +5,8 @@
       <div
         class="page-developer-advanced__cards__box"
         v-for="(item, index) in material"
-        :key="index">
+        :key="index"
+      >
         <a :href="item.url" class="page-developer-advanced__cards__box__card">
           <img :src="item.imageUrl" alt="" />
           <div class="page-developer-advanced__cards__box__card__content">
@@ -30,7 +31,8 @@ export default {
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
           urlTitle: "View guide",
-          url: "https://docs.scrt.network/secret-network-documentation/node-runners",
+          url:
+            "https://docs.scrt.network/secret-network-documentation/node-runners",
         },
         {
           imageUrl: "/img/developers/icon-features-file.svg",
@@ -38,7 +40,8 @@ export default {
           description:
             "Learn how to set up and run an IBC relayer to facilitate communication with the wider Cosmos ecosystem.",
           urlTitle: "View template",
-          url: "https://docs.scrt.network/secret-network-documentation/node-runners/ibc-relayers",
+          url:
+            "https://docs.scrt.network/secret-network-documentation/node-runners/ibc-relayers",
         },
       ],
     };
@@ -103,7 +106,6 @@ export default {
           .link-arrow {
             padding: 0;
             margin-top: 0%;
-            
           }
         }
       }

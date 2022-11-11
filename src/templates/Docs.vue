@@ -21,13 +21,16 @@ export default {
     return {
       title: this.$page.doc.title,
       meta: [
-        { key: 'description', name: 'description', content: this.$page.doc.description }
-      ]
-    }
-  }
-}
+        {
+          key: "description",
+          name: "description",
+          content: this.$page.doc.description,
+        },
+      ],
+    };
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 @import "../sass/docs/config/_maps.scss";
@@ -35,7 +38,7 @@ export default {
 @import "../sass/docs/config/_mixins.scss";
 @import "../sass/docs/config/_functions.scss";
 :deep(p) {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 :deep(h2) {
@@ -55,19 +58,19 @@ export default {
   padding-bottom: 50vh;
 }
 
-h1{
+h1 {
   font-size: var(--f-h2-text-size);
 }
-h2{
+h2 {
   font-size: var(--f-h3-text-size);
 }
-h3{
+h3 {
   font-size: var(--f-h4-text-size);
 }
-h4{
+h4 {
   font-size: var(--f-h5-text-size);
-} 
-h5{
+}
+h5 {
   font-size: var(--f-h6-text-size);
 }
 h1,
@@ -77,12 +80,17 @@ h4 {
   font-weight: 700;
   line-height: 1.2;
 }
-.main{
-  h1,h2,h3,h4,h5,h6{
-    font-family: 'Hind';
+.main {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Hind";
   }
 }
 h1 {
-  margin-top: 0; 
+  margin-top: 0;
 }
 </style>

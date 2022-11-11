@@ -4,7 +4,6 @@
       <alert-bar></alert-bar>
       <!-- <header-mega-menu> </header-mega-menu> -->
       <header-mega-menu-v2> </header-mega-menu-v2>
-      
     </template>
 
     <column class="swirl-wrapper swirl-v1 swirl-v2">
@@ -42,7 +41,8 @@
               light-colored
               class="special-mod"
               src="../../src/assets/swirl-about-top.svg"
-              alt="" width="100"
+              alt=""
+              width="100"
               height="100"
             />
             <img
@@ -50,7 +50,8 @@
               dark-colored
               light-colored
               src="../../src/assets/swirl-about-top.svg"
-              alt="" width="100"
+              alt=""
+              width="100"
               height="100"
             />
             <img
@@ -102,7 +103,10 @@
       <slot></slot>
     </page>
 
-    <column v-if="swirlBottomIsVisible" class="swirl-wrapper-bottom swirl-v1 swirl-v2">
+    <column
+      v-if="swirlBottomIsVisible"
+      class="swirl-wrapper-bottom swirl-v1 swirl-v2"
+    >
       <block>
         <div class="swirl bottom v2">
           <themed-image>
@@ -242,7 +246,11 @@
               />
             </g-link>
             <nav class="social-navigation">
-              <a href="https://forum.scrt.network/" target="blank" rel="noopener noreferrer">
+              <a
+                href="https://forum.scrt.network/"
+                target="blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="@/assets/icon-social-forum.svg"
                   alt="Join the Conversation"
@@ -252,7 +260,8 @@
               </a>
               <a
                 href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank" rel="noopener noreferrer"
+                target="blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="@/assets/icon-social-github.svg"
@@ -261,7 +270,11 @@
                   height="24"
                 />
               </a>
-              <a href="https://discord.com/invite/SJK32GY" target="blank" rel="noopener noreferrer">
+              <a
+                href="https://discord.com/invite/SJK32GY"
+                target="blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="@/assets/icon-social-discord.svg"
                   alt="Join the Conversation"
@@ -269,7 +282,11 @@
                   height="24"
                 />
               </a>
-              <a href="https://t.me/SCRTcommunity" target="blank" rel="noopener noreferrer">
+              <a
+                href="https://t.me/SCRTcommunity"
+                target="blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="@/assets/icon-social-telegram.svg"
                   alt="Join the Conversation"
@@ -277,7 +294,11 @@
                   height="24"
                 />
               </a>
-              <a href="https://twitter.com/SecretNetwork" target="blank" rel="noopener noreferrer">
+              <a
+                href="https://twitter.com/SecretNetwork"
+                target="blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="@/assets/icon-social-twitter.svg"
                   alt="Join the Conversation"
@@ -285,7 +306,11 @@
                   height="24"
                 />
               </a>
-              <a href="https://www.instagram.com/scrtnetwork/" target="blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/scrtnetwork/"
+                target="blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="@/assets/icon-social-instagram.svg"
                   alt="Join the Conversation"
@@ -295,7 +320,8 @@
               </a>
               <a
                 href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
-                target="blank" rel="noopener noreferrer"
+                target="blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="@/assets/icon-social-youtube.svg"
@@ -309,13 +335,15 @@
               <p>
                 <a
                   href="https://github.com/SecretFoundation/SecretWebsite"
-                  target="blank" rel="noopener noreferrer"
+                  target="blank"
+                  rel="noopener noreferrer"
                   >Contribute to scrt.network
                 </a>
               </p>
               <a
                 href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank" rel="noopener noreferrer"
+                target="blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="../assets/icon-github.svg"
@@ -1087,13 +1115,12 @@ body {
     object-position: bottom;
   }
   &.top {
-     left: 0;
+    left: 0;
     //  top: 0;
     // bottom: -300px;
     top: 68px;
     &.v2 {
       height: 148px;
-      
     }
     @include respond-to("<=s") {
       // bottom: -300px;
@@ -1213,11 +1240,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 40px;
-    a{
+    a {
       //color: var(--color-newBrand-blue-02) !important;
       &:hover {
-                  color: var(--mega-header-color-nav-exanded-hover) !important;
-                }
+        color: var(--mega-header-color-nav-exanded-hover) !important;
+      }
     }
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
@@ -1240,7 +1267,6 @@ body {
         grid-auto-flow: column;
         grid-auto-columns: max-content;
         gap: var(--f-gutter);
-        
       }
       .contribute-github {
         display: grid;
@@ -1296,7 +1322,7 @@ body {
 }
 .legal {
   // height: 48px;
-  
+
   @include theme(light light-colored) {
     background: var(--color-neutral-light-mode-01);
   }
@@ -1314,17 +1340,17 @@ body {
     .box {
       // align-content: end;
       // display: grid;
-    // grid-template-columns: 1fr 445px;
+      // grid-template-columns: 1fr 445px;
       // background: red;
-    // padding: 40px;
-    padding-left: var(--f-gutter-xl);
-    padding-right: var(--f-gutter-xl);
-        display: grid;
-        width: 100%;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-        grid-auto-flow: column;
+      // padding: 40px;
+      padding-left: var(--f-gutter-xl);
+      padding-right: var(--f-gutter-xl);
+      display: grid;
+      width: 100%;
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-auto-flow: column;
       p,
       a {
         margin: 0;
@@ -1335,29 +1361,28 @@ body {
         grid-auto-flow: column;
         gap: var(--f-gutter);
         justify-content: end;
-    .content {
-      .box {
-        display: grid;
-        align-content: end;
-      }
-    }
-    nav {
-      display: grid;
-      grid-auto-flow: column;
-      justify-content: flex-end;
-      gap: var(--f-gutter);
-      @include respond-to("<=s") {
-        justify-content: center;
-      }
-      a:not(:first-child) {
-        border-left: 1px solid var(--theme-fg);
-        padding-left: var(--f-gutter);
+        .content {
+          .box {
+            display: grid;
+            align-content: end;
+          }
+        }
+        nav {
+          display: grid;
+          grid-auto-flow: column;
+          justify-content: flex-end;
+          gap: var(--f-gutter);
+          @include respond-to("<=s") {
+            justify-content: center;
+          }
+          a:not(:first-child) {
+            border-left: 1px solid var(--theme-fg);
+            padding-left: var(--f-gutter);
+          }
+        }
       }
     }
   }
-    }
-  }
-  
 }
 // .fade-enter-active {
 //   -webkit-animation: swing-in-top-fwd 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;

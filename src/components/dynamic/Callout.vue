@@ -64,8 +64,7 @@ export default {
       ],
     };
   },
-  mounted() {
-  }
+  mounted() {},
 };
 </script>
 
@@ -101,8 +100,8 @@ export default {
     max-width: 500px;
 
     @include respond-to("<=s") {
-       min-width: 100%;
-      }
+      min-width: 100%;
+    }
     * {
       margin: 0;
     }

@@ -4,17 +4,17 @@
     :class="`accent-` + color"
     :to="$tp(`/blog/${slug}`)"
   >
-  <div class="new-blog-card__top">
-   <div class="new-blog-card__body">
-      <div class="new-blog-card__feature-image">
-        <slot name="image"></slot>
+    <div class="new-blog-card__top">
+      <div class="new-blog-card__body">
+        <div class="new-blog-card__feature-image">
+          <slot name="image"></slot>
+        </div>
+        <div class="new-blog-card__tag">
+          <slot name="tag"></slot>
+        </div>
+        <slot name="default"></slot>
       </div>
-      <div class="new-blog-card__tag">
-        <slot name="tag"></slot>
-      </div>
-      <slot name="default"></slot>
     </div>
-  </div>
     <blog-author class="new-blog-card__footer">
       <slot name="footer"></slot>
     </blog-author>
@@ -25,7 +25,7 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
- // announcement: "announcement",
+  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
@@ -48,27 +48,24 @@ const colors = {
   nfts: "orange",
 
   announcement: "announcement",
-  
+
   education: "education",
-  how_tos:"education",
+  how_tos: "education",
   explanations: "education",
-  
+
   dev: "developers",
   developers: "developers",
-  "dev": "developers",
-  'tech updates':"developers",
-  hackathon:"developers",
-  funding:"developers",
+  dev: "developers",
+  "tech updates": "developers",
+  hackathon: "developers",
+  funding: "developers",
 
-  ecosystem:"ecosystem",
-  community:"ecosystem",
-  dapp_launches:"ecosystem",
-  'nft launches':"ecosystem",
-  reports:"ecosystem",
-  recaps:"ecosystem",
-
-
-
+  ecosystem: "ecosystem",
+  community: "ecosystem",
+  dapp_launches: "ecosystem",
+  "nft launches": "ecosystem",
+  reports: "ecosystem",
+  recaps: "ecosystem",
 };
 
 export default {
@@ -107,7 +104,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: (
-"blue",
+  "blue",
   "turquoise",
   "green",
   "yellow",
@@ -116,11 +113,10 @@ $accent-colors: (
   "red",
   "purple",
   "gray",
-  
   "announcement",
   "education",
   "developers",
-  "ecosystem" 
+  "ecosystem"
 );
 
 .new-blog-card {
@@ -142,46 +138,38 @@ $accent-colors: (
   }
 
   &:hover {
-    background: var(--color-neutral-dark-mode-04); 
-    
+    background: var(--color-neutral-dark-mode-04);
   }
 
   @each $name, $color in $accent-colors {
     &.accent-#{$name} {
       &:hover {
-       
       }
 
-      .new-blog-card__top{
+      .new-blog-card__top {
         display: block;
-        
       }
 
-      
-
-      .new-blog-card__body{
-        
-        
+      .new-blog-card__body {
         //height: 48px;
       }
 
-      .new-blog-card__feature-image{
+      .new-blog-card__feature-image {
         border-radius: 10px;
         height: 188px;
         overflow: hidden;
 
-        & img{
+        & img {
           object-fit: cover;
           //width: 368px;
           height: 188px;
           width: 340px;
-
         }
 
         @include respond-to("<=m") {
           height: 144px;
 
-          & img{
+          & img {
             //height: 144px;
           }
         }
@@ -189,11 +177,10 @@ $accent-colors: (
         @include respond-to("<=s") {
           height: 188px;
 
-          & img{
+          & img {
             width: 100%;
           }
         }
-
       }
 
       .new-blog-card__tag {
@@ -205,30 +192,25 @@ $accent-colors: (
         letter-spacing: 1px;
 
         padding-top: 10px;
-
-        
-        
       }
 
       & h5 {
         margin-bottom: 0;
         color: var(--theme-fg);
         font-size: var(--f-default-text-size);
-        font-family: var( --f-default-headers-font);
+        font-family: var(--f-default-headers-font);
         line-height: 20px;
 
         @include respond-to("<=m") {
           font-size: 14px;
         }
-        
+
         & a {
           color: var(--theme-fg);
         }
       }
     }
   }
-
-  
 
   .blog-author {
     justify-content: flex-end;
@@ -258,7 +240,7 @@ $accent-colors: (
       //gap: var(--f-gutter-xxs);
       color: var(--theme-fg);
 
-      & p{
+      & p {
         margin-bottom: 0;
         font-size: 14px;
         font-weight: 500;

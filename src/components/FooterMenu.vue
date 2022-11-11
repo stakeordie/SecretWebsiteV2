@@ -12,14 +12,13 @@
             <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
             <li
               class="nav__expanded__content__item"
-              :class="!it.nav_item.display_on_footer ? 'hideFooterItem': ' '"
+              :class="!it.nav_item.display_on_footer ? 'hideFooterItem' : ' '"
               v-for="(it, index) in nav.nav_items"
               :key="index"
             >
               <!-- <span>{{it.nav_item.external_link}}</span> -->
               <!-- <span>{{it.nav_item.page.route}}</span> -->
               <g-link
-                
                 class="nav__expanded__content__item__link"
                 :to="
                   it.nav_item.page
@@ -386,8 +385,8 @@ export default {
             gap: 16px;
             padding-top: 11px;
             @include respond-to("<=m") {
-                gap: 4px;
-              }
+              gap: 4px;
+            }
             &__title {
               padding: var(--f-gutter);
               font-weight: 600;
@@ -430,7 +429,7 @@ export default {
               &__link-icon {
                 transform: translateY(-2px);
               }
-              &.hideFooterItem{
+              &.hideFooterItem {
                 display: none;
               }
             }

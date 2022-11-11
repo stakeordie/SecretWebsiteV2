@@ -5,20 +5,20 @@
 </template>
 
 <style lang="scss" scoped>
-
 @import "../sass/functions/theme";
 
 .themed-image {
-  img, svg {
+  img,
+  svg {
     display: none;
 
-    &[alt*=black] {
+    &[alt*="black"] {
       @include theme(dark) {
         display: block;
       }
     }
 
-    &[alt*=white] {
+    &[alt*="white"] {
       @include theme(light) {
         display: block;
       }

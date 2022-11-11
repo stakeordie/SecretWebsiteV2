@@ -1,6 +1,10 @@
 <template>
   <section class="page-developer-pathway">
-    <div class="page-developer-pathway__inside" v-for="(path, index) in sectionContent" :key="index" >
+    <div
+      class="page-developer-pathway__inside"
+      v-for="(path, index) in sectionContent"
+      :key="index"
+    >
       <div class="page-developer-pathway__description">
         <h6 v-if="path.node.subtitle">
           {{ path.node.subtitle }}
@@ -9,23 +13,23 @@
         <p>{{ path.node.description }}</p>
       </div>
       <div class="page-developer-pathway__content">
-        <div  v-for="(resource, index) in path.node.resource" :key="index">
+        <div v-for="(resource, index) in path.node.resource" :key="index">
           <ul class="page-developer-pathway__content__box">
-            <a  :href="resource.cta_url"  >
-            <li class="page-developer-pathway__content__box__item">
-              
+            <a :href="resource.cta_url">
+              <li class="page-developer-pathway__content__box__item">
                 <div class="page-developer-pathway__content__box__item__icon">
                   <img src="../../assets/icon-features-file.svg" alt="" />
                 </div>
-                <div class="page-developer-pathway__content__box__item__details">
+                <div
+                  class="page-developer-pathway__content__box__item__details"
+                >
                   <h6>{{ resource.title }}</h6>
                   <p>{{ resource.description }}</p>
                   <btn class="link-arrow" :url="resource.cta_url">
-                    {{resource.cta_title}}
-                    </btn>
+                    {{ resource.cta_title }}
+                  </btn>
                 </div>
-              
-            </li>
+              </li>
             </a>
           </ul>
         </div>
@@ -60,26 +64,27 @@ export default {
     },
   },
   data() {
-    return {      
-      sectionContent: []
+    return {
+      sectionContent: [],
     };
   },
   methods: {
-    getSectionContent(){
+    getSectionContent() {
       this.sectionContent = this.$static.developerPadthways.edges.filter(
-        (it) =>{          
-          if(it.node.id == this.pathId){
-            it.node.resource = it.node.resource.sort((a,b) => a.order - b.order);
+        (it) => {
+          if (it.node.id == this.pathId) {
+            it.node.resource = it.node.resource.sort(
+              (a, b) => a.order - b.order
+            );
             return it;
-          };      
-        } 
-      )      
-    }
+          }
+        }
+      );
+    },
   },
-  mounted(){
+  mounted() {
     this.getSectionContent();
-  }
- 
+  },
 };
 </script>
 
@@ -175,10 +180,10 @@ query {
 
     &__box {
       border-radius: 10px;
-        padding: var(--f-gutter);
-        margin: 0;
+      padding: var(--f-gutter);
+      margin: 0;
 
-      &:hover{
+      &:hover {
         background: var(--color-neutral-dark-mode-04);
       }
       &__item {
@@ -188,10 +193,10 @@ query {
         padding: 0;
         margin: 0;
 
-        &__icon{
+        &__icon {
           color: var(--color-developers-blue-01);
         }
-        
+
         &__details {
           display: grid;
           grid-gap: 4px;

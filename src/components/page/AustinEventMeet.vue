@@ -16,10 +16,16 @@
             class="btn-blue text-center no-arrow special-icon"
             url="https://discord.com/invite/SJK32GY"
           >
-            <img class="special-icon" src="../../assets/icon-social-discord.svg" />
+            <img
+              class="special-icon"
+              src="../../assets/icon-social-discord.svg"
+            />
             Join our Discord
           </btn>
-          <btn  class="text-center no-arrow special-icon" url="https://forum.scrt.network/">
+          <btn
+            class="text-center no-arrow special-icon"
+            url="https://forum.scrt.network/"
+          >
             <img
               class="special-icon"
               src="../../assets/icon-social-forum.svg"
@@ -40,7 +46,7 @@ export default {};
 @import "@lkmx/flare/src/functions/respond-to";
 
 .austin-event-meet {
-    padding: 64px 0;
+  padding: 64px 0;
 
   &__container {
     background: var(--color-neutral-dark-mode-03);
@@ -51,16 +57,16 @@ export default {};
     align-items: center;
     justify-content: center;
 
-    @include respond-to("<=s"){
-        flex-direction: column;
+    @include respond-to("<=s") {
+      flex-direction: column;
     }
 
-    &__image{
-        margin-right: 56px;
-        @include respond-to("<=s"){
+    &__image {
+      margin-right: 56px;
+      @include respond-to("<=s") {
         margin-right: 0;
         margin-bottom: 56px;
-    }
+      }
     }
 
     &__content {
@@ -86,12 +92,12 @@ export default {};
             max-width: 100%;
             min-width: 100%;
           }
-          & span{
-              align-items: center;
-              
-              & img{
-                  vertical-align: sub;
-              }
+          & span {
+            align-items: center;
+
+            & img {
+              vertical-align: sub;
+            }
           }
         }
 
@@ -99,8 +105,8 @@ export default {};
           background-color: var(--color-newBrand-blue-01) !important;
         }
 
-        & .btn-blue:hover{
-            background-color: var(--color-neutral-dark-mode-02) !important;
+        & .btn-blue:hover {
+          background-color: var(--color-neutral-dark-mode-02) !important;
         }
       }
     }

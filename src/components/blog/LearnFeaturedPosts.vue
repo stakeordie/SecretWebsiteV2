@@ -1,13 +1,11 @@
 <template>
   <div>
-    
     <learn-posts-featured :posts="postFeaturedV2"></learn-posts-featured>
   </div>
 </template>
 
 <script>
-import LearnPostsFeatured from './LearnPostsFeatured.vue';
-
+import LearnPostsFeatured from "./LearnPostsFeatured.vue";
 
 export default {
   components: { LearnPostsFeatured },
@@ -15,12 +13,12 @@ export default {
     tagSlug: {
       type: String,
       default: "",
-    }
+    },
   },
   data() {
     return {
-    postFeaturedV2: [],
-    slug: this.slugz
+      postFeaturedV2: [],
+      slug: this.slugz,
     };
   },
   methods: {
@@ -28,16 +26,16 @@ export default {
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
       this.postFeaturedV2 = posts.filter(({ node: post }) => {
-        const selected = post.tags[0] ? post.tags[0].slug : ''
+        const selected = post.tags[0] ? post.tags[0].slug : "";
         // const slag = this.slug
         // console.log(selected)
         if (selected == this.tagSlug) {
-          return selected
+          return selected;
         }
         // if (post.id === "6275700be2d5e80021a6c938") {
         //   console.log(post.tags[0].id === "62757008e2d5e80021a6c87e")
         //   return true;
-        // } 
+        // }
         // else {
         //   const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);
         //   if (hidden.length == 0) return true;

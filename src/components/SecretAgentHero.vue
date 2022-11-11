@@ -1,6 +1,10 @@
 <template>
   <div class="secret-agent__hero">
-    <div class="secret-agent__hero__container" v-for="(hero, index) in secretAgentHero" :key="index">
+    <div
+      class="secret-agent__hero__container"
+      v-for="(hero, index) in secretAgentHero"
+      :key="index"
+    >
       <div class="secret-agent__hero__container__left">
         <h2>{{ hero.title }} Become a <span>Secret Agent</span>.</h2>
         <p>{{ hero.subtitle }}</p>
@@ -29,9 +33,20 @@
           </button>
         </form>
         <h5 class="success" v-if="formSubmitted">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.66663 17.3333L12 22.6667L25.3333 9.33333" stroke="#5AA361" stroke-width="4"
-              stroke-linecap="round" stroke-linejoin="round" />
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.66663 17.3333L12 22.6667L25.3333 9.33333"
+              stroke="#5AA361"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
 
           <span>{{ hero.successful_submission_text }}</span>
@@ -50,15 +65,15 @@
 </template>
 
 <script>
-import mailchimp from '@/apis/mailchimp';
-import md5 from 'md5'
+import mailchimp from "@/apis/mailchimp";
+import md5 from "md5";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       loading: false,
       formSubmitted: false,
-      email: ''
+      email: "",
     };
   },
   methods: {
@@ -78,14 +93,14 @@ export default {
       } finally {
         this.loading = false;
       }
-    }
+    },
   },
   computed: {
     secretAgentHero() {
-      const content = this.$static.secretAgentHero.edges.map(it => it.node);
+      const content = this.$static.secretAgentHero.edges.map((it) => it.node);
       return content;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -114,24 +129,23 @@ export default {
   // background: red ;
   background-image: url("../assets/enrollment-background.jpg");
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: right;
 }
 
-.secret-agent__hero{
+.secret-agent__hero {
   padding: 120px 0 70px 0;
-  &__container{
+  &__container {
     padding: var(--f-gutter);
     display: grid;
     grid-template-columns: 1fr 502px;
     gap: 36px;
-    
 
-    @include respond-to("<=m"){
+    @include respond-to("<=m") {
       grid-template-columns: 1fr;
     }
-    
-    @include respond-to("<=l"){
+
+    @include respond-to("<=l") {
       // grid-template-columns: 2fr 1fr;
     }
 
@@ -141,11 +155,11 @@ export default {
     // @include respond-to("<=m"){
     //   flex-direction: column;
     // }
-    
 
-    &__left{align-self: center;
+    &__left {
+      align-self: center;
 
-      h2{
+      h2 {
         font-family: var(--f-default-headers-font);
         font-size: 48px;
         font-weight: 600;
@@ -154,17 +168,17 @@ export default {
           color: #edc92b;
         }
 
-         @include respond-to("<=m") {
-            font-size: 28px;
-            line-height: 32px;       
-            // letter-spacing: -0.3px;
-          }
-          
-          @include respond-to("<=l") {
-            font-size: 36px;
-            line-height: 48px;       
-            // letter-spacing: -0.3px;
-          }
+        @include respond-to("<=m") {
+          font-size: 28px;
+          line-height: 32px;
+          // letter-spacing: -0.3px;
+        }
+
+        @include respond-to("<=l") {
+          font-size: 36px;
+          line-height: 48px;
+          // letter-spacing: -0.3px;
+        }
       }
 
       .secret-agent-form {
@@ -207,20 +221,20 @@ export default {
       }
     }
 
-    &__right{
+    &__right {
       align-self: center;
       justify-self: center;
       max-width: 100% !important;
 
-      video{
+      video {
         // -object-fit: contain;
         width: 100%;
         cursor: pointer;
       }
 
-       @include respond-to("<=m") {
-          max-width: 100% !important;
-        }
+      @include respond-to("<=m") {
+        max-width: 100% !important;
+      }
     }
   }
 }

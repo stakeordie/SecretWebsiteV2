@@ -2,16 +2,26 @@
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
       <h5 class="featured-media-header__title">Other MEDIA</h5>
-      
+
       <div class="new-blog-grid__title-btns">
-        <btn class="link-arrow " style="justify-content:right" url="/media/features">VIEW ALL</btn>
+        <btn
+          class="link-arrow"
+          style="justify-content: right"
+          url="/media/features"
+          >VIEW ALL</btn
+        >
         <!-- <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn> -->
       </div>
     </div>
 
     <!-- <div class="items horizontal-slider"> -->
     <div class="items">
-      <div v-for="(media, index) in filterMediaItems" :key="index" class="item" :class="`accent-${media.type}-v2`">
+      <div
+        v-for="(media, index) in filterMediaItems"
+        :key="index"
+        class="item"
+        :class="`accent-${media.type}-v2`"
+      >
         <a :href="media.url">
           <img :src="media.picture" :alt="media.title" />
           <p class="type">{{ media.type }}</p>
@@ -28,33 +38,37 @@ export default {
   props: {
     url: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
 
   data() {
     return {
-      mediaItems: []
+      mediaItems: [],
     };
   },
 
   methods: {
-      scroll_left() {
-        let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
-        content.scrollLeft -= 390;
-        //console.log('left');
-      },
-      scroll_right() {
-        let content = document.querySelector(".new-media-featured > .--flare-block > .content > .box");
-        content.scrollLeft += 390;
-        //console.log('right');
-        //console.log(content);
-      },
-
-      onFilterApplied(filters) {
-        this.appliedFilters = filters;
-      }
+    scroll_left() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box"
+      );
+      content.scrollLeft -= 390;
+      //console.log('left');
     },
+    scroll_right() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box"
+      );
+      content.scrollLeft += 390;
+      //console.log('right');
+      //console.log(content);
+    },
+
+    onFilterApplied(filters) {
+      this.appliedFilters = filters;
+    },
+  },
 
   computed: {
     filterMediaItems() {
@@ -63,11 +77,11 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image.url
+          picture: it.cover_image.url,
         };
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -77,131 +91,119 @@ export default {
 
 $accent-colors: (Article, Podcast, Video);
 
-.new-media-featured-home-v2
-{
+.new-media-featured-home-v2 {
   @include respond-to("<=s") {
     padding: var(--f-gutter);
   }
 
   //padding: var(--f-gutter);
-.featured-media-header {
+  .featured-media-header {
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+      color: var(--color-neutral-dark-mode-05);
+      text-transform: uppercase;
+    }
+
+    &__btns {
+      @include respond-to("<=s") {
         display: flex;
-        justify-content: space-between;
-
-        &__title {
-          color: var(--color-neutral-dark-mode-05);
-          text-transform: uppercase;
-        }
-
-        &__btns {
-
-          @include respond-to("<=s") {
-            display: flex;
-          }
-
-          & a {
-            font-family: hind;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-
-            &:hover {
-              & span {
-                color: var(--color-newBrand-blue-01);
-              }
-            }
-          }
-        }
-
       }
 
-      .items {
+      & a {
+        font-family: hind;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+
+        &:hover {
+          & span {
+            color: var(--color-newBrand-blue-01);
+          }
+        }
+      }
+    }
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--f-gutter-l);
+
+    @include respond-to("<=s") {
+      grid-template-columns: 1fr;
+    }
+
+    @include respond-to("m") {
+      gap: var(--f-gutter-s);
+    }
+
+    .item {
+      display: grid;
+      padding: var(--f-gutter);
+      border-radius: var(--f-gutter-s);
+      background: var(--color-neutral-dark-mode-03);
+      transition: 0.2s ease;
+      cursor: pointer;
+
+      a {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--f-gutter-l);
+        width: 100%;
+        height: fit-content;
 
-        @include respond-to("<=s") {
-          grid-template-columns: 1fr;
-        }
-
-        @include respond-to("m") {
-          gap: var(--f-gutter-s);
-        }
-
-        .item {
-          display: grid;
-          padding: var(--f-gutter);
+        img {
           border-radius: var(--f-gutter-s);
-          background: var(--color-neutral-dark-mode-03);
-          transition: 0.2s ease;
-          cursor: pointer;
+          //width: inherit;
+          height: 180px;
+          width: 100%;
+          //min-height: 200px;
+          object-fit: cover;
 
-
-          a {
-            display: grid;
-            width: 100%;
-            height: fit-content;
-
-            img {
-              border-radius: var(--f-gutter-s);
-              //width: inherit;
-              height: 180px;
-              width: 100%;
-              //min-height: 200px;
-              object-fit: cover;
-
-              @include respond-to("m") {
-                height: 144px;
-              }
-
-              
-            }
-
-            .type {
-              margin-top: var(--f-gutter-s);
-              margin-bottom: 0;
-              line-height: 24px;
-              text-transform: uppercase;
-              font-weight: 600;
-              width: 100%;
-              white-space: normal;
-              
-            }
-
-            h6 {
-              margin-bottom: 0;
-              color: var(--color-analog-primary-white);
-              width: 100%;
-              white-space: normal;
-
-              @include respond-to("<=m") {
-                font-size: 14px;
-              }
-            }
+          @include respond-to("m") {
+            height: 144px;
           }
+        }
 
-          @each $name,
-          $color in $accent-colors {
-            &.accent-#{$name}-v2 {
-              &:hover {
-                background: var(--color-neutral-dark-mode-04);
-                box-shadow: none;
-              }
+        .type {
+          margin-top: var(--f-gutter-s);
+          margin-bottom: 0;
+          line-height: 24px;
+          text-transform: uppercase;
+          font-weight: 600;
+          width: 100%;
+          white-space: normal;
+        }
 
-              .type {
-                color: var(--accent-#{$name}-v2);
-                letter-spacing: 1px;
-              }
-            }
+        h6 {
+          margin-bottom: 0;
+          color: var(--color-analog-primary-white);
+          width: 100%;
+          white-space: normal;
+
+          @include respond-to("<=m") {
+            font-size: 14px;
           }
-          
         }
       }
-}
-      
-    
 
+      @each $name, $color in $accent-colors {
+        &.accent-#{$name}-v2 {
+          &:hover {
+            background: var(--color-neutral-dark-mode-04);
+            box-shadow: none;
+          }
+
+          .type {
+            color: var(--accent-#{$name}-v2);
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
 
 <static-query>
@@ -239,9 +241,9 @@ $accent-colors: (Article, Podcast, Video);
 // 	}
 // }
 
-  .new-media-featured {
+.new-media-featured {
   position: relative;
-  
+
   .content {
     .box {
       overflow-x: scroll;
@@ -414,8 +416,4 @@ $accent-colors: (Article, Podcast, Video);
     // }
   }
 }
-
-
-
-
 </style>

@@ -4,17 +4,17 @@
     :class="`accent-` + color"
     :to="$tp(`/blog/${slug}`)"
   >
-  <div class="blog-card-v2__top">
-  <div class="blog-card-v2__body">
-      <div class="blog-card-v2__feature-image">
-        <slot name="image"></slot>
+    <div class="blog-card-v2__top">
+      <div class="blog-card-v2__body">
+        <div class="blog-card-v2__feature-image">
+          <slot name="image"></slot>
+        </div>
+        <div class="blog-card-v2__tag blog-card__tag-color">
+          <slot name="tag"></slot>
+        </div>
+        <slot name="default"></slot>
       </div>
-      <div class="blog-card-v2__tag blog-card__tag-color">
-        <slot name="tag"></slot>
-      </div>
-      <slot name="default"></slot>
     </div>
-  </div>
     <blog-author class="blog-card-v2__footer">
       <slot name="footer"></slot>
     </blog-author>
@@ -24,9 +24,8 @@
 <script>
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
-
 const colors = {
- // announcement: "announcement",
+  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
@@ -49,24 +48,24 @@ const colors = {
   nfts: "orange",
 
   announcement: "announcement",
-  
+
   education: "education",
-  how_tos:"education",
+  how_tos: "education",
   explanations: "education",
-  
+
   dev: "developers",
   developers: "developers",
-  "dev": "developers",
-  'tech updates':"developers",
-  hackathon:"developers",
-  funding:"developers",
+  dev: "developers",
+  "tech updates": "developers",
+  hackathon: "developers",
+  funding: "developers",
 
-  ecosystem:"ecosystem",
-  community:"ecosystem",
-  dapp_launches:"ecosystem",
-  'nft launches':"ecosystem",
-  reports:"ecosystem",
-  recaps:"ecosystem",
+  ecosystem: "ecosystem",
+  community: "ecosystem",
+  dapp_launches: "ecosystem",
+  "nft launches": "ecosystem",
+  reports: "ecosystem",
+  recaps: "ecosystem",
 };
 
 export default {
@@ -114,7 +113,6 @@ $accent-colors: (
   "red",
   "purple",
   "gray",
-  
   "announcement",
   "education",
   "developers",
@@ -141,30 +139,26 @@ $accent-colors: (
 
   &:hover {
     background: var(--color-neutral-dark-mode-04);
-    
   }
 
   @each $name, $color in $accent-colors {
     &.accent-#{$name} {
       &:hover {
-       
       }
 
-      .blog-card-v2__top{
+      .blog-card-v2__top {
         display: block;
-        
       }
 
-      .blog-card-v2__body{
-
+      .blog-card-v2__body {
       }
 
-      .blog-card-v2__feature-image{
+      .blog-card-v2__feature-image {
         border-radius: 10px;
         height: 150px;
         overflow: hidden;
 
-        & img{
+        & img {
           object-fit: cover;
           width: 368px;
           height: 150px;
@@ -172,9 +166,7 @@ $accent-colors: (
           @include respond-to("<=s") {
             width: 100%;
           }
-
         }
-
       }
 
       .blog-card-v2__tag {
@@ -186,24 +178,21 @@ $accent-colors: (
         letter-spacing: 1px;
 
         padding-top: 10px;
-        
       }
 
       & h5 {
         margin-bottom: 0;
         color: var(--theme-fg);
         font-size: 14px;
-        line-height: 20px ;
-        font-family: var( --f-default-headers-font);
-        
+        line-height: 20px;
+        font-family: var(--f-default-headers-font);
+
         & a {
           color: var(--theme-fg);
         }
       }
     }
   }
-
-  
 
   .blog-author {
     justify-content: flex-end;
@@ -233,7 +222,7 @@ $accent-colors: (
       //gap: var(--f-gutter-xxs);
       color: var(--theme-fg);
 
-      & p{
+      & p {
         margin-bottom: 0;
         font-size: 14px;
         font-weight: 500;

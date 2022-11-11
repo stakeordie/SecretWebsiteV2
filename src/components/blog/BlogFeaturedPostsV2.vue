@@ -3,18 +3,18 @@
 </template>
 
 <script>
-import BlogPostsFeaturedV2 from './BlogPostsFeaturedV2.vue';
-
+import BlogPostsFeaturedV2 from "./BlogPostsFeaturedV2.vue";
 
 export default {
   components: { BlogPostsFeaturedV2 },
   data() {
     return {
-    postFeaturedV2: [],
+      postFeaturedV2: [],
     };
   },
   methods: {
     filterPostsFeatured() {
+      console.log(this.$static)
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
       this.postFeaturedV2 = posts.filter(({ node: post }) => {

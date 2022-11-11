@@ -45,12 +45,10 @@
 </template>
 
 <script>
-import BlogCard from "@/components/blog/BlogCard";
 
 const truncateSize = 200;
 
 export default {
-  components: { BlogCard },
   props: {
     posts: {
       type: Array,

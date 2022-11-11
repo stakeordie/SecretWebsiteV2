@@ -46,13 +46,23 @@
             class="event-icon location-icon"
           />
           <p class="event-location">
-            The Venue <a href="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137" target="_blank">map</a> <br />
+            The Venue
+            <a
+              href="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137"
+              target="_blank"
+              >map</a
+            >
+            <br />
             516 E 6th St, Austin, TX
           </p>
         </div>
       </div>
       <div class="austin-event-hero__container__button">
-        <btn class="center-text no-arrow event-button" url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137">Get tickets</btn>
+        <btn
+          class="center-text no-arrow event-button"
+          url="https://www.eventbrite.com/e/the-secret-after-party-with-kevin-smith-tickets-343052458137"
+          >Get tickets</btn
+        >
       </div>
     </div>
   </section>
@@ -84,9 +94,9 @@ export default {};
       margin: auto;
       margin-bottom: 16px;
 
-       @include respond-to("<=s") {
-      height: 60px;
-    }
+      @include respond-to("<=s") {
+        height: 60px;
+      }
     }
 
     & p {

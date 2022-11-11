@@ -1,11 +1,15 @@
 <template>
   <column class="hero-mixed">
-    <block class="hero-mixed-layer-bottom" v-for="(element, index) in sectionContent" :key="index"> 
+    <block
+      class="hero-mixed-layer-bottom"
+      v-for="(element, index) in sectionContent"
+      :key="index"
+    >
       <div
         class="hero-mixed-side-left"
         v-bind:style="{ 'background-color': element.heroColor }"
       ></div>
-       <div class="hero-mixed-side-right">
+      <div class="hero-mixed-side-right">
         <img
           class="hero-mixed-side-right-img"
           :src="element.heroImage.url"
@@ -15,10 +19,14 @@
     </block>
 
     <block class="layer-top">
-      <div class="hero-message" v-for="(element, index) in sectionContent" :key="index">
+      <div
+        class="hero-message"
+        v-for="(element, index) in sectionContent"
+        :key="index"
+      >
         <div class="title">
-          <h6>{{element.heroSubtitle}}</h6>
-          <h2>{{element.heroTitle}}</h2>
+          <h6>{{ element.heroSubtitle }}</h6>
+          <h2>{{ element.heroTitle }}</h2>
         </div>
         <div class="body">
           <vue-markdown :source="element.heroBody"></vue-markdown>
@@ -30,33 +38,33 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
-      showVideo: false
+      showVideo: false,
     };
   },
   props: {
     section: {
-        type: String,
-        required: true
-      },
+      type: String,
+      required: true,
+    },
     accent: {
       type: String,
-      required: false
+      required: false,
     },
     bgColor: {
       type: String,
-      required: false
+      required: false,
     },
     bgImage: {
       type: String,
-      required: false
+      required: false,
     },
     specialMargin: {
       type: Boolean,
       require: false,
-      default: true
-    }
+      default: true,
+    },
   },
   methods: {
     // modifyMainMargin() {
@@ -87,9 +95,9 @@ export default {
       let leftDistance = heroMessageEl.getBoundingClientRect().left;
       bottomLayer.setAttribute(
         "style",
-        `grid-template-columns: ${leftDistance +
-          heroMessageEl.offsetWidth / 2 +
-          "px"} 1fr;`
+        `grid-template-columns: ${
+          leftDistance + heroMessageEl.offsetWidth / 2 + "px"
+        } 1fr;`
       );
 
       // ON RESIZE VALUES
@@ -109,10 +117,10 @@ export default {
       //     // );
       //   }
       // };
-      window.addEventListener("resize", function() {
+      window.addEventListener("resize", function () {
         onResize();
       });
-    }
+    },
   },
   mounted() {
     this.calcHeroMixedSizes();
@@ -122,13 +130,13 @@ export default {
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
-      if(process.isClient) {
-        const accentColor = document.querySelector('.simple-layout')
-        accentColor.style.setProperty('--aboutSp-accent', content[0].heroColor)
+      if (process.isClient) {
+        const accentColor = document.querySelector(".simple-layout");
+        accentColor.style.setProperty("--aboutSp-accent", content[0].heroColor);
       }
       return content;
     },
-  }
+  },
 };
 </script>
 
@@ -248,19 +256,18 @@ query {
   height: 593px;
   overflow: hidden;
 
-  @include respond-to('<=m'){
-              
-  height: auto !important;
-            }
+  @include respond-to("<=m") {
+    height: auto !important;
+  }
 
   &-layer-bottom {
     // position: absolute;
     inset: 0;
 
     .content {
-       width: 100%;
+      width: 100%;
       height: 100%;
-      
+
       .box {
         position: absolute;
         // inset: 0;
@@ -268,32 +275,29 @@ query {
         width: 100%;
 
         .hero-mixed-side {
-        //   &-left {
-        //     background: #ffc7c0;
-        //   }
+          //   &-left {
+          //     background: #ffc7c0;
+          //   }
 
           &-right {
             background: black;
 
-            @include respond-to('<=xs'){
-                display: flex;
-                width: fit-content;
-                height: inherit;
-
-              }
+            @include respond-to("<=xs") {
+              display: flex;
+              width: fit-content;
+              height: inherit;
+            }
             &-img {
-                width: 100%;
-                object-fit: cover;
-              @include respond-to('<=s'){
+              width: 100%;
+              object-fit: cover;
+              @include respond-to("<=s") {
                 width: 100%;
                 object-fit: cover;
               }
             }
-            
           }
         }
       }
-    
     }
   }
 

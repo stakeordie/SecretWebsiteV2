@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html ${htmlAttrs}>
-
-<head>
+  <head>
     ${head}
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5WTBHN7');</script>
-    <!-- End Google Tag Manager -->
-</head>
-
-<body class="body-init" ${bodyAttrs}>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WTBHN7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <button class="search-trigger" style="visibility: hidden;"></button>
-     <div class="search-overlay" data-widget="overlay">
-        <script type="application/json">
-            {
-                "account": "1624488264447761501",
-                "collection": "secret-website",
-                "endpoint": "//jsonapi-us-valkyrie.sajari.net",
-                "pipeline": "website",
-                "filters": [],
-                "options": {
-                    "mode": "overlay",
-                    "sorting": {
-                        "options": [{
-                                "name": "Most relevant",
-                                "value": ""
-                            },
-                            {
-                                "name": "Alphabetical: A to Z",
-                                "value": "title"
-                            },
-                            {
-                                "name": "Alphabetical: Z to A",
-                                "value": "-title"
-                            },
-                            {
-                                "name": "Date: Oldest to Newest",
-                                "value": "published_time"
-                            },
-                            {
-                                "name": "Date: Newest to Oldest",
-                                "value": "-published_time"
-                            }
-                        ]
-                    },
-                    "input": {
-                        "hide": false
-                    },
-                    "results": {
-                        "viewType": "list",
-                        "showImage": false
-                    },
-                    "syncURL": "replace",
-                    "buttonSelector": ".search-trigger"
-                },
-                "theme": {
-                    "color": {
-                        "primary": {
-                            "base": "#816da8",
-                            "text": "#ffffff",
-                            "active": "#816da8"
-                        }
-                    }
-                }
-            }
-
-        </script>
-        <noscript>This page requires JavaScript</noscript>
-    </div>
-    <script async src="https://cdn.sajari.com/embed/1/loader.js"></script> 
     <script>
-        (function () {
-            let theme = localStorage.getItem('theme')
-            if (!theme) theme = 'dark-colored'
-            const [body] = document.getElementsByTagName('body')
-            if (!body) return
-            body.setAttribute('theme', theme.trim())
-        })();
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5WTBHN7");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
 
+  <body class="body-init" ${bodyAttrs}>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5WTBHN7"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <button class="search-trigger" style="visibility: hidden"></button>
+    <div class="search-overlay" data-widget="overlay">
+      <script type="application/json">
+        {
+          "account": "1624488264447761501",
+          "collection": "secret-website",
+          "endpoint": "//jsonapi-us-valkyrie.sajari.net",
+          "pipeline": "website",
+          "filters": [],
+          "options": {
+            "mode": "overlay",
+            "sorting": {
+              "options": [
+                {
+                  "name": "Most relevant",
+                  "value": ""
+                },
+                {
+                  "name": "Alphabetical: A to Z",
+                  "value": "title"
+                },
+                {
+                  "name": "Alphabetical: Z to A",
+                  "value": "-title"
+                },
+                {
+                  "name": "Date: Oldest to Newest",
+                  "value": "published_time"
+                },
+                {
+                  "name": "Date: Newest to Oldest",
+                  "value": "-published_time"
+                }
+              ]
+            },
+            "input": {
+              "hide": false
+            },
+            "results": {
+              "viewType": "list",
+              "showImage": false
+            },
+            "syncURL": "replace",
+            "buttonSelector": ".search-trigger"
+          },
+          "theme": {
+            "color": {
+              "primary": {
+                "base": "#816da8",
+                "text": "#ffffff",
+                "active": "#816da8"
+              }
+            }
+          }
+        }
+      </script>
+      <noscript>This page requires JavaScript</noscript>
+    </div>
+    <script async src="https://cdn.sajari.com/embed/1/loader.js"></script>
+    <script>
+      (function () {
+        let theme = localStorage.getItem("theme");
+        if (!theme) theme = "dark-colored";
+        const [body] = document.getElementsByTagName("body");
+        if (!body) return;
+        body.setAttribute("theme", theme.trim());
+      })();
     </script>
 
     ${app} ${scripts}
-
-</body>
-
+  </body>
 </html>

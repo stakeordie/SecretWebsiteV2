@@ -1,7 +1,11 @@
 <template>
-  <g-link class="blog-card-featured-v2 cta" :class="`accent-`+color" :to="$tp(`/blog/${slug}`)">
- <div class="blog-card-featured-v2-container">
-   <div class="blog-card-featured-v2__body">
+  <g-link
+    class="blog-card-featured-v2 cta"
+    :class="`accent-` + color"
+    :to="$tp(`/blog/${slug}`)"
+  >
+    <div class="blog-card-featured-v2-container">
+      <div class="blog-card-featured-v2__body">
         <div class="blog-card-featured-v2__tag">
           <slot name="image"></slot>
           <slot class="card-tag" name="tag"></slot>
@@ -11,15 +15,14 @@
       <blog-author class="blog-card-featured-v2__footer">
         <slot name="footer"></slot>
       </blog-author>
- </div>
+    </div>
   </g-link>
 </template>
 
 <script>
-  import BlogAuthor from '@/components/blog/BlogAuthor'
-  
+import BlogAuthor from "@/components/blog/BlogAuthor";
 
-  const colors = {
+const colors = {
   // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
@@ -43,65 +46,62 @@
   nfts: "orange",
 
   announcement: "announcement",
-  
+
   education: "education",
-  how_tos:"education",
+  how_tos: "education",
   explanations: "education",
-  
+
   dev: "developers",
   developers: "developers",
-  "dev": "developers",
-  'tech updates':"developers",
-  hackathon:"developers",
-  funding:"developers",
+  dev: "developers",
+  "tech updates": "developers",
+  hackathon: "developers",
+  funding: "developers",
 
-  ecosystem:"ecosystem",
-  community:"ecosystem",
-  dapp_launches:"ecosystem",
-  'nft launches':"ecosystem",
-  reports:"ecosystem",
-  recaps:"ecosystem",
+  ecosystem: "ecosystem",
+  community: "ecosystem",
+  dapp_launches: "ecosystem",
+  "nft launches": "ecosystem",
+  reports: "ecosystem",
+  recaps: "ecosystem",
+};
 
-  }
-
-  export default {
-    components: {
-      BlogAuthor
+export default {
+  components: {
+    BlogAuthor,
+  },
+  props: {
+    tag: {
+      type: String,
+      required: false,
+      default: "",
     },
-    props: {
-      tag: {
-        type: String,
-        required: false,
-        default: ''
-      },
-      slug: {
-        type: String,
-        required: false,
-        default: ''
-      }
+    slug: {
+      type: String,
+      required: false,
+      default: "",
     },
-    data() {
-      return {
-        color: ''
-      }
+  },
+  data() {
+    return {
+      color: "",
+    };
+  },
+  created() {
+    this.color = this.getColor();
+  },
+  methods: {
+    getColor() {
+      return colors[this.tag.toLowerCase()];
     },
-    created() {
-      this.color = this.getColor()
-    },
-    methods: {
-      getColor() {
-        return colors[this.tag.toLowerCase()]
-
-      }
-    }
-  }
-
+  },
+};
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 $accent-colors: (
-"blue",
+  "blue",
   "turquoise",
   "green",
   "yellow",
@@ -110,84 +110,76 @@ $accent-colors: (
   "red",
   "purple",
   "gray",
-  
   "announcement",
   "education",
   "developers",
-  "ecosystem" 
+  "ecosystem"
 );
 
-  .blog-card-featured-v2 {
+.blog-card-featured-v2 {
+  &-container {
+    border-radius: var(--f-radius);
+    overflow: hidden; //background: var(--theme-card-bg-default);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    height: 424px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--f-gutter);
 
-    &-container{
-      border-radius: var(--f-radius);
-      overflow: hidden;//background: var(--theme-card-bg-default);
-      transition: 0.3s ease-in-out;
-      cursor: pointer;
-      height: 424px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: var(--f-gutter);
-
-      @include respond-to("<=s") {
-        min-height: auto;
-        width: 320px;
-      }
-      
-
-      &:hover {
-        background: var(--color-neutral-dark-mode-04);
-        
-      }
+    @include respond-to("<=s") {
+      min-height: auto;
+      width: 320px;
     }
-    
-  
 
-    @each $name,
-    $color in $accent-colors {
-      &.accent-#{$name} {
-        background: var(--color-neutral-dark-mode-03);
+    &:hover {
+      background: var(--color-neutral-dark-mode-04);
+    }
+  }
 
-        .blog-card-featured-v2__tag {
-          color: var(--accent-#{$name}-v2);
-          text-transform: uppercase;
-          margin-bottom: var(--f-gutter-xs);
-          font-weight: 700;
-          letter-spacing: 1px;
+  @each $name, $color in $accent-colors {
+    &.accent-#{$name} {
+      background: var(--color-neutral-dark-mode-03);
 
-          & img{
-            border-radius: var(--f-radius);
-            overflow: hidden;
-            margin-bottom: var(--f-gutter);
+      .blog-card-featured-v2__tag {
+        color: var(--accent-#{$name}-v2);
+        text-transform: uppercase;
+        margin-bottom: var(--f-gutter-xs);
+        font-weight: 700;
+        letter-spacing: 1px;
 
-            @include respond-to("<=s") {
-              min-height: auto;
-              width: 100%;
-            }
-          }
+        & img {
+          border-radius: var(--f-radius);
+          overflow: hidden;
+          margin-bottom: var(--f-gutter);
 
-          & .card-tag{
-            margin-top: var(--f-gutter);
-            
+          @include respond-to("<=s") {
+            min-height: auto;
+            width: 100%;
           }
         }
 
-        & h5 {
+        & .card-tag {
+          margin-top: var(--f-gutter);
+        }
+      }
+
+      & h5 {
         margin-bottom: 0;
         color: var(--theme-fg);
         font-size: var(--f-default-text-size);
-        font-family: var( --f-default-headers-font);
-        
+        font-family: var(--f-default-headers-font);
+
         & a {
           color: var(--theme-fg);
         }
       }
-      }
     }
+  }
 
-   .blog-card-featured-v2__footer {
+  .blog-card-featured-v2__footer {
     //padding: var(--f-gutter);
     display: grid;
     grid-auto-flow: column;
@@ -198,8 +190,6 @@ $accent-colors: (
     //position: absolute;
     //bottom: 0;
     //left: 0;
-
-
 
     img {
       width: 40px;
@@ -216,22 +206,19 @@ $accent-colors: (
       //gap: var(--f-gutter-xxs);
       //color: var(--theme-fg);
 
-      & div{
+      & div {
         margin-bottom: 0;
         font-size: 14px;
         color: var(--color-neutral-dark-mode-05);
       }
 
-      & p{
+      & p {
         // margin-bottom: 0;
         // font-size: 12px;
         // font-weight: 500;
         // line-height: 20px;
-
-
       }
     }
   }
 }
-
 </style>

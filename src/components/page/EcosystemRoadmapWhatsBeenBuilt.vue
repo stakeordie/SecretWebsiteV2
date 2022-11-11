@@ -9,7 +9,9 @@
         Check out the current ecosystem of Secret Network DApps, tools, and
         products.
       </p>
-      <btn class="bg-invert no-arrow" url="/ecosystem/overview">VIEW ALL SECRET APPS</btn>
+      <btn class="bg-invert no-arrow" url="/ecosystem/overview"
+        >VIEW ALL SECRET APPS</btn
+      >
     </div>
   </div>
 </template>
@@ -38,7 +40,7 @@ export default {
   },
   mounted() {
     // this.removeSwirl(false);
-  }
+  },
 };
 </script>
 
