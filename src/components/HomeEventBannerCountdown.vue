@@ -1,11 +1,22 @@
 <template>
   <section class="home-event-countdown">
-    <event-countdown></event-countdown>
-
-    <h3>until Secret Summit</h3>
-    <h4>COMING IN DECEMBER</h4>
-
-    <btn class="center-text no-arrow" url="../summit">LEARN MORE</btn>
+    <div>
+      <event-countdown></event-countdown>
+      <h3>until Secret Summit</h3>
+      <h4>COMING IN DECEMBER</h4>
+    </div>
+    <a
+      class="button"
+      href="http://secretsummit2022.eventbrite.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="../assets/events/summit/check-circle-lightest.svg"
+        alt="check icon"
+      />
+      <span>Save my spot</span>
+    </a>
   </section>
 </template>
 
@@ -16,45 +27,78 @@ export default {};
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.event-banner {
-  .summit-banner__countdown {
-    margin: 26px auto 26px auto;
-  }
-
-  h3 {
-    margin: 0;
-  }
-  background-image: url("../assets/events/summit/secret-summit-graphic-home.svg");
-  background-size: cover;
-
-  text-align: center;
-
+@mixin bg_specs {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+}
 
-  @include respond-to("<=s") {
-    background-image: linear-gradient(
-        rgba(26, 27, 40, 0.6),
-        rgba(26, 27, 40, 0.6)
-      ),
-      url("../assets/events/summit/secret-summit-graphic-home-mobile.svg");
-  }
+.event-banner {
+  text-align: center;
+  background: url("../assets/events/summit/secret-summit-background-circle-home.svg")
+      bottom no-repeat,
+    url("../assets/events/summit/secret-summit-background.svg") center no-repeat;
+  background-size: cover;
 
-  .event__countdown__wrapper {
-    margin: auto;
-    margin-bottom: 8px;
-  }
+  .summit-banner__countdown {
+    background: url("../assets/events/summit/secret-summit-graphic-home.svg")
+      center no-repeat;
+    background-size: cover;
 
-  .button {
-    background-color: var(--color-ver2-primary-blue) !important;
-    width: 204px !important;
-    margin-left: 0 !important;
-    margin-bottom: 26px !important;
-
-    span {
-      font-size: 16px !important;
+    @include respond-to("<=m") {
+      background-image: url("../assets/events/summit/secret-summit-graphic-home-mobile.svg");
+      background-size: cover;
     }
+  }
+
+  .home-event-countdown {
+    height: 303px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+    h3,
+    h4 {
+      margin: 0;
+    }
+
+    .button {
+      margin: 0;
+      background: var(--color-newBrand-blue-03);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      max-width: 261px;
+      padding: 22px 0;
+      border-radius: 100px;
+      font-size: 20px !important;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      &:hover {
+        color: inherit;
+      }
+
+      span {
+        padding-top: 3px;
+      }
+    }
+
+    .event__countdown__wrapper{
+      margin: 0 auto;
+      .paragraph-wrap {
+        @include respond-to(">=m") {
+          display: none;
+        }
+      }
+    }
+    
   }
 }
 </style>
