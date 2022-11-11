@@ -137,8 +137,8 @@ export default {
   // background-position-y: 69px;
 }
 .summit-index {
-   background: url("../../assets/events/summit/secret-summit-background.svg");
-   @include bgSpecs();
+  background: url("../../assets/events/summit/secret-summit-background.svg");
+  @include bgSpecs();
 
   .landing-event-sneak-peek {
     transition: 0.2s ease;
@@ -159,7 +159,7 @@ export default {
       opacity: 1;
     }
     @include respond-to("<=s") {
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-top: calc(230px + var(--sum-heights));
       padding-bottom: 33px;
       background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
@@ -176,12 +176,12 @@ export default {
       background-position: left top;
     }
     @include respond-to(">=l") {
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
     }
     @include respond-to(">=xl") {
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
     }

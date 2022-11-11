@@ -89,37 +89,7 @@ export default {
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
-  // background-position-y: 69px;
 }
-
-body {
-  overflow-y: hidden;
-}
-
-/* .summit-thankyou{
-  .landing-event-sneak-peek {
-    height: calc(100vh - var(--sum-heights));
-    position: fixed;
-    @include bgSpecs();
-    background: black url("../../assets/events/summit/church-pattern.svg");
-    width: 100%;
-    z-index: 99;
-  }
-
-  .no-padding {
-    margin-bottom: 0;
-    .content {
-      .box {
-        padding: 0;
-        height: fit-content;
-
-        @include respond-to("<=s") {
-          // padding: 8px;
-        }
-      }
-    }
-  }
-} */
 
 .summit-thank-you {
   background: url("../../assets/events/summit/secret-summit-background.svg");
@@ -140,8 +110,7 @@ body {
       opacity: 1;
     }
     @include respond-to("<=s") {
-      overflow-y: scroll;
-      /* padding-top: calc(230px + var(--sum-heights)); */
+      overflow-y: auto;
       padding-bottom: 33px;
       background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
       @include bgSpecs();
@@ -155,22 +124,16 @@ body {
     }
     @include respond-to(">=l") {
       background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
-      &::-webkit-scrollbar {
-        // display: none;
-      }
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
       background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-top: calc(var(--sum-heights));
       padding-bottom: 50px;
-      &::-webkit-scrollbar {
-        // display: none;
-      }
       @include bgSpecs();
     }
     display: grid;
@@ -189,17 +152,11 @@ body {
       display: flex;
       flex-direction: column;
       gap: 16px;
-
       border-radius: 16px;
-
-      // transform: translateX(-240px);
 
       @include respond-to("<=l") {
         margin: auto;
         max-width: 544px !important;
-        // text-align: left;
-
-        // transform: translateX(0px);
       }
       @include respond-to("<=s") {
         max-width: calc(100% - 16px) !important;
@@ -226,11 +183,9 @@ body {
       * {
         margin: 0;
         margin: auto;
-        // text-align: left;
       }
 
       @include respond-to("<=l") {
-        // margin: auto;
         text-align: center;
       }
 
@@ -238,7 +193,6 @@ body {
         color: var(--color-ver2-secondary-blue);
         text-transform: uppercase;
         margin-bottom: 4px;
-        // margin-top: 20px;
 
         @include respond-to("<=s") {
           margin-top: 0;
@@ -271,7 +225,7 @@ body {
     &__description {
       display: flex;
       flex-direction: column;
-        align-items: flex-start;;
+      align-items: flex-start;
       @include respond-to("<=m") {
         align-items: center;
       }
@@ -327,6 +281,9 @@ body {
         border-radius: 100px;
         font-family: Hind;
 
+        &:hover{
+          color: #111;
+        }
       }
     }
   }
