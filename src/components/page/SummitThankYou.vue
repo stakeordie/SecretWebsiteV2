@@ -124,6 +124,7 @@ body {
 .summit-thank-you {
   background: url("../../assets/events/summit/secret-summit-background.svg");
   .landing-event-sneak-peek {
+    height: calc(100vh - 28px) !important;
     transition: 0.2s ease;
     opacity: 0;
     background: black;
