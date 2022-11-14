@@ -1,6 +1,6 @@
 <template>
   <section class="home-event-countdown">
-    <div>
+    <div class="home-event-countdown__content">
       <event-countdown></event-countdown>
       <h3>until Secret Summit</h3>
       <h4>COMING IN DECEMBER</h4>
@@ -58,6 +58,13 @@ export default {};
       margin: 0;
     }
 
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
     &__cta {
       margin: 0;
       background-color: var(--color-newBrand-blue-03);
@@ -86,10 +93,9 @@ export default {};
       }
     }
 
-    .event__countdown__wrapper {
-      margin: 0 auto;
-      .paragraph-wrap {
-        @include respond-to(">=m") {
+    .countdown__wrapper {
+      .date_info {
+        @include respond-to(">l") {
           display: none;
         }
       }
