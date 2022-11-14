@@ -90,15 +90,13 @@ export default {};
       }
     }
 
-    .event__countdown__wrapper{
-      margin: 0 auto;
-      .paragraph-wrap {
-        @include respond-to(">=m") {
+    .countdown__wrapper {
+      .date_info {
+        @include respond-to(">l") {
           display: none;
         }
       }
     }
-    
   }
 }
 </style>

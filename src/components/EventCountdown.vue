@@ -1,17 +1,15 @@
 <template>
-  <div class="event__countdown__wrapper">
+  <div class="countdown__wrapper">
     <countdown
       format="days:hours:minutes:seconds"
       separators=""
       end="2022-12-15T06:00:00-0800"
       @countDownEnd="homePageRemoveCountdown"
     >
-      <div class="paragraph-wrap">
-        <p class="wrap-day">DAYS</p>
-        <p class="wrap-hour">HOURS</p>
-        <p class="wrap-min">MIN</p>
-        <p class="wrap-sec">SEC</p>
-      </div>
+      <span class="date_info">DAYS</span>
+      <span class="date_info">HOURS</span>
+      <span class="date_info">MIN</span>
+      <span class="date_info">SEC</span>
     </countdown>
   </div>
 </template>
@@ -23,81 +21,74 @@ export default {};
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.event {
-  &__countdown__wrapper {
-    max-width: 416px;
+:root {
+  --countdown-item-height: 60px;
+  --countdown-item-height-mobile: 40px;
+}
 
-    @include respond-to("<=s") {
-      // align-self: center;
-      width: 240px;
+.countdown__wrapper {
+  width: 380px;
+
+  @include respond-to("<=l") {
+    width: 240px;
+  }
+
+  .countdown-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .countdown-data {
+      font-size: 54px;
+      font-family: montserrat;
+      font-weight: 600;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      height: var(--countdown-item-height);
+
+      @include respond-to("<=l") {
+        font-size: 28px;
+        height: var(--countdown-item-height-mobile);
+      }
+
+      &__date-part {
+        display: flex;
+        align-items: center;
+      }
+
+      &:after {
+        content: ":";
+        display: flex;
+        align-items: center;
+        position: absolute;
+        height: var(--countdown-item-height);
+        right: -7px;
+
+        @include respond-to("<=l") {
+          height: var(--countdown-item-height-mobile);
+          right: -4px;
+        }
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+          display: none;
+        }
+      }
     }
 
-    .countdown-wrap {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+    .date_info {
+      opacity: 0.8;
+      grid-row: 2;
+      color: var(--color-analog-primary-white);
+      font-weight: 400;
+      text-align: center;
+      font-size: 16px;
+      font-family: "hind";
 
-      @include respond-to("<=s") {
-      }
-
-      .paragraph-wrap {
-        grid-column: 1 / span 4;
-        grid-row: 2;
-        display: grid;
-        opacity: 0.8;
-        grid-template-columns: repeat(4, 1fr);
-        // margin-top: -4px;
-
-        .wrap-day,
-        .wrap-hour,
-        .wrap-min,
-        .wrap-sec {
-          grid-row: 1;
-          color: var(--color-analog-primary-white);
-          text-align: center;
-          margin-right: 24px;
-          margin-bottom: 0;
-          font-size: 16px;
-
-          @include respond-to("<=s") {
-            font-size: 14px;
-            margin-right: 8px;
-          }
-        }
-      }
-
-      .countdown-data {
-        font-size: 54px;
-        font-family: montserrat;
-        font-weight: 600;
-        order: 1;
-        max-width: 100px;
-        text-align: end;
-        height: 72px;
-
-        @include respond-to("<=s") {
-          //  max-width: 70px;
-
-          font-size: 28px;
-          // text-align: center;
-        }
-
-        @include respond-to("<=s") {
-          height: 40px;
-        }
-      }
-
-      .countdown-data:not(:first-child) {
-        //margin-left: 4px;
-      }
-
-      .countdown-data:after {
-        content: ":";
-        margin: 0 0px 0 10px;
-      }
-
-      .countdown-data:last-child:after {
-        opacity: 0;
+      @include respond-to("<=l") {
+        font-size: 14px;
       }
     }
   }
