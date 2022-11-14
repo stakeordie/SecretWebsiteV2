@@ -14,7 +14,9 @@
           forget to add the event to your calendar to make sure you won’t miss
           it!
         </p>
-        <a href="/summit" class="back">Back to the main page</a>
+        <a href="/summit" class="landing-event-sneak-peek__cta">
+          <span>Back to the main page</span>
+        </a>
       </div>
     </div>
   </section>
@@ -267,23 +269,32 @@ export default {
           }
         }
       }
+    }
 
-      .back {
-        display: grid;
-        place-items: center;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 20px;
-        letter-spacing: 1px;
-        padding: 22px 42px;
-        text-transform: uppercase;
-        background-color: #01a3fe;
-        border-radius: 100px;
-        font-family: Hind;
+    &__cta {
+      background-color: var(--color-newBrand-blue-03);
+      color: var(--color-analog-primary-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 22px 42px;
+      border-radius: 100px;
+      font-size: 20px !important;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      @include respond-to("<=m") {
+        margin: auto;
+      }
 
-        &:hover{
-          color: #111;
-        }
+      &:hover {
+        background-color: var(--color-newBrand-blue-04);
+      }
+
+      span {
+        padding-top: 3px;
       }
     }
   }
