@@ -14,10 +14,6 @@
       ></nav>
     </block>
     <block class="content-body">
-      <pre>
-      <!-- {{JSON.stringify(sectionContent[0].mainContent, null, 2)}} -->
-      {{sectionContent[0].mainContent}}
-      </pre>
       <vue-markdown
         v-for="(element, index) in sectionContent"
         :key="index"
@@ -61,7 +57,6 @@ export default {
         ".content-body > .content > .box > div > h3, .content-body > .content > .box > div > h4"
       );
       titles = [...matches];
-      // console.log(titles);
       for (let i = 0; i < titles.length; i++) {
         let newNavItem = document.createElement("a");
         let newNavItemContent = document.createTextNode(titles[i].innerText);
@@ -80,7 +75,6 @@ export default {
   },
   computed: {
     sectionContent() {
-      console.log(this.$static.aboutSubpages.edges)
       const content = this.$static.aboutSubpages.edges.map(
         (it) => it.node[this.section]
       );
@@ -95,7 +89,7 @@ query {
   aboutSubpages: allStrapiAboutSubpage {
     edges {
       node {
-         AboutSecretTokensBridges: about_secret_tokens_bridges{
+        AboutSecretTokensBridges: about_secret_tokens_bridges{
           heroColor: hero_color
           heroImage: hero_image {
             url
@@ -270,18 +264,12 @@ query {
         h4 {
           padding-top: 6em;
           margin-top: -6em;
-          // &:first-of-type {
-          //   color: var(--color-analog-secondary-yellow);
-          // }
         }
 
         hr {
           width: 120px;
           height: 4px;
           background: var(--aboutSp-accent);
-        }
-        a {
-          // color: var(--aboutSp-accent);
         }
       }
     }

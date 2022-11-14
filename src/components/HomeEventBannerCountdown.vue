@@ -1,12 +1,12 @@
 <template>
   <section class="home-event-countdown">
-    <div>
+    <div class="home-event-countdown__content">
       <event-countdown></event-countdown>
       <h3>until Secret Summit</h3>
       <h4>COMING IN DECEMBER</h4>
     </div>
     <a
-      class="button"
+      class="home-event-countdown__cta"
       href="http://secretsummit2022.eventbrite.com"
       target="_blank"
       rel="noopener noreferrer"
@@ -26,11 +26,6 @@ export default {};
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
-
-@mixin bg_specs {
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .event-banner {
   text-align: center;
@@ -63,10 +58,17 @@ export default {};
       margin: 0;
     }
 
-    .button {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__cta {
       margin: 0;
-      background: var(--color-newBrand-blue-03);
-      color: #ffffff;
+      background-color: var(--color-newBrand-blue-03);
+      color: var(--color-analog-primary-white);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -82,7 +84,8 @@ export default {};
       text-transform: uppercase;
 
       &:hover {
-        color: inherit;
+        background-color: var(--color-newBrand-blue-04);
+        color: var(--color-analog-primary-white);
       }
 
       span {
@@ -90,15 +93,13 @@ export default {};
       }
     }
 
-    .event__countdown__wrapper{
-      margin: 0 auto;
-      .paragraph-wrap {
-        @include respond-to(">=m") {
+    .countdown__wrapper {
+      .date_info {
+        @include respond-to(">l") {
           display: none;
         }
       }
     }
-    
   }
 }
 </style>
