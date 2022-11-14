@@ -31,6 +31,7 @@ export default {};
 
   @include respond-to("<=l") {
     width: 240px;
+    margin: 0 auto;
   }
 
   .countdown-wrap {
