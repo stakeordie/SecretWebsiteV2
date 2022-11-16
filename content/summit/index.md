@@ -1,13 +1,12 @@
 ---
-title: 'Secret Summit'
+title: "Secret Summit"
 ---
 
-<column class="no-padding" mode="full">
+<column mode="full">
 
 <block>
 
 <landing-sneak-peek-event></landing-sneak-peek-event>
-
 
 </block>
 

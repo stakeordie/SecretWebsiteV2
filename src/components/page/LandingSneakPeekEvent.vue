@@ -1,71 +1,12 @@
 <template>
-  <section class="landing-event-sneak-peek">
-    <div class="landing-event-sneak-peek__content">
-      <div class="landing-event-sneak-peek__heading">
-        <h4 class="landing-event-sneak-peek__heading__eyebrow">Join us at</h4>
-        <h2 class="landing-event-sneak-peek__heading__title">
-          Secret Summit 2022
-        </h2>
-        <h3 class="landing-event-sneak-peek__heading__subtitle">
-          Coming in December
-        </h3>
-      </div>
-      <div class="landing-event-sneak-peek__description">
-        <p class="landing-event-sneak-peek__description__paragraph">
-          Secret Network’s flagship digital conference with talks, panels, and
-          workshops by Web3 privacy pioneers from our ecosystem & beyond. Learn
-          more about:
-        </p>
-        <ul class="landing-event-sneak-peek__description__list">
-          <li class="landing-event-sneak-peek__description__list--item">
-            <img
-              src="../../assets/events/summit/check-circle.svg"
-              alt="summit"
-            />
-            <p>The possibilities private smart contracts unlock</p>
-          </li>
-          <li class="landing-event-sneak-peek__description__list--item">
-            <img
-              src="../../assets/events/summit/check-circle.svg"
-              alt="summit"
-            />
-            <p>Cutting-edge cryptography research</p>
-          </li>
-          <li class="landing-event-sneak-peek__description__list--item">
-            <img
-              src="../../assets/events/summit/check-circle.svg"
-              alt="summit"
-            />
-            <p>What dApps are building on Secret right now</p>
-          </li>
-        </ul>
-        <p class="landing-event-sneak-peek__description__paragraph">
-          And of course, we’ll share a few secrets…!
-          <br />
-          Let’s talk about the past, present, and future of Web3 privacy
-          together.
-        </p>
-
-        <a
-          class="landing-event-sneak-peek__cta"
-          href="http://secretsummit2022.eventbrite.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="../../assets/events/summit/check-circle-lightest.svg"
-            alt="check icon"
-          />
-          <span>Save my spot</span>
-        </a>
-      </div>
-
-      <event-countdown></event-countdown>
-    </div>
-  </section>
+  <div class="summit_content">
+    <hero-section :data="summitHero" />
+  </div>
 </template>
 
 <script>
+import HeroSection from "../summit/HeroSection.vue";
+
 export default {
   metaInfo() {
     return {
@@ -77,326 +18,158 @@ export default {
       ],
     };
   },
+  components: {
+    HeroSection,
+  },
   methods: {
     sneakPeek() {
-      let sumHeights = 0;
-      let swirlTop = document.querySelector(".swirl-wrapper");
-      let swirlBottom = document.querySelector(".swirl-wrapper-bottom");
-      let header = document.querySelector(".mega-header");
-      let alertBar = document.querySelector(".alert-bar");
-      let sneakPeek = document.querySelector(".landing-event-sneak-peek");
+      const header = document.querySelector(".mega-header");
+      const alertBar = document.querySelector(".alert-bar");
+      const sneakPeek = document.querySelector(".hero");
+      const headerHeight = alertBar
+        ? alertBar.offsetHeight + header.offsetHeight
+        : header.offsetHeight;
 
-      swirlTop.classList.add("remove");
-      swirlBottom.classList.add("remove");
-
-      if (alertBar) {
-        sumHeights =
-          [header][0].previousSibling.offsetHeight + [header][0].offsetHeight;
-      }
-      if (!alertBar) {
-        sumHeights = [header][0].offsetHeight;
-        console.log("test");
-      }
-      sneakPeek.style.setProperty("--sum-heights", sumHeights + "px");
-      sneakPeek.style.setProperty(
-        "--headerHeight",
-        [header][0].offsetHeight + "px"
-      );
-
-      // setTimeout(() => {
-      sneakPeek.classList.add("visible");
-      // }, 500);
+      sneakPeek.style.setProperty("--sum-heights", `${headerHeight}px`);
     },
-  },
-  mounted() {
-    setTimeout(() => {
-      this.sneakPeek();
+    addAdScript() {
       const functionScript = document.createElement("script");
       functionScript.innerHTML = `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
+    },
+  },
+  computed: {
+    summitAbout() {
+      return this.$static.summit.edges[0].node.Summit_about;
+    },
+    summitAnnouncement() {
+      return this.$static.summit.edges[0].node.Summit_announcement;
+    },
+    summitBanner() {
+      return this.$static.summit.edges[0].node.Summit_banner;
+    },
+    summitDescription() {
+      return this.$static.summit.edges[0].node.Summit_description;
+    },
+    summitHero() {
+      return this.$static.summit.edges[0].node.Summit_hero;
+    },
+    summitSpeakers() {
+      return this.$static.summit.edges[0].node.Summit_speakers;
+    },
+    summitSponsors() {
+      return this.$static.summit.edges[0].node.Summit_sponsors;
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.sneakPeek();
+      this.addAdScript();
+      console.log(this.summitHero);
     }, 100);
   },
 };
 </script>
 
+<static-query>
+query {
+  summit: allStrapiSummit {
+    edges {
+      node {
+        Summit_hero {
+          title
+          subtitle
+          start_date
+          body
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_description {
+          title
+          subtitle
+          bottom_text
+          descriptions {
+            body
+            icon {
+              url
+            }
+          }
+        }
+        Summit_banner {
+          title
+        }
+        Summit_speakers {
+          title
+          cta_button {
+            title
+            url
+          }
+          speaker {
+            ... on StrapiSummit_SummitSpeakers_Speaker {
+              name
+              description
+              image {
+                url
+              }
+            }
+          }
+        }
+        Summit_sponsors {
+          title
+          subtitle
+          body
+          sponsors {
+            url
+            image {
+              url
+            }
+          }
+        }
+        Summit_announcement {
+          title
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_about {
+          title
+          subtitle
+          body
+          cta_button {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</static-query>
+
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
-@mixin bgSpecs {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top center;
-  background-attachment: fixed;
-}
+
 .summit-index {
   background: url("../../assets/events/summit/secret-summit-background.svg");
-  @include bgSpecs();
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 250%;
 
-  .landing-event-sneak-peek {
-    transition: 0.2s ease;
-    opacity: 0;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - var(--sum-heights));
-    margin-top: var(--headerHeight);
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
-    @include bgSpecs();
-    &.visible {
-      opacity: 1;
-    }
-    @include respond-to("<=s") {
-      overflow-y: auto;
-      padding-top: calc(230px + var(--sum-heights));
-      padding-bottom: 33px;
-      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: left top;
-    }
-    @include respond-to("<=m") {
-      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
-      background-position-x: right;
-      background-position-y: 69px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: left top;
-    }
-    @include respond-to(">=l") {
-      overflow-y: auto;
-      padding-top: calc(var(--sum-heights));
-      padding-bottom: 50px;
-    }
-    @include respond-to(">=xl") {
-      overflow-y: auto;
-      padding-top: calc(var(--sum-heights));
-      padding-bottom: 50px;
-    }
-    display: grid;
-    grid-auto-rows: min-content;
-    gap: 26px;
-    align-content: center;
-
-    p {
-      font-size: 18px;
-      line-height: 27px;
-      color: var(--color-neutral-dark-mode-06);
-    }
-
-    &__cta {
-      background-color: var(--color-newBrand-blue-03);
-      color: var(--color-analog-primary-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      max-width: 261px;
-      padding: 22px 0;
-      border-radius: 100px;
-      font-size: 20px !important;
-      font-weight: 700;
-      line-height: 20px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      @include respond-to("<=m") {
-        margin: auto;
-      }
-
-      &:hover {
-        background-color: var(--color-newBrand-blue-04);
-      }
-
-      span {
-        padding-top: 3px;
-      }
-    }
-
-    &__content {
-      max-width: 640px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 16px;
-      border-radius: 16px;
-
-      @include respond-to("<=l") {
-        margin: auto;
-        max-width: 544px !important;
-      }
-      @include respond-to("<=s") {
-        max-width: calc(100% - 16px) !important;
-      }
-
-      @include respond-to("<=m") {
-        transform: translateX(0);
-      }
-
-      @include respond-to(">=l") {
-        transform: translateX(-200px);
-      }
-
-      @include respond-to(">=xl") {
-        transform: translateX(-250px);
-      }
-
-      @include respond-to(">=xxl") {
-        transform: translateX(-300px);
-      }
-    }
-
-    &__heading {
-      * {
-        margin: 0;
-        margin: auto;
-      }
-
-      @include respond-to("<=l") {
-        text-align: center;
-      }
-
-      &__eyebrow {
-        color: var(--color-ver2-secondary-blue);
-        text-transform: uppercase;
-        margin-bottom: 4px;
-        font-weight: 700;
-        letter-spacing: 1px;
-
-        @include respond-to("<=s") {
-          margin-top: 0;
-        }
-
-        @include respond-to("<=l") {
-          font-size: 18px;
-        }
-      }
-
-      &__title {
-        font-family: montserrat;
-        margin-bottom: 10px;
-        font-weight: bold;
-        @include respond-to("<=l") {
-          font-size: 42px;
-          line-height: 48px;
-        }
-      }
-
-      &__subtitle {
-        text-transform: uppercase;
-        margin-bottom: var(--f-gutter);
-        @include respond-to("<=l") {
-          font-size: 22px;
-          line-height: 36.5px;
-        }
-      }
-    }
-
-    &__description {
-      * {
-        color: #ffffff;
-        font-size: 18px;
-      }
-      &__list {
-        padding-left: 0;
-        margin-bottom: var(--f-gutter);
-        li {
-          display: grid;
-          grid-template-columns: 28px 1fr;
-          gap: 12px;
-          align-items: flex-end;
-          * {
-            margin: 0;
-          }
-        }
-      }
-      &__paragraph {
-        font-size: var(--paragraph-font-size-big);
-        line-height: var(--paragraph-line-height-big);
-      }
-
-      &__list {
-        padding-left: 0;
-        margin-bottom: var(--f-gutter);
-
-        li {
-          display: grid;
-          grid-template-columns: 28px 1fr;
-          gap: 12px;
-          align-items: center;
-
-          * {
-            margin: 0;
-          }
-        }
-      }
-
-      .button {
-        background-color: var(--color-ver2-primary-blue) !important;
-        width: 204px !important;
-        margin-left: 0 !important;
-        span {
-          font-size: 16px !important;
-        }
-        @include respond-to("<=m") {
-        }
-        @include respond-to("<=l") {
-          margin-left: auto !important;
-          margin-right: auto !important;
-          display: block !important;
-        }
-      }
-    }
-
-    &__content {
-      max-width: 700px;
-      padding: var(--f-gutter);
-    }
+  @include respond-to(">=l") {
+    background-size: 100%;
   }
-  .swirl-wrapper,
-  .swirl-wrapper-bottom {
-    display: none;
-  }
-  .simple-footer,
-  .legal {
-    display: none;
-  }
-  .no-padding {
-    margin-bottom: 0;
+
+  .--flare-page {
+    padding: 0;
     .content {
       .box {
         padding: 0;
-        height: fit-content;
-      }
-    }
-  }
-
-  .event__countdown__wrapper {
-    @include respond-to("<=l") {
-      width: 240px;
-      align-self: center;
-    }
-    .countdown-wrap {
-      .wrap-day,
-      .wrap-hour,
-      .wrap-min,
-      .wrap-sec {
-        @include respond-to("<=l") {
-          font-size: 14px;
-          margin-right: 8px;
-        }
-      }
-
-      .countdown-data {
-        @include respond-to("<=l") {
-          height: 40px;
-          font-size: 28px;
-        }
       }
     }
   }
