@@ -1,11 +1,13 @@
 <template>
   <div class="summit_content">
     <hero-section :data="summitHero" />
+    <banner-section :data="summitBanner" />
   </div>
 </template>
 
 <script>
 import HeroSection from "../summit/HeroSection.vue";
+import BannerSection from "../summit/BannerSection.vue";
 
 export default {
   metaInfo() {
@@ -20,6 +22,7 @@ export default {
   },
   components: {
     HeroSection,
+    BannerSection,
   },
   methods: {
     sneakPeek() {
@@ -92,7 +95,6 @@ query {
         Summit_description {
           title
           subtitle
-          bottom_text
           descriptions {
             body
             icon {
