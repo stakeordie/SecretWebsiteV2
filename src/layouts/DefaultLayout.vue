@@ -1246,7 +1246,7 @@ body {
         color: var(--mega-header-color-nav-exanded-hover) !important;
       }
     }
-    @include respond-to("<=s") {
+    @include respond-to("<=m") {
       grid-template-columns: 1fr;
       gap: var(--f-gutter-xxl);
     }

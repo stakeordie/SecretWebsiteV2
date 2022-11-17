@@ -1,12 +1,14 @@
 <template>
   <div class="summit_content">
     <hero-section :data="summitHero" />
+    <description-section :data="summitDescription" />
     <banner-section :data="summitBanner" />
   </div>
 </template>
 
 <script>
 import HeroSection from "../summit/HeroSection.vue";
+import DescriptionSection from "../summit/DescriptionSection.vue";
 import BannerSection from "../summit/BannerSection.vue";
 
 export default {
@@ -22,18 +24,23 @@ export default {
   },
   components: {
     HeroSection,
+    DescriptionSection,
     BannerSection,
   },
   methods: {
     sneakPeek() {
       const header = document.querySelector(".mega-header");
       const alertBar = document.querySelector(".alert-bar");
-      const sneakPeek = document.querySelector(".hero");
+      const summitContent = document.querySelector(".summit_content");
       const headerHeight = alertBar
         ? alertBar.offsetHeight + header.offsetHeight
         : header.offsetHeight;
 
-      sneakPeek.style.setProperty("--sum-heights", `${headerHeight}px`);
+      summitContent.style.setProperty("--sum-heights", `${headerHeight}px`);
+      summitContent.style.setProperty(
+        "--header-height",
+        `${header.offsetHeight}px`
+      );
     },
     addAdScript() {
       const functionScript = document.createElement("script");
@@ -165,6 +172,11 @@ query {
 
   @include respond-to(">=l") {
     background-size: 100%;
+  }
+
+  .swirl-wrapper,
+  .swirl-wrapper-bottom {
+    display: none;
   }
 
   .--flare-page {

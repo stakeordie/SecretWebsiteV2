@@ -39,6 +39,7 @@ export default {
 
 .summit_content {
   .hero {
+    margin-top: var(--header-height);
     min-height: calc(100vh - var(--sum-heights));
     background-image: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
     background-position: left top;
