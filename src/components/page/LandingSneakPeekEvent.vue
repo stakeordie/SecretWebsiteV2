@@ -2,12 +2,14 @@
   <div class="summit_content">
     <hero-section :data="summitHero" />
     <description-section :data="summitDescription" />
+    <banner-section :data="summitBanner" />
   </div>
 </template>
 
 <script>
 import HeroSection from "../summit/HeroSection.vue";
 import DescriptionSection from "../summit/DescriptionSection.vue";
+import BannerSection from "../summit/BannerSection.vue";
 
 export default {
   metaInfo() {
@@ -23,6 +25,7 @@ export default {
   components: {
     HeroSection,
     DescriptionSection,
+    BannerSection,
   },
   methods: {
     sneakPeek() {
