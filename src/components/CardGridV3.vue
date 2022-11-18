@@ -473,9 +473,6 @@ query {
         sort
         title: name
         url: link
-        cta_title
-        description
-        cta_title
         picture: logo {
           url
         }
