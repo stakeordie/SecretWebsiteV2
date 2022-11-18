@@ -8,7 +8,7 @@
       </div>
       <a
         class="hero__cta"
-        :href="data.cta_button.title"
+        :href="data.cta_button.url"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -72,8 +72,10 @@ export default {
       letter-spacing: 1px;
       text-transform: uppercase;
 
+      &:visited:hover,
       &:hover {
         background-color: var(--color-newBrand-blue-04);
+        color: var(--color-analog-primary-white);
       }
 
       span {
