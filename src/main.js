@@ -348,6 +348,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   appOptions.store = new Vuex.Store({
     state: {
       sidebarOpen: false,
+      summitStarted: false,
     },
     mutations: {
       toggleSidebar(state) {
@@ -358,6 +359,9 @@ export default function (Vue, { router, head, isClient, appOptions }) {
       },
       openSidebar(state) {
         state.sidebarOpen = true;
+      },
+      startSummit(state) {
+        state.summitStarted = true;
       },
     },
   });

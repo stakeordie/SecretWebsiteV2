@@ -1,11 +1,15 @@
 <template>
   <div class="summit_content">
-    <hero-section :data="summitHero" />
+    <hero-section v-if="!$store.state.summitStarted" :data="summitHero" />
+    <welcome-section v-else />
     <description-section :data="summitDescription" />
     <banner-section :data="summitBanner" />
     <speakers-section :data="summitSpeakers" />
     <sponsors-section :data="summitSponsors" />
-    <announcement-section :data="summitAnnouncement" />
+    <announcement-section
+      v-if="!$store.state.summitStarted"
+      :data="summitAnnouncement"
+    />
   </div>
 </template>
 
@@ -16,7 +20,7 @@ import BannerSection from "../summit/BannerSection.vue";
 import SpeakersSection from "../summit/SpeakersSection.vue";
 import SponsorsSection from "../summit/SponsorsSection.vue";
 import AnnouncementSection from "../summit/AnnouncementSection.vue";
-
+import WelcomeSection from "../summit/WelcomeSummit.vue";
 export default {
   metaInfo() {
     return {
@@ -35,6 +39,7 @@ export default {
     SpeakersSection,
     SponsorsSection,
     AnnouncementSection,
+    WelcomeSection,
   },
   methods: {
     sneakPeek() {
@@ -58,6 +63,9 @@ export default {
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
+    },
+    setSummitStarted() {
+      console.log(this.$store.state.summitStarted);
     },
   },
   computed: {
@@ -87,7 +95,7 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
-      console.log(this.summitHero);
+      this.setSummitStarted();
     }, 100);
   },
 };
