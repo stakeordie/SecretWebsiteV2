@@ -3,6 +3,7 @@
     <hero-section :data="summitHero" />
     <description-section :data="summitDescription" />
     <banner-section :data="summitBanner" />
+    <speakers-section :data="summitSpeakers" />
     <sponsors-section :data="summitSponsors" />
   </div>
 </template>
@@ -11,6 +12,7 @@
 import HeroSection from "../summit/HeroSection.vue";
 import DescriptionSection from "../summit/DescriptionSection.vue";
 import BannerSection from "../summit/BannerSection.vue";
+import SpeakersSection from "../summit/SpeakersSection.vue";
 import SponsorsSection from "../summit/SponsorsSection.vue";
 
 export default {
@@ -28,6 +30,7 @@ export default {
     HeroSection,
     DescriptionSection,
     BannerSection,
+    SpeakersSection,
     SponsorsSection,
   },
   methods: {
