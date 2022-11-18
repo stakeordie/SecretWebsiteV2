@@ -5,6 +5,7 @@
     <banner-section :data="summitBanner" />
     <speakers-section :data="summitSpeakers" />
     <sponsors-section :data="summitSponsors" />
+    <announcement-section :data="summitAnnouncement" />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import DescriptionSection from "../summit/DescriptionSection.vue";
 import BannerSection from "../summit/BannerSection.vue";
 import SpeakersSection from "../summit/SpeakersSection.vue";
 import SponsorsSection from "../summit/SponsorsSection.vue";
+import AnnouncementSection from "../summit/AnnouncementSection.vue";
 
 export default {
   metaInfo() {
@@ -32,6 +34,7 @@ export default {
     BannerSection,
     SpeakersSection,
     SponsorsSection,
+    AnnouncementSection,
   },
   methods: {
     sneakPeek() {
