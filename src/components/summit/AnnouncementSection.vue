@@ -92,6 +92,11 @@ export default {
         span {
           padding-top: 3px;
         }
+
+        &:visited:hover,
+        &:hover {
+          color: var(--color-newBrand-blue-03);
+        }
       }
     }
   }
