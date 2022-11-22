@@ -10,6 +10,7 @@
       v-if="!$store.state.summitStarted"
       :data="summitAnnouncement"
     />
+    <about-secret-section :data="summitAbout" />
   </div>
 </template>
 
@@ -20,7 +21,9 @@ import BannerSection from "../summit/BannerSection.vue";
 import SpeakersSection from "../summit/SpeakersSection.vue";
 import SponsorsSection from "../summit/SponsorsSection.vue";
 import AnnouncementSection from "../summit/AnnouncementSection.vue";
+import AboutSecretSection from "../summit/AboutSecretSection.vue";
 import WelcomeSection from "../summit/WelcomeSummit.vue";
+
 export default {
   metaInfo() {
     return {
@@ -39,6 +42,7 @@ export default {
     SpeakersSection,
     SponsorsSection,
     AnnouncementSection,
+    AboutSecretSection,
     WelcomeSection,
   },
   methods: {
@@ -63,9 +67,6 @@ export default {
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
-    },
-    setSummitStarted() {
-      console.log(this.$store.state.summitStarted);
     },
   },
   computed: {
@@ -95,7 +96,6 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
-      this.setSummitStarted();
     }, 100);
   },
 };

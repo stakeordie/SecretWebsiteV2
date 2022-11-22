@@ -93,8 +93,12 @@ export default {
       &__body {
         font-family: "Hind";
         font-weight: 300;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 28px;
+
+        @include respond-to(">=l") {
+          font-size: 20px;
+        }
       }
     }
 

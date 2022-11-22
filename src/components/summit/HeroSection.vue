@@ -75,8 +75,10 @@ export default {
       letter-spacing: 1px;
       text-transform: uppercase;
 
+      &:visited:hover,
       &:hover {
         background-color: var(--color-newBrand-blue-04);
+        color: var(--color-analog-primary-white);
       }
 
       span {
