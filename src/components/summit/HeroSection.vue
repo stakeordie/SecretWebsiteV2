@@ -1,25 +1,31 @@
 <template>
   <div class="hero">
-    <div class="hero__content">
-      <div class="hero__info">
-        <h4 class="hero__info__eyebrow">{{ data.subtitle }}</h4>
-        <h2 class="hero__info__title">{{ data.title }}</h2>
-        <p>{{ data.body }}</p>
-      </div>
-      <a
-        class="hero__cta"
-        :href="data.cta_button.url"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="../../assets/events/summit/check-circle-lightest.svg"
-          alt="check icon"
-        />
-        <span>{{ data.cta_button.title }}</span>
-      </a>
-      <event-countdown></event-countdown>
-    </div>
+    <column>
+      <block>
+        <div class="hero__wrapper">
+          <div class="hero__content">
+            <div class="hero__info">
+              <h4 class="hero__info__eyebrow">{{ data.subtitle }}</h4>
+              <h2 class="hero__info__title">{{ data.title }}</h2>
+              <p>{{ data.body }}</p>
+            </div>
+            <a
+              class="hero__cta"
+              :href="data.cta_button.title"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../../assets/events/summit/check-circle-lightest.svg"
+                alt="check icon"
+              />
+              <span>{{ data.cta_button.title }}</span>
+            </a>
+            <event-countdown></event-countdown>
+          </div>
+        </div>
+      </block>
+    </column>
   </div>
 </template>
 
@@ -46,9 +52,6 @@ export default {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     transition: 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     @include respond-to(">=l") {
       background-image: url("../../assets/events/summit/secret-summit-graphic.svg");
@@ -83,6 +86,26 @@ export default {
       }
     }
 
+    &__wrapper {
+      width: 100%;
+      min-height: calc(100vh - var(--sum-heights));
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+
+      @include respond-to(">=l") {
+        justify-content: flex-start;
+      }
+
+      @include respond-to(">=xl") {
+        padding: 16px;
+        justify-content: flex-start;
+      }
+    }
+
     &__content {
       width: 100%;
       max-width: 544px;
@@ -90,19 +113,13 @@ export default {
       flex-direction: column;
       align-items: center;
       gap: 26px;
-      padding: 24px;
 
       @include respond-to(">=l") {
         align-items: flex-start;
-        transform: translateX(-200px);
       }
 
       @include respond-to(">=xl") {
-        transform: translateX(-250px);
-      }
-
-      @include respond-to(">=xxl") {
-        transform: translateX(-300px);
+        align-items: flex-start;
       }
     }
 

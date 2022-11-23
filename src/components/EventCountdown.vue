@@ -4,7 +4,7 @@
       format="days:hours:minutes:seconds"
       separators=""
       :end="$static.summit.edges[0].node.Summit_hero.start_date"
-      @countDownEnd="homePageRemoveCountdown"
+      @countDownEnd="countdownEnd"
     >
       <span class="date_info">DAYS</span>
       <span class="date_info">HOURS</span>
@@ -13,6 +13,16 @@
     </countdown>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    countdownEnd() {
+      this.$store.commit("startSummit");
+    },
+  },
+};
+</script>
 
 <static-query>
 query {

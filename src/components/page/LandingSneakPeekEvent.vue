@@ -1,11 +1,15 @@
 <template>
   <div class="summit_content">
-    <hero-section :data="summitHero" />
+    <hero-section v-if="!$store.state.summitStarted" :data="summitHero" />
+    <welcome-section v-else />
     <description-section :data="summitDescription" />
     <banner-section :data="summitBanner" />
     <speakers-section :data="summitSpeakers" />
     <sponsors-section :data="summitSponsors" />
-    <announcement-section :data="summitAnnouncement" />
+    <announcement-section
+      v-if="!$store.state.summitStarted"
+      :data="summitAnnouncement"
+    />
     <about-secret-section :data="summitAbout" />
   </div>
 </template>
@@ -18,6 +22,7 @@ import SpeakersSection from "../summit/SpeakersSection.vue";
 import SponsorsSection from "../summit/SponsorsSection.vue";
 import AnnouncementSection from "../summit/AnnouncementSection.vue";
 import AboutSecretSection from "../summit/AboutSecretSection.vue";
+import WelcomeSection from "../summit/WelcomeSummit.vue";
 
 export default {
   metaInfo() {
@@ -38,6 +43,7 @@ export default {
     SponsorsSection,
     AnnouncementSection,
     AboutSecretSection,
+    WelcomeSection,
   },
   methods: {
     sneakPeek() {
@@ -90,7 +96,6 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
-      console.log(this.summitHero);
     }, 100);
   },
 };
