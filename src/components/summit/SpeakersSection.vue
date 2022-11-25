@@ -10,7 +10,10 @@
             class="card"
           >
             <div class="card__image">
-              <img :src="speaker.image.url" :alt="speaker.name" />
+              <img
+                :src="speaker.image ? speaker.image.url : ''"
+                :alt="speaker.name"
+              />
             </div>
             <div class="card__info">
               <span class="card__info__name">{{ speaker.name }}</span>

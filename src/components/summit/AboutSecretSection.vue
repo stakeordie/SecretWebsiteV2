@@ -3,7 +3,9 @@
     <block>
       <div class="about">
         <div class="about__image">
-          <img src="/assets/img/about-secret-network-hero-img.svg" alt="" />
+          <img
+            src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
+          />
         </div>
         <div class="about__info">
           <h5 class="about__info__title">
@@ -21,7 +23,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>{{ data.cta_button[0].title }}</span>
+            <span>{{ data.cta_button.title }}</span>
           </a>
         </div>
       </div>
