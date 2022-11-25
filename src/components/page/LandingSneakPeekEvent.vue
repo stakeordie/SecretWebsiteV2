@@ -1,7 +1,7 @@
 <template>
   <div class="summit_content">
     <hero-section v-if="!$store.state.summitStarted" :data="summitHero" />
-    <welcome-section v-else />
+    <welcome-section v-else :data="summitWelcome" />
     <description-section :data="summitDescription" />
     <banner-section :data="summitBanner" />
     <speakers-section :data="summitSpeakers" />
@@ -91,6 +91,9 @@ export default {
     summitSponsors() {
       return this.$static.summit.edges[0].node.Summit_sponsors;
     },
+    summitWelcome() {
+      return this.$static.summit.edges[0].node.Summit_welcome;
+    },
   },
   mounted() {
     setTimeout(() => {
@@ -167,6 +170,16 @@ query {
           title
           subtitle
           body
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_welcome {
+          title
+          subtitle
+          body
+          livestream_code_id
           cta_button {
             title
             url
