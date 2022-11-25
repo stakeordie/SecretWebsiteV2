@@ -389,6 +389,7 @@ query {
             @include small_text();
             font-size: 16px;
             text-transform: uppercase;
+            color: var(--color-neutral-gray-04);
           }
         }
       }
