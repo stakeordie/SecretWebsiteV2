@@ -59,7 +59,7 @@
                   </li>
                   <li class="time">
                     <span>
-                      {{ data.start_time }} - {{ data.end_time }}
+                      {{ rangeTime(data.start_time, data.end_time) }}
                       <b class="time__detail">UTC</b>
                     </span>
                   </li>
@@ -93,6 +93,18 @@ export default {
   computed: {
     agenda() {
       return this.$static.summit_agenda.edges[0].node;
+    },
+  },
+  methods: {
+    rangeTime(startTime, endTime) {
+      const transformTime = (time) => {
+        const [hour, minutes] = time.split(":");
+        const hours = hour % 12 || 12;
+        const indicator = hour >= 12 ? "pm" : "am";
+        return `${hours}:${minutes} ${indicator}`;
+      };
+
+      return `${transformTime(startTime)} - ${transformTime(endTime)}`;
     },
   },
 };
