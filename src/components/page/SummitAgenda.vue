@@ -200,7 +200,12 @@ query {
 
     &__breadcrumb {
       display: flex;
+      justify-content: center;
       gap: 52px;
+
+      @include respond-to(">=m") {
+        justify-content: flex-start;
+      }
 
       &__item {
         font-family: "Montserrat";
