@@ -2,38 +2,12 @@
   <simple-layout>
     <template #header>
       <alert-bar></alert-bar>
-      <!-- <header-mega-menu> </header-mega-menu> -->
       <header-mega-menu-v2> </header-mega-menu-v2>
     </template>
 
     <column class="swirl-wrapper swirl-v1 swirl-v2">
       <block>
         <div class="swirl top v2">
-          <!-- <themed-image>
-            <img
-              v-if="swirlSpecial"
-              dark-colored
-              light-colored
-              class="special-mod"
-              src="@/assets/swirl-layout-v2.svg"
-              alt=""
-            />
-            <img
-              v-if="!swirlSpecial"
-              dark-colored
-              light-colored
-              src="@/assets/swirl-layout-v2.svg"
-              alt=""
-            />
-            <img
-              dark
-              src="@/assets/swirl-layout-v2.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-          </themed-image> -->
-
           <themed-image>
             <img
               v-if="swirlSpecial"
@@ -63,39 +37,6 @@
             />
           </themed-image>
         </div>
-        <!-- <div class="swirl top v1">
-          <themed-image>
-            <img
-              v-if="swirlSpecial"
-              dark-colored
-              light-colored
-              class="special-mod"
-              src="@/assets/swirl-special-color.svg"
-              alt=""
-            />
-            <img
-              v-if="!swirlSpecial"
-              dark-colored
-              light-colored
-              src="@/assets/swirl-color-dark.svg"
-              alt=""
-            />
-            <img
-              dark
-              src="@/assets/swirl-lines-dark.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-            <img
-              light
-              src="@/assets/swirl-lines-light.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-          </themed-image>
-        </div> -->
       </block>
     </column>
 
@@ -137,110 +78,18 @@
             />
           </themed-image>
         </div>
-        <!-- <div class="swirl bottom v1">
-          <themed-image>
-            <img
-              v-if="swirlSpecial"
-              dark-colored
-              light-colored
-              class="special-mod"
-              src="@/assets/swirl-special-color-inverted.svg"
-              alt=""
-            />
-            <img
-              v-if="!swirlSpecial"
-              dark-colored
-              light-colored
-              src="@/assets/swirl-color-dark.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-            <img
-              dark
-              src="@/assets/swirl-lines-dark.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-            <img
-              light
-              src="@/assets/swirl-lines-light.svg"
-              alt="swirl"
-              width="100"
-              height="100"
-            />
-          </themed-image>
-        </div> -->
       </block>
     </column>
 
     <template #footer>
       <simple-footer :class="swirlBottomIsVisible" mode="full">
-        <!-- <section class="footer-nav">
-          <nav>
-            <h6 class="footer-nav-title">Learn</h6>
-            <g-link
-              v-bind:key="index + link"
-              v-for="(link, index) in linksFooterLearn"
-              :to="$tp(link.path)"
-              :target="link.target"
-            >
-              <span :class="{ 'icon icon-icon-arrow-external': link.external }">
-                {{ link.title }}
-              </span>
-            </g-link>
-          </nav>
-          <nav>
-            <h6 class="footer-nav-title">Get Involved</h6>
-            <g-link
-              v-bind:key="index + link"
-              v-for="(link, index) in linksFooterCommunity"
-              :to="$tp(link.path)"
-              :target="link.target"
-            >
-              <span
-                :class="{ 'icon icon-icon-arrow-external': link.external }"
-                >{{ link.title }}</span
-              >
-            </g-link>
-          </nav>
-          <nav>
-            <h6 class="footer-nav-title">Develop</h6>
-            <g-link
-              v-bind:key="index + link"
-              v-for="(link, index) in linksFooterDevelopers"
-              :to="$tp(link.path)"
-              :target="link.target"
-            >
-              <span
-                :class="{ 'icon icon-icon-arrow-external': link.external }"
-                >{{ link.title }}</span
-              >
-            </g-link>
-          </nav>
-          <nav>
-            <h6 class="footer-nav-title">Explore</h6>
-            <g-link
-              v-bind:key="index + link"
-              v-for="(link, index) in linksFooterEcosystem"
-              :to="$tp(link.path)"
-              :target="link.target"
-            >
-              <span
-                :class="{ 'icon icon-icon-arrow-external': link.external }"
-                >{{ link.title }}</span
-              >
-            </g-link>
-          </nav>
-        </section> -->
         <footer-menu> </footer-menu>
         <section class="footer-contact">
           <div class="social">
             <g-link :to="$tp(`/`)">
               <img
                 class="scrt-logo"
-                src="../assets/secretnetwork-logo-primary-white.svg"
+                src="../assets/new-secret-logo.svg"
                 width="124"
                 height="58"
               />
@@ -331,7 +180,7 @@
                 />
               </a>
             </nav>
-            <div class="contribute-github">
+            <!-- <div class="contribute-github">
               <p>
                 <a
                   href="https://github.com/SecretFoundation/SecretWebsite"
@@ -352,7 +201,7 @@
                   height="24"
                 />
               </a>
-            </div>
+            </div> -->
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksForSocial"
@@ -366,10 +215,7 @@
             </g-link>
           </div>
           <div class="subscribe">
-            <h3>
-              <span>Subscribe</span> for <br />
-              Secret Network updates
-            </h3>
+            <h3>Get Updates</h3>
             <form
               action="https://network.us2.list-manage.com/subscribe/post?u=7a05e306cd4c801a88ddcb060&amp;id=889f1a33bc"
               method="post"
@@ -385,7 +231,7 @@
                 name="EMAIL"
                 class="required email"
                 id="mce-EMAIL"
-                placeholder="Your email"
+                placeholder="Enter your email"
                 required
               />
               <button
@@ -406,12 +252,10 @@
           <p>© Secret Network. All Rights Reserved.</p>
           <nav class="documents">
             <a href="">Terms of Service</a>
-            <span>|</span>
+            <span></span>
             <a href="">Privacy Policy</a>
           </nav>
         </block>
-        <!-- <block class="documents">
-        </block> -->
       </column>
     </template>
   </simple-layout>
@@ -770,14 +614,9 @@ export default {
 <style lang="scss">
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
-body {
-  @include respond-to("<=m") {
-    /* overflow-y:hidden; */
-  }
-}
+
 .simple-layout {
   position: relative;
-  // overflow: hidden;
 }
 .simple-header {
   display: grid;
@@ -807,17 +646,11 @@ body {
     padding-bottom: 0px;
     display: grid;
     grid-template-columns: 124px 1fr;
-    // @include respond-to("<=m") {
-    //   grid-template-columns: repeat(3, 1fr);
-    // }
     @media only screen and (max-width: (1160px - 1px)) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   .mobile-menu-toggle {
-    // @include respond-to(">=l") {
-    //   display: none;
-    // }
     @media only screen and (min-width: (1160px)) {
       display: none;
     }
@@ -827,9 +660,6 @@ body {
       width: auto;
       height: 58px;
       padding: var(--f-gutter-s) var(--f-gutter) var(--f-gutter-s) 0;
-      @include respond-to("<=m") {
-        // transform: translateX(var(--f-gutter-l));
-      }
     }
   }
   .nav-wrapper {
@@ -838,9 +668,6 @@ body {
     gap: var(--f-gutter);
     height: 100%;
     justify-content: space-between;
-    // @include respond-to("<=m") {
-    //   justify-content: flex-end;
-    // }
     @media only screen and (min-width: (1160px)) {
       grid-template-columns: auto 1fr auto;
     }
@@ -850,95 +677,12 @@ body {
     .mobile-wrapper {
       display: flex;
       gap: var(--f-gutter-xxl);
-      // @include respond-to("<=m") {
-      //   display: none;
-      // }
+
       @media only screen and (max-width: (1160px - 1px)) {
         display: none;
       }
-      // .main-navigation {
-      //   display: flex;
-      //   flex: auto;
-      //   height: 100%;
-      //   .header__navigation {
-      //     flex: auto;
-      //     margin: 0;
-      //     display: flex;
-      //     height: 100%;
-      //     justify-content: flex-start;
-      //     align-items: center;
-      //     li.dropdown-container {
-      //       padding-left: 0;
-      //       margin: 0;
-      //       position: relative;
-      //       display: flex;
-      //       height: 100%;
-      //       align-items: center;
-      //       & > a {
-      //         text-decoration: none;
-      //         display: flex;
-      //         gap: 10px;
-      //         color: var(--theme-fg);
-      //       }
-      //       .dropdown {
-      //         position: absolute;
-      //         left: 0;
-      //         top: 56px;
-      //         background: var(--theme-dropdown-bg);
-      //         display: flex;
-      //         border-radius: var(--f-gutter-xs);
-      //         z-index: 9;
-      //         margin: 0;
-      //         flex-direction: column;
-      //         min-width: 200px;
-      //         flex: auto;
-      //         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-      //         padding-left: 0;
-      //         li {
-      //           margin: 0;
-      //           flex: auto;
-      //           padding: 0;
-      //           height: 100%;
-      //           display: flex;
-      //           a {
-      //             white-space: nowrap;
-      //             color: var(--theme-bg);
-      //             @include theme(dark dark-colored) {
-      //               color: var(--color-neutral-light-mode-045);
-      //             }
-      //             padding: var(--f-gutter-s) var(--f-gutter);
-      //             display: inline-block;
-      //             flex: auto;
-      //             height: 100%;
-      //             font-weight: 500;
-      //             text-decoration: none;
-      //             &:hover {
-      //               font-weight: 600;
-      //               @include theme(dark dark-colored) {
-      //                 color: black;
-      //               }
-      //               @include theme(light light-colored) {
-      //                 color: white;
-      //               }
-      //             }
-      //             &:before {
-      //               display: block;
-      //               content: attr(title);
-      //               font-weight: bold;
-      //               height: 0;
-      //               overflow: hidden;
-      //               visibility: hidden;
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
+
       &.is-nav-open {
-        // @include respond-to(">=l") {
-        //   display: none;
-        // }
         @media only screen and (min-width: (1160px)) {
           display: none;
         }
@@ -997,12 +741,9 @@ body {
       .social-navigation {
         display: grid;
         grid-auto-flow: column;
-        // display: flex;
         gap: var(--f-gutter-xxs);
         align-items: center;
-        // @include respond-to(">=l") {
-        //   display: none;
-        // }
+
         @media only screen and (min-width: (1160px)) {
           display: none;
         }
@@ -1076,9 +817,7 @@ body {
         gap: var(--f-gutter-s);
         align-items: center;
         padding-right: var(--f-gutter);
-        // @include respond-to("<=m") {
-        //   display: none;
-        // }
+
         @media only screen and (max-width: (1160px - 1px)) {
           display: none;
         }
@@ -1116,41 +855,20 @@ body {
   }
   &.top {
     left: 0;
-    //  top: 0;
-    // bottom: -300px;
     top: 68px;
     &.v2 {
       height: 148px;
     }
-    @include respond-to("<=s") {
-      // bottom: -300px;
-    }
+
     img {
       &.special-mod {
         height: 148px;
         object-fit: fill;
         object-position: center bottom;
-        @include respond-to("<=m") {
-          // height: 222px;
-        }
       }
     }
   }
-  // &.top {
-  //   left: 0;
-  //   right: 0;
-  //   top: 0;
-  //   img {
-  //     &.special-mod {
-  //       height: 255px;
-  //       object-fit: cover;
-  //       object-position: center bottom;
-  //       @include respond-to("<=m") {
-  //         // height: 222px;
-  //       }
-  //     }
-  //   }
-  // }
+
   &.bottom {
     left: 0;
     bottom: -300px;
@@ -1170,15 +888,12 @@ body {
         object-fit: fill;
         object-position: center bottom;
         transform: rotate(0);
-        @include respond-to("<=m") {
-          // height: 222px;
-        }
       }
     }
   }
 }
 .simple-footer {
-  background: var(--theme-bg);
+  background: var(--color-neutral-dark-mode-01);
   min-height: 577px;
   margin-top: 196px;
   gap: var(--f-gutter-l);
@@ -1189,50 +904,8 @@ body {
       filter: invert(1);
     }
   }
-  // .footer-nav {
-  //   display: grid;
-  //   grid-template-columns: repeat(4, 1fr);
-  //   gap: var(--f-gutter);
-  //   margin-bottom: var(--f-gutter-xxl);
-  //   @include respond-to("<=s") {
-  //     grid-template-columns: 1fr;
-  //     gap: var(--f-gutter-xxl);
-  //   }
-  //   nav {
-  //     display: grid;
-  //     align-content: start;
-  //     gap: var(--f-gutter);
-  //     padding-right: var(--f-gutter);
-  //     @include respond-to("<=s") {
-  //       text-align: center;
-  //       padding-right: 0;
-  //       align-items: center;
-  //     }
-  //     .footer-nav-title {
-  //       color: var(--theme-fg);
-  //       margin-bottom: 0;
-  //     }
-  //     a {
-  //       line-height: 1.5;
-  //       text-decoration: none;
-  //       display: flex;
-  //       align-items: center;
-  //       gap: var(--f-gutter-s);
-  //       span {
-  //         display: inline-block;
-  //         width: 90%;
-  //         @include respond-to("<=s") {
-  //           width: 100%;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+
   .footer-contact {
-    // display: grid;
-    // grid-template-columns: 1fr 445px;
-    // width: 100%;
-    // max-width: 1873px;
     display: grid;
     grid-template-columns: 1fr 445px;
     width: 100%;
@@ -1241,7 +914,6 @@ body {
     margin-right: auto;
     padding: 40px;
     a {
-      //color: var(--color-newBrand-blue-02) !important;
       &:hover {
         color: var(--mega-header-color-nav-exanded-hover) !important;
       }
@@ -1253,6 +925,8 @@ body {
     .social {
       display: grid;
       gap: var(--f-gutter);
+      place-items: start;
+
       @include respond-to("<=s") {
         text-align: center;
         justify-content: center;
@@ -1268,7 +942,7 @@ body {
         grid-auto-columns: max-content;
         gap: var(--f-gutter);
       }
-      .contribute-github {
+      /* .contribute-github {
         display: grid;
         grid-auto-flow: column;
         gap: var(--f-gutter);
@@ -1277,7 +951,7 @@ body {
         p {
           margin: 0;
         }
-      }
+      } */
       .submit-issue {
         display: grid;
         grid-auto-flow: column;
@@ -1288,11 +962,20 @@ body {
           margin: 0;
         }
       }
+
+      a,
+      span {
+        color: var(--color-analog-tertiary-blue);
+      }
     }
     .subscribe {
       align-self: end;
       h3 {
         margin-bottom: var(--f-gutter);
+        @include respond-to("<=s") {
+          text-align: center;
+        }
+
         span {
           @include theme(dark dark-colored) {
             color: var(--color-newBrand-blue-01);
@@ -1305,9 +988,13 @@ body {
       form {
         display: grid;
         gap: var(--f-gutter-s);
-        grid-template-columns: 1fr 137px;
+        grid-template-columns: 1fr 150px;
+        grid-template-rows: 46px;
+        place-items: stretch;
+
         @include respond-to("<=s") {
           grid-template-columns: 1fr;
+
           .button,
           input {
             margin: 0 !important;
@@ -1316,33 +1003,53 @@ body {
             appearance: none;
           }
         }
+        .button,
+        input {
+          margin: 0;
+        }
+
+        input {
+          padding: 10px 16px;
+          background-color: var(--color-neutral-dark-mode-03);
+          border: none;
+
+          &::placeholder {
+            color: var(--color-analog-primary-white);
+            opacity: 0.6;
+          }
+        }
+
+        .button {
+          background-color: var(--color-ver2-primary-orange);
+          text-transform: uppercase;
+          font-family: "Hind";
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 1px;
+          height: 100%;
+          padding: 17px 32px 15px 32px;
+        }
       }
     }
   }
 }
 .legal {
-  // height: 48px;
-
   @include theme(light light-colored) {
     background: var(--color-neutral-light-mode-01);
   }
   @include theme(dark dark-colored) {
-    background: black;
+    background: var(--color-neutral-dark-mode-01);
   }
   @include respond-to("<=s") {
     grid-template-columns: 1fr;
     height: auto;
     text-align: center;
   }
+
   .content {
     display: grid;
-    // justify-content: center;
+
     .box {
-      // align-content: end;
-      // display: grid;
-      // grid-template-columns: 1fr 445px;
-      // background: red;
-      // padding: 40px;
       padding-left: var(--f-gutter-xl);
       padding-right: var(--f-gutter-xl);
       display: grid;
@@ -1351,15 +1058,21 @@ body {
       margin-left: auto;
       margin-right: auto;
       grid-auto-flow: column;
-      p,
+
+      p {
+        margin: 0;
+        color: var(--color-analog-primary-white);
+      }
+
       a {
         margin: 0;
-        // color: var(--the);
+        color: var(--color-analog-tertiary-blue);
       }
+
       .documents {
         display: grid;
         grid-auto-flow: column;
-        gap: var(--f-gutter);
+        gap: 20px;
         justify-content: end;
         .content {
           .box {
@@ -1367,6 +1080,13 @@ body {
             align-content: end;
           }
         }
+
+        span {
+          width: 1px;
+          background-color: white;
+          height: 100%;
+        }
+
         nav {
           display: grid;
           grid-auto-flow: column;
@@ -1384,14 +1104,7 @@ body {
     }
   }
 }
-// .fade-enter-active {
-//   -webkit-animation: swing-in-top-fwd 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-//   animation: swing-in-top-fwd 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-// }
-// .fade-leave-active {
-//   -webkit-animation: swing-out-top-bck 0.2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
-//   animation: swing-out-top-bck 0.2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
-// }
+
 @-webkit-keyframes swing-in-top-fwd {
   0% {
     -webkit-transform: rotateX(-100deg);
@@ -1408,6 +1121,7 @@ body {
     opacity: 1;
   }
 }
+
 @keyframes swing-in-top-fwd {
   0% {
     -webkit-transform: rotateX(-100deg);
@@ -1424,6 +1138,7 @@ body {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes swing-out-top-bck {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -1440,6 +1155,7 @@ body {
     opacity: 0;
   }
 }
+
 @keyframes swing-out-top-bck {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -1464,6 +1180,7 @@ body {
   -webkit-animation: fade-out-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: fade-out-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+
 /* ----------------------------------------------
  * Generated by Animista on 2021-5-14 15:13:33
  * Licensed under FreeBSD License.
