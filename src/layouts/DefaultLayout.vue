@@ -215,7 +215,7 @@
             </g-link>
           </div>
           <div class="subscribe">
-            <h3>Get updates</h3>
+            <h3>Get Updates</h3>
             <form
               action="https://network.us2.list-manage.com/subscribe/post?u=7a05e306cd4c801a88ddcb060&amp;id=889f1a33bc"
               method="post"
