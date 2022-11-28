@@ -52,12 +52,16 @@
                     {{ data.title }}
                   </li>
                   <li class="moderator">
-                    <span class="text">{{ data.moderator_name }}</span>
-                    <span class="description">
-                      {{ data.moderator_description }}
-                    </span>
+                    <span class="mobile-title">Moderator</span>
+                    <div class="moderator__content">
+                      <span class="text">{{ data.moderator_name }}</span>
+                      <span class="description">
+                        {{ data.moderator_description }}
+                      </span>
+                    </div>
                   </li>
                   <li class="time">
+                    <span class="mobile-title">Time</span>
                     <span>
                       {{ rangeTime(data.start_time, data.end_time) }}
                       <b class="time__detail">UTC</b>
@@ -380,15 +384,27 @@ query {
         .moderator {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          gap: 16px;
+
+          @include respond-to(">=l") {
+            justify-content: center;
+          }
+
+          &__content {
+            display: flex;
+            flex-direction: column;
+          }
         }
 
         .time {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          gap: 10px;
+          gap: 16px;
           @include base_text();
+
+          @include respond-to(">=l") {
+            justify-content: center;
+          }
 
           &__detail {
             @include small_text();
