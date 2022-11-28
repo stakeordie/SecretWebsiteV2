@@ -51,7 +51,10 @@
                     <span class="mobile-title">Talk</span>
                     {{ data.title }}
                   </li>
-                  <li class="moderator">
+                  <li
+                    class="moderator"
+                    :class="!data.moderator_name ? 'hidden-mobile' : ''"
+                  >
                     <span class="text">{{ data.moderator_name }}</span>
                     <span class="description">
                       {{ data.moderator_description }}
@@ -395,6 +398,12 @@ query {
             font-size: 16px;
             text-transform: uppercase;
             color: var(--color-neutral-gray-04);
+          }
+        }
+
+        .hidden-mobile {
+          @include respond-to("<=m") {
+            display: none;
           }
         }
       }
