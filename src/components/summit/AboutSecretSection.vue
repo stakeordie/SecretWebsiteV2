@@ -142,7 +142,6 @@ export default {
         align-items: center;
         justify-content: center;
         gap: 6px;
-        width: 100%;
         padding: 12px 66px;
         border-radius: 100px;
         font-size: 16px;
@@ -152,10 +151,6 @@ export default {
         text-transform: uppercase;
         cursor: pointer;
         transition: 0.2s ease;
-
-        @include respond-to(">=s") {
-          width: max-content;
-        }
 
         &:visited:hover,
         &:hover {

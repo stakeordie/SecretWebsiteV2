@@ -399,9 +399,8 @@ query {
       justify-content: center;
 
       a {
-        border-radius: 10px;
+        border-radius: 100px;
         padding: 10px 39px;
-        width: 100%;
         display: flex;
         background: var(--theme-card-button-bg);
         color: var(--theme-fg);
@@ -411,10 +410,6 @@ query {
         font-family: "Hind";
         height: 46px;
         transition: 0.2s ease;
-
-        @include respond-to(">=s") {
-          width: max-content;
-        }
 
         &:hover {
           color: inherit;
