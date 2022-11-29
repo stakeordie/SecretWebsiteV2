@@ -153,6 +153,7 @@ query {
           subtitle
           body
           sponsors {
+            title
             url
             image {
               url
