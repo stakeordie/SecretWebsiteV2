@@ -130,6 +130,8 @@ module.exports = {
           "nav-header",
           "ecosystem-roadmap",
           "services-alert",
+          "summit",
+          "summit-agenda",
         ],
         // Possibility to login with a Strapi user,
         // when content types are not publicly available (optional).

@@ -3,8 +3,8 @@
     <countdown
       format="days:hours:minutes:seconds"
       separators=""
-      end="2022-12-15T06:00:00-0800"
-      @countDownEnd="homePageRemoveCountdown"
+      :end="$static.summit.edges[0].node.Summit_hero.start_date"
+      @countDownEnd="countdownEnd"
     >
       <span class="date_info">DAYS</span>
       <span class="date_info">HOURS</span>
@@ -15,8 +15,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    countdownEnd() {
+      this.$store.commit("startSummit");
+    },
+  },
+};
 </script>
+
+<static-query>
+query {
+  summit: allStrapiSummit {
+    edges {
+      node {
+        Summit_hero {
+          start_date
+        }
+      }
+    }
+  }
+}
+</static-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
