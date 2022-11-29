@@ -35,7 +35,8 @@
                     >
                       <div class="speaker__image">
                         <img
-                          :src="speaker.image.url || ''"
+                          v-if="speaker.image"
+                          :src="speaker.image.url"
                           :alt="speaker.image.name"
                         />
                       </div>
@@ -62,7 +63,7 @@
                   </li>
                   <li class="time">
                     <span>
-                      {{ rangeTime(data.start_time, data.end_time) }}
+                      {{ data.time }}
                       <b class="time__detail">UTC</b>
                     </span>
                   </li>
@@ -98,18 +99,6 @@ export default {
       return this.$static.summit_agenda.edges[0].node;
     },
   },
-  methods: {
-    rangeTime(startTime, endTime) {
-      const transformTime = (time) => {
-        const [hour, minutes] = time.split(":");
-        const hours = hour % 12 || 12;
-        const indicator = hour >= 12 ? "pm" : "am";
-        return `${hours}:${minutes} ${indicator}`;
-      };
-
-      return `${transformTime(startTime)} - ${transformTime(endTime)}`;
-    },
-  },
 };
 </script>
 
@@ -123,8 +112,7 @@ query {
           title
           moderator_name
           moderator_description
-          start_time
-          end_time
+          time
           speakers {
             name
             description
@@ -269,11 +257,7 @@ query {
         border-bottom: solid 2px var(--color-neutral-dark-mode-03);
 
         @include respond-to(">=l") {
-          grid-template-columns:
-            minmax(max-content, 257px)
-            1fr
-            minmax(max-content, 190px)
-            minmax(max-content, 222px);
+          grid-template-columns: 257px 1fr minmax(max-content, 190px) 232px;
         }
 
         &:last-of-type {
@@ -344,6 +328,7 @@ query {
             display: flex;
             width: 100%;
             gap: 16px;
+            align-items: center;
 
             &__image {
               width: 40px;
