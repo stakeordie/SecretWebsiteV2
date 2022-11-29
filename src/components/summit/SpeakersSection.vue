@@ -104,7 +104,6 @@ export default {
           width: 100%;
           display: flex;
           justify-content: center;
-          flex: 1;
         }
 
         &__info {
@@ -139,9 +138,8 @@ export default {
       padding-top: 26px;
 
       a {
-        border-radius: 10px;
+        border-radius: 100px;
         padding: 10px 39px;
-        width: 100%;
         display: flex;
         background: var(--theme-card-button-bg);
         color: var(--theme-fg);
@@ -151,10 +149,6 @@ export default {
         font-family: "Hind";
         height: 46px;
         transition: 0.2s ease;
-
-        @include respond-to(">=s") {
-          width: max-content;
-        }
 
         &:hover {
           color: inherit;

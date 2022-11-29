@@ -52,7 +52,10 @@
                     <span class="mobile-title">Talk</span>
                     {{ data.title }}
                   </li>
-                  <li class="moderator">
+                  <li
+                    class="moderator"
+                    :class="!data.moderator_name ? 'hidden-mobile' : ''"
+                  >
                     <span class="mobile-title">Moderator</span>
                     <div class="moderator__content">
                       <span class="text">{{ data.moderator_name }}</span>
@@ -398,6 +401,12 @@ query {
             color: var(--color-neutral-gray-04);
           }
         }
+
+        .hidden-mobile {
+          @include respond-to("<=m") {
+            display: none;
+          }
+        }
       }
     }
 
@@ -406,9 +415,8 @@ query {
       justify-content: center;
 
       a {
-        border-radius: 10px;
+        border-radius: 100px;
         padding: 10px 39px;
-        width: 100%;
         display: flex;
         background: var(--theme-card-button-bg);
         color: var(--theme-fg);
@@ -418,10 +426,6 @@ query {
         font-family: "Hind";
         height: 46px;
         transition: 0.2s ease;
-
-        @include respond-to(">=s") {
-          width: max-content;
-        }
 
         &:hover {
           color: inherit;
