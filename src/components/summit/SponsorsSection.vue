@@ -20,7 +20,11 @@
             class="sponsors__content__item"
             :href="item.url"
           >
-            <img :src="item.image.url" :alt="item.url" />
+            <img
+              :src="item.image ? item.image.url : ''"
+              :alt="item.title"
+              :title="item.title"
+            />
           </a>
         </div>
       </div>
