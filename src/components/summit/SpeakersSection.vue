@@ -104,7 +104,6 @@ export default {
           width: 100%;
           display: flex;
           justify-content: center;
-          flex: 1;
         }
 
         &__info {
