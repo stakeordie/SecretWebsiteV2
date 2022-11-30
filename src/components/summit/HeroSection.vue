@@ -11,7 +11,7 @@
             </div>
             <a
               class="hero__cta"
-              :href="data.cta_button.title"
+              :href="data.cta_button.url"
               target="_blank"
               rel="noopener noreferrer"
             >

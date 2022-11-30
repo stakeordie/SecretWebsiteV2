@@ -4,7 +4,7 @@
       <span class="announcement__content__title">{{ data.title }}</span>
       <a
         class="announcement__content__cta"
-        :href="data.cta_button.title"
+        :href="data.cta_button.url"
         target="_blank"
         rel="noopener noreferrer"
       >
