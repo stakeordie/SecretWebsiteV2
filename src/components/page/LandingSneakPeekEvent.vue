@@ -70,7 +70,8 @@ export default {
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
-
+    },
+    addEventScript() {
       const eventScript = document.createElement("script");
       eventScript.innerHTML = `
         var exampleCallback = function () {
@@ -93,7 +94,7 @@ export default {
           modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
           onOrderComplete: exampleCallback,
         });`;
-      document.body.appendChild(eventScript);
+      document.querySelector(".summit_content").appendChild(eventScript);
     },
   },
   computed: {
@@ -126,6 +127,7 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
+      this.addEventScript();
     }, 100);
   },
 };
