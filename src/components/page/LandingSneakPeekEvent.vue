@@ -93,7 +93,7 @@ export default {
           modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
           onOrderComplete: exampleCallback,
         });`;
-      document.head.appendChild(eventScript);
+      document.body.appendChild(eventScript);
     },
   },
   computed: {
