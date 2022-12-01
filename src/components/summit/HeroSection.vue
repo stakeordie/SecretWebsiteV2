@@ -9,18 +9,27 @@
               <h2 class="hero__info__title">{{ data.title }}</h2>
               <p>{{ data.body }}</p>
             </div>
-            <a
+            <noscript>
+              <a
+                class="hero__cta"
+                href="https://secretsummit2022.eventbrite.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Buy Tickets on Eventbrite
+              </a>
+            </noscript>
+            <button
               class="hero__cta"
-              :href="data.cta_button.url"
-              target="_blank"
-              rel="noopener noreferrer"
+              id="eventbrite-widget-modal-trigger-444225429217"
+              type="button"
             >
               <img
                 src="../../assets/events/summit/check-circle-lightest.svg"
                 alt="check icon"
               />
               <span>{{ data.cta_button.title }}</span>
-            </a>
+            </button>
             <event-countdown></event-countdown>
           </div>
         </div>
@@ -74,6 +83,8 @@ export default {
       line-height: 20px;
       letter-spacing: 1px;
       text-transform: uppercase;
+      margin-bottom: 0;
+      font-family: "Hind";
 
       &:visited:hover,
       &:hover {

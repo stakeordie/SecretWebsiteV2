@@ -32,6 +32,9 @@ export default {
           src: "https://www.googletagmanager.com/gtag/js?id=G-FS23DKM3PL%22%3E",
           async: true,
         },
+        {
+          src: "https://www.eventbrite.com/static/widgets/eb_widgets.js",
+        },
       ],
     };
   },
@@ -67,6 +70,30 @@ export default {
         gtag('js', new Date());
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
+
+      const eventScript = document.createElement("script");
+      eventScript.innerHTML = `
+        var exampleCallback = function () {
+          console.log("Order complete!");
+          setTimeout(function () {
+            window.open("https://scrt.network/summit/thank-you", "_self");
+          }, 500);
+        };
+
+        var clientId;
+        ga(function (tracker) {
+          clientId = tracker.get("clientId");
+        });
+
+        window.EBWidgets.createWidget({
+          widgetType: "checkout",
+          eventId: "444225429217",
+          googleAnalyticsClientId: clientId,
+          modal: true,
+          modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
+          onOrderComplete: exampleCallback,
+        });`;
+      document.head.appendChild(eventScript);
     },
   },
   computed: {
