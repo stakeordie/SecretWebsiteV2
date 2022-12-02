@@ -72,50 +72,30 @@ export default {
       document.head.appendChild(functionScript);
     },
     addEventScript() {
-      // const eventScript = document.createElement("script");
-      // eventScript.type = "text/javascript";
-      // eventScript.innerHTML = `
-      //   var exampleCallback = function () {
-      //     console.log("Order complete!");
-      //     setTimeout(function () {
-      //       window.open("https://scrt.network/summit/thank-you", "_self");
-      //     }, 500);
-      //   };
+      const eventScript = document.createElement("script");
+      eventScript.type = "text/javascript";
+      eventScript.innerHTML = `
+        var exampleCallback = function () {
+          console.log("Order complete!");
+          setTimeout(function () {
+            window.open("https://scrt.network/summit/thank-you", "_self");
+          }, 500);
+        };
 
-      //   var clientId;
-      //   ga(function (tracker) {
-      //     clientId = tracker.get("clientId");
-      //   });
+        var clientId;
+        ga(function (tracker) {
+          clientId = tracker.get("clientId");
+        });
 
-      //   window.EBWidgets.createWidget({
-      //     widgetType: "checkout",
-      //     eventId: "444225429217",
-      //     googleAnalyticsClientId: clientId,
-      //     modal: true,
-      //     modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
-      //     onOrderComplete: exampleCallback,
-      //   });`;
-      // document.body.appendChild(eventScript);
-      var exampleCallback = function () {
-        console.log("Order complete!");
-        setTimeout(function () {
-          window.open("https://scrt.network/summit/thank-you", "_self");
-        }, 500);
-      };
-
-      var clientId;
-      ga(function (tracker) {
-        clientId = tracker.get("clientId");
-      });
-
-      window.EBWidgets.createWidget({
-        widgetType: "checkout",
-        eventId: "444225429217",
-        googleAnalyticsClientId: clientId,
-        modal: true,
-        modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
-        onOrderComplete: exampleCallback,
-      });
+        window.EBWidgets.createWidget({
+          widgetType: "checkout",
+          eventId: "444225429217",
+          googleAnalyticsClientId: clientId,
+          modal: true,
+          modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
+          onOrderComplete: exampleCallback,
+        });`;
+      document.body.appendChild(eventScript);
     },
   },
   computed: {
@@ -149,7 +129,7 @@ export default {
       this.sneakPeek();
       this.addAdScript();
       this.addEventScript();
-    }, 100);
+    }, 500);
   },
 };
 </script>

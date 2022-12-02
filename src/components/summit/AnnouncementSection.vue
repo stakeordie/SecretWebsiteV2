@@ -12,17 +12,19 @@
           Buy Tickets on Eventbrite
         </a>
       </noscript>
-      <button
-        class="announcement__content__cta"
-        id="eventbrite-widget-modal-trigger-444225429217"
-        type="button"
-      >
-        <img
-          src="../../assets/events/summit/check-circle-light.svg"
-          alt="check icon"
-        />
-        <span>{{ data.cta_button.title }}</span>
-      </button>
+      <ClientOnly>
+        <button
+          class="announcement__content__cta"
+          id="eventbrite-widget-modal-trigger-444225429217"
+          type="button"
+        >
+          <img
+            src="../../assets/events/summit/check-circle-light.svg"
+            alt="check icon"
+          />
+          <span>{{ data.cta_button.title }}</span>
+        </button>
+      </ClientOnly>
     </div>
   </div>
 </template>
