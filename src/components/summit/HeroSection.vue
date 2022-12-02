@@ -9,16 +9,6 @@
               <h2 class="hero__info__title">{{ data.title }}</h2>
               <p>{{ data.body }}</p>
             </div>
-            <noscript>
-              <a
-                class="hero__cta"
-                href="https://secretsummit2022.eventbrite.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Buy Tickets on Eventbrite
-              </a>
-            </noscript>
             <ClientOnly>
               <button
                 class="hero__cta"

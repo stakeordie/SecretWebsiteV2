@@ -2,16 +2,6 @@
   <div class="announcement">
     <div class="announcement__content">
       <span class="announcement__content__title">{{ data.title }}</span>
-      <noscript>
-        <a
-          class="announcement__content__cta"
-          href="https://secretsummit2022.eventbrite.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Buy Tickets on Eventbrite
-        </a>
-      </noscript>
       <ClientOnly>
         <button
           class="announcement__content__cta"
