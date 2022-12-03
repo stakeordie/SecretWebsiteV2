@@ -129,7 +129,7 @@ export default {
       this.sneakPeek();
       this.addAdScript();
       this.addEventScript();
-    }, 500);
+    }, 200);
   },
 };
 </script>

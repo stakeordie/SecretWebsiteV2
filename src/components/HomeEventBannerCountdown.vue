@@ -5,17 +5,8 @@
       <h3>until Secret Summit</h3>
       <h4>COMING IN DECEMBER</h4>
     </div>
-    <a
-      class="home-event-countdown__cta"
-      href="http://secretsummit2022.eventbrite.com"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src="../assets/events/summit/check-circle-lightest.svg"
-        alt="check icon"
-      />
-      <span>Save my spot</span>
+    <a class="home-event-countdown__cta" href="/summit">
+      <span>FIND OUT MORE</span>
     </a>
   </section>
 </template>
