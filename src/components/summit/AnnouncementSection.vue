@@ -8,11 +8,7 @@
           id="eventbrite-widget-modal-trigger-444225429217"
           type="button"
         >
-          <img
-            src="../../assets/events/summit/check-circle-light.svg"
-            alt="check icon"
-          />
-          <span>{{ data.cta_button.title }}</span>
+          {{ data.cta_button.title }}
         </button>
       </ClientOnly>
     </div>
@@ -82,7 +78,8 @@ export default {
         gap: 6px;
         width: 100%;
         max-width: 261px;
-        padding: 22px 0;
+        padding-top: 25px;
+        padding-bottom: 22px;
         border-radius: 100px;
         font-size: 20px !important;
         font-weight: 700;
@@ -91,10 +88,6 @@ export default {
         text-transform: uppercase;
         font-family: "Hind";
         margin-bottom: 0;
-
-        span {
-          padding-top: 3px;
-        }
 
         &:visited:hover,
         &:hover {

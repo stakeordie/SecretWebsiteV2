@@ -128,8 +128,8 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
-      this.addEventScript();
-    }, 200);
+      setTimeout(() => this.addEventScript(), 500);
+    }, 100);
   },
 };
 </script>
