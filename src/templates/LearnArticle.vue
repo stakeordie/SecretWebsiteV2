@@ -25,22 +25,25 @@
     </column>
 
     <!-- Main content -->
-    <column class="bg-black-gradient learn-article__content">
+    <column
+      class="bg-black-gradient learn-article__content"
+      :class="{ 'empty-nav': !anchorListFinal.length }"
+    >
       <block>
-        <nav class="learn-anchors">
+        <nav class="learn-anchors" v-if="anchorListFinal.length">
           <div
             v-for="(anchor_lvl_1, index) in anchorListFinal"
             :key="index"
             class="learn-anchors__grid"
           >
             <div :class="'lvl--0' + anchor_lvl_1.nav_level" class="anchor">
-              <a class="anchor__title" :href="'#' + anchor_lvl_1.id">{{
-                anchor_lvl_1.title
-              }}</a>
+              <a class="anchor__title" :href="'#' + anchor_lvl_1.id">
+                {{ anchor_lvl_1.title }}
+              </a>
               <button
                 type="button"
                 class="anchor__control"
-                v-on:click="anchor_lvl_1.isOpen = !anchor_lvl_1.isOpen"
+                @click="anchor_lvl_1.isOpen = !anchor_lvl_1.isOpen"
               >
                 <img
                   :class="
@@ -52,7 +55,6 @@
                   src="../assets/chev-learn.svg"
                   alt=""
                 />
-                <!-- <p>{{anchor_lvl_1.nested}}</p> -->
               </button>
             </div>
             <div
@@ -67,8 +69,9 @@
                   class="anchor__title"
                   :href="'#' + anchor_lvl_2.id"
                   :class="'anchor__title-0' + anchor_lvl_2.nav_level"
-                  >{{ anchor_lvl_2.title }}</a
                 >
+                  {{ anchor_lvl_2.title }}
+                </a>
                 <button
                   type="button"
                   class="anchor__control"
@@ -84,7 +87,6 @@
                     src="../assets/chev-learn.svg"
                     alt=""
                   />
-                  <!-- <span>{{anchor_lvl_2.nested.length !== 0 }}</span> -->
                 </button>
               </div>
               <div
@@ -99,11 +101,10 @@
                     class="anchor__title"
                     :href="'#' + anchor_lvl_3.id"
                     :class="'anchor__title-0' + anchor_lvl_3.nav_level"
-                    >{{ anchor_lvl_3.title }}</a
                   >
-                  <a href="" class="anchor__control">
-                    <!-- <img src="../assets/chev-learn.svg" alt="" /> -->
+                    {{ anchor_lvl_3.title }}
                   </a>
+                  <a href="" class="anchor__control"> </a>
                 </div>
               </div>
             </div>
@@ -162,68 +163,45 @@
 export default {
   data: function () {
     return {
-      anchorList: [],
       anchorListFinal: [],
       submenuIsOpen: true,
     };
   },
   methods: {
-    // collapseSubmenu(arg) {
-    //   let submenuTarget;
-    //   submenuTarget = document.querySelectorAll(arg);
-    //   this.submenuIsOpen = !this.submenuIsOpen;
-
-    //   console.log(this.submenuIsOpen);
-    //   console.log()
-
-    //   for (let i = 0; i < submenuTarget.length; i++) {
-    //     if (!this.submenuIsOpen) {
-    //       submenuTarget[i].classList.add("hidding");
-    //       setTimeout(() => {
-    //         submenuTarget[i].classList.add("erased");
-    //       }, 200);
-    //     }
-    //     if (this.submenuIsOpen) {
-    //       submenuTarget[i].classList.remove("hidding");
-    //       submenuTarget[i].classList.remove("erased");
-    //     }
-    //   }
-    // },
-
     getAnchors() {
-      let anchors = [];
-      let matches = document.querySelectorAll('[is-anchor="true"]');
-      anchors = [...matches];
+      const matches = document.querySelectorAll('[is-anchor="true"]');
+      const anchors = [...matches];
+      const anchorList = [];
+
+      if (!anchors.length) return;
 
       let lastSecondLevelId = null;
       let lastThirdLevelId = null;
 
       for (let i = 0; i < anchors.length; i++) {
-        if (
-          Number(anchors[i].attributes.nav_level.value) === 2 &&
-          Number(anchors[i - 1].attributes.nav_level.value) === 1
-        )
-          lastSecondLevelId = anchors[i - 1].id;
+        const currentAnchor = Number(anchors[i].attributes.nav_level.value);
+        const anchorBefore = Number(anchors[i - 1].attributes.nav_level.value);
+        const anchorBeforeId = anchors[i - 1].id;
 
-        if (
-          Number(anchors[i].attributes.nav_level.value) === 3 &&
-          Number(anchors[i - 1].attributes.nav_level.value) === 2
-        )
-          lastThirdLevelId = anchors[i - 1].id;
+        if (currentAnchor === 2 && anchorBefore === 1) {
+          lastSecondLevelId = anchorBeforeId;
+        } else if (currentAnchor === 3 && anchorBefore === 2) {
+          lastThirdLevelId = anchorBeforeId;
+        }
 
-        let idSpecial =
-          Number(anchors[i].attributes.nav_level.value) > 1
-            ? i > 0 && Number(anchors[i].attributes.nav_level.value) === 2
+        const idSpecial =
+          currentAnchor > 1
+            ? i > 0 && currentAnchor === 2
               ? lastSecondLevelId
                 ? lastSecondLevelId
-                : anchors[i - 1].id
+                : anchorBeforeId
               : lastThirdLevelId
               ? lastThirdLevelId
               : ""
             : "";
 
-        this.anchorList.push({
-          nav_level: Number(anchors[i].attributes.nav_level.value),
+        anchorList.push({
+          nav_level: currentAnchor,
           title: anchors[i].innerText,
           id: anchors[i].id,
           idParent: idSpecial,
@@ -232,32 +210,19 @@ export default {
         });
       }
 
-      this.anchorList.forEach((a) => {
-        if (a.nav_level === 1) {
+      anchorList.forEach((a) => {
+        const { nav_level, idParent } = a;
+
+        if (nav_level === 1) {
           this.anchorListFinal.push(a);
-        }
-
-        if (a.nav_level === 2) {
-          this.anchorListFinal
-            .find((element) => {
-              return element.id === a.idParent;
-            })
-            .nested.push(a);
-        }
-
-        if (a.nav_level === 3) {
-          this.anchorListFinal.forEach((f) => {
-            f.nested
-              .find((element) => {
-                return element.id === a.idParent;
-              })
-              .nested.push(a);
+        } else if (nav_level === 2) {
+          this.anchorListFinal.find(({ id }) => id === idParent).nested.push(a);
+        } else if (nav_level === 3) {
+          this.anchorListFinal.forEach(({ nested }) => {
+            nested.find(({ id }) => id === idParent).nested.push(a);
           });
         }
       });
-
-      //   console.log(this.anchorList);
-      console.log(this.anchorListFinal);
     },
   },
   mounted() {
@@ -275,7 +240,6 @@ export default {
     top: 150px;
     display: grid;
     gap: 10px;
-    // gap: 10px;
     align-self: baseline;
     background: #1a2128;
     border-radius: 10px;
@@ -303,7 +267,6 @@ export default {
       display: grid;
       grid-template-columns: 1fr 24px;
       gap: var(--f-gutter-xl);
-      // padding: 6px 0;
       min-height: 32px;
       justify-content: space-between;
       &__title {
@@ -329,7 +292,6 @@ export default {
           padding-bottom: 4px;
         }
         &:hover {
-          // font-weight: 700;
           color: #ffffff;
         }
         &:focus {
@@ -405,27 +367,21 @@ export default {
           }
         }
       }
+
+      &.empty-nav {
+        .content {
+          .box {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
     }
+
     ul {
       list-style: inherit;
     }
 
     .text-column-single {
-      // max-width: 742px;
-
-      &--narrow {
-        // max-width: 742px;
-      }
-
-      &--standard {
-        // max-width: 742px;
-      }
-
-      &--wide {
-        // max-width: 843px;
-      }
-
-      // margin: auto;
       padding: var(--f-gutter) 26px;
 
       .title__align-center {
@@ -538,7 +494,6 @@ export default {
     }
 
     .article-hero {
-      // padding: 0 42px;
       .learn-post__img {
         width: 100%;
         height: 100%;
