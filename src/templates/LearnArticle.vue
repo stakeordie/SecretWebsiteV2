@@ -381,34 +381,6 @@ export default {
       list-style: inherit;
     }
 
-    .text-column-double {
-      display: grid;
-      gap: 26px;
-      grid-template-columns: repeat(2, 1fr);
-      @include respond-to("<=m") {
-        grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
-      }
-
-      &__col-1,
-      &__col-2 {
-        padding: var(--f-gutter) 26px;
-      }
-
-      p {
-        max-width: auto;
-        width: 100%;
-        line-height: 28px;
-        color: var(--color-analog-primary-white);
-      }
-
-      h3 {
-        max-width: auto;
-        width: 100%;
-        font-size: 28px;
-        line-height: 36.4px;
-      }
-    }
-
     .text-image-column-double {
       display: grid;
       gap: 26px;
@@ -444,11 +416,11 @@ export default {
         align-self: center;
       }
 
-      p {
-        max-width: auto;
-        width: 100%;
-        line-height: 28px;
-        color: var(--color-analog-primary-white);
+      p,
+      ul li {
+        line-height: 30px;
+        font-size: 20px;
+        color: var(--color-neutral-dark-mode-05);
       }
 
       h3 {
@@ -460,7 +432,7 @@ export default {
 
       .img-caption {
         font-size: 16px;
-        color: var(--theme-card-text-color);
+        color: var(--color-neutral-dark-mode-05);
         text-align: center;
         max-width: 710px;
         margin: auto;
