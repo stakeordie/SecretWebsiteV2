@@ -78,14 +78,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@lkmx/flare/src/functions/_respond-to.scss";
+
 .learn-article__content {
   .text-column-single {
     padding: var(--f-gutter);
     width: 100%;
+    padding: 64px 16px;
 
-    &__wide {
-      max-width: 1200px;
+    @include respond-to(">=m") {
+      padding: 64px 0;
     }
+
 
     &__standard {
       max-width: 800px;
