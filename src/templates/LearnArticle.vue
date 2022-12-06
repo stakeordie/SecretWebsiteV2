@@ -381,30 +381,6 @@ export default {
       list-style: inherit;
     }
 
-    .text-column-single {
-      padding: var(--f-gutter) 26px;
-
-      .title__align-center {
-        text-align: center;
-      }
-
-      p {
-        max-width: auto;
-        width: 100%;
-        line-height: 28px;
-        color: var(--color-analog-primary-white);
-      }
-
-      h3 {
-        max-width: auto;
-        width: 100%;
-        font-size: 28px;
-        line-height: 36.4px;
-        padding-top: 6em;
-        margin-top: -6em;
-      }
-    }
-
     .text-image-column-double {
       display: grid;
       gap: 26px;
