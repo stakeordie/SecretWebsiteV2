@@ -381,66 +381,6 @@ export default {
       list-style: inherit;
     }
 
-    .text-image-column-double {
-      display: grid;
-      gap: 26px;
-      grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
-
-      @include respond-to("<=m") {
-        grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
-      }
-
-      &.right {
-        .text-image-column-double__col-1 {
-          order: 1;
-        }
-
-        .text-image-column-double__col-2 {
-          order: 2;
-        }
-      }
-
-      &.left {
-        .text-image-column-double__col-1 {
-          order: 2;
-        }
-
-        .text-image-column-double__col-2 {
-          order: 1;
-        }
-      }
-
-      &__col-1,
-      &__col-2 {
-        padding: var(--f-gutter);
-        align-self: center;
-      }
-
-      p,
-      ul li {
-        line-height: 30px;
-        font-size: 20px;
-        color: var(--color-neutral-dark-mode-05);
-      }
-
-      h3 {
-        max-width: auto;
-        width: 100%;
-        font-size: 28px;
-        line-height: 36.4px;
-      }
-
-      .img-caption {
-        font-size: 16px;
-        color: var(--color-neutral-dark-mode-05);
-        text-align: center;
-        max-width: 710px;
-        margin: auto;
-        margin-top: 16px;
-        line-height: 24px;
-      }
-    }
-
     .article-hero {
       .learn-post__img {
         width: 100%;
@@ -450,55 +390,6 @@ export default {
 
       @include respond-to("<=s") {
         padding: 0 0;
-      }
-    }
-
-    .article-image {
-      display: grid;
-      gap: 16px;
-      padding: var(--f-gutter);
-
-      .img-caption {
-        font-size: 16px;
-        color: var(--theme-card-text-color);
-
-        text-align: center;
-        max-width: 710px;
-        margin: auto;
-        line-height: 24px;
-
-        @include respond-to("<=m") {
-          font-size: 12px;
-          line-height: 20px;
-        }
-      }
-    }
-
-    .article-video {
-      display: grid;
-      gap: 16px;
-      padding: var(--f-gutter);
-      justify-content: center;
-
-      video {
-        width: 100%;
-        height: auto;
-        max-width: 710px;
-      }
-
-      .img-caption {
-        font-size: 16px;
-        color: var(--theme-card-text-color);
-
-        text-align: center;
-        max-width: 710px;
-        margin: auto;
-        line-height: 24px;
-
-        @include respond-to("<=m") {
-          font-size: 12px;
-          line-height: 20px;
-        }
       }
     }
 
