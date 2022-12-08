@@ -36,9 +36,6 @@
           <h4
             v-if="first_paragraph_title"
             class="text-column-double__col__title"
-            :id="titleId(first_paragraph_title)"
-            :isAnchor="is_anchor"
-            :navLevel="navigation_level"
           >
             {{ first_paragraph_title }}
           </h4>
@@ -51,9 +48,6 @@
           <h4
             v-if="second_paragraph_title"
             class="text-column-double__col__title"
-            :id="titleId(first_paragraph_title)"
-            :isAnchor="is_anchor"
-            :navLevel="navigation_level"
           >
             {{ second_paragraph_title }}
           </h4>

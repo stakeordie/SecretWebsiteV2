@@ -30,86 +30,7 @@
       :class="{ 'empty-nav': !anchorListFinal.length }"
     >
       <block>
-        <nav class="learn-anchors" v-if="anchorListFinal.length">
-          <div
-            v-for="(anchor_lvl_1, index) in anchorListFinal"
-            :key="index"
-            class="learn-anchors__grid"
-          >
-            <div :class="'lvl--0' + anchor_lvl_1.navLevel" class="anchor">
-              <a class="anchor__title" :href="'#' + anchor_lvl_1.id">
-                {{ anchor_lvl_1.title }}
-              </a>
-              <button
-                type="button"
-                class="anchor__control"
-                @click="anchor_lvl_1.isOpen = !anchor_lvl_1.isOpen"
-              >
-                <img
-                  :class="
-                    anchor_lvl_1.isOpen
-                      ? 'anchor__control--is-open'
-                      : 'anchor__control--is-closed'
-                  "
-                  v-show="anchor_lvl_1.nested !== 0"
-                  src="../assets/chev-learn.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-            <div
-              v-show="anchor_lvl_1.isOpen"
-              v-for="(anchor_lvl_2, index) in anchor_lvl_1.nested"
-              :key="index"
-              class="parent-control"
-              :class="'parent-' + anchor_lvl_2.idParent"
-            >
-              <div :class="'lvl--0' + anchor_lvl_2.navLevel" class="anchor">
-                <a
-                  class="anchor__title"
-                  :href="'#' + anchor_lvl_2.id"
-                  :class="'anchor__title-0' + anchor_lvl_2.navLevel"
-                >
-                  {{ anchor_lvl_2.title }}
-                </a>
-                <button
-                  type="button"
-                  class="anchor__control"
-                  v-on:click="anchor_lvl_2.isOpen = !anchor_lvl_2.isOpen"
-                >
-                  <img
-                    :class="
-                      anchor_lvl_2.isOpen
-                        ? 'anchor__control--is-open'
-                        : 'anchor__control--is-closed'
-                    "
-                    v-show="anchor_lvl_2.nested.length !== 0"
-                    src="../assets/chev-learn.svg"
-                    alt=""
-                  />
-                </button>
-              </div>
-              <div
-                v-show="anchor_lvl_2.isOpen"
-                v-for="(anchor_lvl_3, index) in anchor_lvl_2.nested"
-                :key="index"
-                class="parent-control"
-                :class="'parent-' + anchor_lvl_3.idParent"
-              >
-                <div :class="'lvl--0' + anchor_lvl_3.navLevel" class="anchor">
-                  <a
-                    class="anchor__title"
-                    :href="'#' + anchor_lvl_3.id"
-                    :class="'anchor__title-0' + anchor_lvl_3.navLevel"
-                  >
-                    {{ anchor_lvl_3.title }}
-                  </a>
-                  <a href="" class="anchor__control"> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <nav-menu :data="anchorListFinal"></nav-menu>
         <div>
           <template v-for="(component, index) in $context.components">
             <component
@@ -160,11 +81,16 @@
 </template>
 
 <script>
+import NavMenu from "../components/dynamic/NavMenu.vue";
+
 export default {
   data() {
     return {
       anchorListFinal: [],
     };
+  },
+  components: {
+    NavMenu,
   },
   methods: {
     getAnchors() {
@@ -184,7 +110,10 @@ export default {
 
       anchors.forEach((elem, index) => {
         const { id, attributes } = elem;
-        const title = elem.querySelector("#main_title").innerHTML;
+        const title = elem.querySelector("#main_title")
+          ? elem.querySelector("#main_title").textContent
+          : "";
+
         const navLevel = Number(navLevels[attributes.navLevel.value]);
         const anchorBefore = anchors[index - 1];
         const anchorBeforeId = anchorBefore ? anchorBefore.id : "";
@@ -228,15 +157,19 @@ export default {
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
+          console.log("one");
           this.anchorListFinal.push(data);
         } else if (data.navLevel === navLevels.second) {
+          console.log("two");
           this.insertIntoSecond(data);
         } else if (data.navLevel === navLevels.third) {
+          console.log("three");
           this.insertIntoThird(data);
         }
       });
     },
     insertIntoSecond(data) {
+      console.log("data 2", data);
       const { idParent } = data;
       const anchorMatch = this.anchorListFinal.find(
         ({ id }) => id === idParent
@@ -244,6 +177,7 @@ export default {
       anchorMatch.nested.push(data);
     },
     insertIntoThird(data) {
+      console.log("data 3", data);
       const { idParent } = data;
       this.anchorListFinal.forEach(({ nested }) => {
         const anchorMatch = nested.find(({ id }) => id === idParent);
@@ -253,6 +187,7 @@ export default {
   },
   mounted() {
     this.getAnchors();
+    console.log(this.anchorListFinal);
   },
 };
 </script>
@@ -261,105 +196,6 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article {
-  .learn-anchors {
-    position: sticky;
-    top: 150px;
-    display: grid;
-    gap: 10px;
-    align-self: baseline;
-    background: #1a2128;
-    border-radius: 10px;
-    padding: var(--f-gutter);
-    @include respond-to("<=m") {
-      position: inherit;
-    }
-    &__grid {
-      display: grid;
-      gap: 0;
-      .parent-control {
-        transition: 0.2s ease;
-        height: auto;
-        max-height: 600px;
-        &.hidding {
-          opacity: 0;
-          max-height: 0px;
-        }
-        &.erased {
-          display: none;
-        }
-      }
-    }
-    .anchor {
-      display: grid;
-      grid-template-columns: 1fr 24px;
-      gap: var(--f-gutter-xl);
-      min-height: 32px;
-      justify-content: space-between;
-      &__title {
-        font-family: "Hind";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
-        color: #d1d5db;
-        display: flex;
-        align-items: center;
-        &-02 {
-          padding-left: 11px;
-          border-left: 2px solid #b2bfcd;
-          padding-top: 4px;
-          padding-bottom: 4px;
-        }
-        &-03 {
-          margin-left: 22px;
-          padding-left: 11px;
-          border-left: 2px solid #b2bfcd;
-          padding-top: 4px;
-          padding-bottom: 4px;
-        }
-        &:hover {
-          color: #ffffff;
-        }
-        &:focus {
-          color: #ffffff;
-          font-weight: 700;
-        }
-      }
-      &__control {
-        display: flex;
-        background: transparent;
-        margin: 0;
-        padding: 0;
-        align-self: center;
-        transition: 0.2s ease;
-        &--is-open {
-          transition: 0.2s ease;
-          transform: rotate(0);
-        }
-        &--is-closed {
-          transition: 0.2s ease;
-          transform: rotate(180deg);
-        }
-      }
-      &.lvl {
-        &--01 {
-          padding-left: 0;
-        }
-
-        &--02 {
-          padding-left: 11px;
-        }
-
-        &--03 {
-          margin-left: 11px;
-          margin-top: 0;
-          padding-left: 11px;
-          border-left: 2px solid #b2bfcd;
-        }
-      }
-    }
-  }
-
   .comp-name {
     &__dynamic-breadcrumb {
       .content {
