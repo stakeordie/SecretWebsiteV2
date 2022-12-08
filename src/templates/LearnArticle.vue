@@ -36,7 +36,7 @@
             :key="index"
             class="learn-anchors__grid"
           >
-            <div :class="'lvl--0' + anchor_lvl_1.nav_level" class="anchor">
+            <div :class="'lvl--0' + anchor_lvl_1.navLevel" class="anchor">
               <a class="anchor__title" :href="'#' + anchor_lvl_1.id">
                 {{ anchor_lvl_1.title }}
               </a>
@@ -64,11 +64,11 @@
               class="parent-control"
               :class="'parent-' + anchor_lvl_2.idParent"
             >
-              <div :class="'lvl--0' + anchor_lvl_2.nav_level" class="anchor">
+              <div :class="'lvl--0' + anchor_lvl_2.navLevel" class="anchor">
                 <a
                   class="anchor__title"
                   :href="'#' + anchor_lvl_2.id"
-                  :class="'anchor__title-0' + anchor_lvl_2.nav_level"
+                  :class="'anchor__title-0' + anchor_lvl_2.navLevel"
                 >
                   {{ anchor_lvl_2.title }}
                 </a>
@@ -96,11 +96,11 @@
                 class="parent-control"
                 :class="'parent-' + anchor_lvl_3.idParent"
               >
-                <div :class="'lvl--0' + anchor_lvl_3.nav_level" class="anchor">
+                <div :class="'lvl--0' + anchor_lvl_3.navLevel" class="anchor">
                   <a
                     class="anchor__title"
                     :href="'#' + anchor_lvl_3.id"
-                    :class="'anchor__title-0' + anchor_lvl_3.nav_level"
+                    :class="'anchor__title-0' + anchor_lvl_3.navLevel"
                   >
                     {{ anchor_lvl_3.title }}
                   </a>
@@ -111,19 +111,19 @@
           </div>
         </nav>
         <div>
-          <div v-for="(component, index) in $context.components" :key="index">
+          <template v-for="(component, index) in $context.components">
             <component
               v-if="
                 component.comp_name !== 'carousel' &&
                 component.comp_name !== 'article-hero'
               "
-              id="example-content"
               :is="component.comp_name"
+              :key="index"
               v-bind="component"
             >
               {{ component.content ? component.content : "" }}
             </component>
-          </div>
+          </template>
         </div>
       </block>
     </column>
@@ -161,37 +161,55 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       anchorListFinal: [],
-      submenuIsOpen: true,
     };
   },
   methods: {
     getAnchors() {
-      const matches = document.querySelectorAll('[is-anchor="true"]');
-      const anchors = [...matches];
-      const anchorList = [];
+      const anchors = document.querySelectorAll('[isAnchor="true"]');
+      let lastSecondLevelId = null;
+      let lastThirdLevelId = null;
+      const navLevels = {
+        first: 1,
+        second: 2,
+        third: 3,
+        fourth: 4,
+        fifth: 5,
+        sixth: 6,
+      };
 
       if (!anchors.length) return;
 
-      let lastSecondLevelId = null;
-      let lastThirdLevelId = null;
+      anchors.forEach((elem, index) => {
+        const { id, attributes } = elem;
+        const title = elem.querySelector("#main_title").innerHTML;
+        const navLevel = Number(navLevels[attributes.navLevel.value]);
+        const anchorBefore = anchors[index - 1];
+        const anchorBeforeId = anchorBefore ? anchorBefore.id : "";
 
-      for (let i = 0; i < anchors.length; i++) {
-        const currentAnchor = Number(anchors[i].attributes.nav_level.value);
-        const anchorBefore = Number(anchors[i - 1].attributes.nav_level.value);
-        const anchorBeforeId = anchors[i - 1].id;
+        const anchorbeforeLevel = anchorBefore
+          ? Number(navLevels[anchorBefore.attributes.navLevel.value])
+          : 0;
 
-        if (currentAnchor === 2 && anchorBefore === 1) {
+        const isSecondLevel =
+          navLevel === navLevels.second &&
+          anchorbeforeLevel === navLevels.third;
+
+        const isThirdLevel =
+          navLevel === navLevels.third &&
+          anchorbeforeLevel === navLevels.second;
+
+        if (isSecondLevel) {
           lastSecondLevelId = anchorBeforeId;
-        } else if (currentAnchor === 3 && anchorBefore === 2) {
+        } else if (isThirdLevel) {
           lastThirdLevelId = anchorBeforeId;
         }
 
-        const idSpecial =
-          currentAnchor > 1
-            ? i > 0 && currentAnchor === 2
+        const idParent =
+          navLevel > navLevels.first
+            ? index > 0 && navLevel === navLevels.second
               ? lastSecondLevelId
                 ? lastSecondLevelId
                 : anchorBeforeId
@@ -200,28 +218,36 @@ export default {
               : ""
             : "";
 
-        anchorList.push({
-          nav_level: currentAnchor,
-          title: anchors[i].innerText,
-          id: anchors[i].id,
-          idParent: idSpecial,
+        const data = {
+          navLevel,
+          title,
+          id,
+          idParent,
           nested: [],
           isOpen: true,
-        });
-      }
+        };
 
-      anchorList.forEach((a) => {
-        const { nav_level, idParent } = a;
-
-        if (nav_level === 1) {
-          this.anchorListFinal.push(a);
-        } else if (nav_level === 2) {
-          this.anchorListFinal.find(({ id }) => id === idParent).nested.push(a);
-        } else if (nav_level === 3) {
-          this.anchorListFinal.forEach(({ nested }) => {
-            nested.find(({ id }) => id === idParent).nested.push(a);
-          });
+        if (data.navLevel === navLevels.first || index === 0) {
+          this.anchorListFinal.push(data);
+        } else if (data.navLevel === navLevels.second) {
+          this.insertIntoSecond(data);
+        } else if (data.navLevel === navLevels.third) {
+          this.insertIntoThird(data);
         }
+      });
+    },
+    insertIntoSecond(data) {
+      const { idParent } = data;
+      const anchorMatch = this.anchorListFinal.find(
+        ({ id }) => id === idParent
+      );
+      anchorMatch.nested.push(data);
+    },
+    insertIntoThird(data) {
+      const { idParent } = data;
+      this.anchorListFinal.forEach(({ nested }) => {
+        const anchorMatch = nested.find(({ id }) => id === idParent);
+        anchorMatch.nested.push(data);
       });
     },
   },

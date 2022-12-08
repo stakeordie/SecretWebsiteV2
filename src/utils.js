@@ -15,3 +15,10 @@ export function getLocaleData(query, locale) {
     };
   }
 }
+
+export function removeCharacters(string) {
+  return string
+    .replace(/\s+/g, "-")
+    .replace(/[^-A-Za-z0-9]+/g, "")
+    .toLowerCase();
+}

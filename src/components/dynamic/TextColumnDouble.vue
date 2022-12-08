@@ -1,67 +1,75 @@
 <template>
-  <div class="text-column-double" :class="widthSize">
-    <h5
-      v-if="eyebrow_title"
-      class="text-column-double__eyebrow"
-      :class="titlePosition"
-      :style="{
-        color: eyebrow_color
-          ? eyebrow_color
-          : 'var(--color-ver2-primary-orange)',
-      }"
-    >
-      {{ eyebrow_title }}
-    </h5>
-    <component
-      v-if="main_title"
-      class="text-column-double__title"
-      :is="defaultTitle"
+  <div>
+    <div
+      class="text-column-double"
+      :class="widthSize"
       :id="titleId(main_title)"
-      :is-anchor="is_anchor"
-      :nav_level="navigation_level"
-      :class="[
-        titlePosition,
-        main_title_weight === 'H2.5' ? 'text-column-double__title__25' : '',
-      ]"
+      :isAnchor="is_anchor"
+      :navLevel="navigation_level"
     >
-      {{ main_title }}
-    </component>
-    <div class="text-column-double__col">
-      <div class="text-column-double__col-1">
-        <h4
-          v-if="first_paragraph_title"
-          class="text-column-double__col__title"
-          :id="titleId(first_paragraph_title)"
-          :is-anchor="this.is_anchor"
-          :nav_level="this.navigation_level"
-        >
-          {{ first_paragraph_title }}
-        </h4>
-        <vue-markdown
-          :source="first_paragraph"
-          class="text-column-double__col__paragraph"
-        />
-      </div>
-      <div class="text-column-double__col-2">
-        <h4
-          v-if="second_paragraph_title"
-          class="text-column-double__col__title"
-          :id="titleId(first_paragraph_title)"
-          :is-anchor="this.is_anchor"
-          :nav_level="this.navigation_level"
-        >
-          {{ second_paragraph_title }}
-        </h4>
-        <vue-markdown
-          :source="second_paragraph"
-          class="text-column-double__col__paragraph"
-        />
+      <h5
+        v-if="eyebrow_title"
+        class="text-column-double__eyebrow"
+        :class="titlePosition"
+        :style="{
+          color: eyebrow_color
+            ? eyebrow_color
+            : 'var(--color-ver2-primary-orange)',
+        }"
+      >
+        {{ eyebrow_title }}
+      </h5>
+      <component
+        v-if="main_title"
+        id="main_title"
+        class="text-column-double__title"
+        :is="defaultTitle"
+        :class="[
+          titlePosition,
+          main_title_weight === 'H2.5' ? 'text-column-double__title__25' : '',
+        ]"
+      >
+        {{ main_title }}
+      </component>
+      <div class="text-column-double__col">
+        <div class="text-column-double__col-1">
+          <h4
+            v-if="first_paragraph_title"
+            class="text-column-double__col__title"
+            :id="titleId(first_paragraph_title)"
+            :isAnchor="is_anchor"
+            :navLevel="navigation_level"
+          >
+            {{ first_paragraph_title }}
+          </h4>
+          <vue-markdown
+            :source="first_paragraph"
+            class="text-column-double__col__paragraph"
+          />
+        </div>
+        <div class="text-column-double__col-2">
+          <h4
+            v-if="second_paragraph_title"
+            class="text-column-double__col__title"
+            :id="titleId(first_paragraph_title)"
+            :isAnchor="is_anchor"
+            :navLevel="navigation_level"
+          >
+            {{ second_paragraph_title }}
+          </h4>
+          <vue-markdown
+            :source="second_paragraph"
+            class="text-column-double__col__paragraph"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { removeCharacters } from "../../utils";
+
 export default {
   props: {
     main_title: String,
@@ -104,7 +112,7 @@ export default {
   },
   methods: {
     titleId(title) {
-      return title ? title.toLowerCase().replace(/\s+/g, "-") : "";
+      return title ? removeCharacters(title) : "";
     },
   },
 };
