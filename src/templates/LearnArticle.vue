@@ -95,6 +95,7 @@ export default {
   methods: {
     getAnchors() {
       this.anchorListFinal = [];
+      if (typeof window === "undefined") return;
       const anchors = document.querySelectorAll('[isAnchor="true"]');
       let lastSecondLevelId = null;
       let lastThirdLevelId = null;
@@ -185,7 +186,7 @@ export default {
     this.getAnchors();
   },
   watch: {
-    $route() {
+    $route(to, from) {
       setTimeout(() => this.getAnchors(), 500);
     },
   },
