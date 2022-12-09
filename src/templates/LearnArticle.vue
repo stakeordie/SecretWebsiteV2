@@ -94,6 +94,7 @@ export default {
   },
   methods: {
     getAnchors() {
+      this.anchorListFinal = [];
       const anchors = document.querySelectorAll('[isAnchor="true"]');
       let lastSecondLevelId = null;
       let lastThirdLevelId = null;
@@ -157,19 +158,15 @@ export default {
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
-          console.log("one");
           this.anchorListFinal.push(data);
         } else if (data.navLevel === navLevels.second) {
-          console.log("two");
           this.insertIntoSecond(data);
         } else if (data.navLevel === navLevels.third) {
-          console.log("three");
           this.insertIntoThird(data);
         }
       });
     },
     insertIntoSecond(data) {
-      console.log("data 2", data);
       const { idParent } = data;
       const anchorMatch = this.anchorListFinal.find(
         ({ id }) => id === idParent
@@ -177,7 +174,6 @@ export default {
       anchorMatch.nested.push(data);
     },
     insertIntoThird(data) {
-      console.log("data 3", data);
       const { idParent } = data;
       this.anchorListFinal.forEach(({ nested }) => {
         const anchorMatch = nested.find(({ id }) => id === idParent);
@@ -187,7 +183,11 @@ export default {
   },
   mounted() {
     this.getAnchors();
-    console.log(this.anchorListFinal);
+  },
+  watch: {
+    $route() {
+      setTimeout(() => this.getAnchors(), 500);
+    },
   },
 };
 </script>
