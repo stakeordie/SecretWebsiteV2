@@ -1,39 +1,50 @@
 <template>
-  <div class="text-image-column-double" :class="[widthSize, imagePosition]">
-    <div class="text-image__col-1">
-      <h5
-        v-if="eyebrow_title"
-        class="text-image__col-1__eyebrow"
-        :class="titlePosition"
-        :style="{
-          color: eyebrow_color
-            ? eyebrow_color
-            : 'var(--color-ver2-primary-orange)',
-        }"
-      >
-        {{ eyebrow_title }}
-      </h5>
-      <component
-        v-if="paragraph_title"
-        class="text-image__col-1__title"
-        :is="defaultTitle"
-        :id="titleId"
-        :is-anchor="is_anchor"
-        :nav_level="navigation_level"
-        :class="[titlePosition, titleWeight]"
-      >
-        {{ paragraph_title }}
-      </component>
-      <vue-markdown :source="paragraph" class="text-image__col-1__paragraph" />
-    </div>
-    <div class="text-image__col-2">
-      <img :src="image.url" :alt="image.alternativeText" />
-      <p class="text-image__col-2__caption">{{ image_description }}</p>
+  <div>
+    <div
+      class="text-image-column-double"
+      :class="[widthSize, imagePosition]"
+      :id="titleId"
+      :isAnchor="is_anchor"
+      :navLevel="navigation_level"
+    >
+      <div class="text-image__col-1">
+        <h5
+          v-if="eyebrow_title"
+          class="text-image__col-1__eyebrow"
+          :class="titlePosition"
+          :style="{
+            color: eyebrow_color
+              ? eyebrow_color
+              : 'var(--color-ver2-primary-orange)',
+          }"
+        >
+          {{ eyebrow_title }}
+        </h5>
+        <component
+          v-if="paragraph_title"
+          id="main_title"
+          class="text-image__col-1__title"
+          :is="defaultTitle"
+          :class="[titlePosition, titleWeight]"
+        >
+          {{ paragraph_title }}
+        </component>
+        <vue-markdown
+          :source="paragraph"
+          class="text-image__col-1__paragraph"
+        />
+      </div>
+      <div class="text-image__col-2">
+        <img :src="image.url" :alt="image.alternativeText" />
+        <p class="text-image__col-2__caption">{{ image_description }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { removeCharacters } from "../../utils";
+
 export default {
   props: {
     paragraph_title: String,
@@ -51,17 +62,17 @@ export default {
   },
   computed: {
     titleId() {
-      return this.paragraph_title
-        ? this.paragraph_title.toLowerCase().replace(/\s+/g, "-")
-        : "";
+      const title = this.paragraph_title;
+      return title ? removeCharacters(title) : "";
     },
     defaultTitle() {
-      if (!this.paragraph_title_weight || this.paragraph_title_weight === "") {
+      const weight = this.paragraph_title_weight;
+      if (!weight || weight === "") {
         return "H1";
-      } else if (this.paragraph_title_weight === "H2.5") {
+      } else if (weight === "H2.5") {
         return "H2";
       } else {
-        return this.paragraph_title_weight;
+        return weight;
       }
     },
     widthSize() {

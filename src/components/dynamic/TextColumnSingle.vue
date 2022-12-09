@@ -1,36 +1,44 @@
 <template>
-  <div class="text-column-single" :class="widthSize">
-    <h5
-      v-if="eyebrow_title"
-      class="text-column__eyebrow"
-      :class="titlePosition"
-      :style="{
-        color: eyebrow_color
-          ? eyebrow_color
-          : 'var(--color-ver2-primary-orange)',
-      }"
-    >
-      {{ eyebrow_title }}
-    </h5>
-    <component
-      v-if="paragraph_title"
-      class="text-column__title"
-      :is="defaultTitle"
+  <div>
+    <div
+      class="text-column-single"
+      :class="widthSize"
       :id="titleId"
-      :is-anchor="is_anchor"
-      :nav_level="navigation_level"
-      :class="[
-        titlePosition,
-        paragraph_title_weight === 'H2.5' ? 'text-column__title__25' : '',
-      ]"
+      :isAnchor="is_anchor"
+      :navLevel="navigation_level"
     >
-      {{ paragraph_title }}
-    </component>
-    <vue-markdown :source="paragraph" class="text-column__paragraph" />
+      <h5
+        v-if="eyebrow_title"
+        class="text-column__eyebrow"
+        :class="titlePosition"
+        :style="{
+          color: eyebrow_color
+            ? eyebrow_color
+            : 'var(--color-ver2-primary-orange)',
+        }"
+      >
+        {{ eyebrow_title }}
+      </h5>
+      <component
+        id="main_title"
+        v-if="paragraph_title"
+        class="text-column__title"
+        :is="defaultTitle"
+        :class="[
+          titlePosition,
+          paragraph_title_weight === 'H2.5' ? 'text-column__title__25' : '',
+        ]"
+      >
+        {{ paragraph_title }}
+      </component>
+      <vue-markdown :source="paragraph" class="text-column__paragraph" />
+    </div>
   </div>
 </template>
 
 <script>
+import { removeCharacters } from "../../utils";
+
 export default {
   props: {
     paragraph_title: String,
@@ -45,18 +53,18 @@ export default {
   },
   computed: {
     defaultTitle() {
-      if (!this.paragraph_title_weight || this.paragraph_title_weight === "") {
+      const weight = this.paragraph_title_weight;
+      if (!weight || weight === "") {
         return "H1";
-      } else if (this.paragraph_title_weight === "H2.5") {
+      } else if (weight === "H2.5") {
         return "H2";
       } else {
-        return this.paragraph_title_weight;
+        return weight;
       }
     },
     titleId() {
-      return this.paragraph_title
-        ? this.paragraph_title.toLowerCase().replace(/\s+/g, "-")
-        : "";
+      const title = this.paragraph_title;
+      return title ? removeCharacters(title) : "";
     },
     widthSize() {
       return this.width === "wide"
@@ -73,7 +81,6 @@ export default {
       }
     },
   },
-  methods: {},
 };
 </script>
 
@@ -89,7 +96,6 @@ export default {
     @include respond-to(">=m") {
       padding: 64px 0;
     }
-
 
     &__standard {
       max-width: 800px;
