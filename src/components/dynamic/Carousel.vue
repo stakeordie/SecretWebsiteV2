@@ -92,8 +92,14 @@ export default {
   &__header {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 26px;
     padding: 0 var(--f-gutter-l);
+
+    @include respond-to(">=s") {
+      flex-direction: row;
+    }
 
     @include respond-to(">=xl") {
       max-width: 1200px;
