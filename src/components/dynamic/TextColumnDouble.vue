@@ -156,7 +156,7 @@ export default {
       width: 100%;
       display: grid;
       gap: 26px;
-      grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
+      grid-template-columns: 1fr;
 
       @include respond-to(">=m") {
         grid-template-columns: repeat(2, 1fr);
