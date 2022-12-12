@@ -12,7 +12,7 @@
       <div class="learn-carousel__header">
         <div class="learn-carousel__header__description">
           <h3>{{ title }}</h3>
-          <p>{{ subtitle }}</p>
+          <p v-if="subtitle">{{ subtitle }}</p>
         </div>
         <div class="learn-carousel__header__controls">
           <button class="theme padding-small control" @click="scroll('left')">
@@ -102,8 +102,10 @@ export default {
 
     &__description {
       flex: 1;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
+
       p {
         font-size: var(--paragraph-font-size-big);
         line-height: var(--paragraph-line-height-big);
@@ -113,11 +115,7 @@ export default {
       }
     }
     &__controls {
-      display: none;
-
-      @include respond-to(">=s") {
-        display: flex;
-      }
+      display: flex;
 
       * {
         margin: 0;
