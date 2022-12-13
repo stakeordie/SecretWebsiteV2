@@ -1,16 +1,14 @@
 <template>
-  <div v-if="isAlertOpen" class="alert-bar" :style="alertStyles">
-    <vue-markdown v-if="isAlertOpen" class="alert-content" ref="msg">{{
-      alertMessage.text
-    }}</vue-markdown>
-    <a @click="closeAlert" href="" class="close-alert">
-      <img
-        src="../assets/icon-menu-close.svg"
-        width="24"
-        height="24"
-        alt="close"
-      />
-    </a>
+  <div v-if="isAlertOpen" class="alert-bar" :style="backgroundColor">
+    <vue-markdown
+      v-if="alertMessage.text"
+      :source="alertMessage.text"
+      class="alert-content"
+      :style="textColor"
+    />
+    <button @click="closeAlert" class="close-alert">
+      <img src="../assets/icon-menu-close.svg" alt="close" />
+    </button>
   </div>
 </template>
 
@@ -18,23 +16,18 @@
 import { getLocaleData } from "@/utils";
 
 export default {
-  props: {
-    url: {
-      type: String,
-      required: false,
-    },
-  },
-  data: function () {
+  data() {
     return {
       isAlertOpen: true,
       alertHeight: "68px",
     };
   },
   methods: {
-    validateStatus() {
+    validateIsOpen() {
       if (process.isClient) {
         const localData = localStorage.getItem("alertMsg");
-        const message = this.$static.alertBar.edges[0].node.text;
+        const message = this.alertMessage.text;
+
         if (localData === message) {
           this.isAlertOpen = false;
         } else {
@@ -43,24 +36,17 @@ export default {
       }
     },
     closeAlert() {
-      const sneakPeek = document.querySelector(".landing-event-sneak-peek");
-
-      if (sneakPeek) {
-        sneakPeek.style.setProperty("--sum-heights", 68 + "px");
-      }
-
       this.isAlertOpen = false;
+      document.body.style.setProperty("--sum-heights", 68 + "px");
+
       if (process.isClient) {
-        const alertMsg = this.$static.alertBar.edges[0].node.text;
-        localStorage.setItem("alertMsg", alertMsg.toString());
+        const alertMsg = String(this.alertMessage.text);
+        localStorage.setItem("alertMsg", alertMsg);
       }
-      return this.$static.alertBar.edges[0].node.text;
     },
     alertStyles() {
-      const htmlEl = document.querySelector("html");
-      return this.isAlertOpen
-        ? htmlEl.setAttribute("style", `--ab-height:${this.alertHeight}`)
-        : htmlEl.setAttribute("style", `--ab-height:0px`);
+      const height = this.isAlertOpen ? this.alertHeight : "0px";
+      document.body.setAttribute("style", `--ab-height:${height}`);
     },
   },
   computed: {
@@ -71,9 +57,21 @@ export default {
         this.$context.text
       );
     },
+    textColor() {
+      const color = this.alertMessage.text_color
+        ? this.alertMessage.text_color
+        : "var(--theme-fg)";
+      return `--alert-text-color: ${color}`;
+    },
+    backgroundColor() {
+      const color = this.alertMessage.background_color
+        ? this.alertMessage.background_color
+        : "var(--theme-alert-bg-color)";
+      return `--alert-background-color: ${color}`;
+    },
   },
   mounted() {
-    this.validateStatus();
+    this.validateIsOpen();
     this.alertStyles();
   },
   updated() {
@@ -89,6 +87,8 @@ export default {
         node{
           text
           locale
+          text_color
+          background_color
         }
       }
     }
@@ -99,25 +99,21 @@ export default {
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: (
-  "blue",
-  "turquoise",
-  "green",
-  "yellow",
-  "cream",
-  "orange",
-  "red",
-  "purple",
-  "gray"
-);
-
-// @each $name, $color in $accent-colors {
-// 	&.accent-#{$name} {
-// 		color: var(--accent-#{$name});
-// 	}
-// }
-
 .alert-bar {
+  background: var(--alert-background-color);
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  height: var(--alert-height-desktop);
+
+  @include respond-to("<=s") {
+    text-align: left;
+    height: var(--alert-height-mobile);
+  }
+
   + .mega-header {
     @include respond-to(">=m") {
       top: var(--alert-height-desktop);
@@ -145,20 +141,6 @@ $accent-colors: (
     }
   }
 
-  background: var(--theme-alert-bg-color);
-  position: fixed;
-  z-index: 99999;
-  width: 100%;
-  left: 0;
-  top: 0;
-  text-align: center;
-  height: var(--alert-height-desktop);
-
-  @include respond-to("<=s") {
-    text-align: left;
-    height: var(--alert-height-mobile);
-  }
-
   .alert-content {
     display: flex;
     justify-content: center;
@@ -177,7 +159,7 @@ $accent-colors: (
 
     p {
       margin: 0;
-      color: var(--theme-fg);
+      color: var(--alert-text-color);
 
       @include respond-to("<=s") {
         font-size: 14px;
@@ -191,16 +173,22 @@ $accent-colors: (
   }
 
   .close-alert {
+    border: none;
+    background-color: transparent;
     position: absolute;
-    top: 12px;
+    margin: 0;
+    padding: 0;
+    top: 13px;
+    right: var(--f-gutter);
 
     @include respond-to("<=s") {
       top: 22px;
     }
 
-    right: var(--f-gutter);
-
     img {
+      width: 24px;
+      height: 24px;
+
       @include theme(light light-colored) {
         filter: invert(1);
       }
