@@ -67,7 +67,8 @@ export default {
       gap: 6px;
       width: 100%;
       max-width: 261px;
-      padding: 22px 0;
+      padding-top: 25px;
+      padding-bottom: 22px;
       border-radius: 100px;
       font-size: 20px !important;
       font-weight: 700;
@@ -81,10 +82,6 @@ export default {
       &:hover {
         background-color: var(--color-newBrand-blue-04);
         color: var(--color-analog-primary-white);
-      }
-
-      span {
-        padding-top: 3px;
       }
     }
 

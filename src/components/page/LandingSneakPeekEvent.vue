@@ -32,9 +32,6 @@ export default {
           src: "https://www.googletagmanager.com/gtag/js?id=G-FS23DKM3PL%22%3E",
           async: true,
         },
-        {
-          src: "https://www.eventbrite.com/static/widgets/eb_widgets.js",
-        },
       ],
     };
   },
@@ -71,32 +68,6 @@ export default {
         gtag('config', 'G-FS23DKM3PL');`;
       document.head.appendChild(functionScript);
     },
-    addEventScript() {
-      const eventScript = document.createElement("script");
-      eventScript.type = "text/javascript";
-      eventScript.innerHTML = `
-        var exampleCallback = function () {
-          console.log("Order complete!");
-          setTimeout(function () {
-            window.open("https://scrt.network/summit/thank-you", "_self");
-          }, 500);
-        };
-
-        var clientId;
-        ga(function (tracker) {
-          clientId = tracker.get("clientId");
-        });
-
-        window.EBWidgets.createWidget({
-          widgetType: "checkout",
-          eventId: "444225429217",
-          googleAnalyticsClientId: clientId,
-          modal: true,
-          modalTriggerElementId: "eventbrite-widget-modal-trigger-444225429217",
-          onOrderComplete: exampleCallback,
-        });`;
-      document.body.appendChild(eventScript);
-    },
   },
   computed: {
     summitAbout() {
@@ -128,7 +99,6 @@ export default {
     setTimeout(() => {
       this.sneakPeek();
       this.addAdScript();
-      setTimeout(() => this.addEventScript(), 500);
     }, 100);
   },
 };
