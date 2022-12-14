@@ -9,15 +9,18 @@
               <h2 class="hero__info__title">{{ data.title }}</h2>
               <p>{{ data.body }}</p>
             </div>
-            <ClientOnly>
-              <button
-                class="hero__cta"
-                id="eventbrite-widget-modal-trigger-444225429217"
-                type="button"
-              >
-                {{ data.cta_button.title }}
-              </button>
-            </ClientOnly>
+            <a
+              class="hero__cta"
+              :href="data.cta_button.url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../../assets/events/summit/check-circle-lightest.svg"
+                alt="check icon"
+              />
+              <span>{{ data.cta_button.title }}</span>
+            </a>
             <event-countdown></event-countdown>
           </div>
         </div>
@@ -104,7 +107,7 @@ export default {
 
     &__content {
       width: 100%;
-      max-width: 544px;
+      max-width: 640px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -136,14 +139,24 @@ export default {
         letter-spacing: 1px;
         font-size: 18px;
         font-family: Hind;
+
+        @include respond-to(">=l") {
+          font-size: 22px;
+          line-height: 30px;
+        }
       }
 
       &__title {
         font-family: montserrat;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 42px;
         line-height: 48px;
         padding-bottom: 10px;
+
+        @include respond-to(">=l") {
+          font-size: 54px;
+          line-height: 60px;
+        }
       }
 
       p {
@@ -151,6 +164,11 @@ export default {
         font-weight: 400;
         color: var(--color-analog-primary-white);
         line-height: var(--paragraph-line-height-big);
+
+        @include respond-to(">=l") {
+          font-size: 20px;
+          line-height: 30px;
+        }
       }
     }
 

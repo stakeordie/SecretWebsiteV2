@@ -5,22 +5,21 @@
       class="learn-carousel"
       :class="[
         dynamic_learn_article_group
-          ? 'carouselId-' + dynamic_learn_article_group.id
+          ? `carouselId-${dynamic_learn_article_group.id}`
           : '',
-        dynamic_learn_article_group ? 'carouselId-' + idCarousel : '',
       ]"
     >
       <div class="learn-carousel__header">
         <div class="learn-carousel__header__description">
           <h3>{{ title }}</h3>
-          <p>{{ subtitle }}</p>
+          <p v-if="subtitle">{{ subtitle }}</p>
         </div>
         <div class="learn-carousel__header__controls">
-          <button class="theme padding-small control" @click="scroll_left">
+          <button class="theme padding-small control" @click="scroll('left')">
             <img src="../../assets/icon-circle-left.svg" alt="left" />
           </button>
 
-          <button class="theme padding-small control" @click="scroll_right">
+          <button class="theme padding-small control" @click="scroll('right')">
             <img src="../../assets/icon-circle-right.svg" alt="right" />
           </button>
         </div>
@@ -29,38 +28,13 @@
         class="items learn-carousel__item"
         v-if="dynamic_learn_article_group"
       >
-        <div
-          class="card-element item"
-          v-for="(element, index) in dynamic_learn_article_group.dynamic_learn_articles"
+        <carousel-card
+          v-for="(
+            element, index
+          ) in dynamic_learn_article_group.dynamic_learn_articles"
           :key="index"
-        >
-          <a
-            class="card-element__overall-link"
-            :href="element.route"
-            target="blank"
-            rel="noopener noreferrer"
-          >
-            <div class="card-element__header">
-              <img
-                class="card-element__header__logo"
-                :src="
-                  element.thumbnail_image.url
-                    ? element.thumbnail_image.url
-                    : ''
-                "
-                alt="picture"
-              />
-            </div>
-            <div class="card-element__title-desc">
-              <div class="card-element__title-desc__header">
-                <div v-for="(tag, index) in element.tags" :key="index">
-                  <h6 class="element-grid-main-tag">{{ tag.tag }}</h6>
-                </div>
-                <h5 class="element-grid-title">{{ element.title }}</h5>
-              </div>
-            </div>
-          </a>
-        </div>
+          :data="element"
+        />
       </div>
     </div>
     <div
@@ -74,6 +48,8 @@
 </template>
 
 <script>
+import CarouselCard from "./CarouselCard.vue";
+
 export default {
   props: {
     dynamic_learn_article_group: Object,
@@ -82,190 +58,90 @@ export default {
     card_image: Object,
     searchDataset: Object,
   },
-
-  data: function () {
+  components: {
+    CarouselCard,
+  },
+  data() {
     return {
       idCarousel: "",
     };
   },
-
   methods: {
-    scroll_left() {
-      let carouselId = document.querySelector(`.carouselId-${this.dynamic_learn_article_group.id}`);
-      let carouselBox = carouselId.closest(".box");
-      let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
-      
-      if (!carouselGroupHelper) {
-        carouselBox.scrollLeft -= 390;
-      } else {
-        carouselId.scrollLeft -= 390;
-      }
-    },
-    scroll_right() {
-      let carouselId = document.querySelector(
-        `.carouselId-${this.dynamic_learn_article_group.id}`
-      );
-      let carouselBox = carouselId.closest(".box");
-      let carouselGroupHelper = carouselId.closest(".carousel-group-helper");
+    scroll(direction) {
+      const selector = `.carouselId-${this.dynamic_learn_article_group.id}`;
+      const content = document.querySelector(selector);
+      const carouselBox = content.querySelector(".learn-carousel__item");
 
-      if (!carouselGroupHelper) {
+      if (direction === "right") {
         carouselBox.scrollLeft += 390;
       } else {
-        carouselId.scrollLeft += 390;
+        carouselBox.scrollLeft -= 390;
       }
     },
-    onFilterApplied(filters) {
-      this.appliedFilters = filters;
-    },
-    idCarouselTagger() {
-      this.idCarousel = this.dynamic_learn_article_group.id;
-      return this.idCarousel;
-    },
-  },
-  beforeMount() {
-    if (this.dynamic_learn_article_group) {
-      this.idCarouselTagger();
-    }
-  },
-  created() {
-    // console.log(this.dynamic_learn_article_group)
   },
 };
 </script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
+
 .learn-carousel {
   display: grid;
+  gap: 16px;
+
   &__header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    // max-width: 1200px;
-    // position: absolute;
-    left: 0;
-    right: 0;
-    // margin-left: auto;
-    // margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
     padding: 0 var(--f-gutter-l);
-    @include respond-to(">=l") {
-      // width: var(--f-breakpoint-xxl);
+
+    @include respond-to(">=s") {
+      flex-direction: row;
     }
+
+    @include respond-to(">=xl") {
+      max-width: 1200px;
+      justify-self: center;
+    }
+
     &__description {
-      display: grid;
-      gap: 0;
-      p{
-                    font-size: var(--paragraph-font-size-big);
-                    line-height: var(--paragraph-line-height-big);
-                  }
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        font-size: var(--paragraph-font-size-big);
+        line-height: var(--paragraph-line-height-big);
+      }
       * {
         margin: 0;
       }
     }
     &__controls {
-      display: grid;
-      gap: 0;
-      justify-content: end;
-      grid-auto-flow: column;
+      display: flex;
+
       * {
         margin: 0;
       }
     }
   }
+
   &__item {
+    width: 100%;
+    max-width: 100vw;
     white-space: nowrap;
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
-    overflow: hidden;
-    // padding-top: 100px;
+    overflow-x: auto;
+    gap: 26px;
+    scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
       display: none;
-    }
-    .card-element {
-      border-radius: var(--f-radius);
-      overflow: hidden;
-      background: var(--theme-card-bg-default);
-      transition: 0.2s ease;
-      display: inline-flex;
-      text-align: center;
-      border-radius: 10px;
-      max-width: 400px;
-      min-width: 400px;
-
-      margin-right: var(--f-gutter-l);
-
-      white-space: normal;
-      justify-content: space-between;
-      vertical-align: top;
-      position: relative;
-      * {
-        margin: 0;
-      }
-      &__overall-link {
-        display: grid;
-        gap: 10px;
-        padding: var(--f-gutter);
-      }
-      &__header {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 4px;
-      }
-      &__title-desc {
-        display: grid;
-        gap: 8px;
-        text-align: left;
-        &__header {
-          display: grid;
-          gap: 0;
-          align-content: start;
-        }
-        .element-grid {
-          &-main-tag {
-            font-family: "Hind";
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 24px;
-            color: #fbc998;
-            display: flex;
-            align-items: center;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-          }
-          &-title {
-            color: white;
-          }
-        }
-      }
-      &.hidden {
-        display: none;
-      }
-
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 206px;
-      }
-      &:hover {
-        background: var(--color-neutral-dark-mode-04);
-      }
-
-      * {
-        margin: 0;
-      }
-
-      h6 {
-        color: var(--theme-fg);
-      }
-
-      p {
-        &.tag {
-          text-transform: capitalize;
-        }
-      }
     }
   }
 }

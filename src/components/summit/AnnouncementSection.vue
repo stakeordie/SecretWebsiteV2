@@ -2,15 +2,18 @@
   <div class="announcement">
     <div class="announcement__content">
       <span class="announcement__content__title">{{ data.title }}</span>
-      <ClientOnly>
-        <button
-          class="announcement__content__cta"
-          id="eventbrite-widget-modal-trigger-444225429217"
-          type="button"
-        >
-          {{ data.cta_button.title }}
-        </button>
-      </ClientOnly>
+      <a
+        class="announcement__content__cta"
+        :href="data.cta_button.url"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../../assets/events/summit/check-circle-light.svg"
+          alt="check icon"
+        />
+        <span>{{ data.cta_button.title }}</span>
+      </a>
     </div>
   </div>
 </template>
@@ -92,6 +95,10 @@ export default {
         &:visited:hover,
         &:hover {
           color: var(--color-newBrand-blue-03);
+        }
+
+        span {
+          padding-top: 3px;
         }
       }
     }

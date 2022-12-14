@@ -103,7 +103,9 @@
               }
             }
             &__item {
-              padding-left: var(--f-gutter-l);
+              @include respond-to(">=s") {
+                padding-left: var(--f-gutter-l);
+              }
             }
           }
         }

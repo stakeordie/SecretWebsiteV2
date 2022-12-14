@@ -141,6 +141,7 @@ import SummitAgenda from "~/components/page/SummitAgenda";
 import TextColumnSingle from "~/components/dynamic/TextColumnSingle";
 import TextColumnDouble from "~/components/dynamic/TextColumnDouble";
 import TextImageColumnDouble from "~/components/dynamic/TextImageColumnDouble";
+import Divider from "~/components/dynamic/Divider";
 import ArticleHero from "~/components/dynamic/ArticleHero";
 import ArticleImage from "~/components/dynamic/ArticleImage";
 import ArticleVideo from "~/components/dynamic/ArticleVideo";
@@ -247,6 +248,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   // Dynamic
   Vue.component("TextColumnSingle", TextColumnSingle);
   Vue.component("TextColumnDouble", TextColumnDouble);
+  Vue.component("Divider", Divider);
   Vue.component("TextImageColumnDouble", TextImageColumnDouble);
   Vue.component("ArticleHero", ArticleHero);
   Vue.component("ArticleImage", ArticleImage);
