@@ -181,16 +181,6 @@ export default {
     @include respond-to(">=l") {
       grid-template-columns: repeat(3, 1fr);
     }
-
-    a.button {
-      border-radius: 100px;
-      padding: 10px 16px;
-      max-width: 250px;
-
-      span {
-        font-size: 16px;
-      }
-    }
   }
 }
 </style>

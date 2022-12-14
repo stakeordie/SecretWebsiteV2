@@ -110,7 +110,7 @@ export default {
 
     &__content {
       width: 100%;
-      max-width: 544px;
+      max-width: 640px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -142,14 +142,24 @@ export default {
         letter-spacing: 1px;
         font-size: 18px;
         font-family: Hind;
+
+        @include respond-to(">=l") {
+          font-size: 22px;
+          line-height: 30px;
+        }
       }
 
       &__title {
         font-family: montserrat;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 42px;
         line-height: 48px;
         padding-bottom: 10px;
+
+        @include respond-to(">=l") {
+          font-size: 54px;
+          line-height: 60px;
+        }
       }
 
       p {
@@ -157,6 +167,11 @@ export default {
         font-weight: 400;
         color: var(--color-analog-primary-white);
         line-height: var(--paragraph-line-height-big);
+
+        @include respond-to(">=l") {
+          font-size: 20px;
+          line-height: 30px;
+        }
       }
     }
 
