@@ -1,16 +1,16 @@
 <template>
   <section class="general-ctas__item">
-    <div
-      class="general-ctas__item__card"
-      v-for="(item, index) in ctaContent"
-      :key="index"
-    >
-      <img class="general-ctas__item__card__img" :src="item.imageUrl" alt="" />
-      <h4 class="general-ctas__item__card__h4">{{ item.title }}</h4>
-      <p class="general-ctas__item__card__p">{{ item.description }}</p>
+    <div class="general-ctas__item__card">
+      <img
+        class="general-ctas__item__card__img"
+        :src="ctaContent.imageUrl"
+        alt=""
+      />
+      <h4 class="general-ctas__item__card__h4">{{ ctaContent.title }}</h4>
+      <p class="general-ctas__item__card__p">{{ ctaContent.description }}</p>
 
-      <btn class="center-text no-arrow ctas-button" :url="item.url">{{
-        item.urlTitle
+      <btn class="center-text no-arrow ctas-button" :url="ctaContent.url">{{
+        ctaContent.urlTitle
       }}</btn>
     </div>
   </section>
@@ -31,7 +31,7 @@ export default {
         {
           ctaId: "get-started",
           imageUrl: "/img/about-secret-network/get-started-img.svg",
-          title: "Get Started",
+          title: "Get started",
           description:
             "Install a wallet, get SCRT, and stake it to earn rewards while securing the network. ",
           urlTitle: "Get SCRT",
@@ -69,7 +69,7 @@ export default {
         {
           ctaId: "join-the-community",
           imageUrl: "/img/about-secret-network/join-community-img.svg",
-          title: "Join the Community",
+          title: "Join the community",
           description:
             "Become a Secret Agent and advance a better, more empowering web.  ",
           urlTitle: "GET INVOLVED",
@@ -202,21 +202,12 @@ export default {
           url: "../ecosystem/dapps",
         },
       ],
-
-      ctaContent: [],
     };
   },
-  methods: {
-    getCtaContent() {
-      this.ctaContent = this.ctas.filter((it) => {
-        if (it.ctaId == this.id) {
-          return it;
-        }
-      });
+  computed: {
+    ctaContent() {
+      return this.ctas.find((it) => it.ctaId == this.id);
     },
-  },
-  mounted() {
-    this.getCtaContent();
   },
 };
 </script>
@@ -255,6 +246,16 @@ export default {
     & .ctas-button {
       margin-right: 0 !important;
       padding-left: 0;
+    }
+
+    a.button {
+      border-radius: 100px;
+      padding: 10px 16px;
+      max-width: 250px;
+
+      span {
+        font-size: 16px;
+      }
     }
   }
 }
