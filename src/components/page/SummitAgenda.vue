@@ -71,7 +71,7 @@
                   </li>
                 </ul>
               </div>
-              <p class="agenda_message">
+              <p class="agenda__message">
                 Please note actual talk times may vary.
               </p>
               <div class="agenda__cta">
