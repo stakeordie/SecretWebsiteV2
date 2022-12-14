@@ -9,15 +9,18 @@
               <h2 class="hero__info__title">{{ data.title }}</h2>
               <p>{{ data.body }}</p>
             </div>
-            <ClientOnly>
-              <button
-                class="hero__cta"
-                id="eventbrite-widget-modal-trigger-444225429217"
-                type="button"
-              >
-                {{ data.cta_button.title }}
-              </button>
-            </ClientOnly>
+            <a
+              class="hero__cta"
+              :href="data.cta_button.url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../../assets/events/summit/check-circle-lightest.svg"
+                alt="check icon"
+              />
+              <span>{{ data.cta_button.title }}</span>
+            </a>
             <event-countdown></event-countdown>
           </div>
         </div>
@@ -64,8 +67,7 @@ export default {
       gap: 6px;
       width: 100%;
       max-width: 261px;
-      padding-top: 25px;
-      padding-bottom: 22px;
+      padding: 22px 0;
       border-radius: 100px;
       font-size: 20px !important;
       font-weight: 700;
@@ -79,6 +81,10 @@ export default {
       &:hover {
         background-color: var(--color-newBrand-blue-04);
         color: var(--color-analog-primary-white);
+      }
+
+      span {
+        padding-top: 3px;
       }
     }
 
