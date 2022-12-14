@@ -1,38 +1,70 @@
 // Text Flare tokens
 :root {
-    --f-default-text-color: var(--theme-fg);
-    --f-default-text-font: "Hind";
-    --f-default-text-size: 16px;
-    --f-default-headers-font: "Montserrat";
-    --f-default-headers-weight: 600;
-    --f-h1-text-size: 64px;
-    --f-h2-text-size: 40px;
+  --f-default-text-color: var(--theme-fg);
+  --f-default-text-font: "Hind";
+  --f-default-text-size: 16px;
+  --f-default-headers-font: "Montserrat";
+  --f-default-headers-weight: 600;
+  --f-h1-text-size: 64px;
+  --f-h2-text-size: 40px;
+  --f-h3-text-size: 28px;
+  --f-h4-text-size: 22px;
+  --f-h5-text-size: 18px;
+  --f-h6-text-size: 16px;
+  --f-h1-line-height: 77px;
+  --f-h2-line-height: 50px;
+  --f-h3-line-height: 36.5px;
+  --f-h4-line-height: 30px;
+  --f-h5-line-height: 25px;
+  --f-h6-line-height: 24px;
+  --paragraph-font-size-big: 20px;
+  --paragraph-line-height-big: 30px;
+  --paragraph-font-weight-big: 300;
+  --h1-text-size-hero: 74px;
+
+  --f-tags-general: 17px;
+  --f-tags-normal: 15px;
+  --f-tags-s: 13px;
+
+  // BLOG STYLES 2022
+  --blog-text-font-family: "Hind";
+  --blog-text-font-size: 20px;
+  --blog-text-font-line-height: 2;
+}
+
+.learn-article,
+.learn-subpage {
+  .--flare {
+    --f-h1-text-size: 74px;
+    --f-h2-text-size: 54px;
+    --f-h2_5-text-size: 36px;
     --f-h3-text-size: 28px;
     --f-h4-text-size: 22px;
     --f-h5-text-size: 18px;
     --f-h6-text-size: 16px;
     --f-h1-line-height: 77px;
     --f-h2-line-height: 50px;
+    --f-h2_5-line-height: 42px;
     --f-h3-line-height: 36.5px;
     --f-h4-line-height: 30px;
     --f-h5-line-height: 25px;
     --f-h6-line-height: 24px;
-    --paragraph-font-size-big: 20px;
-    --paragraph-line-height-big: 30px;
-    --paragraph-font-weight-big: 300;
-    --h1-text-size-hero: 74px;
 
-    --f-tags-general:17px; 
-    --f-tags-normal:15px;
-    --f-tags-s: 13px;
-    
-    // BLOG STYLES 2021
-    // --blog-text-font-family: Georgia, serif;
-    // --blog-text-font-size: 20px;
-    // --blog-text-font-line-height: 2;
-
-    // BLOG STYLES 2022
-    --blog-text-font-family: "Hind";
-    --blog-text-font-size: 20px;
-    --blog-text-font-line-height: 2;
+    @media screen and (max-width: 992px) {
+      --f-h1-text-size: 52px;
+      --f-h2-text-size: 42px;
+      --f-h2_5-text-size: 30px;
+      --f-h3-text-size: 26px;
+      --f-h4-text-size: 20px;
+      --f-h5-text-size: 16px;
+      --f-h6-text-size: 14px;
+      --f-h1-line-height: 77px;
+      --f-h2-line-height: 50px;
+      --f-h2_5-line-height: 38px;
+      --f-h3-line-height: 34px;
+      --f-h4-line-height: 38px;
+      --f-h5-line-height: 22px;
+      --f-h6-line-height: 19.5px;
+    }
+  }
 }

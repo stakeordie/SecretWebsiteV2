@@ -106,7 +106,8 @@ export default {
         font-family: "Montserrat";
 
         &__25:is(h2) {
-          font-size: 36px;
+          font-size: var(--f-h2_5-text-size);
+          line-height: var(--f-h2_5-line-height);
         }
 
         &__left {

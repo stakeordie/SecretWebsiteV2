@@ -130,7 +130,8 @@ export default {
     &__title {
       font-family: "Montserrat";
       &__25:is(h2) {
-        font-size: 36px;
+        font-size: var(--f-h2_5-text-size);
+        line-height: var(--f-h2_5-line-height);
       }
       &__left {
         text-align: start;
@@ -166,8 +167,12 @@ export default {
         p,
         ul li {
           color: var(--color-neutral-dark-mode-05);
-          font-size: 20px;
+          font-size: 16px;
           line-height: 30px;
+
+          @include respond-to(">=m") {
+            font-size: 20px;
+          }
         }
       }
     }
