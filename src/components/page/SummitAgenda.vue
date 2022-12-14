@@ -11,9 +11,7 @@
               <span class="agenda__breadcrumb__item">Agenda</span>
             </div>
             <div class="agenda__content">
-              <vue-markdown class="agenda__title">{{
-                agenda.title
-              }}</vue-markdown>
+              <vue-markdown class="agenda__title" :source="agenda.title" />
               <div class="agenda__table">
                 <ul class="agenda__table__header">
                   <li>Speaker</li>
@@ -73,6 +71,9 @@
                   </li>
                 </ul>
               </div>
+              <p class="agenda_message">
+                Please note actual talk times may vary.
+              </p>
               <div class="agenda__cta">
                 <a :href="agenda.cta_button.url">
                   <span>{{ agenda.cta_button.title }}</span>
@@ -438,6 +439,11 @@ query {
           letter-spacing: 1px;
         }
       }
+    }
+
+    &__message {
+      text-align: center;
+      margin-bottom: 0;
     }
   }
 
