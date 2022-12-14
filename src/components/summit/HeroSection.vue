@@ -144,7 +144,7 @@ export default {
         font-family: Hind;
 
         @include respond-to(">=l") {
-          font-size: 20px;
+          font-size: 22px;
           line-height: 30px;
         }
       }
