@@ -501,7 +501,6 @@ export default {
         if (path.includes("/ecosystem/ecosystem-roadmap")) {
           this.swirlBottomIsVisible = false;
           simpleFooter.classList.add("swirlIsOff");
-          console.log("test" + this.swirlBottomIsVisible);
         } else {
           this.swirlBottomIsVisible = true;
           simpleFooter.classList.remove("swirlIsOff");
