@@ -1,16 +1,10 @@
 <template>
   <div class="scrt-pdf-viewer">
-    <div
-      v-for="(roadmap, index) in ecosystemRoadmap"
-      :key="index"
-      class="scrt-pdf-viewer__intro"
-    >
-      <!-- Title -->
+    <div class="scrt-pdf-viewer__intro">
       <div class="scrt-pdf-viewer__title">
-        <p class="scrt-pdf-viewer__intro__date">{{ roadmap.updated_at }}</p>
+        <p class="scrt-pdf-viewer__intro__date">{{ updatedDate }}</p>
         <h1>Ecosystem Roadmap</h1>
       </div>
-      <!-- Intro message -->
       <div class="scrt-pdf-viewer__intro__message">
         <p>
           The Secret Network ecosystem roadmap is a community effort, stewarded
@@ -18,65 +12,48 @@
           development.
         </p>
       </div>
-      <!-- PDF -->
-
-      <ClientOnly>
-        <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url"> </pdf>
+      <ClientOnly v-if="isPdf">
+        <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url" />
       </ClientOnly>
-
+      <img
+        v-else
+        :src="roadmap.url"
+        class="scrt-pdf-viewer__intro__image"
+        alt="Roadmap image"
+      />
       <div class="scrt-pdf-viewer__intro__download">
-        <btn class="no-arrow" :url="roadmap.url">DOWNLOAD PDF</btn>
+        <btn class="no-arrow" :url="pdfUrl">DOWNLOAD PDF</btn>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import pdf from 'vue-pdf-cdn'
-
 export default {
   components: {
-    // pdf
-    pdf: () =>
-      import("vue-pdf-cdn")
-        .then((pdf) => pdf)
-        .catch(),
+    pdf: () => import("vue-pdf-cdn").then((pdf) => pdf),
   },
-
   data() {
     return {
-      isClient2: false,
+      pdfUrl:
+        "https://ik.imagekit.io/secretnetwork/images/Secret_Ecosystem_Roadmap_Dec_2022_4639cc3ce9_wQaJuCkEr.pdf?updated_at=2022-12-15T18:10:48.096Z",
     };
   },
-
-  methods: {
-    isClient() {
-      if (process.isClient) {
-        this.isClient2 = true;
-        console.log(this.isClient2);
-      }
-    },
-    getPdfDate() {
-      let dateEl = document.querySelector(".scrt-pdf-viewer__intro__date");
-      const date = new Date(dateEl.textContent);
-      const getYear = date.getFullYear();
-      const formatedDate = date.toLocaleString("en-US", { month: "long" });
-
-      dateEl.textContent = `Last Updated ${formatedDate} ${getYear}`;
-    },
-  },
   computed: {
-    ecosystemRoadmap() {
-      const content = this.$static.strapiEcosystemRoadmap.edges.map(
-        (it) => it.node.ecosystemRoadmap
-      );
-
-      return content;
+    roadmap() {
+      return this.$static.strapiEcosystemRoadmap.edges[0].node.ecosystemRoadmap;
     },
-  },
-  mounted() {
-    this.getPdfDate();
-    this.isClient();
+    isPdf() {
+      const splitted = String(this.roadmap.url).split(".");
+      const fileType = splitted[splitted.length - 1];
+      return fileType.includes("pdf");
+    },
+    updatedDate() {
+      const date = new Date(this.roadmap.updated_at);
+      const year = date.getFullYear();
+      const month = date.toLocaleString("en-US", { month: "long" });
+      return `Last Updated ${month} ${year}`;
+    },
   },
 };
 </script>
@@ -114,8 +91,6 @@ query {
     text-align: center;
 
     &__date {
-      // margin-bottom: 3px;
-
       text-transform: uppercase;
       font-weight: 600;
       margin-bottom: 0;
@@ -128,20 +103,25 @@ query {
         font-size: var(--f-h5-text-size);
       }
     }
-    &__file {
-      margin-bottom: var(--f-gutter);
+
+    &__file,
+    &__image {
+      padding-bottom: 32px;
     }
+
     &__download {
       display: grid;
       justify-content: center;
+
       a {
         min-width: 300px !important;
         margin: 0 !important;
-        // background: var(--color-neutral-dark-mode-02) !important;
       }
     }
+
     &__message {
       padding-bottom: 58px;
+
       p {
         max-width: 710px;
         font-size: 20px;
