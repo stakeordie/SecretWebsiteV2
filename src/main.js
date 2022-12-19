@@ -74,7 +74,6 @@ import FooterMenu from "~/components/FooterMenu.vue";
 import LogoCarousel from "~/components/LogoCarousel.vue";
 import PartnersLogos from "~/components/PartnersLogos";
 import EventCountdown from "~/components/EventCountdown";
-import HomeEventBannerCountdown from "~/components/HomeEventBannerCountdown";
 
 //BlogV2
 import NewBlogCard from "~/components/blog/NewBlogCard";
@@ -227,7 +226,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("LogoCarousel", LogoCarousel);
   Vue.component("PartnersLogos", PartnersLogos);
   Vue.component("EventCountdown", EventCountdown);
-  Vue.component("HomeEventBannerCountdown", HomeEventBannerCountdown);
 
   //Experimental
   Vue.component("VueMarkdown", VueMarkdown);
