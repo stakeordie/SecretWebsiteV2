@@ -42,6 +42,7 @@ export default {
   gap: 10px;
   padding: var(--f-gutter);
   margin: 0;
+  transition: 0.5s;
 
   &:hover {
     background: var(--color-neutral-dark-mode-04);
