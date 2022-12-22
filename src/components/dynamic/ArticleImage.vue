@@ -1,5 +1,5 @@
 <template>
-  <figure class="article-image">
+  <figure :class="['article-image', paddingTop, paddingBottom]">
     <img :src="image.url" alt="" class="learn-post__img" />
     <figcaption class="img-caption" v-if="caption">
       {{ caption }}
@@ -8,10 +8,24 @@
 </template>
 
 <script>
+import { sizes } from "../../utils";
+
 export default {
   props: {
     image: Object,
     caption: String,
+    padding_top: String,
+    padding_bottom: String,
+  },
+  computed: {
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
   },
 };
 </script>
@@ -23,10 +37,10 @@ export default {
   .article-image {
     display: grid;
     gap: 16px;
-    padding: 64px 16px;
+    padding: 0 16px;
 
     @include respond-to(">=m") {
-      padding: 64px 0;
+      padding: 0;
     }
 
     .img-caption {

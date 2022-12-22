@@ -22,3 +22,10 @@ export function removeCharacters(string) {
     .replace(/[^-A-Za-z0-9]+/g, "")
     .toLowerCase();
 }
+
+export const sizes = {
+  none: "none",
+  small: "small",
+  medium: "medium",
+  large: "large",
+};

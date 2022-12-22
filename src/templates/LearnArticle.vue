@@ -197,6 +197,12 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article {
+  $padding-sizes: ("none", "small", "medium", "large");
+  --p-none: 0px;
+  --p-small: 26px;
+  --p-medium: 64px;
+  --p-large: 96px;
+
   .comp-name {
     &__dynamic-breadcrumb {
       .content {
@@ -273,6 +279,17 @@ export default {
 
   & .simple-footer {
     margin-top: 0;
+  }
+
+  @each $name in $padding-sizes {
+    .#{$name} {
+      &-top {
+        padding-top: var(--p-#{$name});
+      }
+      &-bottom {
+        padding-bottom: var(--p-#{$name});
+      }
+    }
   }
 }
 </style>

@@ -1,8 +1,7 @@
 <template>
   <div>
     <div
-      class="text-column-single"
-      :class="widthSize"
+      :class="['text-column-single', widthSize, paddingTop, paddingBottom]"
       :id="titleId"
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
@@ -37,7 +36,7 @@
 </template>
 
 <script>
-import { removeCharacters } from "../../utils";
+import { removeCharacters, sizes } from "../../utils";
 
 export default {
   props: {
@@ -50,6 +49,8 @@ export default {
     is_anchor: Boolean,
     width: String,
     navigation_level: String,
+    padding_top: String,
+    padding_bottom: String,
   },
   computed: {
     defaultTitle() {
@@ -80,6 +81,14 @@ export default {
         return "text-column__title__left";
       }
     },
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
   },
 };
 </script>
@@ -91,10 +100,10 @@ export default {
   .text-column-single {
     padding: var(--f-gutter);
     width: 100%;
-    padding: 64px 16px;
+    padding: 0 16px;
 
     @include respond-to(">=m") {
-      padding: 64px 0;
+      padding: 0;
     }
 
     &__standard {
