@@ -2,7 +2,7 @@
   <div>
     <div
       class="text-image-column-double"
-      :class="[widthSize, imagePosition]"
+      :class="[widthSize, imagePosition, paddingTop, paddingBottom]"
       :id="titleId"
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { removeCharacters } from "../../utils";
+import { removeCharacters, sizes } from "../../utils";
 
 export default {
   props: {
@@ -97,6 +97,14 @@ export default {
     imagePosition() {
       return this.image_position === "left" ? "image-left" : "image-right";
     },
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
   },
 };
 </script>
@@ -107,13 +115,13 @@ export default {
 .learn-article__content {
   .text-image-column-double {
     width: 100%;
-    padding: 64px 16px;
+    padding: 0 16px;
     display: grid;
     gap: 26px;
     grid-template-columns: 1fr;
 
     @include respond-to(">=m") {
-      padding: 64px 0;
+      padding: 0;
       grid-template-columns: repeat(2, 1fr);
     }
 

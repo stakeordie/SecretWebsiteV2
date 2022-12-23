@@ -54,20 +54,11 @@
             <div class="logo-bar__content__searchbar">
               <div
                 class="logo-bar--searchbar search-trigger search"
-                v-on:click="searchTrigger"
+                @click="searchTrigger"
               >
                 <img src="../assets/search-icon.svg" alt="" />
                 <p>Search</p>
               </div>
-            </div>
-
-            <!-- SCRT-BTN -->
-
-            <div class="logo-bar__content__btnSrct">
-              <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/getscrt-icon.svg" alt="" />
-                <p>GET SCRT</p>
-              </button>
             </div>
           </div>
           <!-- nav items HEADINGS DESKTOP -->
@@ -85,30 +76,33 @@
               :key="index"
             >
               <div class="nav__expanded__content__titles">
+                {{ learnPath }}
                 <div
+                  v-if="nav.is_dropdown"
                   class="nav__expanded__content__titles__content"
                   :class="nav.title.toLowerCase().replace(/\s/g, '-')"
-                  @click="nav.is_dropdown === false ? '' : openSubMenu(index)"
+                  @click="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img :src="nav.icon.url" alt="" />
-                    <!-- <img src="../assets/badge.svg" alt="" /> -->
-                    <h6 v-if="nav.title !== 'Learn'">{{ nav.title }}</h6>
-                    <a
-                      class="spc_learn"
-                      :href="learnPath"
-                      v-if="nav.title === 'Learn'"
-                      >{{ nav.title }}</a
-                    >
+                    <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                    <h6>{{ nav.title }}</h6>
                   </div>
                   <img
-                    v-show="nav.is_dropdown !== false"
                     class="nav__expanded__content__chevron"
                     :class="{ arrow_up: subMenuIndex == index }"
                     src="../assets/icon-chevron-down.svg"
                     alt="arrow down icon"
                   />
                 </div>
+                <a
+                  v-else
+                  :href="nav.path"
+                  class="nav__expanded__content__titles__content content-link"
+                  @click="closeNav"
+                >
+                  <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                  <h6>{{ nav.title }}</h6>
+                </a>
               </div>
 
               <li
@@ -120,8 +114,12 @@
                 <div
                   class="nav__expanded__content__item__cards"
                   :class="{
-                    firtsEcoSub: index == 2 && indexSec == 0,
-                    lastEcoSub: index == 2 && indexSec == 3,
+                    firtsEcoSub:
+                      sec.sub_category.toLowerCase() ===
+                      'Ecosystem'.toLowerCase(),
+                    lastEcoSub:
+                      sec.sub_category.toLowerCase() ===
+                      'Bridges'.toLowerCase(),
                   }"
                   v-for="(sec, indexSec) in nav.nav_items"
                   :key="indexSec"
@@ -317,7 +315,7 @@ export default {
       window.addEventListener("resize", () => {
         if (window.innerWidth >= 1200) {
           if (this.megaMenuIsOpen && this.subMenuIndex == -1) {
-            this.megaMenuIsOpen = false;
+            this.closeNav();
           }
         }
       });
@@ -330,7 +328,7 @@ export default {
       );
     },
     toggleMegaMenu(index) {
-      this.megaMenuIsOpen = false;
+      this.closeNav();
       const body = document.querySelector("body");
       if (index != this.subMenuIndex) {
         this.subMenuIndex = index;
@@ -339,7 +337,7 @@ export default {
       } else {
         this.subMenuIndex = -1;
         this.changeNavElementsToActive(false, index);
-        this.megaMenuIsOpen = false;
+        this.closeNav();
       }
 
       this.megaMenuIsOpen
@@ -383,7 +381,7 @@ export default {
       }
     },
     linkCloseMenu() {
-      this.megaMenuIsOpen = false;
+      this.closeNav();
       const body = document.querySelector("body");
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
@@ -442,7 +440,6 @@ export default {
     activeMenu() {
       if (process.isClient) {
         let navItems = [];
-        let navFinder = [];
         let path = [];
 
         let getNavItems = function () {
@@ -458,10 +455,7 @@ export default {
         getNavItems();
         getPath();
 
-        navFinder = navItems.filter((el) => {
-          // if (el.text === "Resources") {
-          //   el.classList.add("mystyle");
-          // }
+        navItems.filter((el) => {
           if (el.outerText.toLowerCase() === "about") {
             if (path.includes("/about")) {
               el.classList.add("active-about");
@@ -508,12 +502,13 @@ export default {
             }
           }
         });
-
-        // console.log(navItems);
-        // console.log(navFinder);
-        // console.log(path);
-        // console.log(path.includes("/media"));
       }
+    },
+    closeNav() {
+      this.megaMenuIsOpen = false;
+    },
+    setColumns(content) {
+      this.columns = content;
     },
   },
 
@@ -527,21 +522,8 @@ export default {
     megaMenuItems() {
       const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
       const content = neWArray.edges.map((it) => it.node.nav_groups);
-      this.columns = content[0];
+      this.setColumns(content[0]);
       this.mapNavArray(this.columns);
-
-      // console.log(this.columns);
-
-      // const found = this.columns.findIndex((element) => {
-      //   element.id === 2
-      // });
-      // console.log('FFFOUND', found)
-      const findLearnItem = this.columns.findIndex(
-        (nav) => nav.title === "Learn"
-      );
-      // this.learnPath = this.columns[findLearnItem].path
-      // console.log('FFFOUND', findLearnItem)
-      // console.log(this.learnPath)
       return this.columns;
     },
   },
@@ -653,7 +635,7 @@ query {
   right: 0;
   width: 100%;
   z-index: 999;
-  /* display: none; */
+
   @include respond-to(">=xxl") {
     display: flex;
     flex-direction: column;
@@ -663,7 +645,6 @@ query {
     height: 100%;
     width: 100%;
     background-color: var(--mega-headerbackground);
-    /* width: 100vw; */
     justify-content: center;
     display: flex;
     @include respond-to("<=m") {
@@ -754,6 +735,7 @@ query {
               @include respond-to(">l") {
                 display: none;
               }
+              cursor: pointer;
             }
           }
           &__menu {
@@ -761,6 +743,9 @@ query {
           }
           &__searchbar {
             display: grid;
+            cursor: pointer;
+            padding-right: var(--f-gutter);
+
             @include respond-to("<xl") {
               justify-content: start;
               width: 100%;
@@ -814,8 +799,7 @@ query {
           p {
             min-width: var(--mega-header-width-searchbar);
             margin-bottom: 0;
-            /* line-height: var(--mega-header-line-height-searchbar); */
-            /* height: var(--mega-header-space); */
+
             @include respond-to("<=l") {
               width: 100%;
               display: none;
@@ -853,9 +837,7 @@ query {
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
-          &.not-dropdown {
-            // background: red;
-          }
+
           &:hover {
             &.about {
               a {
@@ -909,7 +891,6 @@ query {
             }
           }
           &.activeNav {
-            // background: var(--mega-header-background-nav-expanded);
             border-radius: 10px 10px 0px 0px;
             &.about {
               a {
@@ -961,17 +942,12 @@ query {
           }
           &:hover {
             cursor: pointer;
-            // a {
-            //   //color: var(--mega-header-color-nav-exanded-hover);
-
-            // }
           }
         }
       }
     }
     &__expanded {
       height: 100%;
-      /* width: 100vw; */
       width: 100%;
       justify-content: center;
       display: flex;
@@ -986,7 +962,6 @@ query {
         overflow-y: scroll;
         overflow: auto;
         scroll-behavior: smooth;
-        // height: calc(100vh - (var(--alert-height-mobile) + 68px));
         height: calc(100vh - (67px + var(--ab-height)));
         padding-bottom: 0;
         &::-webkit-scrollbar {
@@ -1017,11 +992,10 @@ query {
           display: grid;
           grid-auto-flow: row;
           background-color: var(--mega-header-background-nav-expanded);
-          /* min-height: var(--mega-header-height-nav-expanded); */
+
           @include respond-to("<=l") {
             display: flex;
             flex-direction: column;
-            // padding: 0;
             padding-bottom: 160px;
           }
           &__content {
@@ -1073,9 +1047,17 @@ query {
                 display: flex;
                 padding: 20px;
                 justify-content: space-between;
-                &__name {
+                cursor: pointer;
+
+                &:hover {
+                  opacity: 0.7;
+                }
+
+                @mixin nameStyles {
                   display: flex;
                   gap: 12.36px;
+                  color: #ffffff;
+
                   h6 {
                     margin: 0;
                     font-size: 18px;
@@ -1088,6 +1070,18 @@ query {
                     font-weight: var(--f-h6-text-weight);
                     color: var(--f-h6-text-color);
                     line-height: var(--f-h6-line-height);
+                  }
+                }
+                &__name {
+                  @include nameStyles();
+                }
+
+                &.content-link {
+                  justify-content: flex-start;
+                  @include nameStyles();
+
+                  &:visited {
+                    color: #ffffff;
                   }
                 }
               }
@@ -1131,9 +1125,7 @@ query {
               display: grid;
               gap: 37px;
               grid-template-columns: repeat(3, 1fr);
-              /* padding: var(--mega-header-padding-list-nav-expanded); */
               margin-bottom: 0;
-              /* height: var(--mega-header-height-expaded-item); */
               @include respond-to("<=m") {
                 display: flex;
                 flex-direction: column;
@@ -1162,7 +1154,6 @@ query {
                 line-height: var(--mega-header-line-height-nav-expanded);
                 font-weight: 400;
                 font-size: var(--mega-header-text-size-nav-expanded);
-                /* height: var(--mega-header-height-list-nav-expanded); */
                 &:hover {
                   color: var(--mega-header-color-nav-exanded-hover) !important;
                   height: var(--mega-header-space-l);
@@ -1287,7 +1278,7 @@ query {
             display: grid;
             grid-auto-flow: column;
             gap: var(--f-gutter);
-            /* padding-right: var(--f-gutter); */
+
             @include respond-to("<=l") {
               padding-right: 0;
               justify-content: space-around;
@@ -1319,7 +1310,6 @@ query {
     }
   }
   &__overlay {
-    // background: deepskyblue;
     position: fixed;
     top: 0;
     left: 0;
@@ -1335,15 +1325,12 @@ query {
 
 .slide-megaheader-enter-active,
 .slide-megaheader-leave-active {
-  // opacity: 1;
   transform: translateY(0px);
-  // transition: opacity 0.5s;
   transition: 0.5s ease;
 }
 .slide-megaheader-enter,
 .slide-megaheader-leave-to {
   transform: translateY(-110px);
   transition: 0.5s ease;
-  // opacity: 0;
 }
 </style>

@@ -152,6 +152,7 @@ import Callout from "~/components/dynamic/Callout";
 import CtaGrid from "~/components/dynamic/CtaGrid";
 import CardSearch from "~/components/dynamic/CardSearch";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
+import ThreeColumnResource from "~/components/dynamic/ThreeColumnResource";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -257,6 +258,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("Callout", Callout);
   Vue.component("CtaGrid", CtaGrid);
   Vue.component("CardSearch", CardSearch);
+  Vue.component("ThreeColumnResource", ThreeColumnResource);
 
   //Page Specific
   Vue.component("DevelopersHero", DevelopersHero);
