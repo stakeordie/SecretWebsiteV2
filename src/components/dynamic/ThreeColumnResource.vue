@@ -1,5 +1,5 @@
 <template>
-  <section class="column-resource">
+  <div :class="['column-resource', paddingTop, paddingBottom]">
     <div class="column-resource__description">
       <h5 v-if="eyebrow_title">{{ eyebrow_title }}</h5>
       <h4 v-if="title">{{ title }}</h4>
@@ -13,11 +13,12 @@
         :iconSize="icon_size"
       />
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 import CtaCard from "./CtaCard.vue";
+import { sizes } from "../../utils";
 
 export default {
   props: {
@@ -30,6 +31,16 @@ export default {
   components: {
     CtaCard,
   },
+  computed: {
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
+  },
 };
 </script>
 
@@ -40,7 +51,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  padding: 16px;
+  padding: 0 16px;
 
   @include respond-to(">=m") {
     padding: 0;

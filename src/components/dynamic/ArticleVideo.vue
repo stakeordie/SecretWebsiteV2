@@ -1,5 +1,5 @@
 <template>
-  <figure class="article-video">
+  <figure :class="['article-video', paddingTop, paddingBottom]">
     <video controls width="250">
       <source :src="video.data.url" type="video/mp4" />
       Sorry, your browser doesn't support embedded videos.
@@ -11,10 +11,24 @@
 </template>
 
 <script>
+import { sizes } from "../../utils";
+
 export default {
   props: {
     video: Object,
     caption: String,
+    padding_top: String,
+    padding_bottom: String,
+  },
+  computed: {
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
   },
 };
 </script>
@@ -26,11 +40,11 @@ export default {
   .article-video {
     display: grid;
     gap: 16px;
-    padding: 64px 16px;
+    padding: 0 16px;
     justify-content: center;
 
     @include respond-to(">=m") {
-      padding: 64px 0;
+      padding: 0;
     }
 
     video {
