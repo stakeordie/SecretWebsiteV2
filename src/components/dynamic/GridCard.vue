@@ -9,9 +9,13 @@
     <div v-if="data.image" class="grid-card__image">
       <img :src="data.image.url" />
     </div>
-    <div class="grid-card__info">
-      <span class="grid-card__info__title">{{ data.title }}</span>
-      <span class="grid-card__info__description">{{ data.description }}</span>
+    <div class="grid-card__info" v-if="data.title || data.description">
+      <span v-if="data.title" class="grid-card__info__title">
+        {{ data.title }}
+      </span>
+      <span v-if="data.description" class="grid-card__info__description">
+        {{ data.description }}
+      </span>
     </div>
   </a>
   <article v-else class="grid-card">
