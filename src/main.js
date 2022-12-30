@@ -93,6 +93,7 @@ import DevelopersAdvanced from "~/components/page/DevelopersAdvanced";
 import DevelopersQuestions from "~/components/page/DevelopersQuestions";
 import DevelopersFunding from "~/components/page/DevelopersFunding";
 import DevelopersCoolStuff from "~/components/page/DevelopersCoolStuff";
+import DevelopersUniversity from "~/components/page/DevelopersUniversity";
 import ServiceTable from "~/components/page/ServiceTable";
 import ServiceStatusAlert from "~/components/page/ServiceStatusAlert";
 import ServiceStatusHero from "~/components/page/ServiceStatusHero";
@@ -153,6 +154,7 @@ import CtaGrid from "~/components/dynamic/CtaGrid";
 import CardSearch from "~/components/dynamic/CardSearch";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
 import ThreeColumnResource from "~/components/dynamic/ThreeColumnResource";
+import Grid from "~/components/dynamic/Grid";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -259,6 +261,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("CtaGrid", CtaGrid);
   Vue.component("CardSearch", CardSearch);
   Vue.component("ThreeColumnResource", ThreeColumnResource);
+  Vue.component("Grid", Grid);
 
   //Page Specific
   Vue.component("DevelopersHero", DevelopersHero);
@@ -271,6 +274,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("DevelopersQuestions", DevelopersQuestions);
   Vue.component("DevelopersFunding", DevelopersFunding);
   Vue.component("DevelopersCoolStuff", DevelopersCoolStuff);
+  Vue.component("DevelopersUniversity", DevelopersUniversity);
   Vue.component("ServiceTable", ServiceTable);
   Vue.component("ServiceStatusAlert", ServiceStatusAlert);
   Vue.component("ServiceStatusHero", ServiceStatusHero);
