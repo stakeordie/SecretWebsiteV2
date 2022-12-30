@@ -1,8 +1,7 @@
 <template>
   <div>
     <div
-      class="text-column-double"
-      :class="widthSize"
+      :class="['text-column-double', widthSize, paddingTop, paddingBottom]"
       :id="titleId(main_title)"
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
@@ -62,7 +61,7 @@
 </template>
 
 <script>
-import { removeCharacters } from "../../utils";
+import { removeCharacters, sizes } from "../../utils";
 
 export default {
   props: {
@@ -103,6 +102,14 @@ export default {
         return "text-column__title__left";
       }
     },
+    paddingTop() {
+      const size = sizes[this.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
   },
   methods: {
     titleId(title) {
@@ -117,10 +124,10 @@ export default {
 
 .learn-article__content {
   .text-column-double {
-    padding: 64px 16px;
+    padding: 0 16px;
 
     @include respond-to(">=m") {
-      padding: 64px 0;
+      padding: 0;
     }
 
     &__standard {
