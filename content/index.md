@@ -1,124 +1,61 @@
 ---
-title: 'Secret Network'
+title: "Secret Network"
 ---
-
 
 <!-- Home Hero-->
 <column class="new-home__cover " mode="full">
-
-<block class="new-home__cover__full-w">
-
-<new-home-hero></new-home-hero>
-
-</block>
-
+  <block class="new-home__cover__full-w">
+  <new-home-hero></new-home-hero>
+  </block>
 </column>
+
+<!-- Logo Carousel -->
+
+<logo-carousel></logo-carousel>
 
 <column class=" spacer-s " >
-
-<block>
-
-<new-home-contracts></new-home-contracts>
-
-</block>
-
+  <block>
+    <new-home-contracts></new-home-contracts>
+  </block>
 </column>
-
-
-
-
-
-
 
 <!-- Controlls  -->
 <column number="2" class="page-developers__horizontal-scroll ">
-
 <block class="new-home__block-header">
 
 #### Apps live on mainnet
 
 </block>
-
 <block class="justify-right">
-
 <scroll-horizontal></scroll-horizontal>
-
 </block>
-
 </column>
 
 <!-- Horizontal Scroll -->
 <column class="page-developers__cool-stuff  horizontal-slider" mode="full">
-
-<block >
-
-<developers-cool-stuff></developers-cool-stuff>
-
-</block>
-
+  <block >
+    <developers-cool-stuff></developers-cool-stuff>
+  </block>
 </column>
-
-
-
-
-
 
 <column>
-
-<block style="text-align:center" class="new-home__side-spacer"> 
-
-<btn  class="no-arrow new-home__slider-btn"   url="../ecosystem/dapps" >Explore the Ecosystem</btn>
-
-</block>
-
+  <block style="text-align:center" class="new-home__side-spacer"> 
+    <btn class="no-arrow new-home__slider-btn" url="../ecosystem/dapps" >Explore the Ecosystem</btn>
+  </block>
 </column>
-
-
-
-
-
-
-
-
 
 <column class="spacer-s">
-
-<block>
-
-<new-home-call-action>
-    
-</new-home-call-action>
-
-</block>
-
+  <block>
+    <new-home-call-action>
+    </new-home-call-action>
+  </block>
 </column>
-
-
-
-
-
-
-
-
 
 <column  class="new-home__bg__top">
-
-<block class="no-padding">
-
-<new-home-announcement location="top" />
-    
-
-</block>
-
+  <block class="no-padding">
+  <new-home-announcement location="top" />
+  </block>
 </column>
-
-
-
-
-
-
-
-
 
 <!-- Blog cards -->
 <column class=" new-home__bg">
@@ -126,14 +63,6 @@ title: 'Secret Network'
     <new-blog-latest-posts class="latest-blog-cards"></new-blog-latest-posts>
   </block>
 </column>
-
-
-
-
-
-
-
-
 
 <!-- Home featured media -->
 <column class="new-home__bg__bottom space-top new-home__block-header">
@@ -145,74 +74,22 @@ title: 'Secret Network'
   </block>
 </column>
 
-
-
-
-
-
-
-
-
-
-
 <column class="spacer-s">
-
-<block>
-
-<new-home-mission>
-    
-</new-home-mission>
-
-</block>
-
+  <block>
+    <new-home-mission>
+    </new-home-mission>
+  </block>
 </column>
-
-
-
-
-
-<!-- Logo Carousel -->
-<column class=" spacer-s new-home__bg logo-carousel">
-
-<block>
-
-#### Supported by
-
-<logo-carousel></logo-carousel>
-
-</block>
-
-</column>
-
-
-
-
-
-
-
-
-
-
 
 <!-- General CTAs -->
 <column class="spacer-s" number="3" number-m="2" number-s="1">
-
-<block >
-
-<general-ctas id="get-started"></general-ctas>
-
-</block>
-
-<block >
-
-<general-ctas id="build-on-secret"></general-ctas>
-
-</block>
-
-<block >
-
-<general-ctas id="join-the-community"></general-ctas>
-
-</block>
-
+  <block >
+    <general-ctas id="get-started"></general-ctas>
+  </block>
+  <block >
+    <general-ctas id="build-on-secret"></general-ctas>
+  </block>
+  <block >
+    <general-ctas id="join-the-community"></general-ctas>
+  </block>
 </column >
