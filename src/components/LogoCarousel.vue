@@ -1,26 +1,25 @@
 <template>
-  <section class="logo-carousel__container">
-    <div class="logo-carousel__container__logos">
-      <!-- <h6>Supported by</h6> -->
-      <infinite-slide-bar
-        duration="150s"
-        :barStyle="{ background: '', padding: '5px 0' }"
-      >
-        <div
-          v-for="(investor, index) in secretInvestors"
-          :key="index"
-          class="card-secret-agent"
-        >
-          <g-image :src="investor.image" />
-        </div>
-      </infinite-slide-bar>
-    </div>
-  </section>
+  <column class="new-home__bg logo-carousel">
+    <block>
+      <div class="logo-carousel__container">
+        <h6>Supported by</h6>
+        <infinite-slide-bar duration="150s">
+          <div
+            v-for="(investor, index) in secretInvestors"
+            :key="index"
+            class="card-secret-agent"
+          >
+            <g-image :src="investor.image" />
+          </div>
+        </infinite-slide-bar>
+      </div>
+    </block>
+  </column>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       secretInvestors: [
         // { image: "/img/scentral-afterparty-supporters/alter-logo.svg" },
@@ -69,33 +68,31 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 .logo-carousel__container {
-  padding: 24px 0 0 0;
-  // background: lightgoldenrodyellow; // 🍎
-  &__logos {
-    //margin-top: 68px;
-    max-width: 100%;
-    overflow: hidden;
-    @include respond-to("<=s") {
-      //margin-top: 42px;
-    }
-    & h6 {
-      color: var(--color-neutral-dark-mode-05);
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    & .vifnslb-container {
+  max-width: 100%;
+  overflow: hidden;
+
+  h6 {
+    color: var(--color-neutral-dark-mode-05);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .vifnslb {
+    &-container {
       width: 100%;
       overflow: hidden;
     }
-    & .vifnslb-bar {
+
+    &-bar {
       gap: 96px;
       margin-right: 96px;
       overflow: hidden;
       display: flex;
+
       @include respond-to("<=m") {
         gap: 64px;
         margin-right: 64px;
       }
+
       & img {
         height: 48px;
       }
@@ -104,6 +101,7 @@ export default {
 }
 .logo-carousel {
   padding: 26px 0 42px 0;
+
   & h4 {
     font-size: 16px;
     color: var(--color-neutral-dark-mode-05);
