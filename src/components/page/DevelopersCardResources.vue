@@ -24,7 +24,7 @@ export default {
     return {
       material: [
         {
-          imageUrl: "/img/developers//icon-resources-book.svg",
+          imageUrl: "/img/developers/icon-resources-book.svg",
           title: "Tutorials",
           description:
             "View this easy step-by-step tutorial made by our partner Figment.",
@@ -32,7 +32,7 @@ export default {
           url: "https://learn.figment.io/protocols/secret",
         },
         {
-          imageUrl: "/img/developers//icon-resources-check.svg",
+          imageUrl: "/img/developers/icon-resources-check.svg",
           title: "Awesome Secret",
           description:
             "A living overview of all Secret Apps, tools, guides, and resources! ",
@@ -40,7 +40,7 @@ export default {
           url: "https://github.com/SecretFoundation/awesome-secret",
         },
         {
-          imageUrl: "/img/developers//icon-resources-documentation.svg",
+          imageUrl: "/img/developers/icon-resources-documentation.svg",
           title: "Documentation",
           description:
             "Read the official documentation on Secret contracts, clients, protocols, and more. ",
@@ -48,7 +48,7 @@ export default {
           url: "https://docs.scrt.network/",
         },
         {
-          imageUrl: "/img/developers//icon-resources-github.svg",
+          imageUrl: "/img/developers/icon-resources-github.svg",
           title: "Github",
           description:
             "View the source code that powers the Secret Network blockchain.",
