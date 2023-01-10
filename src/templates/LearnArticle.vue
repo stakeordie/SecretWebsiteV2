@@ -9,35 +9,26 @@
     <!-- Hero -->
     <column class="bg-black-gradient learn-article__content learn-hero">
       <block>
-        <div>
-          <div v-for="(component, index) in $context.components" :key="index">
-            <component
-              v-if="component.comp_name === 'article-hero'"
-              id="example-content"
-              :is="component.comp_name"
-              v-bind="component"
-            >
-              {{ component.content ? component.content : "" }}
-            </component>
-          </div>
-        </div>
+        <component
+          v-if="heroComponent.comp_name === 'article-hero'"
+          v-bind="heroComponent"
+          :is="heroComponent.comp_name"
+        >
+          {{ heroComponent.content ? heroComponent.content : "" }}
+        </component>
       </block>
     </column>
 
     <!-- Main content -->
     <column
       class="bg-black-gradient learn-article__content"
-      :class="{ 'empty-nav': !anchorListFinal.length }"
+      :class="{ 'empty-nav': !anchorList.length }"
     >
       <block>
-        <nav-menu :data="anchorListFinal"></nav-menu>
+        <nav-menu :data="anchorList"></nav-menu>
         <div>
-          <template v-for="(component, index) in $context.components">
+          <template v-for="(component, index) in contentComponents">
             <component
-              v-if="
-                component.comp_name !== 'carousel' &&
-                component.comp_name !== 'article-hero'
-              "
               :is="component.comp_name"
               :key="index"
               v-bind="component"
@@ -54,18 +45,9 @@
       class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
     >
       <block>
-        <div>
-          <div v-for="(component, index) in $context.components" :key="index">
-            <component
-              v-if="component.comp_name === 'carousel'"
-              id="example-content"
-              :is="component.comp_name"
-              v-bind="component"
-            >
-              {{ component.content ? component.content : "" }}
-            </component>
-          </div>
-        </div>
+        <component :is="carouselComponent.comp_name" v-bind="carouselComponent">
+          {{ carouselComponent.content ? carouselComponent.content : "" }}
+        </component>
       </block>
     </column>
     <!-- Swirl bottom -->
@@ -86,7 +68,7 @@ import NavMenu from "../components/dynamic/NavMenu.vue";
 export default {
   data() {
     return {
-      anchorListFinal: [],
+      anchorList: [],
     };
   },
   components: {
@@ -94,11 +76,11 @@ export default {
   },
   methods: {
     getAnchors() {
-      this.anchorListFinal = [];
+      this.anchorList = [];
       if (typeof window === "undefined") return;
       const anchors = document.querySelectorAll('[isAnchor="true"]');
+      let lastFirstLevelId = null;
       let lastSecondLevelId = null;
-      let lastThirdLevelId = null;
       const navLevels = {
         first: 1,
         second: 2,
@@ -112,81 +94,64 @@ export default {
 
       anchors.forEach((elem, index) => {
         const { id, attributes } = elem;
-        const title = elem.querySelector("#main_title")
-          ? elem.querySelector("#main_title").textContent
-          : "";
-
-        const navLevel = Number(navLevels[attributes.navLevel.value]);
-        const anchorBefore = anchors[index - 1];
-        const anchorBeforeId = anchorBefore ? anchorBefore.id : "";
-
-        const anchorbeforeLevel = anchorBefore
-          ? Number(navLevels[anchorBefore.attributes.navLevel.value])
-          : 0;
-
-        const isSecondLevel =
-          navLevel === navLevels.second &&
-          anchorbeforeLevel === navLevels.third;
-
-        const isThirdLevel =
-          navLevel === navLevels.third &&
-          anchorbeforeLevel === navLevels.second;
-
-        if (isSecondLevel) {
-          lastSecondLevelId = anchorBeforeId;
-        } else if (isThirdLevel) {
-          lastThirdLevelId = anchorBeforeId;
-        }
-
-        const idParent =
-          navLevel > navLevels.first
-            ? index > 0 && navLevel === navLevels.second
-              ? lastSecondLevelId
-                ? lastSecondLevelId
-                : anchorBeforeId
-              : lastThirdLevelId
-              ? lastThirdLevelId
-              : ""
-            : "";
-
+        const titleElem = elem.querySelector("#main_title");
         const data = {
-          navLevel,
-          title,
-          id,
-          idParent,
+          navLevel: Number(navLevels[attributes.navLevel.value]),
+          title: titleElem ? titleElem.textContent : "",
+          id: id,
+          parentId: "",
           nested: [],
           isOpen: true,
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
-          this.anchorListFinal.push(data);
+          lastFirstLevelId = id;
+          this.anchorList.push(data);
         } else if (data.navLevel === navLevels.second) {
-          this.insertIntoSecond(data);
+          lastSecondLevelId = id;
+          data.parentId = lastFirstLevelId;
+          this.insertSecondLevel(data);
         } else if (data.navLevel === navLevels.third) {
-          this.insertIntoThird(data);
+          data.parentId = lastSecondLevelId;
+          this.insertThirdLevel(data, lastFirstLevelId);
         }
       });
     },
-    insertIntoSecond(data) {
-      const { idParent } = data;
-      const anchorMatch = this.anchorListFinal.find(
-        ({ id }) => id === idParent
-      );
-      anchorMatch.nested.push(data);
+    insertSecondLevel(data) {
+      const { parentId } = data;
+      const parent = this.anchorList.find(({ id }) => id === parentId);
+      parent.nested.push(data);
     },
-    insertIntoThird(data) {
-      const { idParent } = data;
-      this.anchorListFinal.forEach(({ nested }) => {
-        const anchorMatch = nested.find(({ id }) => id === idParent);
-        anchorMatch.nested.push(data);
-      });
+    insertThirdLevel(data, firstLevelId) {
+      const { parentId } = data;
+      const parent = this.anchorList.find(({ id }) => id === firstLevelId);
+      const child = parent.nested.find(({ id }) => id === parentId);
+      child.nested.push(data);
+    },
+  },
+  computed: {
+    heroComponent() {
+      return this.$context.components.find(
+        (item) => item.comp_name === "article-hero"
+      );
+    },
+    carouselComponent() {
+      return this.$context.components.find(
+        (item) => item.comp_name === "carousel"
+      );
+    },
+    contentComponents() {
+      return this.$context.components.filter(
+        (item) =>
+          item.comp_name !== "carousel" && item.comp_name !== "article-hero"
+      );
     },
   },
   mounted() {
     this.getAnchors();
   },
   watch: {
-    $route(to, from) {
+    $route() {
       setTimeout(() => this.getAnchors(), 500);
     },
   },
@@ -230,7 +195,7 @@ export default {
         .box {
           display: grid;
           grid-template-columns: 272px 1fr;
-          gap: 26px;
+          gap: 42px;
           @include respond-to("<=m") {
             grid-template-columns: 1fr;
           }
