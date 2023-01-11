@@ -38,7 +38,7 @@
         v-for="(second, index) in first.nested"
         :key="index"
         class="parent-control"
-        :class="`parent-${second.idParent}`"
+        :class="`parent-${second.parentId}`"
       >
         <div :class="`lvl--0${second.navLevel}`" class="anchor">
           <a
@@ -51,7 +51,7 @@
           <button
             type="button"
             class="anchor__control"
-            v-on:click="second.isOpen = !second.isOpen"
+            @click="second.isOpen = !second.isOpen"
           >
             <img
               :class="
@@ -70,7 +70,7 @@
           v-for="(third, index) in second.nested"
           :key="index"
           class="parent-control"
-          :class="`parent-${third.idParent}`"
+          :class="`parent-${third.parentId}`"
         >
           <div :class="`lvl--0${third.navLevel}`" class="anchor">
             <a
