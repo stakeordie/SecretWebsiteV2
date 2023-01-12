@@ -40,6 +40,44 @@
   </default-layout>
 </template>
 
+<script>
+import { learnPortalMetaData, metaDataArray } from "../utils";
+
+export default {
+  metaInfo() {
+    return {
+      title: this.getMetaData.title,
+      meta: metaDataArray(this.getMetaData),
+    };
+  },
+  computed: {
+    getMetaData() {
+      return learnPortalMetaData(this.$page, this.$context);
+    },
+  },
+};
+</script>
+
+<page-query>
+query {
+  strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+      }
+    }
+  }
+}
+</page-query>
+
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 

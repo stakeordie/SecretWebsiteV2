@@ -64,6 +64,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
+import { learnPortalMetaData, metaDataArray } from "../utils";
 
 export default {
   data() {
@@ -73,6 +74,12 @@ export default {
   },
   components: {
     NavMenu,
+  },
+  metaInfo() {
+    return {
+      title: this.getMetaData.title,
+      meta: metaDataArray(this.getMetaData),
+    };
   },
   methods: {
     getAnchors() {
@@ -146,6 +153,9 @@ export default {
           item.comp_name !== "carousel" && item.comp_name !== "article-hero"
       );
     },
+    getMetaData() {
+      return learnPortalMetaData(this.$page, this.$context);
+    },
   },
   mounted() {
     this.getAnchors();
@@ -157,6 +167,26 @@ export default {
   },
 };
 </script>
+
+<page-query>
+query {
+  strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+      }
+    }
+  }
+}
+</page-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
