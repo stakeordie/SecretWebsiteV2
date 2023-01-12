@@ -64,6 +64,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
+import { uppercaseAllFirstLetter } from "../utils";
 
 export default {
   data() {
@@ -73,6 +74,45 @@ export default {
   },
   components: {
     NavMenu,
+  },
+  metaInfo() {
+    return {
+      title: this.getMetaData.title,
+      meta: [
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:image",
+          content: this.getMetaData.ogImage,
+        },
+        {
+          key: "og:title",
+          property: "og:title",
+          content: this.getMetaData.title,
+        },
+        {
+          key: "og:description",
+          property: "og:description",
+          content: this.getMetaData.ogDescription,
+        },
+        {
+          key: "og:image",
+          property: "og:image",
+          content: this.getMetaData.ogImage,
+        },
+        {
+          key: "description",
+          property: "description",
+          content: this.getMetaData.description,
+        },
+        {
+          name: "description",
+          content: this.getMetaData.description,
+        },
+      ],
+    };
   },
   methods: {
     getAnchors() {
@@ -146,6 +186,42 @@ export default {
           item.comp_name !== "carousel" && item.comp_name !== "article-hero"
       );
     },
+    getMetaData() {
+      const description =
+        "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.";
+      const defaultImage = "https://scrt.network/cover.png";
+      const currentRoute = this.$context.route;
+      const paths = currentRoute.split("/");
+      const title = uppercaseAllFirstLetter(
+        paths[paths.length - 1].replace(/-+/g, " ")
+      );
+
+      const data = this.$page.strapiPages.edges
+        .map(({ node }) => node)
+        .find((item) => item.route === currentRoute);
+
+      if (data) {
+        return {
+          route: data.route ? data.route : currentRoute,
+          title: data.og_title ? data.og_title : title,
+          description: data.meta_description
+            ? data.meta_description
+            : description,
+          ogDescription: data.og_description
+            ? data.og_description
+            : description,
+          ogImage: data.og_image ? data.og_image.url : defaultImage,
+        };
+      }
+
+      return {
+        route: currentRoute,
+        title,
+        description,
+        ogDescription: description,
+        ogImage: defaultImage,
+      };
+    },
   },
   mounted() {
     this.getAnchors();
@@ -157,6 +233,26 @@ export default {
   },
 };
 </script>
+
+<page-query>
+query {
+  strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+      }
+    }
+  }
+}
+</page-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";

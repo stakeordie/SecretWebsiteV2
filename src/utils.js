@@ -18,7 +18,7 @@ export function getLocaleData(query, locale) {
 
 export function removeCharacters(string) {
   return string
-    .replace(/\s+/g, "-")
+    .replace(/-+/g, " ")
     .replace(/[^-A-Za-z0-9]+/g, "")
     .toLowerCase();
 }
@@ -29,3 +29,10 @@ export const sizes = {
   medium: "medium",
   large: "large",
 };
+
+export function uppercaseAllFirstLetter(string) {
+  return string
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
