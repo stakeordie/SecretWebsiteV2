@@ -108,9 +108,10 @@ export function metaDataArray(metaData) {
 }
 
 export function addScrollSmooth(to) {
-  if (typeof window === "undefined") return;
-  if (!to.hash) return;
-  const html = document.querySelector("html");
-  html.style.scrollBehavior = "auto";
-  setTimeout(() => (html.style.scrollBehavior = "smooth"), 1000);
+  if (typeof document === "undefined") return;
+  if (!to.hash) {
+    const html = document.querySelector("html");
+    html.style.scrollBehavior = "auto";
+    setTimeout(() => (html.style.scrollBehavior = "smooth"), 1000);
+  }
 }
