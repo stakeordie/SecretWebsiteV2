@@ -131,9 +131,6 @@ query {
                   }
                 }
               }
-              &__item {
-                padding-left: var(--f-gutter-l);
-              }
             }
           }
         }
