@@ -64,7 +64,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
-import { learnPortalMetaData, metaDataArray } from "../utils";
+import { addScrollSmooth, learnPortalMetaData, metaDataArray } from "../utils";
 
 export default {
   data() {
@@ -161,8 +161,12 @@ export default {
     this.getAnchors();
   },
   watch: {
-    $route() {
-      setTimeout(() => this.getAnchors(), 500);
+    $route: {
+      handler(to, from) {
+        addScrollSmooth(to);
+        setTimeout(() => this.getAnchors(), 500);
+      },
+      immediate: true,
     },
   },
 };
