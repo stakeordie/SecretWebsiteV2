@@ -18,7 +18,7 @@ export function getLocaleData(query, locale) {
 
 export function removeCharacters(string) {
   return string
-    .replace(/-+/g, " ")
+    .replace(/\s+/g, "-")
     .replace(/[^-A-Za-z0-9]+/g, "")
     .toLowerCase();
 }
@@ -105,4 +105,12 @@ export function metaDataArray(metaData) {
       content: metaData.description,
     },
   ];
+}
+
+export function addScrollSmooth(to) {
+  if (!to.hash) {
+    const html = document.querySelector("html");
+    html.style.scrollBehavior = "auto";
+    setTimeout(() => (html.style.scrollBehavior = "smooth"), 1000);
+  }
 }

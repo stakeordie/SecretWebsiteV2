@@ -62,6 +62,7 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
+import { addScrollSmooth } from '../utils';
 
 const url = `https://scrt.network`;
 
@@ -70,7 +71,6 @@ export default {
     DefaultLayout,
     BlogAuthor,
   },
-
   metaInfo() {
     return {
       title: this.titleMeta,
@@ -186,6 +186,14 @@ export default {
   },
   mounted() {
     this.getMetaInfoLength();
+  },
+  watch: {
+    $route: {
+      handler(to, from) {
+        addScrollSmooth(to);
+      },
+      immediate: true,
+    },
   },
 };
 </script>
