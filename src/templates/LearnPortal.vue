@@ -1,51 +1,18 @@
 <template>
   <default-layout class="learn-subpage">
     <column
-      class="bg-black-gradient learn-subpage__content"
-      :class="[
-        component.comp_name === 'carousel' ? 'horizontal-slider' : '',
-        'comp-name__' + component.comp_name,
-      ]"
-      :mode="
-        component.comp_name === 'carousel' ||
-        component.comp_name === 'learn-header'
-          ? 'full'
-          : 'normal'
-      "
       v-for="(component, index) in $context.components"
+      class="bg-black-gradient learn-subpage__content"
+      :class="[`comp-name__${component.comp_name}`]"
+      :mode="getColumnMode(component.comp_name)"
       :key="index"
     >
-      <block class="">
-        <!-- <p>{{component}}</p> -->
+      <block>
         <component :is="component.comp_name" v-bind="component">
           {{ component.content ? component.content : "" }}
         </component>
       </block>
     </column>
-
-    <!-- General CTAs -->
-    <!-- <column class="spacer-s" number="3" number-m="2" number-s="1">
-
-    <block >
-
-    <general-ctas id="get-started"></general-ctas>
-
-    </block>
-
-    <block >
-
-    <general-ctas id="build-on-secret"></general-ctas>
-
-    </block>
-
-    <block >
-
-    <general-ctas id="join-the-community"></general-ctas>
-
-    </block>
-
-    </column > -->
-
     <!-- Swirl bottom -->
     <column class="orange__swirl__bottom" mode="full">
       <block>
@@ -57,6 +24,59 @@
     </column>
   </default-layout>
 </template>
+
+<script>
+import { addScrollSmooth, learnPortalMetaData, metaDataArray } from "../utils";
+
+export default {
+  metaInfo() {
+    return {
+      title: this.getMetaData.title,
+      meta: metaDataArray(this.getMetaData),
+    };
+  },
+  methods: {
+    getColumnMode(compName) {
+      return compName === "carousel" || compName === "learn-header"
+        ? "full"
+        : "normal";
+    },
+  },
+  computed: {
+    getMetaData() {
+      return learnPortalMetaData(this.$page, this.$context);
+    },
+  },
+  watch: {
+    $route: {
+      handler(to, from) {
+        addScrollSmooth(to);
+      },
+      immediate: true,
+    },
+  },
+};
+</script>
+
+<page-query>
+query {
+  strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+      }
+    }
+  }
+}
+</page-query>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
@@ -100,11 +120,6 @@
                   font-size: var(--paragraph-font-size-big);
                   line-height: var(--paragraph-line-height-big);
                 }
-              }
-            }
-            &__item {
-              @include respond-to(">=s") {
-                padding-left: var(--f-gutter-l);
               }
             }
           }
