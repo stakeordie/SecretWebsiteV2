@@ -5,10 +5,11 @@
 </template>
 
 <script>
+import { addScrollSmooth } from "../utils";
+
 export default {
   metaInfo() {
     return {
-      // title: this.$page.content.title,
       title: this.getMetaData("title"),
       meta: [
         {
@@ -53,8 +54,6 @@ export default {
       let filtered;
       let result;
 
-      // console.log(pages);
-
       pages.forEach((el) => {
         arr.push({
           route: el.node.route,
@@ -82,10 +81,8 @@ export default {
         filtered = arr.filter((x) => x.route === this.$page.content.path);
       }
 
-      //console.log(filtered);
       if (filtered.length >= 1) {
         result = filtered[0][strapiData];
-        //console.log(result);
       } else {
         result = "Secret Network";
       }
@@ -98,6 +95,14 @@ export default {
       const dir = this.$page.content.fileInfo.directory;
       const name = this.$page.content.fileInfo.name;
       return dir ? `${dir}-${name}` : name;
+    },
+  },
+  watch: {
+    $route: {
+      handler(to, from) {
+        addScrollSmooth(to);
+      },
+      immediate: true,
     },
   },
 };

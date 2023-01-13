@@ -140,6 +140,18 @@ export default {
     gap: 26px;
     scroll-behavior: smooth;
 
+    @include respond-to(">=l") {
+      padding-left: 3vw;
+    }
+
+    @include respond-to(">=xxl") {
+      padding-left: 13vw;
+    }
+
+    @include respond-to("xxxl") {
+      padding-left: 19vw;
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }

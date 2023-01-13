@@ -270,6 +270,8 @@
 </static-query>
 
 <script>
+import { addScrollSmooth } from '../utils';
+
 export default {
   data: function () {
     return {
@@ -485,6 +487,7 @@ export default {
     },
     $route: {
       handler(to, from) {
+        addScrollSmooth(to);
         this.checker();
         this.removeBottomSwirl();
         this.isNavOpen = false;
