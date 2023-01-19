@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { addScrollSmooth, learnPortalMetaData, metaDataArray } from "../utils";
+import { addScrollSmooth, pageMetaData, metaDataArray } from "../utils";
 
 export default {
   metaInfo() {
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     getMetaData() {
-      return learnPortalMetaData(this.$page, this.$context);
+      return pageMetaData(this.$page, this.$context.route);
     },
   },
   watch: {

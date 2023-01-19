@@ -62,7 +62,7 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
-import { addScrollSmooth } from '../utils';
+import { addScrollSmooth } from "../utils";
 
 const url = `https://scrt.network`;
 
