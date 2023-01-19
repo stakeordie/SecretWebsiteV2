@@ -5,92 +5,19 @@
 </template>
 
 <script>
-import { addScrollSmooth } from "../utils";
+import { metaDataArray, pageMetaData, addScrollSmooth } from "../utils";
 
 export default {
   metaInfo() {
     return {
-      title: this.getMetaData("title"),
-      meta: [
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
-        {
-          name: "twitter:image",
-          content: this.getMetaData("ogImage"),
-        },
-        {
-          key: "og:title",
-          property: "og:title",
-          content: this.getMetaData("title"),
-        },
-        {
-          key: "og:description",
-          property: "og:description",
-          content: this.getMetaData("ogDescription"),
-        },
-        {
-          key: "og:image",
-          property: "og:image",
-          content: this.getMetaData("ogImage"),
-        },
-        {
-          key: "description",
-          property: "description",
-          content: this.getMetaData("description"),
-        },
-        {
-          name: "description",
-          content: this.getMetaData("description"),
-        },
-      ],
+      title: this.getMetaData.title,
+      meta: metaDataArray(this.getMetaData),
     };
   },
-  methods: {
-    getMetaData(strapiData) {
-      let arr = [];
-      let pages = this.$page.strapiPages.edges;
-      let filtered;
-      let result;
-
-      pages.forEach((el) => {
-        arr.push({
-          route: el.node.route,
-          title: el.node.og_title,
-          description: el.node.meta_description
-            ? el.node.meta_description
-            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
-          ogDescription: el.node.og_description
-            ? el.node.og_description
-            : "Blockchain-based and open-source protocol that lets anyone perform computations on encrypted data, bringing privacy to smart contracts and public blockchains.",
-          ogImage: el.node.og_image
-            ? el.node.og_image.url
-            : "https://scrt.network/cover.png",
-        });
-      });
-
-      // Discard Homepage from slice
-      if (this.$page.content.path !== "/") {
-        filtered = arr.filter((x) => {
-          return x.route.substr(-1) === "/"
-            ? x.route === this.$page.content.path
-            : x.route === this.$page.content.path.slice(0, -1);
-        });
-      } else {
-        filtered = arr.filter((x) => x.route === this.$page.content.path);
-      }
-
-      if (filtered.length >= 1) {
-        result = filtered[0][strapiData];
-      } else {
-        result = "Secret Network";
-      }
-
-      return result;
-    },
-  },
   computed: {
+    getMetaData() {
+      return pageMetaData(this.$page, this.$page.content.path);
+    },
     pageClass() {
       const dir = this.$page.content.fileInfo.directory;
       const name = this.$page.content.fileInfo.name;
