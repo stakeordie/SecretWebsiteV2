@@ -64,7 +64,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
-import { addScrollSmooth, learnPortalMetaData, metaDataArray } from "../utils";
+import { addScrollSmooth, pageMetaData, metaDataArray } from "../utils";
 
 export default {
   data() {
@@ -154,7 +154,7 @@ export default {
       );
     },
     getMetaData() {
-      return learnPortalMetaData(this.$page, this.$context);
+      return pageMetaData(this.$page, this.$context.route);
     },
   },
   mounted() {
