@@ -17,3 +17,6 @@ services:
       - type: redirect
         source: /redirectme
         destination: /learn
+      - type: redirect
+        source: /blog/secret-network-400m-ecosystem-funding-new-investors
+        destination: /developers/grants
