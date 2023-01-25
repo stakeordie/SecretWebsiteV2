@@ -12,14 +12,77 @@ services:
         - render.yaml
     routes:
       - type: redirect
+        source: /secret-nodes-cookbook/
+        destination: /developers
+      - type: redirect
+        source: /secret-staking-derivatives
+        destination: /about/secret-finance
+      - type: redirect
+        source: /secret-staking-derivatives/
+        destination: /about/secret-finance
+      - type: redirect
+        source: /secret-tokens-programmable-privacy-for-defi
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /secret-tokens-programmable-privacy-for-defi/
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /staking-secrets-guide-to-staking-delegating-scrt/
+        destination: /blog/staking-secrets-guide-to-staking-delegating-scrt
+      - type: redirect
+        source: /upgrade-complete-secret-contracts-live-mainnet/
+        destination: /
+      - type: redirect
+        source: /programmable-privacy
+        destination: /about/about-secret-network
+      - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
       - type: redirect
         source: /test
         destination: /about-secret-network
       - type: redirect
-        source: /test-2
-        destination: /about-secret-network
-      - type: redirect
         source: /new
         destination: /about-secret-network
+      - type: redirect
+        source: /agents
+        destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /about
+        destination: /about/about-secret-network
+      - type: redirect
+        source: /announcing-the-secret-games
+        destination: /
+      - type: redirect
+        source: /announcing-the-secret-games/
+        destination: /
+      - type: redirect
+        source: /blog/Citadel.one
+        destination: /blog
+      - type: redirect
+        source: /blog/Duplex.Finance
+        destination: /blog
+      - type: redirect
+        source: /blog/Federal%20Reserve%20governor%20says%20private%20stablecoins%20are%20likely%20better%20than%20CBDCs
+        destination: /blog
+      - type: redirect
+        source: /blog/anons.army
+        destination: /blog
+      - type: redirect
+        source: /blog/app.secretswap.io/migration
+        destination: /blog
+      - type: redirect
+        source: /blog/blog/programmable-privacy/
+        destination: /blog
+      - type: redirect
+        source: /blog/scrt.network
+        destination: /blog
+      - type: redirect
+        source: /blog/secret-binance-smart-chain-bridge-is-live-on-testnett
+        destination: /blog
+      - type: redirect
+        source: /admin/secret-tokens-programmable-privacy-for-defi
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /blog/secretanalytics.xyz
+        destination: /blog
