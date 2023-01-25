@@ -23,3 +23,6 @@ services:
       - type: redirect
         source: /blog/dsfdfsfsd
         destination: /developers/gragd
+      - type: redirect
+        source: /blog/dfsfsd
+        destination: /developers/gragd
