@@ -16,7 +16,10 @@ services:
         destination: /test/abc
       - type: redirect
         source: /redirectmeagain
-        destination: /learn/learn
+        destination: /learn/learngit
       - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
+      - type: redirect
+        source: /blog/dsfdfsfsd
+        destination: /developers/gragdfgdf
