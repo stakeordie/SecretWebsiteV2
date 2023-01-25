@@ -22,4 +22,4 @@ services:
         destination: /developers/grants
       - type: redirect
         source: /blog/dsfdfsfsd
-        destination: /developers/gragdfgdf
+        destination: /developers/gragd
