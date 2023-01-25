@@ -26,13 +26,14 @@
 </template>
 
 <script>
-import { addScrollSmooth, pageMetaData, metaDataArray } from "../utils";
+import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
 
 export default {
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
+      link: canonicalTag(this.getMetaData),
     };
   },
   methods: {

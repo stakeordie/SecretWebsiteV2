@@ -5,13 +5,19 @@
 </template>
 
 <script>
-import { metaDataArray, pageMetaData, addScrollSmooth } from "../utils";
+import {
+  metaDataArray,
+  pageMetaData,
+  addScrollSmooth,
+  canonicalTag,
+} from "../utils";
 
 export default {
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
+      link: canonicalTag(this.getMetaData),
     };
   },
   computed: {
