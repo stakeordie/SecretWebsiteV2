@@ -39,9 +39,6 @@ services:
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
       - type: redirect
-        source: /test
-        destination: /about-secret-network
-      - type: redirect
         source: /new
         destination: /about-secret-network
       - type: redirect
@@ -85,4 +82,7 @@ services:
         destination: /about/secret-tokens-bridges
       - type: redirect
         source: /blog/secretanalytics.xyz
+        destination: /blog
+      - type: redirect
+        source: /blog/stashh-live-on-mainnet/anons.army
         destination: /blog
