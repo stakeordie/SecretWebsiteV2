@@ -12,12 +12,14 @@ services:
         - render.yaml
     routes:
       - type: redirect
-        source: /test
-        destination: /test/abc
-      - type: redirect
-        source: /redirectmeagain
-        destination: /learn/learngit
-      - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
-  
+      - type: redirect
+        source: /test
+        destination: /about-secret-network
+      - type: redirect
+        source: /test-2
+        destination: /about-secret-network
+      - type: redirect
+        source: /new
+        destination: /about-secret-network
