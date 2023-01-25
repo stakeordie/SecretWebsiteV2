@@ -26,3 +26,6 @@ services:
       - type: redirect
         source: /blog/dfsfsd
         destination: /developers/gragd
+      - type: redirect
+        source: /blog/gertesr
+        destination: /developers/ddddd
