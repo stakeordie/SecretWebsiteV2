@@ -16,4 +16,7 @@ services:
         destination: /developers/grants
       - type: redirect
         source: /test
-        destination: /developers/grants
+        destination: /about-secret-network
+      - type: redirect
+        source: /test-2
+        destination: /about-secret-network
