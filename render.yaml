@@ -15,8 +15,8 @@ services:
         source: /test
         destination: /test/abc
       - type: redirect
-        source: /redirectme
-        destination: /learn
+        source: /redirectmeagain
+        destination: /learn/learn
       - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
