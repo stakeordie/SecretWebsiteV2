@@ -206,6 +206,3 @@ services:
       - type: redirect
         source: /ecosystem/funding
         destination: /developers/grants
-      - type: redirect
-        source: /test
-        destination: /
