@@ -12,9 +12,6 @@ services:
         - render.yaml
     routes:
       - type: redirect
-        source: /agents
-        destination: https://scrt.network/get-involved/become-secret-agent
-      - type: redirect
         source: /calendar
         destination: https://calendar.google.com/calendar/u/0?cid=YjFjdjk4NWxkOWgwcWRjZ2IwMmE3OTVlbDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
       - type: redirect
@@ -188,3 +185,6 @@ services:
       - type: redirect
         source: /secret-nodes-cookbook/
         destination: /developers
+      - type: redirect
+        source: /agents
+        destination: /get-involved/become-secret-agent
