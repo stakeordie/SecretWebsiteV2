@@ -18,9 +18,6 @@ services:
         source: /secret-staking-derivatives
         destination: /about/secret-finance
       - type: redirect
-        source: /secret-staking-derivatives/
-        destination: /about/secret-finance
-      - type: redirect
         source: /secret-tokens-programmable-privacy-for-defi
         destination: /about/secret-tokens-bridges
       - type: redirect
@@ -300,9 +297,6 @@ services:
         source: /secret-nodes-cookbook/
         destination: /developers
       - type: redirect
-        source: /secret-staking-derivatives
-        destination: /about/secret-finance
-      - type: redirect
         source: /secret-staking-derivatives/
         destination: /about/secret-finance
       - type: redirect
@@ -353,3 +347,6 @@ services:
       - type: redirect
         source: /calendar
         destination: https://calendar.google.com/calendar/u/0?cid=YjFjdjk4NWxkOWgwcWRjZ2IwMmE3OTVlbDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+      - type: redirect
+        source: /test
+        destination: /developers/grants
