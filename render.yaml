@@ -194,3 +194,6 @@ services:
       - type: redirect
         source: /ecosystem/funding
         destination: /developers/grants
+      - type: redirect
+        source: /secret-nodes-cookbook/
+        destination: /developers
