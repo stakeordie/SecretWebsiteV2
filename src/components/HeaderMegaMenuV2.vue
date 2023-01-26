@@ -10,7 +10,7 @@
                 src="../assets/icon-menu.svg"
                 alt="close icon"
                 class="menu"
-                v-on:click.prevent="openMenuFromMobile"
+                @click.prevent="openMenuFromMobile"
               />
               <img
                 src="../assets/icon-close.svg"
@@ -321,11 +321,9 @@ export default {
       });
     },
     megaMenuColumns() {
-      const body = document.querySelector("body");
-      body.setAttribute(
-        "style",
-        `--scrt-megamenu-columns:${this.columns.length}`
-      );
+      const footer = document.querySelector("footer");
+      const style = `--scrt-megamenu-columns:${this.columns.length}`;
+      footer.setAttribute("style", style);
     },
     toggleMegaMenu(index) {
       this.closeNav();
@@ -373,9 +371,13 @@ export default {
     openMenuFromMobile() {
       this.subMenuIndex = -1;
       if (this.megaMenuIsOpen) {
+        const html = document.querySelector("html");
+        html.style.overflowY = "auto";
         this.isMobileOpen = false;
         this.megaMenuIsOpen = !this.megaMenuIsOpen;
       } else {
+        const html = document.querySelector("html");
+        html.style.overflowY = "hidden";
         this.isMobileOpen = true;
         this.megaMenuIsOpen = !this.megaMenuIsOpen;
       }
@@ -634,7 +636,7 @@ query {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 100;
 
   @include respond-to(">=xxl") {
     display: flex;
