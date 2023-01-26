@@ -171,9 +171,6 @@ services:
         source: /puzzle-is-becoming-secretnodes/secretnodes.com
         destination: /blog
       - type: redirect
-        source: /puzzle-is-becoming-secretnodes/secretnodes.org
-        destination: /blog
-      - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
       - type: redirect
