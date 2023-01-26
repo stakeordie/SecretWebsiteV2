@@ -13,54 +13,30 @@
       </p>
     </div>
     <div class="page-developers-funding__materials">
-      <div
-        class="page-developers-funding__materials__material"
-        v-for="(item, index) in material"
-        :key="index"
-      >
-        <h6>{{ item.title }}</h6>
-        <p>{{ item.description }}</p>
-        <btn class="text-center no-arrow" :url="item.url">READ MORE</btn>
-      </div>
+      <h6>Grants</h6>
+      <p>
+        Get non-dilutive capital to get your Secret idea off the ground and
+        rapidly gain traction.
+      </p>
+      <btn class="no-arrow cta" url="/developers/grants">READ MORE</btn>
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      material: [
-        {
-          title: "Ecosystem Fund",
-          description:
-            "Get long-term financial and strategic support from our top industry partners to scale your Secret project and reach billions of users.",
-          url: "../ecosystem/funding",
-        },
-        {
-          title: "Grants",
-          description:
-            "Get non-dilutive capital to get your Secret idea off the ground and rapidly gain traction.",
-          url: "../developers/grants",
-        },
-      ],
-    };
-  },
-};
-</script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developers-funding {
   margin: 164px 0;
+  display: grid;
+  gap: 16px;
+  place-items: center;
 
   &__content {
     display: grid;
     grid-gap: 8px;
     text-align: center;
     max-width: 620px;
-    margin: auto;
 
     &__sub-title {
       font-family: montserrat;
@@ -92,28 +68,19 @@ export default {
 
   &__materials {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-gap: 4px;
-    text-align: left;
-    max-width: 1000px;
-    margin: auto;
-    margin-top: 16px;
+    text-align: center;
+    place-items: center;
+    max-width: 500px;
+    padding: var(--f-gutter);
 
-    @include respond-to("<=s") {
+    h6 {
+      font-size: var(--f-h4-text-size);
+      margin-bottom: 0;
     }
 
-    @include respond-to("<=xs") {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    &__material {
-      padding: var(--f-gutter);
-
-      h6 {
-        font-size: var(--f-h4-text-size);
-        margin-bottom: 0;
-      }
+    .btn.cta {
+      margin: 0;
     }
   }
 }
