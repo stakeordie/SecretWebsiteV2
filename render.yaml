@@ -188,3 +188,6 @@ services:
       - type: redirect
         source: /agents
         destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /grant-application-process
+        destination: /developers/grants
