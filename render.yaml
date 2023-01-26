@@ -177,9 +177,6 @@ services:
         source: /docs/submit-change
         destination: /developers
       - type: redirect
-        source: /docs/project-setup
-        destination: /developers
-      - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
       - type: redirect
