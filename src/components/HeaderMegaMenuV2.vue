@@ -370,13 +370,12 @@ export default {
     },
     openMenuFromMobile() {
       this.subMenuIndex = -1;
+      const html = document.querySelector("html");
       if (this.megaMenuIsOpen) {
-        const html = document.querySelector("html");
         html.style.overflowY = "auto";
         this.isMobileOpen = false;
         this.megaMenuIsOpen = !this.megaMenuIsOpen;
       } else {
-        const html = document.querySelector("html");
         html.style.overflowY = "hidden";
         this.isMobileOpen = true;
         this.megaMenuIsOpen = !this.megaMenuIsOpen;
