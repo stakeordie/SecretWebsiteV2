@@ -147,9 +147,6 @@ services:
         source: /secret-nodes-cookbook
         destination: /developers
       - type: redirect
-        source: /secret-nodes-cookbook/
-        destination: /developers
-      - type: redirect
         source: /secret-staking-derivatives
         destination: /about/secret-finance
       - type: redirect
