@@ -93,9 +93,6 @@ services:
         source: /media
         destination: /media/features
       - type: redirect
-        source: /programmable-privacy
-        destination: /about/about-secret-network
-      - type: redirect
         source: /puzzle-is-becoming-secretnodes/secretnodes.org
         destination: /
       - type: redirect
