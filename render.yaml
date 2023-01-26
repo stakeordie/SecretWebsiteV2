@@ -189,9 +189,6 @@ services:
         source: /docs/project-setup
         destination: /developers
       - type: redirect
-        source: /upgrade-complete-secret-contracts-live-mainnet//
-        destination: /
-      - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
       - type: redirect
