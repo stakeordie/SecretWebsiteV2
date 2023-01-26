@@ -96,9 +96,6 @@ services:
         source: /programmable-privacy
         destination: /about/about-secret-network
       - type: redirect
-        source: /puzzle-is-becoming-secretnodes/secretnodes.com
-        destination: /
-      - type: redirect
         source: /puzzle-is-becoming-secretnodes/secretnodes.org
         destination: /
       - type: redirect
