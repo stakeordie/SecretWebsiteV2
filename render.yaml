@@ -1,6 +1,5 @@
 services:
   - type: web
-    name: Secret Website (Development)
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
@@ -15,8 +14,17 @@ services:
         source: /test
         destination: /test/abc
       - type: redirect
-        source: /redirectme
-        destination: /learn
+        source: /redirectmeagain
+        destination: /learn/learngit
       - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
+      - type: redirect
+        source: /blog/dsfdfsfsd
+        destination: /developers/gragd
+      - type: redirect
+        source: /blog/dfsfsd
+        destination: /developers/gragd
+      - type: redirect
+        source: /blog/gertesr
+        destination: /developers/ddddd

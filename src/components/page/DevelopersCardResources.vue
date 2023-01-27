@@ -2,10 +2,13 @@
   <section class="page-developer-resources">
     <h6 class="page-developer-resources__title">Resources</h6>
     <div class="page-developer-resources__cards">
-      <div
+      <a
         class="page-developer-resources__cards__card"
         v-for="(item, index) in material"
         :key="index"
+        :href="item.url"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <img :src="item.imageUrl" alt="" />
         <div class="page-developer-resources__cards__card__content">
@@ -13,7 +16,7 @@
           <p>{{ item.description }}</p>
           <btn class="link-arrow" :url="item.url">{{ item.urlTitle }}</btn>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 </template>
@@ -26,32 +29,28 @@ export default {
         {
           imageUrl: "/img/developers/icon-resources-book.svg",
           title: "Tutorials",
-          description:
-            "View this easy step-by-step tutorial made by our partner Figment.",
+          description: `Get started with our smart contract tutorials and community-created guides.`,
           urlTitle: "View tutorials",
-          url: "https://learn.figment.io/protocols/secret",
+          url: `https://docs.scrt.network/secret-network-documentation/development/secret-by-example`,
         },
         {
           imageUrl: "/img/developers/icon-resources-check.svg",
-          title: "Awesome Secret",
-          description:
-            "A living overview of all Secret Apps, tools, guides, and resources! ",
+          title: "Ecosystem Overview",
+          description: `A living overview of all Secret Apps, tools, guides, and resources!`,
           urlTitle: "View tutorials",
-          url: "https://github.com/SecretFoundation/awesome-secret",
+          url: `https://docs.scrt.network/secret-network-documentation/ecosystem-overview`,
         },
         {
           imageUrl: "/img/developers/icon-resources-documentation.svg",
           title: "Documentation",
-          description:
-            "Read the official documentation on Secret contracts, clients, protocols, and more. ",
+          description: `Read the official documentation on Secret contracts, clients, protocols, and more. `,
           urlTitle: "View docs",
           url: "https://docs.scrt.network/",
         },
         {
           imageUrl: "/img/developers/icon-resources-github.svg",
           title: "Github",
-          description:
-            "View the source code that powers the Secret Network blockchain.",
+          description: `View the source code that powers the Secret Network blockchain.`,
           urlTitle: "View repo",
           url: "https://github.com/scrtlabs/SecretNetwork",
         },
@@ -96,6 +95,8 @@ export default {
       background: var(--color-neutral-dark-mode-03);
       padding: var(--f-gutter-l);
       border-radius: 10px;
+      transition: 0.5s;
+
       &:hover {
         background: var(--color-neutral-dark-mode-04);
       }

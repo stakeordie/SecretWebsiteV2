@@ -102,7 +102,7 @@ export default {
 .alert-bar {
   background: var(--alert-background-color);
   position: fixed;
-  z-index: 99999;
+  z-index: 101;
   width: 100%;
   left: 0;
   top: 0;
