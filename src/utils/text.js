@@ -20,5 +20,5 @@ export function uppercaseAllFirstLetter(string) {
 }
 
 export const removeLastSlash = (text) => {
-  return text.charAt(text.length - 1) === "/" ? text.slice(0, -1) : path;
+  return text.charAt(text.length - 1) === "/" ? text.slice(0, -1) : text;
 };

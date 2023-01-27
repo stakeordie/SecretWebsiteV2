@@ -7,7 +7,7 @@ export const pageMetaData = (page, path) => {
   const fullPath = domain + removeLastSlash(path);
   const data = page.strapiPages.edges
     .map(({ node }) => node)
-    .find((item) => item.route === path || item.route === path.slice(0, -1));
+    .find((item) => item.route === removeLastSlash(path));
 
   const result = {
     domain,
@@ -36,6 +36,10 @@ export const metaDataArray = (metaData) => [
     property: "description",
     name: "description",
     content: metaData.description,
+  },
+  {
+    name: "author",
+    content: metaData.author ? metaData.author : "Scrt Network",
   },
   //Facebook and other sites metadata
   {

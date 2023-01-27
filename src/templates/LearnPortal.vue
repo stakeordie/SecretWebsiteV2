@@ -73,6 +73,7 @@ query {
         }
         og_title
         meta_description
+        canonical_url
       }
     }
   }
