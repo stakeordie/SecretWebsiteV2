@@ -95,7 +95,7 @@ title: "Developer Resources"
 
 <!-- swirl -->
 <column class="developers__swirl__bottom" mode="full">
-<block>
-<img class="get-scrt__align-img" src="../../src/assets/swirl-dev-blue-bottom.svg" />
-</block>
+  <block>
+    <img class="get-scrt__align-img" src="../../src/assets/swirl-dev-blue-bottom.svg" />
+  </block>
 </column>
