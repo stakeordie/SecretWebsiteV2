@@ -41,7 +41,7 @@ export function metaDataArray(metaData) {
     },
     {
       key: "og:type",
-      property: "og:title",
+      property: "og:type",
       content: "website",
     },
     {
