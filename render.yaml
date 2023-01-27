@@ -1,5 +1,6 @@
 services:
   - type: web
+    name: Secret Website
     env: static
     buildCommand: yarn build
     staticPublishPath: ./dist
@@ -11,20 +12,182 @@ services:
         - render.yaml
     routes:
       - type: redirect
-        source: /test
-        destination: /test/abc
+        source: /calendar
+        destination: https://calendar.google.com/calendar/u/0?cid=YjFjdjk4NWxkOWgwcWRjZ2IwMmE3OTVlbDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
       - type: redirect
-        source: /redirectmeagain
-        destination: /learn/learngit
+        source: /about
+        destination: /about/about-secret-network
       - type: redirect
-        source: /blog/secret-network-400m-ecosystem-funding-new-investors
+        source: /announcing-the-secret-games
+        destination: /
+      - type: redirect
+        source: /announcing-the-secret-games/
+        destination: /
+      - type: redirect
+        source: /blog/Citadel.one
+        destination: /blog
+      - type: redirect
+        source: /blog/Duplex.Finance
+        destination: /blog
+      - type: redirect
+        source: /blog/Federal%20Reserve%20governor%20says%20private%20stablecoins%20are%20likely%20better%20than%20CBDCs
+        destination: /blog
+      - type: redirect
+        source: /blog/anons.army
+        destination: /blog
+      - type: redirect
+        source: /blog/app.secretswap.io/migration
+        destination: /blog
+      - type: redirect
+        source: /blog/blog/programmable-privacy/
+        destination: /blog
+      - type: redirect
+        source: /blog/scrt.network
+        destination: /blog
+      - type: redirect
+        source: /blog/secret-binance-smart-chain-bridge-is-live-on-testnett
+        destination: /blog
+      - type: redirect
+        source: /admin/secret-tokens-programmable-privacy-for-defi
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /blog/secretanalytics.xyz
+        destination: /blog
+      - type: redirect
+        source: /blog/stashh-live-on-mainnet/anons.army
+        destination: /blog
+      - type: redirect
+        source: /blog/tarantinonfts.com
+        destination: /blog
+      - type: redirect
+        source: /blog/www.SCRTlabs.com
+        destination: /blog
+      - type: redirect
+        source: /docs/project-setup
+        destination: /developers
+      - type: redirect
+        source: /docs/submit-change
+        destination: /developers
+      - type: redirect
+        source: /ecosystem-update-august-2020
+        destination: /
+      - type: redirect
+        source: /ecosystem-update-august-2020/
+        destination: /
+      - type: redirect
+        source: /ecosystem-update-september-2020
+        destination: /
+      - type: redirect
+        source: /how-to-build-secret-apps
+        destination: /developers
+      - type: redirect
+        source: /introducing-secret-foundation/
+        destination: /
+      - type: redirect
+        source: /introducing-secret-network/
+        destination: /
+      - type: redirect
+        source: /media
+        destination: /media/features
+      - type: redirect
+        source: /puzzle-is-becoming-secretnodes/secretnodes.org
+        destination: /
+      - type: redirect
+        source: /secret-committees-empowering-secret-agents/
+        destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /secret-contracts-mainnet
+        destination: /
+      - type: redirect
+        source: /secret-contracts-mainnet/
+        destination: /
+      - type: redirect
+        source: /secret-contracts-update-milestone-3-of-3-is-complete
+        destination: /
+      - type: redirect
+        source: /secret-contracts-update-milestone-3-of-3-is-complete/
+        destination: /
+      - type: redirect
+        source: /secret-games-update-incentivized-testnet-phase-2
+        destination: /
+      - type: redirect
+        source: /secret-games-update-incentivized-testnet-phase-2/
+        destination: /
+      - type: redirect
+        source: /secret-games-update-testnet-phase-1
+        destination: /
+      - type: redirect
+        source: /secret-games-update-testnet-phase-1/
+        destination: /
+      - type: redirect
+        source: /secret-hub
+        destination: /developers
+      - type: redirect
+        source: /secret-hub/
+        destination: /developers
+      - type: redirect
+        source: /secret-markets-front-running-prevention/
+        destination: /about/secret-finance
+      - type: redirect
+        source: /secret-mission-design-challenge
+        destination: /developers
+      - type: redirect
+        source: /secret-network-ecosystem-update-july-2020/
+        destination: /
+      - type: redirect
+        source: /secret-network-governance
+        destination: /
+      - type: redirect
+        source: /secret-network-governance/
+        destination: /
+      - type: redirect
+        source: /secret-nodes-cookbook
+        destination: /developers
+      - type: redirect
+        source: /secret-staking-derivatives
+        destination: /about/secret-finance
+      - type: redirect
+        source: /secret-staking-derivatives/
+        destination: /about/secret-finance
+      - type: redirect
+        source: /secret-tokens-programmable-privacy-for-defi
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /secret-tokens-programmable-privacy-for-defi/
+        destination: /about/secret-tokens-bridges
+      - type: redirect
+        source: /staking-secrets-guide-to-staking-delegating-scrt/
+        destination: /blog/staking-secrets-guide-to-staking-delegating-scrt
+      - type: redirect
+        source: /upgrade-complete-secret-contracts-live-mainnet/
+        destination: /
+      - type: redirect
+        source: /programmable-privacy
+        destination: /about/about-secret-network
+      - type: redirect
+        source: /puzzle-is-becoming-secretnodes/secretnodes.com
+        destination: /blog
+      - type: redirect
+        source: /secretagency
+        destination: https://oelinks.co/scrtagentnetwork
+      - type: redirect
+        source: /about/about-scrt
+        destination: /about/get-scrt
+      - type: redirect
+        source: /brand
+        destination: https://drive.google.com/drive/folders/1yd3rFrgjofPGtqW7JLbC9XzrcL1kPMJM?usp=sharing
+      - type: redirect
+        source: /badge
+        destination: https://stashh.io/asset/secret-network-badges/TriVv?code=SCRT
+      - type: redirect
+        source: /ecosystem/funding
         destination: /developers/grants
       - type: redirect
-        source: /blog/dsfdfsfsd
-        destination: /developers/gragd
+        source: /secret-nodes-cookbook/
+        destination: /developers
       - type: redirect
-        source: /blog/dfsfsd
-        destination: /developers/gragd
+        source: /agents
+        destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /blog/gertesr
-        destination: /developers/ddddd
+        source: /grant-application-process
+        destination: /developers/grants
