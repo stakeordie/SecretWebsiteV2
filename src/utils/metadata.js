@@ -97,6 +97,6 @@ export const metaDataArray = (metaData) => [
 export const canonicalTag = (metaData) => [
   {
     rel: "canonical",
-    content: metaData.canonicalUrl,
+    href: metaData.canonicalUrl,
   },
 ];
