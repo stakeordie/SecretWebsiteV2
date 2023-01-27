@@ -49,12 +49,11 @@
       font-size: 28px;
       line-height: 40px;
     }
-  } 
+  }
 }
 
 .ecosystem {
-  
-  &__green-swirl__top{
+  &__green-swirl__top {
     position: relative;
     padding: 0;
     top: 24px;
@@ -98,61 +97,52 @@
     }
   }
 
-  &__green-swirl__bottom{
-    //background-image: url("../../src/assets/swirl-green-top.svg");
-    // background-repeat: no-repeat;
-    // background-position: bottom;
-    // background-size: cover;
+  &__green-swirl__bottom {
     height: 230px;
     position: relative;
     padding: 0;
 
-    & .content{
-        
-        & .box{
-            
+    & .content {
+      & .box {
+        & img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          z-index: -100;
+          overflow: hidden;
 
-            & img{
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                width: 100%;
-                z-index: -100;
-                overflow: hidden;
-
-                @include respond-to("<=m"){
-                    display: none;
-                }
-            }
-    
+          @include respond-to("<=m") {
+            display: none;
+          }
         }
-            
+      }
     }
 
-    @include respond-to(">=xxl"){
-        top: 0px;
+    @include respond-to(">=xxl") {
+      top: 0px;
     }
 
-    @include respond-to("<=l"){
-        height: 200px;
-        top: 0px;
+    @include respond-to("<=l") {
+      height: 200px;
+      top: 0px;
     }
 
-    @include respond-to("<=m"){
-        height: 180px;
-        background-image: url("../../src/assets/swirl-green-bottom.svg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
+    @include respond-to("<=m") {
+      height: 180px;
+      background-image: url("../../src/assets/swirl-green-bottom.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
     }
-    @include respond-to("<=s"){
-        height: 140px;
-        
+    @include respond-to("<=s") {
+      height: 140px;
     }
-    @include respond-to("<=s"){
-        //height: 100px;
-        position: relative;
+    @include respond-to("<=s") {
+      //height: 100px;
+      position: relative;
     }
   }
 }
