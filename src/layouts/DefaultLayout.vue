@@ -270,7 +270,7 @@
 </static-query>
 
 <script>
-import { addScrollSmooth } from '../utils';
+import { addScrollSmooth } from "../utils";
 
 export default {
   data: function () {
@@ -874,17 +874,20 @@ export default {
   &.bottom {
     left: 0;
     bottom: -300px;
+
     &.v2 {
       height: 148px;
       bottom: -196px;
     }
+
     @include respond-to("<=s") {
       bottom: -300px;
     }
+
     img {
       transform: rotate(180deg);
-    }
-    img {
+      bottom: 0;
+
       &.special-mod {
         height: 274px;
         object-fit: fill;
