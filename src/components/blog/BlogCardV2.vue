@@ -7,35 +7,31 @@
     <div class="blog-card-v2__top">
       <div class="blog-card-v2__body">
         <div class="blog-card-v2__feature-image">
-          <slot name="image"></slot>
+          <slot name="image" />
         </div>
         <div class="blog-card-v2__tag blog-card__tag-color">
-          <slot name="tag"></slot>
+          <slot name="tag" />
         </div>
-        <slot name="default"></slot>
+        <slot name="default" />
       </div>
     </div>
     <blog-author class="blog-card-v2__footer">
-      <slot name="footer"></slot>
+      <slot name="footer" />
     </blog-author>
   </g-link>
 </template>
 
 <script>
-import BlogAuthor from "@/components/blog/BlogAuthor";
+import BlogAuthor from "./BlogAuthor.vue";
 
 const colors = {
-  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  //dev: "red",
   feature: "orange",
-  //ecosystem: "purple",
   governance: "gray",
-  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -46,20 +42,16 @@ const colors = {
   null: "purple",
   undefined: "purple",
   nfts: "orange",
-
   announcement: "announcement",
-
   education: "education",
   how_tos: "education",
   explanations: "education",
-
   dev: "developers",
   developers: "developers",
   dev: "developers",
   "tech updates": "developers",
   hackathon: "developers",
   funding: "developers",
-
   ecosystem: "ecosystem",
   community: "ecosystem",
   dapp_launches: "ecosystem",
@@ -143,14 +135,8 @@ $accent-colors: (
 
   @each $name, $color in $accent-colors {
     &.accent-#{$name} {
-      &:hover {
-      }
-
       .blog-card-v2__top {
         display: block;
-      }
-
-      .blog-card-v2__body {
       }
 
       .blog-card-v2__feature-image {
@@ -196,16 +182,11 @@ $accent-colors: (
 
   .blog-author {
     justify-content: flex-end;
-    //padding: var(--f-gutter);
     display: grid;
     grid-auto-flow: column;
-    // display: flex;
     align-items: center;
     justify-content: left;
     gap: var(--f-gutter);
-    //position: absolute;
-    //bottom: 0;
-    //left: 0;
 
     img {
       width: 40px;
@@ -219,7 +200,6 @@ $accent-colors: (
 
     .author-info {
       display: grid;
-      //gap: var(--f-gutter-xxs);
       color: var(--theme-fg);
 
       & p {

@@ -18,3 +18,7 @@ export function uppercaseAllFirstLetter(string) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
+
+export const removeLastSlash = (text) => {
+  return text.charAt(text.length - 1) === "/" ? text.slice(0, -1) : text;
+};

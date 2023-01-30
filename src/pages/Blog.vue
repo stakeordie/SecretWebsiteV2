@@ -30,7 +30,7 @@
 
     <column class="horizontal-slider spacer-s" mode="full">
       <block>
-        <blog-featured-posts-v2></blog-featured-posts-v2>
+        <blog-featured-posts-v2 />
       </block>
     </column>
 
@@ -40,10 +40,10 @@
           :tags="tags"
           id="left"
           @blog-filter:filter-applied="onFilterApplied"
-        ></blog-filter-v2>
+        />
         <section class="all-posts">
           <!-- <h3>Posts</h3> -->
-          <blog-posts-v2 :posts="posts"></blog-posts-v2>
+          <blog-posts-v2 :posts="posts" />
         </section>
       </block>
     </column>
@@ -62,12 +62,10 @@
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
-// import BlogPosts from "@/components/blog/BlogPosts";
-// import BlogPostsFeatured from "@/components/blog/BlogPostsFeatured";
-
 import BlogFeaturedPostsV2 from "../components/blog/BlogFeaturedPostsV2.vue";
 import BlogFilterV2 from "../components/blog/BlogFilterV2.vue";
 import BlogPostsV2 from "../components/blog/BlogPostsV2.vue";
+import { canonicalTag, metaDataArray, pageMetaData } from '../utils';
 
 export default {
   components: {
@@ -76,98 +74,20 @@ export default {
     BlogFilterV2,
     BlogPostsV2,
   },
+  metaInfo() {
+    return {
+      title:
+      "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
+      meta: metaDataArray(this.getMetaData),
+      link: canonicalTag(this.getMetaData),
+    };
+  },
   data() {
     return {
-      filters: [],
-
-      categories: [
-        {
-          name: "All",
-          content: "All",
-        },
-        {
-          name: "Featured",
-          content: "Featured",
-        },
-        {
-          name: "Announcement",
-          content: "Announcement",
-        },
-        {
-          name: "Blockchain",
-          content: "Blockchain",
-        },
-        {
-          name: "Collaboration",
-          content: "Collaboration",
-        },
-        {
-          name: "Community",
-          content: "Community",
-        },
-        {
-          name: "Cosmos",
-          content: "Cosmos",
-        },
-        {
-          name: "Design",
-          content: "Design",
-        },
-        {
-          name: "Dev",
-          content: "Dev",
-        },
-        {
-          name: "Ecosystem",
-          content: "Ecosystem",
-        },
-        {
-          name: "Governance",
-          content: "Governance",
-        },
-        {
-          name: "Introduction",
-          content: "Introduction",
-        },
-        {
-          name: "Nodes",
-          content: "Nodes",
-        },
-        {
-          name: "Privacy",
-          content: "Privacy",
-        },
-        {
-          name: "Secret Apps",
-          content: "Secret Apps",
-        },
-        {
-          name: "Solutions",
-          content: "Solutions",
-        },
-        {
-          name: "Staking",
-          content: "Staking",
-        },
-      ],
-      selectedContent: "All",
       appliedFilters: [],
     };
   },
   computed: {
-    filteredCategories: function () {
-      var vm = this;
-      var content = vm.selectedContent;
-
-      if (content === "All") {
-        return vm.categories;
-      } else {
-        return vm.categories.filter(function (category) {
-          return category.content === content;
-        });
-      }
-    },
-
     posts() {
       const { edges: posts } = this.$page.posts;
       const hiddenTag = "hidden";
@@ -179,9 +99,7 @@ export default {
             if (hidden.length == 0) return true;
           }
         }
-
         if (!post.primary_tag) return false;
-
         return this.appliedFilters.includes(post.primary_tag.slug);
       });
     },
@@ -189,12 +107,15 @@ export default {
       const { edges: tags } = this.$page.tags;
       const { edges: posts } = this.$page.posts;
       const hiddenTag = "hidden";
-      return tags.filter(({ node: tag }) => {
-        return posts.some(
+      return tags.filter(({ node: tag }) =>
+        posts.some(
           ({ node: post }) =>
             post.primary_tag?.id == tag.id && tag.name != hiddenTag
-        );
-      });
+        )
+      );
+    },
+    getMetaData() {
+      return pageMetaData(this.$page, "/blog");
     },
   },
   methods: {
@@ -210,11 +131,9 @@ export default {
       );
       content.scrollLeft += 390;
     },
-
     onFilterApplied(filters) {
       this.appliedFilters = filters;
     },
-
     mapImage() {
       const arrayPosts = this.$page.posts.edges;
       arrayPosts.forEach((el) => {
@@ -224,16 +143,14 @@ export default {
             el.node.feature_image =
               "https://ghost.scrt.network/" + el.node.feature_image;
           }
-        } else el.node.feature_image = "https://scrt.network/blog-cover.jpg";
+        } else {
+          el.node.feature_image = "https://scrt.network/blog-cover.jpg";
+        }
       });
     },
   },
   mounted() {
     this.mapImage();
-  },
-  metaInfo: {
-    title:
-      "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
   },
 };
 </script>
@@ -277,6 +194,23 @@ export default {
         }
       }
     }
+
+    strapiPages: allStrapiPage {
+    edges {
+      node {
+        name
+        title
+        route
+        og_description
+        og_image {
+          url
+        }
+        og_title
+        meta_description
+        canonical_url
+      }
+    }
+  }
   }
 </page-query>
 
@@ -332,16 +266,12 @@ export default {
 
     .blog-card-featured-v2 {
       border-radius: var(--f-radius);
-      //background: var(--theme-card-bg-default);
       transition: 0.2s ease;
       cursor: pointer;
       display: inline-block;
-      /* flex-direction: column; */
       max-width: 400px;
-      //min-height: 400px;
       min-height: 400px;
       white-space: normal;
-      /* justify-content: space-between; */
       vertical-align: top;
       margin-right: var(--f-gutter);
       position: relative;

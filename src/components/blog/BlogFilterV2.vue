@@ -1,10 +1,11 @@
 <template>
   <div class="blog-filter">
     <h4>Filters</h4>
-    <ul>
-      <li
+    <div class="filters">
+      <label
         v-for="{ node: filter } in theFilters"
         :key="filter.name | lowerCase"
+        :for="filter.name | lowerCase"
         @click="applyFilter"
       >
         {{ filter.name | capitalize }}
@@ -14,10 +15,10 @@
             :id="filter.name | lowerCase"
             :value="filter.name | lowerCase"
           />
-          <label :for="filter.name | lowerCase"></label>
+          <div class="check"></div>
         </div>
-      </li>
-    </ul>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -74,41 +75,45 @@ export default {
 <style lang="scss">
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
+
 .blog-filter {
-  ul {
+  .filters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, auto));
     padding-left: 0;
     gap: var(--f-gutter);
+
     @include respond-to("m") {
-      // flex-direction: row;
-      // flex-flow: wrap;
       grid-template-columns: min-content auto;
       display: grid;
       grid-template-columns: repeat(6, auto);
     }
-    li {
+    label {
       display: flex;
       justify-content: space-between;
       margin: 0;
+      font-family: "Hind";
+      cursor: pointer;
 
-      // Custom checkbox
+      &:hover {
+        opacity: 0.7;
+      }
+
       .checkbox {
         display: grid;
-        grid-auto-flow: column;
+        place-items: center;
 
-        label {
+        .check {
           display: block;
           width: 24px;
           height: 24px;
-
           background-image: url("../../assets/icon-checkbox-unchecked.svg");
         }
 
         input[type="checkbox"] {
-          visibility: hidden;
+          display: none;
 
-          &:checked + label {
+          &:checked + .check {
             background-image: url("../../assets/icon-checkbox-checked.svg");
             @include theme(light light-colored) {
               filter: invert(1);

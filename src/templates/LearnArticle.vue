@@ -64,7 +64,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
-import { addScrollSmooth, pageMetaData, metaDataArray } from "../utils";
+import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
 
 export default {
   data() {
@@ -79,6 +79,7 @@ export default {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
+      link: canonicalTag(this.getMetaData),
     };
   },
   methods: {
@@ -186,6 +187,7 @@ query {
         }
         og_title
         meta_description
+        canonical_url
       }
     }
   }

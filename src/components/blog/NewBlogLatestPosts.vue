@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import BlogPosts from "@/components/blog/BlogPosts";
 import NewBlogPosts from "@/components/blog/NewBlogPosts";
 
 
@@ -17,7 +16,6 @@ export default {
   methods: {
     filterlatestPost() {
       const { edges: posts } = this.$static.posts;
-      console.log({ edges: posts })
       const hiddenTag = "hidden";
       this.latestPost = posts.filter(({ node: post }) => {
         if (!post.primary_tag) return true;
