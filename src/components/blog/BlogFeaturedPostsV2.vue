@@ -1,5 +1,5 @@
 <template>
-  <blog-posts-featured-v2 :posts="postFeaturedV2"></blog-posts-featured-v2>
+  <blog-posts-featured-v2 :posts="postFeaturedV2" />
 </template>
 
 <script>
@@ -14,7 +14,6 @@ export default {
   },
   methods: {
     filterPostsFeatured() {
-      console.log(this.$static)
       const { edges: posts } = this.$static.posts;
       const hiddenTag = "hidden";
       this.postFeaturedV2 = posts.filter(({ node: post }) => {

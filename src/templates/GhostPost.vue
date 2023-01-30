@@ -20,10 +20,6 @@
           {{ $page.post.primary_tag.name }}
         </p>
 
-        <!-- <p class="tag"  tag v-if="$page.post.primary_tag">
-          {{ $page.post.primary_tag.name }}
-        </p> -->
-
         <h1 class="title">{{ $page.post.title }}</h1>
         <p class="description">{{ $page.post.description }}</p>
         <g-image
@@ -31,14 +27,14 @@
           onerror="this.onerror=null;this.src='../blog-cover.jpg';"
           picture
           :src="coverImage"
-        ></g-image>
+        />
         <blog-author class="info" :includeShareButtons="true">
           <div class="left">
             <g-image
               picture
               onerror="this.onerror=null;this.src='../scrt-logo.png';"
               :src="profileImage"
-            ></g-image>
+            />
             <div class="author" info>
               <p>{{ $page.post.primary_author.name }}</p>
               <p>
@@ -81,65 +77,18 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
+import { canonicalTag, metaDataArray } from "../utils";
 
-const url = "https://scrt.network";
+const domain = "https://scrt.network";
 
 export default {
   components: {
     DefaultLayout,
     BlogAuthor,
   },
-
-  metaInfo() {
-    return {
-      title: this.titleMeta,
-      meta: [
-        {
-          name: "title",
-          content: this.titleMeta,
-        },
-        {
-          name: "description",
-          content: this.descriptionMeta,
-        },
-        {
-          name: "author",
-          content: this.$page.post.primary_author.name,
-        },
-        {
-          key: "og:url",
-          property: "og:url",
-          content: `${url}${this.$route.fullPath}`,
-        },
-        {
-          key: "og:title",
-          property: "og:title",
-          content: this.titleMeta,
-        },
-        {
-          key: "og:description",
-          property: "og:description",
-          content: this.descriptionMeta,
-        },
-        {
-          key: "og:image",
-          property: "og:image",
-          content: this.coverImage,
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
-        {
-          name: "twitter:image",
-          content: this.coverImage,
-        },
-      ],
-    };
-  },
   data() {
     return {
-      url: "https://scrt.network" + this.$route.fullPath,
+      url: domain + this.$route.fullPath,
       networks: [
         {
           network: "twitter",
@@ -154,6 +103,13 @@ export default {
           color: "#007bb5",
         },
       ],
+    };
+  },
+  metaInfo() {
+    return {
+      title: this.getMetaData.title,
+      meta: metaDataArray(this.getMetaData),
+      link: canonicalTag(this.getMetaData),
     };
   },
   computed: {
@@ -176,19 +132,27 @@ export default {
         /src="\//g,
         'src="https://ghost.scrt.network/'
       );
-      //const transformedPost = this.$page.post.content.split('src="/').join('src="https://ghost.scrt.network/');
-
       return transformedPost;
     },
-    titleMeta() {
-      return this.$page.post.meta_title
+    getMetaData() {
+      const title = this.$page.post.meta_title
         ? this.$page.post.meta_title
         : this.$page.post.title + " | Secret Network Blog";
-    },
-    descriptionMeta() {
-      return this.$page.post.meta_description
+
+      const description = this.$page.post.meta_description
         ? this.$page.post.meta_description
         : this.$page.post.description;
+
+      return {
+        domain,
+        url: this.url,
+        title,
+        description,
+        ogDescription: description,
+        ogImage: this.coverImage,
+        canonicalUrl: this.url,
+        author: this.$page.post.primary_author.name,
+      };
     },
   },
   methods: {

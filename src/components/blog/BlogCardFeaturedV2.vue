@@ -7,33 +7,29 @@
     <div class="blog-card-featured-v2-container">
       <div class="blog-card-featured-v2__body">
         <div class="blog-card-featured-v2__tag">
-          <slot name="image"></slot>
-          <slot class="card-tag" name="tag"></slot>
+          <slot name="image" />
+          <slot class="card-tag" name="tag" />
         </div>
-        <slot name="default"></slot>
+        <slot name="default" />
       </div>
       <blog-author class="blog-card-featured-v2__footer">
-        <slot name="footer"></slot>
+        <slot name="footer" />
       </blog-author>
     </div>
   </g-link>
 </template>
 
 <script>
-import BlogAuthor from "@/components/blog/BlogAuthor";
+import BlogAuthor from "./BlogAuthor.vue";
 
 const colors = {
-  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  //dev: "red",
   feature: "orange",
-  //ecosystem: "purple",
   governance: "gray",
-  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -44,20 +40,16 @@ const colors = {
   null: "purple",
   undefined: "purple",
   nfts: "orange",
-
   announcement: "announcement",
-
   education: "education",
   how_tos: "education",
   explanations: "education",
-
   dev: "developers",
   developers: "developers",
   dev: "developers",
   "tech updates": "developers",
   hackathon: "developers",
   funding: "developers",
-
   ecosystem: "ecosystem",
   community: "ecosystem",
   dapp_launches: "ecosystem",
@@ -119,7 +111,7 @@ $accent-colors: (
 .blog-card-featured-v2 {
   &-container {
     border-radius: var(--f-radius);
-    overflow: hidden; //background: var(--theme-card-bg-default);
+    overflow: hidden;
     transition: 0.3s ease-in-out;
     cursor: pointer;
     height: 424px;
@@ -180,16 +172,11 @@ $accent-colors: (
   }
 
   .blog-card-featured-v2__footer {
-    //padding: var(--f-gutter);
     display: grid;
     grid-auto-flow: column;
-    // display: flex;
     align-items: center;
     justify-content: left;
     gap: var(--f-gutter);
-    //position: absolute;
-    //bottom: 0;
-    //left: 0;
 
     img {
       width: 40px;
@@ -203,20 +190,11 @@ $accent-colors: (
 
     .author-info {
       display: grid;
-      //gap: var(--f-gutter-xxs);
-      //color: var(--theme-fg);
 
       & div {
         margin-bottom: 0;
         font-size: 14px;
         color: var(--color-neutral-dark-mode-05);
-      }
-
-      & p {
-        // margin-bottom: 0;
-        // font-size: 12px;
-        // font-weight: 500;
-        // line-height: 20px;
       }
     }
   }
