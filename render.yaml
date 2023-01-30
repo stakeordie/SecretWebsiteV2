@@ -194,3 +194,6 @@ services:
       - type: redirect
         source: /community
         destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /blog/announcing-shockwave-omega
+        destination: /blog/shockwave-omega-upgrade-complete
