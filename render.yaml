@@ -191,3 +191,6 @@ services:
       - type: redirect
         source: /grant-application-process
         destination: /developers/grants
+      - type: redirect
+        source: /community
+        destination: /get-involved/become-secret-agent
