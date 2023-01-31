@@ -200,3 +200,6 @@ services:
       - type: redirect
         source: /community/
         destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /learn/scrt-token/how-to-buy-store-stake-scrt
+        destination: /learn/secret-basics/how-to-buy-store-stake-scrt
