@@ -203,3 +203,6 @@ services:
       - type: redirect
         source: /learn/scrt-token/how-to-buy-store-stake-scrt
         destination: /learn/secret-basics/how-to-buy-store-stake-scrt
+      - type: redirect
+        source: /blog/wrapped-scrt-is-live-on-ethereum/
+        destination: /blog/wrapped-scrt-is-live-on-ethereum
