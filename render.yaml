@@ -206,3 +206,306 @@ services:
       - type: redirect
         source: /blog/wrapped-scrt-is-live-on-ethereum/
         destination: /blog/wrapped-scrt-is-live-on-ethereum
+      - type: redirect
+        source: /about/faq/
+        destination: /about/faq
+      - type: redirect
+        source: /blog/altermail-live-on-mainnet/
+        destination: /blog/altermail-live-on-mainnet
+      - type: redirect
+        source: /blog/announcing-secret-binance-smart-chain-bridge/
+        destination: /blog/announcing-secret-binance-smart-chain-bridge
+      - type: redirect
+        source: /blog/announcing-secret-network-grant-program/
+        destination: /blog/announcing-secret-network-grant-program
+      - type: redirect
+        source: /blog/announcing-snacs-secret-network-action-campaigns/
+        destination: /blog/announcing-snacs-secret-network-action-campaigns
+      - type: redirect
+        source: /blog/announcing-the-secret-games/
+        destination: /blog/announcing-the-secret-games
+      - type: redirect
+        source: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network/
+        destination: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network
+      - type: redirect
+        source: /blog/band-protocol-live-on-mainnet/
+        destination: /blog/band-protocol-live-on-mainnet
+      - type: redirect
+        source: /blog/bridge-mining-extended-sushiswap-rewards-secretswap/
+        destination: /blog/bridge-mining-extended-sushiswap-rewards-secretswap
+      - type: redirect
+        source: /blog/citadel-one-secret-tokens-and-ethereum-bridge/
+        destination: /blog/citadel-one-secret-tokens-and-ethereum-bridge
+      - type: redirect
+        source: /blog/citadel-one-secret-viewing-keys/
+        destination: /blog/citadel-one-secret-viewing-keys
+      - type: redirect
+        source: /blog/citadel-one-staking-scrt-guide/
+        destination: /blog/citadel-one-staking-scrt-guide
+      - type: redirect
+        source: /blog/ecosystem-roadmap-october-update/
+        destination: /blog/ecosystem-roadmap-october-update
+      - type: redirect
+        source: /blog/ecosystem-update-august-2020/
+        destination: /blog/ecosystem-update-august-2020
+      - type: redirect
+        source: /blog/ecosystem-update-september-2020/
+        destination: /blog/ecosystem-update-september-2020
+      - type: redirect
+        source: /blog/enigma-development-update-june-2020/
+        destination: /blog/enigma-development-update-june-2020
+      - type: redirect
+        source: /blog/holodeck-secret-testnet/
+        destination: /blog/holodeck-secret-testnet
+      - type: redirect
+        source: /blog/how-to-build-secret-apps/
+        destination: /blog/how-to-build-secret-apps
+      - type: redirect
+        source: /blog/humanode-biometric-user-authentication-and-key-management-on-the-private-smart-contract-layer-built-on-secret-network/
+        destination: /blog/humanode-biometric-user-authentication-and-key-management-on-the-private-smart-contract-layer-built-on-secret-network
+      - type: redirect
+        source: /blog/introducing-citadel-one/
+        destination: /blog/introducing-citadel-one
+      - type: redirect
+        source: /blog/introducing-secret-network/
+        destination: /blog/introducing-secret-network
+      - type: redirect
+        source: /blog/introducing-sienna-a-privacy-first-defi-protocol/
+        destination: /blog/introducing-sienna-a-privacy-first-defi-protocol
+      - type: redirect
+        source: /blog/kevin-smith-secret-party/
+        destination: /blog/kevin-smith-secret-party
+      - type: redirect
+        source: /blog/legendao-kevin-smith-killroy-secret-network/
+        destination: /blog/legendao-kevin-smith-killroy-secret-network
+      - type: redirect
+        source: /blog/ocean-and-secret-collaborating-on-access-control-and-private-compute-for-datatokens/
+        destination: /blog/ocean-and-secret-collaborating-on-access-control-and-private-compute-for-datatokens
+      - type: redirect
+        source: /blog/puzzle-is-becoming-secretnodes/
+        destination: /blog/puzzle-is-becoming-secretnodes
+      - type: redirect
+        source: /blog/scrt-now-available-on-binance-smart-chain/
+        destination: /blog/scrt-now-available-on-binance-smart-chain
+      - type: redirect
+        source: /blog/secret-2-0-building-the-next-generation-of-web3-privacy/
+        destination: /blog/secret-2-0-building-the-next-generation-of-web3-privacy
+      - type: redirect
+        source: /blog/secret-2020-defi/
+        destination: /blog/secret-2020-defi
+      - type: redirect
+        source: /blog/secret-amm-live-on-testnet/
+        destination: /blog/secret-amm-live-on-testnet
+      - type: redirect
+        source: /blog/secret-api/
+        destination: /blog/secret-api
+      - type: redirect
+        source: /blog/secret-auctions-decentralized-otc-dark-pools/
+        destination: /blog/secret-auctions-decentralized-otc-dark-pools
+      - type: redirect
+        source: /blog/secret-auctions-web-app-mainnet/
+        destination: /blog/secret-auctions-web-app-mainnet
+      - type: redirect
+        source: /blog/secret-auctions/
+        destination: /blog/secret-auctions
+      - type: redirect
+        source: /blog/secret-binance-smart-chain-bridge-live-on-mainnet/
+        destination: /blog/secret-binance-smart-chain-bridge-live-on-mainnet
+      - type: redirect
+        source: /blog/secret-bridge-mining-is-live/
+        destination: /blog/secret-bridge-mining-is-live
+      - type: redirect
+        source: /blog/secret-committees-empowering-secret-agents/
+        destination: /blog/secret-committees-empowering-secret-agents
+      - type: redirect
+        source: /blog/secret-contracts-mainnet/
+        destination: /blog/secret-contracts-mainnet
+      - type: redirect
+        source: /blog/secret-contracts-update-milestone-3-of-3-is-complete/
+        destination: /blog/secret-contracts-update-milestone-3-of-3-is-complete
+      - type: redirect
+        source: /blog/secret-defi-sefi-genesis-secretswap/
+        destination: /blog/secret-defi-sefi-genesis-secretswap
+      - type: redirect
+        source: /blog/secret-ethereum-bridge-december-2020/
+        destination: /blog/secret-ethereum-bridge-december-2020
+      - type: redirect
+        source: /blog/secret-ethereum-bridge-mining/
+        destination: /blog/secret-ethereum-bridge-mining
+      - type: redirect
+        source: /blog/secret-ethereum-bridge-privacy/
+        destination: /blog/secret-ethereum-bridge-privacy
+      - type: redirect
+        source: /blog/secret-feature-datavault-secret-bazaar/
+        destination: /blog/secret-feature-datavault-secret-bazaar
+      - type: redirect
+        source: /blog/secret-feature-duplex-live/
+        destination: /blog/secret-feature-duplex-live
+      - type: redirect
+        source: /blog/secret-feature-siennalend/
+        destination: /blog/secret-feature-siennalend
+      - type: redirect
+        source: /blog/secret-feature-stashh-privacy-nft-marketplace/
+        destination: /blog/secret-feature-stashh-privacy-nft-marketplace
+      - type: redirect
+        source: /blog/secret-fellows-developer-program/
+        destination: /blog/secret-fellows-developer-program
+      - type: redirect
+        source: /blog/secret-games-update-incentivized-testnet-phase-2/
+        destination: /blog/secret-games-update-incentivized-testnet-phase-2
+      - type: redirect
+        source: /blog/secret-games-update-testnet-phase-1/
+        destination: /blog/secret-games-update-testnet-phase-1
+      - type: redirect
+        source: /blog/secret-grant-2-fardels-distributed-social-media/
+        destination: /blog/secret-grant-2-fardels-distributed-social-media
+      - type: redirect
+        source: /blog/secret-grant-secret-nft-reference-implementation/
+        destination: /blog/secret-grant-secret-nft-reference-implementation
+      - type: redirect
+        source: /blog/secret-hub/
+        destination: /blog/secret-hub
+      - type: redirect
+        source: /blog/secret-markets-front-running-prevention/
+        destination: /blog/secret-markets-front-running-prevention
+      - type: redirect
+        source: /blog/secret-monero-bridge-is-live-on-testnet/
+        destination: /blog/secret-monero-bridge-is-live-on-testnet
+      - type: redirect
+        source: /blog/secret-mission-design-challenge/
+        destination: /blog/secret-mission-design-challenge
+      - type: redirect
+        source: /blog/secret-network-2020-annual-report/
+        destination: /blog/secret-network-2020-annual-report
+      - type: redirect
+        source: /blog/secret-network-band-protocol-secret-defi/
+        destination: /blog/secret-network-band-protocol-secret-defi
+      - type: redirect
+        source: /blog/secret-network-development-update-may-2020/
+        destination: /blog/secret-network-development-update-may-2020
+      - type: redirect
+        source: /blog/secret-network-ecosystem-roadmap/
+        destination: /blog/secret-network-ecosystem-roadmap
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-august-2021/
+        destination: /blog/secret-network-ecosystem-update-august-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-february-2021/
+        destination: /blog/secret-network-ecosystem-update-february-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-january-2021/
+        destination: /blog/secret-network-ecosystem-update-january-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-july-2020/
+        destination: /blog/secret-network-ecosystem-update-july-2020
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-june-2021/
+        destination: /blog/secret-network-ecosystem-update-june-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-march-2021/
+        destination: /blog/secret-network-ecosystem-update-march-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-may-2021/
+        destination: /blog/secret-network-ecosystem-update-may-2021
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-november-2020/
+        destination: /blog/secret-network-ecosystem-update-november-2020
+      - type: redirect
+        source: /blog/secret-network-ecosystem-update-october-2020/
+        destination: /blog/secret-network-ecosystem-update-october-2020
+      - type: redirect
+        source: /blog/secret-network-governance/
+        destination: /blog/secret-network-governance
+      - type: redirect
+        source: /blog/secret-network-keytango-catalyst-bridge-partner/
+        destination: /blog/secret-network-keytango-catalyst-bridge-partner
+      - type: redirect
+        source: /blog/secret-network-tokenomics-and-ecosystem-pool/
+        destination: /blog/secret-network-tokenomics-and-ecosystem-pool
+      - type: redirect
+        source: /blog/secret-nfts/
+        destination: /blog/secret-nfts
+      - type: redirect
+        source: /blog/secret-nodes-cookbook/
+        destination: /blog/secret-nodes-cookbook
+      - type: redirect
+        source: /blog/secret-opensea-partner-nfts-world-renowned-artist/
+        destination: /blog/secret-opensea-partner-nfts-world-renowned-artist
+      - type: redirect
+        source: /blog/secret-plasm-bridge-cosmos-polkadot/
+        destination: /blog/secret-plasm-bridge-cosmos-polkadot
+      - type: redirect
+        source: /blog/secret-raffle-win-secrets-keplr-wallet/
+        destination: /blog/secret-raffle-win-secrets-keplr-wallet
+      - type: redirect
+        source: /blog/secret-scrt-keplr/
+        destination: /blog/secret-scrt-keplr
+      - type: redirect
+        source: /blog/secret-scrt-privacy-tokens-mainnet/
+        destination: /blog/secret-scrt-privacy-tokens-mainnet
+      - type: redirect
+        source: /blog/secret-tokens-live-citadel-one-mobile-web/
+        destination: /blog/secret-tokens-live-citadel-one-mobile-web
+      - type: redirect
+        source: /blog/secret-tokens-programmable-privacy-for-defi/
+        destination: /blog/secret-tokens-programmable-privacy-for-defi
+      - type: redirect
+        source: /blog/secret-vaults-programmable-access-control/
+        destination: /blog/secret-vaults-programmable-access-control
+      - type: redirect
+        source: /blog/secretswap-is-live-on-mainnet/
+        destination: /blog/secretswap-is-live-on-mainnet
+      - type: redirect
+        source: /blog/secretswap-update-amm-rewards-governance-token/
+        destination: /blog/secretswap-update-amm-rewards-governance-token
+      - type: redirect
+        source: /blog/secretwasm-decentralized-private-computation/
+        destination: /blog/secretwasm-decentralized-private-computation
+      - type: redirect
+        source: /blog/sefi-governance-live-mainnet-private-voting/
+        destination: /blog/sefi-governance-live-mainnet-private-voting
+      - type: redirect
+        source: /blog/sefi-governance-token-for-secret-defi/
+        destination: /blog/sefi-governance-token-for-secret-defi
+      - type: redirect
+        source: /blog/sefi-is-live-on-mainnet/
+        destination: /blog/sefi-is-live-on-mainnet
+      - type: redirect
+        source: /blog/shinobi-protocol-secret-bitcoin-bridge/
+        destination: /blog/shinobi-protocol-secret-bitcoin-bridge
+      - type: redirect
+        source: /blog/shockwave-delta-mainnet-upgrade-complete/
+        destination: /blog/shockwave-delta-mainnet-upgrade-complete
+      - type: redirect
+        source: /blog/staking-secrets-guide-to-staking-delegating-scrt/
+        destination: /blog/staking-secrets-guide-to-staking-delegating-scrt
+      - type: redirect
+        source: /blog/stashh-live-on-mainnet/
+        destination: /blog/stashh-live-on-mainnet
+      - type: redirect
+        source: /blog/supernova-explosive-vision-future-secret-network/
+        destination: /blog/supernova-explosive-vision-future-secret-network
+      - type: redirect
+        source: /blog/supernova-mainnet-upgrade-complete/
+        destination: /blog/supernova-mainnet-upgrade-complete
+      - type: redirect
+        source: /blog/supernova-milestone-1-complete/
+        destination: /blog/supernova-milestone-1-complete
+      - type: redirect
+        source: /blog/the-puzzle-committee/
+        destination: /blog/the-puzzle-committee
+      - type: redirect
+        source: /blog/the-romulus-upgrade/
+        destination: /blog/the-romulus-upgrade
+      - type: redirect
+        source: /blog/upgrade-complete-secret-contracts-live-mainnet/
+        destination: /blog/upgrade-complete-secret-contracts-live-mainnet
+      - type: redirect
+        source: /blog/wscrt-lp-rewards-live-on-uniswap/
+        destination: /blog/wscrt-lp-rewards-live-on-uniswap
+      - type: redirect
+        source: /committees/
+        destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /ecosystem/overview/
+        destination: /ecosystem/dapps
