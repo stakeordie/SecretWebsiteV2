@@ -521,3 +521,6 @@ services:
       - type: redirect
         source: /blog/secret-feature-starshell
         destination: /blog/secret-feature-starshell-wallet
+      - type: redirect
+        source: /blog/puzzle-is-becoming-secretnodes-2
+        destination: /blog/puzzle-is-becoming-secretnodes/
