@@ -189,6 +189,9 @@ services:
         source: /secret-nodes-cookbook/
         destination: /blog/secret-nodes-cookbook/
       - type: redirect
+        source: /test-hero
+        destination: /
+      - type: redirect
         source: /secret-contracts-mainnet
         destination: /blog/secret-contracts-mainnet
       - type: redirect
