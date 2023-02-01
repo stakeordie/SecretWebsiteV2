@@ -530,3 +530,6 @@ services:
       - type: redirect
         source: /agentsThe
         destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /blog/citadel-one-secret-viewing-keys/Citadel.one
+        destination: /blog/citadel-one-secret-viewing-keys
