@@ -63,9 +63,6 @@ services:
         source: /secret-committees-empowering-secret-agents/
         destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /secret-games-update-incentivized-testnet-phase-2/
-        destination: /
-      - type: redirect
         source: /secret-games-update-testnet-phase-1
         destination: /
       - type: redirect
@@ -196,6 +193,9 @@ services:
         destination: /blog/secret-contracts-update-milestone-3-of-3-is-complete/
       - type: redirect
         source: /secret-games-update-incentivized-testnet-phase-2
+        destination: /blog/secret-games-update-incentivized-testnet-phase-2
+      - type: redirect
+        source: /secret-games-update-incentivized-testnet-phase-2/
         destination: /blog/secret-games-update-incentivized-testnet-phase-2
       - type: redirect
         source: /secret-contracts-mainnet
