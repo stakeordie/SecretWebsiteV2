@@ -81,9 +81,6 @@ services:
         source: /staking-secrets-guide-to-staking-delegating-scrt/
         destination: /blog/staking-secrets-guide-to-staking-delegating-scrt
       - type: redirect
-        source: /upgrade-complete-secret-contracts-live-mainnet/
-        destination: /
-      - type: redirect
         source: /announcing-the-secret-games
         destination: /blog/announcing-the-secret-games/
       - type: redirect
@@ -203,6 +200,9 @@ services:
       - type: redirect
         source: /secret-markets-front-running-prevention/
         destination: /blog/secret-markets-front-running-prevention
+      - type: redirect
+        source: /upgrade-complete-secret-contracts-live-mainnet/
+        destination: /blog/upgrade-complete-secret-contracts-live-mainnet
       - type: redirect
         source: /committees/
         destination: /get-involved/become-secret-agent
