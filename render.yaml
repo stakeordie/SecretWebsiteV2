@@ -63,9 +63,6 @@ services:
         source: /secret-committees-empowering-secret-agents/
         destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /secret-nodes-cookbook
-        destination: /developers
-      - type: redirect
         source: /blog/Citadel.one
         destination: /blog/secret-tokens-live-citadel-one-mobile-web
       - type: redirect
@@ -191,6 +188,9 @@ services:
       - type: redirect
         source: /secret-network-governance/
         destination: /blog/secret-network-governance
+      - type: redirect
+        source: /secret-nodes-cookbook
+        destination: /blog/secret-nodes-cookbook/
       - type: redirect
         source: /secret-contracts-mainnet
         destination: /blog/secret-contracts-mainnet
