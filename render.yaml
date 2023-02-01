@@ -518,3 +518,6 @@ services:
       - type: redirect
         source: /blog/secret-bina...
         destination: /blog/secret-binance-smart-chain-bridge-live-on-mainnet
+      - type: redirect
+        source: /blog/secret-feature-starshell
+        destination: /blog/secret-feature-starshell-wallet
