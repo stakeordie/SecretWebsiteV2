@@ -207,6 +207,9 @@ services:
         source: /blog/notice-su
         destination: /blog/notice-successful-resolution-of-xapic-vulnerability
       - type: redirect
+        source: /blog/secret-network-tokenomics-and-ecosystem-POOL
+        destination: /blog/secret-network-tokenomics-and-ecosystem-pool
+      - type: redirect
         source: /committees/
         destination: /get-involved/become-secret-agent
       - type: redirect
