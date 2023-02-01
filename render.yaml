@@ -36,9 +36,6 @@ services:
         source: /admin/secret-tokens-programmable-privacy-for-defi
         destination: /about/secret-tokens-bridges
       - type: redirect
-        source: /blog/tarantinonfts.com
-        destination: /blog
-      - type: redirect
         source: /blog/www.SCRTlabs.com
         destination: /blog
       - type: redirect
@@ -182,6 +179,9 @@ services:
       - type: redirect
         source: /ecosystem/funding
         destination: /developers/grants
+      - type: redirect
+        source: /blog/tarantinonfts.com
+        destination: /blog/quentin-tarantino-revealed-as-iconic-artist-behind-first-ever-secret-nfts
       - type: redirect
         source: /secret-nodes-cookbook/
         destination: /developers
