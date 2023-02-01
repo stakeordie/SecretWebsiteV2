@@ -548,3 +548,6 @@ services:
       - type: redirect
         source: /blog/secret-monero-bridge-is-
         destination: /blog/secret-monero-bridge-is-live-on-mainnet
+      - type: redirect
+        source: /blog/introducing-secret-foundation/
+        destination: /ecosystem/contributors
