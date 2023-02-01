@@ -542,3 +542,6 @@ services:
       - type: redirect
         source: /blog/secret-feature-fractionized-secret-nfts
         destination: /blog/secret-feature-fractionalized-secret-nfts
+      - type: redirect
+        source: /blog/secret-monero-bridge-is-live-on-mainnetActualizaciones
+        destination: /blog/secret-monero-bridge-is-live-on-mainnet
