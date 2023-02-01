@@ -210,47 +210,14 @@ services:
         source: /about/faq/
         destination: /about/faq
       - type: redirect
-        source: /blog/announcing-snacs-secret-network-action-campaigns/
-        destination: /blog/announcing-snacs-secret-network-action-campaigns
-      - type: redirect
-        source: /blog/announcing-the-secret-games/
-        destination: /blog/announcing-the-secret-games
-      - type: redirect
-        source: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network/
-        destination: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network
-      - type: redirect
-        source: /blog/band-protocol-live-on-mainnet/
-        destination: /blog/band-protocol-live-on-mainnet
-      - type: redirect
         source: /blog/bridge-mining-extended-sushiswap-rewards-secretswap/
         destination: /blog/bridge-mining-extended-sushiswap-rewards-secretswap
       - type: redirect
         source: /blog/citadel-one-secret-tokens-and-ethereum-bridge/
         destination: /blog/citadel-one-secret-tokens-and-ethereum-bridge
       - type: redirect
-        source: /blog/citadel-one-secret-viewing-keys/
-        destination: /blog/citadel-one-secret-viewing-keys
-      - type: redirect
-        source: /blog/citadel-one-staking-scrt-guide/
-        destination: /blog/citadel-one-staking-scrt-guide
-      - type: redirect
-        source: /blog/ecosystem-roadmap-october-update/
-        destination: /blog/ecosystem-roadmap-october-update
-      - type: redirect
-        source: /blog/ecosystem-update-august-2020/
-        destination: /blog/ecosystem-update-august-2020
-      - type: redirect
-        source: /blog/ecosystem-update-september-2020/
-        destination: /blog/ecosystem-update-september-2020
-      - type: redirect
         source: /blog/enigma-development-update-june-2020/
         destination: /blog/enigma-development-update-june-2020
-      - type: redirect
-        source: /blog/holodeck-secret-testnet/
-        destination: /blog/holodeck-secret-testnet
-      - type: redirect
-        source: /blog/how-to-build-secret-apps/
-        destination: /blog/how-to-build-secret-apps
       - type: redirect
         source: /blog/humanode-biometric-user-authentication-and-key-management-on-the-private-smart-contract-layer-built-on-secret-network/
         destination: /blog/humanode-biometric-user-authentication-and-key-management-on-the-private-smart-contract-layer-built-on-secret-network
