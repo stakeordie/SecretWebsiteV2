@@ -536,3 +536,6 @@ services:
       - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
+      - type: redirect
+        source: /about/about/secret-nfts
+        destination: /about/secret-nfts
