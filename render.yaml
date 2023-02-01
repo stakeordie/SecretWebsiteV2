@@ -36,9 +36,6 @@ services:
         source: /admin/secret-tokens-programmable-privacy-for-defi
         destination: /about/secret-tokens-bridges
       - type: redirect
-        source: /blog/stashh-live-on-mainnet/anons.army
-        destination: /blog
-      - type: redirect
         source: /blog/tarantinonfts.com
         destination: /blog
       - type: redirect
@@ -167,6 +164,9 @@ services:
       - type: redirect
         source: /blog/secretanalytics.xyz
         destination: /blog/revealing-secret-analytics-v3
+      - type: redirect
+        source: /blog/stashh-live-on-mainnet/anons.army
+        destination: /blog/stashh-live-on-mainnet
       - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
