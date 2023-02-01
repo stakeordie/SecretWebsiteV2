@@ -533,3 +533,6 @@ services:
       - type: redirect
         source: /blog/citadel-one-secret-viewing-keys/Citadel.one
         destination: /blog/citadel-one-secret-viewing-keys
+      - type: redirect
+        source: /blog/secret-network-400m-ecosystem-funding-new-investors
+        destination: /developers/grants
