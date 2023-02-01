@@ -63,9 +63,6 @@ services:
         source: /secret-committees-empowering-secret-agents/
         destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /secret-hub/
-        destination: /developers
-      - type: redirect
         source: /secret-markets-front-running-prevention/
         destination: /about/secret-finance
       - type: redirect
@@ -193,6 +190,9 @@ services:
         destination: /blog/secret-games-update-testnet-phase-1/
       - type: redirect
         source: /secret-hub
+        destination: /blog/secret-hub/
+      - type: redirect
+        source: /secret-hub/
         destination: /blog/secret-hub/
       - type: redirect
         source: /secret-contracts-mainnet
