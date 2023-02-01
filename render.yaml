@@ -509,3 +509,6 @@ services:
       - type: redirect
         source: /ecosystem/overview/
         destination: /ecosystem/dapps
+      - type: redirect
+        source: /blog/secret-feature-alter-
+        destination: /blog/secret-feature-alter-stake-to-access
