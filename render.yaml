@@ -114,9 +114,6 @@ services:
         source: /blog/tarantinonfts.com
         destination: /blog/quentin-tarantino-revealed-as-iconic-artist-behind-first-ever-secret-nfts
       - type: redirect
-        source: /secret-nodes-cookbook/
-        destination: /developers
-      - type: redirect
         source: /agents
         destination: /get-involved/become-secret-agent
       - type: redirect
@@ -190,6 +187,9 @@ services:
         destination: /blog/secret-network-governance
       - type: redirect
         source: /secret-nodes-cookbook
+        destination: /blog/secret-nodes-cookbook/
+      - type: redirect
+        source: /secret-nodes-cookbook/
         destination: /blog/secret-nodes-cookbook/
       - type: redirect
         source: /secret-contracts-mainnet
