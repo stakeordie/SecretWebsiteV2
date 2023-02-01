@@ -512,3 +512,6 @@ services:
       - type: redirect
         source: /blog/secret-feature-alter-
         destination: /blog/secret-feature-alter-stake-to-access
+      - type: redirect
+        source: /blog/scrt-labs-update-
+        destination: /blog/scrt-labs-update-scaling-secrets
