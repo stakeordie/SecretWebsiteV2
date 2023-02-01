@@ -21,9 +21,6 @@ services:
         source: /about
         destination: /about/about-secret-network
       - type: redirect
-        source: /announcing-the-secret-games
-        destination: /
-      - type: redirect
         source: /announcing-the-secret-games/
         destination: /
       - type: redirect
@@ -167,6 +164,9 @@ services:
       - type: redirect
         source: /puzzle-is-becoming-secretnodes/secretnodes.com
         destination: /blog
+      - type: redirect
+        source: /announcing-the-secret-games
+        destination: /blog/announcing-the-secret-games/
       - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
