@@ -1,13 +1,12 @@
 <template>
   <default-layout class="learn-article">
     <!-- Breadcrumb -->
-    <column>
+    <!-- <column>
       <block>
         <dynamic-breadcrumb :route="$context.route" />
       </block>
-    </column>
-    <!-- Hero -->
-    <column class="bg-black-gradient learn-article__content learn-hero">
+    </column> -->
+    <!-- <column class="bg-black-gradient learn-article__content learn-hero">
       <block>
         <component
           v-if="heroComponent.comp_name === 'article-hero'"
@@ -17,7 +16,9 @@
           {{ heroComponent.content ? heroComponent.content : "" }}
         </component>
       </block>
-    </column>
+    </column> -->
+    <!-- Hero -->
+    <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
 
     <!-- Main content -->
     <column
@@ -43,11 +44,16 @@
     <column
       mode="full"
       class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
+      v-if="carousel"
     >
       <block>
-        <component :is="carouselComponent.comp_name" v-bind="carouselComponent">
-          {{ carouselComponent.content ? carouselComponent.content : "" }}
-        </component>
+        <carousel
+          :title="carousel.title"
+          :subtitle="carousel.subtitle"
+          :card_image="carousel.card_image"
+          :searchDataset="carousel.searchDataset"
+          :dynamic_learn_article_group="carousel.dynamic_learn_article_group"
+        />
       </block>
     </column>
     <!-- Swirl bottom -->
@@ -64,7 +70,15 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import Carousel from "../components/dynamic/Carousel.vue";
+//heros
+import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag,
+} from "../utils";
 
 export default {
   data() {
@@ -74,6 +88,8 @@ export default {
   },
   components: {
     NavMenu,
+    DoubleColumnImage,
+    Carousel,
   },
   metaInfo() {
     return {
@@ -138,12 +154,12 @@ export default {
     },
   },
   computed: {
-    heroComponent() {
-      return this.$context.components.find(
-        (item) => item.comp_name === "article-hero"
-      );
-    },
-    carouselComponent() {
+    // heroComponent() {
+    //   return this.$context.components.find(
+    //     (item) => item.comp_name === "article-hero"
+    //   );
+    // },
+    carousel() {
       return this.$context.components.find(
         (item) => item.comp_name === "carousel"
       );
@@ -157,9 +173,13 @@ export default {
     getMetaData() {
       return pageMetaData(this.$page, this.$context.route);
     },
+    hero() {
+      return this.$context.heroComponent;
+    },
   },
   mounted() {
     this.getAnchors();
+    console.log(this.hero);
   },
   watch: {
     $route: {

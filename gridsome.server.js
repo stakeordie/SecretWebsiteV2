@@ -87,7 +87,7 @@ module.exports = function (api) {
 
       const { data } = await client.allStrapiDynamicPage();
       console.log("DATA = page_set and template of dynamic page sets");
-      let pageSetEndpoint = {
+      const pageSetEndpoint = {
         plural: "",
         singular: "",
       };
@@ -161,6 +161,12 @@ module.exports = function (api) {
               }
               page[key].forEach((component) => (component.order = order));
               page.currentComponents.push(...page[key]);
+            } else if (key.toLowerCase() === "hero") {
+              if (page[key].length > 0) {
+                const name = page[key][0].__component;
+                page[key][0].comp_name = name.split(".")[1];
+                page.heroComponent = page[key][0];
+              }
             }
           });
           page.currentComponents
@@ -192,11 +198,12 @@ module.exports = function (api) {
           page.currentComponents.sort((a, b) => a.order - b.order);
           console.log("Creating a page with the route: ", page.route);
           createPage({
-            path: `${page.route}`,
+            path: page.route,
             component: `./src/templates/${template}.vue`,
             context: {
               components: page.currentComponents,
               route: page.route,
+              heroComponent: page.heroComponent ? page.heroComponent : {},
             },
           });
         });
