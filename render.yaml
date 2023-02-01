@@ -237,9 +237,6 @@ services:
         source: /agentsThe
         destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /blog/citadel-one-secret-viewing-keys/Citadel.one
-        destination: /blog/citadel-one-secret-viewing-keys
-      - type: redirect
         source: /blog/secret-network-400m-ecosystem-funding-new-investors
         destination: /developers/grants
       - type: redirect
@@ -260,3 +257,6 @@ services:
       - type: redirect
         source: /arrington-blocktower-spartan-skynet-11-million-secret-network
         destination: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network/
+      - type: redirect
+        source: /blog/secret-scrt-
+        destination: /blog/secret-scrt-privacy-tokens-mainnet/
