@@ -515,3 +515,6 @@ services:
       - type: redirect
         source: /blog/scrt-labs-update-
         destination: /blog/scrt-labs-update-scaling-secrets
+      - type: redirect
+        source: /blog/secret-bina...
+        destination: /blog/secret-binance-smart-chain-bridge-live-on-mainnet
