@@ -66,9 +66,6 @@ services:
         source: /secret-markets-front-running-prevention/
         destination: /about/secret-finance
       - type: redirect
-        source: /secret-mission-design-challenge
-        destination: /developers
-      - type: redirect
         source: /secret-network-ecosystem-update-july-2020/
         destination: /
       - type: redirect
@@ -194,6 +191,9 @@ services:
       - type: redirect
         source: /secret-hub/
         destination: /blog/secret-hub/
+      - type: redirect
+        source: /secret-mission-design-challenge
+        destination: /blog/secret-mission-design-challenge/
       - type: redirect
         source: /secret-contracts-mainnet
         destination: /blog/secret-contracts-mainnet
