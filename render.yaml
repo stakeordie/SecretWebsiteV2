@@ -30,9 +30,6 @@ services:
         source: /blog/Citadel.one
         destination: /blog
       - type: redirect
-        source: /blog/Duplex.Finance
-        destination: /blog
-      - type: redirect
         source: /blog/Federal%20Reserve%20governor%20says%20private%20stablecoins%20are%20likely%20better%20than%20CBDCs
         destination: /blog
       - type: redirect
@@ -89,6 +86,9 @@ services:
       - type: redirect
         source: /blog/blog/programmable-privacy/
         destination: /blog/programmable-privacy/
+      - type: redirect
+        source: /blog/Duplex.Finance
+        destination: /blog/secret-feature-duplex-live/
       - type: redirect
         source: /puzzle-is-becoming-secretnodes/secretnodes.org
         destination: /
