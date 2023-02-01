@@ -51,9 +51,6 @@ services:
         source: /introducing-secret-foundation/
         destination: /
       - type: redirect
-        source: /introducing-secret-network/
-        destination: /
-      - type: redirect
         source: /media
         destination: /media/features
       - type: redirect
@@ -203,6 +200,9 @@ services:
       - type: redirect
         source: /ecosystem-update-august-2020/
         destination: /blog/ecosystem-update-august-2020/
+      - type: redirect
+        source: /introducing-secret-network/
+        destination: /blog/introducing-secret-network
       - type: redirect
         source: /committees/
         destination: /get-involved/become-secret-agent
