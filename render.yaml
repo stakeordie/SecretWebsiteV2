@@ -551,3 +551,6 @@ services:
       - type: redirect
         source: /blog/introducing-secret-foundation/
         destination: /ecosystem/contributors
+      - type: redirect
+        source: /arrington-blocktower-spartan-skynet-11-million-secret-network
+        destination: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network/
