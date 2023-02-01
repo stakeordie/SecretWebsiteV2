@@ -539,3 +539,6 @@ services:
       - type: redirect
         source: /about/about/secret-nfts
         destination: /about/secret-nfts
+      - type: redirect
+        source: /blog/secret-feature-fractionized-secret-nfts
+        destination: /blog/secret-feature-fractionalized-secret-nfts
