@@ -1,31 +1,56 @@
 <template>
-  <column mode="full">
+  <column>
     <block>
-      <section class="double-column-image-hero" :class="[imagePosition]">
+      <section
+        class="double-column-image-hero"
+        :class="[imagePosition, paddingTop, paddingBottom]"
+      >
         <div class="hero-image col-1">
           <img v-if="image" :src="image.url" />
         </div>
 
-        <div class="content col-2">
-          <div class="content__header">
-            <h4 class="content__header__eyebrow">{{ eyebrowTitle }}</h4>
-            <h1 class="content__header__title">{{ title }}</h1>
-          </div>
-          <vue-markdown v-if="body" :source="body" class="content__body" />
-          <div class="content__buttons" v-if="cta_button || cta_button_second">
-            <btn
-              v-if="buttonTitle && buttonUrl"
-              class="no-arrow"
-              :url="buttonUrl"
+        <div class="content-hero col-2" v-if="content">
+          <div class="content-hero__header">
+            <h5
+              v-if="content.eyebrow_title"
+              class="content-hero__header__eyebrow"
+              :class="titlePosition"
+              :style="eyebrowColor"
             >
-              {{ buttonTitle }}
+              {{ content.eyebrow_title }}
+            </h5>
+            <component
+              v-if="content.title"
+              class="content-hero__header__title"
+              :is="defaultTitle"
+              :class="[titlePosition, titleWeight]"
+            >
+              {{ content.title }}
+            </component>
+          </div>
+          <vue-markdown
+            v-if="content.body"
+            class="content-hero__body"
+            :source="content.body"
+          />
+          <div
+            v-if="cta_button || cta_button_second"
+            class="content-hero__buttons"
+            :class="buttonWidth"
+          >
+            <btn
+              v-if="cta_button.title && cta_button.url"
+              class="no-arrow"
+              :url="cta_button.url"
+            >
+              {{ cta_button.title }}
             </btn>
             <btn
-              v-if="secondButtonTitle && secondButtonUrl"
+              v-if="cta_button_second.title && cta_button_second.url"
               class="no-arrow"
-              :url="secondButtonUrl"
+              :url="cta_button_second.url"
             >
-              {{ secondButtonTitle }}
+              {{ cta_button_second.title }}
             </btn>
           </div>
         </div>
@@ -35,6 +60,8 @@
 </template>
 
 <script>
+import { sizes } from "../../../utils";
+
 export default {
   props: {
     image: {
@@ -55,43 +82,62 @@ export default {
     },
     cta_button: {
       type: Object,
-      required: true,
+      required: false,
     },
     cta_button_second: {
       type: Object,
       required: false,
     },
   },
-  data() {
-    return {
-      //content
-      title: String(this.content.title),
-      eyebrowTitle: String(this.content.eyebrow_title),
-      eyebrowColor: String(this.content.eyebrow_color),
-      body: this.content.body ? String(this.content.body) : "",
-      //sizes
-      titleWeight: String(this.sizes.title_weight),
-      titleAlignment: String(this.sizes.title_alignment),
-      paddingTop: String(this.sizes.padding_top),
-      paddingBottom: String(this.sizes.padding_bottom),
-      //buttons
-      buttonTitle: String(this.cta_button.title),
-      buttonUrl: String(this.cta_button.url),
-      buttonWidth: String(this.cta_button.width),
-      secondButtonTitle: this.cta_button_second
-        ? String(this.cta_button_second.title)
-        : "",
-      secondButtonUrl: this.cta_button_second
-        ? String(this.cta_button_second.url)
-        : "",
-      secondButtonWidth: this.cta_button_second
-        ? String(this.cta_button_second.width)
-        : "",
-    };
-  },
   computed: {
+    defaultTitle() {
+      const weight = this.sizes.title_weight;
+      if (!weight || weight === "") {
+        return "H1";
+      } else if (weight === "H2.5") {
+        return "H2";
+      } else {
+        return weight;
+      }
+    },
+    titlePosition() {
+      if (this.sizes.title_alignment === "center") {
+        return "title-center";
+      } else if (this.sizes.title_alignment === "right") {
+        return "title-right";
+      } else {
+        return "title-left";
+      }
+    },
+    titleWeight() {
+      return this.sizes.title_weight === "H2.5" ? "title-25" : "";
+    },
     imagePosition() {
       return this.image_position === "right" ? "image-right" : "image-left";
+    },
+    paddingTop() {
+      const size = sizes[this.sizes.padding_top];
+      return size ? `${size}-top` : "none-top";
+    },
+    paddingBottom() {
+      const size = sizes[this.sizes.padding_bottom];
+      return size ? `${size}-bottom` : "small-bottom";
+    },
+    eyebrowColor() {
+      const color = this.content.eyebrow_color;
+      const defaultColor = "var(--color-ver2-primary-orange)";
+      return {
+        color: color ? color : defaultColor,
+      };
+    },
+    buttonWidth() {
+      if (this.cta_button || this.cta_button_second) {
+        return this.cta_button.width === "full" ||
+          this.cta_button_second.width === "full"
+          ? "full-buttons"
+          : "";
+      }
+      return "";
     },
   },
 };
@@ -101,57 +147,49 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .double-column-image-hero {
-  padding: 120px 16px;
+  padding: var(--f-gutter);
   display: grid;
   grid-template-columns: 1fr;
   gap: 54px;
+  min-height: 75vh;
 
   @include respond-to(">=m") {
     gap: 26px;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .col-1 {
-    order: 1;
-  }
-  .col-2 {
-    order: 2;
-  }
-
-  &.image-right {
-    .col-1 {
-      order: 2;
-    }
-
-    .col-2 {
-      order: 1;
-    }
-  }
-
   .hero-image {
     display: flex;
     justify-content: center;
+    order: 1;
 
     img {
       object-fit: contain;
     }
   }
 
-  .content {
+  .content-hero {
     display: grid;
-    row-gap: var(--f-gutter);
+    gap: var(--f-gutter);
     margin: auto;
+    order: 2;
 
     @include respond-to("<=s") {
       padding: var(--f-gutter);
     }
+
     &__header {
       * {
         margin: 0;
       }
 
       &__eyebrow {
-        color: var(--color-ver2-primary-turquoise);
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 6px;
       }
     }
 
@@ -193,6 +231,61 @@ export default {
             left: 2px;
           }
         }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: var(--f-gutter);
+      flex-direction: column;
+
+      @include respond-to("<=s") {
+        flex-direction: row;
+      }
+
+      &.full-buttons {
+        flex-direction: column;
+
+        .btn {
+          margin: 0;
+          max-width: 100%;
+        }
+      }
+    }
+
+    .title {
+      &-25:is(h2) {
+        font-size: var(--f-h2_5-text-size);
+        line-height: var(--f-h2_5-line-height);
+      }
+
+      &-left {
+        text-align: left;
+      }
+
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+    }
+  }
+
+  &.image-right {
+    .col-1 {
+      order: 1;
+
+      @include respond-to(">=m") {
+        order: 2;
+      }
+    }
+
+    .col-2 {
+      order: 2;
+      @include respond-to(">=m") {
+        order: 1;
       }
     }
   }

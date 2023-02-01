@@ -1,22 +1,5 @@
 <template>
   <default-layout class="learn-article">
-    <!-- Breadcrumb -->
-    <!-- <column>
-      <block>
-        <dynamic-breadcrumb :route="$context.route" />
-      </block>
-    </column> -->
-    <!-- <column class="bg-black-gradient learn-article__content learn-hero">
-      <block>
-        <component
-          v-if="heroComponent.comp_name === 'article-hero'"
-          v-bind="heroComponent"
-          :is="heroComponent.comp_name"
-        >
-          {{ heroComponent.content ? heroComponent.content : "" }}
-        </component>
-      </block>
-    </column> -->
     <!-- Hero -->
     <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
 
@@ -26,17 +9,16 @@
       :class="{ 'empty-nav': !anchorList.length }"
     >
       <block>
-        <nav-menu :data="anchorList"></nav-menu>
+        <nav-menu v-if="anchorList.length" :data="anchorList" />
         <div>
-          <template v-for="(component, index) in contentComponents">
-            <component
-              :is="component.comp_name"
-              :key="index"
-              v-bind="component"
-            >
-              {{ component.content ? component.content : "" }}
-            </component>
-          </template>
+          <component
+            v-for="(component, index) in contentComponents"
+            :is="component.comp_name"
+            :key="index"
+            v-bind="component"
+          >
+            {{ component.content ? component.content : "" }}
+          </component>
         </div>
       </block>
     </column>
@@ -154,11 +136,6 @@ export default {
     },
   },
   computed: {
-    // heroComponent() {
-    //   return this.$context.components.find(
-    //     (item) => item.comp_name === "article-hero"
-    //   );
-    // },
     carousel() {
       return this.$context.components.find(
         (item) => item.comp_name === "carousel"
@@ -179,7 +156,6 @@ export default {
   },
   mounted() {
     this.getAnchors();
-    console.log(this.hero);
   },
   watch: {
     $route: {
