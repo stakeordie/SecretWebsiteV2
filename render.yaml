@@ -524,3 +524,6 @@ services:
       - type: redirect
         source: /blog/puzzle-is-becoming-secretnodes-2
         destination: /blog/puzzle-is-becoming-secretnodes/
+      - type: redirect
+        source: /about/learn-portal
+        destination: /learn
