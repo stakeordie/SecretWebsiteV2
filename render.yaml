@@ -527,3 +527,6 @@ services:
       - type: redirect
         source: /about/learn-portal
         destination: /learn
+      - type: redirect
+        source: /agentsThe
+        destination: /get-involved/become-secret-agent
