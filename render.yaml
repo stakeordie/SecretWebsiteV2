@@ -210,9 +210,6 @@ services:
         source: /about/faq/
         destination: /about/faq
       - type: redirect
-        source: /blog/announcing-secret-binance-smart-chain-bridge/
-        destination: /blog/announcing-secret-binance-smart-chain-bridge
-      - type: redirect
         source: /blog/announcing-secret-network-grant-program/
         destination: /blog/announcing-secret-network-grant-program
       - type: redirect
