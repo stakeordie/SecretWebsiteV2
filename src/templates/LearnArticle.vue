@@ -55,6 +55,7 @@ import NavMenu from "../components/dynamic/NavMenu.vue";
 import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
+import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import {
   addScrollSmooth,
   pageMetaData,
@@ -70,8 +71,9 @@ export default {
   },
   components: {
     NavMenu,
-    DoubleColumnImage,
     Carousel,
+    DoubleColumnImage,
+    BasicHero,
   },
   metaInfo() {
     return {
@@ -247,18 +249,6 @@ query {
       list-style: inherit;
     }
 
-    .article-hero {
-      .learn-post__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      @include respond-to("<=s") {
-        padding: 0 0;
-      }
-    }
-
     .mover {
       display: none;
     }
@@ -276,6 +266,14 @@ query {
 
   & .simple-footer {
     margin-top: 0;
+  }
+
+  .swirl.top.v2 {
+    display: none;
+  }
+
+  main.--flare-page {
+    padding-top: 0;
   }
 
   @each $name in $padding-sizes {
