@@ -55,6 +55,7 @@ import NavMenu from "../components/dynamic/NavMenu.vue";
 import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
+import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
 import {
   addScrollSmooth,
   pageMetaData,
@@ -71,6 +72,7 @@ export default {
   components: {
     NavMenu,
     DoubleColumnImage,
+    TitleBlock,
     Carousel,
   },
   metaInfo() {
@@ -134,6 +136,20 @@ export default {
       const child = parent.nested.find(({ id }) => id === parentId);
       child.nested.push(data);
     },
+    heroHeight() {
+      const header = document.querySelector(".mega-header");
+      const alertBar = document.querySelector(".alert-bar");
+      const dynamicPage = document.querySelector(".learn-article");
+      const headerHeight = alertBar
+        ? alertBar.offsetHeight + header.offsetHeight
+        : header.offsetHeight;
+
+      dynamicPage.style.setProperty("--sum-heights", `${headerHeight}px`);
+      dynamicPage.style.setProperty(
+        "--header-height",
+        `${header.offsetHeight}px`
+      );
+    },
   },
   computed: {
     carousel() {
@@ -156,6 +172,7 @@ export default {
   },
   mounted() {
     this.getAnchors();
+    this.heroHeight();
   },
   watch: {
     $route: {
@@ -276,6 +293,13 @@ query {
 
   & .simple-footer {
     margin-top: 0;
+  }
+
+  .swirl.top.v2 {
+    display: none;
+  }
+  main.--flare-page {
+    padding-top: 0;
   }
 
   @each $name in $padding-sizes {
