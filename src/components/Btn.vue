@@ -85,7 +85,6 @@ export default {
       cursor: pointer;
       align-items: center;
       gap: var(--f-gutter-xs);
-      margin-right: var(--f-gutter);
       margin-bottom: 0;
       padding: var(--f-gutter-s) var(--f-gutter);
       font-weight: 600;

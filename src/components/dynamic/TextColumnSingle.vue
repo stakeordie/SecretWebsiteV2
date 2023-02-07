@@ -30,7 +30,11 @@
       >
         {{ paragraph_title }}
       </component>
-      <vue-markdown :source="paragraph" class="text-column__paragraph" />
+      <vue-markdown
+        v-if="paragraph"
+        :source="paragraph"
+        class="text-column__paragraph"
+      />
     </div>
   </div>
 </template>
