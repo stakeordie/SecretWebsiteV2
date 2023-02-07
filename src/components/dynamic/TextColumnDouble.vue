@@ -39,6 +39,7 @@
             {{ first_paragraph_title }}
           </h4>
           <vue-markdown
+            v-if="first_paragraph"
             :source="first_paragraph"
             class="text-column-double__col__paragraph"
           />
@@ -51,6 +52,7 @@
             {{ second_paragraph_title }}
           </h4>
           <vue-markdown
+            v-if="second_paragraph"
             :source="second_paragraph"
             class="text-column-double__col__paragraph"
           />
