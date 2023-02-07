@@ -1,23 +1,7 @@
 <template>
   <default-layout class="learn-article">
-    <!-- Breadcrumb -->
-    <column>
-      <block>
-        <dynamic-breadcrumb :route="$context.route" />
-      </block>
-    </column>
     <!-- Hero -->
-    <column class="bg-black-gradient learn-article__content learn-hero">
-      <block>
-        <component
-          v-if="heroComponent.comp_name === 'article-hero'"
-          v-bind="heroComponent"
-          :is="heroComponent.comp_name"
-        >
-          {{ heroComponent.content ? heroComponent.content : "" }}
-        </component>
-      </block>
-    </column>
+    <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
 
     <!-- Main content -->
     <column
@@ -25,17 +9,16 @@
       :class="{ 'empty-nav': !anchorList.length }"
     >
       <block>
-        <nav-menu :data="anchorList"></nav-menu>
+        <nav-menu v-if="anchorList.length" :data="anchorList" />
         <div>
-          <template v-for="(component, index) in contentComponents">
-            <component
-              :is="component.comp_name"
-              :key="index"
-              v-bind="component"
-            >
-              {{ component.content ? component.content : "" }}
-            </component>
-          </template>
+          <component
+            v-for="(component, index) in contentComponents"
+            :is="component.comp_name"
+            :key="index"
+            v-bind="component"
+          >
+            {{ component.content ? component.content : "" }}
+          </component>
         </div>
       </block>
     </column>
@@ -43,11 +26,16 @@
     <column
       mode="full"
       class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
+      v-if="carousel"
     >
       <block>
-        <component :is="carouselComponent.comp_name" v-bind="carouselComponent">
-          {{ carouselComponent.content ? carouselComponent.content : "" }}
-        </component>
+        <carousel
+          :title="carousel.title"
+          :subtitle="carousel.subtitle"
+          :card_image="carousel.card_image"
+          :searchDataset="carousel.searchDataset"
+          :dynamic_learn_article_group="carousel.dynamic_learn_article_group"
+        />
       </block>
     </column>
     <!-- Swirl bottom -->
@@ -64,7 +52,16 @@
 
 <script>
 import NavMenu from "../components/dynamic/NavMenu.vue";
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import Carousel from "../components/dynamic/Carousel.vue";
+//heros
+import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
+import BasicHero from "../components/dynamic/heros/BasicHero.vue";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag,
+} from "../utils";
 
 export default {
   data() {
@@ -74,6 +71,9 @@ export default {
   },
   components: {
     NavMenu,
+    Carousel,
+    DoubleColumnImage,
+    BasicHero,
   },
   metaInfo() {
     return {
@@ -138,12 +138,7 @@ export default {
     },
   },
   computed: {
-    heroComponent() {
-      return this.$context.components.find(
-        (item) => item.comp_name === "article-hero"
-      );
-    },
-    carouselComponent() {
+    carousel() {
       return this.$context.components.find(
         (item) => item.comp_name === "carousel"
       );
@@ -156,6 +151,9 @@ export default {
     },
     getMetaData() {
       return pageMetaData(this.$page, this.$context.route);
+    },
+    hero() {
+      return this.$context.heroComponent;
     },
   },
   mounted() {
@@ -251,18 +249,6 @@ query {
       list-style: inherit;
     }
 
-    .article-hero {
-      .learn-post__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      @include respond-to("<=s") {
-        padding: 0 0;
-      }
-    }
-
     .mover {
       display: none;
     }
@@ -280,6 +266,14 @@ query {
 
   & .simple-footer {
     margin-top: 0;
+  }
+
+  .swirl.top.v2 {
+    display: none;
+  }
+
+  main.--flare-page {
+    padding-top: 0;
   }
 
   @each $name in $padding-sizes {

@@ -30,13 +30,16 @@
           {{ paragraph_title }}
         </component>
         <vue-markdown
+          v-if="paragraph"
           :source="paragraph"
           class="text-image__col-1__paragraph"
         />
       </div>
       <div class="text-image__col-2">
-        <img :src="image.url" :alt="image.alternativeText" />
-        <p class="text-image__col-2__caption">{{ image_description }}</p>
+        <img v-if="image" :src="image.url" :alt="image.alternativeText" />
+        <p v-if="image_description" class="text-image__col-2__caption">
+          {{ image_description }}
+        </p>
       </div>
     </div>
   </div>
