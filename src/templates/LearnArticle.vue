@@ -56,6 +56,7 @@ import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
 import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
+import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import {
   addScrollSmooth,
   pageMetaData,
@@ -74,6 +75,8 @@ export default {
     DoubleColumnImage,
     TitleBlock,
     Carousel,
+    DoubleColumnImage,
+    BasicHero,
   },
   metaInfo() {
     return {
@@ -262,18 +265,6 @@ query {
 
     ul {
       list-style: inherit;
-    }
-
-    .article-hero {
-      .learn-post__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      @include respond-to("<=s") {
-        padding: 0 0;
-      }
     }
 
     .mover {
