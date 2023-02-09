@@ -1,5 +1,5 @@
 <template>
-  <column mode="full" class="full-image-content-hero">
+  <column mode="full" class="full-image-buttons-content-hero">
     <block>
       <section
         class="hero-wrapper"
@@ -41,6 +41,23 @@
             :class="titlePosition"
             :source="content.body"
           />
+          <div class="content-hero__buttons">
+            <btn
+              v-if="cta_button.title && cta_button.url"
+              class="primary-button no-arrow"
+              :url="cta_button.url"
+              :style="buttonColor"
+            >
+              {{ cta_button.title }}
+            </btn>
+            <btn
+              v-if="cta_button_second.title && cta_button_second.url"
+              class="secondary-button no-arrow"
+              :url="cta_button_second.url"
+            >
+              {{ cta_button_second.title }}
+            </btn>
+          </div>
         </div>
       </section>
     </block>
@@ -64,6 +81,10 @@ export default {
       type: String,
       required: true,
     },
+    main_color: {
+      type: String,
+      required: true,
+    },
     content: {
       type: Object,
       required: true,
@@ -71,6 +92,14 @@ export default {
     sizes: {
       type: Object,
       required: true,
+    },
+    cta_button: {
+      type: Object,
+      required: false,
+    },
+    cta_button_second: {
+      type: Object,
+      required: false,
     },
   },
   computed: {
@@ -88,7 +117,7 @@ export default {
       }
     },
     titleWeight() {
-      return this.sizes.title_weight === "H2.5" ? "text-25" : "";
+      return this.sizes.title_weight === "H2.5" ? "title-25" : "";
     },
     titlePosition() {
       const textPositions = {
@@ -124,6 +153,13 @@ export default {
       const position = imagePositions[this.image_position];
       return position ? position : imagePositions.right;
     },
+    buttonColor() {
+      const color = this.main_color;
+      const defaultColor = "var(--color-newBrand-blue-01)";
+      return {
+        backgroundColor: color ? color : defaultColor,
+      };
+    },
   },
 };
 </script>
@@ -131,9 +167,9 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.full-image-content-hero {
+.full-image-buttons-content-hero {
   margin-bottom: 32px;
-  background-color: #11151a;
+  background-color: var(--color-neutral-dark-mode-01);
 
   .content .box {
     padding: 0;
@@ -146,7 +182,6 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
-    min-height: 572px;
     padding: 0 16px;
 
     &.background-full {
@@ -183,13 +218,20 @@ export default {
     .content-hero {
       display: flex;
       flex-direction: column;
+      align-items: center;
       position: relative;
       z-index: 1;
       gap: 16px;
-      max-width: 600px;
+      max-width: 700px;
 
-      * {
-        margin: 0;
+      @mixin max-title-size {
+        width: 100%;
+        max-width: 700px;
+      }
+
+      @mixin max-content-size {
+        width: 100%;
+        max-width: 600px;
       }
 
       .text {
@@ -212,22 +254,60 @@ export default {
       }
 
       &__eyebrow {
-        font-family: "Hind";
-        font-weight: 700;
+        font-family: "Montserrat";
+        font-weight: 500;
         text-transform: uppercase;
-        color: var(--color-ver2-primary-orange);
+        color: rgb(148, 164, 184);
+        width: 100%;
+        margin: 0;
+      }
+
+      &__title {
+        width: 100%;
+        margin: 0;
       }
 
       &__custom-title {
+        * {
+          font-family: "Montserrat";
+          margin: 0;
+        }
         strong {
           color: var(--color-newBrand-blue-02);
         }
       }
 
       &__body {
+        @include max-content-size();
+
         p {
           font-size: var(--paragraph-font-size-big);
           line-height: var(--paragraph-line-height-big);
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+
+        @include max-content-size();
+        @include respond-to(">=m") {
+          flex-direction: row;
+        }
+
+        .btn {
+          font-size: 16px;
+          margin: 0;
+
+          @include respond-to(">=m") {
+            max-width: 50%;
+          }
+
+          /* &.primary-button {
+            background-color: var(--color-newBrand-blue-01);
+          } */
         }
       }
     }
