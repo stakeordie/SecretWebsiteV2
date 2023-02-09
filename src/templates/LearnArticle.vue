@@ -29,13 +29,7 @@
       v-if="carousel"
     >
       <block>
-        <carousel
-          :title="carousel.title"
-          :subtitle="carousel.subtitle"
-          :card_image="carousel.card_image"
-          :searchDataset="carousel.searchDataset"
-          :dynamic_learn_article_group="carousel.dynamic_learn_article_group"
-        />
+        <carousel v-bind="carousel" />
       </block>
     </column>
     <!-- Swirl bottom -->
@@ -56,6 +50,8 @@ import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
 import BasicHero from "../components/dynamic/heros/BasicHero.vue";
+import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
+
 import {
   addScrollSmooth,
   pageMetaData,
@@ -74,6 +70,7 @@ export default {
     Carousel,
     DoubleColumnImage,
     BasicHero,
+    FullImageContent,
   },
   metaInfo() {
     return {

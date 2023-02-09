@@ -190,6 +190,8 @@ export default {
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 6px;
+        text-transform: uppercase;
+        color: var(--color-ver2-primary-orange);
       }
     }
 
