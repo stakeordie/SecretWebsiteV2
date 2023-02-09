@@ -1,7 +1,10 @@
 <template>
   <column mode="full" class="full-image-content-hero">
     <block>
-      <section class="hero-wrapper" :class="imageHeight">
+      <section
+        class="hero-wrapper"
+        :class="[imageHeight, paddingTop, paddingBottom]"
+      >
         <img
           v-if="image"
           alt="Background Image"
@@ -85,7 +88,7 @@ export default {
       }
     },
     titleWeight() {
-      return this.sizes.title_weight === "H2.5" ? "title-25" : "";
+      return this.sizes.title_weight === "H2.5" ? "text-25" : "";
     },
     titlePosition() {
       const textPositions = {
