@@ -53,6 +53,7 @@ import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
 import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
 
+import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
 import {
   addScrollSmooth,
   pageMetaData,
@@ -74,6 +75,7 @@ export default {
     DoubleColumnImage,
     BasicHero,
     FullImageContent,
+    FullImageButtonsContent,
   },
   metaInfo() {
     return {
