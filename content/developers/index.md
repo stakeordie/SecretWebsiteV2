@@ -3,65 +3,65 @@ title: "Developer Resources"
 ---
 
 <column class="page-developers__hero-container">
-<block>
-<developers-hero></developers-hero>
-</block>
+  <block>
+    <developers-hero></developers-hero>
+  </block>
 </column>
 
 <column>
-<block>
-<developers-features></developers-features>
-</block>
+  <block>
+    <developers-features></developers-features>
+  </block>
 </column>
 
 <column mode="full">
-<block>
-<developers-university></developers-university>
-</block>
+  <block>
+    <developers-university></developers-university>
+  </block>
 </column>
 
 <column>
-<block>
-<developers-start-here></developers-start-here>
-</block>
+  <block>
+    <developers-start-here></developers-start-here>
+  </block>
 </column>
 
 <column>
-<block>
-<developers-pathway pathId="1"></developers-pathway>
-<developers-pathway pathId="2"></developers-pathway>
-<developers-pathway pathId="3"></developers-pathway>
-</block>
+  <block>
+    <developers-pathway pathId="1" />
+    <developers-pathway pathId="2" />
+    <developers-pathway pathId="3" />
+  </block>
 </column>
 
 <column>
-<block>
-<developers-help-new-devs></developers-help-new-devs>
-</block>
+  <block>
+    <developers-help-new-devs />
+  </block>
 </column>
 
 <column>
-<block>
-<developers-card-resources></developers-card-resources>
-</block>
-</column>
-<column>
-
-<block>
-<developers-advanced></developers-advanced>
-</block>
+  <block>
+    <developers-card-resources />
+  </block>
 </column>
 
 <column>
-<block>
-<developers-funding></developers-funding>
-</block>
+  <block>
+    <developers-advanced />
+  </block>
+</column>
+
+<column>
+  <block>
+    <developers-funding />
+  </block>
 </column>
 
 <column class="page-developers__dev-questions">
-<block>
-<developers-questions></developers-questions>
-</block>
+  <block>
+    <developers-questions></developers-questions>
+  </block>
 </column>
 
 <!-- Controlls  -->
@@ -78,19 +78,19 @@ title: "Developer Resources"
 
 <!-- Horizontal Scroll -->
 <column class="page-developers__cool-stuff spacer-s horizontal-slider" mode="full">
-<block>
-<developers-cool-stuff></developers-cool-stuff>
-</block>
+  <block>
+    <developers-cool-stuff></developers-cool-stuff>
+  </block>
 </column>
 
 <!-- General CTAs -->
 <column class="spacer-s" number="2" number-m="2" number-s="1">
-<block >
-<general-ctas id="get-started"></general-ctas>
-</block>
-<block >
-<general-ctas id="join-the-community"></general-ctas>
-</block>
+  <block >
+    <general-ctas id="get-started"></general-ctas>
+  </block>
+  <block >
+    <general-ctas id="join-the-community"></general-ctas>
+  </block>
 </column >
 
 <!-- swirl -->
