@@ -34,6 +34,7 @@
           :source="paragraph"
           class="text-image__col-1__paragraph"
         />
+        <dynamic-buttons :buttons="buttons" :position="buttons_position" />
       </div>
       <div class="text-image__col-2">
         <img v-if="image" :src="image.url" :alt="image.alternativeText" />
@@ -47,21 +48,75 @@
 
 <script>
 import { removeCharacters, sizes } from "../../utils";
+import DynamicButtons from "./DynamicButtons.vue";
 
 export default {
+  components: { DynamicButtons },
   props: {
-    paragraph_title: String,
-    paragraph_title_alignment: String,
-    paragraph_title_weight: String,
-    paragraph: String,
-    eyebrow_title: String,
-    eyebrow_color: String,
-    width: String,
-    image: Object,
-    image_description: String,
-    image_position: String,
-    is_anchor: Boolean,
-    navigation_level: String,
+    paragraph_title: {
+      type: String,
+      required: false,
+    },
+    paragraph_title_alignment: {
+      type: String,
+      required: false,
+    },
+    paragraph_title_weight: {
+      type: String,
+      required: false,
+    },
+    paragraph: {
+      type: String,
+      required: false,
+    },
+    eyebrow_title: {
+      type: String,
+      required: false,
+    },
+    eyebrow_color: {
+      type: String,
+      required: false,
+    },
+    width: {
+      type: String,
+      required: false,
+    },
+    image: {
+      type: Object,
+      required: false,
+    },
+    image_description: {
+      type: String,
+      required: false,
+    },
+    image_position: {
+      type: String,
+      required: false,
+    },
+    is_anchor: {
+      type: Boolean,
+      required: false,
+    },
+    navigation_level: {
+      type: String,
+      required: false,
+    },
+    padding_top: {
+      type: String,
+      required: false,
+    },
+    padding_bottom: {
+      type: String,
+      required: false,
+    },
+    buttons: {
+      type: Array,
+      required: false,
+    },
+    buttons_position: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     titleId() {
