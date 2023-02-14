@@ -293,6 +293,7 @@ query {
   .swirl.top.v2 {
     display: none;
   }
+
   main.--flare-page {
     padding-top: 0;
   }

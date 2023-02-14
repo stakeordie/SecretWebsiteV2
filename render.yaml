@@ -12,23 +12,14 @@ services:
         - render.yaml
     routes:
       - type: redirect
+        source: /blog/secret-binance-smart-chain-bridge-is-live-on-testnett
+        destination: /blog/secret-binance-smart-chain-bridge-is-live-on-testnet
+      - type: redirect
         source: /calendar
         destination: https://calendar.google.com/calendar/u/0?cid=YjFjdjk4NWxkOWgwcWRjZ2IwMmE3OTVlbDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
       - type: redirect
         source: /about
         destination: /about/about-secret-network
-      - type: redirect
-        source: /announcing-the-secret-games
-        destination: /
-      - type: redirect
-        source: /announcing-the-secret-games/
-        destination: /
-      - type: redirect
-        source: /blog/Citadel.one
-        destination: /blog
-      - type: redirect
-        source: /blog/Duplex.Finance
-        destination: /blog
       - type: redirect
         source: /blog/Federal%20Reserve%20governor%20says%20private%20stablecoins%20are%20likely%20better%20than%20CBDCs
         destination: /blog
@@ -39,26 +30,11 @@ services:
         source: /blog/app.secretswap.io/migration
         destination: /blog
       - type: redirect
-        source: /blog/blog/programmable-privacy/
-        destination: /blog
-      - type: redirect
         source: /blog/scrt.network
-        destination: /blog
-      - type: redirect
-        source: /blog/secret-binance-smart-chain-bridge-is-live-on-testnett
         destination: /blog
       - type: redirect
         source: /admin/secret-tokens-programmable-privacy-for-defi
         destination: /about/secret-tokens-bridges
-      - type: redirect
-        source: /blog/secretanalytics.xyz
-        destination: /blog
-      - type: redirect
-        source: /blog/stashh-live-on-mainnet/anons.army
-        destination: /blog
-      - type: redirect
-        source: /blog/tarantinonfts.com
-        destination: /blog
       - type: redirect
         source: /blog/www.SCRTlabs.com
         destination: /blog
@@ -69,80 +45,26 @@ services:
         source: /docs/submit-change
         destination: /developers
       - type: redirect
-        source: /ecosystem-update-august-2020
-        destination: /
-      - type: redirect
-        source: /ecosystem-update-august-2020/
-        destination: /
-      - type: redirect
-        source: /ecosystem-update-september-2020
-        destination: /
-      - type: redirect
         source: /how-to-build-secret-apps
         destination: /developers
       - type: redirect
         source: /introducing-secret-foundation/
         destination: /
       - type: redirect
-        source: /introducing-secret-network/
-        destination: /
-      - type: redirect
         source: /media
         destination: /media/features
       - type: redirect
-        source: /puzzle-is-becoming-secretnodes/secretnodes.org
-        destination: /
+        source: /blog/blog/programmable-privacy/
+        destination: /blog/programmable-privacy/
+      - type: redirect
+        source: /blog/Duplex.Finance
+        destination: /blog/secret-feature-duplex-live/
       - type: redirect
         source: /secret-committees-empowering-secret-agents/
         destination: /get-involved/become-secret-agent
       - type: redirect
-        source: /secret-contracts-mainnet
-        destination: /
-      - type: redirect
-        source: /secret-contracts-mainnet/
-        destination: /
-      - type: redirect
-        source: /secret-contracts-update-milestone-3-of-3-is-complete
-        destination: /
-      - type: redirect
-        source: /secret-contracts-update-milestone-3-of-3-is-complete/
-        destination: /
-      - type: redirect
-        source: /secret-games-update-incentivized-testnet-phase-2
-        destination: /
-      - type: redirect
-        source: /secret-games-update-incentivized-testnet-phase-2/
-        destination: /
-      - type: redirect
-        source: /secret-games-update-testnet-phase-1
-        destination: /
-      - type: redirect
-        source: /secret-games-update-testnet-phase-1/
-        destination: /
-      - type: redirect
-        source: /secret-hub
-        destination: /developers
-      - type: redirect
-        source: /secret-hub/
-        destination: /developers
-      - type: redirect
-        source: /secret-markets-front-running-prevention/
-        destination: /about/secret-finance
-      - type: redirect
-        source: /secret-mission-design-challenge
-        destination: /developers
-      - type: redirect
-        source: /secret-network-ecosystem-update-july-2020/
-        destination: /
-      - type: redirect
-        source: /secret-network-governance
-        destination: /
-      - type: redirect
-        source: /secret-network-governance/
-        destination: /
-      - type: redirect
-        source: /secret-nodes-cookbook
-        destination: /developers
+        source: /blog/Citadel.one
+        destination: /blog/secret-tokens-live-citadel-one-mobile-web
       - type: redirect
         source: /secret-staking-derivatives
         destination: /about/secret-finance
@@ -159,14 +81,17 @@ services:
         source: /staking-secrets-guide-to-staking-delegating-scrt/
         destination: /blog/staking-secrets-guide-to-staking-delegating-scrt
       - type: redirect
-        source: /upgrade-complete-secret-contracts-live-mainnet/
-        destination: /
+        source: /announcing-the-secret-games
+        destination: /blog/announcing-the-secret-games/
       - type: redirect
-        source: /programmable-privacy
-        destination: /about/about-secret-network
+        source: /announcing-the-secret-games/
+        destination: /blog/announcing-the-secret-games/
       - type: redirect
-        source: /puzzle-is-becoming-secretnodes/secretnodes.com
-        destination: /blog
+        source: /blog/secretanalytics.xyz
+        destination: /blog/revealing-secret-analytics-v3
+      - type: redirect
+        source: /blog/stashh-live-on-mainnet/anons.army
+        destination: /blog/stashh-live-on-mainnet
       - type: redirect
         source: /secretagency
         destination: https://oelinks.co/scrtagentnetwork
@@ -183,8 +108,8 @@ services:
         source: /ecosystem/funding
         destination: /developers/grants
       - type: redirect
-        source: /secret-nodes-cookbook/
-        destination: /developers
+        source: /blog/tarantinonfts.com
+        destination: /blog/quentin-tarantino-revealed-as-iconic-artist-behind-first-ever-secret-nfts
       - type: redirect
         source: /agents
         destination: /get-involved/become-secret-agent
@@ -200,3 +125,141 @@ services:
       - type: redirect
         source: /community/
         destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /learn/scrt-token/how-to-buy-store-stake-scrt
+        destination: /learn/secret-basics/how-to-buy-store-stake-scrt
+      - type: redirect
+        source: /ecosystem-update-august-2020
+        destination: /blog/ecosystem-update-august-2020/
+      - type: redirect
+        source: /ecosystem-update-september-2020
+        destination: /blog/ecosystem-update-september-2020/
+      - type: redirect
+        source: /ecosystem-update-august-2020/
+        destination: /blog/ecosystem-update-august-2020/
+      - type: redirect
+        source: /introducing-secret-network/
+        destination: /blog/introducing-secret-network
+      - type: redirect
+        source: /programmable-privacy
+        destination: /blog/programmable-privacy
+      - type: redirect
+        source: /puzzle-is-becoming-secretnodes/secretnodes.com
+        destination: /blog/puzzle-is-becoming-secretnodes/
+      - type: redirect
+        source: /puzzle-is-becoming-secretnodes/secretnodes.org
+        destination: /blog/puzzle-is-becoming-secretnodes/
+      - type: redirect
+        source: /secret-contracts-mainnet/
+        destination: /blog/secret-contracts-mainnet
+      - type: redirect
+        source: /secret-contracts-update-milestone-3-of-3-is-complete/
+        destination: /blog/secret-contracts-update-milestone-3-of-3-is-complete/
+      - type: redirect
+        source: /secret-games-update-incentivized-testnet-phase-2
+        destination: /blog/secret-games-update-incentivized-testnet-phase-2
+      - type: redirect
+        source: /secret-games-update-incentivized-testnet-phase-2/
+        destination: /blog/secret-games-update-incentivized-testnet-phase-2
+      - type: redirect
+        source: /secret-games-update-testnet-phase-1/
+        destination: /blog/secret-games-update-testnet-phase-1/
+      - type: redirect
+        source: /secret-hub
+        destination: /blog/secret-hub/
+      - type: redirect
+        source: /secret-hub/
+        destination: /blog/secret-hub/
+      - type: redirect
+        source: /secret-mission-design-challenge
+        destination: /blog/secret-mission-design-challenge/
+      - type: redirect
+        source: /secret-network-ecosystem-update-july-2020/
+        destination: /blog/secret-network-ecosystem-update-july-2020/
+      - type: redirect
+        source: /secret-network-governance
+        destination: /blog/secret-network-governance
+      - type: redirect
+        source: /secret-network-governance/
+        destination: /blog/secret-network-governance
+      - type: redirect
+        source: /secret-nodes-cookbook
+        destination: /blog/secret-nodes-cookbook/
+      - type: redirect
+        source: /secret-nodes-cookbook/
+        destination: /blog/secret-nodes-cookbook/
+      - type: redirect
+        source: /test-hero
+        destination: /
+      - type: redirect
+        source: /secret-contracts-mainnet
+        destination: /blog/secret-contracts-mainnet
+      - type: redirect
+        source: /secret-contracts-update-milestone-3-of-3-is-complete
+        destination: /blog/secret-contracts-update-milestone-3-of-3-is-complete/
+      - type: redirect
+        source: /secret-games-update-testnet-phase-1
+        destination: /blog/secret-games-update-testnet-phase-1/
+      - type: redirect
+        source: /secret-markets-front-running-prevention/
+        destination: /blog/secret-markets-front-running-prevention
+      - type: redirect
+        source: /upgrade-complete-secret-contracts-live-mainnet/
+        destination: /blog/upgrade-complete-secret-contracts-live-mainnet
+      - type: redirect
+        source: /blog/notice-su
+        destination: /blog/notice-successful-resolution-of-xapic-vulnerability
+      - type: redirect
+        source: /blog/secret-network-tokenomics-and-ecosystem-POOL
+        destination: /blog/secret-network-tokenomics-and-ecosystem-pool
+      - type: redirect
+        source: /committees/
+        destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /ecosystem/overview/
+        destination: /ecosystem/dapps
+      - type: redirect
+        source: /blog/secret-feature-alter-
+        destination: /blog/secret-feature-alter-stake-to-access
+      - type: redirect
+        source: /blog/scrt-labs-update-
+        destination: /blog/scrt-labs-update-scaling-secrets
+      - type: redirect
+        source: /blog/secret-bina...
+        destination: /blog/secret-binance-smart-chain-bridge-live-on-mainnet
+      - type: redirect
+        source: /blog/secret-feature-starshell
+        destination: /blog/secret-feature-starshell-wallet
+      - type: redirect
+        source: /blog/puzzle-is-becoming-secretnodes-2
+        destination: /blog/puzzle-is-becoming-secretnodes/
+      - type: redirect
+        source: /about/learn-portal
+        destination: /learn
+      - type: redirect
+        source: /agentsThe
+        destination: /get-involved/become-secret-agent
+      - type: redirect
+        source: /blog/secret-network-400m-ecosystem-funding-new-investors
+        destination: /developers/grants
+      - type: redirect
+        source: /about/about/secret-nfts
+        destination: /about/secret-nfts
+      - type: redirect
+        source: /blog/secret-feature-fractionized-secret-nfts
+        destination: /blog/secret-feature-fractionalized-secret-nfts
+      - type: redirect
+        source: /blog/secret-monero-bridge-is-live-on-mainnetActualizaciones
+        destination: /blog/secret-monero-bridge-is-live-on-mainnet
+      - type: redirect
+        source: /blog/secret-monero-bridge-is-
+        destination: /blog/secret-monero-bridge-is-live-on-mainnet
+      - type: redirect
+        source: /blog/introducing-secret-foundation/
+        destination: /ecosystem/contributors
+      - type: redirect
+        source: /arrington-blocktower-spartan-skynet-11-million-secret-network
+        destination: /blog/arrington-blocktower-spartan-skynet-11-million-secret-network/
+      - type: redirect
+        source: /blog/secret-scrt-
+        destination: /blog/secret-scrt-privacy-tokens-mainnet/
