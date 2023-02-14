@@ -10,11 +10,7 @@
         v-if="eyebrow_title"
         class="text-column__eyebrow"
         :class="titlePosition"
-        :style="{
-          color: eyebrow_color
-            ? eyebrow_color
-            : 'var(--color-ver2-primary-orange)',
-        }"
+        :style="eyebrowColor"
       >
         {{ eyebrow_title }}
       </h5>
@@ -35,26 +31,66 @@
         :source="paragraph"
         class="text-column__paragraph"
       />
+      <cta-button v-if="button" v-bind="button" />
     </div>
   </div>
 </template>
 
 <script>
 import { removeCharacters, sizes } from "../../utils";
+import CtaButton from "./CtaButton.vue";
 
 export default {
+  components: { CtaButton },
   props: {
-    paragraph_title: String,
-    paragraph_title_alignment: String,
-    paragraph_title_weight: String,
-    eyebrow_title: String,
-    eyebrow_color: String,
-    paragraph: String,
-    is_anchor: Boolean,
-    width: String,
-    navigation_level: String,
-    padding_top: String,
-    padding_bottom: String,
+    paragraph_title: {
+      type: String,
+      required: false,
+    },
+    paragraph_title_alignment: {
+      type: String,
+      required: false,
+    },
+    paragraph_title_weight: {
+      type: String,
+      required: false,
+    },
+    eyebrow_title: {
+      type: String,
+      required: false,
+    },
+    eyebrow_color: {
+      type: String,
+      required: false,
+    },
+    paragraph: {
+      type: String,
+      required: false,
+    },
+    is_anchor: {
+      type: Boolean,
+      required: false,
+    },
+    width: {
+      type: String,
+      required: false,
+    },
+    navigation_level: {
+      type: String,
+      required: false,
+    },
+    padding_top: {
+      type: String,
+      required: false,
+    },
+    padding_bottom: {
+      type: String,
+      required: false,
+    },
+    button: {
+      type: Object,
+      required: false,
+    },
   },
   computed: {
     defaultTitle() {
@@ -92,6 +128,12 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
+    },
+    eyebrowColor() {
+      const color = this.eyebrow_color;
+      return {
+        color: color ? color : "var(--color-ver2-primary-orange)",
+      };
     },
   },
 };

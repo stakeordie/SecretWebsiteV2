@@ -20,39 +20,27 @@
               {{ content.eyebrow_title }}
             </h5>
             <component
-              v-if="content.title"
+              v-if="content.title && !content.custom_title"
               class="content-hero__header__title"
               :is="defaultTitle"
               :class="[titlePosition, titleWeight]"
             >
               {{ content.title }}
             </component>
+            <vue-markdown
+              v-else-if="content.custom_title"
+              class="content-hero__header__custom-title"
+              :class="titlePosition"
+              :source="content.custom_title"
+              :style="customTitleColor"
+            />
           </div>
           <vue-markdown
             v-if="content.body"
             class="content-hero__body"
             :source="content.body"
           />
-          <div
-            v-if="cta_button || cta_button_second"
-            class="content-hero__buttons"
-            :class="buttonWidth"
-          >
-            <btn
-              v-if="cta_button.title && cta_button.url"
-              class="no-arrow"
-              :url="cta_button.url"
-            >
-              {{ cta_button.title }}
-            </btn>
-            <btn
-              v-if="cta_button_second.title && cta_button_second.url"
-              class="no-arrow"
-              :url="cta_button_second.url"
-            >
-              {{ cta_button_second.title }}
-            </btn>
-          </div>
+          <dynamic-buttons :buttons="buttons" :position="buttons_position" />
         </div>
       </section>
     </block>
@@ -61,8 +49,10 @@
 
 <script>
 import { sizes } from "../../../utils";
+import DynamicButtons from "../DynamicButtons.vue";
 
 export default {
+  components: { DynamicButtons },
   props: {
     image: {
       type: Object,
@@ -80,12 +70,12 @@ export default {
       type: Object,
       required: true,
     },
-    cta_button: {
-      type: Object,
+    buttons: {
+      type: Array,
       required: false,
     },
-    cta_button_second: {
-      type: Object,
+    buttons_position: {
+      type: String,
       required: false,
     },
   },
@@ -130,14 +120,12 @@ export default {
         color: color ? color : defaultColor,
       };
     },
-    buttonWidth() {
-      if (this.cta_button || this.cta_button_second) {
-        return this.cta_button.width === "full" ||
-          this.cta_button_second.width === "full"
-          ? "full-buttons"
-          : "";
-      }
-      return "";
+    customTitleColor() {
+      const color = this.content.custom_title_color;
+      const textColor = color ? color : "var(--color-analog-primary-white)";
+      return {
+        "--title-color": textColor,
+      };
     },
   },
 };
@@ -190,6 +178,18 @@ export default {
         font-size: 18px;
         line-height: 25px;
         margin-bottom: 6px;
+        text-transform: uppercase;
+        color: var(--color-ver2-primary-orange);
+      }
+
+      &__custom-title {
+        * {
+          font-family: "Montserrat";
+        }
+
+        strong {
+          color: var(--title-color);
+        }
       }
     }
 
@@ -239,17 +239,8 @@ export default {
       gap: var(--f-gutter);
       flex-direction: column;
 
-      @include respond-to("<=s") {
+      @include respond-to(">=s") {
         flex-direction: row;
-      }
-
-      &.full-buttons {
-        flex-direction: column;
-
-        .btn {
-          margin: 0;
-          max-width: 100%;
-        }
       }
     }
 
