@@ -29,13 +29,7 @@
       v-if="carousel"
     >
       <block>
-        <carousel
-          :title="carousel.title"
-          :subtitle="carousel.subtitle"
-          :card_image="carousel.card_image"
-          :searchDataset="carousel.searchDataset"
-          :dynamic_learn_article_group="carousel.dynamic_learn_article_group"
-        />
+        <carousel v-bind="carousel" />
       </block>
     </column>
     <!-- Swirl bottom -->
@@ -55,7 +49,13 @@ import NavMenu from "../components/dynamic/NavMenu.vue";
 import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
+import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
 import BasicHero from "../components/dynamic/heros/BasicHero.vue";
+import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
+import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
+//content
+import CtaButton from "../components/dynamic/CtaButton.vue";
+
 import {
   addScrollSmooth,
   pageMetaData,
@@ -70,10 +70,17 @@ export default {
     };
   },
   components: {
-    NavMenu,
-    Carousel,
+    //Heros
+    DoubleColumnImage,
+    TitleBlock,
     DoubleColumnImage,
     BasicHero,
+    FullImageContent,
+    FullImageButtonsContent,
+    //Content
+    NavMenu,
+    Carousel,
+    CtaButton,
   },
   metaInfo() {
     return {
@@ -136,6 +143,20 @@ export default {
       const child = parent.nested.find(({ id }) => id === parentId);
       child.nested.push(data);
     },
+    heroHeight() {
+      const header = document.querySelector(".mega-header");
+      const alertBar = document.querySelector(".alert-bar");
+      const dynamicPage = document.querySelector(".learn-article");
+      const headerHeight = alertBar
+        ? alertBar.offsetHeight + header.offsetHeight
+        : header.offsetHeight;
+
+      dynamicPage.style.setProperty("--sum-heights", `${headerHeight}px`);
+      dynamicPage.style.setProperty(
+        "--header-height",
+        `${header.offsetHeight}px`
+      );
+    },
   },
   computed: {
     carousel() {
@@ -158,6 +179,7 @@ export default {
   },
   mounted() {
     this.getAnchors();
+    this.heroHeight();
   },
   watch: {
     $route: {
@@ -283,6 +305,14 @@ query {
       }
       &-bottom {
         padding-bottom: var(--p-#{$name});
+      }
+    }
+    .m-#{$name} {
+      &-top {
+        margin-top: var(--p-#{$name});
+      }
+      &-bottom {
+        margin-bottom: var(--p-#{$name});
       }
     }
   }

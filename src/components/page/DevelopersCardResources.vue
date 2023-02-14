@@ -107,6 +107,7 @@ export default {
         h6 {
           font-size: var(--f-h4-text-size);
           font-family: var(--f-default-headers-font);
+          color: var(--color-analog-primary-white);
         }
         p {
           font-size: var(--f-default-text-size);

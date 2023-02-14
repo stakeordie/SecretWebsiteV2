@@ -506,10 +506,6 @@ input:not(.button), textarea {
   }
 }
 
-img {
-  aspect-ratio: attr(width) / attr(height);
-}
-
 .img-invert {
   .content {
     .box {
