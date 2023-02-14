@@ -52,8 +52,10 @@ import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue
 import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
 import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
-
 import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
+//content
+import CtaButton from "../components/dynamic/CtaButton.vue";
+
 import {
   addScrollSmooth,
   pageMetaData,
@@ -68,14 +70,17 @@ export default {
     };
   },
   components: {
-    NavMenu,
+    //Heros
     DoubleColumnImage,
     TitleBlock,
-    Carousel,
     DoubleColumnImage,
     BasicHero,
     FullImageContent,
     FullImageButtonsContent,
+    //Content
+    NavMenu,
+    Carousel,
+    CtaButton,
   },
   metaInfo() {
     return {
@@ -299,6 +304,14 @@ query {
       }
       &-bottom {
         padding-bottom: var(--p-#{$name});
+      }
+    }
+    .m-#{$name} {
+      &-top {
+        margin-top: var(--p-#{$name});
+      }
+      &-bottom {
+        margin-bottom: var(--p-#{$name});
       }
     }
   }

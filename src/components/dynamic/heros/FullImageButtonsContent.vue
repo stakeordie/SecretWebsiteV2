@@ -41,23 +41,7 @@
             :class="titlePosition"
             :source="content.body"
           />
-          <div class="content-hero__buttons">
-            <btn
-              v-if="cta_button.title && cta_button.url"
-              class="primary-button no-arrow"
-              :url="cta_button.url"
-              :style="buttonColor"
-            >
-              {{ cta_button.title }}
-            </btn>
-            <btn
-              v-if="cta_button_second.title && cta_button_second.url"
-              class="secondary-button no-arrow"
-              :url="cta_button_second.url"
-            >
-              {{ cta_button_second.title }}
-            </btn>
-          </div>
+          <dynamic-buttons :buttons="buttons" position="full" :full="true" />
         </div>
       </section>
     </block>
@@ -66,8 +50,10 @@
 
 <script>
 import { sizes } from "../../../utils";
+import DynamicButtons from "../DynamicButtons.vue";
 
 export default {
+  components: { DynamicButtons },
   props: {
     image: {
       type: Object,
@@ -81,10 +67,6 @@ export default {
       type: String,
       required: true,
     },
-    main_color: {
-      type: String,
-      required: true,
-    },
     content: {
       type: Object,
       required: true,
@@ -93,13 +75,9 @@ export default {
       type: Object,
       required: true,
     },
-    cta_button: {
-      type: Object,
-      required: false,
-    },
-    cta_button_second: {
-      type: Object,
-      required: false,
+    buttons: {
+      type: Array,
+      required: true,
     },
   },
   computed: {
@@ -152,13 +130,6 @@ export default {
       };
       const position = imagePositions[this.image_position];
       return position ? position : imagePositions.right;
-    },
-    buttonColor() {
-      const color = this.main_color;
-      const defaultColor = "var(--color-newBrand-blue-01)";
-      return {
-        backgroundColor: color ? color : defaultColor,
-      };
     },
   },
 };
@@ -268,6 +239,8 @@ export default {
       }
 
       &__custom-title {
+        width: 100%;
+        
         * {
           font-family: "Montserrat";
           margin: 0;
@@ -283,31 +256,6 @@ export default {
         p {
           font-size: var(--paragraph-font-size-big);
           line-height: var(--paragraph-line-height-big);
-        }
-      }
-
-      &__buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 16px;
-
-        @include max-content-size();
-        @include respond-to(">=m") {
-          flex-direction: row;
-        }
-
-        .btn {
-          font-size: 16px;
-          margin: 0;
-
-          @include respond-to(">=m") {
-            max-width: 50%;
-          }
-
-          /* &.primary-button {
-            background-color: var(--color-newBrand-blue-01);
-          } */
         }
       }
     }

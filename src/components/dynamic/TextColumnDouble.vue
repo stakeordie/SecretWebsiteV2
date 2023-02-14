@@ -43,6 +43,11 @@
             :source="first_paragraph"
             class="text-column-double__col__paragraph"
           />
+          <dynamic-buttons
+            v-if="first_paragraph_buttons"
+            :buttons="first_paragraph_buttons"
+            :position="first_buttons_position"
+          />
         </div>
         <div class="text-column-double__col-2">
           <h4
@@ -56,6 +61,11 @@
             :source="second_paragraph"
             class="text-column-double__col__paragraph"
           />
+          <dynamic-buttons
+            v-if="second_paragraph_buttons"
+            :buttons="second_paragraph_buttons"
+            :position="second_buttons_position"
+          />
         </div>
       </div>
     </div>
@@ -64,21 +74,75 @@
 
 <script>
 import { removeCharacters, sizes } from "../../utils";
+import DynamicButtons from "./DynamicButtons.vue";
 
 export default {
+  components: { DynamicButtons },
   props: {
-    main_title: String,
-    main_title_alignment: String,
-    main_title_weight: String,
-    eyebrow_title: String,
-    eyebrow_color: String,
-    is_anchor: Boolean,
-    navigation_level: String,
-    width: String,
-    first_paragraph_title: String,
-    first_paragraph: String,
-    second_paragraph_title: String,
-    second_paragraph: String,
+    main_title: {
+      type: String,
+      required: false,
+    },
+    main_title_alignment: {
+      type: String,
+      required: false,
+    },
+    main_title_weight: {
+      type: String,
+      required: false,
+    },
+    eyebrow_title: {
+      type: String,
+      required: false,
+    },
+    eyebrow_color: {
+      type: String,
+      required: false,
+    },
+    is_anchor: {
+      type: Boolean,
+      required: false,
+    },
+    navigation_level: {
+      type: String,
+      required: false,
+    },
+    width: {
+      type: String,
+      required: false,
+    },
+    first_paragraph_title: {
+      type: String,
+      required: false,
+    },
+    first_paragraph: {
+      type: String,
+      required: false,
+    },
+    second_paragraph_title: {
+      type: String,
+      required: false,
+    },
+    second_paragraph: {
+      type: String,
+      required: false,
+    },
+    first_paragraph_buttons: {
+      type: Array,
+      required: false,
+    },
+    first_buttons_position: {
+      type: String,
+      required: false,
+    },
+    second_paragraph_buttons: {
+      type: Array,
+      required: false,
+    },
+    second_buttons_position: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     defaultTitle() {
