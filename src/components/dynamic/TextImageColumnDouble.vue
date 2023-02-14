@@ -34,7 +34,11 @@
           :source="paragraph"
           class="text-image__col-1__paragraph"
         />
-        <dynamic-buttons :buttons="buttons" :position="buttons_position" />
+        <dynamic-buttons
+          v-if="buttons"
+          :buttons="buttons"
+          :position="buttons_position"
+        />
       </div>
       <div class="text-image__col-2">
         <img v-if="image" :src="image.url" :alt="image.alternativeText" />

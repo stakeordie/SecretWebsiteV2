@@ -31,7 +31,7 @@
         :source="paragraph"
         class="text-column__paragraph"
       />
-      <cta-button v-bind="button" />
+      <cta-button v-if="button" v-bind="button" />
     </div>
   </div>
 </template>
