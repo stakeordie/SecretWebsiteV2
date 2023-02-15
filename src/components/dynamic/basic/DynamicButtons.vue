@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CtaButton from "./CtaButton.vue";
+import CtaButton from "../CtaButton.vue";
 
 export default {
   components: { CtaButton },

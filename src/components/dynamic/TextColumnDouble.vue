@@ -32,36 +32,38 @@
       </component>
       <div class="text-column-double__col">
         <div class="text-column-double__col-1">
+          <DynamicImage v-if="first_image" :image="first_image" />
           <h4
             v-if="first_paragraph_title"
             class="text-column-double__col__title"
           >
             {{ first_paragraph_title }}
           </h4>
-          <vue-markdown
+          <VueMarkdown
             v-if="first_paragraph"
             :source="first_paragraph"
             class="text-column-double__col__paragraph"
           />
-          <dynamic-buttons
+          <DynamicButtons
             v-if="first_paragraph_buttons"
             :buttons="first_paragraph_buttons"
             :position="first_buttons_position"
           />
         </div>
         <div class="text-column-double__col-2">
+          <DynamicImage v-if="second_image" :image="second_image" />
           <h4
             v-if="second_paragraph_title"
             class="text-column-double__col__title"
           >
             {{ second_paragraph_title }}
           </h4>
-          <vue-markdown
+          <VueMarkdown
             v-if="second_paragraph"
             :source="second_paragraph"
             class="text-column-double__col__paragraph"
           />
-          <dynamic-buttons
+          <DynamicButtons
             v-if="second_paragraph_buttons"
             :buttons="second_paragraph_buttons"
             :position="second_buttons_position"
@@ -74,10 +76,11 @@
 
 <script>
 import { removeCharacters, sizes } from "../../utils";
-import DynamicButtons from "./DynamicButtons.vue";
+import DynamicButtons from "./basic/DynamicButtons.vue";
+import DynamicImage from "./basic/DynamicImage.vue";
 
 export default {
-  components: { DynamicButtons },
+  components: { DynamicButtons, DynamicImage },
   props: {
     main_title: {
       type: String,
@@ -141,6 +144,14 @@ export default {
     },
     second_buttons_position: {
       type: String,
+      required: false,
+    },
+    first_image: {
+      type: Object,
+      required: false,
+    },
+    second_image: {
+      type: Object,
       required: false,
     },
   },
