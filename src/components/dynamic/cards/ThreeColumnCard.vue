@@ -26,7 +26,7 @@ export default {
     getImage() {
       return this.data.image
         ? this.data.image.url
-        : require("../../assets/icon-features-file.svg");
+        : require("../../../assets/icon-features-file.svg");
     },
     imagesSize() {
       return this.iconSize === "big" ? "big-image" : "small-image";

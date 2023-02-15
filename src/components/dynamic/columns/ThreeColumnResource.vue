@@ -6,7 +6,7 @@
       <p v-if="subtitle">{{ subtitle }}</p>
     </div>
     <div class="column-resource__content">
-      <cta-card
+      <ThreeColumnCard
         v-for="(resource, index) in cta_cards"
         :key="index"
         :data="resource"
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import CtaCard from "./CtaCard.vue";
-import { sizes } from "../../utils";
+import ThreeColumnCard from "../cards/ThreeColumnCard.vue";
+import { sizes } from "../../../utils";
 
 export default {
   props: {
@@ -29,7 +29,7 @@ export default {
     cta_cards: Array,
   },
   components: {
-    CtaCard,
+    ThreeColumnCard,
   },
   computed: {
     paddingTop() {

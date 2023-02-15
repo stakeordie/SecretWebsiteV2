@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../utils";
-import DynamicButtons from "./basic/DynamicButtons.vue";
-import DynamicImage from "./basic/DynamicImage.vue";
+import { removeCharacters, sizes } from "../../../utils";
+import DynamicButtons from "../basic/DynamicButtons.vue";
+import DynamicImage from "../basic/DynamicImage.vue";
 
 export default {
   components: { DynamicButtons, DynamicImage },

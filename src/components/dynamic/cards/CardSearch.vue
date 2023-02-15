@@ -32,7 +32,7 @@
               />
               <span class="title">
                 {{ category.tag }}
-                <img src="../../assets/icon-remove-filter.svg" alt="" />
+                <img src="../../../assets/icon-remove-filter.svg" alt="" />
               </span>
             </label>
           </li>
@@ -47,7 +47,7 @@
             class="no-results"
             v-if="!searchInputValue && checkedCategories.length === 0"
           >
-            <img src="../../assets/illustration-search-default.svg" alt="" />
+            <img src="../../../assets/illustration-search-default.svg" alt="" />
             <h3>{{ empty_title }}</h3>
             <p>{{ empty_subtitle }}</p>
           </div>
@@ -96,7 +96,7 @@
               </a>
             </div>
             <div class="no-results" v-if="searchNoResults">
-              <img src="../../assets/illustration-no-matches.svg" alt="" />
+              <img src="../../../assets/illustration-no-matches.svg" alt="" />
               <h3>{{ no_results_title }}</h3>
               <p class="no_results_subtitle">{{ no_results_subtitle }}</p>
             </div>
@@ -237,8 +237,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../sass/functions/theme";
-@import "../../sass/_text.scss";
+@import "../../../sass/functions/theme";
+@import "../../../sass/_text.scss";
 @import "@lkmx/flare/src/functions/respond-to";
 
 .learn-search {
@@ -344,7 +344,7 @@ export default {
         max-width: 400px;
         margin: auto;
         background: var(--color-neutral-dark-mode-04);
-        background-image: url(../../assets/search-icon-gray.svg);
+        background-image: url(../../../assets/search-icon-gray.svg);
         background-repeat: no-repeat;
         //border-color: var(--color-neutral-dark-mode-01);
         border: none;

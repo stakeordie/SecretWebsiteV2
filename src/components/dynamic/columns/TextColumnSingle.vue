@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../utils";
-import CtaButton from "./CtaButton.vue";
-import DynamicImage from "./basic/DynamicImage.vue";
+import { removeCharacters, sizes } from "../../../utils";
+import CtaButton from "../basic/CtaButton.vue";
+import DynamicImage from "../basic/DynamicImage.vue";
 
 export default {
   components: { CtaButton, DynamicImage },

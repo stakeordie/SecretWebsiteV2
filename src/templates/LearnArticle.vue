@@ -1,15 +1,15 @@
 <template>
-  <default-layout class="learn-article">
+  <DefaultLayout class="learn-article">
     <!-- Hero -->
     <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
 
     <!-- Main content -->
-    <column
+    <Column
       class="bg-black-gradient learn-article__content"
       :class="{ 'empty-nav': !anchorList.length }"
     >
-      <block>
-        <nav-menu v-if="anchorList.length" :data="anchorList" />
+      <Block>
+        <NavMenu v-if="anchorList.length" :data="anchorList" />
         <div>
           <component
             v-for="(component, index) in contentComponents"
@@ -20,32 +20,32 @@
             {{ component.content ? component.content : "" }}
           </component>
         </div>
-      </block>
-    </column>
+      </Block>
+    </Column>
     <!-- Carousel -->
-    <column
+    <Column
       mode="full"
       class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
       v-if="carousel"
     >
-      <block>
-        <carousel v-bind="carousel" />
-      </block>
-    </column>
+      <Block>
+        <Carousel v-bind="carousel" />
+      </Block>
+    </Column>
     <!-- Swirl bottom -->
-    <column class="orange__swirl__bottom" mode="full">
-      <block>
+    <Column class="orange__swirl__bottom" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-orange-bottom.svg"
         />
-      </block>
-    </column>
-  </default-layout>
+      </Block>
+    </Column>
+  </DefaultLayout>
 </template>
 
 <script>
-import NavMenu from "../components/dynamic/NavMenu.vue";
+import NavMenu from "../components/dynamic/basic/NavMenu.vue";
 import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
@@ -54,7 +54,15 @@ import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
 import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
 //content
-import CtaButton from "../components/dynamic/CtaButton.vue";
+import TextColumnSingle from "../components/dynamic/columns/TextColumnSingle.vue";
+import TextColumnDouble from "../components/dynamic/columns/TextColumnDouble.vue";
+import TextImageColumnDouble from "../components/dynamic/columns/TextImageColumnDouble.vue";
+import Divider from "../components/dynamic/basic/Divider.vue";
+import ArticleImage from "../components/dynamic/basic/ArticleImage.vue";
+import ArticleVideo from "../components/dynamic/basic/ArticleVideo.vue";
+import CtaButton from "../components/dynamic/basic/CtaButton.vue";
+import ThreeColumnResource from "../components/dynamic/columns/ThreeColumnResource.vue";
+import Grid from "../components/dynamic/basic/Grid.vue";
 
 import {
   addScrollSmooth,
@@ -81,6 +89,14 @@ export default {
     NavMenu,
     Carousel,
     CtaButton,
+    TextColumnSingle,
+    TextColumnDouble,
+    TextImageColumnDouble,
+    Divider,
+    ArticleImage,
+    ArticleVideo,
+    ThreeColumnResource,
+    Grid,
   },
   metaInfo() {
     return {
