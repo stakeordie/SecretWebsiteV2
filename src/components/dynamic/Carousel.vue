@@ -28,7 +28,7 @@
         class="items learn-carousel__item"
         v-if="dynamic_learn_article_group"
       >
-        <carousel-card
+        <CarouselCard
           v-for="(
             element, index
           ) in dynamic_learn_article_group.dynamic_learn_articles"
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import CarouselCard from "./CarouselCard.vue";
+import CarouselCard from "./cards/CarouselCard.vue";
 
 export default {
   props: {

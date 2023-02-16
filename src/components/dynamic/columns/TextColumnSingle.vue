@@ -6,6 +6,7 @@
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
     >
+      <DynamicImage v-if="image" :image="image" />
       <h5
         v-if="eyebrow_title"
         class="text-column__eyebrow"
@@ -26,22 +27,23 @@
       >
         {{ paragraph_title }}
       </component>
-      <vue-markdown
+      <VueMarkdown
         v-if="paragraph"
         :source="paragraph"
         class="text-column__paragraph"
       />
-      <cta-button v-if="button" v-bind="button" />
+      <CtaButton v-if="button" v-bind="button" />
     </div>
   </div>
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../utils";
-import CtaButton from "./CtaButton.vue";
+import { removeCharacters, sizes } from "../../../utils";
+import CtaButton from "../basic/CtaButton.vue";
+import DynamicImage from "../basic/DynamicImage.vue";
 
 export default {
-  components: { CtaButton },
+  components: { CtaButton, DynamicImage },
   props: {
     paragraph_title: {
       type: String,
@@ -88,6 +90,10 @@ export default {
       required: false,
     },
     button: {
+      type: Object,
+      required: false,
+    },
+    image: {
       type: Object,
       required: false,
     },

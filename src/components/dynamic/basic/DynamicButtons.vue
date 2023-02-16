@@ -1,6 +1,6 @@
 <template>
   <div v-if="buttons.length" class="buttons-row" :class="buttonsPosition">
-    <cta-button
+    <CtaButton
       v-for="(button, index) in buttons"
       v-bind="button"
       :key="index"
