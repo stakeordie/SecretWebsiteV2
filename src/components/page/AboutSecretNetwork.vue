@@ -18,8 +18,8 @@
         </div>
         <p class="about-secret-network-hero__content__p">
           Secret Network is the first mainnet blockchain with privacy-preserving
-          smart contracts launched in 2020. This makes it possible to build apps
-          that are decentralized and permissionless—yet private.
+          smart contracts, launched in 2020. This makes it possible to build
+          apps that are decentralized and permissionless—yet private.
         </p>
         <div class="about-secret-network-hero__content__list">
           <div class="list-item">
@@ -127,8 +127,8 @@
             class="center-text no-arrow ctas-button"
             :url="item.url ? item.url : ''"
           >
-            READ MORE</btn
-          >
+            READ MORE
+          </btn>
         </div>
       </div>
     </section>
@@ -449,7 +449,6 @@ export default {
     font-size: 36px;
     line-height: 42px;
     font-family: var(--f-default-headers-font);
-    // margin-bottom: 0;
 
     @include respond-to("<=s") {
       font-size: 36px;
@@ -457,9 +456,7 @@ export default {
     }
   }
 
-  &__eyebrow
-  // h4-eyebrow
-  {
+  &__eyebrow {
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 0;
@@ -506,9 +503,7 @@ export default {
 
 .about-secret-network-hero {
   padding: var(--f-gutter-xxxl) 16px 120px 16px;
-
   display: grid;
-  // grid-template-columns: repeat(2, 1fr);
   grid-template-columns: 600px 1fr;
   gap: 26px;
 
@@ -575,16 +570,6 @@ export default {
 
     @include respond-to("<=m") {
       display: none;
-      // order: 2;
-      // width: 400px;
-      // margin: auto;
-    }
-
-    @include respond-to("<=s") {
-      // display: none;
-      // order: 2;
-      // width: 280px;
-      // margin: auto;
     }
 
     img {
@@ -595,7 +580,6 @@ export default {
 }
 
 .about-secret-network-essential {
-  // width: 100%;
   background-color: var(--color-neutral-dark-mode-02);
 
   & .about-content {
@@ -636,7 +620,6 @@ export default {
     padding: 16px;
     align-self: center;
     margin: auto;
-    // max-width: 550px;
     display: grid;
     gap: var(--f-gutter);
 
@@ -673,9 +656,6 @@ export default {
   &__title {
     display: grid;
     gap: var(--f-gutter-xxs);
-    // * {
-    //   margin: 0;
-    // }
   }
 
   p {
@@ -685,7 +665,6 @@ export default {
   &__header {
     border-bottom: solid 1px var(--color-neutral-dark-mode-04);
     padding: 42px var(--f-gutter);
-    // padding: var(--f-gutter);
 
     p {
       max-width: 800px;
@@ -736,9 +715,6 @@ export default {
       align-self: stretch;
       align-content: baseline;
 
-      h5 {
-      }
-
       h3 {
         margin-bottom: 0;
       }
@@ -760,10 +736,8 @@ export default {
 
   &__header {
     display: grid;
-
     gap: 64px;
     padding: 42px var(--f-gutter);
-    // padding: 64px 0;
 
     @include respond-to("<=s") {
       grid-template-columns: 1fr;
@@ -797,7 +771,6 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: var(--f-gutter);
-    // gap: 10px;
     align-items: baseline;
 
     @include respond-to("<=s") {
@@ -811,10 +784,6 @@ export default {
       display: grid;
       gap: 16px;
       padding: var(--f-gutter);
-
-      @include respond-to("<=m") {
-        // padding: 32px;
-      }
 
       h4 {
         margin-bottom: 10px;
@@ -923,8 +892,6 @@ export default {
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    //  gap: 10px;
-    //max-width: 800px;
     margin: auto;
     border-left: solid 1px var(--color-neutral-dark-mode-04);
     padding-left: 26px;
