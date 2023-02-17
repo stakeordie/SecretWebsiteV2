@@ -55,8 +55,10 @@ export default {
   }
 
   &.title-25 {
-    font-size: var(--f-h2_5-text-size);
-    line-height: var(--f-h2_5-line-height);
+    * {
+      font-size: var(--f-h2_5-text-size);
+      line-height: var(--f-h2_5-line-height);
+    }
   }
 
   &.text-left {

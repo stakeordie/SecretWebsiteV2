@@ -131,34 +131,10 @@ export default {
       const title = this.paragraph_title;
       return title ? removeCharacters(title) : "";
     },
-    defaultTitle() {
-      const weight = this.paragraph_title_weight;
-      if (!weight || weight === "") {
-        return "H1";
-      } else if (weight === "H2.5") {
-        return "H2";
-      } else {
-        return weight;
-      }
-    },
     widthSize() {
       return this.width === "wide"
         ? "text-image-column-double__wide"
         : "text-image-column-double__standard";
-    },
-    titlePosition() {
-      if (this.paragraph_title_alignment === "center") {
-        return "text-image__col-1__title__center";
-      } else if (this.paragraph_title_alignment === "right") {
-        return "text-image__col-1__title__right";
-      } else {
-        return "text-image__col-1__title__left";
-      }
-    },
-    titleWeight() {
-      return this.paragraph_title_weight === "H2.5"
-        ? "text-image__title__25"
-        : "";
     },
     imagePosition() {
       return this.image_position === "left" ? "image-left" : "image-right";
@@ -200,36 +176,6 @@ export default {
     .text-image {
       &__col-1 {
         order: 1;
-
-        &__title {
-          font-family: "Montserrat";
-
-          &__25:is(h2) {
-            font-size: var(--f-h2_5-text-size);
-            line-height: var(--f-h2_5-line-height);
-          }
-
-          &__left {
-            text-align: start;
-          }
-
-          &__center {
-            text-align: center;
-          }
-
-          &__right {
-            text-align: end;
-          }
-        }
-
-        &__eyebrow {
-          font-family: "Montserrat";
-          font-style: normal;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 25px;
-          margin-bottom: 6px;
-        }
 
         &__paragraph {
           p,
