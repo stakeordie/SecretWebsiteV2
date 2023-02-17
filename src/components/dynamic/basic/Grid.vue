@@ -1,7 +1,7 @@
 <template>
   <div class="grid-container" :class="containerPaddings">
     <div class="grid-container__cards" :class="gridStyles">
-      <grid-card v-for="(item, index) in grid_card" :key="index" :data="item" />
+      <GridCard v-for="(item, index) in grid_card" :key="index" :data="item" />
     </div>
     <btn v-if="cta_button" :url="cta_button.url" class="no-arrow">
       {{ cta_button.title }}
@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { sizes } from "../../utils";
-import GridCard from "./GridCard.vue";
+import { sizes } from "../../../utils";
+import GridCard from "../cards/GridCard.vue";
 
 export default {
   props: {

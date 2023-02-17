@@ -50,7 +50,7 @@
 
 <script>
 import { sizes } from "../../../utils";
-import DynamicButtons from "../DynamicButtons.vue";
+import DynamicButtons from "../basic/DynamicButtons.vue";
 
 export default {
   components: { DynamicButtons },

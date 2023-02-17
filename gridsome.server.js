@@ -204,6 +204,7 @@ module.exports = function (api) {
               components: page.currentComponents,
               route: page.route,
               heroComponent: page.heroComponent ? page.heroComponent : {},
+              swirls: page.swirls ? page.swirls : {},
             },
           });
         });
@@ -215,60 +216,41 @@ module.exports = function (api) {
 };
 
 function expandPropsToParent(input, prop) {
-  let result;
-
-  if (input instanceof Array) {
-    result = [];
-  } else {
-    result = {};
-  }
-
   if (!input) return null;
 
-  const keys = Object.keys(input);
-  for (const key of keys) {
+  const isInputArray = Array.isArray(input);
+  const result = isInputArray ? [] : {};
+
+  for (const key in input) {
     if (key === prop) {
-      if (input[prop] === null) {
-        result = null;
-      } else {
-        const attrKeys = Object.keys(input[prop]);
-        for (const attrKey of attrKeys) {
-          if (typeof input[prop][attrKey] === "object") {
-            const innerConversion = expandPropsToParent(
-              input[prop][attrKey],
-              prop
-            );
-            if (input instanceof Array) {
-              result.push(innerConversion);
-            } else {
-              result[attrKey] = innerConversion;
-            }
-          } else {
-            const value = input[prop][attrKey];
-            if (input instanceof Array) {
-              result.push(value);
-            } else {
-              result[attrKey] = value;
-            }
-          }
+      const propValue = input[prop];
+
+      if (propValue === null) return null;
+
+      for (const attrKey in propValue) {
+        const attrValue = propValue[attrKey];
+        const convertedAttrValue =
+          typeof attrValue === "object"
+            ? expandPropsToParent(attrValue, prop)
+            : attrValue;
+
+        if (isInputArray) {
+          result.push(convertedAttrValue);
+        } else {
+          result[attrKey] = convertedAttrValue;
         }
       }
     } else {
-      if (typeof input[key] === "object") {
-        const innerConversion = expandPropsToParent(input[key], prop);
-        if (input instanceof Array) {
-          result.push(innerConversion);
-        } else {
-          result[key] = innerConversion;
-        }
+      const value = input[key];
+      const isValueObject = typeof value === "object";
+      const convertedValue = isValueObject
+        ? expandPropsToParent(value, prop)
+        : value;
+
+      if (isInputArray) {
+        result.push(convertedValue);
       } else {
-        const value = input[key];
-        if (input instanceof Array) {
-          result.push(value);
-        } else {
-          // Null values or "result" being null will fail
-          result[key] = value;
-        }
+        result[key] = convertedValue;
       }
     }
   }
