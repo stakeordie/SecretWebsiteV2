@@ -9,27 +9,18 @@
     >
       <div class="text-image__col-1">
         <DynamicImage v-if="paragraph_image" :image="paragraph_image" />
-        <h5
+        <DynamicEyebrowTitle
           v-if="eyebrow_title"
-          class="text-image__col-1__eyebrow"
-          :class="titlePosition"
-          :style="{
-            color: eyebrow_color
-              ? eyebrow_color
-              : 'var(--color-ver2-primary-orange)',
-          }"
-        >
-          {{ eyebrow_title }}
-        </h5>
-        <component
+          :title="eyebrow_title"
+          :alignment="paragraph_title_alignment"
+          :color="eyebrow_color"
+        />
+        <DynamicTitle
           v-if="paragraph_title"
-          id="main_title"
-          class="text-image__col-1__title"
-          :is="defaultTitle"
-          :class="[titlePosition, titleWeight]"
-        >
-          {{ paragraph_title }}
-        </component>
+          :title="paragraph_title"
+          :alignment="paragraph_title_alignment"
+          :weight="paragraph_title_weight"
+        />
         <VueMarkdown
           v-if="paragraph"
           :source="paragraph"
@@ -54,10 +45,17 @@
 <script>
 import { removeCharacters, sizes } from "../../../utils";
 import DynamicButtons from "../basic/DynamicButtons.vue";
+import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
 import DynamicImage from "../basic/DynamicImage.vue";
+import DynamicTitle from "../basic/DynamicTitle.vue";
 
 export default {
-  components: { DynamicButtons, DynamicImage },
+  components: {
+    DynamicButtons,
+    DynamicImage,
+    DynamicTitle,
+    DynamicEyebrowTitle,
+  },
   props: {
     paragraph_title: {
       type: String,

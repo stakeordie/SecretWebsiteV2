@@ -6,30 +6,18 @@
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
     >
-      <h5
+      <DynamicEyebrowTitle
         v-if="eyebrow_title"
-        class="text-column-double__eyebrow"
-        :class="titlePosition"
-        :style="{
-          color: eyebrow_color
-            ? eyebrow_color
-            : 'var(--color-ver2-primary-orange)',
-        }"
-      >
-        {{ eyebrow_title }}
-      </h5>
-      <component
+        :title="eyebrow_title"
+        :alignment="main_title_alignment"
+        :color="eyebrow_color"
+      />
+      <DynamicTitle
         v-if="main_title"
-        id="main_title"
-        class="text-column-double__title"
-        :is="defaultTitle"
-        :class="[
-          titlePosition,
-          main_title_weight === 'H2.5' ? 'text-column-double__title__25' : '',
-        ]"
-      >
-        {{ main_title }}
-      </component>
+        :title="main_title"
+        :weight="main_title_weight"
+        :alignment="main_title_alignment"
+      />
       <div class="text-column-double__col">
         <div class="text-column-double__col-1">
           <DynamicImage v-if="first_image" :image="first_image" />
@@ -77,10 +65,17 @@
 <script>
 import { removeCharacters, sizes } from "../../../utils";
 import DynamicButtons from "../basic/DynamicButtons.vue";
+import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
 import DynamicImage from "../basic/DynamicImage.vue";
+import DynamicTitle from "../basic/DynamicTitle.vue";
 
 export default {
-  components: { DynamicButtons, DynamicImage },
+  components: {
+    DynamicButtons,
+    DynamicImage,
+    DynamicTitle,
+    DynamicEyebrowTitle,
+  },
   props: {
     main_title: {
       type: String,
@@ -89,10 +84,12 @@ export default {
     main_title_alignment: {
       type: String,
       required: false,
+      default: "left",
     },
     main_title_weight: {
       type: String,
       required: false,
+      default: "H2",
     },
     eyebrow_title: {
       type: String,
@@ -156,28 +153,10 @@ export default {
     },
   },
   computed: {
-    defaultTitle() {
-      if (!this.main_title_weight || this.main_title_weight === "") {
-        return "H1";
-      } else if (this.main_title_weight === "H2.5") {
-        return "H2";
-      } else {
-        return this.main_title_weight;
-      }
-    },
     widthSize() {
       return this.width === "wide"
         ? "text-column-double__wide"
         : "text-column-double__standard";
-    },
-    titlePosition() {
-      if (this.main_title_alignment === "center") {
-        return "text-column__title__center";
-      } else if (this.main_title_alignment === "right") {
-        return "text-column__title__right";
-      } else {
-        return "text-column__title__left";
-      }
     },
     paddingTop() {
       const size = sizes[this.padding_top];
@@ -209,32 +188,6 @@ export default {
 
     &__standard {
       max-width: 1200px;
-    }
-
-    &__title {
-      font-family: "Montserrat";
-      &__25:is(h2) {
-        font-size: var(--f-h2_5-text-size);
-        line-height: var(--f-h2_5-line-height);
-      }
-      &__left {
-        text-align: start;
-      }
-      &__center {
-        text-align: center;
-      }
-      &__right {
-        text-align: end;
-      }
-    }
-
-    &__eyebrow {
-      font-family: "Montserrat";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 25px;
-      margin-bottom: 6px;
     }
 
     &__col {
