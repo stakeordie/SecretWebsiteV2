@@ -31,7 +31,7 @@
 
 <script>
 import NavMenu from "../components/dynamic/basic/NavMenu.vue";
-import Carousel from "../components/dynamic/Carousel.vue";
+import Carousel from "../components/dynamic/carousel/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
 import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";

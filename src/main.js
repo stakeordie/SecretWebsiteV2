@@ -129,22 +129,12 @@ import AustinEventPartnership from "~/components/page/AustinEventPartnership";
 import AustinEventFooter from "~/components/page/AustinEventFooter";
 import HomeDcentralAfterpartyBanner from "~/components/page/HomeDcentralAfterpartyBanner";
 import LandingEventSneakPeek from "~/components/page/LandingEventSneakPeek";
-
 import GeneralCtas from "~/components/page/GeneralCtas";
-import LearnPortalHero from "~/components/page/LearnPortalHero";
-
 import LandingSneakPeekEvent from "~/components/page/LandingSneakPeekEvent";
 import SummitThankYou from "~/components/page/SummitThankYou";
 import SummitAgenda from "~/components/page/SummitAgenda";
 
 // Dynamic
-import Carousel from "~/components/dynamic/Carousel";
-import CarouselGroup from "~/components/dynamic/CarouselGroup";
-import LearnHeader from "~/components/dynamic/heros/LearnHeader";
-import OptionalCalloutBox from "~/components/dynamic/OptionalCalloutBox";
-import Callout from "~/components/dynamic/Callout";
-import CtaGrid from "~/components/dynamic/CtaGrid";
-import CardSearch from "~/components/dynamic/cards/CardSearch";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
@@ -237,14 +227,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("NewBlogCard", NewBlogCard);
   Vue.component("NewBlogLatestPosts", NewBlogLatestPosts);
 
-  // Dynamic
-  Vue.component("Carousel", Carousel);
-  Vue.component("CarouselGroup", CarouselGroup);
-  Vue.component("OptionalCalloutBox", OptionalCalloutBox);
-  Vue.component("Callout", Callout);
-  Vue.component("CtaGrid", CtaGrid);
-  Vue.component("CardSearch", CardSearch);
-
   //Page Specific
   Vue.component("DevelopersHero", DevelopersHero);
   Vue.component("DevelopersFeatures", DevelopersFeatures);
@@ -280,8 +262,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("AustinEventFooter", AustinEventFooter);
   Vue.component("HomeDcentralAfterpartyBanner", HomeDcentralAfterpartyBanner);
   Vue.component("GeneralCtas", GeneralCtas);
-  Vue.component("LearnPortalHero", LearnPortalHero);
-  Vue.component("LearnHeader", LearnHeader);
   Vue.component("LandingEventSneakPeek", LandingEventSneakPeek);
   Vue.component("SummitThankYou", SummitThankYou);
   Vue.component("SummitAgenda", SummitAgenda);

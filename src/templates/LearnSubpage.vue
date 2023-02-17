@@ -41,9 +41,26 @@
 </template>
 
 <script>
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag,
+} from "../utils";
+import CarouselGroup from "../components/dynamic/carousel/CarouselGroup.vue";
+import LearnHeader from "../components/dynamic/heros/LearnHeader.vue";
+import OptionalCalloutBox from "../components/dynamic/callout/OptionalCalloutBox.vue";
+import Callout from "../components/dynamic/callout/Callout.vue";
+import CtaGrid from "../components/dynamic/callout/CtaGrid.vue";
 
 export default {
+  components: {
+    CarouselGroup,
+    LearnHeader,
+    OptionalCalloutBox,
+    Callout,
+    CtaGrid,
+  },
   metaInfo() {
     return {
       title: this.getMetaData.title,

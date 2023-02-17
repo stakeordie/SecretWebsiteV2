@@ -16,11 +16,11 @@
         </div>
         <div class="learn-carousel__header__controls">
           <button class="theme padding-small control" @click="scroll('left')">
-            <img src="../../assets/icon-circle-left.svg" alt="left" />
+            <img src="@/assets/icon-circle-left.svg" alt="left" />
           </button>
 
           <button class="theme padding-small control" @click="scroll('right')">
-            <img src="../../assets/icon-circle-right.svg" alt="right" />
+            <img src="@/assets/icon-circle-right.svg" alt="right" />
           </button>
         </div>
       </div>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import CarouselCard from "./cards/CarouselCard.vue";
+import CarouselCard from "../cards/CarouselCard.vue";
 
 export default {
   props: {
