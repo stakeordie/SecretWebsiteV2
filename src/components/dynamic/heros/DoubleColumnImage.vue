@@ -27,7 +27,7 @@
             >
               {{ content.title }}
             </component>
-            <vue-markdown
+            <VueMarkdown
               v-else-if="content.custom_title"
               class="content-hero__header__custom-title"
               :class="titlePosition"
@@ -35,12 +35,12 @@
               :style="customTitleColor"
             />
           </div>
-          <vue-markdown
+          <VueMarkdown
             v-if="content.body"
             class="content-hero__body"
             :source="content.body"
           />
-          <dynamic-buttons :buttons="buttons" :position="buttons_position" />
+          <DynamicButtons :buttons="buttons" :position="buttons_position" />
         </div>
       </section>
     </block>
@@ -49,7 +49,7 @@
 
 <script>
 import { sizes } from "../../../utils";
-import DynamicButtons from "../DynamicButtons.vue";
+import DynamicButtons from "../basic/DynamicButtons.vue";
 
 export default {
   components: { DynamicButtons },

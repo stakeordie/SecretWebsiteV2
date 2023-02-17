@@ -1,15 +1,13 @@
 <template>
-  <default-layout class="learn-article">
-    <!-- Hero -->
+  <DefaultLayout class="learn-article">
+    <Swirl v-if="topSwirl" :data="topSwirl" align="top" />
     <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
-
-    <!-- Main content -->
-    <column
-      class="bg-black-gradient learn-article__content"
+    <Column
+      class="learn-article__content"
       :class="{ 'empty-nav': !anchorList.length }"
     >
-      <block>
-        <nav-menu v-if="anchorList.length" :data="anchorList" />
+      <Block>
+        <NavMenu v-if="anchorList.length" :data="anchorList" />
         <div>
           <component
             v-for="(component, index) in contentComponents"
@@ -20,32 +18,19 @@
             {{ component.content ? component.content : "" }}
           </component>
         </div>
-      </block>
-    </column>
-    <!-- Carousel -->
-    <column
-      mode="full"
-      class="bg-black-gradient learn-article__content horizontal-slider learn-carousel"
-      v-if="carousel"
-    >
-      <block>
-        <carousel v-bind="carousel" />
-      </block>
-    </column>
-    <!-- Swirl bottom -->
-    <column class="orange__swirl__bottom" mode="full">
-      <block>
-        <img
-          class="get-scrt__align-img"
-          src="../../src/assets/swirl-orange-bottom.svg"
-        />
-      </block>
-    </column>
-  </default-layout>
+      </Block>
+    </Column>
+    <Column mode="full" v-if="carousel">
+      <Block>
+        <Carousel v-bind="carousel" />
+      </Block>
+    </Column>
+    <Swirl v-if="bottomSwirl" :data="bottomSwirl" align="bottom" />
+  </DefaultLayout>
 </template>
 
 <script>
-import NavMenu from "../components/dynamic/NavMenu.vue";
+import NavMenu from "../components/dynamic/basic/NavMenu.vue";
 import Carousel from "../components/dynamic/Carousel.vue";
 //heros
 import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
@@ -54,7 +39,16 @@ import BasicHero from "../components/dynamic/heros/BasicHero.vue";
 import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
 import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
 //content
-import CtaButton from "../components/dynamic/CtaButton.vue";
+import TextColumnSingle from "../components/dynamic/columns/TextColumnSingle.vue";
+import TextColumnDouble from "../components/dynamic/columns/TextColumnDouble.vue";
+import TextImageColumnDouble from "../components/dynamic/columns/TextImageColumnDouble.vue";
+import Divider from "../components/dynamic/basic/Divider.vue";
+import ArticleImage from "../components/dynamic/basic/ArticleImage.vue";
+import ArticleVideo from "../components/dynamic/basic/ArticleVideo.vue";
+import CtaButton from "../components/dynamic/basic/CtaButton.vue";
+import ThreeColumnResource from "../components/dynamic/columns/ThreeColumnResource.vue";
+import Grid from "../components/dynamic/basic/Grid.vue";
+import Swirl from "../components/dynamic/basic/Swirl.vue";
 
 import {
   addScrollSmooth,
@@ -81,6 +75,15 @@ export default {
     NavMenu,
     Carousel,
     CtaButton,
+    TextColumnSingle,
+    TextColumnDouble,
+    TextImageColumnDouble,
+    Divider,
+    ArticleImage,
+    ArticleVideo,
+    ThreeColumnResource,
+    Grid,
+    Swirl,
   },
   metaInfo() {
     return {
@@ -176,6 +179,12 @@ export default {
     hero() {
       return this.$context.heroComponent;
     },
+    topSwirl() {
+      return this.$context.swirls?.top_swirl || {};
+    },
+    bottomSwirl() {
+      return this.$context.swirls?.bottom_swirl || {};
+    },
   },
   mounted() {
     this.getAnchors();
@@ -224,78 +233,40 @@ query {
   --p-medium: 64px;
   --p-large: 96px;
 
-  .comp-name {
-    &__dynamic-breadcrumb {
-      .content {
-        height: 0;
-
-        .box {
-          height: 0;
-
-          .dynamic-breadcrumb {
-            position: absolute;
-          }
-        }
-      }
-    }
-
-    &__carousel {
-      padding-top: 100px;
-      padding-bottom: 64px;
-    }
-  }
-
   &__content {
-    &:not(.learn-hero):not(.learn-carousel) {
-      .content {
-        .box {
-          display: grid;
-          grid-template-columns: 272px 1fr;
-          gap: 42px;
-          @include respond-to("<=m") {
-            grid-template-columns: 1fr;
-          }
-        }
-      }
+    .content .box {
+      display: grid;
+      gap: 42px;
+      grid-template-columns: 1fr;
 
-      &.empty-nav {
-        .content {
-          .box {
-            grid-template-columns: 1fr;
-          }
-        }
+      @include respond-to(">=l") {
+        grid-template-columns: 272px 1fr;
+      }
+    }
+
+    &.empty-nav {
+      .content .box {
+        grid-template-columns: 1fr;
       }
     }
 
     ul {
       list-style: inherit;
     }
-
-    .mover {
-      display: none;
-    }
   }
 
-  .mover {
-    &:not(:nth-child(1)) {
-      display: none;
-    }
-  }
-
-  & .swirl-wrapper-bottom {
-    display: none;
-  }
-
-  & .simple-footer {
-    margin-top: 0;
-  }
-
+  .swirl-wrapper-bottom,
   .swirl.top.v2 {
     display: none;
   }
 
+  .simple-footer {
+    margin-top: 0;
+  }
+
   main.--flare-page {
     padding-top: 0;
+    position: relative;
   }
 
   @each $name in $padding-sizes {

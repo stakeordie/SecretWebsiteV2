@@ -138,22 +138,14 @@ import SummitThankYou from "~/components/page/SummitThankYou";
 import SummitAgenda from "~/components/page/SummitAgenda";
 
 // Dynamic
-import TextColumnSingle from "~/components/dynamic/TextColumnSingle";
-import TextColumnDouble from "~/components/dynamic/TextColumnDouble";
-import TextImageColumnDouble from "~/components/dynamic/TextImageColumnDouble";
-import Divider from "~/components/dynamic/Divider";
-import ArticleImage from "~/components/dynamic/ArticleImage";
-import ArticleVideo from "~/components/dynamic/ArticleVideo";
 import Carousel from "~/components/dynamic/Carousel";
 import CarouselGroup from "~/components/dynamic/CarouselGroup";
-import LearnHeader from "~/components/dynamic/LearnHeader";
+import LearnHeader from "~/components/dynamic/heros/LearnHeader";
 import OptionalCalloutBox from "~/components/dynamic/OptionalCalloutBox";
 import Callout from "~/components/dynamic/Callout";
 import CtaGrid from "~/components/dynamic/CtaGrid";
-import CardSearch from "~/components/dynamic/CardSearch";
+import CardSearch from "~/components/dynamic/cards/CardSearch";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
-import ThreeColumnResource from "~/components/dynamic/ThreeColumnResource";
-import Grid from "~/components/dynamic/Grid";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -246,20 +238,12 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("NewBlogLatestPosts", NewBlogLatestPosts);
 
   // Dynamic
-  Vue.component("TextColumnSingle", TextColumnSingle);
-  Vue.component("TextColumnDouble", TextColumnDouble);
-  Vue.component("Divider", Divider);
-  Vue.component("TextImageColumnDouble", TextImageColumnDouble);
-  Vue.component("ArticleImage", ArticleImage);
-  Vue.component("ArticleVideo", ArticleVideo);
   Vue.component("Carousel", Carousel);
   Vue.component("CarouselGroup", CarouselGroup);
   Vue.component("OptionalCalloutBox", OptionalCalloutBox);
   Vue.component("Callout", Callout);
   Vue.component("CtaGrid", CtaGrid);
   Vue.component("CardSearch", CardSearch);
-  Vue.component("ThreeColumnResource", ThreeColumnResource);
-  Vue.component("Grid", Grid);
 
   //Page Specific
   Vue.component("DevelopersHero", DevelopersHero);

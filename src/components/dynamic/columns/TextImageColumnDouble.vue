@@ -8,6 +8,7 @@
       :navLevel="navigation_level"
     >
       <div class="text-image__col-1">
+        <DynamicImage v-if="paragraph_image" :image="paragraph_image" />
         <h5
           v-if="eyebrow_title"
           class="text-image__col-1__eyebrow"
@@ -29,12 +30,12 @@
         >
           {{ paragraph_title }}
         </component>
-        <vue-markdown
+        <VueMarkdown
           v-if="paragraph"
           :source="paragraph"
           class="text-image__col-1__paragraph"
         />
-        <dynamic-buttons
+        <DynamicButtons
           v-if="buttons"
           :buttons="buttons"
           :position="buttons_position"
@@ -51,11 +52,12 @@
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../utils";
-import DynamicButtons from "./DynamicButtons.vue";
+import { removeCharacters, sizes } from "../../../utils";
+import DynamicButtons from "../basic/DynamicButtons.vue";
+import DynamicImage from "../basic/DynamicImage.vue";
 
 export default {
-  components: { DynamicButtons },
+  components: { DynamicButtons, DynamicImage },
   props: {
     paragraph_title: {
       type: String,
@@ -119,6 +121,10 @@ export default {
     },
     buttons_position: {
       type: String,
+      required: false,
+    },
+    paragraph_image: {
+      type: Object,
       required: false,
     },
   },
