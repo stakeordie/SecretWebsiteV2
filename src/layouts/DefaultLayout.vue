@@ -180,28 +180,6 @@
                 />
               </a>
             </nav>
-            <!-- <div class="contribute-github">
-              <p>
-                <a
-                  href="https://github.com/SecretFoundation/SecretWebsite"
-                  target="blank"
-                  rel="noopener noreferrer"
-                  >Contribute to scrt.network
-                </a>
-              </p>
-              <a
-                href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="../assets/icon-github.svg"
-                  alt="Join the Conversation"
-                  width="24"
-                  height="24"
-                />
-              </a>
-            </div> -->
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksForSocial"
@@ -310,14 +288,6 @@ export default {
         },
       ],
       linksCommunity: [
-        // {
-        //   title: "About the Community",
-        //   path: "/community",
-        // },
-        // {
-        //   title: "About Secret Agents",
-        //   path: "/community#secret-agents",
-        // },
         {
           title: "Become a Secret Agent",
           path: "/get-involved/become-secret-agent",
@@ -483,7 +453,6 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
-      // this.removeMainMarginHeroMixed();
     },
     $route: {
       handler(to, from) {
@@ -493,7 +462,6 @@ export default {
         this.isNavOpen = false;
         return;
       },
-      // immediate: true,
     },
   },
   methods: {
@@ -527,9 +495,6 @@ export default {
         document.body.classList.remove("modal-open");
       }
     },
-    // mq () {
-    //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
-    // },
     showLearn() {
       this.isLearnOpen = !this.isLearnOpen;
       this.isNavOpen = false;
@@ -575,40 +540,18 @@ export default {
         localStorage.setItem("theme", themeSwitched);
       }
     },
-    //* NEW SET THEME
-    //! ORIGINAL SET THEME
-    // setTheme() {
-    //   const colorMode = this.coloredModeState ? "-colored" : "";
-    //   const darkLightMode = this.darkLightModeState ? "light" : "dark";
-    //   const theme = `${darkLightMode}${colorMode}`;
-    //   this.setBodyAttr(theme);
-    //   if (process.isClient) {
-    //     localStorage.setItem("theme", theme);
-    //   }
-    // },
     setBodyAttr(theme) {
       const [body] = document.getElementsByTagName("body");
       if (!body) return;
       body.setAttribute("theme", theme);
     },
-    callFunction: function (className) {
-      if ((window.onload = "load")) {
-        setTimeout(function () {
-          const el = document.body;
-          el.classList.add(className);
-        }, 700);
-      }
-    },
   },
   mounted() {
-    // Hacking the system :(
     this.isNavOpen = false;
     this.toggleNavOpen();
-    this.callFunction("body-visible");
     this.setInitialTheme();
     this.checker();
     this.removeBottomSwirl();
-    // this.removeMainMarginHeroMixed();
   },
 };
 </script>
