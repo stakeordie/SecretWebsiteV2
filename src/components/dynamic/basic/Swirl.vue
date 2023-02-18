@@ -50,10 +50,6 @@ export default {
   }
 
   &.swirl-top {
-    &__block {
-      padding-bottom: 26px;
-    }
-
     &__absolute {
       position: absolute;
       top: 0;
