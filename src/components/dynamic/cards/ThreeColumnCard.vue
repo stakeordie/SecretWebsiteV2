@@ -5,7 +5,12 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img class="cta-card__img" :src="getImage" alt="Resource icon" />
+    <img
+      v-if="data.image"
+      class="cta-card__img"
+      :src="data.image.url"
+      alt="Resource icon"
+    />
     <div class="cta-card__details">
       <h6 v-if="data.title">{{ data.title }}</h6>
       <p v-if="data.body">{{ data.body }}</p>
@@ -25,13 +30,14 @@ export default {
     },
   },
   computed: {
-    getImage() {
-      return this.data.image
-        ? this.data.image.url
-        : require("../../../assets/icon-features-file.svg");
-    },
     imagePosition() {
-      return this.data.icon_position === "top" ? "image-top" : "image-left";
+      const positions = {
+        left: "image-left",
+        top: "image-top",
+      };
+      const hasImage = this.data.image;
+      const match = positions[this.data.icon_position];
+      return hasImage && match ? match : positions.top;
     },
   },
 };
@@ -50,14 +56,14 @@ export default {
     cursor: pointer;
   }
 
-  &.image-left {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-  }
-
   &.image-top {
     display: flex;
     flex-direction: column;
+  }
+
+  &.image-left {
+    display: grid;
+    grid-template-columns: 24px 1fr;
   }
 
   img {
