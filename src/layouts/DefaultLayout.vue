@@ -251,9 +251,9 @@
         <block class="rights-reserved">
           <p>© Secret Network. All Rights Reserved.</p>
           <nav class="documents">
-            <a href="">Terms of Service</a>
-            <span></span>
-            <a href="">Privacy Policy</a>
+            <span class="item">Terms of Service</span>
+            <span class="divider"></span>
+            <span class="item">Privacy Policy</span>
           </nav>
         </block>
       </column>
@@ -1079,6 +1079,7 @@ export default {
         grid-auto-flow: column;
         gap: 20px;
         justify-content: end;
+
         .content {
           .box {
             display: grid;
@@ -1086,24 +1087,15 @@ export default {
           }
         }
 
-        span {
+        span.item {
+          color: var(--color-analog-tertiary-blue);
+          font-family: "Hind";
+        }
+
+        span.divider {
           width: 1px;
           background-color: white;
           height: 100%;
-        }
-
-        nav {
-          display: grid;
-          grid-auto-flow: column;
-          justify-content: flex-end;
-          gap: var(--f-gutter);
-          @include respond-to("<=s") {
-            justify-content: center;
-          }
-          a:not(:first-child) {
-            border-left: 1px solid var(--theme-fg);
-            padding-left: var(--f-gutter);
-          }
         }
       }
     }
