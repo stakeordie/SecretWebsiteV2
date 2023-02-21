@@ -20,6 +20,7 @@
         :src="roadmap.url"
         class="scrt-pdf-viewer__intro__image"
         alt="Roadmap image"
+        loading="lazy"
       />
       <div class="scrt-pdf-viewer__intro__download">
         <btn class="no-arrow" :url="pdfUrl">DOWNLOAD PDF</btn>

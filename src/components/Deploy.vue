@@ -51,7 +51,8 @@
                 v-if="depStatus !== 'live'"
                 class="loader"
                 :src="require(`@/assets/loader-three-dots.svg`)"
-                alt=""
+                alt="Loading circles"
+                loaading="lazy"
             /></span>
           </li>
         </ul>

@@ -4,10 +4,8 @@
       <!-- FILTER -->
       <div class="filter v3">
         <h5 class="mini-title">Explore</h5>
-
         <h2>{{ gridHeaderTitle(header) }}</h2>
         <p>{{ gridHeaderSubtitle(header) }}</p>
-
         <div class="search">
           <input
             class="search-filter"
@@ -18,27 +16,6 @@
             placeholder="Search"
           />
         </div>
-        <!-- <ul
-          class="custom-checkbox"
-          :class="'selected-' + selectedTag"
-          v-if="hasCategories"
-        >
-          <li>Filter:</li>
-          <li v-for="(category, index) of categories" :key="index">
-            <label v-on:click="searchFilterReset">
-              <input
-                :id="category.name"
-                type="checkbox"
-                :value="category.name"
-                v-model="checkedCategories"
-              />
-              <span class="title"
-                >{{ formatCategory(category.name) }}
-                <img src="../assets/icon-remove-filter.svg" alt=""
-              /></span>
-            </label>
-          </li>
-        </ul> -->
       </div>
 
       <div class="elements-container">
@@ -61,26 +38,13 @@
                   class="card-element__header__logo"
                   :src="element.picture.url"
                   alt="picture"
+                  loading="lazy"
                 />
                 <!-- Categorie tags -->
                 <div
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
-                >
-                  <!-- <div
-                    class="m-elements card-element__header__tags"
-                    :class="evaluateTags(element.types.length)"
-                    v-if="hasCategories"
-                  >
-                    <p class="tag-accent"
-                      v-for="(category, id) in element.types"
-                      :key="id"
-                      :class="'accent-' + category.name"
-                    >
-                      {{ formatCategory(category.name) }}
-                    </p>
-                  </div> -->
-                </div>
+                ></div>
               </div>
               <div
                 class="card-element__title-desc"
@@ -88,16 +52,16 @@
               >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
-                  <!-- <p>
-                    {{element.description}}
-                  </p> -->
                 </div>
               </div>
-              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
-            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <img
+              src="../assets/illustration-no-matches.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
             <h3>No matches found</h3>
             <p>
               Please try another search or use one of
@@ -120,32 +84,20 @@
 </template>
 
 <script>
-//import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
-
-const sortBySorting = (first, second) => {
-  if (first.sort === null) return 1;
-  if (second.sort === null) return -1;
-  return first.sort - second.sort;
-};
 
 export default {
   components: { Pagination },
-
   data() {
     return {
       search: "",
       searchInputValue: "",
       searchNoResults: false,
-
       currentPage: 0,
-
       checkedCategories: [],
-
       selectedTag: "All",
     };
   },
-
   props: {
     props: ["value"],
     title: { type: String, required: true },
@@ -155,7 +107,6 @@ export default {
     isPaginated: { type: Boolean, required: false, default: false },
     hasCategories: { type: Boolean, default: true },
   },
-
   methods: {
     searchFilter() {
       const cardEl = document.querySelectorAll(".card-element");
@@ -177,11 +128,6 @@ export default {
       });
       if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
       if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
-
-      // console.log("total array", cardEl.length);
-      // console.log("hiddens", hiddenEls.length);
-      ////////////////////////////////////////////////////////////
-      // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
       this.search = "";
@@ -198,7 +144,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -212,7 +157,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -231,11 +175,7 @@ export default {
     },
     hashToFilter(hash, filter) {
       if (window.location.hash === "#get-scrt") {
-        // console.log(window.location.hash);
-        // console.log("hit");
-        //////////////////////////////////////
         window.scrollTo(0, 0);
-        // HERE
         this.checkedCategories = ["wallet"];
       }
 
@@ -250,7 +190,6 @@ export default {
     },
     hash(hash, collection, link) {
       if (window.location.hash === hash) {
-        // console.log(window.location.hash)
         if (this.collection === collection) {
           setTimeout(() => {
             window.location.href = link;
@@ -269,7 +208,6 @@ export default {
       }
     },
   },
-
   computed: {
     // WALTER WAS HERE
     filteredElements() {
@@ -279,14 +217,6 @@ export default {
           element.sort = 99999;
         }
       }
-      // array.sort(function(a, b){
-      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
-      // if (nameA < nameB) //sort string ascending
-      //   return -1;
-      // if (nameA > nameB)
-      //   return 1;
-      // return 0; //default return value (no sorting)
-      // });
       sortedCollection.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
@@ -298,9 +228,6 @@ export default {
         }
         return 0;
       });
-      // sortedCollection.sort(function (a, b) {
-      //   return a.sort - b.sort;
-      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
@@ -309,20 +236,6 @@ export default {
       );
       return collection;
     },
-
-    // OLD FUNCTION
-    // filteredElements() {
-    //   this.collections.sort(sortBySorting);
-    //   if (!this.checkedCategories.length) {
-    //     return this.collections;
-    //   }
-    //   const collection = this.collections.filter(post =>
-    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
-    //   );
-    //   console.log(collection);
-    //   console.log('🌮');
-    //   return collection;
-    // },
 
     pagedArray() {
       const start = this.currentPage * this.pageSize;
@@ -356,7 +269,6 @@ export default {
       return uniqueCategories;
     },
   },
-
   mounted() {
     this.hashToFilter("#wallets", "wallet");
     this.hashToFilter("#tools", "tool");
@@ -364,7 +276,6 @@ export default {
     this.hash("#exchanges", "exchanges", "#exchanges");
     this.hash("#contributors", "contributors", "#contributors");
   },
-  updated() {},
 };
 </script>
 

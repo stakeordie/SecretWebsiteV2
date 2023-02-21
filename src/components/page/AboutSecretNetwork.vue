@@ -4,8 +4,9 @@
       <div class="about-secret-network-hero__img">
         <img
           src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
-          alt=""
+          alt="Secret Network logo graphic"
           class="hero-img"
+          loading="lazy"
         />
       </div>
 
@@ -25,16 +26,18 @@
           <div class="list-item">
             <img
               src="../../assets/about-secret-network/check-circle-green.svg"
-              alt=""
+              alt="Green check"
               class="list-icon"
+              loading="lazy"
             />
             <p class="list-info">Privacy-preserving smart contracts</p>
           </div>
           <div class="list-item">
             <img
               src="../../assets/about-secret-network/check-circle-green.svg"
-              alt=""
+              alt="Green check"
               class="list-icon"
+              loading="lazy"
             />
             <p class="list-info">
               Encrypted inputs, outputs, and state by default
@@ -43,8 +46,9 @@
           <div class="list-item">
             <img
               src="../../assets/about-secret-network/check-circle-green.svg"
-              alt=""
+              alt="Green check"
               class="list-icon"
+              loading="lazy"
             />
             <p class="list-info">
               Transparent underlying ledger; completely auditable
@@ -85,8 +89,9 @@
         <div class="about-secret-network-essential__img">
           <img
             src="../../assets/why-more-privacy-img.svg"
-            alt=""
+            alt="Chameleon art"
             class="hero-img"
+            loading="lazy"
           />
         </div>
       </div>
@@ -114,7 +119,7 @@
           v-for="(item, index) in material"
           :key="index"
         >
-          <img :src="item.imageUrl" alt="" />
+          <img :src="item.imageUrl" alt="" loading="lazy"/>
           <div class="about-secret-network-cases__title">
             <h5>{{ item.eyebrow }}</h5>
             <h3>{{ item.title }}</h3>
@@ -152,14 +157,16 @@
               <div class="logos__item item1">
                 <img
                   src="../../assets/about-secret-network/rust-logo.svg"
-                  alt=""
+                  alt="Rust logo"
+                  loading="lazy"
                 />
                 <h6 class="logos_item__p">Coded in Rust</h6>
               </div>
               <div class="logos__item item2">
                 <img
                   src="../../assets/about-secret-network/wasm-logo.svg"
-                  alt=""
+                  alt="Wasm logo"
+                  loading="lazy"
                 />
                 <h6 class="logos_item__p">Compiled with WASM</h6>
               </div>
@@ -171,7 +178,8 @@
           <div class="header-right">
             <img
               src="../../assets/about-secret-network/contract-img.svg"
-              alt=""
+              alt="Draw graphic"
+              loading="lazy"
             />
           </div>
         </div>
@@ -184,7 +192,7 @@
             v-for="(item, index) in technology"
             :key="index"
           >
-            <img :src="item.imageUrl" alt="" />
+            <img :src="item.imageUrl" alt="Technology icon" loading="lazy"/>
             <div class="item-description">
               <h4>{{ item.title }}</h4>
               <p class="item-text">
@@ -212,7 +220,8 @@
           <div class="header-right">
             <img
               src="../../assets/about-secret-network/vision-img.png"
-              alt=""
+              alt="Universe graphic"
+              loading="lazy"
             />
           </div>
         </div>
@@ -225,7 +234,7 @@
             v-for="(item, index) in vision"
             :key="index"
           >
-            <img :src="item.imageUrl" alt="" />
+            <img :src="item.imageUrl" alt="" loading="lazy"/>
             <div class="item-description">
               <h4>{{ item.title }}</h4>
               <p class="">
@@ -247,7 +256,8 @@
             <div class="by__img">
               <img
                 src="../../assets/about-secret-network/scrt-labs-pink-logo.svg"
-                alt=""
+                alt="Secret Labs logo"
+                loading="lazy"
               />
             </div>
             <p class="by__p">
@@ -263,7 +273,8 @@
             <div class="by__img">
               <img
                 src="../../assets/about-secret-network/secret-foundation-logo.svg"
-                alt=""
+                alt="Secret Foundation logo"
+                loading="lazy"
               />
             </div>
             <p class="by__p">

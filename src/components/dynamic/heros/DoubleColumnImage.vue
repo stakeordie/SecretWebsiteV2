@@ -139,7 +139,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   gap: 54px;
-  min-height: 75vh;
+  min-height: 55vh;
 
   @include respond-to(">=m") {
     gap: 26px;

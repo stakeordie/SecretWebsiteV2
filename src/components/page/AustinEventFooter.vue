@@ -37,9 +37,10 @@
       <a href="#" target="blank" rel="noopener noreferrer">
         <img
           src="../../assets/community-icons/facebook-gray.svg"
-          alt="Join the Conversation"
+          alt="Facebook logo"
           width="24"
           height="24"
+          loading="lazy"
         />
       </a>
       <a
@@ -49,9 +50,10 @@
       >
         <img
           src="../../assets/community-icons/instagram-gray.svg"
-          alt="Join the Conversation"
+          alt="Instagram logo"
           width="24"
           height="24"
+          loading="lazy"
         />
       </a>
       <a
@@ -61,9 +63,10 @@
       >
         <img
           src="../../assets/community-icons/twitter-gray.svg"
-          alt="Join the Conversation"
+          alt="Twitter logo"
           width="24"
           height="24"
+          loading="lazy"
         />
       </a>
 
@@ -74,9 +77,10 @@
       >
         <img
           src="../../assets/community-icons/github-gray.svg"
-          alt="Join the Conversation"
+          alt="Github logo"
           width="24"
           height="24"
+          loading="lazy"
         />
       </a>
 
@@ -86,6 +90,7 @@
           alt="Join the Conversation"
           width="24"
           height="24"
+          loading="lazy"
         />
       </a>
     </nav>

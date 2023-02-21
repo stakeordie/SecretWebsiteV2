@@ -5,7 +5,8 @@
         <img
           class="event-scrt-logo"
           src="../../assets/new-secret-logo.svg"
-          alt=""
+          alt="Secret Network logo"
+          loading="lazy"
         />
         <h1 class="event-h1">DCentral Afterparty</h1>
         <p class="event-p">
@@ -15,23 +16,12 @@
       </div>
 
       <div class="austin-event-hero__container__info">
-        <!-- <div class="austin-event-hero__container__info__vip">
-          <img
-            src="../../assets/events/calendar.svg"
-            alt=""
-            class="event-icon date-icon"
-          />
-          <p class="event-date">
-            VIP NFT Screening <br />
-            7PM - 9AM
-          </p>
-        </div> -->
-
         <div class="austin-event-hero__container__info__date">
           <img
             src="../../assets/events/calendar-green.svg"
-            alt=""
+            alt="Gren calendar icon"
             class="event-icon date-icon"
+            loading="lazy"
           />
           <p class="event-date">
             Wednesday, June 8 <br />
@@ -42,8 +32,9 @@
         <div class="austin-event-hero__container__info__location">
           <img
             src="../../assets/events/location-green.svg"
-            alt=""
+            alt="Location icon"
             class="event-icon location-icon"
+            loading="lazy"
           />
           <p class="event-location">
             The Venue

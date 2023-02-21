@@ -2,7 +2,6 @@
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
       <h5 class="featured-media-header__title">Other MEDIA</h5>
-
       <div class="new-blog-grid__title-btns">
         <btn
           class="link-arrow"
@@ -10,11 +9,8 @@
           url="/media/features"
           >VIEW ALL</btn
         >
-        <!-- <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/media/features">VIEW ALL</btn> -->
       </div>
     </div>
-
-    <!-- <div class="items horizontal-slider"> -->
     <div class="items">
       <div
         v-for="(media, index) in filterMediaItems"
@@ -26,7 +22,6 @@
           <img :src="media.picture" :alt="media.title" />
           <p class="type">{{ media.type }}</p>
           <h6>{{ media.title }}</h6>
-          <!-- <p></p> -->
         </a>
       </div>
     </div>
@@ -54,15 +49,12 @@ export default {
         ".new-media-featured > .--flare-block > .content > .box"
       );
       content.scrollLeft -= 390;
-      //console.log('left');
     },
     scroll_right() {
       let content = document.querySelector(
         ".new-media-featured > .--flare-block > .content > .box"
       );
       content.scrollLeft += 390;
-      //console.log('right');
-      //console.log(content);
     },
 
     onFilterApplied(filters) {
@@ -96,7 +88,6 @@ $accent-colors: (Article, Podcast, Video);
     padding: var(--f-gutter);
   }
 
-  //padding: var(--f-gutter);
   .featured-media-header {
     display: flex;
     justify-content: space-between;
@@ -155,10 +146,8 @@ $accent-colors: (Article, Podcast, Video);
 
         img {
           border-radius: var(--f-gutter-s);
-          //width: inherit;
           height: 180px;
           width: 100%;
-          //min-height: 200px;
           object-fit: cover;
 
           @include respond-to("m") {
@@ -235,12 +224,6 @@ query {
 
 $accent-colors: (Article, Podcast, Video);
 
-// @each $name, $color in $accent-colors {
-// 	&.accent-#{$name} {
-// 		color: var(--accent-#{$name});
-// 	}
-// }
-
 .new-media-featured {
   position: relative;
 
@@ -296,33 +279,17 @@ $accent-colors: (Article, Podcast, Video);
       width: 350px;
       transition: 0.2s ease;
       cursor: pointer;
-      // align-content: start;
-      // position: relative;
-
       &:hover {
         transform: none;
       }
 
       a {
         display: grid;
-        // grid-template-columns: 1fr;
-        // grid-template-rows: auto auto auto;
         width: 100%;
         height: fit-content;
-        // max-width: 200px;
-        // min-width: 200px;
-        // align-content: start;
-        // position: relative;
-        // padding: var(--f-gutter);
 
         img {
-          // order: 1;
-          // position: absolute;
-          // padding: var(--f-gutter);
           border-radius: var(--f-gutter-s);
-          // left: 0;
-          // right: 0;
-          // height: 290px;
           width: inherit;
           max-height: 200px;
           min-height: 200px;
@@ -330,7 +297,6 @@ $accent-colors: (Article, Podcast, Video);
         }
 
         .type {
-          // order: 2;
           margin-top: var(--f-gutter-s);
           margin-bottom: 0;
           line-height: 24px;
@@ -341,7 +307,6 @@ $accent-colors: (Article, Podcast, Video);
         }
 
         h6 {
-          // order: 3;
           margin-bottom: 0;
           color: var(--color-analog-primary-white);
           width: 100%;
@@ -357,63 +322,11 @@ $accent-colors: (Article, Podcast, Video);
           }
 
           .type {
-            // color: var(--accent-#{$name});
             color: var(--accent-#{$name}-v2);
           }
         }
       }
     }
-
-    // .item {
-    //   border-radius: var(--f-radius);
-    //   padding: var(--f-gutter);
-    //   background: var(--theme-card-bg-default);
-    //   transition: 0.2s ease;
-    //   cursor: pointer;
-    //   display: inline-block;
-    //   //flex-direction: column;
-    //   width: 350px;
-    //   height: 400px;
-    //   white-space: normal;
-    //   //justify-content: space-between;
-    //   vertical-align: top;
-    //   margin-right: var(--f-gutter-l);
-    //   position: relative;
-    //   &:hover {
-    //     transform: var(--card-hover-transform);
-    //   }
-
-    //   @each $name, $color in $accent-colors {
-    //     &.accent-#{$name} {
-    //       &:hover {
-    //         background: var(--theme-card-bg-hover);
-    //         box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
-    //       }
-
-    //       .type {
-    //         color: var(--accent-#{$name});
-    //       }
-    //     }
-    //   }
-    //   .type {
-    //     text-transform: uppercase;
-    //     margin: 0;
-    //   }
-    //   h6 {
-    //     color: var(--theme-fg);
-    //   }
-    //   img {
-    //     position: absolute;
-    //     bottom: 0;
-    //     padding: var(--f-gutter);
-    //     border-radius: var(--f-gutter-l);
-    //     left: 0;
-    //     right: 0;
-    //     height: 290px;
-    //     width: 100%;
-    //     object-fit: cover;
-    //   }
-    // }
   }
 }
 </style>
