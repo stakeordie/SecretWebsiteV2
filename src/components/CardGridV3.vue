@@ -1,23 +1,11 @@
 <template>
   <div>
-    <!-- GRID HEADER -->
-    <!-- <div class="grid-header-v2">
-      <h2>{{ gridHeaderTitle(header) }}</h2>
-      <p>{{ gridHeaderSubtitle(header) }}</p>
-    </div> -->
     <div class="elements-v3">
       <!-- FILTER -->
       <div class="filter v3">
-        <!-- <h3 v-if="!gridHeaderTitle(header)">{{ title }}</h3> -->
         <h5 class="mini-title">Explore</h5>
-        <!-- <h2 v-if="!gridHeaderTitle(header)">{{ title }}</h2> -->
         <h2>{{ gridHeaderTitle(header) }}</h2>
         <p>{{ gridHeaderSubtitle(header) }}</p>
-        <!-- <div class="filter-auction" v-if="hasCategories">
-          <h2>{{ gridHeaderTitle(header) }}</h2>
-          <p>{{ gridHeaderSubtitle(header) }}</p>
-          // <button class="btn-clear" v-on:click="resetCheck">Clear</button> 
-        </div> -->
         <div class="search">
           <input
             class="search-filter"
@@ -80,7 +68,6 @@
                 <div class="m-title">
                   <h6>{{ element.title }}</h6>
                 </div>
-                <!-- <div class="m-elements"> -->
                 <div
                   class="m-elements"
                   :class="evaluateTags(element.types.length)"
@@ -153,7 +140,6 @@
                   </p>
                 </div>
               </div>
-              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
@@ -184,32 +170,20 @@
 </template>
 
 <script>
-import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
-
-const sortBySorting = (first, second) => {
-  if (first.sort === null) return 1;
-  if (second.sort === null) return -1;
-  return first.sort - second.sort;
-};
 
 export default {
   components: { Pagination },
-
   data() {
     return {
       search: "",
       searchInputValue: "",
       searchNoResults: false,
-
       currentPage: 0,
-
       checkedCategories: [],
-
       selectedTag: "All",
     };
   },
-
   props: {
     props: ["value"],
     title: { type: String, required: true },
@@ -241,11 +215,6 @@ export default {
       });
       if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
       if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
-
-      // console.log("total array", cardEl.length);
-      // console.log("hiddens", hiddenEls.length);
-      //////////////////////////////////////////////////
-      // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
       this.search = "";
@@ -262,7 +231,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -276,7 +244,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -295,9 +262,6 @@ export default {
     },
     hashToFilter(hash, filter) {
       if (window.location.hash === "#get-scrt") {
-        // console.log(window.location.hash)
-        // console.log('hit')
-        //////////////////////////////////////
         window.scrollTo(0, 0);
         // HERE
         this.checkedCategories = ["wallet"];
@@ -314,7 +278,6 @@ export default {
     },
     hash(hash, collection, link) {
       if (window.location.hash === hash) {
-        // console.log(window.location.hash)
         if (this.collection === collection) {
           setTimeout(() => {
             window.location.href = link;
@@ -343,14 +306,6 @@ export default {
           element.sort = 99999;
         }
       }
-      // array.sort(function(a, b){
-      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
-      // if (nameA < nameB) //sort string ascending
-      //   return -1;
-      // if (nameA > nameB)
-      //   return 1;
-      // return 0; //default return value (no sorting)
-      // });
       sortedCollection.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
@@ -362,9 +317,6 @@ export default {
         }
         return 0;
       });
-      // sortedCollection.sort(function (a, b) {
-      //   return a.sort - b.sort;
-      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
@@ -373,21 +325,6 @@ export default {
       );
       return collection;
     },
-
-    // OLD FUNCTION
-    // filteredElements() {
-    //   this.collections.sort(sortBySorting);
-    //   if (!this.checkedCategories.length) {
-    //     return this.collections;
-    //   }
-    //   const collection = this.collections.filter(post =>
-    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
-    //   );
-    //   console.log(collection);
-    //   console.log('🌮');
-    //   return collection;
-    // },
-
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
@@ -553,11 +490,6 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-// .ecosystem-tools,
-// .ecosystem-dapps,
-// .get-involved-international-communities-v2,
-// .get-involved-international-communities{
-
 .grid-header-v2 {
   display: grid;
   max-width: 60%;
@@ -576,8 +508,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--f-gutter-xl);
-  // background-color: var(--theme-card-grid-bg-color);
-  //padding: 32px 0;
   margin-top: 0;
   align-content: start;
   text-align: center;
@@ -587,7 +517,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   }
 
   @include respond-to("<=s") {
-    //grid-template-columns: repeat(2, 1fr);
     padding: 32px var(--f-gutter);
   }
 
@@ -616,8 +545,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         margin: 0;
       }
       .custom-checkbox {
-        // grid-auto-flow: column;
-        // grid-template-columns: auto;
         gap: 10px;
         display: flex;
         justify-content: center;
@@ -652,27 +579,18 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
               background-color: var(--color-neutral-dark-mode-04);
               color: var(--color-neutral-dark-mode-06);
               font-weight: 600;
-              //transform: translateY(5px);
 
               transition: 0.2s ease;
               img {
-                // transition: 0.2s ease;
                 width: 0px;
                 height: 0px;
               }
             }
             input {
-              //max-width: 400px;
-
               &:checked {
                 ~ .title {
                   background-color: var(--color-ver2-primary-turquoise);
                   border: none;
-                  // img {
-                  //   transition: 0.2s ease;
-                  //   width: 16px;
-                  //   height: 16px;
-                  // }
                 }
               }
             }
@@ -691,7 +609,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         background: var(--color-neutral-dark-mode-04);
         background-image: url(../assets/search-icon-gray.svg);
         background-repeat: no-repeat;
-        //border-color: var(--color-neutral-dark-mode-01);
         border: none;
         background-position: 8px;
         padding-left: 32px;
@@ -720,14 +637,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
   }
 
   .elements-container {
-    //margin: auto;
     .elements-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: var(--f-gutter);
       @include respond-to("<=xs") {
-        //grid-template-columns: repeat(2, 1fr);
-        //padding: var(--f-gutter);
         justify-content: center;
         grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
       }
@@ -780,7 +694,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           display: grid;
           gap: var(--f-gutter);
           padding: var(--f-gutter);
-          // grid-template-rows: 64px 1fr 32px;
           grid-template-rows: 64px 1fr auto;
 
           &:hover .ecosystem .btn-text {
@@ -815,7 +728,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           .meta {
             display: grid;
             justify-items: end;
-            // gap: 8px;
           }
           &__tags {
             display: flex;
@@ -838,7 +750,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           padding: var(--f-gutter);
 
           &__picture {
-            //padding: var(--f-gutter);
             border-radius: 10px;
           }
         }
@@ -865,7 +776,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
 
         & img {
           object-fit: cover;
-          //width: 100%;
           aspect-ratio: 1 / 1;
         }
 
@@ -885,18 +795,11 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           &.tag {
             text-transform: capitalize;
           }
-
-          // @each $name, $color in $accent-colors {
-          //   &.accent-#{$name} {
-          //     color: var(--accent-#{$name});
-          //   }
-          // }
         }
       }
     }
   }
 }
-// }
 
 .get-involved-international-communities {
   .elements-v3 {

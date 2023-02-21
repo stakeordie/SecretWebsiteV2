@@ -111,14 +111,7 @@
 </template>
 
 <script>
-//import LogoVue from "./docs/Logo.vue";
 import Pagination from "./Pagination.vue";
-
-const sortBySorting = (first, second) => {
-  if (first.sort === null) return 1;
-  if (second.sort === null) return -1;
-  return first.sort - second.sort;
-};
 
 export default {
   components: { Pagination },
@@ -128,11 +121,8 @@ export default {
       search: "",
       searchInputValue: "",
       searchNoResults: false,
-
       currentPage: 0,
-
       checkedCategories: [],
-
       selectedTag: "All",
     };
   },
@@ -168,11 +158,6 @@ export default {
       });
       if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
       if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
-
-      // console.log("total array", cardEl.length);
-      // console.log("hiddens", hiddenEls.length);
-      ////////////////////////////////////////////////////////////
-      // console.log('hiddens', cardEl.classList.contains(hidden))
     },
     searchFilterReset() {
       this.search = "";
@@ -189,7 +174,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerTitle;
@@ -203,7 +187,6 @@ export default {
         let headerTitle = headerEdge.node.title;
         let headerSubtitle = headerEdge.node.subtitle;
         if (headerTitle == x) {
-          // console.log(i);
           headerTitle = this.$static.gridHeaders.edges[i].node.title;
           headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
           return headerSubtitle;
@@ -222,9 +205,6 @@ export default {
     },
     hashToFilter(hash, filter) {
       if (window.location.hash === "#get-scrt") {
-        // console.log(window.location.hash);
-        // console.log("hit");
-        //////////////////////////////////////
         window.scrollTo(0, 0);
         // HERE
         this.checkedCategories = ["wallet"];
@@ -241,7 +221,6 @@ export default {
     },
     hash(hash, collection, link) {
       if (window.location.hash === hash) {
-        // console.log(window.location.hash)
         if (this.collection === collection) {
           setTimeout(() => {
             window.location.href = link;
@@ -270,14 +249,6 @@ export default {
           element.sort = 99999;
         }
       }
-      // array.sort(function(a, b){
-      // var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase();
-      // if (nameA < nameB) //sort string ascending
-      //   return -1;
-      // if (nameA > nameB)
-      //   return 1;
-      // return 0; //default return value (no sorting)
-      // });
       sortedCollection.sort(function (a, b) {
         let titleA = a.title.toLowerCase();
         let titleB = b.title.toLowerCase();
@@ -289,9 +260,6 @@ export default {
         }
         return 0;
       });
-      // sortedCollection.sort(function (a, b) {
-      //   return a.sort - b.sort;
-      // });
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
@@ -300,20 +268,6 @@ export default {
       );
       return collection;
     },
-
-    // OLD FUNCTION
-    // filteredElements() {
-    //   this.collections.sort(sortBySorting);
-    //   if (!this.checkedCategories.length) {
-    //     return this.collections;
-    //   }
-    //   const collection = this.collections.filter(post =>
-    //     post.types.some(tag => this.checkedCategories.includes(tag.name))
-    //   );
-    //   console.log(collection);
-    //   console.log('🌮');
-    //   return collection;
-    // },
 
     pagedArray() {
       const start = this.currentPage * this.pageSize;
@@ -536,8 +490,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           margin: 0;
         }
         .custom-checkbox {
-          // grid-auto-flow: column;
-          // grid-template-columns: auto;
           gap: 10px;
           display: flex;
           justify-content: center;
@@ -567,16 +519,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
                 border-radius: 100px;
                 padding: 2px 8px;
                 border: 1px solid var(--color-neutral-dark-mode-04);
-                //color: var(--color-neutral-dark-mode-05);
                 img {
-                  // transition: 0.2s ease;
                   width: 0px;
                   height: 0px;
                 }
               }
               input {
-                //max-width: 400px;
-
                 &:checked {
                   ~ .title {
                     color: var(--color-analog-primary-white);
@@ -605,7 +553,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           background: var(--color-neutral-dark-mode-04);
           background-image: url(../assets/search-icon-gray.svg);
           background-repeat: no-repeat;
-          //border-color: var(--color-neutral-dark-mode-01);
           border: none;
           background-position: 8px;
           padding-left: 32px;
@@ -684,7 +631,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           text-align: center;
           border-radius: 10px;
           min-height: 257px;
-          //min-width: 212px;
           &.hidden {
             display: none;
           }
@@ -697,7 +643,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             gap: var(--f-gutter);
             padding: var(--f-gutter);
             grid-template-rows: 150px auto;
-            //justify-content: center;
             justify-items: center;
 
             @include respond-to("<=xs") {
@@ -733,145 +678,6 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             }
           }
         }
-
-        // .card-element {
-        //   border-radius: var(--f-radius);
-        //   overflow: hidden;
-        //   background: var(--theme-card-bg-default);
-        //   transition: 0.2s ease;
-        //   display: grid;
-        //   text-align: center;
-        //   border-radius: 10px;
-        //   // * {
-        //   //   //margin: 0;
-        //   // }
-
-        //   // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
-        //   &__overall-link {
-        //     display: grid;
-        //     gap: var(--f-gutter);
-        //     padding: var(--f-gutter);
-        //     //grid-template-rows: 64px 1fr ;
-
-        //     &:hover  .ecosystem .btn-text{
-        //         color: var( --theme-links-default);
-        //       }
-
-        //     &:hover .tag-accent{
-        //           border-color: var(--color-neutral-dark-mode-02);
-        //         }
-
-        //         .ecosystem{
-        //            &:hover{
-        //       color: var(--color-highkey-secondary-blue);
-        //     }
-        //         }
-        //   }
-        //   &__header {
-
-        //     border-radius: 10px;
-        //       padding: 0;
-        //       //object-fit: contain;
-
-        //       min-width: 150px;
-        //       height: 150px;
-        //       background-color: var(--color-neutral-dark-mode-06);
-        //     &__logo {
-        //        border-radius: 10px;
-        //       // padding: 0;
-        //       //object-fit: contain;
-        //       margin: auto;
-        //       background-color: var(--color-neutral-dark-mode-04);
-        //     }
-
-        //     .meta {
-        //       display: grid;
-        //       justify-items: end;
-        //       // gap: 8px;
-        //     }
-        //     &__tags {
-        //       display: flex;
-        //       flex-flow: wrap-reverse;
-        //       justify-content: flex-end;
-        //       gap: 5px;
-        //       p {
-        //         font-size: 15px;
-        //         text-transform: capitalize;
-        //         border-radius: 100px;
-        //         padding: 2px 8px;
-        //         border: 1px solid var(--color-neutral-dark-mode-04);
-
-        //       }
-
-        //     }
-
-        //   }
-
-        //   &__country{
-        //     display: grid;
-        //     gap: 16px;
-        //     padding: var(--f-gutter);
-
-        //     &__picture{
-        //       //padding: var(--f-gutter);
-        //       border-radius: 10px;
-        //     }
-        //   }
-
-        //   &__title-desc {
-        //     display: grid;
-        //     gap: 8px;
-        //     text-align: left;
-        //     &__header {
-        //       display: grid;
-        //       gap: 8px;
-        //       align-content: start;
-        //     }
-        //     h4 {
-        //       color: white;
-        //     }
-        //     p{
-        //       min-width: 196px;
-        //     }
-        //   }
-        //   &.hidden {
-        //     display: none;
-        //   }
-
-        //   & img {
-        //     object-fit: cover;
-        //     //width: 100%;
-        //     aspect-ratio: 1 / 1;
-
-        //   }
-
-        //   &:hover {
-
-        //     background: var(--color-neutral-dark-mode-04);
-
-        //   }
-
-        //   * {
-        //     margin: 0;
-        //   }
-
-        //   h6 {
-        //     color: var(--theme-fg);
-        //   }
-
-        //   p {
-        //     &.tag {
-        //       text-transform: capitalize;
-        //     }
-
-        //     // @each $name, $color in $accent-colors {
-        //     //   &.accent-#{$name} {
-        //     //     color: var(--accent-#{$name});
-        //     //   }
-        //     // }
-        //   }
-
-        // }
       }
     }
   }

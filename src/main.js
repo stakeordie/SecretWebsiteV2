@@ -7,10 +7,7 @@ import Flare from "@lkmx/flare";
 import Vuex from "vuex";
 
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
-// import DocsLayout from '~/layouts/DocsLayout.vue';
-// import DocsHeroLayout from '~/layouts/DocsHeroLayout.vue';
 import VueMarkdown from "vue-markdown";
-// import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from "vue-infinite-slide-bar";
 import typical from "vue-typical";
 import VueSocialSharing from "vue-social-sharing";
@@ -124,7 +121,6 @@ import AustinEventHero from "~/components/page/AustinEventHero";
 import AustinEventPartnership from "~/components/page/AustinEventPartnership";
 import AustinEventFooter from "~/components/page/AustinEventFooter";
 import HomeDcentralAfterpartyBanner from "~/components/page/HomeDcentralAfterpartyBanner";
-import LandingEventSneakPeek from "~/components/page/LandingEventSneakPeek";
 
 import GeneralCtas from "~/components/page/GeneralCtas";
 import LearnPortalHero from "~/components/page/LearnPortalHero";
@@ -274,7 +270,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GeneralCtas", GeneralCtas);
   Vue.component("LearnPortalHero", LearnPortalHero);
   Vue.component("LearnHeader", LearnHeader);
-  Vue.component("LandingEventSneakPeek", LandingEventSneakPeek);
   Vue.component("SummitThankYou", SummitThankYou);
   Vue.component("SummitAgenda", SummitAgenda);
   Vue.component("LandingSneakPeekEvent", LandingSneakPeekEvent);
