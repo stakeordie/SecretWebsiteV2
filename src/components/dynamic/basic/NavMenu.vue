@@ -29,7 +29,8 @@
                 : 'anchor__control--is-closed'
             "
             src="../../../assets/chev-learn.svg"
-            alt=""
+            alt="Arrow up"
+            loading="lazy"
           />
         </button>
       </div>
@@ -61,7 +62,8 @@
               "
               v-show="second.nested.length !== 0"
               src="../../../assets/chev-learn.svg"
-              alt=""
+              alt="Arrow up"
+              loading="lazy"
             />
           </button>
         </div>

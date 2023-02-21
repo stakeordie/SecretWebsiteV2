@@ -44,7 +44,10 @@
               />
               <span class="title"
                 >{{ formatCategory(category.name) }}
-                <img src="../assets/icon-remove-filter.svg" alt=""
+                <img
+                  src="../assets/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
               /></span>
             </label>
           </li>
@@ -154,7 +157,11 @@
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
-            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <img
+              src="../assets/illustration-no-matches.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
             <h3>No matches found</h3>
             <p>
               Please try another search or use one of

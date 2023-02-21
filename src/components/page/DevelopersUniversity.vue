@@ -5,6 +5,7 @@
         <img
           src="../../assets/secret-university-img.svg"
           alt="Secret University img"
+          loading="lazy"
         />
       </div>
       <div class="secret-university__info">
@@ -23,7 +24,11 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../../assets/secret-university-icon.svg" alt="Icon" />
+          <img
+            src="../../assets/secret-university-icon.svg"
+            alt="Secret University Icon"
+            loading="lazy"
+          />
           <span>Get STARTED</span>
         </a>
       </div>

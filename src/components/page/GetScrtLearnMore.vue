@@ -9,16 +9,16 @@
         <img
           class="page-get-scrt__ctas__cards__card__img"
           :src="item.imageUrl"
-          alt=""
+          :alt="item.title + ' icon'"
+          loading="lazy"
         />
         <h4 class="page-get-scrt__ctas__cards__card__h4">{{ item.title }}</h4>
         <p class="page-get-scrt__ctas__cards__card__p">
           {{ item.description }}
         </p>
-
-        <btn class="center-text no-arrow ctas-button" :url="item.url">{{
-          item.urlTitle
-        }}</btn>
+        <btn class="center-text no-arrow ctas-button" :url="item.url">
+          {{ item.urlTitle }}
+        </btn>
       </div>
     </div>
   </section>

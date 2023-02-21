@@ -32,10 +32,14 @@
                 :value="category.name"
                 v-model="checkedCategories"
               />
-              <span class="title"
-                >{{ formatCategory(category.name) }}
-                <img src="../assets/icon-remove-filter.svg" alt=""
-              /></span>
+              <span class="title">
+                {{ formatCategory(category.name) }}
+                <img
+                  src="../assets/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
+                />
+              </span>
             </label>
           </li>
         </ul>
@@ -61,26 +65,13 @@
                   class="card-element__header__logo"
                   :src="element.picture.url"
                   alt="picture"
+                  loading="lazy"
                 />
                 <!-- Categorie tags -->
                 <div
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
-                >
-                  <!-- <div
-                    class="m-elements card-element__header__tags"
-                    :class="evaluateTags(element.types.length)"
-                    v-if="hasCategories"
-                  >
-                    <p class="tag-accent"
-                      v-for="(category, id) in element.types"
-                      :key="id"
-                      :class="'accent-' + category.name"
-                    >
-                      {{ formatCategory(category.name) }}
-                    </p>
-                  </div> -->
-                </div>
+                ></div>
               </div>
               <div
                 class="card-element__title-desc"
@@ -88,16 +79,16 @@
               >
                 <div class="card-element__title-desc__header">
                   <h4 class="element-grid-title">{{ element.title }}</h4>
-                  <!-- <p>
-                    {{element.description}}
-                  </p> -->
                 </div>
               </div>
-              <!-- <btn class="ecosystem" url="">{{element.cta_title ? element.cta_title : "VISIT SITE"}}</btn> -->
             </a>
           </div>
           <div class="no-results" v-if="searchNoResults">
-            <img src="../assets/illustration-no-matches.svg" alt="" />
+            <img
+              src="../assets/illustration-no-matches.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
             <h3>No matches found</h3>
             <p>
               Please try another search or use one of

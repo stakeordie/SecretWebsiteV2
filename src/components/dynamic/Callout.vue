@@ -20,9 +20,15 @@
               class="text-center no-arrow"
               :class="cta.isMain ? 'main-btn' : ''"
               url="cta.ctaUrl"
-              ><img class="special-icon" :src="cta.ctaIcon" />
-              {{ cta.ctaTitle }}</btn
             >
+              <img
+                class="special-icon"
+                :src="cta.ctaIcon"
+                :alt="cta.ctaTitle"
+                loading="lazy"
+              />
+              {{ cta.ctaTitle }}
+            </btn>
           </div>
         </div>
       </div>
@@ -32,9 +38,6 @@
 
 <script>
 export default {
-  props: {
-    // data: Array
-  },
   data: function () {
     return {
       items: [

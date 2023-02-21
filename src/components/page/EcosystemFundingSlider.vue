@@ -7,8 +7,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/defiance.svg"
-            alt=""
+            alt="DeFiance Capital logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">
@@ -40,8 +41,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/alameda.svg"
-            alt=""
+            alt="Alameda Reseach logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">
@@ -72,8 +74,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/coinfund.svg"
-            alt=""
+            alt="Coin Fund logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">

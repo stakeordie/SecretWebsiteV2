@@ -4,7 +4,7 @@
     :weight="media.is == true ? 'right' : 'left'"
   >
     <div class="announcement-ver2__img" v-show="media.is">
-      <img :src="media.url" />
+      <img :src="media.url" alt="Announcement graphic" loading="lazy" />
     </div>
     <div class="announcement-ver2__cont">
       <h4>Announcement</h4>
@@ -30,6 +30,7 @@
             <img
               src="@/assets/icon-social-twitter.svg"
               alt="Join the Conversation"
+              loading="lazy"
             />
           </a>
           <a
@@ -40,6 +41,7 @@
             <img
               src="@/assets/icon-social-instagram.svg"
               alt="Join the Conversation"
+              loading="lazy"
             />
           </a>
           <a
@@ -50,6 +52,7 @@
             <img
               src="@/assets/icon-social-youtube.svg"
               alt="Join the Conversation"
+              loading="lazy"
             />
           </a>
         </div>

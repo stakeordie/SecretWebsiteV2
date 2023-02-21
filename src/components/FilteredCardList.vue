@@ -20,11 +20,13 @@
                 class="unchecked"
                 src="../assets/icon-checkbox-unchecked.svg"
                 alt="unchecked"
+                loading="lazy"
               />
               <img
                 class="checked"
                 src="../assets/icon-checkbox-checked.svg"
                 alt="checked"
+                loading="lazy"
               />
             </label>
           </li>
@@ -57,6 +59,7 @@
           @page="setPagesFather"
           :pageSize="pageSize"
           :items="filteredElements"
+          :currentPage="1"
         >
         </pagination>
       </div>
@@ -73,11 +76,8 @@ export default {
   data() {
     return {
       currentPage: 0,
-
       pageSize: 15,
-
       checkedCategories: [],
-
       selectedTag: "All",
     };
   },
@@ -129,7 +129,6 @@ export default {
         return {
           titleCategory: item.node[this.categoryName][0]?.title,
           type: item.node[this.categoryName][0]?.type,
-          // titleCategory: item.node[this.categoryName].map((cat) => cat?.title),
         };
       });
 

@@ -15,25 +15,28 @@
               light-colored
               class="special-mod"
               src="../../src/assets/swirl-about-top.svg"
-              alt=""
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="../../src/assets/swirl-about-top.svg"
-              alt=""
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               dark
               src="../../src/assets/swirl-about-top.svg"
-              alt="swirl"
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
           </themed-image>
         </div>
@@ -59,6 +62,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               v-if="!swirlSpecial"
@@ -68,6 +72,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               dark
@@ -75,6 +80,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
           </themed-image>
         </div>
@@ -92,6 +98,8 @@
                 src="../assets/new-secret-logo.svg"
                 width="124"
                 height="58"
+                alt="Secret logo"
+                loading="lazy"
               />
             </g-link>
             <nav class="social-navigation">
@@ -105,6 +113,7 @@
                   alt="Join the Conversation"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -114,9 +123,10 @@
               >
                 <img
                   src="@/assets/icon-social-github.svg"
-                  alt="Join the Conversation"
+                  alt="Github icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -126,9 +136,10 @@
               >
                 <img
                   src="@/assets/icon-social-discord.svg"
-                  alt="Join the Conversation"
+                  alt="Discord icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -138,9 +149,10 @@
               >
                 <img
                   src="@/assets/icon-social-telegram.svg"
-                  alt="Join the Conversation"
+                  alt="Telegram icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -150,9 +162,10 @@
               >
                 <img
                   src="@/assets/icon-social-twitter.svg"
-                  alt="Join the Conversation"
+                  alt="Twitter icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -162,9 +175,10 @@
               >
                 <img
                   src="@/assets/icon-social-instagram.svg"
-                  alt="Join the Conversation"
+                  alt="Instagram icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -174,34 +188,13 @@
               >
                 <img
                   src="@/assets/icon-social-youtube.svg"
-                  alt="Join the Conversation"
+                  alt="Youtube icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
             </nav>
-            <!-- <div class="contribute-github">
-              <p>
-                <a
-                  href="https://github.com/SecretFoundation/SecretWebsite"
-                  target="blank"
-                  rel="noopener noreferrer"
-                  >Contribute to scrt.network
-                </a>
-              </p>
-              <a
-                href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="../assets/icon-github.svg"
-                  alt="Join the Conversation"
-                  width="24"
-                  height="24"
-                />
-              </a>
-            </div> -->
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksForSocial"

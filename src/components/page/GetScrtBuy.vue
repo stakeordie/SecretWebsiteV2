@@ -17,7 +17,6 @@
           <ul class="get-scrt-buy__content__box">
             <a :href="resource.cta_url">
               <li class="get-scrt-buy__content__box__item">
-                <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
                 <img class="item-icon" :src="resource.icon.url" alt="" />
                 <div class="get-scrt-buy__content__box__item__details">
                   <h6>{{ resource.title }}</h6>

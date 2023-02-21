@@ -32,7 +32,11 @@
               />
               <span class="title">
                 {{ category.tag }}
-                <img src="../../../assets/icon-remove-filter.svg" alt="" />
+                <img
+                  src="../../../assets/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
+                />
               </span>
             </label>
           </li>
@@ -47,7 +51,11 @@
             class="no-results"
             v-if="!searchInputValue && checkedCategories.length === 0"
           >
-            <img src="../../../assets/illustration-search-default.svg" alt="" />
+            <img
+              src="../../../assets/illustration-search-default.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
             <h3>{{ empty_title }}</h3>
             <p>{{ empty_subtitle }}</p>
           </div>
@@ -96,7 +104,11 @@
               </a>
             </div>
             <div class="no-results" v-if="searchNoResults">
-              <img src="../../../assets/illustration-no-matches.svg" alt="" />
+              <img
+                src="../../../assets/illustration-no-matches.svg"
+                alt="Magnifying glass"
+                loading="lazy"
+              />
               <h3>{{ no_results_title }}</h3>
               <p class="no_results_subtitle">{{ no_results_subtitle }}</p>
             </div>
@@ -187,10 +199,10 @@ export default {
       }
     },
   },
-
   computed: {
     filteredElements() {
-      const sortedCollection = this.collections.sort((a, b) => {
+      const collections = this.collections;
+      const sortedCollection = collections.sort((a, b) => {
         if (a.title == null || b.title == null) return 0;
 
         const titleA = a.title.toLowerCase();
@@ -254,7 +266,6 @@ export default {
   }
 
   @include respond-to("<=s") {
-    //grid-template-columns: repeat(2, 1fr);
     padding: 32px var(--f-gutter);
   }
 
@@ -346,7 +357,6 @@ export default {
         background: var(--color-neutral-dark-mode-04);
         background-image: url(../../../assets/search-icon-gray.svg);
         background-repeat: no-repeat;
-        //border-color: var(--color-neutral-dark-mode-01);
         border: none;
         background-position: 8px;
         padding-left: 32px;

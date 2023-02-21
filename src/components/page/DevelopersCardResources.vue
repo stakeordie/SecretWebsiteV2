@@ -10,7 +10,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img :src="item.imageUrl" alt="" />
+        <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
         <div class="page-developer-resources__cards__card__content">
           <h6>{{ item.title }}</h6>
           <p>{{ item.description }}</p>

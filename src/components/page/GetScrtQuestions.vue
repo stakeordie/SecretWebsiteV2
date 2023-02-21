@@ -2,7 +2,11 @@
   <section class="get-scrt-questions">
     <div class="get-scrt-questions__banner">
       <div class="get-scrt-questions__banner__img">
-        <img src="../../assets/have-questions.png" alt="Have questions" />
+        <img
+          src="../../assets/have-questions.png"
+          alt="Have questions"
+          loading="lazy"
+        />
       </div>
       <div class="get-scrt-questions__banner__content">
         <div class="get-scrt-questions__banner__content__text">
@@ -17,20 +21,27 @@
           <btn
             class="btn-blue text-center no-arrow special-icon"
             url="https://discord.com/invite/SJK32GY"
-            ><img
+          >
+            <img
               class="special-icon"
               src="../../assets/icon-social-discord.svg"
+              alt="Discord logo"
+              loading="lazy"
             />
-            Join our Discord</btn
-          >
+            Join our Discord
+          </btn>
           <btn
             class="text-center no-arrow special-icon"
             url="https://forum.scrt.network/"
-            ><img
+          >
+            <img
               class="special-icon"
               src="../../assets/icon-social-forum.svg"
-            />Post on forums</btn
-          >
+              alt="Messages icon"
+              loading="lazy"
+            />
+            Post on forums
+          </btn>
         </div>
       </div>
     </div>
@@ -48,8 +59,6 @@ export default {};
   background: var(--color-neutral-dark-mode-03);
   border-radius: 10px;
   padding: 26px;
-
-  
 
   @include respond-to("<=m") {
     //padding: 26px 16px;
@@ -82,10 +91,9 @@ export default {};
       margin: auto;
 
       &__text {
-         & h5{
-            color: var(--color-analog-secondary-yellow) !important;
+        & h5 {
+          color: var(--color-analog-secondary-yellow) !important;
         }
-       
       }
 
       &__btns {
@@ -112,27 +120,26 @@ export default {};
 
         & .btn-blue {
           background-color: var(--color-analog-secondary-yellow) !important;
-          
 
-          & .btn-text{
+          & .btn-text {
             color: var(--color-neutral-dark-mode-02) !important;
 
             & img {
               -webkit-filter: invert(100%);
-              filter: invert(100%)
-            };
+              filter: invert(100%);
+            }
           }
 
-          &:hover{
+          &:hover {
             background-color: var(--color-neutral-dark-mode-02) !important;
 
-            & .btn-text{
-            color: var(--color-neutral-dark-mode-06) !important;
+            & .btn-text {
+              color: var(--color-neutral-dark-mode-06) !important;
 
               & img {
                 -webkit-filter: invert(0%);
-                filter: invert(0%)
-              };
+                filter: invert(0%);
+              }
             }
           }
         }
@@ -140,5 +147,4 @@ export default {};
     }
   }
 }
-
 </style>
