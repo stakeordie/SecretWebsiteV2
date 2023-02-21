@@ -10,6 +10,7 @@
       class="cta-card__img"
       :src="data.image.url"
       alt="Resource icon"
+      loading="lazy"
     />
     <div class="cta-card__details">
       <h6 v-if="data.title">{{ data.title }}</h6>

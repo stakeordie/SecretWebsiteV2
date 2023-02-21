@@ -68,7 +68,6 @@ export default {
     getCtaContent() {
       this.ctaGroup = this.ctas;
       this.ctaGroupColumns = this.ctaGroup.length;
-      // console.log(this.ctaGroup);
     },
   },
   beforeMount() {
@@ -104,8 +103,6 @@ export default {
       @include respond-to("<=s") {
         grid-template-columns: 1fr;
       }
-      &.center-middle {
-      }
     }
   }
   @include respond-to("<=s") {
@@ -116,7 +113,6 @@ export default {
       padding: 16px;
       text-align: center;
       max-width: 360px;
-      // margin: auto;
       @include respond-to("l") {
         padding: 0;
       }

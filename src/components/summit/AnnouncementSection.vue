@@ -10,7 +10,8 @@
       >
         <img
           src="../../assets/events/summit/check-circle-light.svg"
-          alt="check icon"
+          alt="Blue check icon"
+          loading="lazy"
         />
         <span>{{ data.cta_button.title }}</span>
       </a>

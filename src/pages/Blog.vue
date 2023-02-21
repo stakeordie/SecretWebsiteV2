@@ -6,6 +6,8 @@
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-purple-top.svg"
+          alt="Purple swirl top graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -20,10 +22,14 @@
 
       <block class="justify-right">
         <button class="theme padding-small control" @click="scroll_left">
-          <img src="../assets/icon-circle-left.svg" alt="left" />
+          <img src="../assets/icon-circle-left.svg" alt="left" loading="lazy" />
         </button>
         <button class="theme padding-small control" @click="scroll_right">
-          <img src="../assets/icon-circle-right.svg" alt="right" />
+          <img
+            src="../assets/icon-circle-right.svg"
+            alt="right"
+            loading="lazy"
+          />
         </button>
       </block>
     </column>
@@ -54,6 +60,8 @@
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-purple-bottom.svg"
+          alt="Purple swirl bottom graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -65,7 +73,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import BlogFeaturedPostsV2 from "../components/blog/BlogFeaturedPostsV2.vue";
 import BlogFilterV2 from "../components/blog/BlogFilterV2.vue";
 import BlogPostsV2 from "../components/blog/BlogPostsV2.vue";
-import { canonicalTag, metaDataArray, pageMetaData } from '../utils';
+import { canonicalTag, metaDataArray, pageMetaData } from "../utils";
 
 export default {
   components: {
@@ -77,7 +85,7 @@ export default {
   metaInfo() {
     return {
       title:
-      "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
+        "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
       meta: metaDataArray(this.getMetaData),
       link: canonicalTag(this.getMetaData),
     };

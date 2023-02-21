@@ -8,12 +8,14 @@
             <h5>Recommended</h5>
           </div>
           <div
-            class="
-              page-get-scrt__wallets__content__recommended__recommended-cards
-            "
+            class="page-get-scrt__wallets__content__recommended__recommended-cards"
           >
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/keplr_icon.png" alt="Keplr" />
+              <img
+                src="../../assets/keplr_icon.png"
+                alt="Keplr"
+                loading="lazy"
+              />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Keplr</h5>
                 <p>
@@ -30,6 +32,7 @@
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
+                    loading="lazy"
                   />
                 </a>
                 <a
@@ -40,6 +43,7 @@
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -59,12 +63,17 @@
               <img
                 src="../../assets/icon-arrow-right.svg"
                 alt="External Link"
+                loading="lazy"
               />
             </a>
           </div>
           <div class="page-get-scrt__wallets__content__other__other-cards">
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/citadelone-icon.png" alt="Citadel.One" />
+              <img
+                src="../../assets/citadelone-icon.png"
+                alt="Cita del One"
+                loading="lazy"
+              />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Citadel.One</h5>
                 <p>
@@ -81,6 +90,7 @@
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -89,6 +99,7 @@
               <img
                 src="../../assets/cosmostation-icon.png"
                 alt="Cosmostation"
+                loading="lazy"
               />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>Cosmostation</h5>
@@ -105,12 +116,17 @@
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
+                    loading="lazy"
                   />
                 </a>
               </div>
             </div>
             <div class="page-get-scrt__wallets__card">
-              <img src="../../assets/ledger-nano-icon.png" alt="LedgerNano" />
+              <img
+                src="../../assets/ledger-nano-icon.png"
+                alt="Ledger Nano"
+                loading="lazy"
+              />
               <div class="page-get-scrt__wallets__card__card-content">
                 <h5>LedgerNano</h5>
                 <p>
@@ -127,6 +143,7 @@
                   <img
                     src="../../assets/icon-arrow-external-blue.svg"
                     alt="External Link"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -145,7 +162,7 @@ export default {};
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.about-get-scrt{
+.about-get-scrt {
   .content {
     .box {
       .page-get-scrt {
@@ -207,8 +224,8 @@ export default {};
                   transform: translateY(-1px);
                 }
 
-                &:hover p{
-                  color: var(--theme-links-hover)
+                &:hover p {
+                  color: var(--theme-links-hover);
                 }
               }
             }
@@ -295,8 +312,8 @@ export default {};
                   }
                 }
 
-                &:hover p{
-                  color: var(--theme-links-hover)
+                &:hover p {
+                  color: var(--theme-links-hover);
                 }
               }
 
@@ -320,18 +337,6 @@ export default {};
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 .about-get-scrt-v2 {
   .content {

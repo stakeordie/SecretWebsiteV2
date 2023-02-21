@@ -7,7 +7,7 @@
       :style="textColor"
     />
     <button @click="closeAlert" class="close-alert">
-      <img src="../assets/icon-menu-close.svg" alt="close" />
+      <img src="../assets/icon-menu-close.svg" alt="close" loading="lazy" />
     </button>
   </div>
 </template>

@@ -13,7 +13,13 @@
       </h4>
       <h1 class="dimensions">{{ width }} x {{ height }}</h1>
       <div class="upload">
-        <img src="../assets/software-upload.svg" width="24" height="24" />
+        <img
+          src="../assets/software-upload.svg"
+          width="24"
+          height="24"
+          alt="Upload icon"
+          loading="lazy"
+        />
         <p>Click to select an asset or drag & drop a file in this area</p>
       </div>
       <input
@@ -25,7 +31,7 @@
       />
     </div>
     <div class="image" v-else @click="deleteImage()">
-      <img :src="localImage" />
+      <img :src="localImage" alt="Local image" loading="lazy" />
     </div>
   </div>
 </template>

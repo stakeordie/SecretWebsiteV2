@@ -17,6 +17,7 @@
               class="card-element__header__logo"
               :src="element.logo.url"
               alt="picture"
+              loading="lazy"
             />
             <!-- Categorie tags -->
             <div class="meta meta--with-categories">
@@ -40,9 +41,6 @@
               </p>
             </div>
           </div>
-          <!-- <btn class="ecosystem" url="">{{
-            element.cta_title ? element.cta_title : "VISIT SITE"
-          }}</btn> -->
         </a>
       </div>
     </div>
@@ -77,8 +75,6 @@ export default {
         ".media-featured > .--flare-block > .content > .box"
       );
       content.scrollLeft += 390;
-      // console.log("right");
-      // console.log(content);
     },
 
     onFilterApplied(filters) {
@@ -150,8 +146,6 @@ export default {
       background: var(--theme-card-bg-default);
       transition: 0.2s ease;
       display: inline-flex;
-      // gap: var(--f-gutter);
-      // flex-direction: column;
       text-align: center;
       border-radius: 10px;
       max-width: 300px;
@@ -166,7 +160,6 @@ export default {
       * {
         margin: 0;
       }
-      // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
       &__overall-link {
         display: grid;
         gap: var(--f-gutter);
@@ -200,7 +193,6 @@ export default {
         .meta {
           display: grid;
           justify-items: end;
-          // gap: 8px;
         }
         &__tags {
           display: flex;
@@ -239,10 +231,6 @@ export default {
         aspect-ratio: 1 / 1;
       }
 
-      // &:hover {
-      //   transform: var(--card-hover-transform);
-      //   box-shadow: var(--card-hover-shadow) var(--accent-gray);
-      // }
       &:hover {
         background: var(--color-neutral-dark-mode-04);
       }

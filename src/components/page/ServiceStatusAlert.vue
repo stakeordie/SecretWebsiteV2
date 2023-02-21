@@ -6,8 +6,9 @@
     >
       <img
         src="../../assets/icon-check2.svg"
-        alt=""
+        alt="Green check"
         class="service-status__alert__stable__icon"
+        loading="lazy"
       />
       <div class="service-status__alert__stable__content">
         <h6 class="service-status__alert__stable__content__title">
@@ -28,8 +29,9 @@
     <div class="service-status__alert__issues" v-else>
       <img
         src="../../assets/icon-exclamation.svg"
-        alt=""
+        alt="Warning icon"
         class="service-status__alert__issues-icon"
+        loading="lazy"
       />
       <div class="service-status__alert__issues__content">
         <h6 class="service-status__alert__issues__content__title">
@@ -121,7 +123,6 @@ export default {
     padding: var(--f-gutter);
     margin: var(--f-gutter-xl) 0;
 
-    
     &__content {
       display: grid;
       gap: 9.5px;
@@ -130,9 +131,8 @@ export default {
         margin-bottom: 0;
       }
 
-      &__text{
-
-        &__link{
+      &__text {
+        &__link {
           color: var(--color-newBrand-blue-02);
         }
       }
