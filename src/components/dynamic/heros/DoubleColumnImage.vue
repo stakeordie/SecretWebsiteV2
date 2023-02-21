@@ -11,28 +11,22 @@
 
         <div class="content-hero col-2" v-if="content">
           <div class="content-hero__header">
-            <h5
+            <DynamicEyebrowTitle
               v-if="content.eyebrow_title"
-              class="content-hero__header__eyebrow"
-              :class="titlePosition"
-              :style="eyebrowColor"
-            >
-              {{ content.eyebrow_title }}
-            </h5>
-            <component
+              :title="content.eyebrow_title"
+              :alignment="sizes.title_alignment"
+              :color="content.eyebrow_color"
+            />
+            <DynamicTitle
               v-if="content.title && !content.custom_title"
-              class="content-hero__header__title"
-              :is="defaultTitle"
-              :class="[titlePosition, titleWeight]"
-            >
-              {{ content.title }}
-            </component>
-            <VueMarkdown
+              :title="content.title"
+              :weight="sizes.title_weight"
+              :alignment="sizes.title_alignment"
+            />
+            <DynamicCustomTitle
               v-else-if="content.custom_title"
-              class="content-hero__header__custom-title"
-              :class="titlePosition"
-              :source="content.custom_title"
-              :style="customTitleColor"
+              :content="content"
+              :sizes="sizes"
             />
           </div>
           <VueMarkdown
@@ -50,9 +44,11 @@
 <script>
 import { sizes } from "../../../utils";
 import DynamicButtons from "../basic/DynamicButtons.vue";
+import DynamicCustomTitle from "../basic/DynamicCustomTitle.vue";
+import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
 
 export default {
-  components: { DynamicButtons },
+  components: { DynamicButtons, DynamicEyebrowTitle, DynamicCustomTitle },
   props: {
     image: {
       type: Object,
@@ -80,28 +76,6 @@ export default {
     },
   },
   computed: {
-    defaultTitle() {
-      const weight = this.sizes.title_weight;
-      if (!weight || weight === "") {
-        return "H1";
-      } else if (weight === "H2.5") {
-        return "H2";
-      } else {
-        return weight;
-      }
-    },
-    titlePosition() {
-      if (this.sizes.title_alignment === "center") {
-        return "title-center";
-      } else if (this.sizes.title_alignment === "right") {
-        return "title-right";
-      } else {
-        return "title-left";
-      }
-    },
-    titleWeight() {
-      return this.sizes.title_weight === "H2.5" ? "title-25" : "";
-    },
     imagePosition() {
       return this.image_position === "right" ? "image-right" : "image-left";
     },
@@ -112,20 +86,6 @@ export default {
     paddingBottom() {
       const size = sizes[this.sizes.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-    eyebrowColor() {
-      const color = this.content.eyebrow_color;
-      const defaultColor = "var(--color-ver2-primary-orange)";
-      return {
-        color: color ? color : defaultColor,
-      };
-    },
-    customTitleColor() {
-      const color = this.content.custom_title_color;
-      const textColor = color ? color : "var(--color-analog-primary-white)";
-      return {
-        "--title-color": textColor,
-      };
     },
   },
 };
@@ -167,29 +127,12 @@ export default {
     }
 
     &__header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
       * {
         margin: 0;
-      }
-
-      &__eyebrow {
-        font-family: "Montserrat";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 25px;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-        color: var(--color-ver2-primary-orange);
-      }
-
-      &__custom-title {
-        * {
-          font-family: "Montserrat";
-        }
-
-        strong {
-          color: var(--title-color);
-        }
       }
     }
 

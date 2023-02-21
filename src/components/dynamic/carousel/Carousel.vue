@@ -6,7 +6,7 @@
       :class="[
         dynamic_learn_article_group
           ? `carouselId-${dynamic_learn_article_group.id}`
-          : '',
+          : ''
       ]"
     >
       <div class="learn-carousel__header">
@@ -17,7 +17,7 @@
         <div class="learn-carousel__header__controls">
           <button class="theme padding-small control" @click="scroll('left')">
             <img
-              src="../../assets/icon-circle-left.svg"
+              src="@/assets/icon-circle-left.svg"
               alt="left"
               loading="lazy"
             />
@@ -25,7 +25,7 @@
 
           <button class="theme padding-small control" @click="scroll('right')">
             <img
-              src="../../assets/icon-circle-right.svg"
+              src="@/assets/icon-circle-right.svg"
               alt="right"
               loading="lazy"
             />
@@ -37,9 +37,8 @@
         v-if="dynamic_learn_article_group"
       >
         <CarouselCard
-          v-for="(
-            element, index
-          ) in dynamic_learn_article_group.dynamic_learn_articles"
+          v-for="(element,
+          index) in dynamic_learn_article_group.dynamic_learn_articles"
           :key="index"
           :data="element"
         />
@@ -56,7 +55,7 @@
 </template>
 
 <script>
-import CarouselCard from "./cards/CarouselCard.vue";
+import CarouselCard from "../cards/CarouselCard.vue";
 
 export default {
   props: {
@@ -64,14 +63,14 @@ export default {
     title: String,
     subtitle: String,
     card_image: Object,
-    searchDataset: Object,
+    searchDataset: Object
   },
   components: {
-    CarouselCard,
+    CarouselCard
   },
   data() {
     return {
-      idCarousel: "",
+      idCarousel: ""
     };
   },
   methods: {
@@ -85,8 +84,8 @@ export default {
       } else {
         carouselBox.scrollLeft -= 390;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

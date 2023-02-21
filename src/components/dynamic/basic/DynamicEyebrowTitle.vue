@@ -52,4 +52,3 @@ export default {
   color: var(--eyebrow-title-color);
 }
 </style>
-
