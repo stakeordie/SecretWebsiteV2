@@ -11,6 +11,8 @@
           onerror="this.onerror=null;this.src='../blog-cover.jpg';"
           v-if="node.feature_image"
           :src="node.feature_image"
+          alt="Featured graphic"
+          loading="lazy"
         />
       </template>
       <template #tag v-if="node.primary_tag">
@@ -23,8 +25,16 @@
           onerror="this.onerror=null;this.src='../scrt-logo.png';"
           v-if="node.primary_author.profile_image"
           :src="node.primary_author.profile_image"
+          :alt="node.primary_author.name"
+          loading="lazy"
         />
-        <g-image picture v-else src="@/assets/scrt-logo.png" />
+        <g-image
+          picture
+          v-else
+          src="@/assets/scrt-logo.png"
+          alt="Secret Network logo"
+          loading="lazy"
+        />
         <div info class="author-info">
           <div>{{ node.primary_author.name }}</div>
           <div>{{ node.date }} &#8226; {{ node.reading_time }} min read</div>

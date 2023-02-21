@@ -9,7 +9,11 @@
             :key="index"
             class="card-secret-agent"
           >
-            <g-image :src="investor.image" />
+            <img
+              :src="investor.image"
+              :alt="altName(investor.image)"
+              loading="lazy"
+            />
           </div>
         </infinite-slide-bar>
       </div>
@@ -18,22 +22,11 @@
 </template>
 
 <script>
+import { uppercaseAllFirstLetter } from "../utils";
 export default {
   data() {
     return {
       secretInvestors: [
-        // { image: "/img/scentral-afterparty-supporters/alter-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/blackbox-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/btn-group-ogo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/digiline-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/hydro-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/legendao-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/jackal-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/secret-swap-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/shade-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/sienna-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/stakeasy-logo.svg" },
-        // { image: "/img/scentral-afterparty-supporters/stash-logo.svg" },
         { image: "/img/investor-Alameda.png" },
         { image: "/img/investor-Arca.png" },
         { image: "/img/investor-Arkstream.png" },
@@ -61,6 +54,12 @@ export default {
         { image: "/img/investor-Skyvision.png" },
       ],
     };
+  },
+  methods: {
+    altName(image) {
+      const title = image.split("/")[2].split(".")[0];
+      return uppercaseAllFirstLetter(title).split("-").join(" ");
+    },
   },
 };
 </script>

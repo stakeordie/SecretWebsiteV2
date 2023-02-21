@@ -1,7 +1,11 @@
 <template>
   <div class="ecosystem-roadmap-whats-been-built">
     <div class="ecosystem-roadmap-whats-been-built__left">
-      <img src="../../assets/illustration-space-city.png" alt="" />
+      <img
+        src="../../assets/illustration-space-city.png"
+        alt="Universe graphic"
+        loading="lazy"
+      />
     </div>
     <div class="ecosystem-roadmap-whats-been-built__right">
       <h3>See What’s Been Built</h3>

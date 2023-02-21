@@ -8,7 +8,7 @@
         :key="index"
       >
         <a :href="item.url" class="page-developer-advanced__cards__box__card">
-          <img :src="item.imageUrl" alt="" />
+          <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
           <div class="page-developer-advanced__cards__box__card__content">
             <h6>{{ item.title }}</h6>
             <p>{{ item.description }}</p>

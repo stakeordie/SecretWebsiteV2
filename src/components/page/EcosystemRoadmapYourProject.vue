@@ -4,6 +4,7 @@
       <img
         src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
         alt="Have questions"
+        loading="lazy"
       />
     </div>
     <div class="ecosystem-roadmap-get-your-project__content">
@@ -16,16 +17,18 @@
         <div class="list-item">
           <img
             src="../../assets/about-secret-network/check-circle-green.svg"
-            alt=""
+            alt="Green check"
             class="list-icon"
+            loading="lazy"
           />
           <p class="list-info">Has a unique name or code name</p>
         </div>
         <div class="list-item">
           <img
             src="../../assets/about-secret-network/check-circle-green.svg"
-            alt=""
+            alt="Green check"
             class="list-icon"
+            loading="lazy"
           />
           <p class="list-info">Has a clear value proposition for the network</p>
         </div>

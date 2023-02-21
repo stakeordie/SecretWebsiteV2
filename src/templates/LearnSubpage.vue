@@ -34,6 +34,8 @@
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-orange-bottom.svg"
+          alt="Orange swirl bottom graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -41,7 +43,12 @@
 </template>
 
 <script>
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag,
+} from "../utils";
 
 export default {
   metaInfo() {

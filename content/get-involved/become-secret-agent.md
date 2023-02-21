@@ -40,7 +40,7 @@ title: "Become a Secret Agent"
 
 <column class=" get-involved-become-secret-agent__join-mission">
   <block>
-  <secret-agent-email-form-banner />
+    <secret-agent-email-form-banner />
   </block>
 </column>
 
@@ -53,6 +53,6 @@ title: "Become a Secret Agent"
 <!-- Swirl bottom -->
 <column class="blue__swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" />
+    <img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
   </block>
 </column>

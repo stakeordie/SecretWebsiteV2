@@ -3,7 +3,7 @@
     <section class="page-grants__hero">
       <div class="page-grants__hero__content">
         <div class="page-grants__hero__content__image">
-          <img src="../../assets/grants-hero.svg" alt="" />
+          <img src="../../assets/grants-hero.svg" alt="Hero" loading="lazy"/>
         </div>
         <div class="page-grants__hero__content__info">
           <h5 class="page-grants__hero__content__info-label">GRANTS</h5>

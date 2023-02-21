@@ -1,9 +1,6 @@
 <template>
   <section class="new-home-contracts">
     <div class="new-home-contracts__header">
-      <!-- <h5 class="new-home-contracts__header-h5">
-              We made smart contracts private
-          </h5> -->
       <h3 class="new-home-contracts__header-h3">
         We made smart contracts private
       </h3>
@@ -18,17 +15,14 @@
         v-for="(item, index) in reasons"
         :key="index"
       >
-        <!-- <div class="feature-cont"> -->
         <div class="feature-cont__description">
-          <img :src="item.imageUrl" alt="" />
+          <img :src="item.imageUrl" :alt="item.btn" loading="lazy" />
           <h4>{{ item.title }}</h4>
           <p>{{ item.description }}</p>
         </div>
-        <btn class="text-center no-arrow" :url="item.btnUrl">{{
-          item.btn
-        }}</btn>
-        <!-- <a  :href="item.btnUrl" class="">{{item.btn}}</a> -->
-        <!-- </div> -->
+        <btn class="text-center no-arrow" :url="item.btnUrl">
+          {{ item.btn }}
+        </btn>
       </div>
     </div>
   </section>

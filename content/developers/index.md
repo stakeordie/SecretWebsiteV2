@@ -4,25 +4,25 @@ title: "Developer Resources"
 
 <column class="page-developers__hero-container">
   <block>
-    <developers-hero></developers-hero>
+    <developers-hero />
   </block>
 </column>
 
 <column>
   <block>
-    <developers-features></developers-features>
+    <developers-features />
   </block>
 </column>
 
 <column mode="full">
   <block>
-    <developers-university></developers-university>
+    <developers-university />
   </block>
 </column>
 
 <column>
   <block>
-    <developers-start-here></developers-start-here>
+    <developers-start-here />
   </block>
 </column>
 
@@ -60,7 +60,7 @@ title: "Developer Resources"
 
 <column class="page-developers__dev-questions">
   <block>
-    <developers-questions></developers-questions>
+    <developers-questions />
   </block>
 </column>
 
@@ -96,6 +96,6 @@ title: "Developer Resources"
 <!-- swirl -->
 <column class="developers__swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-dev-blue-bottom.svg" />
+    <img class="get-scrt__align-img" src="../../src/assets/swirl-dev-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
   </block>
 </column>

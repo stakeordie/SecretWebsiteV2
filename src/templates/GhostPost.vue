@@ -5,7 +5,9 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../../src/assets/swirl-purple-top.svg"
+          src="../assets/swirl-purple-top.svg"
+          alt="Purple swirl top graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -27,6 +29,8 @@
           onerror="this.onerror=null;this.src='../blog-cover.jpg';"
           picture
           :src="coverImage"
+          alt="Cover post graphic"
+          loading="lazy"
         />
         <blog-author class="info" :includeShareButtons="true">
           <div class="left">
@@ -34,6 +38,8 @@
               picture
               onerror="this.onerror=null;this.src='../scrt-logo.png';"
               :src="profileImage"
+              alt="Author picture"
+              loading="lazy"
             />
             <div class="author" info>
               <p>{{ $page.post.primary_author.name }}</p>
@@ -67,7 +73,9 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../../src/assets/swirl-purple-bottom.svg"
+          src="../assets/swirl-purple-bottom.svg"
+          alt="Purple swirl bottom graphic"
+          loading="lazy"
         />
       </block>
     </column>
