@@ -1,7 +1,11 @@
 <template>
   <div :class="['column-resource', paddingTop, paddingBottom]">
     <div class="column-resource__description">
-      <h5 v-if="eyebrow_title">{{ eyebrow_title }}</h5>
+      <DynamicEyebrowTitle
+        v-if="eyebrow_title"
+        :color="eyebrow_color"
+        :title="eyebrow_title"
+      />
       <h4 v-if="title">{{ title }}</h4>
       <p v-if="subtitle">{{ subtitle }}</p>
     </div>
@@ -10,7 +14,6 @@
         v-for="(resource, index) in cta_cards"
         :key="index"
         :data="resource"
-        :iconSize="icon_size"
       />
     </div>
   </div>
@@ -19,17 +22,42 @@
 <script>
 import ThreeColumnCard from "../cards/ThreeColumnCard.vue";
 import { sizes } from "../../../utils";
+import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
 
 export default {
   props: {
-    title: String,
-    eyebrow_title: String,
-    subtitle: String,
-    icon_size: String,
-    cta_cards: Array,
+    title: {
+      type: String,
+      required: false,
+    },
+    eyebrow_title: {
+      type: String,
+      required: false,
+    },
+    eyebrow_color: {
+      type: String,
+      required: false,
+    },
+    subtitle: {
+      type: String,
+      required: false,
+    },
+    cta_cards: {
+      type: Array,
+      required: false,
+    },
+    padding_top: {
+      type: String,
+      required: true,
+    },
+    padding_bottom: {
+      type: String,
+      required: true,
+    },
   },
   components: {
     ThreeColumnCard,
+    DynamicEyebrowTitle,
   },
   computed: {
     paddingTop() {
@@ -72,14 +100,6 @@ export default {
       border-right: solid 1px var(--color-neutral-dark-mode-04);
     }
 
-    h5 {
-      font-family: montserrat;
-      font-weight: 500;
-      line-height: 24px;
-      text-transform: uppercase;
-      color: var(--color-analog-secondary-orange);
-    }
-
     p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
@@ -90,6 +110,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px 32px;
+    align-self: start;
 
     @include respond-to(">=s") {
       grid-template-columns: repeat(2, 1fr);
