@@ -109,7 +109,7 @@ The `components/` folder contains all shared Vue components.
 
 #### Data Diagram
 
-<img alt ='Data entries SecretNetwork' src='./images/data-SecretNetwork-white.svg'  class='invert' alt="Secret Network Data diagram" loading="lazy"/>
+<img alt ='Data entries SecretNetwork' src='./images/data-SecretNetwork-white.svg'  class='invert' loading="lazy"/>
 
 All the content of Secret Network is coming from differents ends.
 
