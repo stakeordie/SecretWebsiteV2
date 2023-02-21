@@ -5,7 +5,12 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img class="cta-card__img" :src="getImage" alt="Resource icon" />
+    <img
+      class="cta-card__img"
+      :src="getImage"
+      alt="Resource icon"
+      loading="lazy"
+    />
     <div class="cta-card__details">
       <h6>{{ data.title }}</h6>
       <p>{{ data.body }}</p>

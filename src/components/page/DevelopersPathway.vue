@@ -18,7 +18,11 @@
             <a :href="resource.cta_url">
               <li class="page-developer-pathway__content__box__item">
                 <div class="page-developer-pathway__content__box__item__icon">
-                  <img src="../../assets/icon-features-file.svg" alt="" />
+                  <img
+                    src="../../assets/icon-features-file.svg"
+                    alt="File icon"
+                    loading="lazy"
+                  />
                 </div>
                 <div
                   class="page-developer-pathway__content__box__item__details"
@@ -33,23 +37,6 @@
             </a>
           </ul>
         </div>
-        <!-- <div class="page-developer-pathway__content__box" v-for="(resource, index) in path.items" :key="index">
-        <ul :url="resource.url">
-          <li class="page-developer-pathway__content__box__item" >
-            <div class="page-developer-pathway__content__box__item__icon">
-              <img :src="resource.image" alt="" />
-            </div>
-            <div class="page-developer-pathway__content__box__item__details" >
-              <h6>{{ resource.title }}</h6>
-              <p>{{ resource.description }}</p>
-              <btn class="link-arrow" :url="resource.url">{{
-                resource.urlTitle
-              }}</btn>
-            </div>
-          </li>
-        
-        </ul>
-        </div> -->
       </div>
     </div>
   </section>

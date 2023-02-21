@@ -7,7 +7,7 @@
         v-for="(item, index) in reasons"
         :key="index"
       >
-        <img :src="item.imageUrl" alt="" />
+        <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
         <h6>{{ item.title }}</h6>
         <p>{{ item.description }}</p>
       </div>

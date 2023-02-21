@@ -5,17 +5,16 @@ title: "Secret Network"
 <!-- Home Hero-->
 <column class="new-home__cover " mode="full">
   <block class="new-home__cover__full-w">
-  <new-home-hero></new-home-hero>
+  <new-home-hero />
   </block>
 </column>
 
 <!-- Logo Carousel -->
-
-<logo-carousel></logo-carousel>
+<logo-carousel />
 
 <column class=" spacer-s " >
   <block>
-    <new-home-contracts></new-home-contracts>
+    <new-home-contracts />
   </block>
 </column>
 
@@ -27,14 +26,14 @@ title: "Secret Network"
 
 </block>
 <block class="justify-right">
-<scroll-horizontal></scroll-horizontal>
+<scroll-horizontal />
 </block>
 </column>
 
 <!-- Horizontal Scroll -->
 <column class="page-developers__cool-stuff  horizontal-slider" mode="full">
   <block >
-    <developers-cool-stuff></developers-cool-stuff>
+    <developers-cool-stuff />
   </block>
 </column>
 
@@ -46,8 +45,7 @@ title: "Secret Network"
 
 <column class="spacer-s">
   <block>
-    <new-home-call-action>
-    </new-home-call-action>
+    <new-home-call-action />
   </block>
 </column>
 
@@ -60,15 +58,13 @@ title: "Secret Network"
 <!-- Blog cards -->
 <column class=" new-home__bg">
   <block>
-    <new-blog-latest-posts class="latest-blog-cards"></new-blog-latest-posts>
+    <new-blog-latest-posts class="latest-blog-cards" />
   </block>
 </column>
 
 <!-- Home featured media -->
 <column class="new-home__bg__bottom space-top new-home__block-header">
   <block>
-    <!--<new-home-featured-media /> CMS: Home - Featured Media -->
-    <!-- NewMediaFeaturedHomeV2 -->
     <new-media-featured-home-v2 >
     </new-media-featured-home-v2>
   </block>
@@ -76,20 +72,19 @@ title: "Secret Network"
 
 <column class="spacer-s">
   <block>
-    <new-home-mission>
-    </new-home-mission>
+    <new-home-mission />
   </block>
 </column>
 
 <!-- General CTAs -->
 <column class="spacer-s" number="3" number-m="2" number-s="1">
   <block >
-    <general-ctas id="get-started"></general-ctas>
+    <general-ctas id="get-started" />
   </block>
   <block >
-    <general-ctas id="build-on-secret"></general-ctas>
+    <general-ctas id="build-on-secret" />
   </block>
   <block >
-    <general-ctas id="join-the-community"></general-ctas>
+    <general-ctas id="join-the-community" />
   </block>
 </column >

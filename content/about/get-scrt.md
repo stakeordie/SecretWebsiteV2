@@ -2,80 +2,45 @@
 title: "Get SCRT"
 ---
 
-
-
-
-
 <column class=" get-scrt__cover">
-
-<block>
-
-<get-scrt-hero></get-scrt-hero>
-
-</block>
-
+  <block>
+    <get-scrt-hero />
+  </block>
 </column>
 
-
-
-
-
 <column class="spacer-s get-scrt__bg-black" number="2" number-m="1" number-s="1">
-
 <block >
-
 <div >
-
-<img class="get-scrt__align-img" src="../../src/assets/get-scrt/get-scrt-coin.png" />
-    
+<img class="get-scrt__align-img" src="../../src/assets/get-scrt/get-scrt-coin.png" alt="Secret coin" loading="lazy"/>
 </div>
-
 </block>
 
 <block class="get-scrt__block-align">
-
 <div>
 
 ##### ABOUT
 
-<h3 class="h3-scrt-logo"><img src="../../src/assets/getscrt-filled-icon.svg" /> <span>SCRT</span></h3>
-    
+<h3 class="h3-scrt-logo"><img src="../../src/assets/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy"/> <span>SCRT</span></h3>
 <p class="get-scrt__p-left">Secret (SCRT) is a cryptocurrency and the native coin of the Secret Network blockchain. Just like Ether (ETH) and Bitcoin (BTC), you hold your Secret (SCRT) in a wallet and spend it when you want to use Secret Network. You can also stake it or use it to participate in governance.</p> 
-    
 </div>
-
 </block>
-
 </column>
 
- 
-
-
-
-
-
-
-
 <column class="spacer-s store-scrt" >
-
 <block class="">
-
 <div class="get-scrt__text-block">
 
 ##### STORE SCRT
 
 ### What wallets to use
-    
+
 <p class="get-scrt__p">To store, stake, or use SCRT for gas on the network, you’ll need a wallet. Luckily there are plenty of options including hardware solutions, browsers extensions, and mobile wallets.</p>
-    
 </div>
 
-<get-scrt-wallets></get-scrt-wallets>
+<get-scrt-wallets />
 
 <div class="get-scrt__privacy">
-
 <div class="get-scrt__privacy__text-box">
-
 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_4823_129025)">
 <g clip-path="url(#clip1_4823_129025)">
@@ -92,114 +57,48 @@ title: "Get SCRT"
 </clipPath>
 </defs>
 </svg>
-
-    
 <p class="get-scrt__privacy__text-box__p">Want to set up a completely private wallet that can’t be linked to your identity in any way? Check out <a href="https://medium.com/@secretnetwork/secret-network-access-control-viewing-keys-vs-permits-97baad539e72">this tutorial</a> to find out how.</p>
-    
 </div>
-
 </div>
-
 </block>
-
 </column>
 
-
-
-
-
-
-
-
-
 <column>
-
 <block>
-
 <div class="get-scrt__text-block">
 
 ##### BUY SCRT
 
-<h3 class="h3-scrt-logo"><span>Where to get</span> <img src="../../src/assets/getscrt-filled-icon.svg" /> <span>SCRT</span></h3>
-    
+<h3 class="h3-scrt-logo"><span>Where to get</span> <img src="../../src/assets/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy" /> <span>SCRT</span></h3>
 <p class=" get-scrt__p">Here are the different ways to get SCRT, from beginner to pro. Note: what methods you can use depend on your jurisdiction (i.e. the country you live in).</p>
-    
 </div>
 
-<get-scrt-buy class="" pathId="1"></get-scrt-buy>
-
+<get-scrt-buy class="" pathId="1" />
 <p class="get-scrt__p-small ">*Not Available in the U.S. See <a href="#">this article</a> for guidance on how to get SCRT in the U.S.</p>
-
-<get-scrt-buy  pathId="2"></get-scrt-buy>
-<get-scrt-buy-by-groups class="get-scrt__exchanges" pathId="3"></get-scrt-buy-by-groups>
-<get-scrt-buy  pathId="4"></get-scrt-buy>
-
+<get-scrt-buy  pathId="2" />
+<get-scrt-buy-by-groups class="get-scrt__exchanges" pathId="3" />
+<get-scrt-buy  pathId="4" />
 </block>
-
 </column>
-
-
-
-
-
-
-
-
-
-
 
 <!-- Convert sSCRT to SCRT -->
 <column class="">
-
-<block>
-
-<get-scrt-convert-sscrt-v2>
-    
-</get-scrt-convert-sscrt-v2>
-
-</block>
-
+  <block>
+    <get-scrt-convert-sscrt-v2 />
+  </block>
 </column>
-
-
-
-
-
-
-
-
 
 <column class="spacer-s page-developers__dev-questions">
-
-<block>
-
-<get-scrt-questions></get-scrt-questions>
-
-</block>
-
+  <block>
+    <get-scrt-questions />
+  </block>
 </column>
 
-
-
-
-
-
-
-
-
-
 <column class="" number="2" number-m="2" number-s="1">
-
-<block>
-
-<general-ctas id="build-on-secret"></general-ctas>
-
-</block>
-
-<block >
-
-<general-ctas id="join-the-community"></general-ctas>
-
-</block>
-
+  <block>
+    <general-ctas id="build-on-secret" />
+  </block>
+  <block>
+    <general-ctas id="join-the-community" />
+  </block>
 </column >

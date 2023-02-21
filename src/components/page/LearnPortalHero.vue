@@ -2,8 +2,9 @@
   <section class="learn-portal-hero__container">
     <img
       src="../../assets/learn-portal/learn-hero-img.svg"
-      alt=""
+      alt="Secret Network color graphic"
       class="learn-portal-hero__img"
+      loading="lazy"
     />
     <div class="learn-portal-hero__container__content">
       <h4 class="learn-portal__eyebrow">ARTICLES, GUIDES, & TUTORIALS</h4>

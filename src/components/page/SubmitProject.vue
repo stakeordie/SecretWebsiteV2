@@ -8,11 +8,12 @@
         <h3>Add Your Project to the Roadmap</h3>
         <p>
           The Secret Network ecosystem roadmap is a community effort, stewarded
-          by the Secret <span class="breakline">
-            Foundation, to showcase all the projects currently in
-            development. Any developer can
-          </span> request to add their project to the
-          roadmap.
+          by the Secret
+          <span class="breakline">
+            Foundation, to showcase all the projects currently in development.
+            Any developer can
+          </span>
+          request to add their project to the roadmap.
         </p>
       </div>
     </div>
@@ -252,7 +253,8 @@
         Project Submitted!
       </h3>
       <p>
-        Thank you for submitting your project. A member of the Secret Foundation will be in touch to help include your project on the roadmap.
+        Thank you for submitting your project. A member of the Secret Foundation
+        will be in touch to help include your project on the roadmap.
       </p>
 
       <btn class="text-center no-arrow" url="/ecosystem/ecosystem-roadmap"
@@ -356,8 +358,6 @@ export default {
             markAsValid(element);
           }
         });
-        // e.preventDefault();
-        // console.log(e.target);
       });
     },
   },
@@ -382,9 +382,7 @@ export default {
         display: grid;
         justify-items: center;
         text-align: center;
-        // gap: var(--f-gutter);
         &__eyebrow {
-          
           margin-bottom: 0;
           font-family: var(--f-default-text-font);
           letter-spacing: 1px;
@@ -393,12 +391,9 @@ export default {
         }
         .breakline {
           @include respond-to(">=l") {
-           display: block;       
+            display: block;
           }
         }
-        // * {
-        //   margin: 0;
-        // }
       }
     }
   }
@@ -424,7 +419,6 @@ export default {
         padding-bottom: calc(var(--f-gutter) + 5px);
       }
       .developer-info {
-        // padding-top: 0;
         padding-bottom: var(--f-gutter-xxs);
       }
     }
@@ -451,9 +445,6 @@ export default {
         max-height: 38px;
         margin-bottom: 5px;
 
-        // &:invalid {
-        //   transform: scale(2);
-        // }
         &.invalid {
           border: 1px solid var(--color-ver2-primary-red);
         }
@@ -507,7 +498,6 @@ export default {
     }
     .description-invalid {
       color: var(--color-ver2-primary-red);
-      // display: none;
     }
     .radio {
       display: grid;
@@ -571,13 +561,10 @@ export default {
       }
     }
     .submit-form {
-      // max-width: 300px;
       margin-top: 26px;
       min-height: 46px;
       background: var(--color-neutral-dark-mode-04);
       width: 300px;
-      // color: var(--theme-bg);
-
       font-weight: 700;
       font-family: var(--f-default-text-font);
       letter-spacing: 1px;
@@ -603,7 +590,6 @@ export default {
     }
     h3 {
       display: flex;
-      // color: var(--color-analog-secondary-green);
       gap: 12px;
       justify-content: center;
     }

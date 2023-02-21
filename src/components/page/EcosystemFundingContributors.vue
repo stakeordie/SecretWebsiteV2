@@ -11,8 +11,9 @@
         v-for="(item, index) in reasons"
         :key="index"
         :src="item.imageUrl"
-        alt=""
+        alt="Contributor logo"
         class="page-ecosystem__contributors__img"
+        loading="lazy"
       />
     </div>
   </section>

@@ -4,7 +4,8 @@
       <img
         class="general-ctas__item__card__img"
         :src="ctaContent.imageUrl"
-        alt=""
+        :alt="ctaContent.title"
+        loading="lazy"
       />
       <h4 class="general-ctas__item__card__h4">{{ ctaContent.title }}</h4>
       <p class="general-ctas__item__card__p">{{ ctaContent.description }}</p>

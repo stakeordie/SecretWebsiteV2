@@ -1,13 +1,6 @@
 ---
-title: 'Brand'
+title: "Brand"
 ---
-
-
-
-
-
-
-
 
 <!-- Page title -->
 <column mode="normal">
@@ -20,17 +13,8 @@ title: 'Brand'
 </block>
 </column>
 
-
-
-
-
-
-
-
-
 <!-- content -->
 <column class="spacer-s" number="2" number-m="2" number-s="1">
-
 <block>
 
 ### Mission Statement
@@ -38,7 +22,6 @@ title: 'Brand'
 We build groundbreaking privacy technologies with a focus on increasing usability and adoption. We empower our own community to contribute directly to the success of our network and its applications, and we enable them to directly benefit from its growth. We are passionate and inclusive. We maintain a global presence. We work hard towards driving usage and awareness. We educate and cultivate our community. We build relationships and partnerships across the world so that people everywhere can benefit from privacy.
 
 </block>
-
 <block>
 
 ### Vision Statement
@@ -47,101 +30,48 @@ By solving for data privacy, Secret Network will become a foundational pillar of
 Providing privacy and protecting data is critical for empowering people, protecting their freedoms, and unlocking value for users all around the world. We strive to build a sustainable network, ecosystem, and community that will work towards global adoption of our technologies.
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
-
 
 <!-- our visual brand is... -->
 <column class="spacer-s text-center color-change">
-
 <block>
 
 ## Our Visual Brand is <span class="breakpoint-control"><typical :steps="['Humanist', 2000, 'Organic', 2000, 'Illustrated', 2000, 'Flowing', 2000, 'Striking', 2000]" :loop="Infinity" :wrapper="'span'"></typical>.</span>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- download brandbook -->
 <column class="text-center spacer-s">
-
 <block>
 
 <btn class="bg-invert no-arrow" type="submit" url="/SecretNetwork_BrandBook_Version01.pdf" target="blank" rel="noopener noreferrer">Download our brandbook</btn>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column mode="slim">
-
 <block>
 
 ## Logo
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column mode="slim">
-
 <block>
 
 ### Icon
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- icon -->
 <column class="spacer-s img-invert" mode="slim" weight="right" number="2" number-m="2" number-s="1">
-
 <block>
-
-<img src="../src/assets/logo-seal-outline-white.svg"/>
-
+<img src="../src/assets/logo-seal-outline-white.svg" alt="Secret Logo" loading="lazy"/>
 </block>
 
 <block>
@@ -154,38 +84,19 @@ The interior of the S is private, an enclave that encloses the activity of the n
 The overall shape of the S is reminiscent of a yin-yang, again reflecting the duality of a privacy-preserving network — a deeply humanist technology.
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column mode="slim">
-
 <block>
 
 ### Primary Logo
 
 </block>
-
 </column>
-
-
-
-
-
-
-
 
 <!-- primary logo -->
 <column class="text-center assets" mode="slim" number="2">
-
 <block>
 
 ![Primary logo - White](../src/assets/brandbook/primary-logo-white.png)
@@ -194,7 +105,6 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <a href="/secretnetwork-logo-primary-black.png">PNG</a>
 
 </block>
-
 <block>
 
 ![Primary logo - Black](../src/assets/brandbook/primary-logo-black.png)
@@ -203,39 +113,19 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <a href="/secretnetwork-logo-primary-white.png">PNG</a>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column mode="slim">
-
 <block>
 
 ### Secondary Logo
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- Secondary logo -->
 <column class="text-center spacer-s" mode="slim" number="2">
-
 <block>
 
 ![Secondary logo - White](../src/assets/brandbook/secondary-logo-white.png)
@@ -244,7 +134,6 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <a href="/secretnetwork-logo-secondary-black.png">PNG</a>
 
 </block>
-
 <block>
 
 ![Secondary logo - Black](../src/assets/brandbook/secondary-logo-black.png)
@@ -253,38 +142,19 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <a href="/secretnetwork-logo-secondary-white.png">PNG</a>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column mode="slim">
-
 <block>
 
 ### Typography
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- typography -->
 <column class="spacer-s" mode="slim">
-
 <block>
 
 # Heading 1 <br>Hind Bold (700)
@@ -302,36 +172,19 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 Hind Regular is used body copy, and **Hind Bold is used for bold body copy, buttons and alerts.**
 
 </block>
-
 </column>
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column>
-
 <block>
 
 ## Paint Swirl
 
 </block>
-
 </column>
-
-
-
-
-
-
 
 <!-- paint swirl -->
 <column class="text-center header-left" number="2">
-
 <block>
 
 ### Analog Colors
@@ -342,7 +195,6 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 <a href="/analog.png">PNG</a>
 
 </block>
-
 <block>
 
 ### High Key Colors
@@ -353,39 +205,19 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 <a href="/high-key.png">PNG</a>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- header block -->
 <column>
-
 <block>
 
 ### Topographical Map
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- topographical map -->
 <column class="spacer-s text-center" number="2">
-
 <block>
 
 ![Topographical Map - White background](../src/assets/brandbook/topographical-white.png)
@@ -394,7 +226,6 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 <a href="/topographical-white.png">PNG</a>
 
 </block>
-
 <block>
 
 ![Topographical Map - Black Background](../src/assets/brandbook/topographical-black.png)
@@ -403,24 +234,11 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 <a href="/topographical-black.png">PNG</a>
 
 </block>
-
 </column>
-
-
-
-
-
-
-
-
 
 <!-- colors -->
 <column>
-
-<block>
-
-<colors></colors>
-
-</block>
-
+  <block>
+    <colors />
+  </block>
 </column>
