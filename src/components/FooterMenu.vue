@@ -29,6 +29,7 @@
                   class="nav__expanded__content__item__link-icon"
                   src="../assets/icon-arrow-external-blue.svg"
                   alt="External Link"
+                  loading="lazy"
                 />
               </g-link>
             </li>

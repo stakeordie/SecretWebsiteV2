@@ -2,15 +2,20 @@
   <section class="new-blog-grid">
     <div class="new-blog-grid__title">
       <h5 class="new-blog-grid__title-h5">BLOG POSTS</h5>
-      
-      <div class="new-blog-grid__title-btns">
-        <btn class="link-arrow " style="color: var(--theme-links-default); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</btn>
-      </div>
 
-      <!-- <div class="new-blog-grid__title-btns">
-        <a class="link-arrow " style="color:var(--color-newBrand-blue-02); margin-top:0; padding:0 12px; justify-content:right" url="/blog">VIEW ALL</a>
-       
-      </div> -->
+      <div class="new-blog-grid__title-btns">
+        <btn
+          class="link-arrow"
+          style="
+            color: var(--theme-links-default);
+            margin-top: 0;
+            padding: 0 12px;
+            justify-content: right;
+          "
+          url="/blog"
+          >VIEW ALL</btn
+        >
+      </div>
     </div>
     <div class="new-blog-grid__container">
       <new-blog-card
@@ -19,21 +24,34 @@
         :tag="node.primary_tag != null ? node.primary_tag.name : ''"
         :slug="node.slug"
       >
-        <template #image
-          ><g-image onerror="this.onerror=null;this.src='../scrt-logo.png';" :src="node.feature_image"></g-image
-        ></template>
-        <template #tag v-if="node.primary_tag">{{
-          node.primary_tag.name
-        }}</template>
+        <template #image>
+          <g-image
+            onerror="this.onerror=null;this.src='../scrt-logo.png';"
+            :src="node.feature_image"
+            alt="Post image"
+            loading="lazy"
+          />
+        </template>
+        <template #tag v-if="node.primary_tag">
+          {{ node.primary_tag.name }}
+        </template>
         <h5>{{ node.title }}</h5>
-        <!-- <p>{{ node.description | truncate }}</p> -->
         <template #footer>
           <g-image
-            picture onerror="this.onerror=null;this.src='../scrt-logo.png';"
+            picture
+            onerror="this.onerror=null;this.src='../scrt-logo.png';"
             v-if="node.primary_author.profile_image"
             :src="node.primary_author.profile_image"
-          ></g-image>
-          <g-image picture v-else src="@/assets/scrt-logo.png"></g-image>
+            :alt="node.primary_author.name"
+            loading="lazy"
+          />
+          <g-image
+            picture
+            v-else
+            src="@/assets/scrt-logo.png"
+            alt="Secret Network logo"
+            loading="lazy"
+          />
           <div info class="author-info">
             <p>{{ node.primary_author.name }}</p>
             <p>{{ node.date }} · {{ node.reading_time }} min read</p>
@@ -45,7 +63,6 @@
 </template>
 
 <script>
-
 const truncateSize = 200;
 
 export default {
@@ -71,7 +88,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
@@ -125,7 +141,7 @@ export default {
 
     @include respond-to("<=m") {
       //grid-template-columns: repeat(2, 1fr);
-       gap: var(--f-gutter-s);
+      gap: var(--f-gutter-s);
     }
 
     @include respond-to("<=s") {

@@ -14,6 +14,7 @@
           class="hero-mixed-side-right-img"
           :src="element.heroImage.url"
           alt="hero image"
+          loading="lazy"
         />
       </div>
     </block>

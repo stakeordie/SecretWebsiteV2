@@ -16,6 +16,7 @@
         alt="arrow"
         width="20"
         height="20"
+        loading="lazy"
       />
       <img
         light
@@ -24,6 +25,7 @@
         alt="arrow"
         width="20"
         height="20"
+        loading="lazy"
       />
     </themed-image>
   </a>

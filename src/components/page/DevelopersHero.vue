@@ -26,7 +26,11 @@
       </div>
     </div>
     <div class="page-developers__hero__bg-img">
-      <img src="../../assets/resources-bg-image.png" />
+      <img
+        src="../../assets/resources-bg-image.png"
+        alt="Universe graphic"
+        loading="lazy"
+      />
     </div>
   </section>
 </template>

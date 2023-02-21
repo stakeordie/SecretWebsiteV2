@@ -2,7 +2,11 @@
   <section class="page-developer-questions">
     <div class="page-developer-questions__banner">
       <div class="page-developer-questions__banner__image">
-        <img src="../../assets/have-questions.png" alt="Have questions" />
+        <img
+          src="../../assets/have-questions.png"
+          alt="Have questions"
+          loading="lazy"
+        />
       </div>
       <div class="page-developer-questions__banner__content">
         <h3 class="page-developer-questions__banner__content__title">
@@ -18,9 +22,12 @@
             <btn
               class="text-center no-arrow special"
               url="https://discord.com/invite/SJK32GY"
-              ><img
+            >
+              <img
                 class="special-icon"
                 src="../../assets/icon-social-discord.svg"
+                alt="Discord logo"
+                loading="lazy"
               />
               Join our Discord</btn
             >
@@ -31,9 +38,12 @@
             <btn
               class="text-center no-arrow special"
               url="https://forum.scrt.network/"
-              ><img
+            >
+              <img
                 class="special-icon"
                 src="../../assets/icon-social-forum.svg"
+                alt="Messages icon"
+                loading="lazy"
               />Post on forums</btn
             >
           </div>

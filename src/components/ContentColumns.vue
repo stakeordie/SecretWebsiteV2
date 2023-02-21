@@ -19,11 +19,6 @@
 
 <script>
 export default {
-  // data: function() {
-  //   return {
-  //     contentID: 4,
-  //   }
-  // },
   props: {
     contentID: {
       type: String,
@@ -41,17 +36,9 @@ export default {
         "content-columns--weight-right": this.weightRight,
       };
     },
-    // instructionContent() {
-    //   const content = this.$static.secretAgentIntroRows.edges[0].node.row;
-    //   console.log(content);
-    //   return content;
-    // },
     instructionContent() {
       const content = this.$static.secretAgentIntroRows.edges[0].node.row;
-      let filtered = content.filter(
-        (value, index, arr) => value.id === Number(this.contentID)
-      );
-      return filtered;
+      return content.filter(({ id }) => id === Number(this.contentID));
     },
   },
 };

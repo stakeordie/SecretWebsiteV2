@@ -4,6 +4,7 @@
       <img
         src="../../assets/about-secret-network/status-server-img.svg"
         alt="Have questions"
+        loading="lazy"
       />
     </div>
     <div class="ecosystem-report-issue__content">

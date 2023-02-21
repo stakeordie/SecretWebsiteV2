@@ -3,7 +3,7 @@
     <section class="page-ecosystem-funding__hero">
       <div class="page-ecosystem-funding__hero__content">
         <div class="page-ecosystem-funding__hero__content__image">
-          <img src="../../assets/ecosystem-funding.png" alt="" />
+          <img src="../../assets/ecosystem-funding.png" alt="Funding graphic" loading="lazy"/>
         </div>
         <div class="page-ecosystem-funding__hero__content__info">
           <h5 class="page-ecosystem-funding__hero__content__info-label">

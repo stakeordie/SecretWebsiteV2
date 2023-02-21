@@ -7,7 +7,7 @@
       :key="index"
     >
       <div class="page-developer__reasons__reason">
-        <img :src="item.imageUrl" alt="" />
+        <img :src="item.imageUrl" :alt="item.title" loading="lazy"/>
         <h6>{{ item.title }}</h6>
         <p>{{ item.description }}</p>
       </div>

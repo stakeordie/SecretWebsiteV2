@@ -7,7 +7,8 @@
         <div class="by__img">
           <img
             src="../../assets/about-secret-network/scrt-labs-pink-logo.svg"
-            alt=""
+            alt="Secret Labs logo"
+            loading="lazy"
           />
         </div>
         <p class="by__p">
@@ -22,14 +23,22 @@
             class="by__links__link"
           >
             SCRTLABS.COM
-            <img src="../../assets/events/arrow-left.svg" alt=""
-          /></a>
+            <img
+              src="../../assets/events/arrow-left.svg"
+              alt="Left"
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
 
       <div class="austin-event-partnership__container__cont foundation">
         <div class="by__img">
-          <img src="../../assets/events/logos/legendao-logo.png" alt="" />
+          <img
+            src="../../assets/events/logos/legendao-logo.png"
+            alt="Legen Dao logo"
+            loading="lazy"
+          />
         </div>
         <p class="by__p">
           Legendao is the first-ever NFT Mint Lab designed to be its own
@@ -43,8 +52,12 @@
             class="by__links__link"
           >
             LEGENDAO.IO
-            <img src="../../assets/events/arrow-left.svg" alt=""
-          /></a>
+            <img
+              src="../../assets/events/arrow-left.svg"
+              alt="Left"
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </div>
