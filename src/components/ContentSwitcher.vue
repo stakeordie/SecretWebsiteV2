@@ -3,26 +3,25 @@
     <aside class="content-switcher__sidebar">
       <h3 class="content-switcher__sidebar__header">What you’ll do:</h3>
       <nav class="content-switcher__sidebar__navigation">
-        <a
+        <button
           :class="{ active: selectedAnchor == index }"
-          href=""
-          v-on:click="getContentID(index)"
+          @click="getContentID(index)"
           v-for="(nav, index) in navigationBrochure"
           :key="index"
         >
-          <span class="content-switcher__sidebar__navigation--desktop">{{
-            nav.card_title
-          }}</span>
-          <span class="content-switcher__sidebar__navigation--mobile">{{
-            nav.title_short
-          }}</span>
-        </a>
+          <span class="content-switcher__sidebar__navigation--desktop">
+            {{ nav.card_title }}
+          </span>
+          <span class="content-switcher__sidebar__navigation--mobile">
+            {{ nav.title_short }}
+          </span>
+        </button>
       </nav>
     </aside>
     <section
       class="content-switcher__content"
       v-for="(brochure, index) in filteredBrochure"
-      v-bind:key="index"
+      :key="index"
     >
       <div class="content-switcher__content__image">
         <img :src="brochure.image.url" alt="" />
@@ -37,36 +36,10 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       targetID: 0,
       selectedAnchor: 0,
-      whatYoullDo: [
-        {
-          id: 1,
-          order: 1,
-          title: "Learn about Privacy",
-          image: "http://localhost:8080/assets/img/test-1.svg",
-          message:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ducimus qui eum necessitatibus, commodi perferendis libero reprehenderit accusamus quo dolorum omnis odit impedit incidunt est voluptatibus ut totam assumenda hic!",
-        },
-        {
-          id: 2,
-          order: 2,
-          title: "Spread Awareness",
-          image: "http://localhost:8080/assets/img/test-2.svg",
-          message:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ducimus qui eum necessitatibus, commodi perferendis libero reprehenderit accusamus quo dolorum omnis odit impedit incidunt est voluptatibus ut totam assumenda hic!",
-        },
-        {
-          id: 3,
-          order: 3,
-          title: "Build Products",
-          image: "http://localhost:8080/assets/img/test-3.svg",
-          message:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ducimus qui eum necessitatibus, commodi perferendis libero reprehenderit accusamus quo dolorum omnis odit impedit incidunt est voluptatibus ut totam assumenda hic!",
-        },
-      ],
     };
   },
   methods: {
@@ -76,24 +49,12 @@ export default {
     },
   },
   computed: {
-    filteredContent() {
-      const getContent = this.whatYoullDo;
-      let filtered = getContent.filter(
-        (value, index, arr) => index === this.targetID
-      );
-      return filtered;
-    },
     navigationBrochure() {
-      const navigationBrochure = this.$static.secretAgentBrochure.edges[0].node
-        .card;
-      return navigationBrochure;
+      return this.$static.secretAgentBrochure.edges[0].node.card;
     },
     filteredBrochure() {
       const content = this.$static.secretAgentBrochure.edges[0].node.card;
-      let filtered = content.filter(
-        (value, index, arr) => value.id === this.targetID + 1
-      );
-      return filtered;
+      return content.filter(({ id }) => id === this.targetID + 1);
     },
   },
 };
@@ -157,7 +118,6 @@ query {
       gap: var(--f-gutter-xs);
 
       @include respond-to("<=m") {
-        // grid-auto-flow: column;
         justify-items: center;
       }
       &--mobile {
@@ -172,11 +132,16 @@ query {
           display: grid;
         }
       }
-      a {
+      button {
+        all: unset;
         font-size: var(--f-gutter);
         font-family: var(--f-default-headers-font);
         color: var(--color-neutral-dark-mode-05);
         cursor: pointer;
+
+        &:hover {
+          color: var(--theme-links-hover);
+        }
 
         &.active {
           color: var(--color-neutral-dark-mode-06);
@@ -202,8 +167,6 @@ query {
       img {
         max-height: 300px;
         min-height: 300px;
-        // width: auto;
-        // max-width: 300px;
       }
     }
     &__message {

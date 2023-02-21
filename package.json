@@ -5,8 +5,6 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "storybook": "start-storybook -s ./src/stories/assets -p 6006",
-    "build-storybook": "build-storybook -s ./src/stories/assets",
     "lint": "npx eslint --ext .js,.vue ./src"
   },
   "dependencies": {
@@ -22,7 +20,6 @@
     "@whitewizard/countdown": "^1.0.6",
     "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
-    "false": "^0.0.4",
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-remark-prismjs-all": "^0.3.5",
@@ -38,10 +35,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.4",
-    "@storybook/addon-actions": "^6.3.8",
-    "@storybook/addon-essentials": "^6.3.8",
-    "@storybook/addon-links": "^6.3.8",
-    "@storybook/vue": "^6.3.8",
     "babel-loader": "^8.2.2",
     "eslint": "^8.27.0",
     "eslint-plugin-vue": "^9.7.0",

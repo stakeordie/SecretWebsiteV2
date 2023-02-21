@@ -25,8 +25,6 @@ import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
-import ThemeMode from "~/components/animated/ThemeMode.vue";
-import ThemeColor from "~/components/animated/ThemeColor.vue";
 import AlertBar from "~/components/AlertBar.vue";
 
 import AnnouncementVer2 from "~/components/AnnouncementVer2.vue";
@@ -156,8 +154,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   openGraph.forEach((item) => head.meta.push(item));
 
   // Set default layout as a global component
-  Vue.component("ThemeMode", ThemeMode);
-  Vue.component("ThemeColor", ThemeColor);
   Vue.component("AlertBar", AlertBar);
   Vue.component("DynamicBreadcrumb", DynamicBreadcrumb);
   Vue.component("AnnouncementVer2", AnnouncementVer2);
