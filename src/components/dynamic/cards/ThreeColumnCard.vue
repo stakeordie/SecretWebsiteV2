@@ -1,15 +1,19 @@
 <template>
   <a
-    :class="['cta-card', imagesSize]"
+    :class="['cta-card', imagePosition]"
     :href="data.url"
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img class="cta-card__img" :src="getImage" alt="Resource icon" />
+    <ResponsiveImage
+      v-if="data.image"
+      classes="cta-card__img"
+      :src="data.image"
+    />
     <div class="cta-card__details">
-      <h6>{{ data.title }}</h6>
-      <p>{{ data.body }}</p>
-      <btn class="link-arrow" :url="data.url">
+      <h6 v-if="data.title">{{ data.title }}</h6>
+      <p v-if="data.body">{{ data.body }}</p>
+      <btn v-if="data.url" class="link-arrow" :url="data.url">
         {{ data.cta_text }}
       </btn>
     </div>
@@ -19,26 +23,28 @@
 <script>
 export default {
   props: {
-    data: Object,
-    iconSize: String,
+    data: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
-    getImage() {
-      return this.data.image
-        ? this.data.image.url
-        : require("../../../assets/icon-features-file.svg");
-    },
-    imagesSize() {
-      return this.iconSize === "big" ? "big-image" : "small-image";
+    imagePosition() {
+      const positions = {
+        left: "image-left",
+        top: "image-top",
+      };
+      const hasImage = this.data.image;
+      const match = positions[this.data.icon_position];
+      return hasImage && match ? match : positions.top;
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cta-card {
   border-radius: 10px;
-  display: grid;
   gap: 10px;
   padding: var(--f-gutter);
   margin: 0;
@@ -49,14 +55,27 @@ export default {
     cursor: pointer;
   }
 
+  &.image-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.image-left {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+  }
+
   &__img {
-    height: 51px;
-    width: 51px;
+    width: fit-content;
+    max-width: 55px;
   }
 
   &__details {
-    display: grid;
-    grid-gap: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 4px;
 
     h6 {
       font-size: var(--f-h5-text-size);
@@ -67,14 +86,6 @@ export default {
     p {
       margin-bottom: 0;
     }
-  }
-
-  &.small-image {
-    grid-template-columns: 24px 1fr;
-  }
-
-  &.big-image {
-    grid-template-columns: 1fr;
   }
 }
 </style>

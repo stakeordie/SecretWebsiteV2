@@ -11,17 +11,26 @@
           and empowers developers to build a better Web3.
         </p>
         <div class="new-home-hero__container__btns">
-          <btn class="text-center no-arrow btn-bigger" url="../about/about-secret-network/">
+          <btn
+            class="text-center no-arrow btn-bigger"
+            url="../about/about-secret-network/"
+          >
             Learn More
           </btn>
-          <btn class="text-center no-arrow btn-bigger special" url="../about/get-scrt">
-          <img class="special-icon" src="../../assets/getscrt-filled-icon.svg" />
+          <btn
+            class="text-center no-arrow btn-bigger special"
+            url="../about/get-scrt"
+          >
+            <img
+              class="special-icon"
+              src="../../assets/getscrt-filled-icon.svg"
+              alt="Secret Network logo"
+              loading="lazy"
+            />
             Get SCRT
           </btn>
-          
         </div>
       </div>
-      
     </div>
   </section>
 </template>
@@ -62,7 +71,8 @@ export default {
 };
 </script>
 
-<style lang="scss">@import "@lkmx/flare/src/functions/respond-to";
+<style lang="scss">
+@import "@lkmx/flare/src/functions/respond-to";
 .new-home-hero {
   display: flex;
   margin: 0;
@@ -70,7 +80,7 @@ export default {
   // height: 705px;
   overflow: hidden;
   max-width: 100vw;
-  
+
   @include respond-to("<=s") {
     padding: 120px var(--f-gutter) 62px var(--f-gutter);
   }
@@ -99,18 +109,17 @@ export default {
       // line-height: 60px;
       // font-weight: 600;
       margin-bottom: 26px;
-      
+
       & span {
         display: block;
-        
-        
-        & span{
+
+        & span {
           display: inline;
           color: var(--color-ver2-primary-turquoise);
         }
       }
       @include respond-to("<=xs") {
-       font-size: 40px;
+        font-size: 40px;
         line-height: 46px;
       }
     }
@@ -140,27 +149,25 @@ export default {
           width: 100% !important;
           padding: 10px 0;
         }
-        
-        & .themed-image{
-            display: none;
-          }
-        span{
+
+        & .themed-image {
+          display: none;
+        }
+        span {
           display: flex;
           vertical-align: middle;
-          
-          
-          img{
+
+          img {
             transform: translateY(-1px);
             align-self: center;
             margin-right: 6px;
             width: 24px;
             height: 24px;
           }
-          
         }
         // &.special-icon{
         //       vertical-align: middle;
-              
+
         //     }
       }
     }
@@ -193,17 +200,17 @@ export default {
       }
     }
   }
-  & .partners-logos-container{
-  display: inline-flex;
-  
-  & .logo-container{
-    padding: var(--f-gutter) 54px;
-   // width: 120px;
-   opacity: 0.7;
+  & .partners-logos-container {
+    display: inline-flex;
+
+    & .logo-container {
+      padding: var(--f-gutter) 54px;
+      // width: 120px;
+      opacity: 0.7;
       @include respond-to("<=s") {
         padding: var(--f-gutter) 32px;
+      }
     }
   }
-}
 }
 </style>

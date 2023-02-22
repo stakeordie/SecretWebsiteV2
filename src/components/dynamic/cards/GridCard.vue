@@ -7,7 +7,7 @@
     class="grid-card"
   >
     <div v-if="data.image" class="grid-card__image">
-      <img :src="data.image.url" />
+      <ResponsiveImage :src="data.image" />
     </div>
     <div class="grid-card__info" v-if="data.title || data.description">
       <span v-if="data.title" class="grid-card__info__title">
@@ -20,7 +20,7 @@
   </a>
   <article v-else class="grid-card">
     <div v-if="data.image" class="grid-card__image">
-      <img :src="data.image.url" />
+      <ResponsiveImage :src="data.image" />
     </div>
     <div class="grid-card__info" v-if="data.title || data.description">
       <span v-if="data.title" class="grid-card__info__title">

@@ -5,7 +5,8 @@
         <div class="page-get-scrt__convert-sscrt__content__image">
           <img
             src="../../assets/get-scrt/get-scrt-convert-sscrt-brown.png"
-            alt=""
+            alt="Secret convertion illustartion"
+            loading="lazy"
           />
         </div>
         <div class="page-get-scrt__convert-sscrt__content__info">
@@ -14,12 +15,18 @@
               class="page-get-scrt__convert-sscrt__content__info__text-title h3-scrt-logo"
             >
               <span>Convert</span>
-              <img src="../../assets/getsscrt-icon.svg" alt="" /><span>
-                sSCRT to</span
-              >
-              <img src="../../assets/getscrt-filled-icon.svg" alt="" /><span
-                >SCRT</span
-              >
+              <img
+                src="../../assets/getsscrt-icon.svg"
+                alt="Sscrt logo"
+                loading="lazy"
+              />
+              <span>sSCRT to</span>
+              <img
+                src="../../assets/getscrt-filled-icon.svg"
+                alt="Sscrt logo"
+                loading="lazy"
+              />
+              <span>SCRT</span>
             </h3>
             <p
               class="page-get-scrt__convert-sscrt__content__info__text-description"

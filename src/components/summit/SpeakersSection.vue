@@ -10,10 +10,7 @@
             class="card"
           >
             <div class="card__image">
-              <img
-                :src="speaker.image ? speaker.image.url : ''"
-                :alt="speaker.name"
-              />
+              <ResponsiveImage v-if="speaker.image" :src="speaker.image" />
             </div>
             <div class="card__info">
               <span class="card__info__name">{{ speaker.name }}</span>

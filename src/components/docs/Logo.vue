@@ -2,12 +2,12 @@
   <g-link :to="$tp(`/`)" class="logo" title="Back to home">
     <transition name="theme">
       <div v-if="color == 'dark'">
-        <g-image src="~/assets/logo-bright.svg" alt="logo" />
+        <g-image src="~/assets/logo-bright.svg" alt="logo" loading="lazy" />
       </div>
     </transition>
     <transition name="theme">
       <div v-if="color == 'bright'">
-        <g-image src="~/assets/logo-dark.svg" alt="logo" />
+        <g-image src="~/assets/logo-dark.svg" alt="logo" loading="lazy" />
       </div>
     </transition>
   </g-link>
@@ -18,10 +18,10 @@ export default {
   props: {
     color: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +32,7 @@ export default {
 .logo {
   height: 40px;
   display: block;
-  transition: color .15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   color: $textBright;
   position: relative;
   perspective: 200px;
@@ -50,12 +50,11 @@ export default {
   }
 }
 
-.theme-enter-active, .theme-leave-active {
-  transition: opacity .15s ease-in-out;
+.theme-enter-active,
+.theme-leave-active {
+  transition: opacity 0.15s ease-in-out;
 }
 .theme-enter, .theme-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 </style>
-
-

@@ -5,6 +5,10 @@ export const sizes = {
   large: "large",
 };
 
+export function replaceWithSpace(string) {
+  return string.replace(/[^A-Z0-9]+/ig, " ");
+}
+
 export function removeCharacters(string) {
   return string
     .replace(/\s+/g, "-")

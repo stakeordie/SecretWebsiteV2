@@ -6,7 +6,7 @@
     :class="swirlPosition"
   >
     <Block>
-      <img :src="data.image.url" alt="Swirl background" />
+      <ResponsiveImage :src="data.image" />
     </Block>
   </Column>
 </template>
@@ -50,10 +50,6 @@ export default {
   }
 
   &.swirl-top {
-    &__block {
-      padding-bottom: 26px;
-    }
-
     &__absolute {
       position: absolute;
       top: 0;

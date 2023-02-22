@@ -2,11 +2,9 @@
 title: "Project structure"
 ---
 
-
 <hero-mixed bg-color="#7A5CD6" bg-image="https://ik.imagekit.io/secretnetwork/images/Market_a2a48fa0a9_xM8ldfIFG.jpg">
 
 <template v-slot:title>
-
 
 ###### Documentation
 
@@ -42,38 +40,40 @@ This is the folder structure we currently have.
 └── src/
 ```
 
-> This project uses [Gridsome.org](https://gridsome.org/docs/) 
+> This project uses [Gridsome.org](https://gridsome.org/docs/)
 
-
-------
+---
 
 ### Configuration files
 
 #### gridsome.config.js
 
-In this config file we have all the configuration for gridsome, as you can seen in the [Secret Network Data Diagram](#data-diagram) we have some information in 2 folders ` content/ ` and ` docs/ `, in this gridsome.config.js is where we determinated which folders are going to be used.
+In this config file we have all the configuration for gridsome, as you can seen in the [Secret Network Data Diagram](#data-diagram) we have some information in 2 folders `content/` and `docs/`, in this gridsome.config.js is where we determinated which folders are going to be used.
 
 #### data/
-This contains a ` settings.json ` wich is use for the sidebar of this Documentation
 
+This contains a `settings.json` wich is use for the sidebar of this Documentation
 
-------
+---
 
 ### Content Folders
 
 #### static/
-In this folder is static files such as ` images `, those that can be optimazed for Gridsome.
+
+In this folder is static files such as `images`, those that can be optimazed for Gridsome.
 
 #### content/
-This folder contains all the ` .md ` for Secret Network content
 
+This folder contains all the `.md` for Secret Network content
 
 #### docs/
-This folder contains all the ` .md ` for this documentation
+
+This folder contains all the `.md` for this documentation
 
 ---
 
 ### Source
+
 Here is we're magic happens. What `src/` structure looks like:
 
 ```text
@@ -82,8 +82,8 @@ Here is we're magic happens. What `src/` structure looks like:
     ├── assets/
     ├── components/
     ├── config/
-    ├── layouts/ 
-    ├── pages/ 
+    ├── layouts/
+    ├── pages/
     ├── templates/
     ├── sass/
     ├── main.js
@@ -91,9 +91,9 @@ Here is we're magic happens. What `src/` structure looks like:
 
 ```
 
-In `assets/` we save all icons,images,logos that are use in templates and layouts. 
+In `assets/` we save all icons,images,logos that are use in templates and layouts.
 
-The `components/` folder contains all shared Vue components. 
+The `components/` folder contains all shared Vue components.
 
 `Config/` only has a `open-graph.js` file with metadata that is use in `main.js`.
 
@@ -109,12 +109,12 @@ The `components/` folder contains all shared Vue components.
 
 #### Data Diagram
 
-<img alt ='Data entries SecretNetwork' src='./images/data-SecretNetwork-white.svg'  class='invert'/>
+<img alt ='Data entries SecretNetwork' src='./images/data-SecretNetwork-white.svg'  class='invert' loading="lazy"/>
 
 All the content of Secret Network is coming from differents ends.
 
-- `Strapi` 
-- `Ghost` 
+- `Strapi`
+- `Ghost`
 - `Content/` ~ here we have stored all the files for the Secret Network content
 - `Docs/` ~ where this documentation live
 

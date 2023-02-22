@@ -1,28 +1,28 @@
 <template>
   <div class="summit_content">
-    <hero-section v-if="!$store.state.summitStarted" :data="summitHero" />
-    <welcome-section v-else :data="summitWelcome" />
-    <description-section :data="summitDescription" />
-    <banner-section :data="summitBanner" />
-    <speakers-section :data="summitSpeakers" />
-    <sponsors-section :data="summitSponsors" />
-    <announcement-section
+    <HeroSection v-if="!$store.state.summitStarted" :data="summitHero" />
+    <WelcomeSection v-else :data="summitWelcome" />
+    <DescriptionSection :data="summitDescription" />
+    <BannerSection :data="summitBanner" />
+    <SpeakersSection :data="summitSpeakers" />
+    <SponsorsSection :data="summitSponsors" />
+    <AnnouncementSection
       v-if="!$store.state.summitStarted"
       :data="summitAnnouncement"
     />
-    <about-secret-section :data="summitAbout" />
+    <AboutSecretSection :data="summitAbout" />
   </div>
 </template>
 
 <script>
-import HeroSection from "../summit/HeroSection.vue";
-import DescriptionSection from "../summit/DescriptionSection.vue";
-import BannerSection from "../summit/BannerSection.vue";
-import SpeakersSection from "../summit/SpeakersSection.vue";
-import SponsorsSection from "../summit/SponsorsSection.vue";
-import AnnouncementSection from "../summit/AnnouncementSection.vue";
-import AboutSecretSection from "../summit/AboutSecretSection.vue";
-import WelcomeSection from "../summit/WelcomeSummit.vue";
+import HeroSection from "@/components/summit/HeroSection.vue";
+import DescriptionSection from "@/components/summit/DescriptionSection.vue";
+import BannerSection from "@/components/summit/BannerSection.vue";
+import SpeakersSection from "@/components/summit/SpeakersSection.vue";
+import SponsorsSection from "@/components/summit/SponsorsSection.vue";
+import AnnouncementSection from "@/components/summit/AnnouncementSection.vue";
+import AboutSecretSection from "@/components/summit/AboutSecretSection.vue";
+import WelcomeSection from "@/components/summit/WelcomeSummit.vue";
 
 export default {
   metaInfo() {
@@ -126,6 +126,8 @@ query {
             body
             icon {
               url
+              ext
+              name
             }
           }
         }
@@ -144,6 +146,16 @@ query {
               description
               image {
                 url
+                ext
+                name
+                formats{
+                  thumbnail {
+                    url
+                  }
+                  small{
+                    url
+                  }
+                }
               }
             }
           }
@@ -157,6 +169,13 @@ query {
             url
             image {
               url
+              ext
+              name
+              formats {
+                thumbnail {
+                  url
+                }
+              }
             }
           }
         }

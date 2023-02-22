@@ -11,6 +11,7 @@
           v-if="bgImage"
           :src="bgImage"
           alt="hero image"
+          loading="lazy"
         />
       </div>
     </block>
@@ -60,22 +61,9 @@ export default {
       mainEl.classList.add("hero-mixed-margin");
     },
     calcHeroMixedSizes() {
-      // BROWSER VALUES
-      let previosBrowserWidth = window.innerWidth || document.body.clientWidth;
-      let currentBrowserWidth = window.innerWidth || document.body.clientWidth;
-
       // COMPONENT ELEMENTS
       const bottomLayer = document.querySelector(
         ".hero-mixed-layer-bottom .content .box"
-      );
-      let bottomLayerSideRightWidth = document.querySelector(
-        ".hero-mixed-side-right"
-      ).offsetWidth;
-      let bottomLayerSideRightHeight = document.querySelector(
-        ".hero-mixed-side-right"
-      ).offsetHeight;
-      let bottomLayerSideRightImg = document.querySelector(
-        ".hero-mixed-side-right-img"
       );
       const heroMessageEl = document.querySelector(".hero-message");
 
@@ -87,24 +75,6 @@ export default {
           leftDistance + heroMessageEl.offsetWidth / 2 + "px"
         } 1fr;`
       );
-
-      // ON RESIZE VALUES
-      // let onResize = function() {
-      //   currentBrowserWidth = window.innerWidth || document.body.clientWidth;
-      //   if (Math.abs(previosBrowserWidth - currentBrowserWidth) > 1) {
-      //     leftDistance = heroMessageEl.getBoundingClientRect().left;
-      //     bottomLayer.setAttribute(
-      //       "style",
-      //       `grid-template-columns: ${leftDistance +
-      //         heroMessageEl.offsetWidth / 2 +
-      //         "px"} 1fr;`
-      //     );
-      //     // bottomLayerSideRightImg.setAttribute(
-      //     //   "style",
-      //     //   `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
-      //     // );
-      //   }
-      // };
       window.addEventListener("resize", function () {
         onResize();
       });
@@ -114,21 +84,8 @@ export default {
     this.modifyMainMargin();
     this.calcHeroMixedSizes();
   },
-  computed: {
-    // hasImage() {
-    //   if (this.$static.homeHero.edges[0].node.image.caption == "no-image") {
-    //     return false;
-    //   } else {
-    //     return true;
-    //   }
-    // }
-  },
 };
 </script>
-
-<static-query>
-
-</static-query>
 
 <style lang="scss">
 @import "../sass/functions/theme";
@@ -145,7 +102,6 @@ export default {
   }
 
   &-layer-bottom {
-    // position: absolute;
     inset: 0;
 
     .content {
@@ -154,15 +110,10 @@ export default {
 
       .box {
         position: absolute;
-        // inset: 0;
         padding: 0;
         width: 100%;
 
         .hero-mixed-side {
-          //   &-left {
-          //     background: #ffc7c0;
-          //   }
-
           &-right {
             background: black;
 
