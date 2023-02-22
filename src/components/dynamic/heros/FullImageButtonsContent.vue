@@ -5,12 +5,11 @@
         class="hero-wrapper"
         :class="[imageHeight, paddingTop, paddingBottom]"
       >
-        <img
+        <ResponsiveImage
           v-if="image"
-          alt="Background Image"
-          class="background-image"
-          :class="imagePosition"
-          :src="image.url"
+          classes="background-image"
+          :imageClass="imagePosition"
+          :src="image"
         />
         <div class="content-hero">
           <h4
@@ -29,19 +28,19 @@
           >
             {{ content.title }}
           </component>
-          <vue-markdown
+          <VueMarkdown
             v-else-if="content.custom_title"
             class="content-hero__custom-title"
             :class="titlePosition"
             :source="content.custom_title"
           />
-          <vue-markdown
+          <VueMarkdown
             v-if="content.body"
             class="content-hero__body"
             :class="titlePosition"
             :source="content.body"
           />
-          <dynamic-buttons :buttons="buttons" position="full" :full="true" />
+          <DynamicButtons :buttons="buttons" position="full" :full="true" />
         </div>
       </section>
     </block>
@@ -49,8 +48,8 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
-import DynamicButtons from "../basic/DynamicButtons.vue";
+import { sizes } from "@/utils";
+import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 
 export default {
   components: { DynamicButtons },
@@ -159,30 +158,36 @@ export default {
       min-height: calc(100vh - var(--header-height));
     }
 
-    img.background-image {
+    .background-image {
       position: absolute;
       z-index: 0;
-      opacity: 0.3;
       height: 100%;
       width: 100%;
       user-select: none;
-      object-fit: contain;
 
-      &.image-left {
-        object-position: left;
-      }
+      img {
+        opacity: 0.3;
+        user-select: none;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
 
-      &.image-center {
-        object-position: center;
-      }
+        &.image-left {
+          object-position: left;
+        }
 
-      &.image-right {
-        object-position: right;
-      }
+        &.image-center {
+          object-position: center;
+        }
 
-      &.image-full {
-        object-fit: cover;
-        object-position: center;
+        &.image-right {
+          object-position: right;
+        }
+
+        &.image-full {
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
 

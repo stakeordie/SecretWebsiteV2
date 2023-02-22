@@ -35,15 +35,16 @@
                   :class="nav.title.toLowerCase().replace(/\s/g, '-')"
                   v-for="(nav, index) in megaMenuItems"
                   :key="index"
-                  @click="
-                    nav.is_dropdown === false ? '' : toggleMegaMenu(index)
-                  "
+                  @click="nav.is_dropdown ? toggleMegaMenu(index) : null"
                 >
-                  <a :href="nav.is_dropdown === false ? nav.path : ''">
+                  <a v-if="!nav.is_dropdown" :href="nav.path" class="link">
                     {{ nav.title }}
                   </a>
+                  <span v-else class="link">
+                    {{ nav.title }}
+                  </span>
                   <img
-                    v-show="nav.is_dropdown !== false"
+                    v-show="nav.is_dropdown"
                     class="nav__content__chevron"
                     src="../assets/icon-chevron-down.svg"
                     alt="arrow down icon"
@@ -84,7 +85,7 @@
                   @click="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                    <ResponsiveImage v-if="nav.icon" :src="nav.icon" />
                     <h6>{{ nav.title }}</h6>
                   </div>
                   <img
@@ -100,7 +101,7 @@
                   class="nav__expanded__content__titles__content content-link"
                   @click="closeNav"
                 >
-                  <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                  <ResponsiveImage v-if="nav.icon" :src="nav.icon" />
                   <h6>{{ nav.title }}</h6>
                 </a>
               </div>
@@ -154,10 +155,9 @@
                         class="nav__expanded__content__item__desc"
                       >
                         <div class="nav__expanded__content__item__img">
-                          <img
-                            v-if="secItem.nav_item.icon != null"
-                            :src="secItem.nav_item.icon.url"
-                            alt=""
+                          <ResponsiveImage
+                            v-if="secItem.nav_item.icon"
+                            :src="secItem.nav_item.icon"
                           />
                           <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
@@ -322,7 +322,8 @@ export default {
     },
     megaMenuColumns() {
       const footer = document.querySelector("footer");
-      const style = `--scrt-megamenu-columns:${this.columns.length}`;
+      const columns = this.columns.filter((item) => item.nav_items.length);
+      const style = `--scrt-megamenu-columns:${columns.length}`;
       footer.setAttribute("style", style);
     },
     toggleMegaMenu(index) {
@@ -564,6 +565,7 @@ query {
           icon {
             url
             name
+            ext
           }
           nav_items {
             sub_category
@@ -575,6 +577,8 @@ query {
               description
               icon {
                 url
+                ext
+                name
               }
               page {
                 name
@@ -741,6 +745,7 @@ query {
           }
           &__menu {
             display: grid;
+            height: 100%;
           }
           &__searchbar {
             display: grid;
@@ -830,113 +835,70 @@ query {
           display: none;
         }
         &__content {
-          display: grid;
-          grid-auto-flow: column;
+          display: flex;
           gap: var(--mega-header-gap-nav);
-          padding: 22px 0px;
+          height: 100%;
           align-items: center;
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
 
-          &:hover {
+          &:hover,
+          &.activeNav {
             &.about {
-              a {
+              .link {
                 color: var(--color-ver2-secondary-red);
               }
             }
             &.learn {
-              a {
+              .link {
                 color: var(--color-ver2-primary-orange);
               }
             }
             &.build {
-              a {
+              .link {
                 color: var(--color-ver2-primary-blue);
               }
             }
             &.ecosystem {
-              a {
+              .link {
                 color: var(--color-ver2-primary-turquoise);
               }
             }
             &.get-involved {
-              a {
+              .link {
                 color: var(--color-ver2-secondary-yellow);
               }
             }
             &.resources {
-              a {
+              .link {
                 color: var(--color-ver2-secondary-purple);
               }
             }
           }
-          .active- {
-            &about {
-              color: var(--color-ver2-secondary-red);
-            }
-            &learn {
-              color: var(--color-ver2-primary-orange);
-            }
-            &build {
-              color: var(--color-ver2-primary-blue);
-            }
-            &ecosystem {
-              color: var(--color-ver2-primary-turquoise);
-            }
-            &get-involved {
-              color: var(--color-ver2-secondary-yellow);
-            }
-            &resources {
-              color: var(--color-ver2-secondary-purple);
-            }
-          }
-          &.activeNav {
-            border-radius: 10px 10px 0px 0px;
-            &.about {
-              a {
-                color: var(--color-ver2-secondary-red);
-              }
-            }
-            &.learn {
-              a {
-                color: var(--color-ver2-secondary-red);
-              }
-            }
-            &.build {
-              a {
-                color: var(--color-ver2-primary-blue);
-              }
-            }
-            &.ecosystem {
-              a {
-                color: var(--color-ver2-primary-turquoise);
-              }
-            }
-            &.get-involved {
-              a {
-                color: var(--color-ver2-secondary-yellow);
-              }
-            }
-            &.resources {
-              a {
-                color: var(--color-ver2-secondary-purple);
-              }
-            }
-          }
+
           @include respond-to("<=m") {
             padding: var(--f-gutter);
           }
-          a {
+
+          .link {
             margin-bottom: 0;
             width: fit-content;
             color: var(--color-analog-primary-white);
             font-family: var(--f-default-headers-font);
             font-weight: 600;
+
+            &:is(a) {
+              display: grid;
+              place-items: center;
+              align-self: stretch;
+              width: 100%;
+            }
           }
           &__chevron {
             transition: 0.2s ease;
             transform: rotate(0);
+
             &.arrow-up {
               transform: rotate(180deg);
             }
@@ -954,6 +916,7 @@ query {
       display: flex;
       background-color: var(--mega-header-background-nav-expanded);
       border-radius: 0px 0px 10px 10px;
+
       @include respond-to("<=l") {
         position: absolute;
         top: 67px;

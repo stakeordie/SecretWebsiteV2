@@ -11,7 +11,7 @@
       :rel="isExternal ? 'noopener noreferrer' : ''"
       :style="buttonColor"
     >
-      <img v-if="icon" :src="icon.url" alt="Button icon" class="button__icon" />
+      <ResponsiveImage v-if="icon" :src="icon" classes="button__icon" />
       <span class="button__text">
         {{ title }}
       </span>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
+import { sizes } from "@/utils";
 export default {
   props: {
     align: {

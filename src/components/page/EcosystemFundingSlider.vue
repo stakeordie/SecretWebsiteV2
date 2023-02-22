@@ -7,8 +7,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/defiance.svg"
-            alt=""
+            alt="DeFiance Capital logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">
@@ -40,8 +41,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/alameda.svg"
-            alt=""
+            alt="Alameda Reseach logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">
@@ -72,8 +74,9 @@
         <div class="flui-slider__items__item__container">
           <img
             src="../../assets/funding/logos/coinfund.svg"
-            alt=""
+            alt="Coin Fund logo"
             height="64px"
+            loading="lazy"
           />
 
           <p class="flui-slider__items__item__container-quote">
@@ -164,11 +167,6 @@ import FluiButton from "../../components/FluiButton.vue";
 
 export default {
   components: { FluiButton },
-  // data: function () {
-  //   return {
-  //     alertIsVisible: true,
-  //   };
-  // },
   methods: {
     fluiSlider() {
       const slides = document.querySelectorAll(".flui-slider__items__item");
@@ -182,7 +180,6 @@ export default {
 
       let curSlide = 0;
       const maxSlide = slides.length;
-      //console.log(maxSlide);
 
       const createDots = function () {
         slides.forEach(function (_, i) {
@@ -243,7 +240,6 @@ export default {
       btnLeft.addEventListener("click", prevSlide);
 
       document.addEventListener("keydown", function (e) {
-        //console.log(e);
         if (e.key === "ArrowLeft") prevSlide();
         e.key === "ArrowRight" && nextSlide();
       });
@@ -285,12 +281,6 @@ export default {
   --flui-slider-arrow-chevron-color: var(--color-analog-primary-white);
 }
 
-// .line-spacer{
-//   background: var(--color-neutral-dark-mode-04);
-//   height: 2px;
-//   position: absolute;
-// }
-
 .flui-slider {
   border-top: solid 2px var(--color-neutral-dark-mode-04);
   position: relative;
@@ -311,7 +301,6 @@ export default {
     display: block;
     position: relative;
     width: 1200px;
-    // height: var(--flui-slider-height);
     padding: 0px;
     margin: 0px;
     white-space: nowrap;
@@ -337,10 +326,6 @@ export default {
     }
 
     &__item {
-      // display: grid;
-      // grid-template-columns: 1fr;
-      // row-gap: var(--f-gutter);
-      // justify-items: center;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -396,13 +381,7 @@ export default {
         .author-position {
           color: var(--color-neutral-dark-mode-05);
         }
-
-        // @include respond-to ("<=s"){
-        //
-        // }
       }
-
-      //al div una altura de 100%
     }
   }
   &__controls {
@@ -452,8 +431,6 @@ export default {
             fill: var(--flui-slider-arrow-chevron-color);
           }
         }
-        // &:hover {
-        // }
       }
     }
   }
@@ -465,7 +442,6 @@ export default {
     bottom: 0;
     width: 100%;
     z-index: 3;
-    // display: grid;
     display: none;
     grid-auto-flow: column;
     gap: var(--f-gutter-s);

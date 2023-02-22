@@ -7,10 +7,7 @@ import Flare from "@lkmx/flare";
 import Vuex from "vuex";
 
 import DefaultLayout from "~/layouts/DefaultLayout.vue";
-// import DocsLayout from '~/layouts/DocsLayout.vue';
-// import DocsHeroLayout from '~/layouts/DocsHeroLayout.vue';
 import VueMarkdown from "vue-markdown";
-// import VueTyperPlugin from 'vue-typer'
 import InfiniteSlideBar from "vue-infinite-slide-bar";
 import typical from "vue-typical";
 import VueSocialSharing from "vue-social-sharing";
@@ -28,8 +25,6 @@ import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
-import ThemeMode from "~/components/animated/ThemeMode.vue";
-import ThemeColor from "~/components/animated/ThemeColor.vue";
 import AlertBar from "~/components/AlertBar.vue";
 
 import AnnouncementVer2 from "~/components/AnnouncementVer2.vue";
@@ -55,25 +50,23 @@ import NewMediaFeatured from "~/components/cards/NewMediaFeatured.vue";
 import CommitteesCms from "~/components/cards/CommitteesCms.vue";
 import Btn from "~/components/Btn.vue";
 import Colors from "~/components/cards/Colors.vue";
-import MediaChannels from "~/components/cards/MediaChannels.vue";
 import ContentNavigatorDocs from "~/components/ContentNavigatorDocs.vue";
 import ContentNavigatorCms from "~/components/ContentNavigatorCms.vue";
 import ScrollHorizontal from "~/components/ScrollHorizontal.vue";
-import ScrollHorizontalV2 from "~/components/ScrollHorizontalV2.vue";
 import ContentColumns from "~/components/ContentColumns.vue";
 import ContentSwitcher from "~/components/ContentSwitcher.vue";
 import SecretAgentHero from "~/components/SecretAgentHero.vue";
 import SecretAgentEmailFormBanner from "~/components/SecretAgentEmailFormBanner.vue";
 import EcosystemRoadmapPdf from "~/components/page/EcosystemRoadmapPdf.vue";
 import EcosystemRoadmapYourProject from "~/components/page/EcosystemRoadmapYourProject.vue";
-import EcosystemRoadmapWhatsBeenBuilt from "~/components/page/EcosystemRoadmapWhatsBeenBuilt.vue";
 import SubmitProject from "~/components/page/SubmitProject.vue";
 import HeaderMegaMenuV2 from "~/components/HeaderMegaMenuV2";
 import FooterMenu from "~/components/FooterMenu.vue";
-
 import LogoCarousel from "~/components/LogoCarousel.vue";
 import PartnersLogos from "~/components/PartnersLogos";
 import EventCountdown from "~/components/EventCountdown";
+import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
+import ResponsiveImage from "~/components/ResponsiveImage";
 
 //BlogV2
 import NewBlogCard from "~/components/blog/NewBlogCard";
@@ -100,7 +93,6 @@ import ServiceStatusHero from "~/components/page/ServiceStatusHero";
 import EcosystemFundingHero from "~/components/page/EcosystemFundingHero";
 import EcosystemFundingAppVerticals from "~/components/page/EcosystemFundingAppVerticals";
 import EcosystemFundingContributors from "~/components/page/EcosystemFundingContributors";
-import ServiceJobs from "~/components/page/ServiceJobs";
 import EcosystemFundingWhyBuild from "~/components/page/EcosystemFundingWhyBuild";
 import EcosystemFundingApply from "~/components/page/EcosystemFundingApply";
 import EcosystemFundingGrant from "~/components/page/EcosystemFundingGrant";
@@ -124,28 +116,13 @@ import GetScrtWallets from "~/components/page/GetScrtWallets";
 import GetScrtConvertSscrtV2 from "~/components/page/GetScrtConvertSscrtV2";
 import AboutSecretNetwork from "~/components/page/AboutSecretNetwork";
 import AustinEventHero from "~/components/page/AustinEventHero";
-import AustinEventMeet from "~/components/page/AustinEventMeet";
 import AustinEventPartnership from "~/components/page/AustinEventPartnership";
 import AustinEventFooter from "~/components/page/AustinEventFooter";
 import HomeDcentralAfterpartyBanner from "~/components/page/HomeDcentralAfterpartyBanner";
-import LandingEventSneakPeek from "~/components/page/LandingEventSneakPeek";
-
 import GeneralCtas from "~/components/page/GeneralCtas";
-import LearnPortalHero from "~/components/page/LearnPortalHero";
-
-import LandingSneakPeekEvent from "~/components/page/LandingSneakPeekEvent";
+import Summit from "~/components/page/Summit";
 import SummitThankYou from "~/components/page/SummitThankYou";
 import SummitAgenda from "~/components/page/SummitAgenda";
-
-// Dynamic
-import Carousel from "~/components/dynamic/Carousel";
-import CarouselGroup from "~/components/dynamic/CarouselGroup";
-import LearnHeader from "~/components/dynamic/heros/LearnHeader";
-import OptionalCalloutBox from "~/components/dynamic/OptionalCalloutBox";
-import Callout from "~/components/dynamic/Callout";
-import CtaGrid from "~/components/dynamic/CtaGrid";
-import CardSearch from "~/components/dynamic/cards/CardSearch";
-import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -164,8 +141,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   openGraph.forEach((item) => head.meta.push(item));
 
   // Set default layout as a global component
-  Vue.component("ThemeMode", ThemeMode);
-  Vue.component("ThemeColor", ThemeColor);
   Vue.component("AlertBar", AlertBar);
   Vue.component("DynamicBreadcrumb", DynamicBreadcrumb);
   Vue.component("AnnouncementVer2", AnnouncementVer2);
@@ -193,11 +168,9 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("CommitteesCms", CommitteesCms);
   Vue.component("Btn", Btn);
   Vue.component("Colors", Colors);
-  Vue.component("MediaChannels", MediaChannels);
   Vue.component("ContentNavigatorDocs", ContentNavigatorDocs);
   Vue.component("ContentNavigatorCms", ContentNavigatorCms);
   Vue.component("ScrollHorizontal", ScrollHorizontal);
-  Vue.component("ScrollHorizontalV2", ScrollHorizontalV2);
   Vue.component("ContentColumns", ContentColumns);
   Vue.component("ContentSwitcher", ContentSwitcher);
   Vue.component("SecretAgentHero", SecretAgentHero);
@@ -216,34 +189,22 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GetScrtBuyByGroups", GetScrtBuyByGroups);
   Vue.component("GetScrtQuestions", GetScrtQuestions);
   Vue.component("GetScrtLearnMore", GetScrtLearnMore);
-
   Vue.component("LogoCarousel", LogoCarousel);
   Vue.component("PartnersLogos", PartnersLogos);
   Vue.component("EventCountdown", EventCountdown);
+  Vue.component("ResponsiveImage", ResponsiveImage);
 
   //Experimental
   Vue.component("VueMarkdown", VueMarkdown);
 
   // Blog
   Vue.component("EcosystemRoadmapYourProject", EcosystemRoadmapYourProject);
-  Vue.component(
-    "EcosystemRoadmapWhatsBeenBuilt",
-    EcosystemRoadmapWhatsBeenBuilt
-  );
   Vue.component("EcosystemRoadmapPdf", EcosystemRoadmapPdf);
   Vue.component("SubmitProject", SubmitProject);
 
   //BlogV2
   Vue.component("NewBlogCard", NewBlogCard);
   Vue.component("NewBlogLatestPosts", NewBlogLatestPosts);
-
-  // Dynamic
-  Vue.component("Carousel", Carousel);
-  Vue.component("CarouselGroup", CarouselGroup);
-  Vue.component("OptionalCalloutBox", OptionalCalloutBox);
-  Vue.component("Callout", Callout);
-  Vue.component("CtaGrid", CtaGrid);
-  Vue.component("CardSearch", CardSearch);
 
   //Page Specific
   Vue.component("DevelopersHero", DevelopersHero);
@@ -263,7 +224,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("EcosystemFundingHero", EcosystemFundingHero);
   Vue.component("EcosystemFundingAppVerticals", EcosystemFundingAppVerticals);
   Vue.component("EcosystemFundingContributors", EcosystemFundingContributors);
-  Vue.component("ServiceJobs", ServiceJobs);
   Vue.component("EcosystemFundingApply", EcosystemFundingApply);
   Vue.component("EcosystemFundingGrant", EcosystemFundingGrant);
   Vue.component("EcosystemFundingWhyBuild", EcosystemFundingWhyBuild);
@@ -275,17 +235,13 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GetScrtConvertSscrtV2", GetScrtConvertSscrtV2);
   Vue.component("AboutSecretNetwork", AboutSecretNetwork);
   Vue.component("AustinEventHero", AustinEventHero);
-  Vue.component("AustinEventMeet", AustinEventMeet);
   Vue.component("AustinEventPartnership", AustinEventPartnership);
   Vue.component("AustinEventFooter", AustinEventFooter);
   Vue.component("HomeDcentralAfterpartyBanner", HomeDcentralAfterpartyBanner);
   Vue.component("GeneralCtas", GeneralCtas);
-  Vue.component("LearnPortalHero", LearnPortalHero);
-  Vue.component("LearnHeader", LearnHeader);
-  Vue.component("LandingEventSneakPeek", LandingEventSneakPeek);
   Vue.component("SummitThankYou", SummitThankYou);
   Vue.component("SummitAgenda", SummitAgenda);
-  Vue.component("LandingSneakPeekEvent", LandingSneakPeekEvent);
+  Vue.component("Summit", Summit);
 
   //External Libraries
   Vue.component("InfiniteSlideBar", InfiniteSlideBar);

@@ -22,8 +22,7 @@
             >
               <a :href="resource.cta_url">
                 <li class="get-scrt-buy__content__box__item">
-                  <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
-                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <ResponsiveImage classes="item-icon" :src="resource.icon" />
                   <div class="get-scrt-buy__content__box__item__details">
                     <h6>{{ resource.title }}</h6>
                     <p>{{ resource.description }}</p>
@@ -46,8 +45,7 @@
             >
               <a :href="resource.cta_url">
                 <li class="get-scrt-buy__content__box__item">
-                  <!-- <img class="item-icon" src="../../assets/icon-features-file.svg" alt="" /> -->
-                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <ResponsiveImage classes="item-icon" :src="resource.icon" />
                   <div class="get-scrt-buy__content__box__item__details">
                     <h6>{{ resource.title }}</h6>
                     <p>{{ resource.description }}</p>
@@ -86,16 +84,7 @@ export default {
           it.node.resource = it.node.buy_scrt_option.sort(
             (a, b) => a.order - b.order
           );
-          // console.log(it.node.buy_scrt_option.group)
-          it.node.buy_scrt_option.filter((i) => {
-            // console.log(i.group)
-          });
           return it;
-          // it.node.buy_scrt_option.filter((gr) => {
-          //   if(gr.group === 'Secret Dexes:') {
-          //     console.log(gr)
-          //   }
-          // })
         }
       });
     },
@@ -118,6 +107,8 @@ query {
         buy_scrt_option {
           icon {
             url
+            ext
+            name
           }
           order
           title
@@ -130,7 +121,6 @@ query {
     }
   }
 }
-
 </static-query>
 
 <style lang="scss">
@@ -230,7 +220,6 @@ query {
         margin: 0;
 
         & .item-icon {
-          //color: var(--color-developers-blue-01);
           height: 51px;
           width: 51px;
         }

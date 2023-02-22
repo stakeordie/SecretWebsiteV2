@@ -15,25 +15,28 @@
               light-colored
               class="special-mod"
               src="../../src/assets/swirl-about-top.svg"
-              alt=""
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               v-if="!swirlSpecial"
               dark-colored
               light-colored
               src="../../src/assets/swirl-about-top.svg"
-              alt=""
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               dark
               src="../../src/assets/swirl-about-top.svg"
-              alt="swirl"
+              alt="Swirl colors top graphic"
               width="100"
               height="100"
+              loading="lazy"
             />
           </themed-image>
         </div>
@@ -59,6 +62,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               v-if="!swirlSpecial"
@@ -68,6 +72,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
             <img
               dark
@@ -75,6 +80,7 @@
               alt="swirl"
               width="100"
               height="100"
+              loading="lazy"
             />
           </themed-image>
         </div>
@@ -92,6 +98,8 @@
                 src="../assets/new-secret-logo.svg"
                 width="124"
                 height="58"
+                alt="Secret logo"
+                loading="lazy"
               />
             </g-link>
             <nav class="social-navigation">
@@ -105,6 +113,7 @@
                   alt="Join the Conversation"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -114,9 +123,10 @@
               >
                 <img
                   src="@/assets/icon-social-github.svg"
-                  alt="Join the Conversation"
+                  alt="Github icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -126,9 +136,10 @@
               >
                 <img
                   src="@/assets/icon-social-discord.svg"
-                  alt="Join the Conversation"
+                  alt="Discord icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -138,9 +149,10 @@
               >
                 <img
                   src="@/assets/icon-social-telegram.svg"
-                  alt="Join the Conversation"
+                  alt="Telegram icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -150,9 +162,10 @@
               >
                 <img
                   src="@/assets/icon-social-twitter.svg"
-                  alt="Join the Conversation"
+                  alt="Twitter icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -162,9 +175,10 @@
               >
                 <img
                   src="@/assets/icon-social-instagram.svg"
-                  alt="Join the Conversation"
+                  alt="Instagram icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
               <a
@@ -174,34 +188,13 @@
               >
                 <img
                   src="@/assets/icon-social-youtube.svg"
-                  alt="Join the Conversation"
+                  alt="Youtube icon"
                   width="24"
                   height="24"
+                  loading="lazy"
                 />
               </a>
             </nav>
-            <!-- <div class="contribute-github">
-              <p>
-                <a
-                  href="https://github.com/SecretFoundation/SecretWebsite"
-                  target="blank"
-                  rel="noopener noreferrer"
-                  >Contribute to scrt.network
-                </a>
-              </p>
-              <a
-                href="https://github.com/SecretFoundation/SecretWebsite"
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="../assets/icon-github.svg"
-                  alt="Join the Conversation"
-                  width="24"
-                  height="24"
-                />
-              </a>
-            </div> -->
             <g-link
               v-bind:key="index + link"
               v-for="(link, index) in linksForSocial"
@@ -251,9 +244,9 @@
         <block class="rights-reserved">
           <p>© Secret Network. All Rights Reserved.</p>
           <nav class="documents">
-            <a href="">Terms of Service</a>
-            <span></span>
-            <a href="">Privacy Policy</a>
+            <span class="item">Terms of Service</span>
+            <span class="divider"></span>
+            <span class="item">Privacy Policy</span>
           </nav>
         </block>
       </column>
@@ -270,7 +263,7 @@
 </static-query>
 
 <script>
-import { addScrollSmooth } from "../utils";
+import { addScrollSmooth } from "@/utils";
 
 export default {
   data: function () {
@@ -310,14 +303,6 @@ export default {
         },
       ],
       linksCommunity: [
-        // {
-        //   title: "About the Community",
-        //   path: "/community",
-        // },
-        // {
-        //   title: "About Secret Agents",
-        //   path: "/community#secret-agents",
-        // },
         {
           title: "Become a Secret Agent",
           path: "/get-involved/become-secret-agent",
@@ -483,7 +468,6 @@ export default {
       this.isCommunityOpen = false;
       this.isDevelopersOpen = false;
       this.isEcosystemOpen = false;
-      // this.removeMainMarginHeroMixed();
     },
     $route: {
       handler(to, from) {
@@ -493,7 +477,6 @@ export default {
         this.isNavOpen = false;
         return;
       },
-      // immediate: true,
     },
   },
   methods: {
@@ -527,9 +510,6 @@ export default {
         document.body.classList.remove("modal-open");
       }
     },
-    // mq () {
-    //   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
-    // },
     showLearn() {
       this.isLearnOpen = !this.isLearnOpen;
       this.isNavOpen = false;
@@ -575,40 +555,18 @@ export default {
         localStorage.setItem("theme", themeSwitched);
       }
     },
-    //* NEW SET THEME
-    //! ORIGINAL SET THEME
-    // setTheme() {
-    //   const colorMode = this.coloredModeState ? "-colored" : "";
-    //   const darkLightMode = this.darkLightModeState ? "light" : "dark";
-    //   const theme = `${darkLightMode}${colorMode}`;
-    //   this.setBodyAttr(theme);
-    //   if (process.isClient) {
-    //     localStorage.setItem("theme", theme);
-    //   }
-    // },
     setBodyAttr(theme) {
       const [body] = document.getElementsByTagName("body");
       if (!body) return;
       body.setAttribute("theme", theme);
     },
-    callFunction: function (className) {
-      if ((window.onload = "load")) {
-        setTimeout(function () {
-          const el = document.body;
-          el.classList.add(className);
-        }, 700);
-      }
-    },
   },
   mounted() {
-    // Hacking the system :(
     this.isNavOpen = false;
     this.toggleNavOpen();
-    this.callFunction("body-visible");
     this.setInitialTheme();
     this.checker();
     this.removeBottomSwirl();
-    // this.removeMainMarginHeroMixed();
   },
 };
 </script>
@@ -1079,6 +1037,7 @@ export default {
         grid-auto-flow: column;
         gap: 20px;
         justify-content: end;
+
         .content {
           .box {
             display: grid;
@@ -1086,24 +1045,15 @@ export default {
           }
         }
 
-        span {
+        span.item {
+          color: var(--color-analog-tertiary-blue);
+          font-family: "Hind";
+        }
+
+        span.divider {
           width: 1px;
           background-color: white;
           height: 100%;
-        }
-
-        nav {
-          display: grid;
-          grid-auto-flow: column;
-          justify-content: flex-end;
-          gap: var(--f-gutter);
-          @include respond-to("<=s") {
-            justify-content: center;
-          }
-          a:not(:first-child) {
-            border-left: 1px solid var(--theme-fg);
-            padding-left: var(--f-gutter);
-          }
         }
       }
     }

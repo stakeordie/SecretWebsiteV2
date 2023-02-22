@@ -9,8 +9,9 @@
       >
         <img
           :src="item.imageUrl"
-          alt=""
+          :alt="item.title"
           class="page-ecosystem__app-verticals__content__item__icon"
+          loading="lazy"
         />
         <h4 class="page-ecosystem__app-verticals__content__item__name">
           {{ item.title }}

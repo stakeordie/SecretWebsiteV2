@@ -32,7 +32,11 @@
               />
               <span class="title">
                 {{ category.tag }}
-                <img src="../../../assets/icon-remove-filter.svg" alt="" />
+                <img
+                  src="../../../assets/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
+                />
               </span>
             </label>
           </li>
@@ -47,7 +51,11 @@
             class="no-results"
             v-if="!searchInputValue && checkedCategories.length === 0"
           >
-            <img src="../../../assets/illustration-search-default.svg" alt="" />
+            <img
+              src="../../../assets/illustration-search-default.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
             <h3>{{ empty_title }}</h3>
             <p>{{ empty_subtitle }}</p>
           </div>
@@ -68,12 +76,9 @@
                 rel="noopener noreferrer"
               >
                 <div class="card-element__header">
-                  <img
-                    class="card-element__header__logo"
-                    :src="
-                      element.comp_1_article_hero.image.formats.thumbnail.url
-                    "
-                    alt="picture"
+                  <ResponsiveImage
+                    classes="card-element__header__logo"
+                    :src="element.comp_1_article_hero.image.formats.thumbnail"
                   />
                 </div>
                 <div
@@ -96,7 +101,11 @@
               </a>
             </div>
             <div class="no-results" v-if="searchNoResults">
-              <img src="../../../assets/illustration-no-matches.svg" alt="" />
+              <img
+                src="../../../assets/illustration-no-matches.svg"
+                alt="Magnifying glass"
+                loading="lazy"
+              />
               <h3>{{ no_results_title }}</h3>
               <p class="no_results_subtitle">{{ no_results_subtitle }}</p>
             </div>
@@ -116,7 +125,7 @@ export default {
       searchNoResults: false,
       currentPage: 0,
       checkedCategories: [],
-      selectedTag: "All",
+      selectedTag: "All"
     };
   },
 
@@ -134,7 +143,7 @@ export default {
     empty_subtitle: String,
     no_results_title: String,
     no_results_subtitle: String,
-    featured_tags: Object,
+    featured_tags: Object
   },
 
   methods: {
@@ -144,7 +153,7 @@ export default {
       this.resetCheck();
       this.search = this.searchInputValue.toLowerCase();
 
-      cardEl.forEach((item) => {
+      cardEl.forEach(item => {
         if (!item.innerText.toLowerCase().includes(this.search)) {
           item.classList.add("hidden");
           hiddenEls.push(".");
@@ -163,7 +172,7 @@ export default {
       this.search = "";
       const cardEl = document.querySelectorAll(".search-card");
       this.searchInputValue = "";
-      cardEl.forEach((item) => {
+      cardEl.forEach(item => {
         item.classList.remove("hidden");
       });
     },
@@ -185,12 +194,12 @@ export default {
       } else {
         return "tag-card-5";
       }
-    },
+    }
   },
-
   computed: {
     filteredElements() {
-      const sortedCollection = this.collections.sort((a, b) => {
+      const collections = this.collections;
+      const sortedCollection = collections.sort((a, b) => {
         if (a.title == null || b.title == null) return 0;
 
         const titleA = a.title.toLowerCase();
@@ -224,15 +233,12 @@ export default {
 
     categories() {
       const data = [];
-      this.collections.forEach((elem) => {
+      this.collections.forEach(elem => {
         Object.values(elem.tags).forEach(({ tag }) => data.push(tag));
       });
       return [...new Set(data)];
-    },
-  },
-
-  mounted() {},
-  updated() {},
+    }
+  }
 };
 </script>
 
@@ -254,7 +260,6 @@ export default {
   }
 
   @include respond-to("<=s") {
-    //grid-template-columns: repeat(2, 1fr);
     padding: 32px var(--f-gutter);
   }
 
@@ -346,7 +351,6 @@ export default {
         background: var(--color-neutral-dark-mode-04);
         background-image: url(../../../assets/search-icon-gray.svg);
         background-repeat: no-repeat;
-        //border-color: var(--color-neutral-dark-mode-01);
         border: none;
         background-position: 8px;
         padding-left: 32px;

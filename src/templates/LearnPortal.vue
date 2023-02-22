@@ -19,6 +19,8 @@
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-orange-bottom.svg"
+          alt="Orange swirl bottom graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -26,14 +28,33 @@
 </template>
 
 <script>
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag
+} from "@/utils";
+import Carousel from "@/components/dynamic/carousel/Carousel.vue";
+import LearnHeader from "@/components/dynamic/heros/LearnHeader.vue";
+import OptionalCalloutBox from "@/components/dynamic/callout/OptionalCalloutBox.vue";
+import Callout from "@/components/dynamic/callout/Callout.vue";
+import CtaGrid from "@/components/dynamic/callout/CtaGrid.vue";
+import CardSearch from "@/components/dynamic/cards/CardSearch.vue";
 
 export default {
+  components: {
+    Carousel,
+    LearnHeader,
+    OptionalCalloutBox,
+    Callout,
+    CtaGrid,
+    CardSearch
+  },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData),
+      link: canonicalTag(this.getMetaData)
     };
   },
   methods: {
@@ -41,21 +62,21 @@ export default {
       return compName === "carousel" || compName === "learn-header"
         ? "full"
         : "normal";
-    },
+    }
   },
   computed: {
     getMetaData() {
       return pageMetaData(this.$page, this.$context.route);
-    },
+    }
   },
   watch: {
     $route: {
       handler(to, from) {
         addScrollSmooth(to);
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 
@@ -172,17 +193,24 @@ query {
     }
     &__image {
       position: absolute;
-      top: 0;
       right: -10%;
       z-index: 0;
-      opacity: 0.3;
       height: 110%;
-      width: auto;
+      width: 100%;
+      user-select: none;
+      opacity: 0.3;
+
+      img {
+        user-select: none;
+        object-fit: contain;
+        object-position: right;
+        height: 100%;
+        width: 100%;
+      }
+
       @include respond-to("<=s") {
         height: auto;
-        width: 100%;
         bottom: 0;
-        top: initial;
       }
     }
   }

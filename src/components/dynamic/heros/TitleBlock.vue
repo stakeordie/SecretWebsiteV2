@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
+import { sizes } from "@/utils";
 export default {
   props: {
     image: {

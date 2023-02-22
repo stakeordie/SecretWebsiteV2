@@ -11,9 +11,10 @@
         <template #image>
           <g-image
             onerror="this.onerror=null;this.src='../blog-cover.jpg';"
-            alt=""
+            alt="Blog"
             v-if="node.feature_image"
             :src="node.feature_image"
+            loading="lazy"
           />
         </template>
         <template #tag v-if="node.primary_tag">
@@ -24,11 +25,18 @@
           <g-image
             picture
             onerror="this.onerror=null;this.src='../scrt-logo.png';"
-            alt=""
+            :alt="node.primary_author.name"
             v-if="node.primary_author.profile_image"
             :src="node.primary_author.profile_image"
+            loading="lazy"
           />
-          <g-image picture v-else src="@/assets/scrt-logo.png" />
+          <g-image
+            picture
+            v-else
+            src="@/assets/scrt-logo.png"
+            alt="Secret Network logo"
+            loading="lazy"
+          />
           <div info class="author-info">
             <p>{{ node.primary_author.name }}</p>
             <p>{{ node.date }} · {{ node.reading_time }} min read</p>

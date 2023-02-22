@@ -1,6 +1,6 @@
 <template>
   <announcement-ver2
-    :announcementId="$static.homeAnnouncements.edges[0].node[location].id"
+    :id="$static.homeAnnouncements.edges[0].node[location].id"
   />
 </template>
 
@@ -52,7 +52,6 @@ export default {
   }
 
   &__img {
-    //height: 100%;
     min-width: 100%;
     padding: var(--f-gutter);
     object-fit: cover;
@@ -61,7 +60,6 @@ export default {
       object-fit: cover;
       height: 100%;
       max-height: 500px;
-      //min-width: 100%;
       margin-right: 0;
     }
   }

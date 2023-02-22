@@ -3,36 +3,39 @@
     <div class="mega-footer__wrapper__expanded">
       <div class="mega-footer__wrapper__expanded__content">
         <div class="nav__expanded">
-          <ul
-            class="nav__expanded__content"
-            v-for="(nav, index) in footerMenuItems()"
-            :key="index"
-          >
-            <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
-            <li
-              class="nav__expanded__content__item"
-              :class="!it.nav_item.display_on_footer ? 'hideFooterItem' : ' '"
-              v-for="(it, index) in nav.nav_items"
+          <template v-for="(nav, index) in footerMenuItems()">
+            <ul
+              v-if="nav.nav_items.length"
+              class="nav__expanded__content"
               :key="index"
             >
-              <g-link
-                class="nav__expanded__content__item__link"
-                :to="
-                  it.nav_item.page
-                    ? it.nav_item.page.route
-                    : it.nav_item.external_link
-                "
+              <h6 class="nav__expanded__content__title">{{ nav.title }}</h6>
+              <li
+                class="nav__expanded__content__item"
+                :class="!it.nav_item.display_on_footer ? 'hideFooterItem' : ' '"
+                v-for="(it, index) in nav.nav_items"
+                :key="index"
               >
-                <span>{{ it.nav_item.text }}</span>
-                <img
-                  v-if="it.nav_item.external_link"
-                  class="nav__expanded__content__item__link-icon"
-                  src="../assets/icon-arrow-external-blue.svg"
-                  alt="External Link"
-                />
-              </g-link>
-            </li>
-          </ul>
+                <g-link
+                  class="nav__expanded__content__item__link"
+                  :to="
+                    it.nav_item.page
+                      ? it.nav_item.page.route
+                      : it.nav_item.external_link
+                  "
+                >
+                  <span>{{ it.nav_item.text }}</span>
+                  <img
+                    v-if="it.nav_item.external_link"
+                    loading="lazy"
+                    class="nav__expanded__content__item__link-icon"
+                    src="../assets/icon-arrow-external-blue.svg"
+                    alt="External Link"
+                  />
+                </g-link>
+              </li>
+            </ul>
+          </template>
         </div>
       </div>
     </div>

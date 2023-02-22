@@ -52,7 +52,6 @@ export default {
       }
       if (!alertBar) {
         sumHeights = [header][0].offsetHeight;
-        console.log("test");
       }
       sneakPeek.style.setProperty("--sum-heights", sumHeights + "px");
       sneakPeek.style.setProperty(
@@ -60,14 +59,7 @@ export default {
         [header][0].offsetHeight + "px"
       );
 
-      // setTimeout(() => {
       sneakPeek.classList.add("visible");
-      // }, 500);
-
-      console.log(sumHeights);
-      console.log([header][0].offsetHeight);
-      console.log([header][0].previousSibling.offsetHeight);
-      // console.log([header][0].previousSibling.className)
     },
   },
   mounted() {

@@ -9,7 +9,7 @@
       class="bg-black-gradient learn-subpage__content"
       :class="[
         component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
-        'comp-name__' + component.comp_name,
+        'comp-name__' + component.comp_name
       ]"
       :mode="
         component.comp_name === 'carousel-group' ||
@@ -34,6 +34,8 @@
         <img
           class="get-scrt__align-img"
           src="../../src/assets/swirl-orange-bottom.svg"
+          alt="Orange swirl bottom graphic"
+          loading="lazy"
         />
       </block>
     </column>
@@ -41,29 +43,46 @@
 </template>
 
 <script>
-import { addScrollSmooth, pageMetaData, metaDataArray, canonicalTag } from "../utils";
+import {
+  addScrollSmooth,
+  pageMetaData,
+  metaDataArray,
+  canonicalTag
+} from "@/utils";
+import CarouselGroup from "@/components/dynamic/carousel/CarouselGroup.vue";
+import LearnHeader from "@/components/dynamic/heros/LearnHeader.vue";
+import OptionalCalloutBox from "@/components/dynamic/callout/OptionalCalloutBox.vue";
+import Callout from "@/components/dynamic/callout/Callout.vue";
+import CtaGrid from "@/components/dynamic/callout/CtaGrid.vue";
 
 export default {
+  components: {
+    CarouselGroup,
+    LearnHeader,
+    OptionalCalloutBox,
+    Callout,
+    CtaGrid
+  },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData),
+      link: canonicalTag(this.getMetaData)
     };
   },
   computed: {
     getMetaData() {
       return pageMetaData(this.$page, this.$context.route);
-    },
+    }
   },
   watch: {
     $route: {
       handler(to, from) {
         addScrollSmooth(to);
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 
