@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { uppercaseAllFirstLetter } from "../utils";
+import { uppercaseAllFirstLetter } from "@/utils";
 export default {
   data() {
     return {

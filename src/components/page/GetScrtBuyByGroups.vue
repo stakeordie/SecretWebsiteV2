@@ -22,7 +22,7 @@
             >
               <a :href="resource.cta_url">
                 <li class="get-scrt-buy__content__box__item">
-                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <ResponsiveImage classes="item-icon" :src="resource.icon" />
                   <div class="get-scrt-buy__content__box__item__details">
                     <h6>{{ resource.title }}</h6>
                     <p>{{ resource.description }}</p>
@@ -45,7 +45,7 @@
             >
               <a :href="resource.cta_url">
                 <li class="get-scrt-buy__content__box__item">
-                  <img class="item-icon" :src="resource.icon.url" alt="" />
+                  <ResponsiveImage classes="item-icon" :src="resource.icon" />
                   <div class="get-scrt-buy__content__box__item__details">
                     <h6>{{ resource.title }}</h6>
                     <p>{{ resource.description }}</p>
@@ -107,6 +107,8 @@ query {
         buy_scrt_option {
           icon {
             url
+            ext
+            name
           }
           order
           title
@@ -119,7 +121,6 @@ query {
     }
   }
 }
-
 </static-query>
 
 <style lang="scss">

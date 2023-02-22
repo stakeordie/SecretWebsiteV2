@@ -8,7 +8,7 @@
         :class="`accent-${media.type}`"
       >
         <a :href="media.url">
-          <img :src="media.picture" :alt="media.title" />
+          <ResponsiveImage :src="media.picture" />
           <p class="type">{{ media.type }}</p>
           <h6>{{ media.title }}</h6>
         </a>
@@ -58,7 +58,7 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image.url,
+          picture: it.cover_image,
         };
       });
     },
@@ -68,8 +68,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia(
-    filter: { is_featured: { eq: true } }){
+  mediaEntries: allStrapiExternalMedia(filter: { is_featured: { eq: true } }) {
     edges {
       node {
         title
@@ -77,9 +76,25 @@ query {
         link
         cover_image {
           url
+          name
+          ext
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
         }
         is_featured
-        external_media_source{
+        external_media_source {
           name
           link
         }
@@ -87,6 +102,7 @@ query {
     }
   }
 }
+
 </static-query>
 
 <style lang="scss">

@@ -116,14 +116,11 @@ module.exports = function (api) {
             continue;
           }
         }
-        //console.log("page_set responses: ", response)
         if (!Array.isArray(response.data)) {
           response.data = [response.data];
         }
         response = expandPropsToParent(response, "attributes");
-        //console.log("page_set response after expansion ", response)
         const { data } = response;
-        //console.log("Help", data);
         data.forEach((page) => {
           page = expandPropsToParent(page, "data");
           page.currentComponents = [];

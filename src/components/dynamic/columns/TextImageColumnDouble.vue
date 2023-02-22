@@ -33,7 +33,7 @@
         />
       </div>
       <div class="text-image__col-2">
-        <img v-if="image" :src="image.url" :alt="image.alternativeText" />
+        <ResponsiveImage v-if="image" :src="image" />
         <p v-if="image_description" class="text-image__col-2__caption">
           {{ image_description }}
         </p>
@@ -43,11 +43,11 @@
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../../utils";
-import DynamicButtons from "../basic/DynamicButtons.vue";
-import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
-import DynamicImage from "../basic/DynamicImage.vue";
-import DynamicTitle from "../basic/DynamicTitle.vue";
+import { removeCharacters, sizes } from "@/utils";
+import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
+import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
+import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
+import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 
 export default {
   components: {

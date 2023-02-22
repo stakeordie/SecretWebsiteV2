@@ -6,7 +6,7 @@ export const sizes = {
 };
 
 export function replaceWithSpace(string) {
-  return string.replace(/[^-A-Za-z0-9]+/g, " ");
+  return string.replace(/[^A-Z0-9]+/ig, " ");
 }
 
 export function removeCharacters(string) {

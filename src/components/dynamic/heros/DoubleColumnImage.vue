@@ -6,7 +6,7 @@
         :class="[imagePosition, paddingTop, paddingBottom]"
       >
         <div class="hero-image col-1">
-          <img v-if="image" :src="image.url" />
+          <ResponsiveImage v-if="image" :src="image" />
         </div>
 
         <div class="content-hero col-2" v-if="content">
@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
-import DynamicButtons from "../basic/DynamicButtons.vue";
-import DynamicCustomTitle from "../basic/DynamicCustomTitle.vue";
-import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
+import { sizes } from "@/utils";
+import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
+import DynamicCustomTitle from "@/components/dynamic/basic/DynamicCustomTitle.vue";
+import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 
 export default {
   components: { DynamicButtons, DynamicEyebrowTitle, DynamicCustomTitle },

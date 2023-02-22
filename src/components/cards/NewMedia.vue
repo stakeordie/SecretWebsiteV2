@@ -42,10 +42,9 @@
             :class="`accent-${media.category}`"
           >
             <a :href="media.url">
-              <img :src="media.picture" :alt="media.title" />
+              <ResponsiveImage :src="media.picture" />
               <p class="type">{{ media.category }}</p>
               <h6>{{ media.title }}</h6>
-              <!-- <p></p> -->
             </a>
           </div>
         </div>
@@ -89,7 +88,7 @@ export default {
         return {
           category: media.type,
           title: media.title,
-          picture: media.cover_image.url,
+          picture: media.cover_image,
           url: media.link,
         };
       });
@@ -117,8 +116,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia (
-    sort: { by: "order", order: ASC }) {
+  mediaEntries: allStrapiExternalMedia(sort: { by: "order", order: ASC }) {
     edges {
       node {
         id: id
@@ -128,6 +126,22 @@ query {
         link
         cover_image {
           url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
         }
         is_featured
         external_media_source {
@@ -145,12 +159,6 @@ query {
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: ("Article", "Podcast", "Video");
-
-// @each $name, $color in $accent-colors {
-// 	&.accent-#{$name} {
-// 		color: var(--accent-#{$name});
-// 	}
-// }
 
 .featured-media {
   .content {
@@ -174,19 +182,15 @@ $accent-colors: ("Article", "Podcast", "Video");
     }
 
     .item {
-      //background: var(--color-neutral-dark-mode-03);
       transition: 0.2s ease;
       cursor: pointer;
       display: inline-block;
-      /* flex-direction: column; */
       width: 350px;
       white-space: normal;
-      /* justify-content: space-between; */
       vertical-align: top;
       margin-right: var(--f-gutter-l);
       border-radius: var(--f-radius);
       padding: var(--f-gutter);
-      //background: var(--theme-card-bg-default);
     }
   }
 }
@@ -199,8 +203,6 @@ $accent-colors: ("Article", "Podcast", "Video");
   @include respond-to("<=m") {
     grid-template-columns: 1fr;
   }
-
-  //.media-filter {}
 
   .media-items {
     h3 {
@@ -230,11 +232,8 @@ $accent-colors: ("Article", "Podcast", "Video");
         border-radius: var(--f-gutter-s);
         background: var(--color-neutral-dark-mode-03);
         height: 300px;
-        // width: 350px;
         transition: 0.2s ease;
         cursor: pointer;
-        // align-content: start;
-        // position: relative;
 
         &:hover {
           transform: none;
@@ -242,32 +241,17 @@ $accent-colors: ("Article", "Podcast", "Video");
 
         a {
           display: grid;
-          // grid-template-columns: 1fr;
-          // grid-template-rows: auto auto auto;
           width: 100%;
           height: fit-content;
-          // max-width: 200px;
-          // min-width: 200px;
-          // align-content: start;
-          // position: relative;
-          // padding: var(--f-gutter);
 
           img {
-            // order: 1;
-            // position: absolute;
-            // padding: var(--f-gutter);
             border-radius: var(--f-gutter-s);
-            // left: 0;
-            // right: 0;
-            // height: 290px;
             width: 100%;
             object-fit: cover;
-            //width: 368px;
             height: 150px;
           }
 
           .type {
-            // order: 2;
             margin-top: var(--f-gutter-s);
             margin-bottom: 0;
             line-height: 24px;
@@ -278,7 +262,6 @@ $accent-colors: ("Article", "Podcast", "Video");
           }
 
           h6 {
-            // order: 3;
             margin-bottom: 0;
             color: var(--color-analog-primary-white);
             width: 100%;
@@ -294,68 +277,12 @@ $accent-colors: ("Article", "Podcast", "Video");
             }
 
             .type {
-              // color: var(--accent-#{$name});
               color: var(--accent-#{$name}-v2);
               letter-spacing: 1px;
             }
           }
         }
       }
-
-      // .item {
-      //   border-radius: var(--f-radius);
-      //   padding: var(--f-gutter);
-      //   background: var(--theme-card-bg-default);
-      //   transition: 0.2s ease;
-      //   cursor: pointer;
-      //   min-height: 300px;
-      //   position: relative;
-      //   &:hover {
-      //     transform: var(--card-hover-transform);
-      //   }
-
-      //   @each $name, $color in $accent-colors {
-      //     &.accent-#{$name} {
-      //       &:hover {
-      //         background: var(--theme-card-bg-hover);
-      //         box-shadow: var(--card-hover-shadow) var(--accent-#{$name});
-      //       }
-
-      //       .type {
-      //         color: var(--accent-#{$name});
-      //       }
-      //     }
-      //   }
-
-      //   a {
-      //     color: var(--theme-fg);
-      //     display: flex;
-      //     flex-flow: column;
-      //   }
-
-      //   p {
-      //     &:first-child {
-      //       text-transform: uppercase;
-      //       margin-bottom: var(--f-gutter-s);
-      //     }
-
-      //     &:last-child {
-      //       margin-bottom: 0;
-      //     }
-      //   }
-
-      //   img {
-      //     position: absolute;
-      //     bottom: 0;
-      //     padding: var(--f-gutter);
-      //     border-radius: var(--f-gutter-l);
-      //     left: 0;
-      //     right: 0;
-      //     height: 182px;
-      //     width: 100%;
-      //     object-fit: cover;
-      //   }
-      // }
     }
   }
 }

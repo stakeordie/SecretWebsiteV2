@@ -55,7 +55,6 @@
 
       <div class="secret-agent__hero__container__right">
         <video controls poster="../assets/poster-video.jpg">
-          <!-- <source src="https://vod-progressive.akamaized.net/exp=1631072352~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4937%2F23%2F599685100%2F2817081474.mp4~hmac=36325696a286b57cdbeac2a0830b2bc96966f52134b93074c968768911206d82/vimeo-prod-skyfire-std-us/01/4937/23/599685100/2817081474.mp4?filename=Final+CRV+Draft.mp4" type="video/mp4" /> -->
           <source :src="hero.video_url" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

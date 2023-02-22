@@ -11,14 +11,13 @@
       :key="index"
       class="cta-grid__item__card"
     >
-      <img
+      <ResponsiveImage
         :src="
           !item.create_custom
-            ? item.preconfiged_cta.cta.image.url
-            : item.custom_cta.image.url
+            ? item.preconfiged_cta.cta.image
+            : item.custom_cta.image
         "
-        class="cta-grid__item__card__img"
-        alt=""
+        classes="cta-grid__item__card__img"
       />
       <h4 class="cta-grid__item__card__h4">
         {{

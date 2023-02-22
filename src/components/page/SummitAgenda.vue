@@ -32,10 +32,9 @@
                       :key="index"
                     >
                       <div class="speaker__image">
-                        <img
+                        <ResponsiveImage
                           v-if="speaker.image"
-                          :src="speaker.image.url"
-                          :alt="speaker.image.name"
+                          :src="speaker.image"
                         />
                       </div>
                       <div class="speaker__data">

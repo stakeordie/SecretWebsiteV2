@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import { removeCharacters, sizes } from "../../../utils";
-import CtaButton from "../basic/CtaButton.vue";
-import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
-import DynamicImage from "../basic/DynamicImage.vue";
-import DynamicTitle from "../basic/DynamicTitle.vue";
+import { removeCharacters, sizes } from "@/utils";
+import CtaButton from "@/components/dynamic/basic/CtaButton.vue";
+import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
+import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
+import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 
 export default {
   components: { CtaButton, DynamicImage, DynamicEyebrowTitle, DynamicTitle },

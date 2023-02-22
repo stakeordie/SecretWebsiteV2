@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
-import GridCard from "../cards/GridCard.vue";
+import { sizes } from "@/utils";
+import GridCard from "@/components/dynamic/cards/GridCard.vue";
 
 export default {
   props: {

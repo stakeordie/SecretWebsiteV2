@@ -1,6 +1,6 @@
 <template>
   <div class="dynamic-image" :class="imagePosition" :style="imageMargin">
-    <img :src="image.image.url" />
+    <ResponsiveImage :src="image.image" />
   </div>
 </template>
 

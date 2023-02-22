@@ -263,7 +263,7 @@
 </static-query>
 
 <script>
-import { addScrollSmooth } from "../utils";
+import { addScrollSmooth } from "@/utils";
 
 export default {
   data: function () {

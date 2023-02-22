@@ -20,9 +20,9 @@
             class="sponsors__content__item"
             :href="item.url"
           >
-            <img
-              :src="item.image ? item.image.url : ''"
-              :alt="item.title"
+            <ResponsiveImage
+              v-if="item.image"
+              :src="item.image"
               :title="item.title"
             />
           </a>

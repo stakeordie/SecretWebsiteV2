@@ -17,7 +17,7 @@
             class="card"
           >
             <div class="card__icon">
-              <img :src="description.icon.url" alt="icon" />
+              <ResponsiveImage :src="description.icon" />
             </div>
             <p>{{ description.body }}</p>
           </div>

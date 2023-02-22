@@ -33,10 +33,9 @@
               rel="noopener noreferrer"
               class="card-element__country"
             >
-              <img
-                :src="element.picture.url"
-                alt="picture"
-                class="card-element__country__picture"
+              <ResponsiveImage
+                classes="card-element__country__picture"
+                :src="element.picture"
               />
               <div
                 class="meta"
@@ -71,10 +70,9 @@
               rel="noopener noreferrer"
             >
               <div class="card-element__header">
-                <img
-                  class="card-element__header__logo"
-                  :src="element.picture.url"
-                  alt="picture"
+                <ResponsiveImage
+                  classes="card-element__header__logo"
+                  :src="element.picture"
                 />
                 <div
                   class="meta"
@@ -121,7 +119,7 @@
 </template>
 
 <script>
-import Pagination from "./Pagination.vue";
+import Pagination from "@/components/Pagination.vue";
 
 export default {
   components: { Pagination },
@@ -279,7 +277,6 @@ export default {
       return this.filteredElements.slice(start, end);
     },
     collections() {
-      console.log(this.collection);
       return this.$static[this.collection].edges.map((it) => it.node);
     },
     categories() {
@@ -331,7 +328,9 @@ query {
       node {
         title: name
         picture: logo {
-        	url
+          url
+          ext
+          name
         }
         link
         order
@@ -349,6 +348,19 @@ query {
         cta_title
         picture: logo {
           url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
         }
         types: type {
           name
@@ -366,6 +378,8 @@ query {
         description
         picture: logo {
           url
+          ext
+          name
         }
       }
     }
@@ -379,6 +393,19 @@ query {
         url: link
         picture: logo {
           url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
         }
         types: type {
           name
@@ -397,6 +424,13 @@ query {
         cta_title
         picture: logo {
           url
+          ext
+          name
+          formats {
+            thumbnail {
+              url
+            }
+          }
         }
         types: type {
           name
@@ -433,6 +467,16 @@ query {
         cta_title
         picture: logo {
           url
+          ext
+          name
+          formats {
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
         }
         types: type {
           name

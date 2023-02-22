@@ -6,7 +6,7 @@
     :class="swirlPosition"
   >
     <Block>
-      <img :src="data.image.url" alt="Swirl background" />
+      <ResponsiveImage :src="data.image" />
     </Block>
   </Column>
 </template>

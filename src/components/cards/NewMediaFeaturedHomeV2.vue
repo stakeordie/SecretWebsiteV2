@@ -19,7 +19,7 @@
         :class="`accent-${media.type}-v2`"
       >
         <a :href="media.url">
-          <img :src="media.picture" :alt="media.title" />
+          <ResponsiveImage :src="media.picture" />
           <p class="type">{{ media.type }}</p>
           <h6>{{ media.title }}</h6>
         </a>
@@ -69,7 +69,7 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image.url,
+          picture: it.cover_image,
         };
       });
     },
@@ -198,7 +198,10 @@ $accent-colors: (Article, Podcast, Video);
 <static-query>
 query {
   mediaEntries: allStrapiExternalMedia(
-    order: DESC, limit: 3,filter: { is_featured: { eq: true } }){
+    order: DESC
+    limit: 3
+    filter: { is_featured: { eq: true } }
+  ) {
     edges {
       node {
         title
@@ -206,9 +209,25 @@ query {
         link
         cover_image {
           url
+          name
+          ext
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+            thumbnail {
+              url
+            }
+          }
         }
         is_featured
-        external_media_source{
+        external_media_source {
           name
           link
         }
@@ -216,6 +235,7 @@ query {
     }
   }
 }
+
 </static-query>
 
 <style lang="scss">

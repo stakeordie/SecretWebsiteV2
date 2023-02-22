@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "esModuleInterop": false,
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./src/*"],
+    }
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.vue"],
+}

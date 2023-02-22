@@ -1,6 +1,6 @@
 <template>
   <figure :class="['article-image', paddingTop, paddingBottom]">
-    <img :src="image.url" alt="" class="learn-post__img" />
+    <ResponsiveImage :src="image" classes="learn-post__img" />
     <figcaption class="img-caption" v-if="caption">
       {{ caption }}
     </figcaption>
@@ -8,14 +8,28 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
+import { sizes } from "@/utils";
 
 export default {
   props: {
-    image: Object,
-    caption: String,
-    padding_top: String,
-    padding_bottom: String,
+    image: {
+      type: Object,
+      required: true
+    },
+    caption: {
+      type: String,
+      required: false
+    },
+    padding_top: {
+      type: String,
+      required: false,
+      default: sizes.none
+    },
+    padding_bottom: {
+      type: String,
+      required: false,
+      default: sizes.small
+    }
   },
   computed: {
     paddingTop() {
@@ -25,8 +39,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-  },
+    }
+  }
 };
 </script>
 

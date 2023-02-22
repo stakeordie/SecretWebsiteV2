@@ -5,12 +5,11 @@
         class="hero-wrapper"
         :class="[imageHeight, paddingTop, paddingBottom]"
       >
-        <img
+        <ResponsiveImage
           v-if="image"
-          alt="Background Image"
-          class="background-image"
-          :class="imagePosition"
-          :src="image.url"
+          classes="background-image"
+          :imageClass="imagePosition"
+          :src="image"
         />
         <div class="content-hero">
           <h4
@@ -29,13 +28,13 @@
           >
             {{ content.title }}
           </component>
-          <vue-markdown
+          <VueMarkdown
             v-else-if="content.custom_title"
             class="content-hero__custom-title"
             :class="titlePosition"
             :source="content.custom_title"
           />
-          <vue-markdown
+          <VueMarkdown
             v-if="content.body"
             class="content-hero__body"
             :class="titlePosition"
@@ -48,30 +47,30 @@
 </template>
 
 <script>
-import { sizes } from "../../../utils";
+import { sizes } from "@/utils";
 
 export default {
   props: {
     image: {
       type: Object,
-      required: true,
+      required: true
     },
     image_position: {
       type: String,
-      required: true,
+      required: true
     },
     image_size: {
       type: String,
-      required: true,
+      required: true
     },
     content: {
       type: Object,
-      required: true,
+      required: true
     },
     sizes: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     imageHeight() {
@@ -94,7 +93,7 @@ export default {
       const textPositions = {
         left: "text-left",
         center: "text-center",
-        right: "text-right",
+        right: "text-right"
       };
       const position = textPositions[this.sizes.title_alignment];
       return position ? position : textPositions.center;
@@ -111,7 +110,7 @@ export default {
       const color = this.content.eyebrow_color;
       const defaultColor = "var(--color-ver2-primary-orange)";
       return {
-        color: color ? color : defaultColor,
+        color: color ? color : defaultColor
       };
     },
     imagePosition() {
@@ -119,12 +118,12 @@ export default {
         left: "image-left",
         center: "image-center",
         right: "image-right",
-        full: "image-full",
+        full: "image-full"
       };
       const position = imagePositions[this.image_position];
       return position ? position : imagePositions.right;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -153,30 +152,36 @@ export default {
       min-height: calc(100vh - var(--header-height));
     }
 
-    img.background-image {
+    .background-image {
       position: absolute;
       z-index: 0;
-      opacity: 0.3;
       height: 100%;
       width: 100%;
       user-select: none;
-      object-fit: contain;
 
-      &.image-left {
-        object-position: left;
-      }
+      img {
+        opacity: 0.3;
+        user-select: none;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
 
-      &.image-center {
-        object-position: center;
-      }
+        &.image-left {
+          object-position: left;
+        }
 
-      &.image-right {
-        object-position: right;
-      }
+        &.image-center {
+          object-position: center;
+        }
 
-      &.image-full {
-        object-fit: cover;
-        object-position: center;
+        &.image-right {
+          object-position: right;
+        }
+
+        &.image-full {
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
 

@@ -85,7 +85,7 @@
                   @click="openSubMenu(index)"
                 >
                   <div class="nav__expanded__content__titles__content__name">
-                    <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                    <ResponsiveImage v-if="nav.icon" :src="nav.icon" />
                     <h6>{{ nav.title }}</h6>
                   </div>
                   <img
@@ -101,7 +101,7 @@
                   class="nav__expanded__content__titles__content content-link"
                   @click="closeNav"
                 >
-                  <img v-if="nav.icon" :src="nav.icon.url" alt="" />
+                  <ResponsiveImage v-if="nav.icon" :src="nav.icon" />
                   <h6>{{ nav.title }}</h6>
                 </a>
               </div>
@@ -155,10 +155,9 @@
                         class="nav__expanded__content__item__desc"
                       >
                         <div class="nav__expanded__content__item__img">
-                          <img
-                            v-if="secItem.nav_item.icon != null"
-                            :src="secItem.nav_item.icon.url"
-                            alt=""
+                          <ResponsiveImage
+                            v-if="secItem.nav_item.icon"
+                            :src="secItem.nav_item.icon"
                           />
                           <img v-else src="../assets/badge-black.svg" alt="" />
                         </div>
@@ -566,6 +565,7 @@ query {
           icon {
             url
             name
+            ext
           }
           nav_items {
             sub_category
@@ -577,6 +577,8 @@ query {
               description
               icon {
                 url
+                ext
+                name
               }
               page {
                 name

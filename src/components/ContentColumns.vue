@@ -11,7 +11,7 @@
         <vue-markdown>{{ element.paragraph }}</vue-markdown>
       </div>
       <div class="content-columns__container--right">
-        <img :src="element.image.url" :alt="element.title" />
+        <ResponsiveImage :src="element.image" />
       </div>
     </div>
   </div>
@@ -59,6 +59,7 @@ query {
             alternativeText
             caption
             name
+            ext
           }
         }
       }

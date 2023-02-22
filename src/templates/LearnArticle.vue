@@ -30,32 +30,32 @@
 </template>
 
 <script>
-import NavMenu from "../components/dynamic/basic/NavMenu.vue";
-import Carousel from "../components/dynamic/carousel/Carousel.vue";
+import NavMenu from "@/components/dynamic/basic/NavMenu.vue";
+import Carousel from "@/components/dynamic/carousel/Carousel.vue";
 //heros
-import DoubleColumnImage from "../components/dynamic/heros/DoubleColumnImage.vue";
-import TitleBlock from "../components/dynamic/heros/TitleBlock.vue";
-import BasicHero from "../components/dynamic/heros/BasicHero.vue";
-import FullImageContent from "../components/dynamic/heros/FullImageContent.vue";
-import FullImageButtonsContent from "../components/dynamic/heros/FullImageButtonsContent.vue";
+import DoubleColumnImage from "@/components/dynamic/heros/DoubleColumnImage.vue";
+import TitleBlock from "@/components/dynamic/heros/TitleBlock.vue";
+import BasicHero from "@/components/dynamic/heros/BasicHero.vue";
+import FullImageContent from "@/components/dynamic/heros/FullImageContent.vue";
+import FullImageButtonsContent from "@/components/dynamic/heros/FullImageButtonsContent.vue";
 //content
-import TextColumnSingle from "../components/dynamic/columns/TextColumnSingle.vue";
-import TextColumnDouble from "../components/dynamic/columns/TextColumnDouble.vue";
-import TextImageColumnDouble from "../components/dynamic/columns/TextImageColumnDouble.vue";
-import Divider from "../components/dynamic/basic/Divider.vue";
-import ArticleImage from "../components/dynamic/basic/ArticleImage.vue";
-import ArticleVideo from "../components/dynamic/basic/ArticleVideo.vue";
-import CtaButton from "../components/dynamic/basic/CtaButton.vue";
-import ThreeColumnResource from "../components/dynamic/columns/ThreeColumnResource.vue";
-import Grid from "../components/dynamic/basic/Grid.vue";
-import Swirl from "../components/dynamic/basic/Swirl.vue";
+import TextColumnSingle from "@/components/dynamic/columns/TextColumnSingle.vue";
+import TextColumnDouble from "@/components/dynamic/columns/TextColumnDouble.vue";
+import TextImageColumnDouble from "@/components/dynamic/columns/TextImageColumnDouble.vue";
+import Divider from "@/components/dynamic/basic/Divider.vue";
+import ArticleImage from "@/components/dynamic/basic/ArticleImage.vue";
+import ArticleVideo from "@/components/dynamic/basic/ArticleVideo.vue";
+import CtaButton from "@/components/dynamic/basic/CtaButton.vue";
+import ThreeColumnResource from "@/components/dynamic/columns/ThreeColumnResource.vue";
+import Grid from "@/components/dynamic/basic/Grid.vue";
+import Swirl from "@/components/dynamic/basic/Swirl.vue";
 
 import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
   canonicalTag,
-} from "../utils";
+} from "@/utils";
 
 export default {
   data() {

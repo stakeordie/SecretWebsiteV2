@@ -12,11 +12,9 @@
         rel="noopener noreferrer"
       >
         <div class="logo__link__element">
-          <img
-            class="logo__link__element__img"
-            :src="element.picture.url"
-            alt="picture"
-            loading="lazy"
+          <ResponsiveImage
+            classes="logo__link__element__img"
+            :src="element.picture"
           />
           <div
             class="meta"
@@ -240,6 +238,8 @@ query{
         title: name
         picture: logo {
           url
+          name
+          ext
         }
         url:link
         order
