@@ -10,7 +10,7 @@ import {
   pageMetaData,
   addScrollSmooth,
   canonicalTag,
-} from "../utils";
+} from "@/utils";
 
 export default {
   metaInfo() {

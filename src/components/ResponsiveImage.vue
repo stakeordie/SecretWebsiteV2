@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { uppercaseAllFirstLetter, replaceWithSpace } from "../utils";
+import { uppercaseAllFirstLetter, replaceWithSpace } from "@/utils";
 
 export default {
   props: {
@@ -27,39 +27,33 @@ export default {
     }
   },
   computed: {
-    isSvg() {
-      return this.src.ext === ".svg";
-    },
     altName() {
       const name = replaceWithSpace(this.src.name.split(".")[0]);
       return uppercaseAllFirstLetter(name);
     },
     allImages() {
-      if (this.isSvg) {
-        return [{ url: this.src.url, media: "" }];
+      const { ext, url, formats } = this.src;
+      const isSvg = ext === ".svg";
+
+      if (isSvg || !formats) {
+        return [{ url, media: "" }];
       }
 
-      const mobile = this.src.formats.medium
-        ? this.src.formats.medium
-        : this.src.formats.large;
-      const tablet = this.src.formats.large
-        ? this.src.formats.large
-        : this.src.formats.medium;
-
-      return [
-        {
-          url: mobile.url,
-          media: "(max-width: 500px)"
-        },
-        {
-          url: tablet.url,
-          media: "(max-width: 1999px)"
-        },
-        {
-          url: this.src.url,
-          media: "(min-width: 1200px)"
-        }
+      const imageSpecs = [
+        { size: "thumbnail", media: "(max-width: 350px)" },
+        { size: "small", media: "(max-width: 768px)" },
+        { size: "medium", media: "(max-width: 1199px)" }
       ];
+
+      const images = imageSpecs
+        .map(spec => {
+          const format = formats[spec.size];
+          return format ? { url: format.url, media: spec.media } : null;
+        })
+        .filter(Boolean);
+
+      images.push({ url: formats.large ? formats.large.url : url, media: "" });
+      return images;
     },
     pictureClass() {
       return this.classes ? this.classes : "";

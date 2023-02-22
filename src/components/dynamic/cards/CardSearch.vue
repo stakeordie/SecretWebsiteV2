@@ -76,12 +76,9 @@
                 rel="noopener noreferrer"
               >
                 <div class="card-element__header">
-                  <img
-                    class="card-element__header__logo"
-                    :src="
-                      element.comp_1_article_hero.image.formats.thumbnail.url
-                    "
-                    alt="picture"
+                  <ResponsiveImage
+                    classes="card-element__header__logo"
+                    :src="element.comp_1_article_hero.image.formats.thumbnail"
                   />
                 </div>
                 <div
@@ -128,7 +125,7 @@ export default {
       searchNoResults: false,
       currentPage: 0,
       checkedCategories: [],
-      selectedTag: "All",
+      selectedTag: "All"
     };
   },
 
@@ -146,7 +143,7 @@ export default {
     empty_subtitle: String,
     no_results_title: String,
     no_results_subtitle: String,
-    featured_tags: Object,
+    featured_tags: Object
   },
 
   methods: {
@@ -156,7 +153,7 @@ export default {
       this.resetCheck();
       this.search = this.searchInputValue.toLowerCase();
 
-      cardEl.forEach((item) => {
+      cardEl.forEach(item => {
         if (!item.innerText.toLowerCase().includes(this.search)) {
           item.classList.add("hidden");
           hiddenEls.push(".");
@@ -175,7 +172,7 @@ export default {
       this.search = "";
       const cardEl = document.querySelectorAll(".search-card");
       this.searchInputValue = "";
-      cardEl.forEach((item) => {
+      cardEl.forEach(item => {
         item.classList.remove("hidden");
       });
     },
@@ -197,7 +194,7 @@ export default {
       } else {
         return "tag-card-5";
       }
-    },
+    }
   },
   computed: {
     filteredElements() {
@@ -236,15 +233,12 @@ export default {
 
     categories() {
       const data = [];
-      this.collections.forEach((elem) => {
+      this.collections.forEach(elem => {
         Object.values(elem.tags).forEach(({ tag }) => data.push(tag));
       });
       return [...new Set(data)];
-    },
-  },
-
-  mounted() {},
-  updated() {},
+    }
+  }
 };
 </script>
 

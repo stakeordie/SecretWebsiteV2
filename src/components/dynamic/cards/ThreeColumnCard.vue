@@ -5,12 +5,10 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img
+    <ResponsiveImage
       v-if="data.image"
-      class="cta-card__img"
-      :src="data.image.url"
-      alt="Resource icon"
-      loading="lazy"
+      classes="cta-card__img"
+      :src="data.image"
     />
     <div class="cta-card__details">
       <h6 v-if="data.title">{{ data.title }}</h6>
@@ -44,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cta-card {
   border-radius: 10px;
   gap: 10px;
@@ -67,7 +65,7 @@ export default {
     grid-template-columns: 24px 1fr;
   }
 
-  img {
+  &__img {
     width: fit-content;
     max-width: 55px;
   }

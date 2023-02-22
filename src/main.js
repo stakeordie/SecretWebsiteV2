@@ -59,14 +59,14 @@ import SecretAgentHero from "~/components/SecretAgentHero.vue";
 import SecretAgentEmailFormBanner from "~/components/SecretAgentEmailFormBanner.vue";
 import EcosystemRoadmapPdf from "~/components/page/EcosystemRoadmapPdf.vue";
 import EcosystemRoadmapYourProject from "~/components/page/EcosystemRoadmapYourProject.vue";
-import EcosystemRoadmapWhatsBeenBuilt from "~/components/page/EcosystemRoadmapWhatsBeenBuilt.vue";
 import SubmitProject from "~/components/page/SubmitProject.vue";
 import HeaderMegaMenuV2 from "~/components/HeaderMegaMenuV2";
 import FooterMenu from "~/components/FooterMenu.vue";
-
 import LogoCarousel from "~/components/LogoCarousel.vue";
 import PartnersLogos from "~/components/PartnersLogos";
 import EventCountdown from "~/components/EventCountdown";
+import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
+import ResponsiveImage from "~/components/ResponsiveImage";
 
 //BlogV2
 import NewBlogCard from "~/components/blog/NewBlogCard";
@@ -120,12 +120,9 @@ import AustinEventPartnership from "~/components/page/AustinEventPartnership";
 import AustinEventFooter from "~/components/page/AustinEventFooter";
 import HomeDcentralAfterpartyBanner from "~/components/page/HomeDcentralAfterpartyBanner";
 import GeneralCtas from "~/components/page/GeneralCtas";
-import LandingSneakPeekEvent from "~/components/page/LandingSneakPeekEvent";
+import Summit from "~/components/page/Summit";
 import SummitThankYou from "~/components/page/SummitThankYou";
 import SummitAgenda from "~/components/page/SummitAgenda";
-
-// Dynamic
-import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 require("prismjs/plugins/line-numbers/prism-line-numbers.css");
@@ -192,20 +189,16 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GetScrtBuyByGroups", GetScrtBuyByGroups);
   Vue.component("GetScrtQuestions", GetScrtQuestions);
   Vue.component("GetScrtLearnMore", GetScrtLearnMore);
-
   Vue.component("LogoCarousel", LogoCarousel);
   Vue.component("PartnersLogos", PartnersLogos);
   Vue.component("EventCountdown", EventCountdown);
+  Vue.component("ResponsiveImage", ResponsiveImage);
 
   //Experimental
   Vue.component("VueMarkdown", VueMarkdown);
 
   // Blog
   Vue.component("EcosystemRoadmapYourProject", EcosystemRoadmapYourProject);
-  Vue.component(
-    "EcosystemRoadmapWhatsBeenBuilt",
-    EcosystemRoadmapWhatsBeenBuilt
-  );
   Vue.component("EcosystemRoadmapPdf", EcosystemRoadmapPdf);
   Vue.component("SubmitProject", SubmitProject);
 
@@ -248,7 +241,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GeneralCtas", GeneralCtas);
   Vue.component("SummitThankYou", SummitThankYou);
   Vue.component("SummitAgenda", SummitAgenda);
-  Vue.component("LandingSneakPeekEvent", LandingSneakPeekEvent);
+  Vue.component("Summit", Summit);
 
   //External Libraries
   Vue.component("InfiniteSlideBar", InfiniteSlideBar);

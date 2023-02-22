@@ -2,7 +2,7 @@
   <section class="page-developer-questions">
     <div class="learn-callout" v-if="!custom_callout_box">
       <div class="learn-callout__image">
-        <img :src="preconfiged_callout_box.callout_box.image.url" />
+        <ResponsiveImage :src="preconfiged_callout_box.callout_box.image" />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -21,11 +21,10 @@
               :class="button.is_primary ? 'main-btn' : ''"
               :url="button.link"
             >
-              <img
-                class="special-icon"
+              <ResponsiveImage
+                classes="special-icon"
                 v-if="button.icon"
-                :src="button.icon.url"
-                alt=""
+                :src="button.icon"
               />
               {{ button.text }}</btn
             >
@@ -35,7 +34,10 @@
     </div>
     <div class="learn-callout" v-if="custom_callout_box">
       <div class="learn-callout__image">
-        <img v-if="calloutBoxCustom.image" :src="calloutBoxCustom.image.url" />
+        <ResponsiveImage 
+          v-if="calloutBoxCustom.image"
+          :src="calloutBoxCustom.image"
+        />
       </div>
       <div class="learn-callout__content">
         <h6 class="learn-callout__content__eyebrow">
@@ -54,11 +56,10 @@
               :class="button.is_primary ? 'main-btn' : ''"
               :url="button.link"
             >
-              <img
-                class="special-icon"
+              <ResponsiveImage
                 v-if="button.icon"
-                :src="button.icon.url"
-                alt=""
+                :src="button.icon"
+                classes="special-icon"
               />
               {{ button.text }}</btn
             >

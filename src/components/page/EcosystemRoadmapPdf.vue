@@ -15,12 +15,10 @@
       <ClientOnly v-if="isPdf">
         <pdf class="scrt-pdf-viewer__intro__file" :src="roadmap.url" />
       </ClientOnly>
-      <img
+      <ResponsiveImage
         v-else
-        :src="roadmap.url"
-        class="scrt-pdf-viewer__intro__image"
-        alt="Roadmap image"
-        loading="lazy"
+        :src="roadmap"
+        classes="scrt-pdf-viewer__intro__image"
       />
       <div class="scrt-pdf-viewer__intro__download">
         <btn class="no-arrow" :url="pdfUrl">DOWNLOAD PDF</btn>

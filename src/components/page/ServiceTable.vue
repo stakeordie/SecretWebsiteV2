@@ -62,7 +62,7 @@
         :key="index"
       >
         <li class="service-status__table__row__item">
-          <img class="item-img" :src="item.node.logo.url" alt="" />
+          <ResponsiveImage classes="item-img" :src="item.node.logo" />
           <div class="item-info">
             <h6>{{ item.node.service_name }}</h6>
             <a
@@ -202,17 +202,6 @@ export default {
       }
       return value;
     },
-    //to show warning message
-    // searchInactivesValues() {
-    //   var counterInactives = 0;
-    //   this.serviceTableItems.items.forEach((el) => {
-    //     Object.keys(el.node).map((key) => {
-    //       if (el.node[key] == "inactive") {counterInactives++;}
-    //     });
-    //   });
-    //   if (counterInactives > 0) this.$store.commit("showNetworkWarning");
-    //   else this.$store.commit("hideNetworkWarning");
-    // },
   },
   filters: {
     formatDate(value) {
@@ -255,9 +244,6 @@ export default {
       );
     },
   },
-  mounted() {
-    //this.searchInactivesValues();
-  },
 };
 </script>
 
@@ -271,6 +257,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
         deposit_status
         withdraws_status
@@ -286,6 +274,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
         deposit_status
         withdraws_status
@@ -301,6 +291,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
         transaction_status
         reported_on
@@ -315,6 +307,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
         in_status
         out_status
@@ -331,6 +325,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
         status
         reported_on
@@ -347,6 +343,8 @@ query {
         url
         logo {
           url
+          ext
+          name
         }
       }
     }

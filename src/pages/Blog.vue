@@ -69,11 +69,11 @@
 </template>
 
 <script>
-import DefaultLayout from "../layouts/DefaultLayout";
-import BlogFeaturedPostsV2 from "../components/blog/BlogFeaturedPostsV2.vue";
-import BlogFilterV2 from "../components/blog/BlogFilterV2.vue";
-import BlogPostsV2 from "../components/blog/BlogPostsV2.vue";
-import { canonicalTag, metaDataArray, pageMetaData } from "../utils";
+import DefaultLayout from "@/layouts/DefaultLayout";
+import BlogFeaturedPostsV2 from "@/components/blog/BlogFeaturedPostsV2.vue";
+import BlogFilterV2 from "@/components/blog/BlogFilterV2.vue";
+import BlogPostsV2 from "@/components/blog/BlogPostsV2.vue";
+import { canonicalTag, metaDataArray, pageMetaData } from "@/utils";
 
 export default {
   components: {

@@ -3,14 +3,15 @@
     <block>
       <section class="basic-hero" :class="[paddingTop, paddingBottom]">
         <dynamic-breadcrumb v-if="show_breadcrumb" :route="$context.route" />
-        <img v-if="image" :src="image.url" alt="Hero Image" />
+        <ResponsiveImage v-if="image" :src="image" />
       </section>
     </block>
   </column>
 </template>
 
 <script>
-import { sizes } from "../../../utils";
+import { sizes } from "@/utils";
+
 export default {
   props: {
     image: {

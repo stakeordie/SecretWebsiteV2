@@ -6,10 +6,10 @@
     rel="noopener noreferrer"
   >
     <div class="card-element__header">
-      <img
-        class="card-element__header__logo"
-        :src="data.thumbnail_image ? data.thumbnail_image.url : ''"
-        alt="picture"
+      <ResponsiveImage
+        v-if="data.thumbnail_image"
+        :src="data.thumbnail_image"
+        imageClass="card-element__header__logo"
       />
     </div>
     <div class="card-element__title-desc">

@@ -7,14 +7,12 @@
     >
       <div
         class="hero-mixed-side-left"
-        v-bind:style="{ 'background-color': element.heroColor }"
+        :style="{ 'background-color': element.heroColor }"
       ></div>
       <div class="hero-mixed-side-right">
-        <img
-          class="hero-mixed-side-right-img"
-          :src="element.heroImage.url"
-          alt="hero image"
-          loading="lazy"
+        <ResponsiveImage
+          classes="hero-mixed-side-right-img"
+          :src="element.heroImage"
         />
       </div>
     </block>
@@ -30,7 +28,7 @@
           <h2>{{ element.heroTitle }}</h2>
         </div>
         <div class="body">
-          <vue-markdown :source="element.heroBody"></vue-markdown>
+          <VueMarkdown :source="element.heroBody" />
         </div>
       </div>
     </block>
@@ -68,31 +66,11 @@ export default {
     },
   },
   methods: {
-    // modifyMainMargin() {
-    //   const mainEl = document.querySelector("main.--flare-page");
-    //   mainEl.classList.add("hero-mixed-margin");
-    // },
     calcHeroMixedSizes() {
-      // BROWSER VALUES
-      let previosBrowserWidth = window.innerWidth || document.body.clientWidth;
-      let currentBrowserWidth = window.innerWidth || document.body.clientWidth;
-
-      // COMPONENT ELEMENTS
       const bottomLayer = document.querySelector(
         ".hero-mixed-layer-bottom .content .box"
       );
-      let bottomLayerSideRightWidth = document.querySelector(
-        ".hero-mixed-side-right"
-      ).offsetWidth;
-      let bottomLayerSideRightHeight = document.querySelector(
-        ".hero-mixed-side-right"
-      ).offsetHeight;
-      let bottomLayerSideRightImg = document.querySelector(
-        ".hero-mixed-side-right-img"
-      );
       const heroMessageEl = document.querySelector(".hero-message");
-
-      // INITIAL VALUES
       let leftDistance = heroMessageEl.getBoundingClientRect().left;
       bottomLayer.setAttribute(
         "style",
@@ -100,24 +78,6 @@ export default {
           leftDistance + heroMessageEl.offsetWidth / 2 + "px"
         } 1fr;`
       );
-
-      // ON RESIZE VALUES
-      // let onResize = function() {
-      //   currentBrowserWidth = window.innerWidth || document.body.clientWidth;
-      //   if (Math.abs(previosBrowserWidth - currentBrowserWidth) > 1) {
-      //     leftDistance = heroMessageEl.getBoundingClientRect().left;
-      //     bottomLayer.setAttribute(
-      //       "style",
-      //       `grid-template-columns: ${leftDistance +
-      //         heroMessageEl.offsetWidth / 2 +
-      //         "px"} 1fr;`
-      //     );
-      //     // bottomLayerSideRightImg.setAttribute(
-      //     //   "style",
-      //     //   `width: ${bottomLayerSideRightWidth}px; height: ${bottomLayerSideRightHeight}px`
-      //     // );
-      //   }
-      // };
       window.addEventListener("resize", function () {
         onResize();
       });
@@ -146,10 +106,26 @@ query {
   aboutSubpages: allStrapiAboutSubpage {
     edges {
       node {
-         AboutSecretTokensBridges: about_secret_tokens_bridges{
+        AboutSecretTokensBridges: about_secret_tokens_bridges {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            name
+            ext
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -160,6 +136,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            name
+            ext
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -170,6 +162,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -180,6 +188,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -190,6 +214,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -200,6 +240,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -210,6 +266,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -220,6 +292,22 @@ query {
           heroColor: hero_color
           heroImage: hero_image {
             url
+            ext
+            name
+            formats {
+              large {
+                url
+              }
+              medium {
+                url
+              }
+              small {
+                url
+              }
+              thumbnail {
+                url
+              }
+            }
           }
           heroSubtitle: hero_subtitle
           heroTitle: hero_title
@@ -262,7 +350,6 @@ query {
   }
 
   &-layer-bottom {
-    // position: absolute;
     inset: 0;
 
     .content {
@@ -271,14 +358,10 @@ query {
 
       .box {
         position: absolute;
-        // inset: 0;
         padding: 0;
         width: 100%;
 
         .hero-mixed-side {
-          //   &-left {
-          //     background: #ffc7c0;
-          //   }
 
           &-right {
             background: black;

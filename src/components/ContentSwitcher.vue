@@ -24,7 +24,7 @@
       :key="index"
     >
       <div class="content-switcher__content__image">
-        <img :src="brochure.image.url" alt="" />
+        <ResponsiveImage :src="brochure.image" />
       </div>
       <div :class="getContentID" class="content-switcher__content__message">
         <h4>{{ brochure.card_title }}</h4>
@@ -61,7 +61,6 @@ export default {
 </script>
 
 <static-query>
-
 query {
   secretAgentBrochure: allStrapiAgentLandingBrochure {
     edges {
@@ -75,13 +74,14 @@ query {
           title_short
           image {
             url
+            ext
+            name
           }
         }
       }
     }
   }
 }
-
 </static-query>
 
 <style lang="scss">

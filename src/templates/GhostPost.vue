@@ -85,7 +85,7 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import BlogAuthor from "@/components/blog/BlogAuthor";
-import { canonicalTag, metaDataArray } from "../utils";
+import { canonicalTag, metaDataArray } from "@/utils";
 
 const domain = "https://scrt.network";
 

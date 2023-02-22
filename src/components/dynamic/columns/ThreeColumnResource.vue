@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ThreeColumnCard from "../cards/ThreeColumnCard.vue";
-import { sizes } from "../../../utils";
-import DynamicEyebrowTitle from "../basic/DynamicEyebrowTitle.vue";
+import ThreeColumnCard from "@/components/dynamic/cards/ThreeColumnCard.vue";
+import { sizes } from "@/utils";
+import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 
 export default {
   props: {

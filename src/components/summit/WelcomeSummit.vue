@@ -16,8 +16,8 @@
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
               allowfullscreen
-            ></iframe>
-            <iframe class="livestream__chat" :src="chatSrc"></iframe>
+            />
+            <iframe class="livestream__chat" :src="chatSrc" />
           </div>
           <p class="welcome__message">
             Sign-in to YouTube & refresh the page to participate in chat. You

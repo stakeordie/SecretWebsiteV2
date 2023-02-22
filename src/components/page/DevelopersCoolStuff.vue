@@ -13,11 +13,9 @@
           rel="noopener noreferrer"
         >
           <div class="card-element__header">
-            <img
-              class="card-element__header__logo"
-              :src="element.logo.url"
-              alt="picture"
-              loading="lazy"
+            <ResponsiveImage
+              classes="card-element__header__logo"
+              :src="element.logo"
             />
             <!-- Categorie tags -->
             <div class="meta meta--with-categories">
@@ -68,7 +66,6 @@ export default {
         ".media-featured > .--flare-block > .content > .box"
       );
       content.scrollLeft -= 390;
-      console.log("left");
     },
     scroll_right() {
       let content = document.querySelector(
@@ -116,6 +113,8 @@ export default {
           cta_title
           logo {
             url
+            ext
+            name
           }
           types: type {
             name
