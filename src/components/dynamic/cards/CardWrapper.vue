@@ -2,8 +2,8 @@
   <a
     v-if="url"
     :href="url"
-    :target="is_external_link ? '_blank' : ''"
-    :rel="is_external_link ? 'noopener noreferrer' : ''"
+    :target="externalLink ? '_blank' : ''"
+    :rel="externalLink ? 'noopener noreferrer' : ''"
   >
     <slot></slot>
   </a>
