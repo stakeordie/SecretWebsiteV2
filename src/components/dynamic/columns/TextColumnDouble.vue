@@ -151,6 +151,14 @@ export default {
       type: Object,
       required: false,
     },
+    padding_top: {
+      type: String,
+      required: false,
+    },
+    padding_bottom: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     widthSize() {
@@ -159,10 +167,12 @@ export default {
         : "text-column-double__standard";
     },
     paddingTop() {
+      console.log(this.padding_top)
       const size = sizes[this.padding_top];
       return size ? `${size}-top` : "none-top";
     },
     paddingBottom() {
+      console.log(this.padding_bottom)
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
     },

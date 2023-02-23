@@ -13,19 +13,19 @@ export default {
   props: {
     content: {
       type: Object,
-      required: true,
+      required: true
     },
     sizes: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     titlePosition() {
       const textPositions = {
         left: "text-left",
         center: "text-center",
-        right: "text-right",
+        right: "text-right"
       };
       const position = textPositions[this.sizes.title_alignment];
       return position ? position : textPositions.left;
@@ -37,10 +37,10 @@ export default {
       const color = this.content.custom_title_color;
       const textColor = color ? color : "var(--color-analog-primary-white)";
       return {
-        "--title-color": textColor,
+        "--title-color": textColor
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
