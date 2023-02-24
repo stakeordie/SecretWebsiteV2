@@ -1,42 +1,64 @@
 <template>
-  <div class="grid-container" :class="containerPaddings">
-    <div class="grid-container__cards" :class="gridStyles">
-      <GridCard v-for="(item, index) in grid_card" :key="index" :data="item" />
-    </div>
-    <btn v-if="cta_button" :url="cta_button.url" class="no-arrow">
-      {{ cta_button.title }}
-    </btn>
+  <div class="grid-container" :style="gridStyles" :class="containerPaddings">
+    <CardWrapper
+      v-for="(data, index) in grid_card"
+      :key="index"
+      :url="data.url"
+      :externalLink="data.is_external_link"
+      class="grid-card"
+    >
+      <div v-if="data.image" class="grid-card__image">
+        <ResponsiveImage :src="data.image" />
+      </div>
+      <div class="grid-card__info" v-if="data.title || data.description">
+        <span v-if="data.title" class="grid-card__info__title">
+          {{ data.title }}
+        </span>
+        <span v-if="data.description" class="grid-card__info__description">
+          {{ data.description }}
+        </span>
+      </div>
+    </CardWrapper>
   </div>
 </template>
 
 <script>
 import { sizes } from "@/utils";
-import GridCard from "@/components/dynamic/cards/GridCard.vue";
+import CardWrapper from "@/components/dynamic/cards/CardWrapper.vue";
 
 export default {
   props: {
-    padding_top: String,
-    padding_bottom: String,
-    grid_columns_mobile: String,
-    grid_columns_tablet: String,
-    grid_columns_desktop: String,
-    grid_card: Array,
-    cta_button: Object,
+    padding_top: {
+      type: String,
+      required: true
+    },
+    padding_bottom: {
+      type: String,
+      required: true
+    },
+    grid_columns_mobile: {
+      type: String,
+      required: true
+    },
+    grid_columns_tablet: {
+      type: String,
+      required: true
+    },
+    grid_columns_desktop: {
+      type: String,
+      required: true
+    },
+    grid_card: {
+      type: Array,
+      required: true
+    },
+    cta_button: {
+      type: Object,
+      required: false
+    }
   },
   components: {
-    GridCard,
-  },
-  data() {
-    return {
-      columns: {
-        one: 1,
-        two: 2,
-        three: 3,
-        four: 4,
-        five: 5,
-        six: 6,
-      },
-    };
+    CardWrapper
   },
   computed: {
     containerPaddings() {
@@ -44,23 +66,29 @@ export default {
       const bottomSize = sizes[this.padding_bottom];
       return [
         `${topSize ? topSize : sizes.none}-top`,
-        `${bottomSize ? bottomSize : sizes.small}-bottom`,
+        `${bottomSize ? bottomSize : sizes.small}-bottom`
       ];
     },
     gridStyles() {
-      const mobileColumns = this.columns[this.grid_columns_mobile];
-      const tabletColumns = this.columns[this.grid_columns_tablet];
-      const desktopColumns = this.columns[this.grid_columns_desktop];
+      const columns = {
+        one: 1,
+        two: 2,
+        three: 3,
+        four: 4,
+        five: 5,
+        six: 6
+      };
+      const mobileColumns = columns[this.grid_columns_mobile];
+      const tabletColumns = columns[this.grid_columns_tablet];
+      const desktopColumns = columns[this.grid_columns_desktop];
 
-      return [
-        `mobile-columns-${mobileColumns ? mobileColumns : this.columns.one}`,
-        `tablet-columns-${tabletColumns ? tabletColumns : this.columns.three}`,
-        `desktop-columns-${
-          desktopColumns ? desktopColumns : this.columns.five
-        }`,
-      ];
-    },
-  },
+      return {
+        "--mobile-columns": mobileColumns ? mobileColumns : columns.one,
+        "--tablet-columns": tabletColumns ? tabletColumns : columns.three,
+        "--desktop-columns": desktopColumns ? desktopColumns : columns.five
+      };
+    }
+  }
 };
 </script>
 
@@ -68,36 +96,64 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .grid-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 26px;
-  align-items: center;
+  grid-template-columns: repeat(var(--mobile-columns), 1fr);
 
-  &__cards {
-    display: grid;
-    gap: 26px;
+  @include respond_to(">=m") {
+    grid-template-columns: repeat(var(--tablet-columns), 1fr);
   }
 
-  .btn {
-    margin: 0;
+  @include respond_to(">=l") {
+    grid-template-columns: repeat(var(--desktop-columns), 1fr);
   }
 
-  $column-sizes: (1, 2, 3, 4, 5, 6);
+  .grid-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: 0.5s;
 
-  @each $size in $column-sizes {
-    .mobile-columns-#{$size} {
-      grid-template-columns: repeat(#{$size}, 1fr);
+    &:is(a):hover {
+      background-color: var(--color-neutral-dark-mode-04);
     }
 
-    .tablet-columns-#{$size} {
-      @include respond_to(">=s") {
-        grid-template-columns: repeat(#{$size}, 1fr);
+    &__image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      &__title {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 30px;
+        color: var(--color-neutral-dark-mode-06);
+        word-break: break-word;
+
+        @include respond_to(">=l") {
+          font-size: 22px;
+        }
       }
-    }
 
-    .desktop-columns-#{$size} {
-      @include respond_to(">=l") {
-        grid-template-columns: repeat(#{$size}, 1fr);
+      &__description {
+        font-family: "Hind";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--color-neutral-dark-mode-05);
+        word-break: break-word;
       }
     }
   }

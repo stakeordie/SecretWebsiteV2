@@ -50,5 +50,17 @@ export default {
   line-height: 25px;
   margin-bottom: 6px;
   color: var(--eyebrow-title-color);
+
+  &.text-left {
+    text-align: start;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-right {
+    text-align: end;
+  }
 }
 </style>

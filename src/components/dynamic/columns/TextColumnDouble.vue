@@ -151,6 +151,14 @@ export default {
       type: Object,
       required: false,
     },
+    padding_top: {
+      type: String,
+      required: false,
+    },
+    padding_bottom: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
     widthSize() {
