@@ -15,18 +15,18 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     weight: {
       type: String,
       required: false,
-      default: "H2",
+      default: "H2"
     },
     alignment: {
       type: String,
       required: false,
-      default: "left",
-    },
+      default: "left"
+    }
   },
   computed: {
     titleHeader() {
@@ -42,15 +42,15 @@ export default {
       const textPositions = {
         left: "text-left",
         center: "text-center",
-        right: "text-right",
+        right: "text-right"
       };
       const position = textPositions[this.alignment];
       return position ? position : textPositions.left;
     },
     titleAlignment() {
       return { "title-25": this.weight === "H2.5" };
-    },
-  },
+    }
+  }
 };
 </script>
 

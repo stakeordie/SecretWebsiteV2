@@ -62,7 +62,7 @@ export default {
       type: String,
       required: true,
     },
-    image_size: {
+    hero_height: {
       type: String,
       required: true,
     },
@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     imageHeight() {
-      return this.image_size === "full" ? "background-full" : "";
+      return this.hero_height === "full-screen" ? "background-full" : "";
     },
     defaultTitle() {
       const weight = this.sizes.title_weight;
