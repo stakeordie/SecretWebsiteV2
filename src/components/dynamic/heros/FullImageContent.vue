@@ -160,22 +160,18 @@ export default {
       &.image-left {
         object-position: left;
       }
-
       &.image-center {
         object-position: center;
       }
-
       &.image-right {
         object-position: right;
       }
-
       &.image-full {
         object-fit: cover;
         object-position: center;
       }
     }
   }
-
   .content-hero__body {
     &.text {
       &-left {
