@@ -9,15 +9,15 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     imagePosition() {
       const imagePositions = {
         left: "image-left",
         center: "image-center",
-        right: "image-right",
+        right: "image-right"
       };
       const position = imagePositions[this.image.position];
       return position ? position : imagePositions.left;
@@ -25,9 +25,11 @@ export default {
     imageMargin() {
       const margin = this.image.image_margin;
       const value = margin ? margin : "12px";
-      return `--image-margin: ${value}`;
-    },
-  },
+      return {
+        "--image-margin": value
+      };
+    }
+  }
 };
 </script>
 
@@ -47,8 +49,10 @@ export default {
     justify-content: flex-end;
   }
 
-  img {
-    margin: var(--image-margin) 0;
+  ::v-deep {
+    img {
+      margin: var(--image-margin) 0;
+    }
   }
 }
 </style>
