@@ -177,6 +177,20 @@ export default {
   }
 
   .content-hero__body {
+    &.text {
+      &-left {
+        text-align: left;
+      }
+
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+    }
+
     p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
