@@ -2,7 +2,7 @@
   <column>
     <block>
       <section class="basic-hero" :class="[paddingTop, paddingBottom]">
-        <dynamic-breadcrumb v-if="show_breadcrumb" :route="$context.route" />
+        <DynamicBreadcrumb v-if="show_breadcrumb" :route="$context.route" />
         <ResponsiveImage v-if="image" :src="image" />
       </section>
     </block>
