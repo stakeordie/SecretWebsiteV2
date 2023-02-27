@@ -27,10 +27,10 @@
           >
             {{ first_paragraph_title }}
           </h4>
-          <VueMarkdown
+          <DynamicBody
             v-if="first_paragraph"
-            :source="first_paragraph"
-            class="text-column-double__col__paragraph"
+            :text="first_paragraph"
+            :align="first_paragraph_alignment"
           />
           <DynamicButtons
             v-if="first_paragraph_buttons"
@@ -46,10 +46,10 @@
           >
             {{ second_paragraph_title }}
           </h4>
-          <VueMarkdown
+          <DynamicBody
             v-if="second_paragraph"
-            :source="second_paragraph"
-            class="text-column-double__col__paragraph"
+            :text="second_paragraph"
+            :align="second_paragraph_alignment"
           />
           <DynamicButtons
             v-if="second_paragraph_buttons"
@@ -68,6 +68,7 @@ import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
   components: {
@@ -75,90 +76,99 @@ export default {
     DynamicImage,
     DynamicTitle,
     DynamicEyebrowTitle,
+    DynamicBody
   },
   props: {
     main_title: {
       type: String,
-      required: false,
+      required: false
     },
     main_title_alignment: {
       type: String,
       required: false,
-      default: "left",
+      default: "left"
     },
     main_title_weight: {
       type: String,
       required: false,
-      default: "H2",
+      default: "H2"
     },
     eyebrow_title: {
       type: String,
-      required: false,
+      required: false
     },
     eyebrow_color: {
       type: String,
-      required: false,
+      required: false
     },
     is_anchor: {
       type: Boolean,
-      required: false,
+      required: false
     },
     navigation_level: {
       type: String,
-      required: false,
+      required: false
     },
     width: {
       type: String,
-      required: false,
+      required: false
     },
     first_paragraph_title: {
       type: String,
-      required: false,
+      required: false
     },
     first_paragraph: {
       type: String,
-      required: false,
+      required: false
     },
     second_paragraph_title: {
       type: String,
-      required: false,
+      required: false
     },
     second_paragraph: {
       type: String,
-      required: false,
+      required: false
     },
     first_paragraph_buttons: {
       type: Array,
-      required: false,
+      required: false
     },
     first_buttons_position: {
       type: String,
-      required: false,
+      required: false
     },
     second_paragraph_buttons: {
       type: Array,
-      required: false,
+      required: false
     },
     second_buttons_position: {
       type: String,
-      required: false,
+      required: false
     },
     first_image: {
       type: Object,
-      required: false,
+      required: false
     },
     second_image: {
       type: Object,
-      required: false,
+      required: false
     },
     padding_top: {
       type: String,
-      required: false,
+      required: false
     },
     padding_bottom: {
       type: String,
-      required: false,
+      required: false
     },
+    first_paragraph_alignment: {
+      type: String,
+      required: false
+    },
+    second_paragraph_alignment: {
+      type: String,
+      required: false
+    }
   },
   computed: {
     widthSize() {
@@ -173,13 +183,13 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
+    }
   },
   methods: {
     titleId(title) {
       return title ? removeCharacters(title) : "";
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -206,19 +216,6 @@ export default {
 
       @include respond-to(">=m") {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      &__paragraph {
-        p,
-        ul li {
-          color: var(--color-neutral-dark-mode-05);
-          font-size: 16px;
-          line-height: 30px;
-
-          @include respond-to(">=m") {
-            font-size: 20px;
-          }
-        }
       }
     }
   }

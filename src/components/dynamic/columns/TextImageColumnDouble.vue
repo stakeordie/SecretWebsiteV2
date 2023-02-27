@@ -21,10 +21,10 @@
           :alignment="paragraph_title_alignment"
           :weight="paragraph_title_weight"
         />
-        <VueMarkdown
+        <DynamicBody
           v-if="paragraph"
-          :source="paragraph"
-          class="text-image__col-1__paragraph"
+          :text="paragraph"
+          :align="paragraph_alignment"
         />
         <DynamicButtons
           v-if="buttons"
@@ -48,6 +48,7 @@ import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
   components: {
@@ -55,76 +56,81 @@ export default {
     DynamicImage,
     DynamicTitle,
     DynamicEyebrowTitle,
+    DynamicBody
   },
   props: {
     paragraph_title: {
       type: String,
-      required: false,
+      required: false
     },
     paragraph_title_alignment: {
       type: String,
-      required: false,
+      required: false
     },
     paragraph_title_weight: {
       type: String,
-      required: false,
+      required: false
     },
     paragraph: {
       type: String,
-      required: false,
+      required: false
     },
     eyebrow_title: {
       type: String,
-      required: false,
+      required: false
     },
     eyebrow_color: {
       type: String,
-      required: false,
+      required: false
     },
     width: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     image_description: {
       type: String,
-      required: false,
+      required: false
     },
     image_position: {
       type: String,
-      required: false,
+      required: false
     },
     is_anchor: {
       type: Boolean,
-      required: false,
+      required: false
     },
     navigation_level: {
       type: String,
-      required: false,
+      required: false
     },
     padding_top: {
       type: String,
-      required: false,
+      required: false
     },
     padding_bottom: {
       type: String,
-      required: false,
+      required: false
     },
     buttons: {
       type: Array,
-      required: false,
+      required: false
     },
     buttons_position: {
       type: String,
-      required: false,
+      required: false
     },
     paragraph_image: {
       type: Object,
-      required: false,
+      required: false
     },
+    paragraph_alignment: {
+      type: String,
+      required: true
+    }
   },
   computed: {
     titleId() {
@@ -146,8 +152,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -176,16 +182,6 @@ export default {
     .text-image {
       &__col-1 {
         order: 1;
-
-        &__paragraph {
-          p,
-          ul,
-          li {
-            color: var(--color-neutral-dark-mode-05);
-            font-size: 20px;
-            line-height: 30px;
-          }
-        }
       }
 
       &__col-2 {
