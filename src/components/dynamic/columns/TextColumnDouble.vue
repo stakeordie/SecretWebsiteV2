@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      :class="['text-column-double', widthSize, paddingTop, paddingBottom]"
+      :class="['text-column-double', paddingTop, paddingBottom]"
       :id="titleId(main_title)"
       :isAnchor="is_anchor"
       :navLevel="navigation_level"
@@ -171,11 +171,6 @@ export default {
     }
   },
   computed: {
-    widthSize() {
-      return this.width === "wide"
-        ? "text-column-double__wide"
-        : "text-column-double__standard";
-    },
     paddingTop() {
       const size = sizes[this.padding_top];
       return size ? `${size}-top` : "none-top";
@@ -199,13 +194,14 @@ export default {
 .learn-article__content {
   .text-column-double {
     padding: 0 16px;
+    max-width: 1200px;
 
     @include respond-to(">=m") {
       padding: 0;
     }
 
-    &__standard {
-      max-width: 1200px;
+    @include respond-to("xxxl") {
+      max-width: 1600px;
     }
 
     &__col {
@@ -221,7 +217,7 @@ export default {
   }
   &.empty-nav {
     .text-column-double {
-      margin: 0 auto;
+      margin-inline: auto;
     }
   }
 }

@@ -31,5 +31,11 @@ export default {
 .divider {
   width: 100%;
   border: 1px solid var(--color-neutral-gray-08);
+  max-width: 1200px;
+  margin-inline: auto;
+
+  @include respond-to("xxxl") {
+    max-width: 1600px;
+  }
 }
 </style>

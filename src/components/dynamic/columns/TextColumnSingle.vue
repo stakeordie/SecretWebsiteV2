@@ -132,6 +132,7 @@ export default {
   .text-column-single {
     padding: var(--f-gutter);
     width: 100%;
+    max-width: 1200px;
     padding: 0 16px;
 
     @include respond-to(">=m") {
@@ -145,7 +146,7 @@ export default {
 
   &.empty-nav {
     .text-column-single {
-      margin: 0 auto;
+      margin-inline: auto;
     }
   }
 }

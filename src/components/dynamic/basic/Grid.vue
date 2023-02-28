@@ -98,6 +98,8 @@ export default {
 .grid-container {
   display: grid;
   gap: 26px;
+  max-width: 1200px;
+  margin-inline: auto;
   grid-template-columns: repeat(var(--mobile-columns), 1fr);
 
   @include respond_to(">=m") {
@@ -106,6 +108,10 @@ export default {
 
   @include respond_to(">=l") {
     grid-template-columns: repeat(var(--desktop-columns), 1fr);
+  }
+
+  @include respond-to("xxxl") {
+    max-width: 1600px;
   }
 
   .grid-card {

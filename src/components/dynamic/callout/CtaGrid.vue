@@ -117,6 +117,7 @@ export default {
       }
 
       &__img {
+        display: inline-flex;
         margin: auto;
         margin-bottom: 16px;
         height: 150px;
