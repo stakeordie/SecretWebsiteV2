@@ -5,6 +5,7 @@
     <Column
       class="learn-article__content"
       :class="{ 'empty-nav': !anchorList.length }"
+      :mode="anchorList.length ? 'normal' : 'full'"
     >
       <Block>
         <NavMenu v-if="anchorList.length" :data="anchorList" />
@@ -49,18 +50,19 @@ import CtaButton from "@/components/dynamic/basic/CtaButton.vue";
 import ThreeColumnResource from "@/components/dynamic/columns/ThreeColumnResource.vue";
 import Grid from "@/components/dynamic/basic/Grid.vue";
 import Swirl from "@/components/dynamic/basic/Swirl.vue";
+import CustomCarousel from "@/components/dynamic/carousel/CustomCarousel.vue";
 
 import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
-  canonicalTag,
+  canonicalTag
 } from "@/utils";
 
 export default {
   data() {
     return {
-      anchorList: [],
+      anchorList: []
     };
   },
   components: {
@@ -84,12 +86,13 @@ export default {
     ThreeColumnResource,
     Grid,
     Swirl,
+    CustomCarousel
   },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData),
+      link: canonicalTag(this.getMetaData)
     };
   },
   methods: {
@@ -105,7 +108,7 @@ export default {
         third: 3,
         fourth: 4,
         fifth: 5,
-        sixth: 6,
+        sixth: 6
       };
 
       if (!anchors.length) return;
@@ -119,7 +122,7 @@ export default {
           id: id,
           parentId: "",
           nested: [],
-          isOpen: true,
+          isOpen: true
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
@@ -159,17 +162,17 @@ export default {
         "--header-height",
         `${header.offsetHeight}px`
       );
-    },
+    }
   },
   computed: {
     carousel() {
       return this.$context.components.find(
-        (item) => item.comp_name === "carousel"
+        item => item.comp_name === "carousel"
       );
     },
     contentComponents() {
       return this.$context.components.filter(
-        (item) =>
+        item =>
           item.comp_name !== "carousel" && item.comp_name !== "article-hero"
       );
     },
@@ -184,7 +187,7 @@ export default {
     },
     bottomSwirl() {
       return this.$context.swirls?.bottom_swirl || {};
-    },
+    }
   },
   mounted() {
     this.getAnchors();
@@ -196,9 +199,9 @@ export default {
         addScrollSmooth(to);
         setTimeout(() => this.getAnchors(), 500);
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
 };
 </script>
 

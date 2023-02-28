@@ -138,9 +138,7 @@ export default {
       return title ? removeCharacters(title) : "";
     },
     widthSize() {
-      return this.width === "wide"
-        ? "text-image-column-double__wide"
-        : "text-image-column-double__standard";
+      return { "wide" : this.width === "wide"};
     },
     imagePosition() {
       return this.image_position === "left" ? "image-left" : "image-right";
@@ -163,6 +161,8 @@ export default {
 .learn-article__content {
   .text-image-column-double {
     width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
     padding: 0 16px;
     display: grid;
     gap: 26px;
@@ -173,7 +173,11 @@ export default {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    &__wide {
+    @include respond-to("xxxl") {
+      max-width: 1600px;
+    }
+
+    &.wide {
       @include respond-to(">=m") {
         grid-template-columns: 2fr 4fr;
       }

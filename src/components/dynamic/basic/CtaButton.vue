@@ -91,8 +91,10 @@ export default {
 <style lang="scss">
 .cta-button {
   width: fit-content;
+  max-width: 1200px;
 
   &.align-content {
+    margin-inline: auto;
     display: flex;
     justify-content: center;
     width: 100%;

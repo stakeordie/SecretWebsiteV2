@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="dynamic_learn_article_group"
-      class="learn-carousel"
-      :class="[
-        dynamic_learn_article_group
-          ? `carouselId-${dynamic_learn_article_group.id}`
-          : ''
-      ]"
-    >
+    <div v-if="dynamic_learn_article_group" class="learn-carousel">
       <div class="learn-carousel__header">
         <div class="learn-carousel__header__description">
           <h3>{{ title }}</h3>
@@ -35,6 +27,7 @@
       <div
         class="items learn-carousel__item"
         v-if="dynamic_learn_article_group"
+        ref="learn_carousel"
       >
         <CarouselCard
           v-for="(element,
@@ -55,7 +48,7 @@
 </template>
 
 <script>
-import CarouselCard from "../cards/CarouselCard.vue";
+import CarouselCard from "@/components/dynamic/cards/CarouselCard.vue";
 
 export default {
   props: {
@@ -68,22 +61,19 @@ export default {
   components: {
     CarouselCard
   },
-  data() {
-    return {
-      idCarousel: ""
-    };
-  },
   methods: {
-    scroll(direction) {
-      const selector = `.carouselId-${this.dynamic_learn_article_group.id}`;
-      const content = document.querySelector(selector);
-      const carouselBox = content.querySelector(".learn-carousel__item");
-
+    scroll(direction = "right") {
+      const carouselBox = this.$refs.learn_carousel;
       if (direction === "right") {
         carouselBox.scrollLeft += 390;
       } else {
         carouselBox.scrollLeft -= 390;
       }
+    }
+  },
+  computed: {
+    carouselData() {
+      return dynamic_learn_article_group.dynamic_learn_articles;
     }
   }
 };
@@ -138,7 +128,6 @@ export default {
 
   &__item {
     width: 100%;
-    max-width: 100vw;
     white-space: nowrap;
     display: grid;
     grid-auto-flow: column;
@@ -146,6 +135,10 @@ export default {
     overflow-x: auto;
     gap: 26px;
     scroll-behavior: smooth;
+    padding-right: 16px;
+    padding-left: 16px;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
 
     @include respond-to(">=l") {
       padding-left: 3vw;

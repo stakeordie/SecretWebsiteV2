@@ -26,8 +26,8 @@
 <script>
 export default {
   props: {
-    data: Object,
-  },
+    data: Object
+  }
 };
 </script>
 
@@ -40,14 +40,19 @@ export default {
     text-align: center;
     border-radius: 10px;
     min-width: 340px;
-    width: calc(100vw - 80px);
+    width: calc(100vw - 32px);
     white-space: normal;
     display: grid;
     gap: 10px;
     padding: var(--f-gutter);
+    scroll-snap-align: center;
 
-    @include respond-to(">=s") {
+    @media screen and (min-width: 450px) {
       width: 400px;
+    }
+
+    @include respond-to(">=m") {
+      scroll-snap-align: end;
     }
 
     * {
@@ -97,7 +102,12 @@ export default {
     img {
       object-fit: cover;
       width: 100%;
-      height: 206px;
+      height: auto;
+      max-height: 206px;
+
+      @media screen and (min-width: 450px) {
+        height: 206px;
+      }
     }
 
     &:hover {
