@@ -29,7 +29,6 @@ import AlertBar from "~/components/AlertBar.vue";
 
 import AnnouncementVer2 from "~/components/AnnouncementVer2.vue";
 import ThemedImage from "~/components/ThemedImage.vue";
-import ImagePlaceholder from "~/components/ImagePlaceholder.vue";
 import HeroTitle from "~/components/HeroTitle.vue";
 import HeroMixed from "~/components/HeroMixed.vue";
 import HeroMixedCms from "~/components/HeroMixedCms.vue";
@@ -42,7 +41,6 @@ import CardGridV3 from "~/components/CardGridV3.vue";
 import CardGridExchanges from "~/components/CardGridExchanges.vue";
 import EcosystemExperiencingIssues from "~/components/page/EcosystemExperiencingIssues.vue";
 import CardGridContributors from "~/components/CardGridContributors.vue";
-import CardGridContributorFilter from "~/components/CardGridContributorFilter.vue";
 import CardGridPartners from "~/components/CardGridPartners.vue";
 import CardGridValidators from "~/components/CardGridValidators.vue";
 import CardGridNfts from "~/components/CardGridNfts.vue";
@@ -63,7 +61,6 @@ import SubmitProject from "~/components/page/SubmitProject.vue";
 import HeaderMegaMenuV2 from "~/components/HeaderMegaMenuV2";
 import FooterMenu from "~/components/FooterMenu.vue";
 import LogoCarousel from "~/components/LogoCarousel.vue";
-import PartnersLogos from "~/components/PartnersLogos";
 import EventCountdown from "~/components/EventCountdown";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
 import ResponsiveImage from "~/components/ResponsiveImage";
@@ -74,7 +71,6 @@ import NewBlogLatestPosts from "~/components/blog/NewBlogLatestPosts";
 
 // Page Specific
 import i18n from "~/components/i18n";
-import Deploy from "~/components/Deploy";
 import DeployTemp from "~/components/DeployTemp";
 import DevelopersHero from "~/components/page/DevelopersHero";
 import DevelopersFeatures from "~/components/page/DevelopersFeatures";
@@ -147,7 +143,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   Vue.component("DefaultLayout", DefaultLayout);
   Vue.component("ThemedImage", ThemedImage);
-  Vue.component("ImagePlaceholder", ImagePlaceholder);
   Vue.component("HeroTitle", HeroTitle);
   Vue.component("HeroMixed", HeroMixed);
   Vue.component("HeroMixedCms", HeroMixedCms);
@@ -160,7 +155,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("CardGridExchanges", CardGridExchanges);
   Vue.component("EcosystemExperiencingIssues", EcosystemExperiencingIssues);
   Vue.component("CardGridContributors", CardGridContributors);
-  Vue.component("CardGridContributorFilter", CardGridContributorFilter);
   Vue.component("CardGridPartners", CardGridPartners);
   Vue.component("CardGridValidators", CardGridValidators);
   Vue.component("CardGridNfts", CardGridNfts);
@@ -190,7 +184,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("GetScrtQuestions", GetScrtQuestions);
   Vue.component("GetScrtLearnMore", GetScrtLearnMore);
   Vue.component("LogoCarousel", LogoCarousel);
-  Vue.component("PartnersLogos", PartnersLogos);
   Vue.component("EventCountdown", EventCountdown);
   Vue.component("ResponsiveImage", ResponsiveImage);
 
@@ -247,7 +240,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("InfiniteSlideBar", InfiniteSlideBar);
   Vue.component("typical", typical);
   Vue.component("i18n", i18n);
-  Vue.component("Deploy", Deploy);
   Vue.component("DeployTemp", DeployTemp);
   Vue.component("v-select", vSelect);
   Vue.component("Countdown", Countdown);
