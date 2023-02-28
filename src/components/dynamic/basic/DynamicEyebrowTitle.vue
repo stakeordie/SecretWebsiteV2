@@ -3,7 +3,7 @@
     v-if="title"
     class="dynamic-eyebrow-title"
     :class="titlePosition"
-    :style="`--eyebrow-title-color: ${color}`"
+    :style="eyebrowColor"
   >
     {{ title }}
   </h5>
@@ -14,30 +14,37 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     alignment: {
       type: String,
       required: false,
-      default: "left",
+      default: "left"
     },
     color: {
       type: String,
       required: false,
-      default: "var(--color-ver2-primary-orange)",
-    },
+      default: "var(--color-ver2-primary-orange)"
+    }
   },
   computed: {
     titlePosition() {
       const textPositions = {
         left: "text-left",
         center: "text-center",
-        right: "text-right",
+        right: "text-right"
       };
       const position = textPositions[this.alignment];
       return position ? position : textPositions.left;
     },
-  },
+    eyebrowColor() {
+      const color = this.color;
+      const defaultColor = "var(--color-ver2-primary-orange)";
+      return {
+        "--eyebrow-title-color": color ? color : defaultColor
+      };
+    }
+  }
 };
 </script>
 

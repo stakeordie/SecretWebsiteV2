@@ -52,9 +52,15 @@ export default {
     display: grid;
     gap: 16px;
     padding: 0 16px;
+    max-width: 1200px;
+    margin-inline: auto;
 
     @include respond-to(">=m") {
       padding: 0;
+    }
+
+    @include respond-to("xxxl") {
+      max-width: 1600px;
     }
 
     .img-caption {

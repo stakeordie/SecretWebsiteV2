@@ -29,10 +29,11 @@
               :sizes="sizes"
             />
           </div>
-          <VueMarkdown
+          <DynamicBody
             v-if="content.body"
+            :text="content.body"
+            :align="sizes.body_alignment"
             class="content-hero__body"
-            :source="content.body"
           />
           <DynamicButtons :buttons="buttons" :position="buttons_position" />
         </div>
@@ -46,34 +47,40 @@ import { sizes } from "@/utils";
 import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 import DynamicCustomTitle from "@/components/dynamic/basic/DynamicCustomTitle.vue";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
-  components: { DynamicButtons, DynamicEyebrowTitle, DynamicCustomTitle },
+  components: {
+    DynamicButtons,
+    DynamicEyebrowTitle,
+    DynamicCustomTitle,
+    DynamicBody
+  },
   props: {
     image: {
       type: Object,
-      required: true,
+      required: true
     },
     image_position: {
       type: String,
-      required: true,
+      required: true
     },
     content: {
       type: Object,
-      required: true,
+      required: true
     },
     sizes: {
       type: Object,
-      required: true,
+      required: true
     },
     buttons: {
       type: Array,
-      required: false,
+      required: false
     },
     buttons_position: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     imagePosition() {
@@ -86,8 +93,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.sizes.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-  },
+    }
+  }
 };
 </script>
 

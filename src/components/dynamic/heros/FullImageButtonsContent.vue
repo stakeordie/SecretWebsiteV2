@@ -34,11 +34,11 @@
             :class="titlePosition"
             :source="content.custom_title"
           />
-          <VueMarkdown
+          <DynamicBody
             v-if="content.body"
             class="content-hero__body"
-            :class="titlePosition"
-            :source="content.body"
+            :text="content.body"
+            :align="sizes.body_alignment"
           />
           <DynamicButtons :buttons="buttons" position="full" :full="true" />
         </div>
@@ -50,34 +50,35 @@
 <script>
 import { sizes } from "@/utils";
 import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
-  components: { DynamicButtons },
+  components: { DynamicButtons, DynamicBody },
   props: {
     image: {
       type: Object,
-      required: true,
+      required: true
     },
     image_position: {
       type: String,
-      required: true,
+      required: true
     },
     hero_height: {
       type: String,
-      required: true,
+      required: true
     },
     content: {
       type: Object,
-      required: true,
+      required: true
     },
     sizes: {
       type: Object,
-      required: true,
+      required: true
     },
     buttons: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     imageHeight() {
@@ -100,7 +101,7 @@ export default {
       const textPositions = {
         left: "text-left",
         center: "text-center",
-        right: "text-right",
+        right: "text-right"
       };
       const position = textPositions[this.sizes.title_alignment];
       return position ? position : textPositions.center;
@@ -117,7 +118,7 @@ export default {
       const color = this.content.eyebrow_color;
       const defaultColor = "var(--color-ver2-primary-orange)";
       return {
-        color: color ? color : defaultColor,
+        color: color ? color : defaultColor
       };
     },
     imagePosition() {
@@ -125,12 +126,12 @@ export default {
         left: "image-left",
         center: "image-center",
         right: "image-right",
-        full: "image-full",
+        full: "image-full"
       };
       const position = imagePositions[this.image_position];
       return position ? position : imagePositions.right;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -245,7 +246,7 @@ export default {
 
       &__custom-title {
         width: 100%;
-        
+
         * {
           font-family: "Montserrat";
           margin: 0;
