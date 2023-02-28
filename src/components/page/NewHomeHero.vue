@@ -35,49 +35,12 @@
   </section>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {
-      secretInvestors: [
-        { image: "/img/investor-Alameda.png" },
-        { image: "/img/investor-Arca.png" },
-        { image: "/img/investor-Arkstream.png" },
-        { image: "/img/investor-Arrington.png" },
-        { image: "/img/investor-Bison.png" },
-        { image: "/img/investor-Blacktower.png" },
-        { image: "/img/investor-Coinfund.png" },
-        { image: "/img/investor-Defiance.png" },
-        { image: "/img/investor-Dragonly.png" },
-        { image: "/img/investor-Fenbushi.png" },
-        { image: "/img/investor-Figment.png" },
-        { image: "/img/investor-GalaxyDigital.png" },
-        { image: "/img/investor-Hartman.png" },
-        { image: "/img/investor-Hashed.png" },
-        { image: "/img/investor-HashkeyGroup.png" },
-        { image: "/img/investor-Huobi.png" },
-        { image: "/img/investor-Iconium.png" },
-        { image: "/img/investor-Kucoin.png" },
-        { image: "/img/investor-Magnus.png" },
-        { image: "/img/investor-NGC.png" },
-        { image: "/img/investor-Sanctor.png" },
-        { image: "/img/investor-SCRTLabs.png" },
-        { image: "/img/investor-Shima.png" },
-        { image: "/img/investor-Skynet.png" },
-        { image: "/img/investor-Skyvision.png" },
-      ],
-    };
-  },
-};
-</script>
-
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 .new-home-hero {
   display: flex;
   margin: 0;
   padding: 174px 0 62px 0;
-  // height: 705px;
   overflow: hidden;
   max-width: 100vw;
 
@@ -91,9 +54,7 @@ export default {
     min-width: 343px;
     overflow: hidden;
     margin: 0 auto;
-    // transform: translateY(10%);
     padding: var(--f-gutter);
-    //transform: translateY(24%);
     @include respond-to("<=xs") {
       transform: translateY(6%);
     }
@@ -104,10 +65,6 @@ export default {
     }
     &__h1 {
       text-align: center;
-      // font-family: var(--f-default-headers-font);
-      // font-size: 54px;
-      // line-height: 60px;
-      // font-weight: 600;
       margin-bottom: 26px;
 
       & span {
@@ -126,7 +83,6 @@ export default {
     &__p {
       font-size: var(--paragraph-font-size-big);
       line-height: var(--paragraph-line-height-big);
-      // color: var(--color-neutral-dark-mode-06);
       min-width: 311px;
       margin-bottom: 26px;
     }
@@ -165,10 +121,6 @@ export default {
             height: 24px;
           }
         }
-        // &.special-icon{
-        //       vertical-align: middle;
-
-        //     }
       }
     }
     &__logos {
@@ -187,12 +139,8 @@ export default {
         overflow: hidden;
       }
       & .vifnslb-bar {
-        //gap: 96px;
-        //margin-right: 96px;
         overflow: hidden;
         @include respond-to("<=m") {
-          //gap: 64px;
-          //margin-right: 64px;
         }
         & img {
           height: 48px;
@@ -205,7 +153,6 @@ export default {
 
     & .logo-container {
       padding: var(--f-gutter) 54px;
-      // width: 120px;
       opacity: 0.7;
       @include respond-to("<=s") {
         padding: var(--f-gutter) 32px;

@@ -80,6 +80,8 @@ export default {
   grid-template-columns: 1fr;
   gap: 16px;
   padding: 0 16px;
+  max-width: 1200px;
+  margin-inline: auto;
 
   @include respond-to(">=m") {
     padding: 0;
@@ -88,6 +90,10 @@ export default {
   @include respond-to(">=l") {
     grid-template-columns: 360px 1fr;
     gap: 36px;
+  }
+
+  @include respond-to("xxxl") {
+    max-width: 1600px;
   }
 
   &__description {

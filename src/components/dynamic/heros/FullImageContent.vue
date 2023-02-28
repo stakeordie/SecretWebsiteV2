@@ -29,11 +29,10 @@
               :content="content"
               :sizes="sizes"
             />
-            <VueMarkdown
+            <DynamicBody
               v-if="content.body"
-              class="content-hero__body"
-              :class="titlePosition"
-              :source="content.body"
+              :text="content.body"
+              :align="sizes.body_alignment"
             />
           </div>
         </section>
@@ -47,9 +46,15 @@ import { sizes } from "@/utils";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 import DynamicCustomTitle from "@/components/dynamic/basic/DynamicCustomTitle.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
-  components: { DynamicEyebrowTitle, DynamicTitle, DynamicCustomTitle },
+  components: {
+    DynamicEyebrowTitle,
+    DynamicTitle,
+    DynamicCustomTitle,
+    DynamicBody
+  },
   props: {
     image: {
       type: Object,
@@ -75,15 +80,6 @@ export default {
   computed: {
     imageHeight() {
       return this.hero_height === "full-screen" ? "background-full" : "";
-    },
-    titlePosition() {
-      const textPositions = {
-        left: "text-left",
-        center: "text-center",
-        right: "text-right"
-      };
-      const position = textPositions[this.sizes.title_alignment];
-      return position ? position : textPositions.center;
     },
     paddingTop() {
       const size = sizes[this.sizes.padding_top];
@@ -143,6 +139,7 @@ export default {
   .content > .box {
     padding: 0;
   }
+
   .responsive-image {
     position: absolute;
     z-index: 0;
@@ -172,31 +169,12 @@ export default {
       }
     }
   }
-  .content-hero__body {
-    &.text {
-      &-left {
-        text-align: left;
-      }
-
-      &-center {
-        text-align: center;
-      }
-
-      &-right {
-        text-align: right;
-      }
-    }
-
-    p {
-      font-size: var(--paragraph-font-size-big);
-      line-height: var(--paragraph-line-height-big);
-    }
-  }
 
   .dynamic-eyebrow-title,
   .dynamic-title,
   .dynamic-custom-title {
     font-family: "Hind";
+    margin: 0;
   }
 
   .dynamic-eyebrow-title {
