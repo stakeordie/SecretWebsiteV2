@@ -3,7 +3,7 @@
     v-if="text"
     :source="text"
     class="dynamic-body"
-    :style="textAlignment"
+    :style="[textAlignment, bodyColor]"
   />
 </template>
 
@@ -18,6 +18,11 @@ export default {
       type: String,
       required: false,
       default: "left"
+    },
+    color: {
+      type: String,
+      required: false,
+      default: "var(--color-neutral-dark-mode-05)"
     }
   },
   computed: {
@@ -30,6 +35,13 @@ export default {
       const position = alignments[this.align];
       return {
         "--text-alignment": position ? position : alignments.left
+      };
+    },
+    bodyColor() {
+      const defaultColor = "var(--color-neutral-dark-mode-05)";
+      const color = this.color;
+      return {
+        "--text-color": color ? color : defaultColor
       };
     }
   }
@@ -46,7 +58,7 @@ export default {
     p,
     ul,
     li {
-      color: var(--color-neutral-dark-mode-05);
+      color: var(--text-color);
       font-size: 16px;
       line-height: 30px;
 

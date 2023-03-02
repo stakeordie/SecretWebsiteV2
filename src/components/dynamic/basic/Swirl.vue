@@ -1,14 +1,7 @@
 <template>
-  <Column
-    v-if="data.image"
-    class="dynamic-swirl-component"
-    mode="full"
-    :class="swirlPosition"
-  >
-    <Block>
-      <ResponsiveImage :src="data.image" />
-    </Block>
-  </Column>
+  <div v-if="data.image" class="dynamic-swirl-component" :class="swirlPosition">
+    <ResponsiveImage :src="data.image" />
+  </div>
 </template>
 
 <script>
@@ -16,39 +9,35 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true,
+      required: true
     },
     align: {
       type: String,
       required: true,
-      default: "top",
-    },
+      default: "top"
+    }
   },
   computed: {
     swirlPosition() {
       const alignment = {
         top: "swirl-top",
-        bottom: "swirl-bottom",
+        bottom: "swirl-bottom"
       };
       const positions = {
         "inline-content": "__block",
-        "under-content": "__absolute",
+        "under-content": "__absolute"
       };
-      const align = alignment[this.align];
+      const align = alignment[this.align] || alignment.top;
       const defaultPosition = positions["inline-content"];
       const position = positions[this.data.position] || defaultPosition;
       return align + position;
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .dynamic-swirl-component {
-  .content .box {
-    padding: 0;
-  }
-
   &.swirl-top {
     &__absolute {
       position: absolute;

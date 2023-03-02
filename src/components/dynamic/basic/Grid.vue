@@ -1,5 +1,9 @@
 <template>
-  <div class="grid-container" :style="gridStyles" :class="containerPaddings">
+  <div
+    class="grid-container"
+    :style="[gridStyles, textColor]"
+    :class="containerPaddings"
+  >
     <CardWrapper
       v-for="(data, index) in grid_card"
       :key="index"
@@ -55,6 +59,10 @@ export default {
     cta_button: {
       type: Object,
       required: false
+    },
+    component_colors: {
+      type: Object,
+      required: false
     }
   },
   components: {
@@ -78,14 +86,19 @@ export default {
         five: 5,
         six: 6
       };
-      const mobileColumns = columns[this.grid_columns_mobile];
-      const tabletColumns = columns[this.grid_columns_tablet];
-      const desktopColumns = columns[this.grid_columns_desktop];
 
       return {
-        "--mobile-columns": mobileColumns ? mobileColumns : columns.one,
-        "--tablet-columns": tabletColumns ? tabletColumns : columns.three,
-        "--desktop-columns": desktopColumns ? desktopColumns : columns.five
+        "--mobile-columns": columns[this.grid_columns_mobile] || columns.one,
+        "--tablet-columns": columns[this.grid_columns_tablet] || columns.three,
+        "--desktop-columns": columns[this.grid_columns_desktop] || columns.five
+      };
+    },
+    textColor() {
+      const defaultTitle = "var(--color-neutral-dark-mode-06)";
+      const defaultText = "var(--color-neutral-dark-mode-05)";
+      return {
+        "--title-color": this.component_colors?.title_color || defaultTitle,
+        "--text-color": this.component_colors?.body_color || defaultText
       };
     }
   }
@@ -98,8 +111,6 @@ export default {
 .grid-container {
   display: grid;
   gap: 26px;
-  max-width: 1200px;
-  margin-inline: auto;
   grid-template-columns: repeat(var(--mobile-columns), 1fr);
 
   @include respond_to(">=m") {
@@ -108,10 +119,6 @@ export default {
 
   @include respond_to(">=l") {
     grid-template-columns: repeat(var(--desktop-columns), 1fr);
-  }
-
-  @include respond-to("xxxl") {
-    max-width: 1600px;
   }
 
   .grid-card {
@@ -137,6 +144,7 @@ export default {
       display: flex;
       flex-direction: column;
       text-align: center;
+      gap: 8px;
 
       &__title {
         font-family: "Montserrat";
@@ -144,7 +152,7 @@ export default {
         font-weight: 600;
         font-size: 18px;
         line-height: 30px;
-        color: var(--color-neutral-dark-mode-06);
+        color: var(--title-color);
         word-break: break-word;
 
         @include respond_to(">=l") {
@@ -158,7 +166,7 @@ export default {
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        color: var(--color-neutral-dark-mode-05);
+        color: var(--text-color);
         word-break: break-word;
       }
     }

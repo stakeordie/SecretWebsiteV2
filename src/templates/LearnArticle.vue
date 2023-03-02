@@ -1,32 +1,46 @@
 <template>
-  <DefaultLayout class="learn-article">
-    <Swirl v-if="topSwirl" :data="topSwirl" align="top" />
-    <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
-    <Column
-      class="learn-article__content"
-      :class="{ 'empty-nav': !anchorList.length }"
-      :mode="anchorList.length ? 'normal' : 'full'"
-    >
+  <DefaultLayout class="learn-article" :style="pageBackground">
+    <Column mode="full" class="learn-article__wrapper">
       <Block>
-        <NavMenu v-if="anchorList.length" :data="anchorList" />
-        <div>
-          <component
+        <Swirl v-if="topSwirl" :data="topSwirl" align="top" />
+
+        <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
+
+        <Column v-if="hasAnchors" class="learn-article__content">
+          <Block>
+            <NavMenu :data="anchorList" />
+            <div>
+              <component
+                v-for="(component, index) in contentComponents"
+                :is="component.comp_name"
+                :key="index"
+                v-bind="component"
+              />
+            </div>
+          </Block>
+        </Column>
+
+        <template v-else>
+          <Column
             v-for="(component, index) in contentComponents"
-            :is="component.comp_name"
             :key="index"
-            v-bind="component"
+            :mode="columnMode(component.comp_name)"
+            :style="backgroundColor(component)"
+            class="learn-article__content empty-nav"
           >
-            {{ component.content ? component.content : "" }}
-          </component>
-        </div>
+            <Block>
+              <component :is="component.comp_name" v-bind="component" />
+            </Block>
+          </Column>
+        </template>
+
+        <Block v-if="carousel">
+          <Carousel v-bind="carousel" />
+        </Block>
+
+        <Swirl v-if="bottomSwirl" :data="bottomSwirl" align="bottom" />
       </Block>
     </Column>
-    <Column mode="full" v-if="carousel">
-      <Block>
-        <Carousel v-bind="carousel" />
-      </Block>
-    </Column>
-    <Swirl v-if="bottomSwirl" :data="bottomSwirl" align="bottom" />
   </DefaultLayout>
 </template>
 
@@ -56,15 +70,11 @@ import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
-  canonicalTag
+  canonicalTag,
+  removeCharacters
 } from "@/utils";
 
 export default {
-  data() {
-    return {
-      anchorList: []
-    };
-  },
   components: {
     //Heros
     DoubleColumnImage,
@@ -95,11 +105,15 @@ export default {
       link: canonicalTag(this.getMetaData)
     };
   },
+  data() {
+    return {
+      anchorList: []
+    };
+  },
   methods: {
     getAnchors() {
       this.anchorList = [];
-      if (typeof window === "undefined") return;
-      const anchors = document.querySelectorAll('[isAnchor="true"]');
+      const anchors = this.contentComponents.filter(item => item.is_anchor);
       let lastFirstLevelId = null;
       let lastSecondLevelId = null;
       const navLevels = {
@@ -114,22 +128,21 @@ export default {
       if (!anchors.length) return;
 
       anchors.forEach((elem, index) => {
-        const { id, attributes } = elem;
-        const titleElem = elem.querySelector("#main_title");
+        const title = elem.paragraph_title || elem.main_title;
         const data = {
-          navLevel: Number(navLevels[attributes.navLevel.value]),
-          title: titleElem ? titleElem.textContent : "",
-          id: id,
+          navLevel: Number(navLevels[elem.navigation_level]) || 1,
+          title,
+          id: title ? removeCharacters(title) : "",
           parentId: "",
           nested: [],
           isOpen: true
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
-          lastFirstLevelId = id;
+          lastFirstLevelId = data.id;
           this.anchorList.push(data);
         } else if (data.navLevel === navLevels.second) {
-          lastSecondLevelId = id;
+          lastSecondLevelId = data.id;
           data.parentId = lastFirstLevelId;
           this.insertSecondLevel(data);
         } else if (data.navLevel === navLevels.third) {
@@ -162,9 +175,24 @@ export default {
         "--header-height",
         `${header.offsetHeight}px`
       );
+    },
+    columnMode(compName) {
+      return compName === "custom-carousel" ? "full" : "normal";
+    },
+    backgroundColor(comp) {
+      const excludeComp = ["cta-button"];
+      if (excludeComp.includes(comp.comp_name)) return "";
+
+      const defaultColor = "transparent";
+      const color =
+        comp.component_colors?.background_color || comp.background_color;
+      return { backgroundColor: color ? color : defaultColor };
     }
   },
   computed: {
+    hasAnchors() {
+      return [...this.contentComponents].some(item => item.is_anchor);
+    },
     carousel() {
       return this.$context.components.find(
         item => item.comp_name === "carousel"
@@ -187,6 +215,13 @@ export default {
     },
     bottomSwirl() {
       return this.$context.swirls?.bottom_swirl || {};
+    },
+    pageBackground() {
+      const defaultColor = "var(--theme-bg)";
+      const color = this.$context.backgroundColor || defaultColor;
+      return {
+        "--bg-dynamic-page": color
+      };
     }
   },
   mounted() {
@@ -195,7 +230,7 @@ export default {
   },
   watch: {
     $route: {
-      handler(to, from) {
+      handler(to) {
         addScrollSmooth(to);
         setTimeout(() => this.getAnchors(), 500);
       },
@@ -230,14 +265,19 @@ query {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .learn-article {
+  background-color: var(--bg-dynamic-page);
   $padding-sizes: ("none", "small", "medium", "large");
   --p-none: 0px;
   --p-small: 26px;
   --p-medium: 64px;
   --p-large: 96px;
 
+  &__wrapper > .--flare-block > .content > .box {
+    padding: 0;
+  }
+
   &__content {
-    .content .box {
+    .content > .box {
       display: grid;
       gap: 42px;
       grid-template-columns: 1fr;
@@ -248,8 +288,9 @@ query {
     }
 
     &.empty-nav {
-      .content .box {
+      .content > .box {
         grid-template-columns: 1fr;
+        padding-block: 0;
       }
     }
 

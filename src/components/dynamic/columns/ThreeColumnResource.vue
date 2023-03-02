@@ -28,36 +28,36 @@ export default {
   props: {
     title: {
       type: String,
-      required: false,
+      required: false
     },
     eyebrow_title: {
       type: String,
-      required: false,
+      required: false
     },
     eyebrow_color: {
       type: String,
-      required: false,
+      required: false
     },
     subtitle: {
       type: String,
-      required: false,
+      required: false
     },
     cta_cards: {
       type: Array,
-      required: false,
+      required: false
     },
     padding_top: {
       type: String,
-      required: true,
+      required: true
     },
     padding_bottom: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   components: {
     ThreeColumnCard,
-    DynamicEyebrowTitle,
+    DynamicEyebrowTitle
   },
   computed: {
     paddingTop() {
@@ -67,8 +67,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -80,8 +80,6 @@ export default {
   grid-template-columns: 1fr;
   gap: 16px;
   padding: 0 16px;
-  max-width: 1200px;
-  margin-inline: auto;
 
   @include respond-to(">=m") {
     padding: 0;
@@ -90,10 +88,6 @@ export default {
   @include respond-to(">=l") {
     grid-template-columns: 360px 1fr;
     gap: 36px;
-  }
-
-  @include respond-to("xxxl") {
-    max-width: 1600px;
   }
 
   &__description {

@@ -5,6 +5,7 @@
     class="dynamic-title"
     :is="titleHeader"
     :class="[titlePosition, titleAlignment]"
+    :style="titleColor"
   >
     {{ title }}
   </component>
@@ -26,6 +27,11 @@ export default {
       type: String,
       required: false,
       default: "left"
+    },
+    color: {
+      type: String,
+      required: false,
+      default: "--color-analog-primary-white"
     }
   },
   computed: {
@@ -49,6 +55,13 @@ export default {
     },
     titleAlignment() {
       return { "title-25": this.weight === "H2.5" };
+    },
+    titleColor() {
+      const defaultColor = "--color-analog-primary-white";
+      const color = this.color;
+      return {
+        "--title-color": color ? color : defaultColor
+      };
     }
   }
 };
@@ -57,6 +70,7 @@ export default {
 <style lang="scss" scoped>
 .dynamic-title {
   font-family: "Montserrat";
+  color: var(--title-color);
 
   &.title-25:is(h2) {
     font-size: var(--f-h2_5-text-size);

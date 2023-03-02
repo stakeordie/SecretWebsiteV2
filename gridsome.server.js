@@ -109,8 +109,8 @@ module.exports = function (api) {
           } catch (e) {
             console.error(
               "\u001b[1;31m Page Set query for endpoint " +
-                pageSetEndpoint.singular +
-                " FAILED. It may be the case that the collection is empty. Here is the Error: ",
+              pageSetEndpoint.singular +
+              " FAILED. It may be the case that the collection is empty. Here is the Error: ",
               e
             );
             continue;
@@ -200,8 +200,9 @@ module.exports = function (api) {
             context: {
               components: page.currentComponents,
               route: page.route,
-              heroComponent: page.heroComponent ? page.heroComponent : {},
-              swirls: page.swirls ? page.swirls : {},
+              heroComponent: page.heroComponent || {},
+              swirls: page.swirls || {},
+              backgroundColor: page.background_color || "",
             },
           });
         });

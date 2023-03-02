@@ -18,6 +18,11 @@ export default {
     sizes: {
       type: Object,
       required: true
+    },
+    color: {
+      type: String,
+      required: false,
+      default: "var(--color-analog-primary-white)"
     }
   },
   computed: {
@@ -34,10 +39,12 @@ export default {
       return { "title-25": this.sizes.title_weight === "H2.5" };
     },
     titleColor() {
-      const color = this.content.custom_title_color;
-      const textColor = color ? color : "var(--color-analog-primary-white)";
+      const defaultColor = "var(--color-analog-primary-white)";
+      const titleColor = this.color;
+      const customColor = this.content.custom_title_color;
       return {
-        "--title-color": textColor
+        "--title-color": titleColor ? titleColor : defaultColor,
+        "--custom-color": customColor ? customColor : defaultColor
       };
     }
   }
@@ -46,12 +53,14 @@ export default {
 
 <style lang="scss">
 .dynamic-custom-title {
+  color: var(--title-color);
+
   * {
     font-family: "Montserrat";
   }
 
   strong {
-    color: var(--title-color);
+    color: var(--custom-color);
   }
 
   &.title-25 {
