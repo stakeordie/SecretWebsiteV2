@@ -3,8 +3,6 @@
     <div
       :class="['text-column-double', paddingTop, paddingBottom]"
       :id="titleId(main_title)"
-      :isAnchor="is_anchor"
-      :navLevel="navigation_level"
     >
       <DynamicEyebrowTitle
         v-if="eyebrow_title"
@@ -17,6 +15,7 @@
         :title="main_title"
         :weight="main_title_weight"
         :alignment="main_title_alignment"
+        :color="component_colors ? component_colors.title_color : ''"
       />
       <div class="text-column-double__col">
         <div class="text-column-double__col-1">
@@ -31,6 +30,7 @@
             v-if="first_paragraph"
             :text="first_paragraph"
             :align="first_paragraph_alignment"
+            :color="component_colors ? component_colors.body_color : ''"
           />
           <DynamicButtons
             v-if="first_paragraph_buttons"
@@ -50,6 +50,7 @@
             v-if="second_paragraph"
             :text="second_paragraph"
             :align="second_paragraph_alignment"
+            :color="component_colors ? component_colors.body_color : ''"
           />
           <DynamicButtons
             v-if="second_paragraph_buttons"
@@ -168,6 +169,10 @@ export default {
     second_paragraph_alignment: {
       type: String,
       required: false
+    },
+    component_colors: {
+      type: Object,
+      required: false
     }
   },
   computed: {
@@ -194,14 +199,9 @@ export default {
 .learn-article__content {
   .text-column-double {
     padding: 0 16px;
-    max-width: 1200px;
 
     @include respond-to(">=m") {
       padding: 0;
-    }
-
-    @include respond-to("xxxl") {
-      max-width: 1600px;
     }
 
     &__col {
