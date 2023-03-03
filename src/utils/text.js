@@ -5,24 +5,24 @@ export const sizes = {
   large: "large",
 };
 
-export function replaceWithSpace(string) {
+export function replaceWithSpace(string = "") {
   return string.replace(/[^A-Z0-9]+/ig, " ");
 }
 
-export function removeCharacters(string) {
+export function removeCharacters(string = "") {
   return string
     .replace(/\s+/g, "-")
     .replace(/[^-A-Za-z0-9]+/g, "")
     .toLowerCase();
 }
 
-export function uppercaseAllFirstLetter(string) {
+export function uppercaseAllFirstLetter(string = "") {
   return string
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
 
-export const removeLastSlash = (text) => {
+export const removeLastSlash = (text = "") => {
   return text.charAt(text.length - 1) === "/" ? text.slice(0, -1) : text;
 };

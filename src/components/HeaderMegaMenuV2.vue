@@ -37,7 +37,12 @@
                   :key="index"
                   @click="nav.is_dropdown ? toggleMegaMenu(index) : null"
                 >
-                  <a v-if="!nav.is_dropdown" :href="nav.path" class="link">
+                  <a
+                    v-if="!nav.is_dropdown"
+                    :href="nav.path"
+                    class="link"
+                    @click="closeNav"
+                  >
                     {{ nav.title }}
                   </a>
                   <span v-else class="link">
@@ -109,7 +114,7 @@
               <li
                 class="nav__expanded__content__item"
                 :class="{
-                  hidden__submenu: subMenuIndex != index,
+                  hidden__submenu: subMenuIndex != index
                 }"
               >
                 <div
@@ -119,8 +124,7 @@
                       sec.sub_category.toLowerCase() ===
                       'Ecosystem'.toLowerCase(),
                     lastEcoSub:
-                      sec.sub_category.toLowerCase() ===
-                      'Bridges'.toLowerCase(),
+                      sec.sub_category.toLowerCase() === 'Bridges'.toLowerCase()
                   }"
                   v-for="(sec, indexSec) in nav.nav_items"
                   :key="indexSec"
@@ -289,7 +293,7 @@ export default {
       columns: [],
       miniMenuIsOpen: false,
       subMenuIndex: -1,
-      learnPath: "",
+      learnPath: ""
     };
   },
   methods: {
@@ -322,7 +326,7 @@ export default {
     },
     megaMenuColumns() {
       const footer = document.querySelector("footer");
-      const columns = this.columns.filter((item) => item.nav_items.length);
+      const columns = this.columns.filter(item => item.nav_items.length);
       const style = `--scrt-megamenu-columns:${columns.length}`;
       footer.setAttribute("style", style);
     },
@@ -347,10 +351,10 @@ export default {
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
       if (active) {
-        navEl.forEach((el) => {
+        navEl.forEach(el => {
           el.classList.remove("activeNav");
         });
-        arrow.forEach((el) => {
+        arrow.forEach(el => {
           el.classList.remove("arrow-up");
         });
         navEl[index].classList.add("activeNav");
@@ -390,10 +394,10 @@ export default {
 
       this.subMenuIndex = -1;
       body.classList.remove("freezed");
-      navEl.forEach((el) => {
+      navEl.forEach(el => {
         el.classList.remove("activeNav");
       });
-      arrow.forEach((el) => {
+      arrow.forEach(el => {
         el.classList.remove("arrow-up");
       });
     },
@@ -402,8 +406,8 @@ export default {
       this.$router.push("/about/get-scrt");
     },
     mapNavArray(array) {
-      array.forEach((c) => {
-        let result = c.nav_items.reduce(function (r, a) {
+      array.forEach(c => {
+        let result = c.nav_items.reduce(function(r, a) {
           r[a.sub_category] = r[a.sub_category] || [];
           r[a.sub_category].push(a);
 
@@ -424,16 +428,16 @@ export default {
 
             c.nav_items.push({
               sub_category: key,
-              sub_category_nav_item: firstArray,
+              sub_category_nav_item: firstArray
             });
             c.nav_items.push({
               sub_category: "",
-              sub_category_nav_item: secondArray,
+              sub_category_nav_item: secondArray
             });
           } else {
             c.nav_items.push({
               sub_category: key,
-              sub_category_nav_item: value,
+              sub_category_nav_item: value
             });
           }
         });
@@ -444,12 +448,12 @@ export default {
         let navItems = [];
         let path = [];
 
-        let getNavItems = function () {
+        let getNavItems = function() {
           return document
             .querySelectorAll(".nav__content")
-            .forEach((it) => navItems.push(it.firstChild));
+            .forEach(it => navItems.push(it.firstChild));
         };
-        let getPath = function () {
+        let getPath = function() {
           path = window.location.pathname;
           return path;
         };
@@ -457,7 +461,7 @@ export default {
         getNavItems();
         getPath();
 
-        navItems.filter((el) => {
+        navItems.filter(el => {
           if (el.outerText.toLowerCase() === "about") {
             if (path.includes("/about")) {
               el.classList.add("active-about");
@@ -507,11 +511,14 @@ export default {
       }
     },
     closeNav() {
+      const html = document.querySelector("html");
+      html.style.overflowY = "auto";
+      this.isMobileOpen = false;
       this.megaMenuIsOpen = false;
     },
     setColumns(content) {
       this.columns = content;
-    },
+    }
   },
 
   computed: {
@@ -523,11 +530,11 @@ export default {
     },
     megaMenuItems() {
       const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
-      const content = neWArray.edges.map((it) => it.node.nav_groups);
+      const content = neWArray.edges.map(it => it.node.nav_groups);
       this.setColumns(content[0]);
       this.mapNavArray(this.columns);
       return this.columns;
-    },
+    }
   },
   mounted() {
     this.activeMenu();
@@ -543,12 +550,12 @@ export default {
       handler(to, from) {
         this.activeMenu();
         return;
-      },
-    },
+      }
+    }
   },
   beforeDestroy() {
     this.scrollPosition();
-  },
+  }
 };
 </script>
 

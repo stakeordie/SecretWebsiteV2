@@ -46,20 +46,6 @@ export default {
     WelcomeSection,
   },
   methods: {
-    sneakPeek() {
-      const header = document.querySelector(".mega-header");
-      const alertBar = document.querySelector(".alert-bar");
-      const summitContent = document.querySelector(".summit_content");
-      const headerHeight = alertBar
-        ? alertBar.offsetHeight + header.offsetHeight
-        : header.offsetHeight;
-
-      summitContent.style.setProperty("--sum-heights", `${headerHeight}px`);
-      summitContent.style.setProperty(
-        "--header-height",
-        `${header.offsetHeight}px`
-      );
-    },
     addAdScript() {
       const functionScript = document.createElement("script");
       functionScript.innerHTML = `window.dataLayer = window.dataLayer || [];

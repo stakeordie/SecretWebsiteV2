@@ -118,10 +118,9 @@ export default {
     width: 100%;
     min-height: 572px;
     padding: 0 16px;
-    margin-bottom: 32px;
 
     &.background-full {
-      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100vh - var(--header-height, 0px));
     }
 
     .content-hero {

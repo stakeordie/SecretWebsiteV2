@@ -1,5 +1,5 @@
 <template>
-  <figure :class="['article-video', paddingTop, paddingBottom]">
+  <figure class="article-video" :class="[paddingTop, paddingBottom]">
     <video v-if="video" controls>
       <source :src="video.url" type="video/mp4" />
       Sorry, your browser doesn't support embedded videos.
@@ -12,7 +12,7 @@
       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
       allowfullscreen
     />
-    <figcaption class="img-caption" v-if="caption">
+    <figcaption class="img-caption" v-if="caption" :style="bodyColor">
       {{ caption }}
     </figcaption>
   </figure>
@@ -23,11 +23,30 @@ import { sizes } from "@/utils";
 
 export default {
   props: {
-    video: Object,
-    caption: String,
-    padding_top: String,
-    padding_bottom: String,
-    youtube_video_url: String,
+    video: {
+      type: Object,
+      required: false
+    },
+    caption: {
+      type: String,
+      required: false
+    },
+    padding_top: {
+      type: String,
+      required: false
+    },
+    padding_bottom: {
+      type: String,
+      required: false
+    },
+    youtube_video_url: {
+      type: String,
+      required: false
+    },
+    component_colors: {
+      type: Object,
+      required: false
+    }
   },
   computed: {
     paddingTop() {
@@ -43,44 +62,50 @@ export default {
       const videoCode = url[1] ? url[1] : this.youtube_video_url;
       return `https://www.youtube.com/embed/${videoCode}`;
     },
-  },
+    bodyColor() {
+      const defaultColor = "var(--color-analog-secondary-light-gray);";
+      const color = this.component_colors?.body_color;
+      return {
+        "--text-color": color ? color : defaultColor
+      };
+    }
+  }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-article__content {
-  .article-video {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 16px;
-    max-width: 710px;
-    margin: 0 auto;
+.article-video {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 710px;
+  margin-inline: auto;
 
-    @include respond-to(">=m") {
-      padding: 0;
-    }
+  @include respond-to(">=m") {
+    padding: 0;
+  }
 
-    iframe,
-    video {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
+  iframe,
+  video {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
 
-    .img-caption {
-      font-size: 16px;
-      color: var(--color-analog-secondary-light-gray);
+  .img-caption {
+    font-size: 16px;
+    color: var(--text-color);
 
-      text-align: center;
-      margin: auto;
-      line-height: 24px;
+    text-align: center;
+    margin: auto;
+    line-height: 24px;
 
-      @include respond-to("<=m") {
-        font-size: 12px;
-        line-height: 20px;
-      }
+    @include respond-to("<=m") {
+      font-size: 12px;
+      line-height: 20px;
     }
   }
 }

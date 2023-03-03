@@ -47,7 +47,7 @@ export default {
 .summit_content {
   .hero {
     margin-top: var(--header-height);
-    min-height: calc(100vh - var(--sum-heights));
+    min-height: calc(100vh - var(--header-height));
     background-image: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
     background-position: left top;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@ export default {
 
     &__wrapper {
       width: 100%;
-      min-height: calc(100vh - var(--sum-heights));
+      min-height: calc(100vh - var(--header-height));
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
