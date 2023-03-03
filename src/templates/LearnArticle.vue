@@ -1,9 +1,12 @@
 <template>
-  <DefaultLayout class="learn-article" :style="pageBackground">
+  <DefaultLayout
+    class="learn-article"
+    :style="pageBackground"
+    :hideHeader="hideHeader"
+  >
     <Column mode="full" class="learn-article__wrapper">
       <Block>
         <Swirl v-if="topSwirl" :data="topSwirl" align="top" />
-
         <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
 
         <Column v-if="hasAnchors" class="learn-article__content">
@@ -222,6 +225,9 @@ export default {
       return {
         "--bg-dynamic-page": color
       };
+    },
+    hideHeader(){
+      return !this.$context.displayNavigation;
     }
   },
   mounted() {
@@ -272,8 +278,12 @@ query {
   --p-medium: 64px;
   --p-large: 96px;
 
-  &__wrapper > .--flare-block > .content > .box {
-    padding: 0;
+  &__wrapper {
+    margin-top: var(--header-height);
+
+    & > .--flare-block > .content > .box {
+      padding: 0;
+    }
   }
 
   &__content {
@@ -300,7 +310,7 @@ query {
   }
 
   .swirl-wrapper-bottom,
-  .swirl.top.v2 {
+  .swirl-wrapper {
     display: none;
   }
 
