@@ -203,6 +203,7 @@ module.exports = function (api) {
               heroComponent: page.heroComponent || {},
               swirls: page.swirls || {},
               backgroundColor: page.background_color || "",
+              displayNavigation: page.display_navigation || false,
             },
           });
         });
