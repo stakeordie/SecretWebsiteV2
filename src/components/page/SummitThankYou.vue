@@ -34,37 +34,8 @@ export default {
       ],
     };
   },
-  methods: {
-    sneakPeek() {
-      let sumHeights = 0;
-      let swirlTop = document.querySelector(".swirl-wrapper");
-      let swirlBottom = document.querySelector(".swirl-wrapper-bottom");
-      let header = document.querySelector(".mega-header");
-      let alertBar = document.querySelector(".alert-bar");
-      let sneakPeek = document.querySelector(".landing-event-sneak-peek");
-
-      swirlTop.classList.add("remove");
-      swirlBottom.classList.add("remove");
-
-      if (alertBar) {
-        sumHeights =
-          [header][0].previousSibling.offsetHeight + [header][0].offsetHeight;
-      }
-      if (!alertBar) {
-        sumHeights = [header][0].offsetHeight;
-      }
-      sneakPeek.style.setProperty("--sum-heights", sumHeights + "px");
-      sneakPeek.style.setProperty(
-        "--headerHeight",
-        [header][0].offsetHeight + "px"
-      );
-
-      sneakPeek.classList.add("visible");
-    },
-  },
   mounted() {
     setTimeout(() => {
-      this.sneakPeek();
       const functionScript = document.createElement("script");
       functionScript.innerHTML = `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -90,19 +61,16 @@ export default {
   .landing-event-sneak-peek {
     height: calc(100vh - 28px) !important;
     transition: 0.2s ease;
-    opacity: 0;
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - var(--sum-heights));
+    height: calc(100vh - var(--header-height));
     margin-top: calc(var(--headerHeight) - 40px);
     left: 0;
     right: 0;
     bottom: 0;
-    &.visible {
-      opacity: 1;
-    }
+
     @include respond-to("<=s") {
       overflow-y: auto;
       padding-bottom: 33px;
@@ -119,14 +87,14 @@ export default {
     @include respond-to(">=l") {
       background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
-      padding-top: calc(var(--sum-heights));
+      padding-top: calc(var(--header-height));
       padding-bottom: 50px;
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
       background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
-      padding-top: calc(var(--sum-heights));
+      padding-top: calc(var(--header-height));
       padding-bottom: 50px;
       @include bgSpecs();
     }

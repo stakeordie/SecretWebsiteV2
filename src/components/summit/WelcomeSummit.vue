@@ -71,7 +71,7 @@ export default {
     &__content {
       width: 100%;
       max-width: 1200px;
-      min-height: calc(100vh - var(--sum-heights));
+      min-height: calc(100vh - var(--header-height));
       margin: 0 auto;
       display: flex;
       flex-direction: column;

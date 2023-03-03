@@ -37,7 +37,7 @@
                   :key="index"
                   @click="nav.is_dropdown ? toggleMegaMenu(index) : null"
                 >
-                  <a v-if="!nav.is_dropdown" :href="nav.path" class="link">
+                  <a v-if="!nav.is_dropdown" :href="nav.path" class="link" @click="openMenuFromMobile">
                     {{ nav.title }}
                   </a>
                   <span v-else class="link">
@@ -507,7 +507,7 @@ export default {
       }
     },
     closeNav() {
-      this.megaMenuIsOpen = false;
+      this.openMenuFromMobile()
     },
     setColumns(content) {
       this.columns = content;
