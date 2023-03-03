@@ -264,7 +264,7 @@ query {
   --p-large: 96px;
 
   &__wrapper {
-    margin-top: var(--header-height);
+    margin-top: var(--header-height, 0px);
 
     & > .--flare-block > .content > .box {
       padding: 0;
