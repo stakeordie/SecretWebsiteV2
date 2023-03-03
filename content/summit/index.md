@@ -6,7 +6,7 @@ title: "Secret Summit"
 
 <block>
 
-<landing-sneak-peek-event></landing-sneak-peek-event>
+<summit />
 
 </block>
 

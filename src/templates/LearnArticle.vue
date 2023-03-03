@@ -165,20 +165,6 @@ export default {
       const child = parent.nested.find(({ id }) => id === parentId);
       child.nested.push(data);
     },
-    heroHeight() {
-      const header = document.querySelector(".mega-header");
-      const alertBar = document.querySelector(".alert-bar");
-      const dynamicPage = document.querySelector(".learn-article");
-      const headerHeight = alertBar
-        ? alertBar.offsetHeight + header.offsetHeight
-        : header.offsetHeight;
-
-      dynamicPage.style.setProperty("--sum-heights", `${headerHeight}px`);
-      dynamicPage.style.setProperty(
-        "--header-height",
-        `${header.offsetHeight}px`
-      );
-    },
     columnMode(compName) {
       return compName === "custom-carousel" ? "full" : "normal";
     },
@@ -232,7 +218,6 @@ export default {
   },
   mounted() {
     this.getAnchors();
-    this.heroHeight();
   },
   watch: {
     $route: {
@@ -279,7 +264,7 @@ query {
   --p-large: 96px;
 
   &__wrapper {
-    margin-top: var(--header-height);
+    margin-top: var(--header-height, 0px);
 
     & > .--flare-block > .content > .box {
       padding: 0;

@@ -120,7 +120,7 @@ export default {
     padding: 0 16px;
 
     &.background-full {
-      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100vh - var(--header-height, 0px));
     }
 
     .content-hero {
