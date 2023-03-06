@@ -7,6 +7,7 @@
       v-if="background_image"
       classes="learn-header__image"
       :src="background_image"
+      high-quality
     />
   </div>
 </template>
