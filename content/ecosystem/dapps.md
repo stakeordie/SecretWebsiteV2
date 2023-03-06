@@ -17,8 +17,11 @@ title: "DApps"
 
 <column class="cosystem-pages ecosystem-pages__learn-more">
 <block>
+
 Secret dApps are made with Secret Contracts, private smart contracts that encrypt data by default, protecting its user’s data and assets.
+
 <btn class="text-center no-bg" url="/developers">Learn more</btn>
+
 </block>
 </column>
 

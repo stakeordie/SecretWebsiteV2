@@ -1,5 +1,5 @@
 <template>
-  <div :class="[paddingTop, paddingBottom]">
+  <div :class="[paddingTop, paddingBottom]" :style="dividerColor">
     <div class="divider"></div>
   </div>
 </template>
@@ -9,8 +9,22 @@ import { sizes } from "@/utils";
 
 export default {
   props: {
-    padding_top: String,
-    padding_bottom: String,
+    padding_top: {
+      type: String,
+      required: false
+    },
+    padding_bottom: {
+      type: String,
+      required: false
+    },
+    background_color: {
+      type: String,
+      required: false
+    },
+    divider_color: {
+      type: String,
+      required: false
+    }
   },
   computed: {
     paddingTop() {
@@ -21,7 +35,12 @@ export default {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
     },
-  },
+    dividerColor() {
+      const defaultColor = "var(--color-neutral-gray-08)";
+      const color = this.divider_color;
+      return { "--divider-color": color ? color : defaultColor };
+    }
+  }
 };
 </script>
 
@@ -30,12 +49,6 @@ export default {
 
 .divider {
   width: 100%;
-  border: 1px solid var(--color-neutral-gray-08);
-  max-width: 1200px;
-  margin-inline: auto;
-
-  @include respond-to("xxxl") {
-    max-width: 1600px;
-  }
+  border: 1px solid var(--divider-color);
 }
 </style>

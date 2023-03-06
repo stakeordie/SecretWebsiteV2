@@ -1,82 +1,72 @@
 <template>
   <div v-if="isAlertOpen" class="alert-bar" :style="backgroundColor">
-    <vue-markdown
+    <VueMarkdown
       v-if="alertMessage.text"
       :source="alertMessage.text"
       class="alert-content"
       :style="textColor"
     />
     <button @click="closeAlert" class="close-alert">
-      <img src="../assets/icon-menu-close.svg" alt="close" loading="lazy" />
+      <img src="@/assets/icon-menu-close.svg" alt="close" loading="lazy" />
     </button>
   </div>
 </template>
 
 <script>
-import { getLocaleData } from "@/utils";
-
 export default {
   data() {
     return {
-      isAlertOpen: true,
-      alertHeight: "68px",
+      isAlertOpen: false
     };
   },
   methods: {
     validateIsOpen() {
-      if (process.isClient) {
-        const localData = localStorage.getItem("alertMsg");
-        const message = this.alertMessage.text;
-
-        if (localData === message) {
-          this.isAlertOpen = false;
-        } else {
-          this.isAlertOpen = true;
-        }
-      }
+      if (!process.isClient) return;
+      const localData = localStorage.getItem("alertMsg");
+      const message = this.alertMessage.text;
+      this.isAlertOpen = Boolean(localData !== message);
     },
     closeAlert() {
+      if (!process.isClient) return;
       this.isAlertOpen = false;
-      document.body.style.setProperty("--sum-heights", 68 + "px");
+      const alertMsg = String(this.alertMessage.text);
+      localStorage.setItem("alertMsg", alertMsg);
+    },
+    headerHeights() {
+      if (!process.isClient) return;
+      const header = document.querySelector(".mega-header");
+      const alertBar = document.querySelector(".alert-bar");
+      const alertHeight = Number(alertBar?.offsetHeight || 0);
+      const headerHeight = Number(alertHeight + header?.offsetHeight || 0);
 
-      if (process.isClient) {
-        const alertMsg = String(this.alertMessage.text);
-        localStorage.setItem("alertMsg", alertMsg);
-      }
-    },
-    alertStyles() {
-      const height = this.isAlertOpen ? this.alertHeight : "0px";
-      document.body.setAttribute("style", `--ab-height:${height}`);
-    },
+      document.body.style.setProperty("--ab-height", `${alertHeight}px`);
+      document.body.style.setProperty("--header-height", `${headerHeight}px`);
+    }
   },
   computed: {
     alertMessage() {
-      return getLocaleData(
-        this.$static.alertBar,
-        this.$context.locale,
-        this.$context.text
-      );
+      return this.$static.alertBar.edges[0].node;
     },
     textColor() {
       const color = this.alertMessage.text_color
         ? this.alertMessage.text_color
         : "var(--theme-fg)";
-      return `--alert-text-color: ${color}`;
+      return { "--alert-text-color": color };
     },
     backgroundColor() {
       const color = this.alertMessage.background_color
         ? this.alertMessage.background_color
         : "var(--theme-alert-bg-color)";
-      return `--alert-background-color: ${color}`;
-    },
+      return { "--alert-background-color": color };
+    }
   },
   mounted() {
     this.validateIsOpen();
-    this.alertStyles();
+    this.headerHeights();
   },
   updated() {
-    this.alertStyles();
-  },
+    this.headerHeights();
+  }
 };
 </script>
 
@@ -95,7 +85,7 @@ export default {
   }
 </static-query>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
@@ -114,60 +104,62 @@ export default {
     height: var(--alert-height-mobile);
   }
 
-  + .mega-header {
-    @include respond-to(">=m") {
-      top: var(--alert-height-desktop);
-    }
-
-    @include respond-to("<=s") {
-      top: var(--alert-height-mobile);
-    }
-
-    + .swirl-wrapper {
-      + main.--flare-page {
-        @include respond-to(">=m") {
-          margin-top: calc(var(--alert-height-desktop));
-        }
-
-        @include respond-to("<=s") {
-          margin-top: calc(var(--alert-height-mobile));
-        }
+  ::v-deep {
+    + .mega-header {
+      @include respond-to(">=m") {
+        top: var(--alert-height-desktop);
       }
-    }
-    .mega-header {
-      @include respond-to("<=m") {
-        padding-bottom: 67px;
-      }
-    }
-  }
-
-  .alert-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: var(--f-gutter);
-
-    @include respond-to("m") {
-      padding-right: var(--f-gutter-xxl);
-      padding-left: var(--f-gutter-xxl);
-    }
-
-    @include respond-to("<=s") {
-      padding-right: var(--f-gutter-xl);
-    }
-
-    p {
-      margin: 0;
-      color: var(--alert-text-color);
 
       @include respond-to("<=s") {
-        font-size: 14px;
-        line-height: 1.4;
+        top: var(--alert-height-mobile);
       }
 
-      a {
-        text-decoration: underline;
+      + .swirl-wrapper {
+        + main.--flare-page {
+          @include respond-to(">=m") {
+            margin-top: calc(var(--alert-height-desktop));
+          }
+
+          @include respond-to("<=s") {
+            margin-top: calc(var(--alert-height-mobile));
+          }
+        }
+      }
+      .mega-header {
+        @include respond-to("<=m") {
+          padding-bottom: 67px;
+        }
+      }
+    }
+
+    .alert-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: var(--f-gutter);
+
+      @include respond-to("m") {
+        padding-right: var(--f-gutter-xxl);
+        padding-left: var(--f-gutter-xxl);
+      }
+
+      @include respond-to("<=s") {
+        padding-right: var(--f-gutter-xl);
+      }
+
+      p {
+        margin: 0;
+        color: var(--alert-text-color);
+
+        @include respond-to("<=s") {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }

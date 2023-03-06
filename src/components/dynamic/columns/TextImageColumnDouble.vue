@@ -4,8 +4,6 @@
       class="text-image-column-double"
       :class="[widthSize, imagePosition, paddingTop, paddingBottom]"
       :id="titleId"
-      :isAnchor="is_anchor"
-      :navLevel="navigation_level"
     >
       <div class="text-image__col-1">
         <DynamicImage v-if="paragraph_image" :image="paragraph_image" />
@@ -20,11 +18,13 @@
           :title="paragraph_title"
           :alignment="paragraph_title_alignment"
           :weight="paragraph_title_weight"
+          :color="component_colors ? component_colors.title_color : ''"
         />
         <DynamicBody
           v-if="paragraph"
           :text="paragraph"
           :align="paragraph_alignment"
+          :color="component_colors ? component_colors.body_color : ''"
         />
         <DynamicButtons
           v-if="buttons"
@@ -130,6 +130,10 @@ export default {
     paragraph_alignment: {
       type: String,
       required: true
+    },
+    component_colors: {
+      type: Object,
+      required: false
     }
   },
   computed: {
@@ -138,7 +142,7 @@ export default {
       return title ? removeCharacters(title) : "";
     },
     widthSize() {
-      return { "wide" : this.width === "wide"};
+      return { wide: this.width === "wide" };
     },
     imagePosition() {
       return this.image_position === "left" ? "image-left" : "image-right";
@@ -161,8 +165,6 @@ export default {
 .learn-article__content {
   .text-image-column-double {
     width: 100%;
-    max-width: 1200px;
-    margin-inline: auto;
     padding: 0 16px;
     display: grid;
     gap: 26px;
@@ -171,10 +173,6 @@ export default {
     @include respond-to(">=m") {
       padding: 0;
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include respond-to("xxxl") {
-      max-width: 1600px;
     }
 
     &.wide {

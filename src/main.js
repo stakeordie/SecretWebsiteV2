@@ -59,7 +59,6 @@ import EcosystemRoadmapPdf from "~/components/page/EcosystemRoadmapPdf.vue";
 import EcosystemRoadmapYourProject from "~/components/page/EcosystemRoadmapYourProject.vue";
 import SubmitProject from "~/components/page/SubmitProject.vue";
 import HeaderMegaMenuV2 from "~/components/HeaderMegaMenuV2";
-import FooterMenu from "~/components/FooterMenu.vue";
 import LogoCarousel from "~/components/LogoCarousel.vue";
 import EventCountdown from "~/components/EventCountdown";
 import DynamicBreadcrumb from "~/components/DynamicBreadcrumb";
@@ -170,7 +169,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("SecretAgentHero", SecretAgentHero);
   Vue.component("SecretAgentEmailFormBanner", SecretAgentEmailFormBanner);
   Vue.component("HeaderMegaMenuV2", HeaderMegaMenuV2);
-  Vue.component("FooterMenu", FooterMenu);
   Vue.component("NewHomeHero", NewHomeHero);
   Vue.component("NewHomeContracts", NewHomeContracts);
   Vue.component("NewHomeCallAction", NewHomeCallAction);

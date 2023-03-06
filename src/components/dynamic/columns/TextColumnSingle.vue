@@ -3,8 +3,6 @@
     <div
       :class="['text-column-single', widthSize, paddingTop, paddingBottom]"
       :id="titleId"
-      :isAnchor="is_anchor"
-      :navLevel="navigation_level"
     >
       <DynamicImage v-if="image" :image="image" />
       <DynamicEyebrowTitle
@@ -18,11 +16,13 @@
         :title="paragraph_title"
         :alignment="paragraph_title_alignment"
         :weight="paragraph_title_weight"
+        :color="component_colors ? component_colors.title_color : ''"
       />
       <DynamicBody
         v-if="paragraph"
         :text="paragraph"
         :align="paragraph_alignment"
+        :color="component_colors ? component_colors.body_color : ''"
       />
       <CtaButton v-if="button" v-bind="button" />
     </div>
@@ -101,6 +101,10 @@ export default {
     image: {
       type: Object,
       required: false
+    },
+    component_colors: {
+      type: Object,
+      required: false
     }
   },
   computed: {
@@ -109,9 +113,7 @@ export default {
       return title ? removeCharacters(title) : "";
     },
     widthSize() {
-      return this.width === "wide"
-        ? "text-column-single__wide"
-        : "text-column-single__standard";
+      return this.width === "wide" ? "wide" : "standard";
     },
     paddingTop() {
       const size = sizes[this.padding_top];
@@ -132,14 +134,13 @@ export default {
   .text-column-single {
     padding: var(--f-gutter);
     width: 100%;
-    max-width: 1200px;
     padding: 0 16px;
 
     @include respond-to(">=m") {
       padding: 0;
     }
 
-    &__standard {
+    &.standard {
       max-width: 800px;
     }
   }

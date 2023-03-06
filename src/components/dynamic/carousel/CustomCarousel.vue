@@ -6,6 +6,7 @@
         :alignment="title_alignment"
         :weight="title_weight"
         class="header__title"
+        :color="component_colors ? component_colors.title_color : ''"
       />
       <div class="header__controls">
         <button @click="scroll('left')">
@@ -76,6 +77,10 @@ export default {
     cards: {
       type: Array,
       required: true
+    },
+    component_colors: {
+      type: Object,
+      required: false
     }
   },
   components: {
