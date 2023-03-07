@@ -170,18 +170,12 @@
             
         }
         @include respond-to("<=s"){
-            //height: 100px;
             position: relative;
         }
     }
 
     &__cover{
         margin-top: 16px;
-            // background-image: 
-            // url("../../src/assets/home/new-home-hero-bg.png");
-            // background-repeat: no-repeat;
-            // background-position: center;
-            // background-size: cover;
             
             background-image: url("../../src/assets/swirl-about-top.svg"),
             url("../../src/assets/home/new-home-hero-bg.png");

@@ -3,7 +3,7 @@
     <div class="page-developer-questions__banner">
       <div class="page-developer-questions__banner__image">
         <img
-          src="../../assets/have-questions.png"
+          src="/img/developers/have-questions.png"
           alt="Have questions"
           loading="lazy"
         />

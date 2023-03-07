@@ -3,7 +3,7 @@
     <div class="get-scrt-questions__banner">
       <div class="get-scrt-questions__banner__img">
         <img
-          src="../../assets/have-questions.png"
+          src="/img/developers/have-questions.png"
           alt="Have questions"
           loading="lazy"
         />
