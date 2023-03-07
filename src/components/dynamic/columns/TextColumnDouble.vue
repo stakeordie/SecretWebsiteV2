@@ -193,31 +193,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-article__content {
-  .text-column-double {
-    padding: 0 16px;
+.text-column-double {
+  padding: 0 16px;
+
+  @include respond-to(">=m") {
+    padding: 0;
+  }
+
+  &__col {
+    width: 100%;
+    display: grid;
+    gap: 26px;
+    grid-template-columns: 1fr;
 
     @include respond-to(">=m") {
-      padding: 0;
-    }
-
-    &__col {
-      width: 100%;
-      display: grid;
-      gap: 26px;
-      grid-template-columns: 1fr;
-
-      @include respond-to(">=m") {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      grid-template-columns: repeat(2, 1fr);
     }
   }
-  &.empty-nav {
-    .text-column-double {
-      margin-inline: auto;
+}
+
+::v-deep {
+  .learn-article__content {
+    &.empty-nav {
+      .text-column-double {
+        margin-inline: auto;
+      }
     }
   }
 }

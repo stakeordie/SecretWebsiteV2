@@ -1,48 +1,42 @@
 <template>
-  <div v-if="buttons.length" class="buttons-row" :class="buttonsPosition">
+  <div v-if="buttons.length" class="buttons-row" :style="buttonsPosition">
     <CtaButton
       v-for="(button, index) in buttons"
       v-bind="button"
       :key="index"
-      :align="false"
-      :full="full"
     />
   </div>
 </template>
 
 <script>
-import CtaButton from "./CtaButton.vue";
+import CtaButton from "@/components/dynamic/basic/CtaButton.vue";
 
 export default {
   components: { CtaButton },
   props: {
     buttons: {
       type: Array,
-      required: true,
+      required: true
     },
     position: {
       type: String,
       required: false,
-      default: "left",
-    },
-    full: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
+      default: "left"
+    }
   },
   computed: {
     buttonsPosition() {
       const positions = {
-        left: "align-left",
-        center: "align-center",
-        right: "align-right",
-        full: "align-full",
+        left: "flex-start",
+        center: "center",
+        right: "flex-end"
       };
-      const match = positions[this.position];
-      return match ? match : positions.left;
-    },
-  },
+
+      return {
+        "--align-buttons": positions[this.position] || positions.left
+      };
+    }
+  }
 };
 </script>
 
@@ -55,23 +49,20 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 
-  @include respond-to(">=m") {
-    &.align-left {
-      justify-content: flex-start;
-    }
-
-    &.align-center {
-      justify-content: center;
-    }
-
-    &.align-right {
-      justify-content: flex-end;
-    }
+  @include respond-to(">=s") {
+    justify-content: var(--align-buttons);
   }
+}
 
-  &.align-full {
-    width: 100%;
-    flex-wrap: nowrap;
+::v-deep {
+  .cta-button {
+    width: fit-content;
+
+    .button {
+      @include respond-to("<=m") {
+        margin: 0;
+      }
+    }
   }
 }
 </style>
