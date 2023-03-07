@@ -6,7 +6,7 @@
         :class="[imagePosition, paddingTop, paddingBottom]"
       >
         <div class="hero-image col-1">
-          <ResponsiveImage v-if="image" :src="image" />
+          <ResponsiveImage v-if="image" :src="image" high-quality />
         </div>
 
         <div class="content-hero col-2" v-if="content">
