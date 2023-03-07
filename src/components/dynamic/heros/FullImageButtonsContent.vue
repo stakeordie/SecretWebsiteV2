@@ -41,7 +41,7 @@
             :text="content.body"
             :align="sizes.body_alignment"
           />
-          <DynamicButtons :buttons="buttons" position="full" :full="true" />
+          <DynamicButtons :buttons="buttons" />
         </div>
       </section>
     </block>

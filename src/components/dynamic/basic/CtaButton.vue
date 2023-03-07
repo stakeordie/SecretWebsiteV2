@@ -1,17 +1,13 @@
 <template>
-  <div
-    class="cta-button"
-    :class="{ 'align-content': align, 'full-button': full }"
-  >
+  <div class="cta-button" :style="buttonStyles">
     <a
       class="button"
-      :class="[marginTop, marginBottom]"
+      :class="margins"
       :href="url"
       :target="isExternal ? '_blank' : ''"
       :rel="isExternal ? 'noopener noreferrer' : ''"
-      :style="buttonColor"
     >
-      <ResponsiveImage v-if="icon" :src="icon" classes="button__icon" />
+      <ResponsiveImage v-if="icon" :src="icon" class="button__icon" />
       <span class="button__text">
         {{ title }}
       </span>
@@ -23,80 +19,79 @@
 import { sizes } from "@/utils";
 export default {
   props: {
-    align: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     title: {
       type: String,
-      required: true,
+      required: true
     },
     url: {
       type: String,
-      required: true,
+      required: true
     },
     margin_top: {
       type: String,
-      required: true,
+      required: true
     },
     margin_bottom: {
       type: String,
-      required: true,
+      required: true
     },
     button_position: {
       type: String,
-      required: true,
+      required: true
     },
     icon: {
       type: Object,
-      required: false,
+      required: false
     },
     background_color: {
       type: String,
-      required: false,
+      required: false
     },
-    full: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
+    text_color: {
+      type: String,
+      required: false
+    }
   },
   computed: {
     isExternal() {
       const [urlSplit] = this.url.split(":");
       return urlSplit == "https" || urlSplit == "http";
     },
-    buttonColor() {
+    buttonStyles() {
+      const alignment = {
+        left: "flex-start",
+        center: "center",
+        right: "flex-end"
+      };
       const color = this.background_color;
-      const buttonColor = color ? color : "var(--theme-card-button-bg)";
-      const buttonHover = color ? color : "var(--color-neutral-dark-mode-02)";
+      const buttonColor = color || "var(--theme-card-button-bg)";
+      const buttonHover = color || "var(--color-neutral-dark-mode-02)";
+      const textColor = this.text_color || "var(--color-analog-primary-white)";
+      const align = alignment[this.button_position] || alignment.center;
+
       return {
+        "--text-color": textColor,
         "--button-color": buttonColor,
         "--button-hover": buttonHover,
+        "--button-alignment": align
       };
     },
-    marginTop() {
-      const size = sizes[this.margin_top];
-      return `m-${size ? size : sizes.none}-top`;
-    },
-    marginBottom() {
-      const size = sizes[this.margin_top];
-      return `m-${size ? size : sizes.none}-bottom`;
-    },
-  },
+    margins() {
+      const top = sizes[this.margin_top] || sizes.none;
+      const bottom = sizes[this.margin_bottom] || sizes.none;
+      return [`m-${top}-top`, `m-${bottom}-bottom`];
+    }
+  }
 };
 </script>
 
-<style lang="scss">
-.cta-button {
-  width: fit-content;
+<style lang="scss" scoped>
+@import "@lkmx/flare/src/functions/_respond-to.scss";
 
-  &.align-content {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
+.cta-button {
+  display: flex;
+  width: 100%;
+  justify-content: var(--button-alignment);
 
   .button {
     display: flex;
@@ -127,7 +122,7 @@ export default {
     &__text {
       flex: 1;
       transition: 0.3s ease-in;
-      color: var(--color-analog-primary-white);
+      color: var(--text-color);
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 1px;
@@ -135,14 +130,7 @@ export default {
       padding-top: 2px;
       line-height: 24px;
     }
-  }
-
-  &.full-button {
-    width: 50%;
-
-    .button {
-      width: 100%;
-    }
+    
   }
 }
 </style>
