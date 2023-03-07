@@ -47,7 +47,7 @@ title: 'Austin Event'
 
 <block class="killroy__left">
 
-![](../src/assets/events/killroy-was-here-title.png)
+![](/img/events/killroy-was-here-title.png)
 
 
 </block>
@@ -61,7 +61,7 @@ title: 'Austin Event'
 
 <div class="killroy__right__vip">
 
-![](../src/assets/events/play-red.svg)
+![](/img/events/play-red.svg)
 
 <p class="killroy__right__vip__info">NFT Film Screening <br />7PM - 9AM</p>
 </div>
@@ -108,7 +108,7 @@ title: 'Austin Event'
 
 <h4 class="eyebrow--orange powered__h4">POWERED BY</h4>
 
-![](../src/assets/events/logos/secret-logo-white.svg)
+![](/img/events/logos/secret-logo-white.svg)
 
 <p class="powered__p">Secret Network is the first blockchain with customizable privacy for smart contracts. You get to choose what you share, with whom, and how. This protects users, and empowers creators and builders to design art, games, and apps not possible elsewhere.  </p>
 

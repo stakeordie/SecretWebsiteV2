@@ -201,7 +201,7 @@ query {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .summit-index {
-  background: url("../../assets/events/summit/secret-summit-background.svg");
+  background: url("/img/events/summit/secret-summit-background.svg");
   background-repeat: repeat-y;
   background-position: top center;
   background-size: 250%;

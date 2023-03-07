@@ -6,7 +6,7 @@
       <div class="austin-event-partnership__container__cont labs">
         <div class="by__img">
           <img
-            src="../../assets/about-secret-network/scrt-labs-pink-logo.svg"
+            src="/img/about-secret-network/scrt-labs-pink-logo.svg"
             alt="Secret Labs logo"
             loading="lazy"
           />
@@ -24,7 +24,7 @@
           >
             SCRTLABS.COM
             <img
-              src="../../assets/events/arrow-left.svg"
+              src="/img/events/arrow-left.svg"
               alt="Left"
               loading="lazy"
             />
@@ -35,7 +35,7 @@
       <div class="austin-event-partnership__container__cont foundation">
         <div class="by__img">
           <img
-            src="../../assets/events/logos/legendao-logo.png"
+            src="/img/events/logos/legendao-logo.png"
             alt="Legen Dao logo"
             loading="lazy"
           />
@@ -53,7 +53,7 @@
           >
             LEGENDAO.IO
             <img
-              src="../../assets/events/arrow-left.svg"
+              src="/img/events/arrow-left.svg"
               alt="Left"
               loading="lazy"
             />

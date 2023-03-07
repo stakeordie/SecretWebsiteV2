@@ -171,7 +171,7 @@ export default {
 
           &::before {
             content: "";
-            background-image: url("../../../assets/about-secret-network/check-circle-green.svg");
+            background-image: url("/img/about-secret-network/check-circle-green.svg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;

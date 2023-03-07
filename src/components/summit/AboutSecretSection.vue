@@ -4,7 +4,7 @@
       <div class="about">
         <div class="about__image">
           <img
-            src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
+            src="/img/about-secret-network/about-secret-network-hero-img.svg"
             alt="Secret Network color graphic"
             loading="lazy"
           />

@@ -178,7 +178,7 @@
         margin-top: 16px;
             
             background-image: url("../../src/assets/swirl-about-top.svg"),
-            url("../../src/assets/home/new-home-hero-bg.png");
+            url("/img/home/new-home-hero-bg.png");
         background-repeat: no-repeat;
         background-position: top, ;
         background-size: contain, cover;
@@ -223,13 +223,13 @@
         background-color: var(--color-neutral-dark-mode-02);
 
         &__top{
-            background-image: url("../../src/assets/home/wave-border-top.png") ;
+            background-image: url("/img/home/wave-border-top.png") ;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
         &__bottom{
-            background-image: url("../../src/assets/home/wave-border-bottom.png") ;
+            background-image: url("/img/home/wave-border-bottom.png") ;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: bottom;

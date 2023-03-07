@@ -11,7 +11,7 @@ title: "Get SCRT"
 <column class="spacer-s get-scrt__bg-black" number="2" number-m="1" number-s="1">
 <block >
 <div >
-<img class="get-scrt__align-img" src="../../src/assets/get-scrt/get-scrt-coin.png" alt="Secret coin" loading="lazy"/>
+<img class="get-scrt__align-img" src="/img/get-scrt/get-scrt-coin.png" alt="Secret coin" loading="lazy"/>
 </div>
 </block>
 

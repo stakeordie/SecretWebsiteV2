@@ -57,7 +57,7 @@ export default {
 }
 
 .summit-thank-you {
-  background: url("../../assets/events/summit/secret-summit-background.svg");
+  background: url("/img/events/summit/secret-summit-background.svg");
   .landing-event-sneak-peek {
     height: calc(100vh - 28px) !important;
     transition: 0.2s ease;
@@ -74,25 +74,25 @@ export default {
     @include respond-to("<=s") {
       overflow-y: auto;
       padding-bottom: 33px;
-      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
+      background: url("/img/events/summit/secret-summit-graphic-3-mobile.svg");
       @include bgSpecs();
     }
     @include bgSpecs();
     @include respond-to("<=m") {
-      background: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
+      background: url("/img/events/summit/secret-summit-graphic-3-mobile.svg");
       @include bgSpecs();
       background-position-x: right;
       background-position-y: 69px;
     }
     @include respond-to(">=l") {
-      background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
+      background: url("/img/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
       padding-top: calc(var(--header-height));
       padding-bottom: 50px;
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
-      background: url("../../assets/events/summit/secret-summit-graphic-3.svg");
+      background: url("/img/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
       padding-top: calc(var(--header-height));
       padding-bottom: 50px;
