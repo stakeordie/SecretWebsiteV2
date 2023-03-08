@@ -9,7 +9,7 @@
         <div class="learn-carousel__header__controls">
           <button class="theme padding-small control" @click="scroll('left')">
             <img
-              src="@/assets/icon-circle-left.svg"
+              src="/img/icons/icon-circle-left.svg"
               alt="left"
               loading="lazy"
             />
@@ -17,7 +17,7 @@
 
           <button class="theme padding-small control" @click="scroll('right')">
             <img
-              src="@/assets/icon-circle-right.svg"
+              src="/img/icons/icon-circle-right.svg"
               alt="right"
               loading="lazy"
             />

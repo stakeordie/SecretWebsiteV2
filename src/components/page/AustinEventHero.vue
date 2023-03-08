@@ -4,7 +4,7 @@
       <div class="austin-event-hero__container__header">
         <img
           class="event-scrt-logo"
-          src="../../assets/new-secret-logo.svg"
+          src="/img/icons/new-secret-logo.svg"
           alt="Secret Network logo"
           loading="lazy"
         />

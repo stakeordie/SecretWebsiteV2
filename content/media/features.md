@@ -5,7 +5,7 @@ title: "Featured Media"
  <!-- swirl -->
 <column class="purple__swirl__top" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-purple-top.svg" alt="Purple swirl top graphic" loading="lazy" /> 
+    <img class="get-scrt__align-img" src="/img/icons/swirl-purple-top.svg" alt="Purple swirl top graphic" loading="lazy" /> 
   </block>
 </column>
 
@@ -48,6 +48,6 @@ title: "Featured Media"
 <!-- swirl -->
 <column class="purple__swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-purple-bottom.svg" alt="Purple swirl bottom graphic" loading="lazy" />
+    <img class="get-scrt__align-img" src="/img/icons/swirl-purple-bottom.svg" alt="Purple swirl bottom graphic" loading="lazy" />
   </block>
 </column>

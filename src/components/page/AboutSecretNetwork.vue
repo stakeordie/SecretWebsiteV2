@@ -88,7 +88,7 @@
         </div>
         <div class="about-secret-network-essential__img">
           <img
-            src="../../assets/why-more-privacy-img.svg"
+            src="/img/icons/why-more-privacy-img.svg"
             alt="Chameleon art"
             class="hero-img"
             loading="lazy"

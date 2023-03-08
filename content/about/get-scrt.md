@@ -20,7 +20,7 @@ title: "Get SCRT"
 
 ##### ABOUT
 
-<h3 class="h3-scrt-logo"><img src="../../src/assets/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy"/> <span>SCRT</span></h3>
+<h3 class="h3-scrt-logo"><img src="/img/icons/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy"/> <span>SCRT</span></h3>
 <p class="get-scrt__p-left">Secret (SCRT) is a cryptocurrency and the native coin of the Secret Network blockchain. Just like Ether (ETH) and Bitcoin (BTC), you hold your Secret (SCRT) in a wallet and spend it when you want to use Secret Network. You can also stake it or use it to participate in governance.</p> 
 </div>
 </block>
@@ -69,7 +69,7 @@ title: "Get SCRT"
 
 ##### BUY SCRT
 
-<h3 class="h3-scrt-logo"><span>Where to get</span> <img src="../../src/assets/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy" /> <span>SCRT</span></h3>
+<h3 class="h3-scrt-logo"><span>Where to get</span> <img src="/img/icons/getscrt-filled-icon.svg" alt="Secret logo" loading="lazy" /> <span>SCRT</span></h3>
 <p class=" get-scrt__p">Here are the different ways to get SCRT, from beginner to pro. Note: what methods you can use depend on your jurisdiction (i.e. the country you live in).</p>
 </div>
 

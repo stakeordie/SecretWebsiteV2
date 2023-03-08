@@ -6,7 +6,7 @@
       <li class="flui-slider__items__item current">
         <div class="flui-slider__items__item__container">
           <img
-            src="/img/investor-Defiance.png"
+            src="/img/investors/investor-Defiance.png"
             alt="DeFiance Capital logo"
             height="64px"
             loading="lazy"
@@ -40,7 +40,7 @@
       <li class="flui-slider__items__item">
         <div class="flui-slider__items__item__container">
           <img
-            src="/img/investor-Alameda.png"
+            src="/img/investors/investor-Alameda.png"
             alt="Alameda Reseach logo"
             height="64px"
             loading="lazy"
@@ -73,7 +73,7 @@
       <li class="flui-slider__items__item">
         <div class="flui-slider__items__item__container">
           <img
-            src="/img/investor-Coinfund.png"
+            src="/img/investors/investor-Coinfund.png"
             alt="Coin Fund logo"
             height="64px"
             loading="lazy"

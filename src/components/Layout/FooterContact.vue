@@ -4,7 +4,7 @@
       <g-link :to="$tp(`/`)">
         <img
           class="scrt-logo"
-          src="@/assets/new-secret-logo.svg"
+          src="/img/icons/new-secret-logo.svg"
           width="124"
           height="58"
           alt="Secret logo"
@@ -18,7 +18,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-forum.svg"
+            src="/img/icons/icon-social-forum.svg"
             alt="Join the Conversation"
             width="24"
             height="24"
@@ -31,7 +31,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-github.svg"
+            src="/img/icons/icon-social-github.svg"
             alt="Github icon"
             width="24"
             height="24"
@@ -44,7 +44,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-discord.svg"
+            src="/img/icons/icon-social-discord.svg"
             alt="Discord icon"
             width="24"
             height="24"
@@ -57,7 +57,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-telegram.svg"
+            src="/img/icons/icon-social-telegram.svg"
             alt="Telegram icon"
             width="24"
             height="24"
@@ -70,7 +70,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-twitter.svg"
+            src="/img/icons/icon-social-twitter.svg"
             alt="Twitter icon"
             width="24"
             height="24"
@@ -83,7 +83,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-instagram.svg"
+            src="/img/icons/icon-social-instagram.svg"
             alt="Instagram icon"
             width="24"
             height="24"
@@ -96,7 +96,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="@/assets/icon-social-youtube.svg"
+            src="/img/icons/icon-social-youtube.svg"
             alt="Youtube icon"
             width="24"
             height="24"

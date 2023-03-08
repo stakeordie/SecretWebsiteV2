@@ -71,7 +71,7 @@ Providing privacy and protecting data is critical for empowering people, protect
 <!-- icon -->
 <column class="spacer-s img-invert" mode="slim" weight="right" number="2" number-m="2" number-s="1">
 <block>
-<img src="../src/assets/logo-seal-outline-white.svg" alt="Secret Logo" loading="lazy"/>
+<img src="/img/icons/logo-seal-outline-white.svg" alt="Secret Logo" loading="lazy"/>
 </block>
 
 <block>
@@ -101,16 +101,16 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 
 ![Primary logo - White](/img/brandbook/primary-logo-white.png)
 
-<a href="/secretnetwork-logo-primary-black.svg">SVG</a> |
-<a href="/secretnetwork-logo-primary-black.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-primary-black.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-primary-black.png">PNG</a>
 
 </block>
 <block>
 
 ![Primary logo - Black](/img/brandbook/primary-logo-black.png)
 
-<a href="/secretnetwork-logo-primary-white.svg">SVG</a> |
-<a href="/secretnetwork-logo-primary-white.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-primary-white.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-primary-white.png">PNG</a>
 
 </block>
 </column>
@@ -130,16 +130,16 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 
 ![Secondary logo - White](/img/brandbook/secondary-logo-white.png)
 
-<a href="/secretnetwork-logo-secondary-black.svg">SVG</a> |
-<a href="/secretnetwork-logo-secondary-black.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-secondary-black.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-secondary-black.png">PNG</a>
 
 </block>
 <block>
 
 ![Secondary logo - Black](/img/brandbook/secondary-logo-black.png)
 
-<a href="/secretnetwork-logo-secondary-white.svg">SVG</a> |
-<a href="/secretnetwork-logo-secondary-white.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-secondary-white.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-secondary-white.png">PNG</a>
 
 </block>
 </column>

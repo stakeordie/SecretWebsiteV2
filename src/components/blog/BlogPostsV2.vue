@@ -33,7 +33,7 @@
           <g-image
             picture
             v-else
-            src="@/assets/scrt-logo.png"
+            src="/img/icons/scrt-logo.png"
             alt="Secret Network logo"
             loading="lazy"
           />

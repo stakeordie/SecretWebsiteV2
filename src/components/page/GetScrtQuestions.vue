@@ -24,7 +24,7 @@
           >
             <img
               class="special-icon"
-              src="../../assets/icon-social-discord.svg"
+              src="/img/icons/icon-social-discord.svg"
               alt="Discord logo"
               loading="lazy"
             />
@@ -36,7 +36,7 @@
           >
             <img
               class="special-icon"
-              src="../../assets/icon-social-forum.svg"
+              src="/img/icons/icon-social-forum.svg"
               alt="Messages icon"
               loading="lazy"
             />

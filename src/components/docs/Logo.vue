@@ -2,12 +2,12 @@
   <g-link :to="$tp(`/`)" class="logo" title="Back to home">
     <transition name="theme">
       <div v-if="color == 'dark'">
-        <g-image src="~/assets/logo-bright.svg" alt="logo" loading="lazy" />
+        <g-image src="/img/icons/logo-bright.svg" alt="logo" loading="lazy" />
       </div>
     </transition>
     <transition name="theme">
       <div v-if="color == 'bright'">
-        <g-image src="~/assets/logo-dark.svg" alt="logo" loading="lazy" />
+        <g-image src="/img/icons/logo-dark.svg" alt="logo" loading="lazy" />
       </div>
     </transition>
   </g-link>

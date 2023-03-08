@@ -104,10 +104,10 @@ $accent-colors: (
         content: "";
         width: 28px;
         height: 28px;
-        background: url(../../assets/icon-arrow-right-light.svg);
+        background: url("/img/icons/icon-arrow-right-light.svg");
 
         @include theme(light light-colored) {
-          background: url(../../assets/icon-arrow-right-dark.svg);
+          background: url("/img/icons/icon-arrow-right-dark.svg");
           background-size: cover;
         }
 

@@ -5,7 +5,7 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../assets/swirl-purple-top.svg"
+          src="/img/icons/swirl-purple-top.svg"
           alt="Purple swirl top graphic"
           loading="lazy"
         />
@@ -73,7 +73,7 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../assets/swirl-purple-bottom.svg"
+          src="/img/icons/swirl-purple-bottom.svg"
           alt="Purple swirl bottom graphic"
           loading="lazy"
         />
@@ -124,7 +124,7 @@ export default {
     profileImage: function () {
       return this.$page.post.primary_author.profile_image
         ? this.$page.post.primary_author.profile_image
-        : "@/assets/scrt-logo.png";
+        : "/img/icons/scrt-logo.png";
     },
     coverImage() {
       if (this.$page.post.feature_image) {

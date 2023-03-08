@@ -54,7 +54,7 @@
       </div>
 
       <div class="secret-agent__hero__container__right">
-        <video controls poster="../assets/poster-video.jpg">
+        <video controls poster="/img/icons/poster-video.jpg">
           <source :src="hero.video_url" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -126,7 +126,7 @@ export default {
 
 .get-involved-become-secret-agent__hero {
   // background: red ;
-  background-image: url("../assets/enrollment-background.jpg");
+  background-image: url("/img/icons/enrollment-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;

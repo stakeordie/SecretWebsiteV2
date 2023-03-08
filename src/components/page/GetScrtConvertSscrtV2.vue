@@ -16,13 +16,13 @@
             >
               <span>Convert</span>
               <img
-                src="../../assets/getsscrt-icon.svg"
+                src="/img/icons/getsscrt-icon.svg"
                 alt="Sscrt logo"
                 loading="lazy"
               />
               <span>sSCRT to</span>
               <img
-                src="../../assets/getscrt-filled-icon.svg"
+                src="/img/icons/getscrt-filled-icon.svg"
                 alt="Sscrt logo"
                 loading="lazy"
               />

@@ -3,7 +3,7 @@
     <div class="secret-university">
       <div class="secret-university__image">
         <img
-          src="../../assets/secret-university-img.svg"
+          src="/img/icons/secret-university-img.svg"
           alt="Secret University img"
           loading="lazy"
         />
@@ -25,7 +25,7 @@
           rel="noopener noreferrer"
         >
           <img
-            src="../../assets/secret-university-icon.svg"
+            src="/img/icons/secret-university-icon.svg"
             alt="Secret University Icon"
             loading="lazy"
           />
