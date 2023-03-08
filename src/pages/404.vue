@@ -113,7 +113,7 @@
           url="https://forum.scrt.network/"
         >
           <img
-            src="../assets/icon-social-forum-big.svg"
+            src="/img/icons/icon-social-forum-big.svg"
             alt="Big messages icon"
             loading="lazy"
           />
@@ -127,7 +127,7 @@
           url="https://discord.com/invite/SJK32GY"
         >
           <img
-            src="../assets/icon-social-discord-big.svg"
+            src="/img/icons/icon-social-discord-big.svg"
             alt="Discord big logo"
             loading="lazy"
           />
@@ -141,7 +141,7 @@
           url="https://t.me/SCRTcommunity"
         >
           <img
-            src="../assets/icon-social-telegram-big.svg"
+            src="/img/icons/icon-social-telegram-big.svg"
             alt="Telegram big logo"
             loading="lazy"
           />
@@ -155,7 +155,7 @@
           url="https://twitter.com/SecretNetwork"
         >
           <img
-            src="../assets/icon-social-twitter-big.svg"
+            src="/img/icons/icon-social-twitter-big.svg"
             alt="Twitter big logo"
             loading="lazy"
           />
@@ -169,7 +169,7 @@
           url="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
         >
           <img
-            src="../assets/icon-social-youtube-big.svg"
+            src="/img/icons/icon-social-youtube-big.svg"
             alt="Youtube big logo"
             loading="lazy"
           />
@@ -183,7 +183,7 @@
           url="https://www.instagram.com/scrtnetwork/"
         >
           <img
-            src="../assets/icon-social-instagram-big.svg"
+            src="/img/icons/icon-social-instagram-big.svg"
             alt="Instagram big logo"
             loading="lazy"
           />
@@ -197,7 +197,7 @@
           url="https://www.reddit.com/r/SecretNetwork/"
         >
           <img
-            src="../assets/icon-social-reddit-big.svg"
+            src="/img/icons/icon-social-reddit-big.svg"
             alt="Reddit big logo"
             loading="lazy"
           />
@@ -211,7 +211,7 @@
           url="https://www.secretcalendar.org/"
         >
           <img
-            src="../assets/icon-social-events-big.svg"
+            src="/img/icons/icon-social-events-big.svg"
             alt="Calendar icon"
             loading="lazy"
           />

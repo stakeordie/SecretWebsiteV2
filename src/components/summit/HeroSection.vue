@@ -16,7 +16,7 @@
               rel="noopener noreferrer"
             >
               <img
-                src="../../assets/events/summit/check-circle-lightest.svg"
+                src="/img/events/summit/check-circle-lightest.svg"
                 alt="Blue check icon"
                 loading="lazy"
               />
@@ -48,14 +48,14 @@ export default {
   .hero {
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
-    background-image: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
+    background-image: url("/img/events/summit/secret-summit-graphic-3-mobile.svg");
     background-position: left top;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     transition: 0.2s ease;
 
     @include respond-to(">=l") {
-      background-image: url("../../assets/events/summit/secret-summit-graphic.svg");
+      background-image: url("/img/events/summit/secret-summit-graphic.svg");
       background-position: top center;
     }
 

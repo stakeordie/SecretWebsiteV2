@@ -28,7 +28,7 @@ export default {
     max-width: 1200px;
     margin: 0 auto;
     padding: 256px 26px;
-    background: url("../../assets/events/summit/background-glow.svg") center
+    background: url("/img/events/summit/background-glow.svg") center
       no-repeat;
     background-size: 150%;
 

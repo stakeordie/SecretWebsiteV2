@@ -12,7 +12,7 @@
       <div class="get-scrt__hero__content__price-box get-scrt__price-box">
         <div class="price-title">
           <img
-            src="../../assets/getscrt-icon2.svg"
+            src="/img/icons/getscrt-icon2.svg"
             alt="Secret Network logo"
             loading="lazy"
           />
@@ -195,7 +195,7 @@ export default {
                 content: "";
                 min-width: 24px;
                 height: auto;
-                background-image: url(../../assets/icon-chevron-down.svg);
+                background-image: url("/img/icons/icon-chevron-down.svg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: contain;
@@ -297,7 +297,7 @@ export default {
                   width: 16.82px;
                   height: 12px;
                   margin: 6px 3.6px;
-                  background-image: url(../../assets/check-light-orange.svg);
+                  background-image: url("/img/icons/check-light-orange.svg");
                   background-repeat: no-repeat;
                   background-position: center;
                   background-size: contain;

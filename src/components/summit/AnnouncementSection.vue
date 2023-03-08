@@ -9,7 +9,7 @@
         rel="noopener noreferrer"
       >
         <img
-          src="../../assets/events/summit/check-circle-light.svg"
+          src="/img/events/summit/check-circle-light.svg"
           alt="Blue check icon"
           loading="lazy"
         />

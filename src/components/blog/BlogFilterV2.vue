@@ -107,14 +107,14 @@ export default {
           display: block;
           width: 24px;
           height: 24px;
-          background-image: url("../../assets/icon-checkbox-unchecked.svg");
+          background-image: url("/img/icons/icon-checkbox-unchecked.svg");
         }
 
         input[type="checkbox"] {
           display: none;
 
           &:checked + .check {
-            background-image: url("../../assets/icon-checkbox-checked.svg");
+            background-image: url("/img/icons/icon-checkbox-checked.svg");
             @include theme(light light-colored) {
               filter: invert(1);
             }

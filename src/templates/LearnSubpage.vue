@@ -33,7 +33,7 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../../src/assets/swirl-orange-bottom.svg"
+          src="/img/icons/swirl-orange-bottom.svg"
           alt="Orange swirl bottom graphic"
           loading="lazy"
         />

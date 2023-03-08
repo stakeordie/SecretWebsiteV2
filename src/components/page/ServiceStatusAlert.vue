@@ -5,7 +5,7 @@
       v-if="!alertMessage.node.experiencing_issues"
     >
       <img
-        src="../../assets/icon-check2.svg"
+        src="/img/icons/icon-check2.svg"
         alt="Green check"
         class="service-status__alert__stable__icon"
         loading="lazy"
@@ -28,7 +28,7 @@
 
     <div class="service-status__alert__issues" v-else>
       <img
-        src="../../assets/icon-exclamation.svg"
+        src="/img/icons/icon-exclamation.svg"
         alt="Warning icon"
         class="service-status__alert__issues-icon"
         loading="lazy"

@@ -7,13 +7,13 @@
           <div class="logo-bar" :class="burger">
             <div class="logo-bar__content__image">
               <img
-                src="../assets/icon-menu.svg"
+                src="/img/icons/icon-menu.svg"
                 alt="close icon"
                 class="menu"
                 @click.prevent="openMenuFromMobile"
               />
               <img
-                src="../assets/icon-close.svg"
+                src="/img/icons/icon-close.svg"
                 alt="close icon"
                 class="close"
                 @click.prevent="openMenuFromMobile"
@@ -21,7 +21,7 @@
               <g-link to="/">
                 <img
                   @click="linkCloseMenu"
-                  src="../assets/new-secret-logo.svg"
+                  src="/img/icons/new-secret-logo.svg"
                   alt="secret network logo"
                   class="logo"
                 />
@@ -51,7 +51,7 @@
                   <img
                     v-show="nav.is_dropdown"
                     class="nav__content__chevron"
-                    src="../assets/icon-chevron-down.svg"
+                    src="/img/icons/icon-chevron-down.svg"
                     alt="arrow down icon"
                   />
                 </li>
@@ -62,7 +62,7 @@
                 class="logo-bar--searchbar search-trigger search"
                 @click="searchTrigger"
               >
-                <img src="../assets/search-icon.svg" alt="" />
+                <img src="/img/icons/search-icon.svg" alt="" />
                 <p>Search</p>
               </div>
             </div>
@@ -96,7 +96,7 @@
                   <img
                     class="nav__expanded__content__chevron"
                     :class="{ arrow_up: subMenuIndex == index }"
-                    src="../assets/icon-chevron-down.svg"
+                    src="/img/icons/icon-chevron-down.svg"
                     alt="arrow down icon"
                   />
                 </div>
@@ -163,7 +163,7 @@
                             v-if="secItem.nav_item.icon"
                             :src="secItem.nav_item.icon"
                           />
-                          <img v-else src="../assets/badge-black.svg" alt="" />
+                          <img v-else src="/img/icons/badge-black.svg" alt="" />
                         </div>
                         <div
                           class="nav__expanded__content__item__textcontainer"
@@ -187,7 +187,7 @@
             </ul>
             <div class="nav__expanded__content__btnSrct">
               <button @click.prevent="redirectAboutSrct">
-                <img src="../assets/getscrt-icon.svg" alt="" />
+                <img src="/img/icons/getscrt-icon.svg" alt="" />
                 <p>GET SCRT</p>
               </button>
             </div>
@@ -203,7 +203,7 @@
                   alt="forums"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="../assets/message-circle.svg" alt="message image" />
+                  <img src="/img/icons/message-circle.svg" alt="message image" />
                   <span>Forums</span>
                 </a>
               </div>
@@ -215,7 +215,7 @@
                   alt="discord"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="../assets/discord.svg" alt="discord image" />
+                  <img src="/img/icons/discord.svg" alt="discord image" />
                   <span>Discord</span>
                 </a>
               </div>
@@ -227,7 +227,7 @@
                   alt="telegram"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="../assets/telegram.svg" alt="telegram image" />
+                  <img src="/img/icons/telegram.svg" alt="telegram image" />
                   <span>Telegram</span>
                 </a>
               </div>
@@ -239,7 +239,7 @@
                   alt="twitter"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="../assets/twitter.svg" alt="twitter image" />
+                  <img src="/img/icons/twitter.svg" alt="twitter image" />
                   <span>Twitter</span>
                 </a>
               </div>
@@ -251,7 +251,7 @@
                   alt="youtube"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="../assets/youtube.svg" alt="youtube image" />
+                  <img src="/img/icons/youtube.svg" alt="youtube image" />
                   <span>Youtube</span>
                 </a>
               </div>
@@ -264,7 +264,7 @@
                   v-on:click="linkCloseMenu"
                 >
                   <img
-                    src="../assets/icon-social-instagram.svg"
+                    src="/img/icons/icon-social-instagram.svg"
                     alt="instagram image"
                   />
                   <span>Instagram</span>

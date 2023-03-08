@@ -36,7 +36,7 @@
     <nav class="austin-event-footer__social">
       <a href="#" target="blank" rel="noopener noreferrer">
         <img
-          src="../../assets/community-icons/facebook-gray.svg"
+          src="/img/community-icons/facebook-gray.svg"
           alt="Facebook logo"
           width="24"
           height="24"
@@ -49,7 +49,7 @@
         rel="noopener noreferrer"
       >
         <img
-          src="../../assets/community-icons/instagram-gray.svg"
+          src="/img/community-icons/instagram-gray.svg"
           alt="Instagram logo"
           width="24"
           height="24"
@@ -62,7 +62,7 @@
         rel="noopener noreferrer"
       >
         <img
-          src="../../assets/community-icons/twitter-gray.svg"
+          src="/img/community-icons/twitter-gray.svg"
           alt="Twitter logo"
           width="24"
           height="24"
@@ -76,7 +76,7 @@
         rel="noopener noreferrer"
       >
         <img
-          src="../../assets/community-icons/github-gray.svg"
+          src="/img/community-icons/github-gray.svg"
           alt="Github logo"
           width="24"
           height="24"
@@ -86,7 +86,7 @@
 
       <a href="#" target="blank" rel="noopener noreferrer">
         <img
-          src="../../assets/community-icons/dribble-gray.svg"
+          src="/img/community-icons/dribble-gray.svg"
           alt="Join the Conversation"
           width="24"
           height="24"

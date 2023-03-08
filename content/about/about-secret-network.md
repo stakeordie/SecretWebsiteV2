@@ -4,7 +4,7 @@ title: "About"
 
 <column class="about__swirl__top" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-about-top.svg" alt="Swirl graphic" loading="lazy"/> 
+    <img class="get-scrt__align-img" src="/img/icons/swirl-about-top.svg" alt="Swirl graphic" loading="lazy"/> 
   </block>
 </column>
 

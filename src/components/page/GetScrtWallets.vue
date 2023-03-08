@@ -12,7 +12,7 @@
           >
             <div class="page-get-scrt__wallets__card">
               <img
-                src="../../assets/keplr_icon.png"
+                src="/img/icons/keplr_icon.png"
                 alt="Keplr"
                 loading="lazy"
               />
@@ -30,7 +30,7 @@
                 >
                   <p>INSTALL</p>
                   <img
-                    src="../../assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                     loading="lazy"
                   />
@@ -41,7 +41,7 @@
                 >
                   <p>TUTORIAL</p>
                   <img
-                    src="../../assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                     loading="lazy"
                   />
@@ -61,7 +61,7 @@
             >
               <p>VIEW ALL</p>
               <img
-                src="../../assets/icon-arrow-right.svg"
+                src="/img/icons/icon-arrow-right.svg"
                 alt="External Link"
                 loading="lazy"
               />
@@ -70,7 +70,7 @@
           <div class="page-get-scrt__wallets__content__other__other-cards">
             <div class="page-get-scrt__wallets__card">
               <img
-                src="../../assets/citadelone-icon.png"
+                src="/img/icons/citadelone-icon.png"
                 alt="Cita del One"
                 loading="lazy"
               />
@@ -88,7 +88,7 @@
                 >
                   <p>INSTALL</p>
                   <img
-                    src="../../assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                     loading="lazy"
                   />
@@ -97,7 +97,7 @@
             </div>
             <div class="page-get-scrt__wallets__card">
               <img
-                src="../../assets/cosmostation-icon.png"
+                src="/img/icons/cosmostation-icon.png"
                 alt="Cosmostation"
                 loading="lazy"
               />
@@ -114,7 +114,7 @@
                 >
                   <p>INSTALL</p>
                   <img
-                    src="../../assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                     loading="lazy"
                   />
@@ -123,7 +123,7 @@
             </div>
             <div class="page-get-scrt__wallets__card">
               <img
-                src="../../assets/ledger-nano-icon.png"
+                src="/img/icons/ledger-nano-icon.png"
                 alt="Ledger Nano"
                 loading="lazy"
               />
@@ -141,7 +141,7 @@
                 >
                   <p>GET</p>
                   <img
-                    src="../../assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                     loading="lazy"
                   />

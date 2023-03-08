@@ -1,11 +1,11 @@
 <template>
   <div class="actions">
     <button class="theme padding-small control" @click="scroll_left">
-      <img src="../assets/icon-circle-left.svg" alt="left" loading="lazy" />
+      <img src="/img/icons/icon-circle-left.svg" alt="left" loading="lazy" />
     </button>
 
     <button class="theme padding-small control" @click="scroll_right">
-      <img src="../assets/icon-circle-right.svg" alt="right" loading="lazy" />
+      <img src="/img/icons/icon-circle-right.svg" alt="right" loading="lazy" />
     </button>
   </div>
 </template>

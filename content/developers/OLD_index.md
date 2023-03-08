@@ -109,7 +109,7 @@ Use Secret Contracts to build decentralized applications with improved usability
 
 <card-simple class="vertical-stretch">
 
-![Library](../../src/assets/library.svg)
+![Library](/img/icons/library.svg)
 
 #### Secret App Quickstarts
 

@@ -4,7 +4,7 @@ title: "Grants"
 
 <column class="blue__swirl__top" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-blue-top.svg" alt="Blue swirl top graphic" loading="lazy"/>
+    <img class="get-scrt__align-img" src="/img/icons/swirl-blue-top.svg" alt="Blue swirl top graphic" loading="lazy"/>
   </block>
 </column>
 
@@ -40,6 +40,6 @@ title: "Grants"
 
 <column class="blue__swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
+    <img class="get-scrt__align-img" src="/img/icons/swirl-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
   </block>
 </column>

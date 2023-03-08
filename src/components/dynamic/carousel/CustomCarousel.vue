@@ -11,14 +11,14 @@
       <div class="header__controls">
         <button @click="scroll('left')">
           <img
-            src="@/assets/icon-circle-left.svg"
+            src="/img/icons/icon-circle-left.svg"
             alt="Left icon"
             loading="lazy"
           />
         </button>
         <button @click="scroll()">
           <img
-            src="@/assets/icon-circle-right.svg"
+            src="/img/icons/icon-circle-right.svg"
             alt="Right icon"
             loading="lazy"
           />
