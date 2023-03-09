@@ -136,28 +136,6 @@ title: 'Austin Event'
 <!-- <countdown format="hours:minutes:seconds" separators="" end="2022-06-08T21:00:00-07:00"></countdown> -->
 
 <div class="dcentral-afterparty__home__countdown__wrapper">
-<countdown format="days:hours:minutes:seconds" separators="" end="2022-06-08T19:00:00-0700">
-<!-- <countdown format="days:hours:minutes:seconds" separators="" end="2021-06-08T19:00:00-0700"> -->
-<div class="paragraph-wrap">
-  <p class="wrap-day">
-  DAYS 
-  </p>
-<div class="">  </div>
-  <p class="wrap-hour">
-  HOURS
-  </p>
-<div class="">  </div>
-  <p class="wrap-min">
-  MIN
-  </p>
-<div class="">  </div>
-  <p class="wrap-sec">
-  SEC
-  </p>
-</div>
-
-</countdown>
-
 </div>
 
 ### until the party starts

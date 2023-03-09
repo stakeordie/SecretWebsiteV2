@@ -163,9 +163,6 @@ module.exports = {
       plugins: ["gridsome-plugin-remark-prismjs-all"],
     },
   },
-  chainWebpack: (config) => {
-    config.resolve.alias.set("@images", "@/../content/img");
-  },
   configureWebpack: {
     resolve: {
       symlinks: false,
