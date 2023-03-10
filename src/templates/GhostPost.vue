@@ -85,6 +85,7 @@
 <script>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import BlogAuthor from "@/components/blog/BlogAuthor.vue";
+
 import { canonicalTag, metaDataArray } from "@/utils";
 
 const domain = "https://scrt.network";
