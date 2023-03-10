@@ -51,7 +51,7 @@ import EcosystemFundingCtas from "@/components/page/Ecosystem/Funding/EcosystemF
 import EcosystemFundingGrant from "@/components/page/Ecosystem/Funding/EcosystemFundingGrant.vue";
 import EcosystemFundingHero from "@/components/page/Ecosystem/Funding/EcosystemFundingHero.vue";
 import EcosystemFundingSlider from "@/components/page/Ecosystem/Funding/EcosystemFundingSlider.vue";
-import EcosystemFundingWhyBuild from "@/components/page/Ecosystem/Funding/EcosystemFundingWhyBuild.vue";
+import EcosystemFundingWhyBuild from "@/components/content/EcosystemFundingWhyBuild.vue";
 
 export default {
   components: {

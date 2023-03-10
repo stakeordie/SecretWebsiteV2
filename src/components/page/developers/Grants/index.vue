@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import EcosystemFundingWhyBuild from "@/components/page/Ecosystem/Funding/EcosystemFundingWhyBuild.vue";
+import EcosystemFundingWhyBuild from "@/components/content/EcosystemFundingWhyBuild.vue";
 import GrantsBuild from "@/components/page/Developers/Grants/GrantsBuild.vue";
 import GrantsHero from "@/components/page/Developers/Grants/GrantsHero.vue";
 
