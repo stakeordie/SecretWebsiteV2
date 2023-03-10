@@ -107,17 +107,17 @@
 </template>
 
 <script>
-import DevelopersHero from "@/components/page/Developers/DevelopersHero";
-import DevelopersFeatures from "@/components/page/Developers/DevelopersFeatures";
-import DevelopersStartHere from "@/components/page/Developers/DevelopersStartHere";
-import DevelopersPathway from "@/components/page/Developers/DevelopersPathway";
-import DevelopersHelpNewDevs from "@/components/page/Developers/DevelopersHelpNewDevs";
-import DevelopersCardResources from "@/components/page/Developers/DevelopersCardResources";
-import DevelopersAdvanced from "@/components/page/Developers/DevelopersAdvanced";
-import DevelopersQuestions from "@/components/page/Developers/DevelopersQuestions";
-import DevelopersFunding from "@/components/page/Developers/DevelopersFunding";
-import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff";
-import DevelopersUniversity from "@/components/page/Developers/DevelopersUniversity";
+import DevelopersHero from "@/components/page/Developers/DevelopersHero.vue";
+import DevelopersFeatures from "@/components/page/Developers/DevelopersFeatures.vue";
+import DevelopersStartHere from "@/components/page/Developers/DevelopersStartHere.vue";
+import DevelopersPathway from "@/components/page/Developers/DevelopersPathway.vue";
+import DevelopersHelpNewDevs from "@/components/page/Developers/DevelopersHelpNewDevs.vue";
+import DevelopersCardResources from "@/components/page/Developers/DevelopersCardResources.vue";
+import DevelopersAdvanced from "@/components/page/Developers/DevelopersAdvanced.vue";
+import DevelopersQuestions from "@/components/page/Developers/DevelopersQuestions.vue";
+import DevelopersFunding from "@/components/page/Developers/DevelopersFunding.vue";
+import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff.vue";
+import DevelopersUniversity from "@/components/page/Developers/DevelopersUniversity.vue";
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 
 export default {
