@@ -97,7 +97,7 @@ import NewHomeAnnouncement from "@/components/page/Home/NewHomeAnnouncement.vue"
 import NewMediaFeaturedHomeV2 from "@/components/cards/NewMediaFeaturedHomeV2.vue";
 import NewBlogLatestPosts from "@/components/blog/NewBlogLatestPosts.vue";
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
-import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff.vue";
+import DevelopersCoolStuff from "@/components/cards/DevelopersCoolStuff.vue";
 
 export default {
   components: {

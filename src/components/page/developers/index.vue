@@ -116,7 +116,7 @@ import DevelopersCardResources from "@/components/page/Developers/DevelopersCard
 import DevelopersAdvanced from "@/components/page/Developers/DevelopersAdvanced.vue";
 import DevelopersQuestions from "@/components/page/Developers/DevelopersQuestions.vue";
 import DevelopersFunding from "@/components/page/Developers/DevelopersFunding.vue";
-import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff.vue";
+import DevelopersCoolStuff from "@/components/cards/DevelopersCoolStuff.vue";
 import DevelopersUniversity from "@/components/page/Developers/DevelopersUniversity.vue";
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 
