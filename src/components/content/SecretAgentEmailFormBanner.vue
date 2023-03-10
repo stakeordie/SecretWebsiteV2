@@ -116,7 +116,6 @@ query {
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/_respond-to.scss";
-@import "@/sass/functions/theme";
 
 .secret-agent-email-banner {
   &__container {

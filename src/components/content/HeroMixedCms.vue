@@ -321,7 +321,6 @@ query {
 </static-query>
 
 <style lang="scss">
-@import "@/sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
 .about {

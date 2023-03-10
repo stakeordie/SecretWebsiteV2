@@ -610,7 +610,6 @@ query {
 
 <style lang="scss">
 @import "@/sass/_text.scss";
-@import "@/sass/functions/theme";
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 :root {
   --mega-header-space: 16px;
