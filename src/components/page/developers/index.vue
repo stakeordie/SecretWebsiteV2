@@ -78,7 +78,7 @@
       mode="full"
     >
       <block>
-        <developers-cool-stuff></developers-cool-stuff>
+        <developers-cool-stuff />
       </block>
     </column>
 
