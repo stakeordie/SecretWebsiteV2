@@ -40,7 +40,7 @@ import GeneralCtas from "@/components/content/GeneralCtas.vue";
 // Page Specific
 import HomePage from "@/components/page/Home/index.vue";
 import Developers from "@/components/page/Developers/index.vue";
-import DevelopersGrants from "@/components/page/Developers/Grants/index.vue";
+import DevelopersGrants from "@/components/page/DevelopersGrants/index.vue";
 import ServiceStatus from "@/components/page/ServiceStatus/index.vue";
 import MediaFeatures from "@/components/page/Media/Features/index.vue";
 import EcosystemContributors from "@/components/page/Ecosystem/Contributors/index.vue";
@@ -102,7 +102,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("LogoCarousel", LogoCarousel);
   Vue.component("ResponsiveImage", ResponsiveImage);
   Vue.component("VueMarkdown", VueMarkdown);
-  
+
   //Page Specific
   Vue.component("HomePage", HomePage);
   Vue.component("SubmitProject", SubmitProject);
