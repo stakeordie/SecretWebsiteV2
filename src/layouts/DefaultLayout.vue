@@ -18,8 +18,8 @@
       <SimpleFooter :class="swirlBottomIsVisible" mode="full">
         <FooterMenu />
         <FooterContact />
+        <FooterLegal />
       </SimpleFooter>
-      <FooterLegal />
     </template>
   </SimpleLayout>
 </template>

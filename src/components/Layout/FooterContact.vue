@@ -1,122 +1,43 @@
 <template>
   <section class="footer-contact">
     <div class="social">
-      <g-link :to="$tp(`/`)">
+      <a href="/" class="scrt-logo">
         <img
-          class="scrt-logo"
           src="/img/icons/new-secret-logo.svg"
           width="124"
           height="58"
           alt="Secret logo"
           loading="lazy"
         />
-      </g-link>
+      </a>
       <nav class="social-navigation">
         <a
-          href="https://forum.scrt.network/"
+          v-for="(item, index) in socialMedias"
+          :key="index"
+          :href="item.url"
           target="blank"
           rel="noopener noreferrer"
         >
           <img
-            src="/img/icons/icon-social-forum.svg"
-            alt="Join the Conversation"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://github.com/SecretFoundation/SecretWebsite"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-github.svg"
-            alt="Github icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://discord.com/invite/SJK32GY"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-discord.svg"
-            alt="Discord icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://t.me/SCRTcommunity"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-telegram.svg"
-            alt="Telegram icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://twitter.com/SecretNetwork"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-twitter.svg"
-            alt="Twitter icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/scrtnetwork/"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-instagram.svg"
-            alt="Instagram icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw"
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/img/icons/icon-social-youtube.svg"
-            alt="Youtube icon"
+            :src="item.icon"
+            :alt="item.alt"
             width="24"
             height="24"
             loading="lazy"
           />
         </a>
       </nav>
-      <g-link
-        v-bind:key="index + link"
-        v-for="(link, index) in linksForSocial"
-        :to="$tp(link.path)"
-        :target="link.target"
+      <a
+        href="https://forms.monday.com/forms/746a913d8974a232da2ccabbcce68408?r=use1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="icon-icon-arrow-external"
       >
-        <span :class="{ 'icon icon-icon-arrow-external': link.external }">
-          {{ link.title }}
-        </span>
-      </g-link>
+        Report a bug
+      </a>
     </div>
     <div class="subscribe">
-      <h3>Get Updates</h3>
+      <h3>Subscribe to Our Newsletter</h3>
       <form
         action="https://network.us2.list-manage.com/subscribe/post?u=7a05e306cd4c801a88ddcb060&amp;id=889f1a33bc"
         method="post"
@@ -128,7 +49,6 @@
       >
         <input
           type="email"
-          value=""
           name="EMAIL"
           class="required email"
           id="mce-EMAIL"
@@ -153,12 +73,41 @@
 export default {
   data() {
     return {
-      linksForSocial: [
+      socialMedias: [
         {
-          title: "Submit an issue",
-          path: "https://github.com/stakeordie/SecretWebsiteV2/issues",
-          external: true,
-          target: "blank"
+          url: "https://forum.scrt.network/",
+          icon: "/img/icons/icon-social-forum.svg",
+          alt: "Join the Conversation"
+        },
+        {
+          url: "https://github.com/SecretFoundation/SecretWebsite",
+          icon: "/img/icons/icon-social-github.svg",
+          alt: "Github icon"
+        },
+        {
+          url: "https://discord.com/invite/SJK32GY",
+          icon: "/img/icons/icon-social-discord.svg",
+          alt: "Discord icon"
+        },
+        {
+          url: "https://t.me/SCRTcommunity",
+          icon: "/img/icons/icon-social-telegram.svg",
+          alt: "Telegram icon"
+        },
+        {
+          url: "https://twitter.com/SecretNetwork",
+          icon: "/img/icons/icon-social-twitter.svg",
+          alt: "Twitter icon"
+        },
+        {
+          url: "https://www.instagram.com/scrtnetwork/",
+          icon: "/img/icons/icon-social-instagram.svg",
+          alt: "Instagram icon"
+        },
+        {
+          url: "https://www.youtube.com/channel/UCZPqj7h7mzjwuSfw_UWxQPw",
+          icon: "/img/icons/icon-social-youtube.svg",
+          alt: "Youtube icon"
         }
       ]
     };
@@ -171,37 +120,40 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .footer-contact {
-  display: grid;
-  grid-template-columns: 1fr 445px;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   padding: 40px;
+  flex-direction: column;
+  gap: var(--f-gutter-xxl);
+  align-items: center;
 
-  a {
-    &:hover {
-      color: var(--mega-header-color-nav-exanded-hover) !important;
-    }
+  @include respond-to(">=l") {
+    justify-content: space-between;
+    flex-direction: row;
   }
-  @include respond-to("<=m") {
-    grid-template-columns: 1fr;
-    gap: var(--f-gutter-xxl);
-  }
+
   .social {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: var(--f-gutter);
-    place-items: start;
 
-    @include respond-to("<=s") {
-      text-align: center;
-      justify-content: center;
+    @include respond-to(">=l") {
+      align-items: flex-start;
+      text-align: left;
     }
 
     .scrt-logo {
-      width: 182px;
       height: auto;
       display: inline-block;
+
+      img {
+        width: 182px;
+      }
     }
 
     .social-navigation {
@@ -228,49 +180,33 @@ export default {
       color: var(--color-analog-tertiary-blue);
     }
   }
+
   .subscribe {
-    align-self: end;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    max-width: 445px;
+    gap: 16px;
 
-    h3 {
-      margin-bottom: var(--f-gutter);
-      @include respond-to("<=s") {
-        text-align: center;
-      }
-
-      span {
-        @include theme(dark dark-colored) {
-          color: var(--color-newBrand-blue-01);
-        }
-        @include theme(light light-colored) {
-          color: var(--color-analog-secondary-purple);
-        }
-      }
+    @include respond-to(">=l") {
+      align-self: flex-end;
+      text-align: left;
     }
 
     form {
       display: grid;
       gap: var(--f-gutter-s);
-      grid-template-columns: 1fr 150px;
+        grid-template-columns: 1fr;
       grid-template-rows: 46px;
       place-items: stretch;
 
-      @include respond-to("<=s") {
-        grid-template-columns: 1fr;
-
-        .button,
-        input {
-          margin: 0 !important;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-        }
+      @include respond-to(">=l") {
+        grid-template-columns: 1fr 150px;
       }
-      .button,
+
       input {
         margin: 0;
-      }
-
-      input {
         padding: 10px 16px;
         background-color: var(--color-neutral-dark-mode-03);
         border: none;
@@ -282,7 +218,8 @@ export default {
       }
 
       .button {
-        background-color: var(--color-ver2-primary-orange);
+        margin: 0;
+        background-color: #303c4a;
         text-transform: uppercase;
         font-family: "Hind";
         font-weight: 700;
