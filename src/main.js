@@ -41,7 +41,6 @@ import GeneralCtas from "@/components/content/GeneralCtas";
 import HomePage from "@/components/page/Home/index";
 import Developers from "@/components/page/Developers/index";
 import DevelopersGrants from "@/components/page/Developers/Grants/index";
-import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff";
 import ServiceStatus from "@/components/page/ServiceStatus/index";
 import MediaFeatures from "@/components/page/Media/Features/index";
 import EcosystemContributors from "@/components/page/Ecosystem/Contributors/index";
@@ -114,7 +113,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("HomePage", HomePage);
   Vue.component("Developers", Developers);
   Vue.component("DevelopersGrants", DevelopersGrants);
-  Vue.component("DevelopersCoolStuff", DevelopersCoolStuff);
   Vue.component("ServiceStatus", ServiceStatus);
   Vue.component("GetScrtPage", GetScrtPage);
   Vue.component("AboutSecretNetwork", AboutSecretNetwork);
