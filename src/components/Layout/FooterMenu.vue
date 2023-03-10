@@ -47,12 +47,12 @@ export default {
   methods: {
     footerMenuItems() {
       const content = this.$static.navFooter.edges.map(
-        (it) => it.node.nav_groups
+        it => it.node.nav_groups
       );
       this.footerMenu = content[0];
       return content[0];
-    },
-  },
+    }
+  }
 };
 </script>
 

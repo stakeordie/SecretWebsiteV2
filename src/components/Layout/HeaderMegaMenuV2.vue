@@ -203,7 +203,10 @@
                   alt="forums"
                   v-on:click="linkCloseMenu"
                 >
-                  <img src="/img/icons/message-circle.svg" alt="message image" />
+                  <img
+                    src="/img/icons/message-circle.svg"
+                    alt="message image"
+                  />
                   <span>Forums</span>
                 </a>
               </div>
