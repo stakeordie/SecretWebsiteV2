@@ -27,28 +27,28 @@ export default {
     return {
       reasons: [
         {
-          imageUrl: "../img/funding/icon-appverticals-secret-app.svg",
-          title: "Secret Apps",
+          imageUrl: "/img/funding/icon-appverticals-secret-app.svg",
+          title: "Secret Apps"
         },
         {
-          imageUrl: "../img/funding/icon-appverticals-secret-nfts.svg",
-          title: "Secret NFTs",
+          imageUrl: "/img/funding/icon-appverticals-secret-nfts.svg",
+          title: "Secret NFTs"
         },
         {
-          imageUrl: "../img/funding/icon-appverticals-defi.svg",
-          title: "DeFi",
+          imageUrl: "/img/funding/icon-appverticals-defi.svg",
+          title: "DeFi"
         },
         {
-          imageUrl: "../img/funding/icon-appverticals-infrastructure.svg",
-          title: "Infrastructure",
+          imageUrl: "/img/funding/icon-appverticals-infrastructure.svg",
+          title: "Infrastructure"
         },
         {
-          imageUrl: "../img/funding/icon-appverticals-tooling.svg",
-          title: "Tooling",
-        },
-      ],
+          imageUrl: "/img/funding/icon-appverticals-tooling.svg",
+          title: "Tooling"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 
