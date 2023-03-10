@@ -21,7 +21,7 @@ import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 
-import ThemedImage from "@/components/content/ThemedImage.vue";
+//global compoments
 import HeroTitle from "@/components/content/HeroTitle.vue";
 import HeroMixed from "@/components/content/HeroMixed.vue";
 import HeroMixedCms from "@/components/content/HeroMixedCms.vue";
@@ -32,10 +32,10 @@ import Colors from "~/components/cards/Colors.vue";
 import ContentNavigatorDocs from "@/components/content/ContentNavigatorDocs.vue";
 import ContentNavigatorCms from "@/components/content/ContentNavigatorCms.vue";
 import LogoCarousel from "@/components/content/LogoCarousel.vue";
-import ResponsiveImage from "@/components/content/ResponsiveImage";
-import i18n from "@/components/content/i18n";
-import DeployTemp from "@/components/content/DeployTemp";
-import GeneralCtas from "@/components/content/GeneralCtas";
+import ResponsiveImage from "@/components/content/ResponsiveImage.vue";
+import i18n from "@/components/content/i18n.vue";
+import DeployTemp from "@/components/content/DeployTemp.vue";
+import GeneralCtas from "@/components/content/GeneralCtas.vue";
 
 // Page Specific
 import HomePage from "@/components/page/Home/index";
@@ -80,7 +80,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   // Set default layout as a global component
   Vue.component("DefaultLayout", DefaultLayout);
-  Vue.component("ThemedImage", ThemedImage);
   Vue.component("HeroTitle", HeroTitle);
   Vue.component("HeroMixed", HeroMixed);
   Vue.component("HeroMixedCms", HeroMixedCms);
@@ -107,10 +106,10 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("VueMarkdown", VueMarkdown);
 
   // Blog
-  Vue.component("SubmitProject", SubmitProject);
-
+  
   //Page Specific
   Vue.component("HomePage", HomePage);
+  Vue.component("SubmitProject", SubmitProject);
   Vue.component("Developers", Developers);
   Vue.component("DevelopersGrants", DevelopersGrants);
   Vue.component("ServiceStatus", ServiceStatus);
