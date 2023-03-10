@@ -1,7 +1,9 @@
 <template>
   <div class="content-columns">
     <div
-      :class="`content-columns__container--img-position--${element.image_position.toLowerCase()}`"
+      :class="
+        `content-columns__container--img-position--${element.image_position.toLowerCase()}`
+      "
       class="content-columns__container"
       v-for="(element, index) in instructionContent"
       :key="index"
@@ -22,25 +24,15 @@ export default {
   props: {
     contentID: {
       type: String,
-      default: "",
-    },
-    invertedColumnMobile: Boolean,
-    weightLeft: Boolean,
-    weightRight: Boolean,
+      default: ""
+    }
   },
   computed: {
-    classes() {
-      return {
-        "content-columns--inverted-mobile": this.invertedColumnMobile,
-        "content-columns--weight-left": this.weightLeft,
-        "content-columns--weight-right": this.weightRight,
-      };
-    },
     instructionContent() {
       const content = this.$static.secretAgentIntroRows.edges[0].node.row;
       return content.filter(({ id }) => id === Number(this.contentID));
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="elements-validators">
+    <div class="elements-exchanges">
       <!-- FILTER -->
       <div class="filter v3">
         <h5 class="mini-title">Explore</h5>
@@ -18,6 +18,31 @@
             placeholder="Search"
           />
         </div>
+        <ul
+          class="custom-checkbox"
+          :class="'selected-' + selectedTag"
+          v-if="hasCategories"
+        >
+          <li>Filter:</li>
+          <li v-for="(category, index) of categories" :key="index">
+            <label v-on:click="searchFilterReset">
+              <input
+                :id="category.name"
+                type="checkbox"
+                :value="category.name"
+                v-model="checkedCategories"
+              />
+              <span class="title">
+                {{ formatCategory(category.name) }}
+                <img
+                  src="/img/icons/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
+                />
+              </span>
+            </label>
+          </li>
+        </ul>
       </div>
 
       <div class="elements-container">
@@ -37,8 +62,8 @@
             >
               <div class="card-element__header">
                 <ResponsiveImage
-                  :src="element.picture"
                   classes="card-element__header__logo"
+                  :src="element.picture"
                 />
                 <!-- Categorie tags -->
                 <div
@@ -69,7 +94,6 @@
             </p>
           </div>
         </div>
-
         <pagination
           v-if="isPaginated"
           @page="setPagesFather"
@@ -88,7 +112,6 @@ import Pagination from "@/components/content/Pagination.vue";
 
 export default {
   components: { Pagination },
-
   data() {
     return {
       search: "",
@@ -99,17 +122,14 @@ export default {
       selectedTag: "All",
     };
   },
-
   props: {
-    props: ["value"],
     title: { type: String, required: true },
     collection: { type: String, required: true },
     header: { type: String, required: false, default: "" },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
-    hasCategories: { type: Boolean, default: true },
+    hasCategories: { type: Boolean, default: true, required: false },
   },
-
   methods: {
     searchFilter() {
       const cardEl = document.querySelectorAll(".card-element");
@@ -200,7 +220,6 @@ export default {
         }
       }
     },
-
     evaluateTags(size) {
       if (!size) return;
 
@@ -211,7 +230,6 @@ export default {
       }
     },
   },
-
   computed: {
     // WALTER WAS HERE
     filteredElements() {
@@ -270,7 +288,6 @@ export default {
       return uniqueCategories;
     },
   },
-
   mounted() {
     this.hashToFilter("#wallets", "wallet");
     this.hashToFilter("#tools", "tool");
@@ -460,7 +477,7 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-validators {
+.ecosystem-exchanges {
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -475,12 +492,13 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
   }
 
-  .elements-validators {
+  .elements-exchanges {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--f-gutter-xl);
     margin-top: 0;
     align-content: start;
+    text-align: center;
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr;
@@ -512,9 +530,68 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         gap: var(--f-gutter);
         padding: 26px 0 var(--f-gutter) 0;
 
-        text-align: center;
         * {
           margin: 0;
+        }
+
+        .custom-checkbox {
+          gap: 10px;
+          display: flex;
+          justify-content: center;
+          li {
+            text-align: center;
+            display: grid;
+            align-items: center;
+            font-size: 16px;
+            color: var(--color-neutral-dark-mode-05);
+            font-family: hind;
+            * {
+              margin: 0;
+            }
+            label {
+              padding: 0;
+              border: 0;
+              transition: 0.2s ease;
+
+              &:hover {
+                color: var(--color-analog-primary-white);
+              }
+              span {
+                display: grid;
+                gap: 2px;
+                grid-auto-flow: column;
+                align-items: center;
+                font-size: 18px;
+                text-transform: capitalize;
+                border-radius: 100px;
+                padding: 7px 16px 5px 16px;
+                border: none;
+                background-color: var(--color-neutral-dark-mode-04);
+                color: var(--color-neutral-dark-mode-06);
+                font-weight: 600;
+
+                transition: 0.2s ease;
+                img {
+                  width: 0px;
+                  height: 0px;
+                }
+              }
+              input {
+                &:checked {
+                  ~ .title {
+                    background-color: var(--color-ver2-primary-turquoise);
+                    border: none;
+                  }
+                }
+              }
+            }
+            span {
+              padding: 8px;
+              border: 1px solid white;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
         }
 
         .search-filter {
@@ -560,8 +637,12 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         gap: var(--f-gutter-l);
         justify-content: center;
 
-        @include respond-to("<=xs") {
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        @include respond-to("<=m") {
+          grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        }
+
+        @include respond-to("<=s") {
+          grid-template-columns: repeat(auto-fit, minmax(184px, 1fr));
         }
 
         .no-results {
@@ -608,18 +689,24 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
             gap: 16px;
             padding: var(--f-gutter);
 
-            @include respond-to("<=xs") {
-              gap: 12px;
+            @include respond-to("<=s") {
+              gap: 10px;
+              grid-template-columns: 48px 1fr;
             }
           }
 
           &__header {
             width: 64px;
             height: 64px;
-            border-radius: 200px;
+            border-radius: 10px;
             overflow: hidden;
             display: grid;
             align-content: center;
+
+            @include respond-to("<=s") {
+              width: 48px;
+              height: 48px;
+            }
           }
 
           &__title-desc {

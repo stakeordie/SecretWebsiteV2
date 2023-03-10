@@ -19,7 +19,7 @@
     <!-- Controlls  -->
     <column number="2" class="page-developers__horizontal-scroll ">
       <block class="new-home__block-header">
-        <h3>Apps live on mainnet</h3>
+        <h4>Apps live on mainnet</h4>
       </block>
       <block class="justify-right">
         <scroll-horizontal />
@@ -63,7 +63,7 @@
     <!-- Home featured media -->
     <column class="new-home__bg__bottom space-top new-home__block-header">
       <block>
-        <new-media-featured-home-v2> </new-media-featured-home-v2>
+        <new-media-featured-home-v2 />
       </block>
     </column>
 
@@ -95,6 +95,8 @@ import NewHomeCallAction from "@/components/page/Home/NewHomeCallAction.vue";
 import NewHomeMission from "@/components/page/Home/NewHomeMission.vue";
 import NewHomeAnnouncement from "@/components/page/Home/NewHomeAnnouncement.vue";
 import NewMediaFeaturedHomeV2 from "@/components/cards/NewMediaFeaturedHomeV2.vue";
+import NewBlogLatestPosts from "@/components/blog/NewBlogLatestPosts.vue";
+import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 
 export default {
   components: {
@@ -103,7 +105,9 @@ export default {
     NewHomeCallAction,
     NewHomeMission,
     NewHomeAnnouncement,
-    NewMediaFeaturedHomeV2
+    NewMediaFeaturedHomeV2,
+    NewBlogLatestPosts,
+    ScrollHorizontal
   }
 };
 </script>

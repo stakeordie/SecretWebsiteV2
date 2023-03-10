@@ -67,3 +67,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.--flare-page .developers-grants-page > .--flare-block > .content > .box {
+  padding: 0;
+}
+</style>

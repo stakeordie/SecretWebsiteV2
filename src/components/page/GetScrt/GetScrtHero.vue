@@ -25,7 +25,7 @@
               v-model="selected"
               placeholder="USD"
               :options="['cad', 'cny', 'eur', 'gbp', 'jpy', 'mxn', 'usd']"
-            ></v-select>
+            />
           </div>
           <h1>
             {{
@@ -34,7 +34,7 @@
                 : new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currencyDisplay: "narrowSymbol",
-                    currency: selected,
+                    currency: selected
                   }).format(scrtData[selected])
             }}
           </h1>
@@ -45,33 +45,38 @@
 </template>
 
 <script>
+import VSelect from "vue-select";
+
 export default {
+  components: {
+    VSelect
+  },
   data() {
     return {
       coinGeckoResponse: "",
       scrtData: "",
-      selected: "",
+      selected: ""
     };
   },
   methods: {
     getScrtValue() {
       let requestOptions = {
         method: "GET",
-        redirect: "follow",
+        redirect: "follow"
       };
 
       fetch("https://api.coingecko.com/api/v3/coins/secret", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
+        .then(response => response.text())
+        .then(result => {
           this.coinGeckoResponse = JSON.parse(result);
           this.scrtData = this.coinGeckoResponse.market_data.current_price;
         })
-        .catch((error) => console.log("error", error));
-    },
+        .catch(error => console.log("error", error));
+    }
   },
   mounted() {
     this.getScrtValue();
-  },
+  }
 };
 </script>
 

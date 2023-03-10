@@ -1,5 +1,5 @@
 <template>
-  <column mode="full" class="ecosystem-exchanges-page">
+  <column mode="full" class="ecosystem-partners-page">
     <!-- swirl -->
     <column class="ecosystem__green-swirl__top" mode="full">
       <block>
@@ -12,26 +12,24 @@
       </block>
     </column>
 
-    <!-- Explore -->
-    <column class="spacer-s ">
+    <!-- Tools -->
+    <column class="spacer-s bg-black-gradient">
       <block>
-        <card-grid-exchanges
-          header="Exchanges"
-          title="Exchanges"
-          collection="exchanges"
+        <card-grid-partners
+          header="Partners"
+          title="Partners"
+          collection="ecosystemPartners"
+          :isPaginated="false"
         />
       </block>
     </column>
 
-    <column class="spacer-s" number-s="1">
-      <block>
-        <ecosystem-experiencing-issues />
-      </block>
-    </column>
-
-    <column class="spacer-s" number-s="1">
+    <column class="spacer-s" number="2" number-m="1" number-s="1">
       <block>
         <general-ctas id="get-started-with-secret" />
+      </block>
+      <block>
+        <general-ctas id="contribute-to-secret" />
       </block>
     </column>
 
@@ -50,15 +48,14 @@
 </template>
 
 <script>
-import EcosystemExperiencingIssues from "@/components/page/Ecosystem/Exchanges/EcosystemExperiencingIssues.vue";
-import CardGridExchanges from "@/components/page/Ecosystem/Exchanges/CardGridExchanges.vue";
+import CardGridPartners from "@/components/page/Ecosystem/Partners/CardGridPartners.vue";
 export default {
-  components: { EcosystemExperiencingIssues, CardGridExchanges }
+  components: { CardGridPartners }
 };
 </script>
 
 <style lang="scss">
-.--flare-page .ecosystem-exchanges-page > .--flare-block > .content > .box {
+.--flare-page .ecosystem-partners-page > .--flare-block > .content > .box {
   padding: 0;
 }
 </style>

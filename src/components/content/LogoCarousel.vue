@@ -23,7 +23,11 @@
 
 <script>
 import { uppercaseAllFirstLetter } from "@/utils";
+import InfiniteSlideBar from "vue-infinite-slide-bar";
 export default {
+  components: {
+    InfiniteSlideBar
+  },
   data() {
     return {
       secretInvestors: [
@@ -51,16 +55,18 @@ export default {
         { image: "/img/investors/investor-SCRTLabs.png" },
         { image: "/img/investors/investor-Shima.png" },
         { image: "/img/investors/investor-Skynet.png" },
-        { image: "/img/investors/investor-Skyvision.png" },
-      ],
+        { image: "/img/investors/investor-Skyvision.png" }
+      ]
     };
   },
   methods: {
     altName(image) {
       const title = image.split("/")[2].split(".")[0];
-      return uppercaseAllFirstLetter(title).split("-").join(" ");
-    },
-  },
+      return uppercaseAllFirstLetter(title)
+        .split("-")
+        .join(" ");
+    }
+  }
 };
 </script>
 

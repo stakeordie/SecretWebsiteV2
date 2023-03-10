@@ -8,7 +8,7 @@
     <span class="btn-text">
       <slot></slot>
     </span>
-    <themed-image>
+    <ThemedImage>
       <img
         dark-colored
         dark
@@ -27,17 +27,20 @@
         height="20"
         loading="lazy"
       />
-    </themed-image>
+    </ThemedImage>
   </a>
 </template>
 
 <script>
+import ThemedImage from "@/components/content/ThemedImage.vue";
+
 export default {
+  components: { ThemedImage },
   props: {
     url: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     isExternal() {
@@ -60,8 +63,8 @@ export default {
         darkArrow = "/icon-arrow-external-light.svg";
       }
       return darkArrow;
-    },
-  },
+    }
+  }
 };
 </script>
 

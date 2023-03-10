@@ -15,7 +15,12 @@
 </template>
 
 <script>
+import Countdown from "@whitewizard/countdown";
+
 export default {
+  components: {
+    Countdown
+  },
   methods: {
     countdownEnd() {
       this.$store.commit("startSummit");

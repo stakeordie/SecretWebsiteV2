@@ -2,7 +2,7 @@
   <Column class="swirl-wrapper swirl-v1 swirl-v2">
     <Block>
       <div class="swirl top v2">
-        <themed-image>
+        <ThemedImage>
           <img
             v-if="swirlSpecial"
             dark-colored
@@ -32,14 +32,17 @@
             height="100"
             loading="lazy"
           />
-        </themed-image>
+        </ThemedImage>
       </div>
     </Block>
   </Column>
 </template>
 
 <script>
+import ThemedImage from "@/components/content/ThemedImage.vue";
+
 export default {
+  components: { ThemedImage },
   props: {
     swirlSpecial: {
       type: Boolean,

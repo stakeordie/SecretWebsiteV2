@@ -25,6 +25,7 @@ export default {
 
   methods: {
     setPage(page) {
+      console.log(page)
       this.$emit("page", page - 1);
     },
   },

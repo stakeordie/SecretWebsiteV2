@@ -1,17 +1,19 @@
 <template>
-  <announcement-ver2
+  <announcement-ver-2
     :id="$static.homeAnnouncements.edges[0].node[location].id"
   />
 </template>
 
 <script>
+import AnnouncementVer2 from "@/components/content/AnnouncementVer2.vue";
 export default {
+  components: { AnnouncementVer2 },
   props: {
     location: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 };
 </script>
 

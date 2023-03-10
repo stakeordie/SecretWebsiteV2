@@ -183,7 +183,6 @@ export default {
     };
   },
   props: {
-    props: ["value"],
     title: { type: String, required: true },
     collection: { type: String, required: true },
     header: { type: String, required: false, default: "" },

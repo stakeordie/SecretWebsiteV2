@@ -25,8 +25,7 @@
 
       <block class="get-scrt__block-align">
         <div>
-          ##### ABOUT
-
+          <h5>ABOUT</h5>
           <h3 class="h3-scrt-logo">
             <img
               src="/img/icons/getscrt-filled-icon.svg"
@@ -49,8 +48,8 @@
     <column class="spacer-s store-scrt">
       <block class="">
         <div class="get-scrt__text-block">
-          ##### STORE SCRT ### What wallets to use
-
+          <h5>STORE SCRT</h5>
+          <h3>What wallets to use</h3>
           <p class="get-scrt__p">
             To store, stake, or use SCRT for gas on the network, you’ll need a
             wallet. Luckily there are plenty of options including hardware
@@ -117,8 +116,7 @@
     <column>
       <block>
         <div class="get-scrt__text-block">
-          ##### BUY SCRT
-
+          <h5>BUY SCRT</h5>
           <h3 class="h3-scrt-logo">
             <span>Where to get</span>
             <img

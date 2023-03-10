@@ -68,7 +68,7 @@
         <h3>Cool stuff others built (on Secret)</h3>
       </block>
       <block class="justify-right">
-        <scroll-horizontal></scroll-horizontal>
+        <scroll-horizontal />
       </block>
     </column>
 
@@ -118,6 +118,8 @@ import DevelopersQuestions from "@/components/page/Developers/DevelopersQuestion
 import DevelopersFunding from "@/components/page/Developers/DevelopersFunding";
 import DevelopersCoolStuff from "@/components/page/Developers/DevelopersCoolStuff";
 import DevelopersUniversity from "@/components/page/Developers/DevelopersUniversity";
+import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
+
 export default {
   components: {
     DevelopersHero,
@@ -130,7 +132,8 @@ export default {
     DevelopersQuestions,
     DevelopersFunding,
     DevelopersCoolStuff,
-    DevelopersUniversity
+    DevelopersUniversity,
+    ScrollHorizontal
   }
 };
 </script>

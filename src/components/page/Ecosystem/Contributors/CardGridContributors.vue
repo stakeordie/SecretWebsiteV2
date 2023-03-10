@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div class="elements-partners">
+    <div class="elements-contributors">
       <!-- FILTER -->
       <div class="filter v3">
         <h5 class="mini-title">Explore</h5>
-
         <h2>{{ gridHeaderTitle(header) }}</h2>
         <p>{{ gridHeaderSubtitle(header) }}</p>
-
         <div class="search">
           <input
             class="search-filter"
@@ -40,12 +38,12 @@
                   classes="card-element__header__logo"
                   :src="element.picture"
                 />
+                <!-- Categorie tags -->
                 <div
                   class="meta"
                   :class="{ 'meta--with-categories': hasCategories }"
                 ></div>
               </div>
-
               <div
                 class="card-element__title-desc"
                 :class="{ 'meta--with-categories': hasCategories }"
@@ -88,7 +86,6 @@ import Pagination from "@/components/content/Pagination.vue";
 
 export default {
   components: { Pagination },
-
   data() {
     return {
       search: "",
@@ -99,9 +96,7 @@ export default {
       selectedTag: "All",
     };
   },
-
   props: {
-    props: ["value"],
     title: { type: String, required: true },
     collection: { type: String, required: true },
     header: { type: String, required: false, default: "" },
@@ -109,7 +104,6 @@ export default {
     isPaginated: { type: Boolean, required: false, default: false },
     hasCategories: { type: Boolean, default: true },
   },
-
   methods: {
     searchFilter() {
       const cardEl = document.querySelectorAll(".card-element");
@@ -211,7 +205,6 @@ export default {
       }
     },
   },
-
   computed: {
     // WALTER WAS HERE
     filteredElements() {
@@ -240,14 +233,17 @@ export default {
       );
       return collection;
     },
+
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
       return this.filteredElements.slice(start, end);
     },
+
     collections() {
       return this.$static[this.collection].edges.map((it) => it.node);
     },
+
     categories() {
       const data = this.$static[this.collection].edges.filter((element) => {
         return element.node.types.length > 0;
@@ -270,7 +266,6 @@ export default {
       return uniqueCategories;
     },
   },
-
   mounted() {
     this.hashToFilter("#wallets", "wallet");
     this.hashToFilter("#tools", "tool");
@@ -278,7 +273,6 @@ export default {
     this.hash("#exchanges", "exchanges", "#exchanges");
     this.hash("#contributors", "contributors", "#contributors");
   },
-  updated() {},
 };
 </script>
 
@@ -294,20 +288,6 @@ query {
     }
   }
   ecosystemValidators: allStrapiEcosystemValidator {
-    edges {
-      node {
-        title: name
-        picture: logo {
-          url
-          ext
-          name
-        }
-        link
-        order
-      }
-    }
-  }
-  ecosystemPartners: allStrapiEcosystemPartner {
     edges {
       node {
         title: name
@@ -352,7 +332,7 @@ query {
       }
     }
   }
-  contributors: allStrapiContributor {
+  ecosystemContributors: allStrapiContributor {
     edges {
       node {
         id
@@ -474,7 +454,7 @@ query {
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
 
-.ecosystem-partners {
+.ecosystem-contributors {
   .grid-header-v2 {
     display: grid;
     max-width: 60%;
@@ -489,7 +469,7 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     }
   }
 
-  .elements-partners {
+  .elements-contributors {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--f-gutter-xl);
@@ -528,6 +508,63 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         padding: 26px 0 var(--f-gutter) 0;
         * {
           margin: 0;
+        }
+        .custom-checkbox {
+          gap: 10px;
+          display: flex;
+          justify-content: center;
+          li {
+            text-align: center;
+            display: grid;
+            align-items: center;
+            color: var(--color-neutral-dark-mode-05);
+            * {
+              margin: 0;
+            }
+            label {
+              padding: 0;
+              border: 0;
+              transition: 0.2s ease;
+
+              &:hover {
+                color: var(--color-analog-primary-white);
+              }
+              span {
+                display: grid;
+                gap: 2px;
+                grid-auto-flow: column;
+                align-items: center;
+                font-size: 15px;
+                text-transform: capitalize;
+                border-radius: 100px;
+                padding: 2px 8px;
+                border: 1px solid var(--color-neutral-dark-mode-04);
+                img {
+                  width: 0px;
+                  height: 0px;
+                }
+              }
+              input {
+                &:checked {
+                  ~ .title {
+                    color: var(--color-analog-primary-white);
+                    border-color: var(--color-analog-primary-white);
+                    img {
+                      transition: 0.2s ease;
+                      width: 16px;
+                      height: 16px;
+                    }
+                  }
+                }
+              }
+            }
+            span {
+              padding: 8px;
+              border: 1px solid white;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
         }
 
         .search-filter {
@@ -569,12 +606,16 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
     & .elements-container {
       .elements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(212px, 212px));
+        grid-template-columns: repeat(5, minmax(212px, 1fr));
         gap: var(--f-gutter-l);
         justify-content: center;
 
-        @include respond-to("<=xs") {
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        @include respond-to("<=s") {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 245px));
+        }
+
+        @include respond-to("<=xl") {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 212px));
         }
 
         .no-results {
@@ -601,53 +642,60 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
         //////////////////////////////////////////
         // CARDS
 
-        .card-element {
+        & .card-element {
           border-radius: var(--f-radius);
           overflow: hidden;
           background: var(--theme-card-bg-default);
           transition: 0.2s ease;
-          display: flex;
+          display: grid;
           text-align: center;
           border-radius: 10px;
-          height: 96px;
-
-          //display: inline-block;
-          justify-content: center;
-
-          &:hover {
-            background: var(--color-neutral-dark-mode-04);
-          }
+          min-height: 257px;
+          //min-width: 212px;
           &.hidden {
             display: none;
           }
+          &:hover {
+            background: var(--color-neutral-dark-mode-04);
+          }
 
           &__overall-link {
+            display: grid;
+            gap: var(--f-gutter);
             padding: var(--f-gutter);
-            display: inline-block;
-            min-width: 212px;
+            grid-template-rows: 150px auto;
+            //justify-content: center;
+            justify-items: center;
+
+            @include respond-to("<=xs") {
+              grid-template-rows: 120px auto;
+            }
           }
 
           &__header {
+            width: 150px;
+            height: 150px;
+            border-radius: var(--f-radius);
             overflow: hidden;
             display: flex;
-            width: 150px;
-            height: 64px;
-            margin: auto;
+
+            @include respond-to("<=xs") {
+              width: 120px;
+              height: 120px;
+            }
 
             &__logo {
               margin: auto;
-              max-height: 64px;
-              width: fit-content;
-              @include respond-to("<=xs") {
-                height: 54px;
-              }
             }
           }
 
           &__title-desc {
             &__header {
-              h4 {
-                font-size: 0px;
+              & .element-grid-title {
+                color: var(--color-analog-primary-white);
+                font-size: 22px;
+                line-height: 30px;
+                margin-bottom: 0;
               }
             }
           }
