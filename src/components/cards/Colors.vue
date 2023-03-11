@@ -278,12 +278,6 @@ export default {
 
 $accent-colors: (article, podcast, video);
 
-// @each $name, $color in $accent-colors {
-// 	&.accent-#{$name} {
-// 		color: var(--accent-#{$name});
-// 	}
-// }
-
 .color-block {
   margin-bottom: var(--spacer-xs);
 
