@@ -3,7 +3,7 @@
     <section class="about-secret-network-hero">
       <div class="about-secret-network-hero__img">
         <img
-          src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
+          src="/img/about-secret-network/about-secret-network-hero-img.svg"
           alt="Secret Network logo graphic"
           class="hero-img"
           loading="lazy"
@@ -25,7 +25,7 @@
         <div class="about-secret-network-hero__content__list">
           <div class="list-item">
             <img
-              src="../../assets/about-secret-network/check-circle-green.svg"
+              src="/img/about-secret-network/check-circle-green.svg"
               alt="Green check"
               class="list-icon"
               loading="lazy"
@@ -34,7 +34,7 @@
           </div>
           <div class="list-item">
             <img
-              src="../../assets/about-secret-network/check-circle-green.svg"
+              src="/img/about-secret-network/check-circle-green.svg"
               alt="Green check"
               class="list-icon"
               loading="lazy"
@@ -45,7 +45,7 @@
           </div>
           <div class="list-item">
             <img
-              src="../../assets/about-secret-network/check-circle-green.svg"
+              src="/img/about-secret-network/check-circle-green.svg"
               alt="Green check"
               class="list-icon"
               loading="lazy"
@@ -88,7 +88,7 @@
         </div>
         <div class="about-secret-network-essential__img">
           <img
-            src="../../assets/why-more-privacy-img.svg"
+            src="/img/icons/why-more-privacy-img.svg"
             alt="Chameleon art"
             class="hero-img"
             loading="lazy"
@@ -156,7 +156,7 @@
             <div class="logos">
               <div class="logos__item item1">
                 <img
-                  src="../../assets/about-secret-network/rust-logo.svg"
+                  src="/img/about-secret-network/rust-logo.svg"
                   alt="Rust logo"
                   loading="lazy"
                 />
@@ -164,7 +164,7 @@
               </div>
               <div class="logos__item item2">
                 <img
-                  src="../../assets/about-secret-network/wasm-logo.svg"
+                  src="/img/about-secret-network/wasm-logo.svg"
                   alt="Wasm logo"
                   loading="lazy"
                 />
@@ -177,7 +177,7 @@
           </div>
           <div class="header-right">
             <img
-              src="../../assets/about-secret-network/contract-img.svg"
+              src="/img/about-secret-network/contract-img.svg"
               alt="Draw graphic"
               loading="lazy"
             />
@@ -219,7 +219,7 @@
           </div>
           <div class="header-right">
             <img
-              src="../../assets/about-secret-network/vision-img.png"
+              src="/img/about-secret-network/vision-img.png"
               alt="Universe graphic"
               loading="lazy"
             />
@@ -255,7 +255,7 @@
           <div class="about-secret-network-supported__container__cont labs">
             <div class="by__img">
               <img
-                src="../../assets/about-secret-network/scrt-labs-pink-logo.svg"
+                src="/img/about-secret-network/scrt-labs-pink-logo.svg"
                 alt="Secret Labs logo"
                 loading="lazy"
               />
@@ -272,7 +272,7 @@
           >
             <div class="by__img">
               <img
-                src="../../assets/about-secret-network/secret-foundation-logo.svg"
+                src="/img/about-secret-network/secret-foundation-logo.svg"
                 alt="Secret Foundation logo"
                 loading="lazy"
               />

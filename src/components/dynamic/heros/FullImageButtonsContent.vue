@@ -10,6 +10,7 @@
           classes="background-image"
           :imageClass="imagePosition"
           :src="image"
+          high-quality
         />
         <div class="content-hero">
           <h4
@@ -40,7 +41,7 @@
             :text="content.body"
             :align="sizes.body_alignment"
           />
-          <DynamicButtons :buttons="buttons" position="full" :full="true" />
+          <DynamicButtons :buttons="buttons" />
         </div>
       </section>
     </block>

@@ -3,7 +3,7 @@
     <div class="page-developer-questions__banner">
       <div class="page-developer-questions__banner__image">
         <img
-          src="../../assets/have-questions.png"
+          src="/img/developers/have-questions.png"
           alt="Have questions"
           loading="lazy"
         />
@@ -25,7 +25,7 @@
             >
               <img
                 class="special-icon"
-                src="../../assets/icon-social-discord.svg"
+                src="/img/icons/icon-social-discord.svg"
                 alt="Discord logo"
                 loading="lazy"
               />
@@ -41,7 +41,7 @@
             >
               <img
                 class="special-icon"
-                src="../../assets/icon-social-forum.svg"
+                src="/img/icons/icon-social-forum.svg"
                 alt="Messages icon"
                 loading="lazy"
               />Post on forums</btn

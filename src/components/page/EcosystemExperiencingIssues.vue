@@ -2,7 +2,7 @@
   <div class="ecosystem-report-issue">
     <div class="ecosystem-report-issue__img">
       <img
-        src="../../assets/about-secret-network/status-server-img.svg"
+        src="/img/about-secret-network/status-server-img.svg"
         alt="Have questions"
         loading="lazy"
       />

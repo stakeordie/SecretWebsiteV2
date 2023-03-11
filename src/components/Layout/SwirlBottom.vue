@@ -10,7 +10,7 @@
             v-if="swirlSpecial"
             dark-colored
             light-colored
-            src="@/assets/swirl-about-top.svg"
+            src="/img/icons/swirl-about-top.svg"
             alt="swirl"
             width="100"
             height="100"
@@ -20,7 +20,7 @@
             v-if="!swirlSpecial"
             dark-colored
             light-colored
-            src="@/assets/swirl-about-top.svg"
+            src="/img/icons/swirl-about-top.svg"
             alt="swirl"
             width="100"
             height="100"
@@ -28,7 +28,7 @@
           />
           <img
             dark
-            src="@/assets/swirl-about-top.svg"
+            src="/img/icons/swirl-about-top.svg"
             alt="swirl"
             width="100"
             height="100"

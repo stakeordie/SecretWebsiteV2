@@ -132,20 +132,16 @@ body {
   }
 
   pre {
-    // max-width: var(--blog-content-width);
     width: 100%;
     margin: 0 0 var(--f-gutter-l) 0;
 
     code {
       line-height: 1.7;
-      // padding: 3px 5px;
-      // font-size: .8em;
       border-radius: 3px;
       font-family: monospace, monospace;
       white-space: pre-wrap;
       word-break: break-word;
       overflow-x: auto;
-      // max-width: var(--blog-content-width);
     }
   }
 }
@@ -255,7 +251,7 @@ hr {
     position: absolute;
     right: 0;
     top: -200px;
-    background: url(../assets/separator-a.svg);
+    background: url("/img/icons/separator-a.svg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 161px;
@@ -273,7 +269,7 @@ hr {
     position: absolute;
     left: 0;
     top: -100px;
-    background: url(../assets/separator-b.svg);
+    background: url("/img/icons/separator-b.svg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 110px;
@@ -281,7 +277,7 @@ hr {
   }
 
   &.swirl-c {
-    background: url(../assets/separator-c.svg);
+    background: url("/img/icons/separator-c.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -291,7 +287,7 @@ hr {
   }
 
   &.swirl-d {
-    background: url(../assets/separator-d.svg);
+    background: url("/img/icons/separator-d.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -301,7 +297,7 @@ hr {
   }
 
   &.swirl-e {
-    background: url(../assets/separator-e.svg);
+    background: url("/img/icons/separator-e.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -310,7 +306,7 @@ hr {
     margin-bottom: var(--f-gutter-s) !important;
   }
   &.swirl-f {
-    background: url(../assets/separator-f.svg);
+    background: url("/img/icons/separator-f.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -331,7 +327,6 @@ strong {
 button,
 .button {
   border-radius: var(--f-gutter-s);
-  //background-color: var(--theme-button);
   background-color: var(--color-newBrand-blue-01);
   cursor: pointer;
 

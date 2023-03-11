@@ -5,7 +5,7 @@ title: "DApps"
 <!-- swirl -->
 <column class="ecosystem__green-swirl__top" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-green-top.svg" alt="Green swirl top graphic" loading="lazy"/> 
+    <img class="get-scrt__align-img" src="/img/icons/swirl-green-top.svg" alt="Green swirl top graphic" loading="lazy"/> 
   </block>
 </column>
 
@@ -48,6 +48,6 @@ Secret dApps are made with Secret Contracts, private smart contracts that encryp
 <!-- swirl -->
 <column class="ecosystem__green-swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-green-bottom.svg" alt="Green swirl bottom graphic" loading="lazy"/>
+    <img class="get-scrt__align-img" src="/img/icons/swirl-green-bottom.svg" alt="Green swirl bottom graphic" loading="lazy"/>
   </block>
 </column>

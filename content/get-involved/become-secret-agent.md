@@ -53,6 +53,6 @@ title: "Become a Secret Agent"
 <!-- Swirl bottom -->
 <column class="blue__swirl__bottom" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
+    <img class="get-scrt__align-img" src="/img/icons/swirl-blue-bottom.svg" alt="Blue swirl bottom graphic" loading="lazy"/>
   </block>
 </column>

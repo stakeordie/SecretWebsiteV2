@@ -1,185 +1,243 @@
 :root {
-    // Primaryrgba(195, 196, 209, 1)
-    --color-analog-primary-white: rgba(255, 255, 255, 1);
-    --color-analog-primary-black: rgba(21, 26, 32, 1);
-    --color-black: rgba(0, 0, 0, 1);
-    // Analog Secondary
-    --color-analog-secondary-blue: rgba(65, 149, 196, 1);
-    --color-analog-secondary-turquoise: rgba(62, 183, 172, 1);
-    --color-analog-secondary-green: rgba(90, 163, 97, 1);
-    --color-analog-secondary-yellow: rgba(255, 215, 46, 1);
-    --color-analog-secondary-cream: rgba(229, 199, 163, 1);
-    --color-analog-secondary-orange: rgba(234, 117, 52, 1);
-    --color-analog-secondary-red: rgba(213, 58, 44, 1);
-    --color-analog-secondary-purple: rgba(129, 109, 168, 1);
-    --color-analog-secondary-gray: rgba(95, 95, 107, 1);
-    --color-analog-secondary-light-gray: rgba(195, 196, 209, 1);
-    // Analog Tertiary
-    --color-analog-tertiary-blue: rgba(143, 210, 234, 1);
-    --color-analog-tertiary-turquoise: rgba(154, 232, 218, 1);
-    --color-analog-tertiary-green: rgba(177, 216, 163, 1);
-    --color-analog-tertiary-yellow: rgba(255, 235, 151, 1);
-    --color-analog-tertiary-cream: rgba(255, 230, 210, 1);
-    --color-analog-tertiary-orange: rgba(255, 170, 136, 1);
-    --color-analog-tertiary-red: rgba(239, 114, 108, 1);
-    --color-analog-tertiary-purple: rgba(210, 190, 237, 1);
-    --color-analog-tertiary-gray: rgba(188, 188, 204, 1);
-    // Highkey Secondary
-    --color-highkey-secondary-blue: rgba(0, 179, 234, 1);
-    --color-highkey-secondary-turquoise: rgba(0, 221, 190, 1);
-    --color-highkey-secondary-green: rgba(37, 160, 43, 1);
-    --color-highkey-secondary-yellow: rgba(255, 236, 0, 1);
-    --color-highkey-secondary-cream: rgba(255, 206, 153, 1);
-    --color-highkey-secondary-orange: rgba(255, 101, 16, 1);
-    --color-highkey-secondary-red: rgba(255, 20, 78, 1);
-    --color-highkey-secondary-purple: rgba(122, 92, 214, 1);
-    --color-highkey-secondary-gray: rgba(95, 95, 107, 1);
-    // Highkey Tertiary
-    --color-highkey-tertiary-blue: rgba(174, 224, 237, 1);
-    --color-highkey-tertiary-turquoise: rgba(154, 232, 218, 1);
-    --color-highkey-tertiary-green: rgba(177, 216, 163, 1);
-    --color-highkey-tertiary-yellow: rgba(255, 235, 151, 1);
-    --color-highkey-tertiary-cream: rgba(255, 230, 210, 1);
-    --color-highkey-tertiary-orange: rgba(255, 170, 136, 1);
-    --color-highkey-tertiary-red: rgba(239, 114, 108, 1);
-    --color-highkey-tertiary-purple: rgba(210, 190, 237, 1);
-    --color-highkey-tertiary-gray: rgba(188, 188, 204, 1);
-    // Neutral
-    --color-neutral-dark-mode-01: rgba(4, 5, 6, 1);
-    --color-neutral-dark-mode-02: rgba(14, 18, 22, 1);
-    --color-neutral-dark-mode-03: rgba(26, 33, 40, 1);
-    --color-neutral-dark-mode-04: rgba(48, 60, 74, 1);
-    --color-neutral-dark-mode-05: rgba(178, 191, 205, 1);
-    --color-neutral-dark-mode-06: rgba(249, 250, 251, 1);
-    --color-neutral-light-mode-01: rgba(241, 226, 198, 1);
-    --color-neutral-light-mode-02: rgba(245, 235, 214, 1);
-    --color-neutral-light-mode-03: rgba(249, 243, 231, 1);
-    --color-neutral-light-mode-04: rgba(252, 249, 243, 1);
-    --color-neutral-light-mode-05: rgba(133, 133, 133, 1);
-    --color-neutral-light-mode-045: rgb(95, 94, 92);
-    --color-neutral-gray-04: rgb(148, 164, 184, 1);
-    --color-neutral-gray-08: rgba(43, 52, 64, 1);
+  // Primaryrgba(195, 196, 209, 1)
+  --color-analog-primary-white: rgba(255, 255, 255, 1);
+  --color-analog-primary-black: rgba(21, 26, 32, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  // Analog Secondary
+  --color-analog-secondary-blue: rgba(65, 149, 196, 1);
+  --color-analog-secondary-turquoise: rgba(62, 183, 172, 1);
+  --color-analog-secondary-green: rgba(90, 163, 97, 1);
+  --color-analog-secondary-yellow: rgba(255, 215, 46, 1);
+  --color-analog-secondary-cream: rgba(229, 199, 163, 1);
+  --color-analog-secondary-orange: rgba(234, 117, 52, 1);
+  --color-analog-secondary-red: rgba(213, 58, 44, 1);
+  --color-analog-secondary-purple: rgba(129, 109, 168, 1);
+  --color-analog-secondary-gray: rgba(95, 95, 107, 1);
+  --color-analog-secondary-light-gray: rgba(195, 196, 209, 1);
+  // Analog Tertiary
+  --color-analog-tertiary-blue: rgba(143, 210, 234, 1);
+  --color-analog-tertiary-turquoise: rgba(154, 232, 218, 1);
+  --color-analog-tertiary-green: rgba(177, 216, 163, 1);
+  --color-analog-tertiary-yellow: rgba(255, 235, 151, 1);
+  --color-analog-tertiary-cream: rgba(255, 230, 210, 1);
+  --color-analog-tertiary-orange: rgba(255, 170, 136, 1);
+  --color-analog-tertiary-red: rgba(239, 114, 108, 1);
+  --color-analog-tertiary-purple: rgba(210, 190, 237, 1);
+  --color-analog-tertiary-gray: rgba(188, 188, 204, 1);
+  // Highkey Secondary
+  --color-highkey-secondary-blue: rgba(0, 179, 234, 1);
+  --color-highkey-secondary-turquoise: rgba(0, 221, 190, 1);
+  --color-highkey-secondary-green: rgba(37, 160, 43, 1);
+  --color-highkey-secondary-yellow: rgba(255, 236, 0, 1);
+  --color-highkey-secondary-cream: rgba(255, 206, 153, 1);
+  --color-highkey-secondary-orange: rgba(255, 101, 16, 1);
+  --color-highkey-secondary-red: rgba(255, 20, 78, 1);
+  --color-highkey-secondary-purple: rgba(122, 92, 214, 1);
+  --color-highkey-secondary-gray: rgba(95, 95, 107, 1);
+  // Highkey Tertiary
+  --color-highkey-tertiary-blue: rgba(174, 224, 237, 1);
+  --color-highkey-tertiary-turquoise: rgba(154, 232, 218, 1);
+  --color-highkey-tertiary-green: rgba(177, 216, 163, 1);
+  --color-highkey-tertiary-yellow: rgba(255, 235, 151, 1);
+  --color-highkey-tertiary-cream: rgba(255, 230, 210, 1);
+  --color-highkey-tertiary-orange: rgba(255, 170, 136, 1);
+  --color-highkey-tertiary-red: rgba(239, 114, 108, 1);
+  --color-highkey-tertiary-purple: rgba(210, 190, 237, 1);
+  --color-highkey-tertiary-gray: rgba(188, 188, 204, 1);
+  // Neutral
+  --color-neutral-dark-mode-01: rgba(4, 5, 6, 1);
+  --color-neutral-dark-mode-02: rgba(14, 18, 22, 1);
+  --color-neutral-dark-mode-03: rgba(26, 33, 40, 1);
+  --color-neutral-dark-mode-04: rgba(48, 60, 74, 1);
+  --color-neutral-dark-mode-05: rgba(178, 191, 205, 1);
+  --color-neutral-dark-mode-06: rgba(249, 250, 251, 1);
+  --color-neutral-light-mode-01: rgba(241, 226, 198, 1);
+  --color-neutral-light-mode-02: rgba(245, 235, 214, 1);
+  --color-neutral-light-mode-03: rgba(249, 243, 231, 1);
+  --color-neutral-light-mode-04: rgba(252, 249, 243, 1);
+  --color-neutral-light-mode-05: rgba(133, 133, 133, 1);
+  --color-neutral-light-mode-045: rgb(95, 94, 92);
+  --color-neutral-gray-03: rgba(178, 190, 204, 1);
+  --color-neutral-gray-04: rgba(148, 164, 184, 1);
+  --color-neutral-gray-08: rgba(43, 52, 64, 1);
 
-    //New Brand
-    --color-newBrand-blue-01: rgba(96, 160, 220, 1);
-    --color-newBrand-blue-02: rgba(138, 209, 249, 1);
-    --color-newBrand-blue-03: rgba(1, 163, 254, 1);
-    --color-newBrand-blue-04: rgba(1, 137, 213, 1);
-    --color-newBrand-blue-05: rgba(150, 195, 237, 1);
-    --color-newBrand-blue-06: rgba(2, 167, 232, 1);
+  //New Brand
+  --color-newBrand-blue-01: rgba(96, 160, 220, 1);
+  --color-newBrand-blue-02: rgba(138, 209, 249, 1);
+  --color-newBrand-blue-03: rgba(1, 163, 254, 1);
+  --color-newBrand-blue-04: rgba(1, 137, 213, 1);
+  --color-newBrand-blue-05: rgba(150, 195, 237, 1);
+  --color-newBrand-blue-06: rgba(2, 167, 232, 1);
 
+  //Brand ver2 Primary
+  --color-ver2-primary-turquoise: rgba(76, 190, 179, 1);
+  --color-ver2-primary-yellow: rgba(253, 213, 53, 1);
+  --color-ver2-primary-dark-blue: rgba(17, 34, 50, 1);
 
-    //Brand ver2 Primary
-    --color-ver2-primary-turquoise:rgba(76, 190, 179, 1);
-    --color-ver2-primary-yellow: rgba(253, 213, 53, 1);
-    --color-ver2-primary-dark-blue: rgba(17, 34, 50, 1);
-    
-    --color-ver2-primary-orange: rgba(235, 128, 69, 1);
-    --color-ver2-primary-red: rgba(232, 80, 74, 1);
-    --color-ver2-primary-blue: rgba(85, 150, 220, 1);
-    --color-ver2-primary-purple: rgba(139, 122, 176, 1);
+  --color-ver2-primary-orange: rgba(235, 128, 69, 1);
+  --color-ver2-primary-red: rgba(232, 80, 74, 1);
+  --color-ver2-primary-blue: rgba(85, 150, 220, 1);
+  --color-ver2-primary-purple: rgba(139, 122, 176, 1);
 
-     //Brand ver2 Secondary
-     //--color-ver2-secondary-turquoise:;
-     --color-ver2-secondary-blue: var(--color-newBrand-blue-02);
-     --color-ver2-secondary-orange: rgba(251, 201, 152, 1);
-     --color-ver2-secondary-cream: rgba(232, 205, 174, 1);
-     --color-ver2-secondary-yellow: rgba(254, 236, 165, 1);
-     --color-ver2-secondary-purple: rgba(189, 179, 208, 1);
-     --color-ver2-secondary-red: rgba(238, 126, 122, 1);
+  //Brand ver2 Secondary
+  //--color-ver2-secondary-turquoise:;
+  --color-ver2-secondary-blue: var(--color-newBrand-blue-02);
+  --color-ver2-secondary-orange: rgba(251, 201, 152, 1);
+  --color-ver2-secondary-cream: rgba(232, 205, 174, 1);
+  --color-ver2-secondary-yellow: rgba(254, 236, 165, 1);
+  --color-ver2-secondary-purple: rgba(189, 179, 208, 1);
+  --color-ver2-secondary-red: rgba(238, 126, 122, 1);
 
+  //Brand ver2 Tertiary
+  --color-ver2-tertiary-turquoise: rgba(143, 210, 234, 1);
+  --color-ver2-tertiary-yellow: rgba(192, 122, 2, 1);
 
-     //Brand ver2 Tertiary
-     --color-ver2-tertiary-turquoise:rgba(143, 210, 234, 1);
-     --color-ver2-tertiary-yellow:rgba(192, 122, 2, 1);
+  //Docs
+  --color-docs-highlighted-dark-mode: white;
+  --color-docs-highlighted-light-mode: black;
+  // Header dropdown
+  --navigation-dropdown-background: var(--color-neutral-dark-mode-05);
+  // background transition
+  --color-transition: 0.2s ease;
+  // accents
+  --accent-blue: var(--color-analog-secondary-blue);
+  --accent-turquoise: var(--color-analog-secondary-turquoise);
+  --accent-green: var(--color-analog-secondary-green);
+  --accent-yellow: var(--color-analog-secondary-yellow);
+  --accent-cream: var(--color-analog-secondary-cream);
+  --accent-orange: var(--color-analog-secondary-orange);
+  --accent-red: var(--color-analog-secondary-red);
+  --accent-purple: var(--color-analog-secondary-purple);
+  --accent-gray: var(--color-analog-secondary-gray);
 
+  // accents media
+  --accent-Podcast: var(--accent-turquoise);
+  --accent-Article: var(--accent-yellow);
+  --accent-Video: var(--accent-purple);
 
-    //Docs
-    --color-docs-highlighted-dark-mode:white;
-    --color-docs-highlighted-light-mode:black;
-    // Header dropdown
-    --navigation-dropdown-background: var(--color-neutral-dark-mode-05);
-    // background transition 
-    --color-transition: 0.2s ease;
-    // accents
-    --accent-blue: var(--color-analog-secondary-blue);
-    --accent-turquoise: var(--color-analog-secondary-turquoise);
-    --accent-green: var(--color-analog-secondary-green);
-    --accent-yellow: var(--color-analog-secondary-yellow);
-    --accent-cream: var(--color-analog-secondary-cream);
-    --accent-orange: var(--color-analog-secondary-orange);
-    --accent-red: var(--color-analog-secondary-red);
-    --accent-purple: var(--color-analog-secondary-purple);
-    --accent-gray: var(--color-analog-secondary-gray);
-    
-
-    // accents media
-    --accent-Podcast: var(--accent-turquoise);
-    --accent-Article: var(--accent-yellow);
-    --accent-Video: var(--accent-purple);
-    
-    // accents contributors
-    --accent-validator: var(--accent-blue);
-    --accent-developer: var(--accent-red);
-    --accent-fund: var(--accent-orange);
-    --accent-wallet: var(--accent-purple);
-    // accents committees
-    --accent-devs: var(--color-analog-tertiary-orange);
-    --accent-education: var(--color-analog-tertiary-green);
-    --accent-awareness: var(--color-analog-tertiary-purple);
-    --accent-puzzle: var(--color-analog-tertiary-blue);
-    --accent-governance: var(--color-analog-tertiary-red);
-    --accent-website: var(--color-analog-tertiary-turquoise);
-    --accent-design: var(--color-analog-tertiary-turquoise);
-    --accent-bizdev: var(--color-analog-tertiary-blue);
-    --accent-secretswap: var(--color-analog-tertiary-yellow);
-    --accent-analytics: var(--color-analog-tertiary-purple);
-    --accent-international: var(--color-highkey-tertiary-orange);
-
-
-    
-    
+  // accents contributors
+  --accent-validator: var(--accent-blue);
+  --accent-developer: var(--accent-red);
+  --accent-fund: var(--accent-orange);
+  --accent-wallet: var(--accent-purple);
+  // accents committees
+  --accent-devs: var(--color-analog-tertiary-orange);
+  --accent-education: var(--color-analog-tertiary-green);
+  --accent-awareness: var(--color-analog-tertiary-purple);
+  --accent-puzzle: var(--color-analog-tertiary-blue);
+  --accent-governance: var(--color-analog-tertiary-red);
+  --accent-website: var(--color-analog-tertiary-turquoise);
+  --accent-design: var(--color-analog-tertiary-turquoise);
+  --accent-bizdev: var(--color-analog-tertiary-blue);
+  --accent-secretswap: var(--color-analog-tertiary-yellow);
+  --accent-analytics: var(--color-analog-tertiary-purple);
+  --accent-international: var(--color-highkey-tertiary-orange);
 }
 
 @keyframes color-change {
-    0% { color: var(--accent-blue); }
-    10% { color: var(--accent-turquoise); }
-    20% { color: var(--accent-green); }
-    30% { color: var(--accent-yellow); }
-    40% { color: var(--accent-cream); }
-    50% { color: var(--accent-orange); }
-    60% { color: var(--color-analog-tertiary-red); }
-    70% { color: var(--accent-purple); }
-    80% { color: var(--accent-green); }
-    90% { color: var(--color-highkey-tertiary-orange); }
-    100% { color: var(--accent-yellow); }
+  0% {
+    color: var(--accent-blue);
+  }
+  10% {
+    color: var(--accent-turquoise);
+  }
+  20% {
+    color: var(--accent-green);
+  }
+  30% {
+    color: var(--accent-yellow);
+  }
+  40% {
+    color: var(--accent-cream);
+  }
+  50% {
+    color: var(--accent-orange);
+  }
+  60% {
+    color: var(--color-analog-tertiary-red);
+  }
+  70% {
+    color: var(--accent-purple);
+  }
+  80% {
+    color: var(--accent-green);
+  }
+  90% {
+    color: var(--color-highkey-tertiary-orange);
+  }
+  100% {
+    color: var(--accent-yellow);
+  }
 }
 
-
 @keyframes fill-change {
-    0% { fill: var(--accent-blue); }
-    10% { fill: var(--accent-turquoise); }
-    20% { fill: var(--accent-green); }
-    30% { fill: var(--accent-yellow); }
-    40% { fill: var(--accent-cream); }
-    50% { fill: var(--accent-orange); }
-    60% { fill: var(--color-analog-tertiary-red); }
-    70% { fill: var(--accent-purple); }
-    80% { fill: var(--accent-green); }
-    90% { fill: var(--color-highkey-tertiary-orange); }
-    100% { fill: var(--accent-yellow); }
+  0% {
+    fill: var(--accent-blue);
+  }
+  10% {
+    fill: var(--accent-turquoise);
+  }
+  20% {
+    fill: var(--accent-green);
+  }
+  30% {
+    fill: var(--accent-yellow);
+  }
+  40% {
+    fill: var(--accent-cream);
+  }
+  50% {
+    fill: var(--accent-orange);
+  }
+  60% {
+    fill: var(--color-analog-tertiary-red);
+  }
+  70% {
+    fill: var(--accent-purple);
+  }
+  80% {
+    fill: var(--accent-green);
+  }
+  90% {
+    fill: var(--color-highkey-tertiary-orange);
+  }
+  100% {
+    fill: var(--accent-yellow);
+  }
 }
 
 @keyframes bg-change {
-    0% { background: var(--accent-blue); }
-    10% { background: var(--accent-turquoise); }
-    20% { background: var(--accent-green); }
-    30% { background: var(--accent-yellow); }
-    40% { background: var(--accent-cream); }
-    50% { background: var(--accent-orange); }
-    60% { background: var(--color-analog-tertiary-red); }
-    70% { background: var(--accent-purple); }
-    80% { background: var(--accent-green); }
-    90% { background: var(--color-highkey-tertiary-orange); }
-    100% { background: var(--accent-yellow); }
+  0% {
+    background: var(--accent-blue);
+  }
+  10% {
+    background: var(--accent-turquoise);
+  }
+  20% {
+    background: var(--accent-green);
+  }
+  30% {
+    background: var(--accent-yellow);
+  }
+  40% {
+    background: var(--accent-cream);
+  }
+  50% {
+    background: var(--accent-orange);
+  }
+  60% {
+    background: var(--color-analog-tertiary-red);
+  }
+  70% {
+    background: var(--accent-purple);
+  }
+  80% {
+    background: var(--accent-green);
+  }
+  90% {
+    background: var(--color-highkey-tertiary-orange);
+  }
+  100% {
+    background: var(--accent-yellow);
+  }
 }

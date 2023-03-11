@@ -2,7 +2,7 @@
   <div class="ecosystem-roadmap-get-your-project">
     <div class="ecosystem-roadmap-get-your-project__img">
       <img
-        src="../../assets/about-secret-network/about-secret-network-hero-img.svg"
+        src="/img/about-secret-network/about-secret-network-hero-img.svg"
         alt="Have questions"
         loading="lazy"
       />
@@ -16,7 +16,7 @@
       <div class="ecosystem-roadmap-get-your-project__content__list">
         <div class="list-item">
           <img
-            src="../../assets/about-secret-network/check-circle-green.svg"
+            src="/img/about-secret-network/check-circle-green.svg"
             alt="Green check"
             class="list-icon"
             loading="lazy"
@@ -25,7 +25,7 @@
         </div>
         <div class="list-item">
           <img
-            src="../../assets/about-secret-network/check-circle-green.svg"
+            src="/img/about-secret-network/check-circle-green.svg"
             alt="Green check"
             class="list-icon"
             loading="lazy"

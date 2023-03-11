@@ -10,7 +10,7 @@
       <img
         v-for="(item, index) in reasons"
         :key="index"
-        :src="item.imageUrl"
+        :src="item.image"
         alt="Contributor logo"
         class="page-ecosystem__contributors__img"
         loading="lazy"
@@ -24,78 +24,30 @@ export default {
   data() {
     return {
       reasons: [
-        {
-          imageUrl: "../img/funding/logos/alameda.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/arca.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/arkstream.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/arrington.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/bison.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/blacktower.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/coinfund.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/defiance.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/dragonly.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/fenbushi.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/figment.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/hartman.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/hashed.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/hashkey-group.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/huobi.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/iconium.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/kucoin.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/magnus.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/ngc.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/sanctor.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/scrt-labs.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/shima.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/skynet.svg",
-        },
-        {
-          imageUrl: "../img/funding/logos/skyvision.svg",
-        },
+        { image: "/img/investors/investor-Alameda.png" },
+        { image: "/img/investors/investor-Arca.png" },
+        { image: "/img/investors/investor-Arkstream.png" },
+        { image: "/img/investors/investor-Arrington.png" },
+        { image: "/img/investors/investor-Bison.png" },
+        { image: "/img/investors/investor-Blacktower.png" },
+        { image: "/img/investors/investor-Coinfund.png" },
+        { image: "/img/investors/investor-Defiance.png" },
+        { image: "/img/investors/investor-Dragonly.png" },
+        { image: "/img/investors/investor-Fenbushi.png" },
+        { image: "/img/investors/investor-Figment.png" },
+        { image: "/img/investors/investor-Hartman.png" },
+        { image: "/img/investors/investor-Hashed.png" },
+        { image: "/img/investors/investor-HashkeyGroup.png" },
+        { image: "/img/investors/investor-Huobi.png" },
+        { image: "/img/investors/investor-Iconium.png" },
+        { image: "/img/investors/investor-Kucoin.png" },
+        { image: "/img/investors/investor-Magnus.png" },
+        { image: "/img/investors/investor-NGC.png" },
+        { image: "/img/investors/investor-Sanctor.png" },
+        { image: "/img/investors/investor-SCRTLabs.png" },
+        { image: "/img/investors/investor-Shima.png" },
+        { image: "/img/investors/investor-Skynet.png" },
+        { image: "/img/investors/investor-Skyvision.png" },
       ],
     };
   },

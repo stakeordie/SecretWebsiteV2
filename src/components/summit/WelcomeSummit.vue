@@ -62,7 +62,7 @@ export default {
 .summit_content {
   .welcome {
     margin-top: var(--header-height);
-    background-image: url("../../assets/events/summit/secret-summit-graphic-3-mobile.svg");
+    background-image: url("/img/events/summit/secret-summit-graphic-3-mobile.svg");
     background-position: left top;
     background-repeat: no-repeat;
     background-size: contain;

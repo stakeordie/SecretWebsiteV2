@@ -3,7 +3,7 @@
     <div class="new-home__call__content action1">
       <div class="new-home__call__content__img">
         <img
-          src="../../assets/home/home-buy.svg"
+          src="/img/home/home-buy.svg"
           alt="Secret Network coins"
           loading="lazy"
         />
@@ -51,7 +51,7 @@
       </div>
       <div class="new-home__call__content__img">
         <img
-          src="../../assets/home/home-build.svg"
+          src="/img/home/home-build.svg"
           alt="Build illustration"
           loading="lazy"
         />
@@ -61,7 +61,7 @@
     <div class="new-home__call__content action3">
       <div class="new-home__call__content__img">
         <img
-          src="../../assets/home/home-join.svg"
+          src="/img/home/home-join.svg"
           alt="Hand together illustration"
           loading="lazy"
         />

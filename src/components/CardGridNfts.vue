@@ -94,7 +94,7 @@
           </div>
           <div class="no-results" v-if="searchNoResults">
             <img
-              src="../assets/illustration-no-matches.svg"
+              src="/img/icons/illustration-no-matches.svg"
               alt="Magnifying glass"
               loading="lazy"
             />
@@ -553,9 +553,8 @@ $accent-colors: ("validator", "developer", "fund", "wallet");
           max-width: 400px;
           margin: auto;
           background: var(--color-neutral-dark-mode-04);
-          background-image: url(../assets/search-icon-gray.svg);
+          background-image: url("/img/icons/search-icon-gray.svg");
           background-repeat: no-repeat;
-          //border-color: var(--color-neutral-dark-mode-01);
           border: none;
           background-position: 8px;
           padding-left: 32px;

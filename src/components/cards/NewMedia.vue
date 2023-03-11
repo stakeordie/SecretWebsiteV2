@@ -15,13 +15,13 @@
                 {{ cat.name | capitalize }}
                 <img
                   class="unchecked"
-                  src="../../assets/icon-checkbox-unchecked.svg"
+                  src="/img/icons/icon-checkbox-unchecked.svg"
                   alt="unchecked"
                   loading="lazy"
                 />
                 <img
                   class="checked"
-                  src="../../assets/icon-checkbox-checked.svg"
+                  src="/img/icons/icon-checkbox-checked.svg"
                   alt="checked"
                   loading="lazy"
                 />

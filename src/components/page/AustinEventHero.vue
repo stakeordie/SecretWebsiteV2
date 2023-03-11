@@ -4,7 +4,7 @@
       <div class="austin-event-hero__container__header">
         <img
           class="event-scrt-logo"
-          src="../../assets/new-secret-logo.svg"
+          src="/img/icons/new-secret-logo.svg"
           alt="Secret Network logo"
           loading="lazy"
         />
@@ -18,7 +18,7 @@
       <div class="austin-event-hero__container__info">
         <div class="austin-event-hero__container__info__date">
           <img
-            src="../../assets/events/calendar-green.svg"
+            src="/img/events/calendar-green.svg"
             alt="Gren calendar icon"
             class="event-icon date-icon"
             loading="lazy"
@@ -31,7 +31,7 @@
 
         <div class="austin-event-hero__container__info__location">
           <img
-            src="../../assets/events/location-green.svg"
+            src="/img/events/location-green.svg"
             alt="Location icon"
             class="event-icon location-icon"
             loading="lazy"
