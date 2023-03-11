@@ -12,7 +12,7 @@
       <img
         dark-colored
         dark
-        :src="require(`@/assets${lightArrow}`)"
+        :src="`/img/icons${lightArrow}`"
         alt="arrow"
         width="20"
         height="20"
@@ -21,7 +21,7 @@
       <img
         light
         light-colored
-        :src="require(`@/assets${darkArrow}`)"
+        :src="`/img/icons${darkArrow}`"
         alt="arrow"
         width="20"
         height="20"

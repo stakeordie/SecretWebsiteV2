@@ -260,7 +260,7 @@ $accent-colors: (
             p,
             ul {
               margin-bottom: 0;
-              list-style-image: url("../../assets/list-dash.svg");
+              list-style-image: url("/img/icons/list-dash.svg");
             }
 
             li {

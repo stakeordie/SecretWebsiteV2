@@ -5,7 +5,7 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../../src/assets/swirl-purple-top.svg"
+          src="/img/icons/swirl-purple-top.svg"
           alt="Purple swirl top graphic"
           loading="lazy"
         />
@@ -22,11 +22,11 @@
 
       <block class="justify-right">
         <button class="theme padding-small control" @click="scroll_left">
-          <img src="../assets/icon-circle-left.svg" alt="left" loading="lazy" />
+          <img src="img/icons/icon-circle-left.svg" alt="left" loading="lazy" />
         </button>
         <button class="theme padding-small control" @click="scroll_right">
           <img
-            src="../assets/icon-circle-right.svg"
+            src="/img/icons/icon-circle-right.svg"
             alt="right"
             loading="lazy"
           />
@@ -59,7 +59,7 @@
       <block>
         <img
           class="get-scrt__align-img"
-          src="../../src/assets/swirl-purple-bottom.svg"
+          src="/img/icons/swirl-purple-bottom.svg"
           alt="Purple swirl bottom graphic"
           loading="lazy"
         />

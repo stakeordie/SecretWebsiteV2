@@ -19,7 +19,7 @@
               <li class="page-developer-pathway__content__box__item">
                 <div class="page-developer-pathway__content__box__item__icon">
                   <img
-                    src="../../assets/icon-features-file.svg"
+                    src="/img/developers/icon-features-file.svg"
                     alt="File icon"
                     loading="lazy"
                   />

@@ -22,7 +22,7 @@
             rel="noopener noreferrer"
           >
             <img
-              src="@/assets/icon-social-twitter.svg"
+              src="/img/icons/icon-social-twitter.svg"
               alt="Join the Conversation"
               loading="lazy"
             />
@@ -33,7 +33,7 @@
             rel="noopener noreferrer"
           >
             <img
-              src="@/assets/icon-social-instagram.svg"
+              src="/img/icons/icon-social-instagram.svg"
               alt="Join the Conversation"
               loading="lazy"
             />
@@ -44,7 +44,7 @@
             rel="noopener noreferrer"
           >
             <img
-              src="@/assets/icon-social-youtube.svg"
+              src="/img/icons/icon-social-youtube.svg"
               alt="Join the Conversation"
               loading="lazy"
             />

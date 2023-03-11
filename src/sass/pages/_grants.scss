@@ -63,7 +63,7 @@
 
   @include respond-to("<=xxxl") {
     height: 148px;
-    background-image: url("../../src/assets/swirl-green-top.svg");
+    background-image: url("/img/icons/swirl-green-top.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -111,7 +111,7 @@
 
   @include respond-to("<=m") {
     height: 180px;
-    background-image: url("../../src/assets/swirl-blue-bottom.svg");
+    background-image: url("/img/icons/swirl-blue-bottom.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;

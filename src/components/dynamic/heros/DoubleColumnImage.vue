@@ -6,7 +6,7 @@
         :class="[imagePosition, paddingTop, paddingBottom]"
       >
         <div class="hero-image col-1">
-          <ResponsiveImage v-if="image" :src="image" />
+          <ResponsiveImage v-if="image" :src="image" high-quality />
         </div>
 
         <div class="content-hero col-2" v-if="content">
@@ -171,7 +171,7 @@ export default {
 
           &::before {
             content: "";
-            background-image: url("../../../assets/about-secret-network/check-circle-green.svg");
+            background-image: url("/img/about-secret-network/check-circle-green.svg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;

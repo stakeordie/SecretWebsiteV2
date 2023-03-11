@@ -23,7 +23,7 @@
           >
             <img
               class="special-icon"
-              src="../../assets/getscrt-filled-icon.svg"
+              src="/img/icons/getscrt-filled-icon.svg"
               alt="Secret Network logo"
               loading="lazy"
             />

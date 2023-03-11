@@ -3,7 +3,7 @@
     <block>
       <section class="basic-hero" :class="[paddingTop, paddingBottom]">
         <DynamicBreadcrumb v-if="show_breadcrumb" :route="$context.route" />
-        <ResponsiveImage v-if="image" :src="image" />
+        <ResponsiveImage v-if="image" :src="image" high-quality />
       </section>
     </block>
   </column>
@@ -16,20 +16,20 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true,
+      required: true
     },
     show_breadcrumb: {
       type: Boolean,
-      required: true,
+      required: true
     },
     padding_top: {
       type: String,
-      required: true,
+      required: true
     },
     padding_bottom: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     paddingTop() {
@@ -39,8 +39,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -7,7 +7,7 @@
       :style="textColor"
     />
     <button @click="closeAlert" class="close-alert">
-      <img src="@/assets/icon-menu-close.svg" alt="close" loading="lazy" />
+      <img src="/img/icons/icon-menu-close.svg" alt="close" loading="lazy" />
     </button>
   </div>
 </template>
@@ -86,7 +86,6 @@ export default {
 </static-query>
 
 <style lang="scss" scoped>
-@import "../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
 .alert-bar {
@@ -158,6 +157,7 @@ export default {
         }
 
         a {
+          color: var(--alert-text-color);
           text-decoration: underline;
         }
       }
@@ -180,10 +180,6 @@ export default {
     img {
       width: 24px;
       height: 24px;
-
-      @include theme(light light-colored) {
-        filter: invert(1);
-      }
     }
   }
 }

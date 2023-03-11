@@ -27,7 +27,7 @@
     </div>
     <div class="page-developers__hero__bg-img">
       <img
-        src="@/assets/resources-bg-image.png"
+        src="/img/icons/resources-bg-image.png"
         alt="Universe graphic"
         loading="lazy"
       />

@@ -29,7 +29,7 @@
                     v-if="it.nav_item.external_link"
                     loading="lazy"
                     class="nav__expanded__content__item__link-icon"
-                    src="@/assets/icon-arrow-external-blue.svg"
+                    src="/img/icons/icon-arrow-external-blue.svg"
                     alt="External Link"
                   />
                 </g-link>

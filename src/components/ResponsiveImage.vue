@@ -24,6 +24,11 @@ export default {
     },
     imageClass: {
       required: false
+    },
+    highQuality: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -34,9 +39,10 @@ export default {
     allImages() {
       const { ext, url, formats } = this.src;
       const isSvg = ext === ".svg";
+      const defaultImage = { url, media: "" };
 
       if (isSvg || !formats) {
-        return [{ url, media: "" }];
+        return [defaultImage];
       }
 
       const imageSpecs = [
@@ -52,7 +58,12 @@ export default {
         })
         .filter(Boolean);
 
-      images.push({ url: formats.large ? formats.large.url : url, media: "" });
+      if (formats.large && !this.highQuality) {
+        defaultImage.url = formats.large.url;
+      }
+
+      images.push(defaultImage);
+
       return images;
     },
     pictureClass() {

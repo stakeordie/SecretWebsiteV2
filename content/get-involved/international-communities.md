@@ -5,7 +5,7 @@ title: "International Communities"
 <!-- swirl -->
 <column class="get-involved__swirl__top" mode="full">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-yellow-top.svg" alt="Yellow swirl top graphic" loading="lazy" />
+    <img class="get-scrt__align-img" src="/img/icons/swirl-yellow-top.svg" alt="Yellow swirl top graphic" loading="lazy" />
   </block>
 </column>
 
@@ -31,6 +31,6 @@ title: "International Communities"
 <!-- swirl -->
 <column class="get-involved__swirl__bottom">
   <block>
-    <img class="get-scrt__align-img" src="../../src/assets/swirl-yellow-bottom.svg" alt="Yellow swirl bottom graphic" loading="lazy" />
+    <img class="get-scrt__align-img" src="/img/icons/swirl-yellow-bottom.svg" alt="Yellow swirl bottom graphic" loading="lazy" />
   </block>
 </column>

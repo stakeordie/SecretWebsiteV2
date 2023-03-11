@@ -71,7 +71,7 @@ Providing privacy and protecting data is critical for empowering people, protect
 <!-- icon -->
 <column class="spacer-s img-invert" mode="slim" weight="right" number="2" number-m="2" number-s="1">
 <block>
-<img src="../src/assets/logo-seal-outline-white.svg" alt="Secret Logo" loading="lazy"/>
+<img src="/img/icons/logo-seal-outline-white.svg" alt="Secret Logo" loading="lazy"/>
 </block>
 
 <block>
@@ -99,18 +99,18 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <column class="text-center assets" mode="slim" number="2">
 <block>
 
-![Primary logo - White](../src/assets/brandbook/primary-logo-white.png)
+![Primary logo - White](/img/brandbook/primary-logo-white.png)
 
-<a href="/secretnetwork-logo-primary-black.svg">SVG</a> |
-<a href="/secretnetwork-logo-primary-black.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-primary-black.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-primary-black.png">PNG</a>
 
 </block>
 <block>
 
-![Primary logo - Black](../src/assets/brandbook/primary-logo-black.png)
+![Primary logo - Black](/img/brandbook/primary-logo-black.png)
 
-<a href="/secretnetwork-logo-primary-white.svg">SVG</a> |
-<a href="/secretnetwork-logo-primary-white.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-primary-white.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-primary-white.png">PNG</a>
 
 </block>
 </column>
@@ -128,18 +128,18 @@ The overall shape of the S is reminiscent of a yin-yang, again reflecting the du
 <column class="text-center spacer-s" mode="slim" number="2">
 <block>
 
-![Secondary logo - White](../src/assets/brandbook/secondary-logo-white.png)
+![Secondary logo - White](/img/brandbook/secondary-logo-white.png)
 
-<a href="/secretnetwork-logo-secondary-black.svg">SVG</a> |
-<a href="/secretnetwork-logo-secondary-black.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-secondary-black.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-secondary-black.png">PNG</a>
 
 </block>
 <block>
 
-![Secondary logo - Black](../src/assets/brandbook/secondary-logo-black.png)
+![Secondary logo - Black](/img/brandbook/secondary-logo-black.png)
 
-<a href="/secretnetwork-logo-secondary-white.svg">SVG</a> |
-<a href="/secretnetwork-logo-secondary-white.png">PNG</a>
+<a href="/img/brandbook/secretnetwork-logo-secondary-white.svg">SVG</a> |
+<a href="/img/brandbook/secretnetwork-logo-secondary-white.png">PNG</a>
 
 </block>
 </column>
@@ -189,7 +189,7 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 
 ### Analog Colors
 
-![Analog Colors](../src/assets/brandbook/analog.png)
+![Analog Colors](/img/brandbook/analog.png)
 
 <a href="/analog.svg">SVG</a> |
 <a href="/analog.png">PNG</a>
@@ -199,7 +199,7 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 
 ### High Key Colors
 
-![High Key Colors](../src/assets/brandbook/high-key.png)
+![High Key Colors](/img/brandbook/high-key.png)
 
 <a href="/high-key.svg">SVG</a> |
 <a href="/high-key.png">PNG</a>
@@ -220,7 +220,7 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 <column class="spacer-s text-center" number="2">
 <block>
 
-![Topographical Map - White background](../src/assets/brandbook/topographical-white.png)
+![Topographical Map - White background](/img/brandbook/topographical-white.png)
 
 <a href="/topographical-white.svg">SVG</a> |
 <a href="/topographical-white.png">PNG</a>
@@ -228,7 +228,7 @@ Hind Regular is used body copy, and **Hind Bold is used for bold body copy, butt
 </block>
 <block>
 
-![Topographical Map - Black Background](../src/assets/brandbook/topographical-black.png)
+![Topographical Map - Black Background](/img/brandbook/topographical-black.png)
 
 <a href="/topographical-black.svg">SVG</a> |
 <a href="/topographical-black.png">PNG</a>

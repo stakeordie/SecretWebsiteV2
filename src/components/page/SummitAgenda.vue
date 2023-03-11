@@ -157,7 +157,7 @@ query {
 }
 
 .summit-agenda {
-  background: url("../../assets/events/summit/secret-summit-background.svg");
+  background: url("/img/events/summit/secret-summit-background.svg");
   background-repeat: repeat-y;
   background-position: top center;
   background-size: 250%;
@@ -169,7 +169,7 @@ query {
 
   .agenda {
     min-height: 100vh;
-    background-image: url("../../assets/events/summit/secret-summit-blue-graphic.svg");
+    background-image: url("/img/events/summit/secret-summit-blue-graphic.svg");
     background-position: right top;
     background-repeat: no-repeat;
     background-size: contain;

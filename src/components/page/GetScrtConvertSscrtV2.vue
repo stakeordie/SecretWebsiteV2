@@ -4,7 +4,7 @@
       <div class="page-get-scrt__convert-sscrt__content">
         <div class="page-get-scrt__convert-sscrt__content__image">
           <img
-            src="../../assets/get-scrt/get-scrt-convert-sscrt-brown.png"
+            src="/img/get-scrt/get-scrt-convert-sscrt-brown.png"
             alt="Secret convertion illustartion"
             loading="lazy"
           />
@@ -16,13 +16,13 @@
             >
               <span>Convert</span>
               <img
-                src="../../assets/getsscrt-icon.svg"
+                src="/img/icons/getsscrt-icon.svg"
                 alt="Sscrt logo"
                 loading="lazy"
               />
               <span>sSCRT to</span>
               <img
-                src="../../assets/getscrt-filled-icon.svg"
+                src="/img/icons/getscrt-filled-icon.svg"
                 alt="Sscrt logo"
                 loading="lazy"
               />
@@ -108,13 +108,6 @@ export default {};
           @include respond-to("<=xs") {
             line-height: var(--f-h2-line-height);
             font-size: var(--f-h4-text-size);
-
-            & img {
-              // width: 28px;
-              // height: 28px;
-              // margin-left: 8px;
-              // margin-right: 4px;
-            }
           }
 
           @include respond-to("<=xs") {
@@ -141,25 +134,11 @@ export default {};
 
       &__btn {
         max-width: fit-content !important;
-        // max-width: 225px;
         width: 225px;
 
         & span {
           letter-spacing: 1px;
         }
-
-        //   .content {
-        //   .box {
-        //     .btn {
-        //       background-color: red !important;
-        //       max-width: fit-content;
-        //     }
-        //   }
-        // }
-
-        // .btn {
-        //   max-width: fit-content;
-        // }
 
         @include respond-to("<=m") {
           max-width: 100% !important;

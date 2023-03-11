@@ -28,7 +28,7 @@
                 ? 'anchor__control--is-open'
                 : 'anchor__control--is-closed'
             "
-            src="../../../assets/chev-learn.svg"
+            src="/img/icons/chev-learn.svg"
             alt="Arrow up"
             loading="lazy"
           />
@@ -61,7 +61,7 @@
                   : 'anchor__control--is-closed'
               "
               v-show="second.nested.length !== 0"
-              src="../../../assets/chev-learn.svg"
+              src="/img/icons/chev-learn.svg"
               alt="Arrow up"
               loading="lazy"
             />
