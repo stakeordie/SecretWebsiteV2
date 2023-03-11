@@ -195,6 +195,9 @@ services:
         source: /secret-contracts-mainnet
         destination: /blog/secret-contracts-mainnet
       - type: redirect
+        source: /blog/secret-gaming
+        destination: /learn/creative/secret-gaming
+      - type: redirect
         source: /secret-contracts-update-milestone-3-of-3-is-complete
         destination: /blog/secret-contracts-update-milestone-3-of-3-is-complete/
       - type: redirect
