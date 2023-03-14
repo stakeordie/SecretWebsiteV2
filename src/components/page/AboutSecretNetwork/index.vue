@@ -219,7 +219,7 @@
           </div>
           <div class="header-right">
             <img
-              src="/img/about-secret-network/vision-img.png"
+              src="/img/icons/universe.png"
               alt="Universe graphic"
               loading="lazy"
             />

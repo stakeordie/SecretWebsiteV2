@@ -27,7 +27,7 @@
     </div>
     <div class="page-developers__hero__bg-img">
       <img
-        src="/img/icons/resources-bg-image.png"
+        src="/img/icons/universe.png"
         alt="Universe graphic"
         loading="lazy"
       />
@@ -56,7 +56,6 @@ export default {};
   display: block;
 
   &__content {
-    // display: grid;
     z-index: 5;
     position: relative;
     padding: var(--f-gutter);
@@ -76,7 +75,6 @@ export default {};
         font-size: 54px;
 
         line-height: 60px;
-        // letter-spacing: 0.5px;
 
         span {
           color: var(--color-newBrand-blue-02);
@@ -134,7 +132,6 @@ export default {};
       }
       &__ctas {
         display: flex;
-        // grid-auto-flow: column;
         gap: var(--f-gutter);
 
         @include respond-to("<=s") {
@@ -156,7 +153,6 @@ export default {};
 
   &__bg-img {
     display: grid;
-    justify-content: end;
     position: absolute;
     opacity: 0.3;
     mix-blend-mode: screen;
@@ -173,6 +169,10 @@ export default {};
     @include respond-to("<=xs") {
       width: 480px;
       left: 12%;
+    }
+
+    img {
+      width: 100%;
     }
   }
 }
