@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BlogPostsFeaturedV2 from "./BlogPostsFeaturedV2.vue";
+import BlogPostsFeaturedV2 from "@/components/blog/BlogPostsFeaturedV2.vue";
 
 export default {
   components: { BlogPostsFeaturedV2 },

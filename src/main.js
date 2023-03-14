@@ -40,7 +40,7 @@ import GeneralCtas from "@/components/content/GeneralCtas.vue";
 // Page Specific
 import HomePage from "@/components/page/Home/index.vue";
 import Developers from "@/components/page/Developers/index.vue";
-import DevelopersGrants from "@/components/page/DevelopersGrants/index.vue";
+import DevelopersGrants from "@/components/page/Developers/Grants/index.vue";
 import ServiceStatus from "@/components/page/ServiceStatus/index.vue";
 import MediaFeatures from "@/components/page/Media/Features/index.vue";
 import EcosystemContributors from "@/components/page/Ecosystem/Contributors/index.vue";
@@ -58,8 +58,8 @@ import AustinEventHero from "@/components/page/AustinEvent/AustinEventHero.vue";
 import AustinEventPartnership from "@/components/page/AustinEvent/AustinEventPartnership.vue";
 import AustinEventFooter from "@/components/page/AustinEvent/AustinEventFooter.vue";
 import Summit from "@/components/page/Summit/index.vue";
-import SummitThankYou from "@/components/page/SummitThankYou/index.vue";
-import SummitAgenda from "@/components/page/SummitAgenda/index.vue";
+import SummitThankYou from "@/components/page/Summit/ThankYou/index.vue";
+import SummitAgenda from "@/components/page/Summit/Agenda/index.vue";
 import SubmitProject from "@/components/page/Ecosystem/SubmitProject/index.vue";
 
 require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");

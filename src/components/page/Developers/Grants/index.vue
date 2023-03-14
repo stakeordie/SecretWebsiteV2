@@ -56,8 +56,8 @@
 
 <script>
 import EcosystemFundingWhyBuild from "@/components/content/EcosystemFundingWhyBuild.vue";
-import GrantsBuild from "@/components/page/DevelopersGrants/GrantsBuild.vue";
-import GrantsHero from "@/components/page/DevelopersGrants/GrantsHero.vue";
+import GrantsBuild from "@/components/page/Developers/Grants/GrantsBuild.vue";
+import GrantsHero from "@/components/page/Developers/Grants/GrantsHero.vue";
 
 export default {
   components: {

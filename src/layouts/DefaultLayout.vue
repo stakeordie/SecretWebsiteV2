@@ -35,14 +35,14 @@
 
 <script>
 import { addScrollSmooth } from "@/utils";
-import FooterContact from "@/components/defaultLayout/FooterContact.vue";
-import FooterMenu from "@/components/defaultLayout/FooterMenu.vue";
-import FooterLegal from "@/components/defaultLayout/FooterLegal.vue";
-import SwirlTop from "@/components/defaultLayout/SwirlTop.vue";
-import SwirlBottom from "@/components/defaultLayout/SwirlBottom.vue";
-import AlertBar from "@/components/defaultLayout/AlertBar.vue";
-import HeaderMegaMenuV2 from "@/components/defaultLayout/HeaderMegaMenuV2.vue";
-import CookiesAlertBar from "@/components/defaultLayout/CookiesAlertBar.vue";
+import FooterContact from "@/components/layout/FooterContact.vue";
+import FooterMenu from "@/components/layout/FooterMenu.vue";
+import FooterLegal from "@/components/layout/FooterLegal.vue";
+import SwirlTop from "@/components/layout/SwirlTop.vue";
+import SwirlBottom from "@/components/layout/SwirlBottom.vue";
+import AlertBar from "@/components/layout/AlertBar.vue";
+import HeaderMegaMenuV2 from "@/components/layout/HeaderMegaMenuV2.vue";
+import CookiesAlertBar from "@/components/layout/CookiesAlertBar.vue";
 
 export default {
   components: {

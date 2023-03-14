@@ -49,8 +49,9 @@
 </template>
 
 <script>
-import EcosystemRoadmapPdf from "./EcosystemRoadmapPdf.vue";
-import EcosystemRoadmapYourProject from "./EcosystemRoadmapYourProject.vue";
+import EcosystemRoadmapPdf from "@/components/page/Ecosystem/Roadmap/EcosystemRoadmapPdf.vue";
+import EcosystemRoadmapYourProject from "@/components/page/Ecosystem/Roadmap/EcosystemRoadmapYourProject.vue";
+
 export default {
   components: { EcosystemRoadmapYourProject, EcosystemRoadmapPdf }
 };

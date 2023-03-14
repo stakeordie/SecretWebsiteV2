@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import BlogCardFeaturedV2 from "./BlogCardFeaturedV2.vue";
+import BlogCardFeaturedV2 from "@/components/blog/BlogCardFeaturedV2.vue";
 
 export default {
   components: { BlogCardFeaturedV2 },

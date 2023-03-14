@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import BlogCardV2 from "./BlogCardV2.vue";
+import BlogCardV2 from "@/components/blog/BlogCardV2.vue";
 
 export default {
   components: { BlogCardV2 },
