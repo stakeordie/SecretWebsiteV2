@@ -13,13 +13,14 @@
       :swirlSpecial="swirlSpecial"
       :swirlBottomIsVisible="swirlBottomIsVisible"
     />
+    <CookiesAlertBar />
 
     <template #footer>
       <SimpleFooter :class="swirlBottomIsVisible" mode="full">
         <FooterMenu />
         <FooterContact />
+        <FooterLegal />
       </SimpleFooter>
-      <FooterLegal />
     </template>
   </SimpleLayout>
 </template>
@@ -41,6 +42,7 @@ import SwirlTop from "@/components/defaultLayout/SwirlTop.vue";
 import SwirlBottom from "@/components/defaultLayout/SwirlBottom.vue";
 import AlertBar from "@/components/defaultLayout/AlertBar.vue";
 import HeaderMegaMenuV2 from "@/components/defaultLayout/HeaderMegaMenuV2.vue";
+import CookiesAlertBar from "@/components/defaultLayout/CookiesAlertBar.vue";
 
 export default {
   components: {
@@ -50,7 +52,8 @@ export default {
     SwirlTop,
     SwirlBottom,
     AlertBar,
-    HeaderMegaMenuV2
+    HeaderMegaMenuV2,
+    CookiesAlertBar
   },
   data() {
     return {
