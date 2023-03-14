@@ -4,15 +4,15 @@
       <!-- FILTER -->
       <div class="filter v3">
         <h5 class="mini-title">Explore</h5>
-        <h2>{{ gridHeaderTitle(header) }}</h2>
-        <p>{{ gridHeaderSubtitle(header) }}</p>
+        <h2>{{ gridHeader.title }}</h2>
+        <p>{{ gridHeader.subtitle }}</p>
         <div class="search">
           <input
             class="search-filter"
             type="text"
             ref="inputSearch"
             v-model="searchInputValue"
-            @keyup="searchFilter()"
+            @input="searchFilter()"
             placeholder="Search"
           />
         </div>
@@ -23,20 +23,21 @@
         >
           <li>Filter:</li>
           <li v-for="(category, index) of categories" :key="index">
-            <label v-on:click="searchFilterReset">
+            <label @click="searchFilterReset">
               <input
-                :id="category.name"
+                :id="category"
                 type="checkbox"
-                :value="category.name"
+                :value="category"
                 v-model="checkedCategories"
               />
-              <span class="title"
-                >{{ formatCategory(category.name) }}
+              <span class="title">
+                {{ formatCategory(category) }}
                 <img
                   src="/img/icons/icon-remove-filter.svg"
                   alt="Remove icon"
                   loading="lazy"
-              /></span>
+                />
+              </span>
             </label>
           </li>
         </ul>
@@ -160,8 +161,7 @@
           :pageSize="pageSize"
           :items="filteredElements"
           :currentPage="currentPage"
-        >
-        </pagination>
+        />
       </div>
     </div>
   </div>
@@ -179,7 +179,7 @@ export default {
       searchNoResults: false,
       currentPage: 0,
       checkedCategories: [],
-      selectedTag: "All",
+      selectedTag: "All"
     };
   },
   props: {
@@ -188,7 +188,7 @@ export default {
     header: { type: String, required: false, default: "" },
     pageSize: { type: Number, required: false, default: 10 },
     isPaginated: { type: Boolean, required: false, default: false },
-    hasCategories: { type: Boolean, default: true },
+    hasCategories: { type: Boolean, default: true }
   },
 
   methods: {
@@ -198,7 +198,7 @@ export default {
       this.resetCheck();
       this.search = this.searchInputValue.toLowerCase();
 
-      cardEl.forEach((item) => {
+      cardEl.forEach(item => {
         if (!item.innerText.toLowerCase().includes(this.search)) {
           item.classList.add("hidden");
           hiddenEls.push(".");
@@ -210,45 +210,15 @@ export default {
           item.classList.remove("hidden");
         }
       });
-      if (cardEl.length !== hiddenEls.length) this.searchNoResults = false;
-      if (cardEl.length === hiddenEls.length) this.searchNoResults = true;
+      this.searchNoResults = cardEl.length === hiddenEls.length;
     },
     searchFilterReset() {
       this.search = "";
       const cardEl = document.querySelectorAll(".card-element");
       this.searchInputValue = "";
-      cardEl.forEach((item) => {
-        item.classList.remove("hidden");
-      });
+      cardEl.forEach(item => item.classList.remove("hidden"));
     },
-    gridHeaderTitle(x) {
-      let headers = this.$static.gridHeaders.edges;
-      for (let i = 0; i < headers.length; i++) {
-        let headerEdge = headers[i];
-        let headerTitle = headerEdge.node.title;
-        let headerSubtitle = headerEdge.node.subtitle;
-        if (headerTitle == x) {
-          headerTitle = this.$static.gridHeaders.edges[i].node.title;
-          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
-          return headerTitle;
-        }
-      }
-    },
-    gridHeaderSubtitle(x) {
-      let headers = this.$static.gridHeaders.edges;
-      for (let i = 0; i < headers.length; i++) {
-        let headerEdge = headers[i];
-        let headerTitle = headerEdge.node.title;
-        let headerSubtitle = headerEdge.node.subtitle;
-        if (headerTitle == x) {
-          headerTitle = this.$static.gridHeaders.edges[i].node.title;
-          headerSubtitle = this.$static.gridHeaders.edges[i].node.subtitle;
-          return headerSubtitle;
-        }
-      }
-    },
-    formatCategory(category) {
-      if (!category) return "";
+    formatCategory(category = "") {
       return category.includes("_") ? category.replace("_", " ") : category;
     },
     setPagesFather(number) {
@@ -260,38 +230,30 @@ export default {
     hashToFilter(hash, filter) {
       if (window.location.hash === "#get-scrt") {
         window.scrollTo(0, 0);
-        // HERE
         this.checkedCategories = ["wallet"];
       }
 
-      if (window.location.hash === hash) {
-        if (this.collection === "toolsAndWallets") {
-          setTimeout(() => {
-            window.location.href = "#toolswallets";
-            this.checkedCategories = [filter];
-          }, 500);
-        }
+      if (
+        window.location.hash === hash &&
+        this.collection === "toolsAndWallets"
+      ) {
+        setTimeout(() => {
+          window.location.href = "#toolswallets";
+          this.checkedCategories = [filter];
+        }, 500);
       }
     },
     hash(hash, collection, link) {
-      if (window.location.hash === hash) {
-        if (this.collection === collection) {
-          setTimeout(() => {
-            window.location.href = link;
-          }, 500);
-        }
+      if (window.location.hash === hash && this.collection === collection) {
+        setTimeout(() => {
+          window.location.href = link;
+        }, 500);
       }
     },
-
     evaluateTags(size) {
-      if (!size) return;
-
-      if (size < 5) {
-        return "tag-card-" + size;
-      } else {
-        return "tag-card-5";
-      }
-    },
+      if (!size) return "";
+      return `tag-card-${size < 5 ? size : 5}`;
+    }
   },
 
   computed: {
@@ -303,13 +265,12 @@ export default {
           element.sort = 99999;
         }
       }
-      sortedCollection.sort(function (a, b) {
-        let titleA = a.title.toLowerCase();
-        let titleB = b.title.toLowerCase();
+      sortedCollection.sort(function(a, b) {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
         if (titleA < titleB) {
           return -1;
-        }
-        if (titleA > titleB) {
+        } else if (titleA > titleB) {
           return 1;
         }
         return 0;
@@ -317,52 +278,43 @@ export default {
       if (!this.checkedCategories.length) {
         return sortedCollection;
       }
-      const collection = sortedCollection.filter((post) =>
-        post.types.some((tag) => this.checkedCategories.includes(tag.name))
+      return sortedCollection.filter(post =>
+        post.types.some(tag => this.checkedCategories.includes(tag.name))
       );
-      return collection;
     },
     pagedArray() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
       return this.filteredElements.slice(start, end);
     },
-
     collections() {
-      return this.$static[this.collection].edges.map((it) => it.node);
+      return this.$static[this.collection].edges.map(it => it.node);
     },
-
     categories() {
-      const data = this.$static[this.collection].edges.filter((element) => {
-        return element.node.types.length > 0;
-      });
+      const collectionData = [...this.$static[this.collection].edges];
+      const categoryData = collectionData
+        .map(({ node }) => node.types)
+        .flat()
+        .map(({ name }) => name);
 
-      const categoryData = data.map((item) => {
-        return {
-          name: item.node.types[0]?.name,
-        };
-      });
-
-      let uniqueCategories = [];
-
-      categoryData.filter((cat) => {
-        if (!uniqueCategories.find((cat_some) => cat_some.name == cat.name)) {
-          uniqueCategories.push(cat);
-        }
-      });
-
-      return uniqueCategories;
+      return categoryData.filter((item, i, arr) => arr.indexOf(item) === i);
     },
+    gridHeader() {
+      const headers = [...this.$static.gridHeaders.edges];
+      const data = headers.find(item => item.node.title == this.header);
+      return {
+        title: String(data?.node.title || this.header),
+        subtitle: String(data?.node.subtitle || this.header)
+      };
+    }
   },
-
   mounted() {
     this.hashToFilter("#wallets", "wallet");
     this.hashToFilter("#tools", "tool");
     this.hash("#dapps", "dApps", "#dapps");
     this.hash("#exchanges", "exchanges", "#exchanges");
     this.hash("#contributors", "contributors", "#contributors");
-  },
-  updated() {},
+  }
 };
 </script>
 
@@ -543,20 +495,6 @@ query {
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: ("validator", "developer", "fund", "wallet");
-
-.grid-header-v2 {
-  display: grid;
-  max-width: 60%;
-  margin-bottom: var(--f-gutter-xl);
-  margin-top: 48px;
-
-  @include respond-to("<=s") {
-    max-width: 100%;
-  }
-  @include respond-to("<=m") {
-    margin-top: 11px;
-  }
-}
 
 .elements-v3 {
   display: grid;
