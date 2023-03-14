@@ -63,20 +63,22 @@
 </template>
 
 <script>
+import NewBlogCard from "@/components/blog/NewBlogCard.vue";
 const truncateSize = 200;
 
 export default {
+  components: { NewBlogCard },
   props: {
     posts: {
       type: Array,
       required: true,
-      default: () => [],
+      default: () => []
     },
     columns: {
       type: Number,
       required: false,
-      default: 3,
-    },
+      default: 3
+    }
   },
   filters: {
     truncate(value) {
@@ -84,8 +86,8 @@ export default {
       return value.length >= truncateSize
         ? `${value.substring(0, truncateSize - 1)}...`
         : value;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -101,20 +103,12 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    // @include respond-to("<=s"){
-    //   flex-direction: column;
-    // }
-
     &-h5 {
       color: var(--color-neutral-dark-mode-05);
       text-transform: uppercase;
     }
 
     &-btns {
-      // display: grid;
-      // grid-template-columns: repeat(2, 1fr);
-      // gap: 26px;
-
       @include respond-to("<=s") {
         display: flex;
       }
@@ -140,7 +134,6 @@ export default {
     grid-template-columns: repeat(3, 1fr);
 
     @include respond-to("<=m") {
-      //grid-template-columns: repeat(2, 1fr);
       gap: var(--f-gutter-s);
     }
 

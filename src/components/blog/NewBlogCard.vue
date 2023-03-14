@@ -25,17 +25,13 @@
 import BlogAuthor from "@/components/blog/BlogAuthor";
 
 const colors = {
-  // announcement: "announcement",
   blockchain: "turquoise",
   collaboration: "green",
   community: "yellow",
   cosmos: "cream",
   design: "orange",
-  //dev: "red",
   feature: "orange",
-  //ecosystem: "purple",
   governance: "gray",
-  //hackathon: "yellow",
   introduction: "blue",
   nodes: "turquoise",
   privacy: "green",
@@ -46,47 +42,43 @@ const colors = {
   null: "purple",
   undefined: "purple",
   nfts: "orange",
-
   announcement: "announcement",
-
   education: "education",
   how_tos: "education",
   explanations: "education",
-
   dev: "developers",
   developers: "developers",
   dev: "developers",
   "tech updates": "developers",
   hackathon: "developers",
   funding: "developers",
-
   ecosystem: "ecosystem",
   community: "ecosystem",
   dapp_launches: "ecosystem",
   "nft launches": "ecosystem",
   reports: "ecosystem",
-  recaps: "ecosystem",
+  recaps: "ecosystem"
 };
 
 export default {
   components: {
-    BlogAuthor,
+    BlogAuthor
   },
   props: {
     tag: {
       type: String,
       required: false,
-      default: "",
+      default: ""
     },
     slug: {
       type: String,
       required: true,
-      default: "",
-    },
+      default: ""
+    }
   },
   data() {
     return {
-      color: "",
+      color: ""
     };
   },
   created() {
@@ -95,8 +87,8 @@ export default {
   methods: {
     getColor() {
       return colors[this.tag.toLowerCase()];
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -143,15 +135,8 @@ $accent-colors: (
 
   @each $name, $color in $accent-colors {
     &.accent-#{$name} {
-      &:hover {
-      }
-
       .new-blog-card__top {
         display: block;
-      }
-
-      .new-blog-card__body {
-        //height: 48px;
       }
 
       .new-blog-card__feature-image {
@@ -161,17 +146,12 @@ $accent-colors: (
 
         & img {
           object-fit: cover;
-          //width: 368px;
           height: 188px;
           width: 340px;
         }
 
         @include respond-to("<=m") {
           height: 144px;
-
-          & img {
-            //height: 144px;
-          }
         }
 
         @include respond-to("<=s") {
@@ -214,16 +194,11 @@ $accent-colors: (
 
   .blog-author {
     justify-content: flex-end;
-    //padding: var(--f-gutter);
     display: grid;
     grid-auto-flow: column;
-    // display: flex;
     align-items: center;
     justify-content: left;
     gap: var(--f-gutter);
-    //position: absolute;
-    //bottom: 0;
-    //left: 0;
 
     img {
       width: 40px;
@@ -237,7 +212,6 @@ $accent-colors: (
 
     .author-info {
       display: grid;
-      //gap: var(--f-gutter-xxs);
       color: var(--theme-fg);
 
       & p {

@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{'header--scrolled' : pageScrolled}">
+  <header class="header" :class="{ 'header--scrolled': pageScrolled }">
     <Logo :color="logoColor" />
     <nav class="nav">
       <ThemeSwitch v-on:theme-change="updateLogo" />
@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import ThemeSwitch from './ThemeSwitch.vue'
-import MenuToggle from './MenuToggle.vue'
-import Logo from './Logo.vue'
+import ThemeSwitch from "@/components/docs/ThemeSwitch.vue";
+import MenuToggle from "@/components/docs/MenuToggle.vue";
+import Logo from "@/components/docs/Logo.vue";
 
 export default {
   components: {
@@ -28,29 +28,32 @@ export default {
   data() {
     return {
       pageScrolled: false,
-      logoColor: 'bright'
-    }
+      logoColor: "bright"
+    };
   },
   methods: {
     updateLogo: function() {
-      this.logoColor = (this.logoColor == 'dark' ? 'bright' : 'dark')
+      this.logoColor = this.logoColor == "dark" ? "bright" : "dark";
     },
     headerScroll: function() {
-      let fromTop = window.scrollY
+      let fromTop = window.scrollY;
 
-      if ((fromTop > 40 && this.pageScrolled == false) || (fromTop <= 40 && this.pageScrolled == true)) {
-        this.pageScrolled = !this.pageScrolled
+      if (
+        (fromTop > 40 && this.pageScrolled == false) ||
+        (fromTop <= 40 && this.pageScrolled == true)
+      ) {
+        this.pageScrolled = !this.pageScrolled;
       }
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.headerScroll)
+    window.addEventListener("scroll", this.headerScroll);
 
     if (process.isClient) {
-      this.logoColor = localStorage.getItem('theme')
+      this.logoColor = localStorage.getItem("theme");
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -69,7 +72,8 @@ export default {
   left: 0;
   z-index: 10;
   padding: 15px 30px;
-  transition: padding .15s linear, background .15s linear, border-color .15s linear;
+  transition: padding 0.15s linear, background 0.15s linear,
+    border-color 0.15s linear;
   will-change: padding, background;
   border-bottom: 1px solid transparent;
 
@@ -98,4 +102,3 @@ nav {
   display: flex;
 }
 </style>
-
