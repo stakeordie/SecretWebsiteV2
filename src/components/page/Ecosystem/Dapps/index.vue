@@ -14,7 +14,7 @@
 
     <column id="dapps" class="spacer-s bg-black-gradient">
       <block>
-        <card-grid-v3
+        <CardGridV3
           title="Secret DApps"
           header="Secret DApps"
           collection="dApps"
