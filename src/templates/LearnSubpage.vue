@@ -240,5 +240,9 @@ query {
     padding-top: 64px;
     padding-bottom: 64px;
   }
+
+  .--flare.--flare-page{
+    padding-top: 0;
+  }
 }
 </style>

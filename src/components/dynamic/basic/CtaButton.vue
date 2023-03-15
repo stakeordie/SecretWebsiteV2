@@ -4,8 +4,8 @@
       class="button"
       :class="margins"
       :href="url"
-      :target="isExternal ? '_blank' : ''"
-      :rel="isExternal ? 'noopener noreferrer' : ''"
+      :target="is_external_link ? '_blank' : '_self'"
+      :rel="is_external_link ? 'noopener noreferrer' : ''"
     >
       <ResponsiveImage v-if="icon" :src="icon" class="button__icon" />
       <span class="button__text">
@@ -17,6 +17,7 @@
 
 <script>
 import { sizes } from "@/utils";
+
 export default {
   props: {
     title: {
@@ -50,13 +51,14 @@ export default {
     text_color: {
       type: String,
       required: false
+    },
+    is_external_link: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
-    isExternal() {
-      const [urlSplit] = this.url.split(":");
-      return urlSplit == "https" || urlSplit == "http";
-    },
     buttonStyles() {
       const alignment = {
         left: "flex-start",
@@ -130,7 +132,6 @@ export default {
       padding-top: 2px;
       line-height: 24px;
     }
-    
   }
 }
 </style>
