@@ -2,7 +2,7 @@
   <a
     class="btn button"
     :href="url"
-    :target="isExternal ? '_blank' : ''"
+    :target="isExternal ? '_blank' : '_self'"
     :rel="isExternal ? 'noopener noreferrer' : ''"
   >
     <span class="btn-text">
