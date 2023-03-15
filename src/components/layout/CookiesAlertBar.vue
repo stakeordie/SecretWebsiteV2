@@ -2,13 +2,11 @@
   <div class="cookies-alert" v-if="isOpen">
     <div class="cookies-alert-content">
       <p class="text">
-        We use cookies to improve our website performance and serve better
-        content. We never collect any personal data. By allowing cookies you'll
-        help us give you a better experience, but you can always choose to opt
-        out.
+        We use cookies to improve your website experience and never collect
+        personal data, but you can always choose to opt out.
+        <a href="/privacy-policy">Learn more.</a>
       </p>
       <div class="buttons">
-        <a href="/privacy-policy" class="button">Learn more</a>
         <button class="button" @click="closeAlert('false')">
           Decline
         </button>
