@@ -1,0 +1,227 @@
+<template>
+  <div class="summit_content">
+    <HeroSection v-if="!$store.state.summitStarted" :data="summitHero" />
+    <WelcomeSection v-else :data="summitWelcome" />
+    <DescriptionSection :data="summitDescription" />
+    <BannerSection :data="summitBanner" />
+    <SpeakersSection :data="summitSpeakers" />
+    <SponsorsSection :data="summitSponsors" />
+    <AnnouncementSection
+      v-if="!$store.state.summitStarted"
+      :data="summitAnnouncement"
+    />
+    <AboutSecretSection :data="summitAbout" />
+  </div>
+</template>
+
+<script>
+import HeroSection from "@/components/page/Summit/HeroSection.vue";
+import DescriptionSection from "@/components/page/Summit/DescriptionSection.vue";
+import BannerSection from "@/components/page/Summit/BannerSection.vue";
+import SpeakersSection from "@/components/page/Summit/SpeakersSection.vue";
+import SponsorsSection from "@/components/page/Summit/SponsorsSection.vue";
+import AnnouncementSection from "@/components/page/Summit/AnnouncementSection.vue";
+import AboutSecretSection from "@/components/page/Summit/AboutSecretSection.vue";
+import WelcomeSection from "@/components/page/Summit/WelcomeSummit.vue";
+
+export default {
+  metaInfo() {
+    return {
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-FS23DKM3PL%22%3E",
+          async: true,
+        },
+      ],
+    };
+  },
+  components: {
+    HeroSection,
+    DescriptionSection,
+    BannerSection,
+    SpeakersSection,
+    SponsorsSection,
+    AnnouncementSection,
+    AboutSecretSection,
+    WelcomeSection,
+  },
+  methods: {
+    addAdScript() {
+      const functionScript = document.createElement("script");
+      functionScript.innerHTML = `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FS23DKM3PL');`;
+      document.head.appendChild(functionScript);
+    },
+  },
+  computed: {
+    summitAbout() {
+      return this.$static.summit.edges[0].node.Summit_about;
+    },
+    summitAnnouncement() {
+      return this.$static.summit.edges[0].node.Summit_announcement;
+    },
+    summitBanner() {
+      return this.$static.summit.edges[0].node.Summit_banner;
+    },
+    summitDescription() {
+      return this.$static.summit.edges[0].node.Summit_description;
+    },
+    summitHero() {
+      return this.$static.summit.edges[0].node.Summit_hero;
+    },
+    summitSpeakers() {
+      return this.$static.summit.edges[0].node.Summit_speakers;
+    },
+    summitSponsors() {
+      return this.$static.summit.edges[0].node.Summit_sponsors;
+    },
+    summitWelcome() {
+      return this.$static.summit.edges[0].node.Summit_welcome;
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.sneakPeek();
+      this.addAdScript();
+    }, 100);
+  },
+};
+</script>
+
+<static-query>
+query {
+  summit: allStrapiSummit {
+    edges {
+      node {
+        Summit_hero {
+          title
+          subtitle
+          start_date
+          body
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_description {
+          title
+          subtitle
+          descriptions {
+            body
+            icon {
+              url
+              ext
+              name
+            }
+          }
+        }
+        Summit_banner {
+          title
+        }
+        Summit_speakers {
+          title
+          cta_button {
+            title
+            url
+          }
+          speaker {
+            ... on StrapiSummit_SummitSpeakers_Speaker {
+              name
+              description
+              image {
+                url
+                ext
+                name
+                formats{
+                  thumbnail {
+                    url
+                  }
+                  small{
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+        Summit_sponsors {
+          title
+          subtitle
+          body
+          sponsors {
+            title
+            url
+            image {
+              url
+              ext
+              name
+              formats {
+                thumbnail {
+                  url
+                }
+              }
+            }
+          }
+        }
+        Summit_announcement {
+          title
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_about {
+          title
+          subtitle
+          body
+          cta_button {
+            title
+            url
+          }
+        }
+        Summit_welcome {
+          title
+          subtitle
+          body
+          livestream_code_id
+          cta_button {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</static-query>
+
+<style lang="scss">
+@import "@lkmx/flare/src/functions/respond-to";
+
+.summit-index {
+  background: url("/img/events/summit/secret-summit-background.svg");
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 250%;
+
+  @include respond-to(">=l") {
+    background-size: 100%;
+  }
+
+  .swirl-wrapper,
+  .swirl-wrapper-bottom {
+    display: none;
+  }
+
+  .--flare-page {
+    padding: 0;
+    .content {
+      .box {
+        padding: 0;
+      }
+    }
+  }
+}
+</style>

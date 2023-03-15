@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import BlogAuthor from "./BlogAuthor.vue";
+import BlogAuthor from "@/components/blog/BlogAuthor.vue";
 
 const colors = {
   blockchain: "turquoise",

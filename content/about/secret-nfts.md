@@ -2,11 +2,5 @@
 title: "Secret NFTs"
 ---
 
-<hero-mixed-cms section="secretNfts">
-
-</hero-mixed-cms>
-
-<content-navigator-cms section="secretNfts">
-
-
-</content-navigator-cms>
+<hero-mixed-cms section="secretNfts" />
+<content-navigator-cms section="secretNfts" />

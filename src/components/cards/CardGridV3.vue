@@ -1,0 +1,822 @@
+<template>
+  <div>
+    <div class="elements-v3">
+      <!-- FILTER -->
+      <div class="filter v3">
+        <h5 class="mini-title">Explore</h5>
+        <h2>{{ gridHeader.title }}</h2>
+        <p>{{ gridHeader.subtitle }}</p>
+        <div class="search">
+          <input
+            class="search-filter"
+            type="text"
+            ref="inputSearch"
+            v-model="searchInputValue"
+            @input="searchFilter()"
+            placeholder="Search"
+          />
+        </div>
+        <ul
+          class="custom-checkbox"
+          :class="'selected-' + selectedTag"
+          v-if="hasCategories"
+        >
+          <li>Filter:</li>
+          <li v-for="(category, index) of categories" :key="index">
+            <label @click="searchFilterReset">
+              <input
+                :id="category"
+                type="checkbox"
+                :value="category"
+                v-model="checkedCategories"
+              />
+              <span class="title">
+                {{ formatCategory(category) }}
+                <img
+                  src="/img/icons/icon-remove-filter.svg"
+                  alt="Remove icon"
+                  loading="lazy"
+                />
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="elements-container">
+        <!-- GRID -->
+        <div class="elements-grid PAGINATED" v-if="isPaginated">
+          <div
+            class="card-element"
+            v-for="element in pagedArray"
+            :key="element.id"
+          >
+            <a
+              :href="element.url ? element.url : ''"
+              target="blank"
+              rel="noopener noreferrer"
+              class="card-element__country"
+            >
+              <ResponsiveImage
+                :src="element.picture"
+                classes="card-element__country__picture"
+              />
+              <div
+                class="meta"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
+                <div class="m-title">
+                  <h6>{{ element.title }}</h6>
+                </div>
+                <div
+                  class="m-elements"
+                  :class="evaluateTags(element.types.length)"
+                  v-if="hasCategories"
+                >
+                  <p
+                    class="tag-accent"
+                    v-for="(category, id) in element.types"
+                    :key="id"
+                    :class="'accent-' + category.name"
+                  >
+                    {{ formatCategory(category.name) }}
+                  </p>
+                </div>
+                <p class="language" v-if="element.language">
+                  {{ element.language }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="elements-grid NOPAGINATED" v-else>
+          <div
+            class="card-element"
+            v-for="element in filteredElements"
+            :key="element.id"
+          >
+            <a
+              class="card-element__overall-link"
+              :href="element.url ? element.url : ''"
+              target="blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-element__header">
+                <ResponsiveImage
+                  :src="element.picture"
+                  classes="card-element__header__logo"
+                />
+                <!-- Categorie tags -->
+                <div
+                  class="meta"
+                  :class="{ 'meta--with-categories': hasCategories }"
+                >
+                  <div
+                    class="m-elements card-element__header__tags"
+                    :class="evaluateTags(element.types.length)"
+                    v-if="hasCategories"
+                  >
+                    <p
+                      class="tag-accent"
+                      v-for="(category, id) in element.types"
+                      :key="id"
+                      :class="'accent-' + category.name"
+                    >
+                      {{ formatCategory(category.name) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-element__title-desc"
+                :class="{ 'meta--with-categories': hasCategories }"
+              >
+                <div class="card-element__title-desc__header">
+                  <h4 class="element-grid-title">{{ element.title }}</h4>
+                  <p>
+                    {{ element.description }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="no-results" v-if="searchNoResults">
+            <img
+              src="/img/icons/illustration-no-matches.svg"
+              alt="Magnifying glass"
+              loading="lazy"
+            />
+            <h3>No matches found</h3>
+            <p>
+              Please try another search or use one of
+              <span>the predefined filters.</span>
+            </p>
+          </div>
+        </div>
+
+        <pagination
+          v-if="isPaginated"
+          @page="setPagesFather"
+          :pageSize="pageSize"
+          :items="filteredElements"
+          :currentPage="currentPage"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Pagination from "@/components/content/Pagination.vue";
+
+export default {
+  components: { Pagination },
+  data() {
+    return {
+      search: "",
+      searchInputValue: "",
+      searchNoResults: false,
+      currentPage: 0,
+      checkedCategories: [],
+      selectedTag: "All"
+    };
+  },
+  props: {
+    title: { type: String, required: true },
+    collection: { type: String, required: true },
+    header: { type: String, required: false, default: "" },
+    pageSize: { type: Number, required: false, default: 10 },
+    isPaginated: { type: Boolean, required: false, default: false },
+    hasCategories: { type: Boolean, default: true }
+  },
+
+  methods: {
+    searchFilter() {
+      const cardEl = document.querySelectorAll(".card-element");
+      let hiddenEls = [];
+      this.resetCheck();
+      this.search = this.searchInputValue.toLowerCase();
+
+      cardEl.forEach(item => {
+        if (!item.innerText.toLowerCase().includes(this.search)) {
+          item.classList.add("hidden");
+          hiddenEls.push(".");
+        }
+        if (
+          !this.search ||
+          item.innerText.toLowerCase().includes(this.search)
+        ) {
+          item.classList.remove("hidden");
+        }
+      });
+      this.searchNoResults = cardEl.length === hiddenEls.length;
+    },
+    searchFilterReset() {
+      this.search = "";
+      const cardEl = document.querySelectorAll(".card-element");
+      this.searchInputValue = "";
+      cardEl.forEach(item => item.classList.remove("hidden"));
+    },
+    formatCategory(category = "") {
+      return category.includes("_") ? category.replace("_", " ") : category;
+    },
+    setPagesFather(number) {
+      this.currentPage = number;
+    },
+    resetCheck() {
+      this.checkedCategories = [];
+    },
+    hashToFilter(hash, filter) {
+      if (window.location.hash === "#get-scrt") {
+        window.scrollTo(0, 0);
+        this.checkedCategories = ["wallet"];
+      }
+
+      if (
+        window.location.hash === hash &&
+        this.collection === "toolsAndWallets"
+      ) {
+        setTimeout(() => {
+          window.location.href = "#toolswallets";
+          this.checkedCategories = [filter];
+        }, 500);
+      }
+    },
+    hash(hash, collection, link) {
+      if (window.location.hash === hash && this.collection === collection) {
+        setTimeout(() => {
+          window.location.href = link;
+        }, 500);
+      }
+    },
+    evaluateTags(size) {
+      if (!size) return "";
+      return `tag-card-${size < 5 ? size : 5}`;
+    }
+  },
+
+  computed: {
+    // WALTER WAS HERE
+    filteredElements() {
+      const sortedCollection = this.collections;
+      for (const [i, element] of sortedCollection.entries()) {
+        if (element.sort == null) {
+          element.sort = 99999;
+        }
+      }
+      sortedCollection.sort(function(a, b) {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        if (titleA < titleB) {
+          return -1;
+        } else if (titleA > titleB) {
+          return 1;
+        }
+        return 0;
+      });
+      if (!this.checkedCategories.length) {
+        return sortedCollection;
+      }
+      return sortedCollection.filter(post =>
+        post.types.some(tag => this.checkedCategories.includes(tag.name))
+      );
+    },
+    pagedArray() {
+      const start = this.currentPage * this.pageSize;
+      const end = start + this.pageSize;
+      return this.filteredElements.slice(start, end);
+    },
+    collections() {
+      return this.$static[this.collection].edges.map(it => it.node);
+    },
+    categories() {
+      const collectionData = [...this.$static[this.collection].edges];
+      const categoryData = collectionData
+        .map(({ node }) => node.types)
+        .flat()
+        .map(({ name }) => name);
+
+      return categoryData.filter((item, i, arr) => arr.indexOf(item) === i);
+    },
+    gridHeader() {
+      const headers = [...this.$static.gridHeaders.edges];
+      const data = headers.find(item => item.node.title == this.header);
+      return {
+        title: String(data?.node.title || this.header),
+        subtitle: String(data?.node.subtitle || this.header)
+      };
+    }
+  },
+  mounted() {
+    this.hashToFilter("#wallets", "wallet");
+    this.hashToFilter("#tools", "tool");
+    this.hash("#dapps", "dApps", "#dapps");
+    this.hash("#exchanges", "exchanges", "#exchanges");
+    this.hash("#contributors", "contributors", "#contributors");
+  }
+};
+</script>
+
+<static-query>
+query {
+  gridHeaders: allStrapiCardGridHeader {
+    edges {
+      node {
+        id
+        title,
+        subtitle
+      }
+    }
+  }
+  ecosystemValidators: allStrapiEcosystemValidator {
+    edges {
+      node {
+        title: name
+        picture: logo {
+          url
+          ext
+          name
+        }
+        link
+        order
+      }
+    }
+  }
+  dApps: allStrapiEcosystemDapp {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        description
+        cta_title
+        picture: logo {
+          url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
+        }
+        types: type {
+          name
+        }
+      }
+    }
+  }
+  ecosystemContributors: allStrapiContributor {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        picture: logo {
+          url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
+        }
+        types: type {
+          name
+        }
+      }
+    }
+  }
+  toolsAndWallets: allStrapiToolAndWallet {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        description
+        cta_title
+        picture: logo {
+          url
+          ext
+          name
+          formats {
+            thumbnail {
+              url
+            }
+          }
+        }
+        types: type {
+          name
+        }
+      }
+    }
+  }
+  internationalCommunities: allStrapiInternationalCommunity {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        cta_title
+        language: language
+        picture: logo {
+          url
+          ext
+          name
+          formats {
+            large {
+              url
+            }
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
+        }
+        types: type {
+          name
+        }
+      }
+    }
+  }
+  exchanges: allStrapiExchange {
+    edges {
+      node {
+        id
+        sort
+        title: name
+        url: link
+        description
+        cta_title
+        picture: logo {
+          url
+          ext
+          name
+          formats {
+            medium {
+              url
+            }
+            small {
+              url
+            }
+          }
+        }
+        types: type {
+          name
+        }
+      }
+    }
+  }
+}
+</static-query>
+
+<style lang="scss">
+@import "@/sass/_text.scss";
+@import "@lkmx/flare/src/functions/respond-to";
+
+$accent-colors: ("validator", "developer", "fund", "wallet");
+
+.elements-v3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--f-gutter-xl);
+  margin-top: 0;
+  align-content: start;
+  text-align: center;
+
+  @include respond-to("<=m") {
+    grid-template-columns: 1fr;
+  }
+
+  @include respond-to("<=s") {
+    padding: 32px var(--f-gutter);
+  }
+
+  h5 {
+    color: var(--color-ver2-primary-turquoise);
+    text-transform: uppercase;
+  }
+  h2 {
+    margin-bottom: 48px;
+    font-size: 54px;
+  }
+  p {
+    max-width: 650px;
+  }
+
+  h4 {
+    color: var(--color-neutral-dark-mode-05);
+  }
+  .filter {
+    &.v3 {
+      display: grid;
+      justify-content: center;
+      gap: var(--f-gutter);
+      padding: 26px 0 var(--f-gutter) 0;
+      * {
+        margin: 0;
+      }
+      .custom-checkbox {
+        gap: 10px;
+        display: flex;
+        justify-content: center;
+        li {
+          text-align: center;
+          display: grid;
+          align-items: center;
+          font-size: 16px;
+          color: var(--color-neutral-dark-mode-05);
+          font-family: hind;
+          * {
+            margin: 0;
+          }
+          label {
+            padding: 0;
+            border: 0;
+            transition: 0.2s ease;
+
+            &:hover {
+              color: var(--color-analog-primary-white);
+            }
+            span {
+              display: grid;
+              gap: 2px;
+              grid-auto-flow: column;
+              align-items: center;
+              font-size: 18px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 7px 16px 5px 16px;
+              border: none;
+              background-color: var(--color-neutral-dark-mode-04);
+              color: var(--color-neutral-dark-mode-06);
+              font-weight: 600;
+
+              transition: 0.2s ease;
+              img {
+                width: 0px;
+                height: 0px;
+              }
+            }
+            input {
+              &:checked {
+                ~ .title {
+                  background-color: var(--color-ver2-primary-turquoise);
+                  border: none;
+                }
+              }
+            }
+          }
+          span {
+            padding: 8px;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+      .search-filter {
+        max-width: 400px;
+        margin: auto;
+        background: var(--color-neutral-dark-mode-04);
+        background-image: url("/img/icons/search-icon-gray.svg");
+        background-repeat: no-repeat;
+        border: none;
+        background-position: 8px;
+        padding-left: 32px;
+
+        &::placeholder {
+          color: var(--color-neutral-dark-mode-06);
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .filter-auction {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    @include respond-to(">=s") {
+      margin: 0px 0px 20px 0px;
+    }
+
+    button {
+      padding: 0px;
+      background: none;
+      color: var(--color-analog-secondary-blue);
+    }
+  }
+
+  .elements-container {
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--f-gutter);
+      @include respond-to("<=xs") {
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
+      }
+
+      @include respond-to(">=l") {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include respond-to(">=xl") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .no-results {
+        display: grid;
+        grid-column: span 5;
+        justify-items: center;
+        gap: var(--f-gutter);
+        padding: var(--f-gutter-l) 0;
+        * {
+          margin: 0;
+        }
+        img {
+          max-width: 150px;
+        }
+        p {
+          text-align: center;
+
+          span {
+            @include respond-to(">=m") {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .card-element {
+        border-radius: var(--f-radius);
+        overflow: hidden;
+        background: var(--theme-card-bg-default);
+        transition: 0.2s ease;
+        display: grid;
+        text-align: center;
+        border-radius: 10px;
+        * {
+          margin: 0;
+        }
+
+        // 🔥🔥🔥🔥🔥 New styles 🔥🔥🔥🔥🔥
+        &__overall-link {
+          display: grid;
+          gap: var(--f-gutter);
+          padding: var(--f-gutter);
+          grid-template-rows: 64px 1fr auto;
+
+          &:hover .ecosystem .btn-text {
+            color: var(--theme-links-default);
+          }
+
+          &:hover .tag-accent {
+            border-color: var(--color-neutral-dark-mode-02);
+          }
+
+          .ecosystem {
+            &:hover {
+              color: var(--color-highkey-secondary-blue);
+            }
+          }
+        }
+        &__header {
+          display: grid;
+          grid-template-columns: 64px 1fr;
+          align-items: start;
+          gap: 4px;
+          &__logo {
+            border-radius: 10px;
+            padding: 0;
+            object-fit: contain;
+
+            width: 64px;
+            height: 64px;
+            background-color: var(--color-neutral-dark-mode-04);
+          }
+
+          .meta {
+            display: grid;
+            justify-items: end;
+          }
+          &__tags {
+            display: flex;
+            flex-flow: wrap-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+            p {
+              font-size: 15px;
+              text-transform: capitalize;
+              border-radius: 100px;
+              padding: 2px 8px;
+              border: 1px solid var(--color-neutral-dark-mode-04);
+            }
+          }
+        }
+
+        &__country {
+          display: grid;
+          gap: 16px;
+          padding: var(--f-gutter);
+
+          &__picture {
+            border-radius: 10px;
+          }
+        }
+
+        &__title-desc {
+          display: grid;
+          gap: 8px;
+          text-align: left;
+          &__header {
+            display: grid;
+            gap: 8px;
+            align-content: start;
+          }
+          h4 {
+            color: white;
+          }
+          p {
+            min-width: 196px;
+          }
+        }
+        &.hidden {
+          display: none;
+        }
+
+        & img {
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+        }
+
+        &:hover {
+          background: var(--color-neutral-dark-mode-04);
+        }
+
+        * {
+          margin: 0;
+        }
+
+        h6 {
+          color: var(--theme-fg);
+        }
+
+        p {
+          &.tag {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}
+
+.get-involved-international-communities {
+  .elements-v3 {
+    .filter {
+      &.v3 {
+        .custom-checkbox {
+          li {
+            label {
+              span {
+                transition: 0.2s ease;
+              }
+              input {
+                &:checked {
+                  ~ .title {
+                    background-color: var(--color-ver2-primary-yellow);
+                    border: none;
+                    color: var(--color-neutral-dark-mode-01);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</style>
