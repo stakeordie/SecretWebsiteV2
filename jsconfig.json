@@ -5,8 +5,8 @@
     "baseUrl": ".",
     "esModuleInterop": false,
     "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./src/*"],
+      "@/*": ["src/*"],
+      "~/*": ["src/*"],
     }
   },
   "exclude": ["node_modules", "dist"],

@@ -229,5 +229,9 @@ query {
   [comp_name~="card-search"] {
     padding-bottom: 64px;
   }
+
+  .--flare.--flare-page{
+    padding-top: 0;
+  }
 }
 </style>

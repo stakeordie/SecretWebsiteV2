@@ -2,8 +2,8 @@
   <a
     :class="['cta-card', imagePosition]"
     :href="data.url"
-    target="_blank"
-    rel="noopener noreferrer"
+    :target="data.is_external_link ? 'is_blank' : '_self'"
+    :rel="data.is_external_link ? 'noopener noreferrer' : ''"
   >
     <ResponsiveImage
       v-if="data.image"
@@ -13,9 +13,10 @@
     <div class="cta-card__details">
       <h6 v-if="data.title">{{ data.title }}</h6>
       <p v-if="data.body">{{ data.body }}</p>
-      <btn v-if="data.url" class="link-arrow" :url="data.url">
-        {{ data.cta_text }}
-      </btn>
+      <div v-if="data.url" class="link">
+        <span> {{ data.cta_text }}</span>
+        <img src="/img/icons/icon-arrow-external-light.svg" alt="Arrow icon" />
+      </div>
     </div>
   </a>
 </template>
@@ -25,20 +26,21 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     imagePosition() {
+      console.log(this.data);
       const positions = {
         left: "image-left",
-        top: "image-top",
+        top: "image-top"
       };
       const hasImage = this.data.image;
       const match = positions[this.data.icon_position];
       return hasImage && match ? match : positions.top;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -85,6 +87,27 @@ export default {
 
     p {
       margin-bottom: 0;
+    }
+
+    .link {
+      display: flex;
+      padding: var(--f-gutter-s) 0;
+      gap: 8px;
+      align-items: center;
+      line-height: normal;
+
+      span {
+        transform: translateY(1px);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

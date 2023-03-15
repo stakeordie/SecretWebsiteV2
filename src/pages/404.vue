@@ -223,11 +223,13 @@
 </template>
 
 <script>
+import CardMinimal from "@/components/cards/CardMinimal.vue";
 export default {
+  components: { CardMinimal },
   metaInfo() {
     return {
-      title: "Page Not Found",
+      title: "Page Not Found"
     };
-  },
+  }
 };
 </script>

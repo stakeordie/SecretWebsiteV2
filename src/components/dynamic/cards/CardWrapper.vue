@@ -2,7 +2,7 @@
   <a
     v-if="url"
     :href="url"
-    :target="externalLink ? '_blank' : ''"
+    :target="externalLink ? '_blank' : '_self'"
     :rel="externalLink ? 'noopener noreferrer' : ''"
   >
     <slot></slot>
