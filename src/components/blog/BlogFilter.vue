@@ -3,7 +3,7 @@
     <h4>Filters</h4>
     <div class="filters">
       <label
-        v-for="{ node: filter } in theFilters"
+        v-for="filter in filters"
         :key="filter.name | lowerCase"
         :for="filter.name | lowerCase"
         @click="applyFilter"
@@ -26,11 +26,11 @@
 export default {
   data() {
     return {
-      appliedFilters: [],
+      appliedFilters: []
     };
   },
   props: {
-    tags: Array,
+    tags: Array
   },
   methods: {
     applyFilter(event) {
@@ -39,36 +39,35 @@ export default {
       if (checked) {
         this.appliedFilters.push(value);
       } else {
-        const index = this.appliedFilters.findIndex((it) => it === value);
+        const index = this.appliedFilters.findIndex(it => it === value);
         if (index != -1) {
           this.appliedFilters.splice(index, 1);
         }
       }
 
-      this.$emit("blog-filter:filter-applied", this.appliedFilters);
-    },
+      this.$emit("filter-applied", this.appliedFilters);
+    }
   },
 
   computed: {
-    theFilters() {
-      const tags = [...this.tags];
-      return tags.sort((f1, f2) =>
-        f1.node.name === f2.node.name ? 0 : f1.node.name > f2.node.name ? 1 : -1
+    filters() {
+      return [...this.tags].sort((a, b) =>
+        a.name === b.name ? 0 : a.name > b.name ? 1 : -1
       );
-    },
+    }
   },
   filters: {
-    capitalize: function (value) {
+    capitalize: function(value) {
       if (!value) return "";
       value = value.toString();
       return value.charAt(0).toUpperCase() + value.slice(1);
     },
-    lowerCase: function (value) {
+    lowerCase: function(value) {
       if (!value) return "";
       value = value.toString();
       return value.toLowerCase();
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -15,15 +15,11 @@
         <slot name="default"></slot>
       </div>
     </div>
-    <blog-author class="new-blog-card__footer">
-      <slot name="footer"></slot>
-    </blog-author>
+    <slot name="footer"></slot>
   </g-link>
 </template>
 
 <script>
-import BlogAuthor from "@/components/blog/BlogAuthor";
-
 const colors = {
   blockchain: "turquoise",
   collaboration: "green",
@@ -61,9 +57,6 @@ const colors = {
 };
 
 export default {
-  components: {
-    BlogAuthor
-  },
   props: {
     tag: {
       type: String,
