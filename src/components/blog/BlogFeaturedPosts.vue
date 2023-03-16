@@ -16,23 +16,19 @@
       </div>
     </div>
     <div class="featured-posts" ref="featured_posts">
-      <BlogCardFeatured
-        v-for="post in postFeaturedV2"
-        :key="post.id"
-        :post="post"
-      />
+      <BlogCard v-for="post in posts" :key="post.id" :post="post" />
     </div>
   </section>
 </template>
 
 <script>
-import BlogCardFeatured from "@/components/blog/BlogCardFeatured.vue";
+import BlogCard from "@/components/blog/BlogCard.vue";
 
 export default {
-  components: { BlogCardFeatured },
+  components: { BlogCard },
   data() {
     return {
-      postFeaturedV2: []
+      posts: []
     };
   },
   methods: {
@@ -40,7 +36,7 @@ export default {
       const posts = [...this.$static.posts.edges].map(x => x.node);
       const hiddenTag = "hidden";
       const defaultImage = "https://scrt.network/blog-cover.jpg";
-      this.postFeaturedV2 = posts
+      this.posts = posts
         .filter(({ tags }) => {
           const hiddenData = tags.find(({ slug }) => slug === hiddenTag);
           return !Boolean(hiddenData);
@@ -170,6 +166,12 @@ export default {
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    ::v-deep {
+      .blog-card {
+        max-width: 400px;
+      }
     }
   }
 }

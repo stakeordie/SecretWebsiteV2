@@ -70,7 +70,7 @@ export default {
         : "/img/icons/scrt-logo.png";
     },
     showButtons() {
-      return this.includeShareButtons ? "show-buttons" : ";";
+      return this.includeShareButtons ? "show-buttons" : "";
     }
   }
 };
