@@ -13,8 +13,9 @@
             justify-content: right;
           "
           url="/blog"
-          >VIEW ALL</btn
         >
+          VIEW ALL
+        </btn>
       </div>
     </div>
     <div class="new-blog-grid__container">
@@ -37,25 +38,7 @@
         </template>
         <h5>{{ node.title }}</h5>
         <template #footer>
-          <g-image
-            picture
-            onerror="this.onerror=null;this.src='../scrt-logo.png';"
-            v-if="node.primary_author.profile_image"
-            :src="node.primary_author.profile_image"
-            :alt="node.primary_author.name"
-            loading="lazy"
-          />
-          <g-image
-            picture
-            v-else
-            src="/img/icons/scrt-logo.png"
-            alt="Secret Network logo"
-            loading="lazy"
-          />
-          <div info class="author-info">
-            <p>{{ node.primary_author.name }}</p>
-            <p>{{ node.date }} · {{ node.reading_time }} min read</p>
-          </div>
+          <BlogAuthor :post="node" />
         </template>
       </new-blog-card>
     </div>
@@ -64,28 +47,15 @@
 
 <script>
 import NewBlogCard from "@/components/blog/NewBlogCard.vue";
-const truncateSize = 200;
+import BlogAuthor from "@/components/blog/BlogAuthor.vue";
 
 export default {
-  components: { NewBlogCard },
+  components: { NewBlogCard, BlogAuthor },
   props: {
     posts: {
       type: Array,
       required: true,
       default: () => []
-    },
-    columns: {
-      type: Number,
-      required: false,
-      default: 3
-    }
-  },
-  filters: {
-    truncate(value) {
-      if (!value) return "";
-      return value.length >= truncateSize
-        ? `${value.substring(0, truncateSize - 1)}...`
-        : value;
     }
   }
 };

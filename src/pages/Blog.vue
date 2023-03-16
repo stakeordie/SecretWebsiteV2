@@ -1,165 +1,115 @@
 <template>
-  <default-layout class="blog">
+  <DefaultLayout class="blog">
     <!-- swirl -->
-    <column class="purple__swirl__top" mode="full">
-      <block>
+    <Column class="purple__swirl__top" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="/img/icons/swirl-purple-top.svg"
           alt="Purple swirl top graphic"
           loading="lazy"
         />
-      </block>
-    </column>
-    <hero-title>
+      </Block>
+    </Column>
+
+    <HeroTitle>
       <h2>Secret Network Blog</h2>
-    </hero-title>
+    </HeroTitle>
 
-    <column number="2">
-      <block>
-        <h3>Featured</h3>
-      </block>
+    <Column class="blog-featured-carousel" mode="full">
+      <Block>
+        <BlogFeaturedPosts />
+      </Block>
+    </Column>
 
-      <block class="justify-right">
-        <button class="theme padding-small control" @click="scroll_left">
-          <img src="img/icons/icon-circle-left.svg" alt="left" loading="lazy" />
-        </button>
-        <button class="theme padding-small control" @click="scroll_right">
-          <img
-            src="/img/icons/icon-circle-right.svg"
-            alt="right"
-            loading="lazy"
-          />
-        </button>
-      </block>
-    </column>
-
-    <column class="horizontal-slider spacer-s" mode="full">
-      <block>
-        <blog-featured-posts-v2 />
-      </block>
-    </column>
-
-    <column class="blog-all-posts">
-      <block>
-        <blog-filter-v2
-          :tags="tags"
-          id="left"
-          @blog-filter:filter-applied="onFilterApplied"
-        />
+    <Column class="blog-all-posts">
+      <Block>
+        <BlogFilter :tags="tags" id="left" @filter-applied="onFilterApplied" />
         <section class="all-posts">
-          <!-- <h3>Posts</h3> -->
-          <blog-posts-v2 :posts="posts" />
+          <BlogPosts :posts="filteredPosts" />
         </section>
-      </block>
-    </column>
+      </Block>
+    </Column>
 
     <!-- swirl -->
-    <column class="purple__swirl__bottom" mode="full">
-      <block>
+    <Column class="purple__swirl__bottom" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="/img/icons/swirl-purple-bottom.svg"
           alt="Purple swirl bottom graphic"
           loading="lazy"
         />
-      </block>
-    </column>
-  </default-layout>
+      </Block>
+    </Column>
+  </DefaultLayout>
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/DefaultLayout";
-import BlogFeaturedPostsV2 from "@/components/blog/BlogFeaturedPostsV2.vue";
-import BlogFilterV2 from "@/components/blog/BlogFilterV2.vue";
-import BlogPostsV2 from "@/components/blog/BlogPostsV2.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import BlogFeaturedPosts from "@/components/blog/BlogFeaturedPosts.vue";
+import BlogFilter from "@/components/blog/BlogFilter.vue";
+import BlogPosts from "@/components/blog/BlogPosts.vue";
 import { canonicalTag, metaDataArray, pageMetaData } from "@/utils";
 
 export default {
   components: {
     DefaultLayout,
-    BlogFeaturedPostsV2,
-    BlogFilterV2,
-    BlogPostsV2,
+    BlogFeaturedPosts,
+    BlogFilter,
+    BlogPosts
   },
   metaInfo() {
     return {
       title:
         "Blog | Secret Network - Bringing Privacy to Blockchains, Smart Contracts & Web3",
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData),
+      link: canonicalTag(this.getMetaData)
     };
   },
   data() {
     return {
-      appliedFilters: [],
+      appliedFilters: []
     };
   },
   computed: {
     posts() {
-      const { edges: posts } = this.$page.posts;
+      const posts = [...this.$page.posts.edges].map(x => x.node);
       const hiddenTag = "hidden";
-      return posts.filter(({ node: post }) => {
-        if (this.appliedFilters.length === 0) {
-          if (!post.primary_tag) return true;
-          else {
-            const hidden = post.tags.filter((tag) => tag.slug === hiddenTag);
-            if (hidden.length == 0) return true;
-          }
-        }
-        if (!post.primary_tag) return false;
-        return this.appliedFilters.includes(post.primary_tag.slug);
-      });
+      const defaultImage = "https://scrt.network/blog-cover.jpg";
+      return posts
+        .filter(({ tags }) => {
+          const hiddenData = tags.find(({ slug }) => slug === hiddenTag);
+          return !Boolean(hiddenData);
+        })
+        .map(data => ({
+          ...data,
+          feature_image: data.feature_image || defaultImage
+        }));
+    },
+    filteredPosts() {
+      return [...this.posts].filter(post =>
+        this.appliedFilters.length
+          ? this.appliedFilters.includes(post.primary_tag.slug)
+          : true
+      );
     },
     tags() {
-      const { edges: tags } = this.$page.tags;
-      const { edges: posts } = this.$page.posts;
-      const hiddenTag = "hidden";
-      return tags.filter(({ node: tag }) =>
-        posts.some(
-          ({ node: post }) =>
-            post.primary_tag?.id == tag.id && tag.name != hiddenTag
-        )
+      const tags = [...this.$page.tags.edges].map(x => x.node);
+      const posts = [...this.posts];
+      return tags.filter(({ id }) =>
+        posts.some(post => post.primary_tag?.id === id)
       );
     },
     getMetaData() {
       return pageMetaData(this.$page, "/blog");
-    },
+    }
   },
   methods: {
-    scroll_left() {
-      let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
-      );
-      content.scrollLeft -= 390;
-    },
-    scroll_right() {
-      let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
-      );
-      content.scrollLeft += 390;
-    },
     onFilterApplied(filters) {
       this.appliedFilters = filters;
-    },
-    mapImage() {
-      const arrayPosts = this.$page.posts.edges;
-      arrayPosts.forEach((el) => {
-        if (el.node.feature_image) {
-          const urlSplit = el.node.feature_image.split(":");
-          if (urlSplit[0] !== "https" && urlSplit[0] !== "http") {
-            el.node.feature_image =
-              "https://ghost.scrt.network/" + el.node.feature_image;
-          }
-        } else {
-          el.node.feature_image = "https://scrt.network/blog-cover.jpg";
-        }
-      });
-    },
-  },
-  mounted() {
-    this.mapImage();
-  },
+    }
+  }
 };
 </script>
 
@@ -225,70 +175,9 @@ export default {
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";
 
-.horizontal-slider {
-  .content {
-    overflow: hidden;
-
-    .box {
-      scrollbar-width: none;
-      overflow-x: scroll;
-      overflow: auto;
-      max-width: 99vw;
-      scroll-behavior: smooth;
-
-      @include respond-to("<=m") {
-        max-width: 100vw;
-      }
-
-      padding-left: 1rem;
-      padding-right: 1rem;
-
-      @include respond-to(">=l") {
-        padding-left: 3vw;
-      }
-
-      @include respond-to(">=xl") {
-        padding-left: 9vw;
-      }
-
-      @include respond-to(">=xxl") {
-        padding-left: 13vw;
-      }
-
-      @include respond-to("xxxl") {
-        padding-left: 19vw;
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
-
-  .blog-featured-posts {
-    white-space: nowrap;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .blog-card-featured-v2 {
-      border-radius: var(--f-radius);
-      transition: 0.2s ease;
-      cursor: pointer;
-      display: inline-block;
-      max-width: 400px;
-      min-height: 400px;
-      white-space: normal;
-      vertical-align: top;
-      margin-right: var(--f-gutter);
-      position: relative;
-      overflow: hidden;
-
-      @include respond-to("<=xs") {
-        margin-right: var(--f-gutter);
-      }
-    }
+.blog-featured-carousel {
+  > .--flare-block > .content > .box {
+    padding: 0;
   }
 }
 

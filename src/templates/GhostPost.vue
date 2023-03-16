@@ -32,38 +32,7 @@
           alt="Cover post graphic"
           loading="lazy"
         />
-        <blog-author class="info" :includeShareButtons="true">
-          <div class="left">
-            <g-image
-              picture
-              onerror="this.onerror=null;this.src='../scrt-logo.png';"
-              :src="profileImage"
-              alt="Author picture"
-              loading="lazy"
-            />
-            <div class="author" info>
-              <p>{{ $page.post.primary_author.name }}</p>
-              <p>
-                {{ $page.post.date }} &#8226; {{ $page.post.reading_time }} min
-                read
-              </p>
-            </div>
-          </div>
-          <div class="share-icons">
-            <ShareNetwork
-              v-for="network in networks"
-              :network="network.network"
-              :key="network.network"
-              :style="{ backgroundColor: network.color }"
-              :url="url"
-              :title="$page.post.title"
-              :description="$page.post.description"
-            >
-              <i :class="network.icon"></i>
-              <span>{{ network.name }}</span>
-            </ShareNetwork>
-          </div>
-        </blog-author>
+        <BlogAuthor :post="$page.post" includeShareButtons />
       </section>
       <div class="post-content" v-html="postContent"></div>
     </section>
@@ -98,20 +67,6 @@ export default {
   data() {
     return {
       url: domain + this.$route.fullPath,
-      networks: [
-        {
-          network: "twitter",
-          name: "Twitter",
-          icon: "fab fah fa-lg fa-twitter",
-          color: "#1da1f2",
-        },
-        {
-          network: "linkedin",
-          name: "LinkedIn",
-          icon: "fab fah fa-lg fa-linkedin",
-          color: "#007bb5",
-        },
-      ],
     };
   },
   metaInfo() {
@@ -122,11 +77,7 @@ export default {
     };
   },
   computed: {
-    profileImage: function () {
-      return this.$page.post.primary_author.profile_image
-        ? this.$page.post.primary_author.profile_image
-        : "/img/icons/scrt-logo.png";
-    },
+    
     coverImage() {
       if (this.$page.post.feature_image) {
         const urlSplit = this.$page.post.feature_image.split(":");
@@ -316,89 +267,6 @@ $accent-colors: (
         font-family: var(--blog-text-font-family);
         font-size: var(--blog-text-font-size);
         line-height: var(--blog-text-font-line-height);
-      }
-    }
-  }
-
-  .blog-author {
-    padding: var(--f-gutter);
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    gap: var(--f-gutter);
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    grid-template-columns: repeat(2, 1fr);
-
-    @include respond-to("<=s") {
-      grid-template-columns: 1fr;
-      grid-auto-flow: row;
-    }
-
-    img {
-      width: 44px;
-      height: 44px;
-      border-radius: 100px;
-    }
-
-    .author-info {
-      display: grid;
-      gap: var(--f-gutter-xxs);
-    }
-
-    @include respond-to("<=s") {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--f-gutter-l);
-    }
-
-    .left {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: max-content;
-      gap: var(--f-gutter-s);
-      align-items: center;
-
-      .author {
-        text-align: left;
-        display: grid;
-        gap: var(--f-gutter-xxs);
-
-        p {
-          font-family: var(--f-default-text-font);
-          line-height: var(--f-paragraph-line-height);
-          color: white;
-        }
-      }
-    }
-
-    .share-icons {
-      display: grid;
-      gap: var(--f-gutter-s);
-      grid-auto-flow: column;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0;
-        padding: var(--f-gutter-s) var(--f-gutter);
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-size: 14px;
-        color: var(--color-analog-primary-white);
-        border-radius: var(--f-forms-button-radius);
-        transition: 0.2s ease;
-
-        &:hover {
-          filter: contrast(1.5);
-        }
-
-        span {
-          transform: translateY(2px);
-        }
       }
     }
   }

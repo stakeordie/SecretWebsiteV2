@@ -15,15 +15,11 @@
         <slot name="default" />
       </div>
     </div>
-    <blog-author class="blog-card-v2__footer">
-      <slot name="footer" />
-    </blog-author>
+    <slot name="footer" />
   </g-link>
 </template>
 
 <script>
-import BlogAuthor from "@/components/blog/BlogAuthor.vue";
-
 const colors = {
   blockchain: "turquoise",
   collaboration: "green",
@@ -43,9 +39,9 @@ const colors = {
   undefined: "purple",
   nfts: "orange",
   announcement: "announcement",
-  education: "education",
-  how_tos: "education",
-  explanations: "education",
+  research: "research",
+  how_tos: "research",
+  explanations: "research",
   dev: "developers",
   developers: "developers",
   dev: "developers",
@@ -61,9 +57,6 @@ const colors = {
 };
 
 export default {
-  components: {
-    BlogAuthor,
-  },
   props: {
     tag: {
       type: String,
@@ -106,7 +99,7 @@ $accent-colors: (
   "purple",
   "gray",
   "announcement",
-  "education",
+  "research",
   "developers",
   "ecosystem"
 );
@@ -176,37 +169,6 @@ $accent-colors: (
         & a {
           color: var(--theme-fg);
         }
-      }
-    }
-  }
-
-  .blog-author {
-    justify-content: flex-end;
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: left;
-    gap: var(--f-gutter);
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 100px;
-    }
-
-    @include respond-to("<=s") {
-      position: relative;
-    }
-
-    .author-info {
-      display: grid;
-      color: var(--theme-fg);
-
-      & p {
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 20px;
       }
     }
   }

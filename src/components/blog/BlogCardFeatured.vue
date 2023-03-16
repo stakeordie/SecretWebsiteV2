@@ -1,21 +1,23 @@
 <template>
   <g-link
-    class="blog-card-featured-v2 cta"
+    class="blog-card-featured-v2"
     :class="`accent-` + color"
-    :to="$tp(`/blog/${slug}`)"
+    :to="$tp(`/blog/${post.slug}`)"
   >
-    <div class="blog-card-featured-v2-container">
-      <div class="blog-card-featured-v2__body">
-        <div class="blog-card-featured-v2__tag">
-          <slot name="image" />
-          <slot class="card-tag" name="tag" />
-        </div>
-        <slot name="default" />
+    <div class="blog-card-featured-v2__body">
+      <div class="blog-card-featured-v2__tag">
+        <g-image
+          onerror="this.onerror=null;this.src='../blog-cover.jpg';"
+          v-if="post.feature_image"
+          :src="post.feature_image"
+          alt="Featured graphic"
+          loading="lazy"
+        />
+        <div v-if="post.primary_tag">{{ post.primary_tag.name }}</div>
       </div>
-      <blog-author class="blog-card-featured-v2__footer">
-        <slot name="footer" />
-      </blog-author>
+      <h5>{{ post.title }}</h5>
     </div>
+    <BlogAuthor v-if="post" :post="post" />
   </g-link>
 </template>
 
@@ -55,28 +57,22 @@ const colors = {
   dapp_launches: "ecosystem",
   "nft launches": "ecosystem",
   reports: "ecosystem",
-  recaps: "ecosystem",
+  recaps: "ecosystem"
 };
 
 export default {
   components: {
-    BlogAuthor,
+    BlogAuthor
   },
   props: {
-    tag: {
-      type: String,
-      required: false,
-      default: "",
-    },
-    slug: {
-      type: String,
-      required: false,
-      default: "",
-    },
+    post: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {
-      color: "",
+      color: ""
     };
   },
   created() {
@@ -84,9 +80,9 @@ export default {
   },
   methods: {
     getColor() {
-      return colors[this.tag.toLowerCase()];
-    },
-  },
+      return colors[this.post.primary_tag.name.toLowerCase()];
+    }
+  }
 };
 </script>
 
@@ -109,26 +105,26 @@ $accent-colors: (
 );
 
 .blog-card-featured-v2 {
-  &-container {
-    border-radius: var(--f-radius);
-    overflow: hidden;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-    height: 424px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--f-gutter);
+  max-width: 400px;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: var(--f-radius);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--f-gutter);
+  white-space: normal;
+  position: relative;
+  scroll-snap-align: center;
 
-    @include respond-to("<=s") {
-      min-height: auto;
-      width: 320px;
-    }
+  @include respond-to(">=s") {
+    min-height: 400px;
+  }
 
-    &:hover {
-      background: var(--color-neutral-dark-mode-04);
-    }
+  &:hover {
+    background: var(--color-neutral-dark-mode-04);
   }
 
   @each $name, $color in $accent-colors {
@@ -167,34 +163,6 @@ $accent-colors: (
         & a {
           color: var(--theme-fg);
         }
-      }
-    }
-  }
-
-  .blog-card-featured-v2__footer {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: left;
-    gap: var(--f-gutter);
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 100px;
-    }
-
-    @include respond-to("<=s") {
-      position: relative;
-    }
-
-    .author-info {
-      display: grid;
-
-      & div {
-        margin-bottom: 0;
-        font-size: 14px;
-        color: var(--color-neutral-dark-mode-05);
       }
     }
   }
