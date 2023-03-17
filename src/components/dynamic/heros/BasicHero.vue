@@ -11,8 +11,10 @@
 
 <script>
 import { sizes } from "@/utils";
+import DynamicBreadcrumb from "@/components/dynamic/basic/DynamicBreadcrumb.vue";
 
 export default {
+  components: { DynamicBreadcrumb },
   props: {
     image: {
       type: Object,

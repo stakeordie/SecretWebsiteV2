@@ -14,10 +14,9 @@
       </block>
     </column>
     <!-- Swirl bottom -->
-    <column class="orange__swirl__bottom" mode="full">
+    <column class="orange-swirl-bottom" mode="full">
       <block>
         <img
-          class="get-scrt__align-img"
           src="/img/icons/swirl-orange-bottom.svg"
           alt="Orange swirl bottom graphic"
           loading="lazy"
@@ -230,8 +229,27 @@ query {
     padding-bottom: 64px;
   }
 
-  .--flare.--flare-page{
+  .--flare.--flare-page {
     padding-top: 0;
+  }
+
+  .orange-swirl-bottom {
+    .content .box {
+      padding: 0;
+      height: 166px;
+      position: relative;
+
+      img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
   }
 }
 </style>

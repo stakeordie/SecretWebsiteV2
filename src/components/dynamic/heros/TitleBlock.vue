@@ -135,7 +135,7 @@ export default {
   }
 
   &.background-full {
-    height: calc(100vh - var(--header-height, 0px));
+    height: calc(100vh - var(--all-headers-height, 0px));
   }
 
   .hero-content {
