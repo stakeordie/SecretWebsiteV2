@@ -31,7 +31,6 @@ export default {
   },
   computed: {
     imagePosition() {
-      console.log(this.data);
       const positions = {
         left: "image-left",
         top: "image-top"

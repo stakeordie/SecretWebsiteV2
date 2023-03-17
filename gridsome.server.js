@@ -194,6 +194,13 @@ module.exports = function (api) {
           });
           page.currentComponents.sort((a, b) => a.order - b.order);
           console.log("Creating a page with the route: ", page.route);
+
+          const display = {
+            navigation: page.hasOwnProperty("display_navigation") ? page.display_navigation : true,
+            alertBar: page.hasOwnProperty("display_alert_bar") ? page.display_alert_bar : true,
+            footer: page.hasOwnProperty("display_footer") ? page.display_footer : true,
+          }
+
           createPage({
             path: page.route,
             component: `./src/templates/${template}.vue`,
@@ -203,7 +210,7 @@ module.exports = function (api) {
               heroComponent: page.heroComponent || {},
               swirls: page.swirls || {},
               backgroundColor: page.background_color || "",
-              displayNavigation: page.display_navigation || false,
+              display,
             },
           });
         });

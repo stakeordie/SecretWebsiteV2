@@ -1,11 +1,11 @@
 <template>
-  <default-layout class="learn-subpage">
-    <column class="comp-name__dynamic-breadcrumb">
-      <block>
-        <dynamic-breadcrumb :route="$context.route" />
-      </block>
-    </column>
-    <column
+  <DefaultLayout class="learn-subpage">
+    <Column class="comp-name__dynamic-breadcrumb">
+      <Block>
+        <DynamicBreadcrumb :route="$context.route" />
+      </Block>
+    </Column>
+    <Column
       class="bg-black-gradient learn-subpage__content"
       :class="[
         component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
@@ -20,26 +20,23 @@
       v-for="(component, index) in $context.components"
       :key="index"
     >
-      <block class="">
-        <!-- <h6>{{component}}</h6> -->
+      <Block class="">
         <component :is="component.comp_name" v-bind="component">
           {{ component.content ? component.content : "" }}
         </component>
-      </block>
-    </column>
+      </Block>
+    </Column>
 
-    <!-- Swirl bottom -->
-    <column class="orange__swirl__bottom" mode="full">
-      <block>
+    <Column class="orange-swirl-bottom" mode="full">
+      <Block>
         <img
-          class="get-scrt__align-img"
           src="/img/icons/swirl-orange-bottom.svg"
           alt="Orange swirl bottom graphic"
           loading="lazy"
         />
-      </block>
-    </column>
-  </default-layout>
+      </Block>
+    </Column>
+  </DefaultLayout>
 </template>
 
 <script>
@@ -54,6 +51,8 @@ import LearnHeader from "@/components/dynamic/heros/LearnHeader.vue";
 import OptionalCalloutBox from "@/components/dynamic/callout/OptionalCalloutBox.vue";
 import Callout from "@/components/dynamic/callout/Callout.vue";
 import CtaGrid from "@/components/dynamic/callout/CtaGrid.vue";
+import DynamicBreadcrumb from "@/components/dynamic/basic/DynamicBreadcrumb.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 export default {
   components: {
@@ -61,7 +60,9 @@ export default {
     LearnHeader,
     OptionalCalloutBox,
     Callout,
-    CtaGrid
+    CtaGrid,
+    DynamicBreadcrumb,
+    DefaultLayout
   },
   metaInfo() {
     return {
@@ -241,8 +242,27 @@ query {
     padding-bottom: 64px;
   }
 
-  .--flare.--flare-page{
+  .--flare.--flare-page {
     padding-top: 0;
+  }
+
+  .orange-swirl-bottom {
+    .content .box {
+      padding: 0;
+      height: 166px;
+      position: relative;
+
+      img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
   }
 }
 </style>

@@ -37,10 +37,15 @@ export default {
       const header = document.querySelector(".mega-header");
       const alertBar = document.querySelector(".alert-bar");
       const alertHeight = Number(alertBar?.offsetHeight || 0);
-      const headerHeight = Number(alertHeight + header?.offsetHeight || 0);
+      const headerHeight = Number(header?.offsetHeight || 0);
+      const allHeaderHeight = Number(alertHeight + header?.offsetHeight || 0);
 
       document.body.style.setProperty("--ab-height", `${alertHeight}px`);
       document.body.style.setProperty("--header-height", `${headerHeight}px`);
+      document.body.style.setProperty(
+        "--all-headers-height",
+        `${allHeaderHeight}px`
+      );
     }
   },
   computed: {

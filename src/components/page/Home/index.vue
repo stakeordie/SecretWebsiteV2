@@ -56,7 +56,7 @@
     <!-- Blog cards -->
     <column class=" new-home__bg">
       <block>
-        <new-blog-latest-posts class="latest-blog-cards" />
+        <new-blog-posts class="latest-blog-cards" />
       </block>
     </column>
 
@@ -95,9 +95,9 @@ import NewHomeCallAction from "@/components/page/Home/NewHomeCallAction.vue";
 import NewHomeMission from "@/components/page/Home/NewHomeMission.vue";
 import NewHomeAnnouncement from "@/components/page/Home/NewHomeAnnouncement.vue";
 import NewMediaFeaturedHomeV2 from "@/components/cards/NewMediaFeaturedHomeV2.vue";
-import NewBlogLatestPosts from "@/components/blog/NewBlogLatestPosts.vue";
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 import DevelopersCoolStuff from "@/components/cards/DevelopersCoolStuff.vue";
+import NewBlogPosts from "@/components/blog/NewBlogPosts.vue";
 
 export default {
   components: {
@@ -107,9 +107,9 @@ export default {
     NewHomeMission,
     NewHomeAnnouncement,
     NewMediaFeaturedHomeV2,
-    NewBlogLatestPosts,
     ScrollHorizontal,
-    DevelopersCoolStuff
+    DevelopersCoolStuff,
+    NewBlogPosts
   }
 };
 </script>
