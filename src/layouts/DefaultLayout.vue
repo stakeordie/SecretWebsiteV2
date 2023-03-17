@@ -87,7 +87,7 @@ export default {
       this.isNavOpen = false;
     },
     $route: {
-      handler(to, from) {
+      handler(to) {
         addScrollSmooth(to);
         this.checker();
         this.removeBottomSwirl();
@@ -98,16 +98,17 @@ export default {
   },
   methods: {
     removeBottomSwirl() {
-      if (process.isClient) {
-        const path = window.location.pathname;
-        const simpleFooter = document.querySelector(".simple-footer");
-        if (path.includes("/ecosystem/ecosystem-roadmap")) {
-          this.swirlBottomIsVisible = false;
-          simpleFooter.classList.add("swirlIsOff");
-        } else {
-          this.swirlBottomIsVisible = true;
-          simpleFooter.classList.remove("swirlIsOff");
-        }
+      if (!process.isClient || !this.showFooter) return;
+
+      const path = window.location.pathname;
+      const simpleFooter = document.querySelector(".simple-footer");
+
+      if (path.includes("/ecosystem/ecosystem-roadmap")) {
+        this.swirlBottomIsVisible = false;
+        simpleFooter.classList.add("swirlIsOff");
+      } else {
+        this.swirlBottomIsVisible = true;
+        simpleFooter.classList.remove("swirlIsOff");
       }
     },
     checker() {
@@ -137,7 +138,6 @@ export default {
     }
   },
   mounted() {
-    this.isNavOpen = false;
     this.toggleNavOpen();
     this.setInitialTheme();
     this.checker();
