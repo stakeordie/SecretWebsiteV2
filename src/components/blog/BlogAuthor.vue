@@ -102,7 +102,7 @@ export default {
       span {
         text-align: left;
         font-family: var(--f-default-text-font);
-        line-height: var(--f-paragraph-line-height);
+        line-height: 20px;
         margin: 0;
         font-size: 14px;
         color: var(--color-neutral-dark-mode-05);
