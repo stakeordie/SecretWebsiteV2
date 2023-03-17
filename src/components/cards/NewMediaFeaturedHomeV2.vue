@@ -2,7 +2,7 @@
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
       <h5 class="featured-media-header__title">Other MEDIA</h5>
-      <div class="new-blog-grid__title-btns">
+      <div class="featured-media-header__btns">
         <btn
           class="link-arrow"
           style="justify-content: right"
@@ -33,13 +33,13 @@ export default {
   props: {
     url: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
 
   data() {
     return {
-      mediaItems: [],
+      mediaItems: []
     };
   },
 
@@ -59,7 +59,7 @@ export default {
 
     onFilterApplied(filters) {
       this.appliedFilters = filters;
-    },
+    }
   },
 
   computed: {
@@ -69,11 +69,11 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image,
+          picture: it.cover_image
         };
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -84,6 +84,9 @@ export default {
 $accent-colors: (Article, Podcast, Video);
 
 .new-media-featured-home-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   @include respond-to("<=s") {
     padding: var(--f-gutter);
   }
@@ -95,6 +98,7 @@ $accent-colors: (Article, Podcast, Video);
     &__title {
       color: var(--color-neutral-dark-mode-05);
       text-transform: uppercase;
+      margin: 0;
     }
 
     &__btns {
@@ -102,12 +106,17 @@ $accent-colors: (Article, Podcast, Video);
         display: flex;
       }
 
-      & a {
+      .btn {
         font-family: hind;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 1px;
+        padding: 0;
         cursor: pointer;
+
+        span {
+          transition: 0.2s ease-in-out;
+        }
 
         &:hover {
           & span {
@@ -120,15 +129,14 @@ $accent-colors: (Article, Podcast, Video);
 
   .items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: var(--f-gutter-l);
 
-    @include respond-to("<=s") {
-      grid-template-columns: 1fr;
+    @include respond-to(">=s") {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    @include respond-to("m") {
-      gap: var(--f-gutter-s);
+    @include respond-to(">=l") {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .item {
