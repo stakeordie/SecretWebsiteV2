@@ -1,8 +1,8 @@
 <template>
   <SimpleLayout>
-    <template #header v-if="!hideHeader">
-      <AlertBar />
-      <HeaderMegaMenuV2 />
+    <template #header v-if="showHeader || showAlertBar">
+      <AlertBar v-if="showAlertBar" />
+      <HeaderMegaMenuV2 v-if="showHeader" />
     </template>
 
     <SwirlTop :swirlSpecial="swirlSpecial" />
@@ -15,7 +15,7 @@
     />
     <CookiesAlertBar />
 
-    <template #footer>
+    <template #footer v-if="showFooter">
       <SimpleFooter :class="swirlBottomIsVisible" mode="full">
         <FooterMenu />
         <FooterContact />
@@ -63,9 +63,20 @@ export default {
     };
   },
   props: {
-    hideHeader: {
+    showHeader: {
       type: Boolean,
-      required: false
+      required: false,
+      default: true
+    },
+    showAlertBar: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    showFooter: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   watch: {
@@ -111,33 +122,12 @@ export default {
         document.body.classList.remove("modal-open");
       }
     },
-    toggleNav() {
-      this.isNavOpen = !this.isNavOpen;
-    },
-    toggleDarkLightMode() {
-      this.darkLightModeState = !this.darkLightModeState;
-      this.setTheme();
-    },
-    toggleColoredMode() {
-      this.coloredModeState = !this.coloredModeState;
-      this.setTheme();
-    },
     //* SET INITIAL THEME
     setInitialTheme() {
       let theme = `dark-colored`;
       this.setBodyAttr(theme);
       if (process.isClient) {
         localStorage.setItem("theme", theme);
-      }
-    },
-    setTheme() {
-      let themeSwitched;
-      const colorMode = this.coloredModeState ? "" : "-colored";
-      const darkLightMode = this.darkLightModeState ? "light" : "dark";
-      themeSwitched = `${darkLightMode}${colorMode}`;
-      this.setBodyAttr(themeSwitched);
-      if (process.isClient) {
-        localStorage.setItem("theme", themeSwitched);
       }
     },
     setBodyAttr(theme) {
