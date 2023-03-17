@@ -157,7 +157,7 @@ export default {
     padding: 0 16px;
 
     &.background-full {
-      min-height: calc(100vh - var(--header-height, 0px));
+      min-height: calc(100vh - var(--all-headers-height, 0px));
     }
 
     .background-image {

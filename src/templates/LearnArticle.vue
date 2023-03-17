@@ -1,8 +1,10 @@
 <template>
   <DefaultLayout
     class="learn-article"
-    :style="pageBackground"
-    :hideHeader="hideHeader"
+    :style="[pageBackground, topMargin]"
+    :showHeader="$context.display.navigation"
+    :showAlertBar="$context.display.alertBar"
+    :showFooter="$context.display.footer"
   >
     <Column mode="full" class="learn-article__wrapper">
       <Block>
@@ -48,6 +50,7 @@
 </template>
 
 <script>
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import NavMenu from "@/components/dynamic/basic/NavMenu.vue";
 import Carousel from "@/components/dynamic/carousel/Carousel.vue";
 //heros
@@ -99,7 +102,8 @@ export default {
     ThreeColumnResource,
     Grid,
     Swirl,
-    CustomCarousel
+    CustomCarousel,
+    DefaultLayout
   },
   metaInfo() {
     return {
@@ -212,8 +216,14 @@ export default {
         "--bg-dynamic-page": color
       };
     },
-    hideHeader(){
-      return !this.$context.displayNavigation;
+    topMargin() {
+      const { navigation, alertBar } = this.$context.display;
+      const alertBarValue = "var(--ab-height)";
+      const headerValue = "var(--header-height, 68px)";
+      const value = navigation ? headerValue : alertBar ? alertBarValue : "0px";
+      return {
+        "--dynamic-top-margin": value
+      };
     }
   },
   mounted() {
@@ -264,7 +274,7 @@ query {
   --p-large: 96px;
 
   &__wrapper {
-    margin-top: 68px;
+    margin-top: var(--dynamic-top-margin, 0px);
 
     & > .--flare-block > .content > .box {
       padding: 0;

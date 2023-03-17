@@ -29,15 +29,6 @@ if (isI18nEnabled) {
   optionalPlugins.push(i18nPlugin);
 }
 
-function addStyleResource(rule) {
-  rule
-    .use("style-resource")
-    .loader("style-resources-loader")
-    .options({
-      patterns: [path.resolve(__dirname, "./src/sass/docs/config/*.scss")],
-    });
-}
-
 module.exports = {
   siteName: "Secret Network",
   siteUrl: "http://scrt.network/",
@@ -108,17 +99,7 @@ module.exports = {
           "developer-pathway", //
           "scrt-buying-option", //
         ],
-        localizedTypes: [
-          /*//complex types
-                //'nav-header' - Middlewear
-                //content-types,
-                'nav-item',
-                'home-cta-cards',
-                //single-types
-                'alert-bar',
-                'home-hero',
-                'home-explainer',*/
-        ],
+        localizedTypes: [],
         singleTypes: [
           "alert-bar",
           "home-announcement",

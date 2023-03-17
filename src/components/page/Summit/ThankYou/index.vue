@@ -65,8 +65,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - var(--header-height, 0px));
-    margin-top: calc(var(--headerHeight) - 40px);
+    height: calc(100vh - var(--all-headers-height, 0px));
+    margin-top: calc(var(--all-headers-height) - 40px);
     left: 0;
     right: 0;
     bottom: 0;
@@ -87,14 +87,14 @@ export default {
     @include respond-to(">=l") {
       background: url("/img/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
-      padding-top: calc(var(--header-height));
+      padding-top: calc(var(--all-headers-height));
       padding-bottom: 50px;
       @include bgSpecs();
     }
     @include respond-to(">=xl") {
       background: url("/img/events/summit/secret-summit-graphic-3.svg");
       overflow-y: auto;
-      padding-top: calc(var(--header-height));
+      padding-top: calc(var(--all-headers-height));
       padding-bottom: 50px;
       @include bgSpecs();
     }
