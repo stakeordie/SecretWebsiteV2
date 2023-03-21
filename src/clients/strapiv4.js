@@ -1,5 +1,4 @@
 const axios = require("axios");
-
 const apiUrl = process.env.GRIDSOME_STRAPI_URL;
 
 const managePromise = (promise) => {
@@ -12,16 +11,13 @@ const managePromise = (promise) => {
   });
 };
 
-let res;
-
 module.exports = {
   allStrapiDynamicPage() {
-    return managePromise(
-      axios.get(`${apiUrl}/api/dynamic-page-sets?populate=deep`)
-    );
+    const url = `${apiUrl}/api/dynamic-page-sets?populate=deep`;
+    return managePromise(axios.get(url));
   },
   getDynamicPage(name) {
-    res = managePromise(axios.get(`${apiUrl}/api/${name}?populate=deep`));
-    return res;
+    const url = `${apiUrl}/api/${name}?populate=deep&pagination[limit]=-1`
+    return managePromise(axios.get(url));
   },
 };

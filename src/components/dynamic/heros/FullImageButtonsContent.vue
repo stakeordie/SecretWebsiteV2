@@ -1,64 +1,63 @@
 <template>
-  <column mode="full" class="full-image-buttons-content-hero">
-    <block>
-      <section
-        class="hero-wrapper"
-        :class="[imageHeight, paddingTop, paddingBottom]"
-      >
-        <ResponsiveImage
-          v-if="image"
-          classes="background-image"
-          :imageClass="imagePosition"
-          :src="image"
-          high-quality
-        />
-        <div class="content-hero">
-          <h4
-            v-if="content.eyebrow_title"
-            class="content-hero__eyebrow"
-            :class="titlePosition"
-            :style="eyebrowColor"
-          >
-            {{ content.eyebrow_title }}
-          </h4>
-          <component
-            v-if="content.title && !content.custom_title"
-            class="content-hero__title"
-            :is="defaultTitle"
-            :class="[titlePosition, titleWeight]"
-          >
-            {{ content.title }}
-          </component>
-          <VueMarkdown
-            v-else-if="content.custom_title"
-            class="content-hero__custom-title"
-            :class="titlePosition"
-            :source="content.custom_title"
+  <Column mode="full">
+    <Block>
+      <div class="full-image-hero">
+        <section class="hero-wrapper" :class="containerStyles">
+          <ResponsiveImage
+            v-if="image"
+            :imageClass="imagePosition"
+            :src="image"
+            high-quality
           />
-          <DynamicBody
-            v-if="content.body"
-            class="content-hero__body"
-            :text="content.body"
-            :align="sizes.body_alignment"
-          />
-          <DynamicButtons :buttons="buttons" />
-        </div>
-      </section>
-    </block>
-  </column>
+          <div class="content-hero">
+            <DynamicEyebrowTitle
+              v-if="content.eyebrow_title"
+              :title="content.eyebrow_title"
+              :alignment="sizes.title_alignment"
+              :color="content.eyebrow_color"
+            />
+            <DynamicTitle
+              v-if="content.title && !content.custom_title"
+              :title="content.title"
+              :weight="sizes.title_weight"
+              :alignment="sizes.title_alignment"
+            />
+            <DynamicCustomTitle
+              v-else-if="content.custom_title"
+              :content="content"
+              :sizes="sizes"
+            />
+            <DynamicBody
+              v-if="content.body"
+              :text="content.body"
+              :align="sizes.body_alignment"
+            />
+            <DynamicButtons v-if="buttons" :buttons="buttons" />
+          </div>
+        </section>
+      </div>
+    </Block>
+  </Column>
 </template>
 
 <script>
 import { sizes } from "@/utils";
 import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
+import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
+import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 
 export default {
-  components: { DynamicButtons, DynamicBody },
+  components: {
+    DynamicButtons,
+    DynamicBody,
+    DynamicEyebrowTitle,
+    DynamicTitle
+  },
   props: {
     image: {
       type: Object,
-      required: true
+      required: false
     },
     image_position: {
       type: String,
@@ -78,49 +77,20 @@ export default {
     },
     buttons: {
       type: Array,
-      required: true
+      required: false
     }
   },
   computed: {
-    imageHeight() {
-      return this.hero_height === "full-screen" ? "background-full" : "";
-    },
-    defaultTitle() {
-      const weight = this.sizes.title_weight;
-      if (!weight || weight === "") {
-        return "H1";
-      } else if (weight === "H2.5") {
-        return "H2";
-      } else {
-        return weight;
-      }
-    },
-    titleWeight() {
-      return this.sizes.title_weight === "H2.5" ? "title-25" : "";
-    },
-    titlePosition() {
-      const textPositions = {
-        left: "text-left",
-        center: "text-center",
-        right: "text-right"
-      };
-      const position = textPositions[this.sizes.title_alignment];
-      return position ? position : textPositions.center;
-    },
-    paddingTop() {
-      const size = sizes[this.sizes.padding_top];
-      return size ? `${size}-top` : "none-top";
-    },
-    paddingBottom() {
-      const size = sizes[this.sizes.padding_bottom];
-      return size ? `${size}-bottom` : "small-bottom";
-    },
-    eyebrowColor() {
-      const color = this.content.eyebrow_color;
-      const defaultColor = "var(--color-ver2-primary-orange)";
-      return {
-        color: color ? color : defaultColor
-      };
+    containerStyles() {
+      const paddingTop = sizes[this.sizes.padding_top];
+      const paddingBottom = sizes[this.sizes.padding_bottom];
+      const isFullImage = this.hero_height === "full-screen";
+
+      return [
+        `${paddingTop || sizes.none}-top`,
+        `${paddingBottom || sizes.small}-bottom`,
+        { "background-full": isFullImage }
+      ];
     },
     imagePosition() {
       const imagePositions = {
@@ -130,22 +100,15 @@ export default {
         full: "image-full"
       };
       const position = imagePositions[this.image_position];
-      return position ? position : imagePositions.right;
+      return position || imagePositions.right;
     }
   }
 };
 </script>
 
-<style lang="scss">
-@import "@lkmx/flare/src/functions/_respond-to.scss";
-
-.full-image-buttons-content-hero {
-  margin-bottom: 32px;
+<style lang="scss" scoped>
+.full-image-hero {
   background-color: var(--color-neutral-dark-mode-01);
-
-  .content .box {
-    padding: 0;
-  }
 
   .hero-wrapper {
     display: grid;
@@ -154,43 +117,11 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
-    padding: 0 16px;
+    min-height: 572px;
+    padding-inline: 16px;
 
     &.background-full {
       min-height: calc(100vh - var(--all-headers-height, 0px));
-    }
-
-    .background-image {
-      position: absolute;
-      z-index: 0;
-      height: 100%;
-      width: 100%;
-      user-select: none;
-
-      img {
-        opacity: 0.3;
-        user-select: none;
-        object-fit: contain;
-        height: 100%;
-        width: 100%;
-
-        &.image-left {
-          object-position: left;
-        }
-
-        &.image-center {
-          object-position: center;
-        }
-
-        &.image-right {
-          object-position: right;
-        }
-
-        &.image-full {
-          object-fit: cover;
-          object-position: center;
-        }
-      }
     }
 
     .content-hero {
@@ -201,71 +132,59 @@ export default {
       z-index: 1;
       gap: 16px;
       max-width: 700px;
+    }
+  }
+}
 
-      @mixin max-title-size {
-        width: 100%;
-        max-width: 700px;
+::v-deep {
+  .content > .box {
+    padding: 0;
+  }
+
+  .responsive-image {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+
+    img {
+      opacity: 0.3;
+      user-select: none;
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+
+      &.image-left {
+        object-position: left;
       }
-
-      @mixin max-content-size {
-        width: 100%;
-        max-width: 600px;
+      &.image-center {
+        object-position: center;
       }
-
-      .text {
-        &-25:is(h2) {
-          font-size: var(--f-h2_5-text-size);
-          line-height: var(--f-h2_5-line-height);
-        }
-
-        &-left {
-          text-align: left;
-        }
-
-        &-center {
-          text-align: center;
-        }
-
-        &-right {
-          text-align: right;
-        }
+      &.image-right {
+        object-position: right;
       }
-
-      &__eyebrow {
-        font-family: "Montserrat";
-        font-weight: 500;
-        text-transform: uppercase;
-        color: rgb(148, 164, 184);
-        width: 100%;
-        margin: 0;
-      }
-
-      &__title {
-        width: 100%;
-        margin: 0;
-      }
-
-      &__custom-title {
-        width: 100%;
-
-        * {
-          font-family: "Montserrat";
-          margin: 0;
-        }
-        strong {
-          color: var(--color-newBrand-blue-02);
-        }
-      }
-
-      &__body {
-        @include max-content-size();
-
-        p {
-          font-size: var(--paragraph-font-size-big);
-          line-height: var(--paragraph-line-height-big);
-        }
+      &.image-full {
+        object-fit: cover;
+        object-position: center;
       }
     }
+  }
+
+  .dynamic-eyebrow-title,
+  .dynamic-title,
+  .dynamic-custom-title {
+    font-family: "Hind";
+    margin: 0;
+  }
+
+  .dynamic-eyebrow-title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .dynamic-body :last-child {
+    margin: 0;
   }
 }
 </style>
