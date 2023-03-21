@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import mailchimp from "@/apis/mailchimp";
+import mailchimp from "@/clients/mailchimp";
 import md5 from "md5";
 
 export default {

@@ -1,4 +1,4 @@
-const client = require("./src/apis/strapiv4");
+const client = require("./src/clients/strapiv4");
 const pluralize = require("pluralize");
 
 // Server API makes it possible to hook into various parts of Gridsome
