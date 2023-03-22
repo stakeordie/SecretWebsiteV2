@@ -141,47 +141,55 @@
                     >-
                     <hr />
                   </span>
-                  <div
-                    class="nav__expanded__content__container"
+                  <template
                     v-for="(secItem, indexItem) in sec.sub_category_nav_item"
-                    :key="indexItem"
                   >
-                    <g-link
-                      v-if="secItem.nav_item.display_on_header"
-                      :to="
-                        secItem.nav_item.page
-                          ? secItem.nav_item.page.route
-                          : secItem.nav_item.external_link
-                      "
+                    <div
+                      v-if="secItem.nav_item"
+                      class="nav__expanded__content__container"
+                      :key="indexItem"
                     >
-                      <div
-                        @click="linkCloseMenu"
-                        class="nav__expanded__content__item__desc"
+                      <g-link
+                        v-if="secItem.nav_item.display_on_header"
+                        :to="
+                          secItem.nav_item.page
+                            ? secItem.nav_item.page.route
+                            : secItem.nav_item.external_link
+                        "
                       >
-                        <div class="nav__expanded__content__item__img">
-                          <ResponsiveImage
-                            v-if="secItem.nav_item.icon"
-                            :src="secItem.nav_item.icon"
-                          />
-                          <img v-else src="/img/icons/badge-black.svg" alt="" />
-                        </div>
                         <div
-                          class="nav__expanded__content__item__textcontainer"
+                          @click="linkCloseMenu"
+                          class="nav__expanded__content__item__desc"
                         >
-                          <div
-                            class="nav__expanded__content__item__desc__title"
-                          >
-                            <span>{{ secItem.nav_item.text }}</span>
+                          <div class="nav__expanded__content__item__img">
+                            <ResponsiveImage
+                              v-if="secItem.nav_item.icon"
+                              :src="secItem.nav_item.icon"
+                            />
+                            <img
+                              v-else
+                              src="/img/icons/badge-black.svg"
+                              alt=""
+                            />
                           </div>
                           <div
-                            class="nav__expanded__content__item__desc__descr"
+                            class="nav__expanded__content__item__textcontainer"
                           >
-                            <span>{{ secItem.nav_item.description }}</span>
+                            <div
+                              class="nav__expanded__content__item__desc__title"
+                            >
+                              <span>{{ secItem.nav_item.text }}</span>
+                            </div>
+                            <div
+                              class="nav__expanded__content__item__desc__descr"
+                            >
+                              <span>{{ secItem.nav_item.description }}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </g-link>
-                  </div>
+                      </g-link>
+                    </div>
+                  </template>
                 </div>
               </li>
             </ul>

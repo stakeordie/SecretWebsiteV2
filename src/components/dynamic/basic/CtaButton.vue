@@ -1,6 +1,7 @@
 <template>
   <div class="cta-button" :style="buttonStyles">
     <a
+      v-if="!is_event_button"
       class="button"
       :class="margins"
       :href="url"
@@ -12,11 +13,19 @@
         {{ title }}
       </span>
     </a>
+    <ClientOnly v-else>
+      <button :id="buttonId" class="button">
+        <ResponsiveImage v-if="icon" :src="icon" class="button__icon" />
+        <span class="button__text">
+          {{ title }}
+        </span>
+      </button>
+    </ClientOnly>
   </div>
 </template>
 
 <script>
-import { sizes } from "@/utils";
+import { generateUUID, sizes } from "@/utils";
 
 export default {
   props: {
@@ -54,9 +63,23 @@ export default {
     },
     is_external_link: {
       type: Boolean,
-      required: false,
+      required: true,
       default: false
+    },
+    is_event_button: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    event_id: {
+      type: String,
+      required: false
     }
+  },
+  data() {
+    return {
+      buttonId: generateUUID()
+    };
   },
   computed: {
     buttonStyles() {
@@ -83,6 +106,46 @@ export default {
       const bottom = sizes[this.margin_bottom] || sizes.none;
       return [`m-${top}-top`, `m-${bottom}-bottom`];
     }
+  },
+  methods: {
+    addEventScript() {
+      if (!process.isClient || !this.is_event_button) return;
+
+      //Imports the Eventbrite widget into a script tag only if needed
+      const eventbrite = document.createElement("script");
+      eventbrite.type = "text/javascript";
+      eventbrite.src =
+        "https://www.eventbrite.com/static/widgets/eb_widgets.js";
+      document.head.appendChild(eventbrite);
+
+      //Open the Eventbrite modal widget
+      setTimeout(() => {
+        let clientId;
+        const scrtDomain = "https://scrt.network";
+        const isHttp = String(this.url).startsWith("http");
+        const redirectUrl = isHttp ? this.url : scrtDomain + this.url;
+
+        const exampleCallback = () => {
+          setTimeout(() => window.open(redirectUrl, "_self"), 500);
+        };
+
+        ga(tracker => {
+          clientId = tracker.get("clientId");
+        });
+
+        window.EBWidgets.createWidget({
+          widgetType: "checkout",
+          eventId: this.event_id || "",
+          googleAnalyticsClientId: clientId,
+          modal: true,
+          modalTriggerElementId: this.buttonId,
+          onOrderComplete: exampleCallback
+        });
+      }, 500);
+    }
+  },
+  mounted() {
+    this.addEventScript();
   }
 };
 </script>
@@ -126,6 +189,7 @@ export default {
       transition: 0.3s ease-in;
       color: var(--text-color);
       text-transform: uppercase;
+      font-family: "Hind";
       font-weight: 600;
       letter-spacing: 1px;
       font-size: 16px;
