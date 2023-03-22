@@ -1,11 +1,8 @@
 <template>
-  <column mode="full">
-    <block>
+  <Column mode="full">
+    <Block>
       <div class="full-image-content-hero">
-        <section
-          class="hero-wrapper"
-          :class="[imageHeight, paddingTop, paddingBottom]"
-        >
+        <section class="hero-wrapper" :class="containerStyles">
           <ResponsiveImage
             v-if="image"
             :imageClass="imagePosition"
@@ -38,8 +35,8 @@
           </div>
         </section>
       </div>
-    </block>
-  </column>
+    </Block>
+  </Column>
 </template>
 
 <script>
@@ -59,7 +56,7 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true
+      required: false
     },
     image_position: {
       type: String,
@@ -79,16 +76,16 @@ export default {
     }
   },
   computed: {
-    imageHeight() {
-      return this.hero_height === "full-screen" ? "background-full" : "";
-    },
-    paddingTop() {
-      const size = sizes[this.sizes.padding_top];
-      return size ? `${size}-top` : `${sizes.none}-top`;
-    },
-    paddingBottom() {
-      const size = sizes[this.sizes.padding_bottom];
-      return size ? `${size}-bottom` : `${sizes.small}-bottom`;
+    containerStyles() {
+      const paddingTop = sizes[this.sizes.padding_top];
+      const paddingBottom = sizes[this.sizes.padding_bottom];
+      const isFullImage = this.hero_height === "full-screen";
+
+      return [
+        `${paddingTop || sizes.none}-top`,
+        `${paddingBottom || sizes.small}-bottom`,
+        { "background-full": isFullImage }
+      ];
     },
     imagePosition() {
       const imagePositions = {
@@ -98,15 +95,13 @@ export default {
         full: "image-full"
       };
       const position = imagePositions[this.image_position];
-      return position ? position : imagePositions.right;
+      return position || imagePositions.right;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "@lkmx/flare/src/functions/_respond-to.scss";
-
 .full-image-content-hero {
   background-color: #11151a;
 
@@ -118,7 +113,7 @@ export default {
     height: 100%;
     width: 100%;
     min-height: 572px;
-    padding: 0 16px;
+    padding-inline: 16px;
 
     &.background-full {
       min-height: calc(100vh - var(--all-headers-height, 0px));
