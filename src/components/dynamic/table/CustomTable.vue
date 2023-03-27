@@ -1,5 +1,5 @@
 <template>
-  <div class="dynamic-table" :class="containerStyles" v-if="table">
+  <div :class="containerStyles" v-if="table">
     <table>
       <thead>
         <tr>
@@ -117,99 +117,97 @@ export default {
 <style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/respond-to";
 
-.dynamic-table {
-  table {
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    background: var(--color-neutral-dark-mode-04);
+table {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  background: var(--color-neutral-dark-mode-04);
 
-    thead {
-      background: var(--color-neutral-dark-mode-03);
-      display: none;
+  > thead {
+    background: var(--color-neutral-dark-mode-03);
+    display: none;
 
-      @include respond-to(">=m") {
-        display: table-header-group;
-      }
-
-      th {
-        padding: var(--f-gutter) var(--f-gutter-l);
-        text-align: left;
-        font-weight: var(--text-weight);
-        color: var(--headers-color);
-      }
+    @include respond-to(">=m") {
+      display: table-header-group;
     }
 
-    tbody {
-      tr {
-        display: grid;
-        width: 100%;
+    th {
+      padding: var(--f-gutter) var(--f-gutter-l);
+      text-align: left;
+      font-weight: var(--text-weight);
+      color: var(--headers-color);
+    }
+  }
 
-        &:not(:first-child) {
-          border-top: 1px solid var(--color-analog-secondary-gray);
-        }
+  > tbody {
+    > tr {
+      display: grid;
+      width: 100%;
+
+      &:not(:first-child) {
+        border-top: 1px solid var(--color-analog-secondary-gray);
+      }
+
+      @include respond-to(">=m") {
+        display: table-row;
+      }
+
+      > td {
+        padding: var(--f-gutter) var(--f-gutter-l);
+        vertical-align: middle;
+        text-align: var(--text-alignment);
 
         @include respond-to(">=m") {
-          display: table-row;
+          max-width: 300px;
         }
 
-        td {
-          padding: var(--f-gutter) var(--f-gutter-l);
-          vertical-align: middle;
-          text-align: var(--text-alignment);
+        .header {
+          font-size: 12px;
+          font-weight: 100;
+          text-transform: none;
+          color: var(--color-neutral-dark-mode-05);
+          margin: 0;
 
           @include respond-to(">=m") {
-            max-width: 300px;
+            display: none;
+          }
+        }
+
+        .cell {
+          display: grid;
+          gap: 16px;
+
+          &.has-image {
+            grid-template-columns: 42px 1fr;
           }
 
-          .header {
-            font-size: 12px;
-            font-weight: 100;
-            text-transform: none;
-            color: var(--color-neutral-dark-mode-05);
-            margin: 0;
+          .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-            @include respond-to(">=m") {
-              display: none;
-            }
-          }
+            &__text {
+              font-size: 16px;
+              font-weight: 600;
+              margin-bottom: 0;
+              color: var(--text-color);
 
-          .cell {
-            display: grid;
-            gap: 16px;
-
-            &.has-image {
-              grid-template-columns: 42px 1fr;
-            }
-
-            .info {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-
-              &__text {
-                font-size: 16px;
-                font-weight: 600;
-                margin-bottom: 0;
-                color: var(--text-color);
-
-                &:is(a) {
-                  color: var(--color-analog-tertiary-blue);
-                }
+              &:is(a) {
+                color: var(--color-analog-tertiary-blue);
               }
+            }
 
-              &__secondary-text {
-                font-size: 12px;
-                font-weight: 400;
-                margin-bottom: 0;
-                font-family: var(--f-default-text-font);
-                line-height: 16px;
-                color: var(--color-neutral-dark-mode-05);
+            &__secondary-text {
+              font-size: 12px;
+              font-weight: 400;
+              margin-bottom: 0;
+              font-family: var(--f-default-text-font);
+              line-height: 16px;
+              color: var(--color-neutral-dark-mode-05);
 
-                &:is(a) {
-                  color: var(--color-analog-tertiary-blue);
-                  overflow-wrap: break-word;
-                }
+              &:is(a) {
+                color: var(--color-analog-tertiary-blue);
+                overflow-wrap: break-word;
               }
             }
           }
