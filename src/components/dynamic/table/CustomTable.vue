@@ -21,7 +21,9 @@
           >
             <span class="header">{{ tableHeaders[index].name }}</span>
             <div class="cell" :class="{ 'has-image': item.image }">
-              <ResponsiveImage v-if="item.image" :src="item.image" />
+              <div class="image" v-if="item.image">
+                <ResponsiveImage :src="item.image" />
+              </div>
               <div class="info" v-if="item.value || item.second_value">
                 <CardWrapper
                   v-if="item.value"
@@ -70,6 +72,14 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      weights: {
+        normal: 600,
+        bold: 700
+      }
+    };
+  },
   computed: {
     tableHeaders() {
       return this.table.table_headers;
@@ -87,17 +97,17 @@ export default {
   methods: {
     headerStyles({ text_weight = "normal", text_color = "" }) {
       const defaultColor = "var(--color-neutral-dark-mode-05)";
-      const weights = {
-        normal: 600,
-        bold: 700
-      };
 
       return {
-        "--text-weight": weights[text_weight] || weights.normal,
+        "--headers-weight": this.weights[text_weight] || weights.normal,
         "--headers-color": text_color || defaultColor
       };
     },
-    textStyles({ text_color = "", text_alignment = "left" }) {
+    textStyles({
+      text_color = "",
+      text_alignment = "left",
+      text_weight = 700
+    }) {
       const defaultColor = "var(--color-analog-primary-white)";
       const align = {
         left: "left",
@@ -107,7 +117,8 @@ export default {
 
       return {
         "--text-color": text_color || defaultColor,
-        "--text-alignment": align[text_alignment] || align.left
+        "--text-alignment": align[text_alignment] || align.left,
+        "--text-weight": this.weights[text_weight] || weights.normal
       };
     }
   }
@@ -134,7 +145,7 @@ table {
     th {
       padding: var(--f-gutter) var(--f-gutter-l);
       text-align: left;
-      font-weight: var(--text-weight);
+      font-weight: var(--headers-weight);
       color: var(--headers-color);
     }
   }
@@ -181,6 +192,11 @@ table {
             grid-template-columns: 42px 1fr;
           }
 
+          .image {
+            display: grid;
+            place-items: center;
+          }
+
           .info {
             display: flex;
             flex-direction: column;
@@ -188,7 +204,7 @@ table {
 
             &__text {
               font-size: 16px;
-              font-weight: 600;
+              font-weight: var(--text-weight);
               margin-bottom: 0;
               color: var(--text-color);
 
