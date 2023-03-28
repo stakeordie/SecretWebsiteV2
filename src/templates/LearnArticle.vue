@@ -71,6 +71,7 @@ import ThreeColumnResource from "@/components/dynamic/columns/ThreeColumnResourc
 import Grid from "@/components/dynamic/basic/Grid.vue";
 import Swirl from "@/components/dynamic/basic/Swirl.vue";
 import CustomCarousel from "@/components/dynamic/carousel/CustomCarousel.vue";
+import CustomTable from "@/components/dynamic/table/CustomTable.vue";
 
 import {
   addScrollSmooth,
@@ -103,7 +104,8 @@ export default {
     Grid,
     Swirl,
     CustomCarousel,
-    DefaultLayout
+    DefaultLayout,
+    CustomTable
   },
   metaInfo() {
     return {

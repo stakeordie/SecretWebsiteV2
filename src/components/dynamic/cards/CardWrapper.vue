@@ -7,9 +7,10 @@
   >
     <slot></slot>
   </a>
-  <article v-else>
+
+  <component v-else :is="element ? element : 'article'">
     <slot></slot>
-  </article>
+  </component>
 </template>
 
 <script>
@@ -22,6 +23,11 @@ export default {
     externalLink: {
       type: Boolean,
       required: false
+    },
+    element: {
+      type: String,
+      required: false,
+      default: "article"
     }
   }
 };

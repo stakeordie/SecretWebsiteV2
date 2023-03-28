@@ -1,9 +1,5 @@
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.space-top {
-  // padding-top: 92px;
-}
-
 .simple-layout {
   &.developers-grants {
     .swirl-wrapper,
@@ -120,7 +116,6 @@
     height: 140px;
   }
   @include respond-to("<=s") {
-    //height: 100px;
     position: relative;
   }
 }
