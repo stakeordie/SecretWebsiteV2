@@ -197,7 +197,7 @@ export default {
     form {
       display: grid;
       gap: var(--f-gutter-s);
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
       grid-template-rows: 46px;
       place-items: stretch;
 
@@ -225,7 +225,6 @@ export default {
         font-weight: 700;
         line-height: 16px;
         letter-spacing: 1px;
-        height: 100%;
         padding: 17px 32px 15px 32px;
       }
     }

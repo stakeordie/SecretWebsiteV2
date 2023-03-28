@@ -2,10 +2,11 @@
   <div>
     <div
       class="text-image-column-double"
-      :class="[widthSize, imagePosition, paddingTop, paddingBottom]"
       :id="titleId"
+      :class="containerStyles"
+      :style="contentAlignment"
     >
-      <div class="text-image__col-1">
+      <div class="col-1">
         <DynamicImage v-if="paragraph_image" :image="paragraph_image" />
         <DynamicEyebrowTitle
           v-if="eyebrow_title"
@@ -32,9 +33,9 @@
           :position="buttons_position"
         />
       </div>
-      <div class="text-image__col-2">
+      <div class="col-2">
         <ResponsiveImage v-if="image" :src="image" />
-        <p v-if="image_description" class="text-image__col-2__caption">
+        <p v-if="image_description">
           {{ image_description }}
         </p>
       </div>
@@ -134,6 +135,10 @@ export default {
     component_colors: {
       type: Object,
       required: false
+    },
+    content_alignment: {
+      type: String,
+      required: true,
     }
   },
   computed: {
@@ -141,76 +146,68 @@ export default {
       const title = this.paragraph_title;
       return title ? removeCharacters(title) : "";
     },
-    widthSize() {
-      return { wide: this.width === "wide" };
+    containerStyles() {
+      const paddingTop = sizes[this.padding_top] || sizes.none;
+      const paddingBottom = sizes[this.padding_bottom] || sizes.small;
+      const isWide = this.width === "wide";
+
+      return [`${paddingTop}-top`, `${paddingBottom}-bottom`, { wide: isWide }];
     },
-    imagePosition() {
-      return this.image_position === "left" ? "image-left" : "image-right";
-    },
-    paddingTop() {
-      const size = sizes[this.padding_top];
-      return size ? `${size}-top` : "none-top";
-    },
-    paddingBottom() {
-      const size = sizes[this.padding_bottom];
-      return size ? `${size}-bottom` : "small-bottom";
+    contentAlignment() {
+      const isImageLeft = this.image_position === "left";
+      const alignment = {
+        top: "start",
+        center: "center",
+        bottom: "end"
+      };
+
+      return {
+        "--align-items": alignment[this.content_alignment] || alignment.center,
+        "--text-order": !isImageLeft ? 1 : 2,
+        "--image-order": isImageLeft ? 1 : 2
+      };
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-article__content {
-  .text-image-column-double {
-    width: 100%;
-    padding: 0 16px;
-    display: grid;
-    gap: 26px;
-    grid-template-columns: 1fr;
+.text-image-column-double {
+  width: 100%;
+  padding: 0 16px;
+  display: grid;
+  gap: 26px;
+  place-items: var(--align-items);
 
+  @include respond-to(">=m") {
+    padding: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.wide {
     @include respond-to(">=m") {
-      padding: 0;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 2fr 4fr;
     }
+  }
 
-    &.wide {
-      @include respond-to(">=m") {
-        grid-template-columns: 2fr 4fr;
-      }
-    }
+  .col-1 {
+    order: var(--text-order);
+  }
 
-    .text-image {
-      &__col-1 {
-        order: 1;
-      }
+  .col-2 {
+    order: var(--image-order);
+    padding: 16px;
 
-      &__col-2 {
-        order: 2;
-        place-self: center;
-        padding: 16px;
-
-        &__caption {
-          font-size: 16px;
-          color: var(--color-neutral-dark-mode-05);
-          text-align: center;
-          max-width: 710px;
-          margin: 0 auto;
-          padding: 16px;
-          line-height: 24px;
-        }
-      }
-    }
-
-    &.image-left .text-image {
-      &__col-1 {
-        order: 2;
-      }
-
-      &__col-2 {
-        order: 1;
-      }
+    p {
+      font-size: 16px;
+      color: var(--color-neutral-dark-mode-05);
+      text-align: center;
+      max-width: 710px;
+      margin: 0 auto;
+      padding: 16px;
+      line-height: 24px;
     }
   }
 }

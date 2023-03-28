@@ -7,10 +7,10 @@
         <a href="/privacy-policy">Learn more.</a>
       </p>
       <div class="buttons">
-        <button class="button" @click="closeAlert('false')">
+        <button class="button" @click="closeAlert(false)">
           Decline
         </button>
-        <button class="button primary" @click="closeAlert('true')">
+        <button class="button primary" @click="closeAlert(true)">
           Allow cookies
         </button>
       </div>
@@ -29,18 +29,25 @@ export default {
     validateIsOpen() {
       if (!process.isClient) return;
       const localData = localStorage.getItem("allowCookies");
+      const isEnabled = localData === "true";
+      const isDisabled = localData === "false";
       this.isOpen = Boolean(!localData);
+
+      if (isEnabled) {
+        this.$ga.enable();
+        window.enableHotjar();
+        window.enableTwitter();
+      } else if (isDisabled) {
+        this.$ga.disable();
+      }
     },
-    closeAlert(state = "false") {
+    closeAlert(state = false) {
       if (!process.isClient) return;
-      localStorage.setItem("allowCookies", state);
+      localStorage.setItem("allowCookies", String(state));
       this.validateIsOpen();
     }
   },
   mounted() {
-    this.validateIsOpen();
-  },
-  updated() {
     this.validateIsOpen();
   }
 };
