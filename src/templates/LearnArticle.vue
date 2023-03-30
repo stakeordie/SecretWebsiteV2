@@ -72,6 +72,7 @@ import Grid from "@/components/dynamic/basic/Grid.vue";
 import Swirl from "@/components/dynamic/basic/Swirl.vue";
 import CustomCarousel from "@/components/dynamic/carousel/CustomCarousel.vue";
 import CustomTable from "@/components/dynamic/table/CustomTable.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
 
 import {
   addScrollSmooth,
@@ -105,7 +106,8 @@ export default {
     Swirl,
     CustomCarousel,
     DefaultLayout,
-    CustomTable
+    CustomTable,
+    Ecosystem
   },
   metaInfo() {
     return {
