@@ -7,7 +7,6 @@
   >
     <slot></slot>
   </a>
-
   <component v-else :is="element ? element : 'article'">
     <slot></slot>
   </component>
