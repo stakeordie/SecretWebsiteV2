@@ -11,15 +11,19 @@
         @filterData="filterData"
       />
     </div>
-    <div class="ecosystem__content" v-if="filteredData.length">
+    <div
+      v-if="filteredData.length"
+      class="ecosystem__content"
+      :class="gridStyles"
+    >
       <component
         v-for="(item, index) in filteredData"
         :is="componentName"
         :key="index"
-        :data="item"
+        v-bind="bindProps(item)"
       />
     </div>
-    <div class="ecosystem__empty" v-else>
+    <div v-else class="ecosystem__empty">
       <img
         src="/img/icons/illustration-no-matches.svg"
         alt="Magnifying glass"
@@ -38,9 +42,10 @@
 import { sizes } from "@/utils";
 import Filters from "@/components/dynamic/ecosystem/Filters.vue";
 import ContentCard from "@/components/dynamic/ecosystem/ContentCard.vue";
+import ImageTitleCard from "@/components/dynamic/ecosystem/ImageTitleCard.vue";
 
 export default {
-  components: { Filters, ContentCard },
+  components: { Filters, ContentCard, ImageTitleCard },
   props: {
     collection: {
       type: String,
@@ -61,7 +66,14 @@ export default {
   },
   data() {
     return {
-      filteredData: []
+      filteredData: [],
+      comp: {
+        Dapps: "Dapps",
+        Tools: "Tools",
+        Exchanges: "Exchanges",
+        Contributors: "Contributors",
+        Partners: "Partners"
+      }
     };
   },
   computed: {
@@ -120,11 +132,30 @@ export default {
       };
 
       return component[this.collection] || component.Partners;
+    },
+    gridStyles() {
+      const gap =
+        this.collection === this.comp.Contributors ||
+        this.collection === this.comp.Exchanges
+          ? "large-gap"
+          : "";
+      const grid =
+        this.collection === this.comp.Contributors ? "exchanges-grid" : "";
+      return [grid, gap];
     }
   },
   methods: {
     filterData(value) {
       this.filteredData = value;
+    },
+    bindProps(data) {
+      const props = { data };
+
+      if (this.collection === this.comp.Contributors) {
+        props.column = true;
+      }
+
+      return props;
     }
   }
 };
@@ -311,7 +342,6 @@ query {
   gap: var(--f-gutter-xl);
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding-inline: var(--f-gutter);
 
   * {
@@ -325,6 +355,8 @@ query {
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-width: 650px;
+
     h5 {
       color: var(--color-ver2-primary-turquoise);
       text-transform: uppercase;
@@ -333,20 +365,16 @@ query {
     h2 {
       font-size: 54px;
     }
-
-    p {
-      max-width: 650px;
-    }
   }
 
   &__content {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--f-gutter);
 
-    @include respond-to("<=xs") {
+    @include respond-to(">=s") {
+      grid-template-columns: repeat(2, 1fr);
       justify-content: center;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 380px));
     }
 
     @include respond-to(">=l") {
@@ -355,6 +383,21 @@ query {
 
     @include respond-to(">=xl") {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    &.exchanges-grid {
+      justify-content: center;
+      text-align: center;
+
+      @include respond-to(">=s") {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 212px));
+      }
+      @include respond-to(">=xl") {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    &.large-gap {
+      gap: var(--f-gutter-l);
     }
   }
 

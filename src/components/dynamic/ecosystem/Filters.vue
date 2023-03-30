@@ -107,6 +107,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .filters {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,7 +149,7 @@ export default {
     .title {
       font-family: "Hind";
       color: var(--color-neutral-dark-mode-05);
-      
+
       @include respond-to(">=m") {
         line-height: 16px;
       }
@@ -172,7 +173,6 @@ export default {
         user-select: none;
         cursor: pointer;
 
-        &:hover,
         &:has(input:checked) {
           background-color: var(--color-ver2-primary-turquoise);
         }
