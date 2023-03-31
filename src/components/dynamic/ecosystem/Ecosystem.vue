@@ -2,8 +2,8 @@
   <div class="ecosystem" :class="containerStyles">
     <div class="ecosystem__header">
       <h5>Explore</h5>
-      <h2>{{ gridHeader.title }}</h2>
-      <p>{{ gridHeader.subtitle }}</p>
+      <h2>{{ headers.title }}</h2>
+      <p>{{ headers.subtitle }}</p>
       <filters
         :title="collection"
         :collections="collectionData"
@@ -43,9 +43,10 @@ import { sizes } from "@/utils";
 import Filters from "@/components/dynamic/ecosystem/Filters.vue";
 import ContentCard from "@/components/dynamic/ecosystem/ContentCard.vue";
 import ImageTitleCard from "@/components/dynamic/ecosystem/ImageTitleCard.vue";
+import ImageCard from "@/components/dynamic/ecosystem/ImageCard.vue";
 
 export default {
-  components: { Filters, ContentCard, ImageTitleCard },
+  components: { Filters, ContentCard, ImageTitleCard, ImageCard },
   props: {
     collection: {
       type: String,
@@ -108,7 +109,7 @@ export default {
         .map(({ name }) => name)
         .filter((item, i, arr) => arr.indexOf(item) === i);
     },
-    gridHeader() {
+    headers() {
       const headers = [...this.$static.gridHeaders.edges];
       const element = this.collection.toLowerCase();
       const data = headers.find(item =>
@@ -118,9 +119,6 @@ export default {
         title: String(data?.node.title || this.collection),
         subtitle: String(data?.node.subtitle || this.collection)
       };
-    },
-    emptyData() {
-      return !this.filteredData.length;
     },
     componentName() {
       const component = {
@@ -134,14 +132,14 @@ export default {
       return component[this.collection] || component.Partners;
     },
     gridStyles() {
-      const gap =
-        this.collection === this.comp.Contributors ||
-        this.collection === this.comp.Exchanges
-          ? "large-gap"
-          : "";
-      const grid =
-        this.collection === this.comp.Contributors ? "exchanges-grid" : "";
-      return [grid, gap];
+      return {
+        "small-gap":
+          this.collection === this.comp.Dapps ||
+          this.collection === this.comp.Tools,
+        "five-columns":
+          this.collection === this.comp.Contributors ||
+          this.collection === this.comp.Partners
+      };
     }
   },
   methods: {
@@ -370,7 +368,7 @@ query {
   &__content {
     width: 100%;
     display: grid;
-    gap: var(--f-gutter);
+    gap: var(--f-gutter-l);
 
     @include respond-to(">=s") {
       grid-template-columns: repeat(2, 1fr);
@@ -385,7 +383,7 @@ query {
       grid-template-columns: repeat(4, 1fr);
     }
 
-    &.exchanges-grid {
+    &.five-columns {
       justify-content: center;
       text-align: center;
 
@@ -396,8 +394,9 @@ query {
         grid-template-columns: repeat(5, 1fr);
       }
     }
-    &.large-gap {
-      gap: var(--f-gutter-l);
+
+    &.small-gap {
+      gap: var(--f-gutter);
     }
   }
 
