@@ -3,11 +3,7 @@
     <div class="content-card__header">
       <ResponsiveImage v-if="data.picture" :src="data.picture" />
       <div class="tags" v-if="data.types.length">
-        <span
-          v-for="(category, id) in data.types"
-          :key="id"
-          :class="'accent-' + category.name"
-        >
+        <span v-for="(category, id) in data.types" :key="id">
           {{ formatCategory(category.name) }}
         </span>
       </div>
@@ -111,7 +107,6 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    text-align: left;
 
     h4 {
       color: #ffffff;
