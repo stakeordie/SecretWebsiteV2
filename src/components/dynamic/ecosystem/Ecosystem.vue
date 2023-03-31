@@ -136,9 +136,8 @@ export default {
         "small-gap":
           this.collection === this.comp.Dapps ||
           this.collection === this.comp.Tools,
-        "five-columns":
-          this.collection === this.comp.Contributors ||
-          this.collection === this.comp.Partners
+        "ecosystem-columns": this.collection === this.comp.Contributors,
+        "partners-columns": this.collection === this.comp.Partners
       };
     }
   },
@@ -383,7 +382,7 @@ query {
       grid-template-columns: repeat(4, 1fr);
     }
 
-    &.five-columns {
+    @mixin custom-columns {
       justify-content: center;
       text-align: center;
 
@@ -393,6 +392,15 @@ query {
       @include respond-to(">=xl") {
         grid-template-columns: repeat(5, 1fr);
       }
+    }
+
+    &.ecosystem-columns {
+      @include custom-columns();
+    }
+
+    &.partners-columns {
+      grid-template-columns: repeat(2, 1fr);
+      @include custom-columns();
     }
 
     &.small-gap {
