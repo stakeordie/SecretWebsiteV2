@@ -82,7 +82,6 @@
               :key="index"
             >
               <div class="nav__expanded__content__titles">
-                {{ learnPath }}
                 <div
                   v-if="nav.is_dropdown"
                   class="nav__expanded__content__titles__content"
@@ -302,9 +301,7 @@ export default {
       alertIsOpen: true,
       scrollingDown: false,
       columns: [],
-      miniMenuIsOpen: false,
-      subMenuIndex: -1,
-      learnPath: ""
+      subMenuIndex: -1
     };
   },
   methods: {
@@ -418,108 +415,62 @@ export default {
     },
     mapNavArray(array) {
       array.forEach(c => {
-        let result = c.nav_items.reduce(function(r, a) {
-          r[a.sub_category] = r[a.sub_category] || [];
-          r[a.sub_category].push(a);
+        const subCategories = {};
+        const navItems = [];
 
-          return r;
-        }, Object.create(null));
+        c.nav_items.forEach(item => {
+          const subCategory = item.sub_category;
 
-        c.nav_items = [];
+          if (!subCategories[subCategory]) {
+            subCategories[subCategory] = [];
+          }
 
-        Object.entries(result).forEach(([key, value]) => {
-          if (key == "Join the Community") {
-            let firstArray = value.filter((e, i) => {
-              return i < 4;
-            });
+          subCategories[subCategory].push(item);
+        });
 
-            let secondArray = value.filter((e, i) => {
-              return i > 3;
-            });
+        Object.entries(subCategories).forEach(([subCategory, items]) => {
+          if (subCategory === "Join the Community") {
+            const firstArray = items.slice(0, 4);
+            const secondArray = items.slice(4);
 
-            c.nav_items.push({
-              sub_category: key,
+            navItems.push({
+              sub_category: subCategory,
               sub_category_nav_item: firstArray
             });
-            c.nav_items.push({
+
+            navItems.push({
               sub_category: "",
               sub_category_nav_item: secondArray
             });
+          } else if (subCategory === "Contact Us") {
+            const firstArray = items.slice(0, 3);
+            const secondArray = items.slice(3, 6);
+            const thirdArray = items.slice(6);
+
+            navItems.push({
+              sub_category: subCategory,
+              sub_category_nav_item: firstArray
+            });
+
+            navItems.push({
+              sub_category: "",
+              sub_category_nav_item: secondArray
+            });
+
+            navItems.push({
+              sub_category: "",
+              sub_category_nav_item: thirdArray
+            });
           } else {
-            c.nav_items.push({
-              sub_category: key,
-              sub_category_nav_item: value
+            navItems.push({
+              sub_category: subCategory,
+              sub_category_nav_item: items
             });
           }
         });
+
+        c.nav_items = navItems;
       });
-    },
-    activeMenu() {
-      if (process.isClient) {
-        let navItems = [];
-        let path = [];
-
-        let getNavItems = function() {
-          return document
-            .querySelectorAll(".nav__content")
-            .forEach(it => navItems.push(it.firstChild));
-        };
-        let getPath = function() {
-          path = window.location.pathname;
-          return path;
-        };
-
-        getNavItems();
-        getPath();
-
-        navItems.filter(el => {
-          if (el.outerText.toLowerCase() === "about") {
-            if (path.includes("/about")) {
-              el.classList.add("active-about");
-            } else {
-              el.classList.remove("active-about");
-            }
-          }
-          if (el.outerText.toLowerCase() === "learn") {
-            if (path.includes("/learn")) {
-              el.classList.add("active-learn");
-            } else {
-              el.classList.remove("active-learn");
-            }
-          }
-          if (el.outerText.toLowerCase() === "build") {
-            if (path.includes("/developers")) {
-              el.classList.add("active-build");
-            } else {
-              el.classList.remove("active-build");
-            }
-          }
-          if (el.outerText.toLowerCase() === "ecosystem") {
-            if (
-              path.includes("/ecosystem") ||
-              path.includes("/service-status")
-            ) {
-              el.classList.add("active-ecosystem");
-            } else {
-              el.classList.remove("active-ecosystem");
-            }
-          }
-          if (el.outerText.toLowerCase() === "get involved") {
-            if (path.includes("/get-involved")) {
-              el.classList.add("active-get-involved");
-            } else {
-              el.classList.remove("active-get-involved");
-            }
-          }
-          if (el.outerText.toLowerCase() === "resources") {
-            if (path.includes("/blog") || path.includes("/media")) {
-              el.classList.add("active-resources");
-            } else {
-              el.classList.remove("active-resources");
-            }
-          }
-        });
-      }
     },
     closeNav() {
       const html = document.querySelector("html");
@@ -548,7 +499,6 @@ export default {
     }
   },
   mounted() {
-    this.activeMenu();
     this.resizeWindow();
     this.megaMenuColumns();
     if (process.isClient) {
@@ -558,9 +508,8 @@ export default {
 
   watch: {
     $route: {
-      handler(to, from) {
+      handler() {
         this.activeMenu();
-        return;
       }
     }
   },
@@ -629,7 +578,7 @@ query {
   --mega-header-line-height-searchbar: 25.62px;
   --mega-header-gap-searchbar: 10px;
   --mega-header-width-searchbar: 219px;
-  --mega-header-gap-nav: 10px;
+  --mega-header-gap-nav: 4px;
   --mega-header-background-nav-expanded: rgba(26, 33, 40, 1);
   --mega-header-color-nav-exanded: rgba(240, 242, 245, 1);
   --mega-header-color-nav-exanded-hover: var(--color-newBrand-blue-01);
@@ -859,38 +808,12 @@ query {
           justify-content: center;
           transition: 0.2s ease;
           margin-bottom: 0;
+          user-select: none;
 
           &:hover,
           &.activeNav {
-            &.about {
-              .link {
-                color: var(--color-ver2-secondary-red);
-              }
-            }
-            &.learn {
-              .link {
-                color: var(--color-ver2-primary-orange);
-              }
-            }
-            &.build {
-              .link {
-                color: var(--color-ver2-primary-blue);
-              }
-            }
-            &.ecosystem {
-              .link {
-                color: var(--color-ver2-primary-turquoise);
-              }
-            }
-            &.get-involved {
-              .link {
-                color: var(--color-ver2-secondary-yellow);
-              }
-            }
-            &.resources {
-              .link {
-                color: var(--color-ver2-secondary-purple);
-              }
+            .link {
+              color: var(--color-neutral-dark-mode-05);
             }
           }
 
@@ -995,26 +918,6 @@ query {
             }
             &.hidden__submenu {
               padding: 0px;
-            }
-            &:not(.hidden__submenu) {
-              .about {
-                color: var(--color-ver2-secondary-red);
-              }
-              &learn {
-                color: var(--color-ver2-primary-orange);
-              }
-              .build {
-                color: var(--color-ver2-primary-blue);
-              }
-              .ecosystem {
-                color: var(--color-ver2-primary-turquoise);
-              }
-              .get-involved {
-                color: var(--color-ver2-secondary-yellow);
-              }
-              .resources {
-                color: var(--color-ver2-secondary-purple);
-              }
             }
             @include respond-to("<=l") {
               padding-top: 0px;
