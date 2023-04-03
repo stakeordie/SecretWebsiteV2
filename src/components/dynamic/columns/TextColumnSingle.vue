@@ -132,12 +132,11 @@ export default {
 
 .learn-article__content {
   .text-column-single {
-    padding: var(--f-gutter);
     width: 100%;
-    padding: 0 16px;
+    padding-inline: 16px;
 
     @include respond-to(">=m") {
-      padding: 0;
+      padding-inline: 0;
     }
 
     &.standard {

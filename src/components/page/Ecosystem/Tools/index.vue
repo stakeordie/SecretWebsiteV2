@@ -1,57 +1,57 @@
 <template>
-  <column mode="full" class="ecosystem-tools-page">
+  <Column mode="full" class="ecosystem-tools-page">
     <!-- swirl -->
-    <column class="ecosystem__green-swirl__top" mode="full">
-      <block>
+    <Column class="ecosystem__green-swirl__top" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="/img/icons/swirl-green-top.svg"
           alt="Green swirl top graphic"
           loading="lazy"
         />
-      </block>
-    </column>
+      </Block>
+    </Column>
 
     <!-- Tools -->
-    <column class="spacer-s bg-black-gradient">
-      <block>
-        <card-grid-v3
-          header="Tools"
-          title="Tools"
-          collection="toolsAndWallets"
-          :isPaginated="false"
+    <Column class="spacer-s bg-black-gradient">
+      <Block>
+        <Ecosystem
+          collection="Tools"
+          padding_bottom="none"
+          padding_top="small"
         />
-      </block>
-    </column>
+      </Block>
+    </Column>
 
     <!-- General CTAs -->
-    <column class="spacer-s" number="2" number-m="2" number-s="1">
-      <block>
+    <Column class="spacer-s" number="2" number-m="2" number-s="1">
+      <Block>
         <general-ctas id="get-started" />
-      </block>
-      <block>
+      </Block>
+      <Block>
         <general-ctas id="build-on-secret" />
-      </block>
-    </column>
+      </Block>
+    </Column>
 
     <!-- swirl -->
-    <column class="ecosystem__green-swirl__bottom" mode="full">
-      <block>
+    <Column class="ecosystem__green-swirl__bottom" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="/img/icons/swirl-green-bottom.svg"
           alt="Green swirl bottom graphic"
           loading="lazy"
         />
-      </block>
-    </column>
-  </column>
+      </Block>
+    </Column>
+  </Column>
 </template>
 
 <script>
-import CardGridV3 from "@/components/cards/CardGridV3.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+
 export default {
-  components: { CardGridV3 }
+  components: { Ecosystem }
 };
 </script>
 

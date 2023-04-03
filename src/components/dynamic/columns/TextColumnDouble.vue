@@ -197,10 +197,10 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .text-column-double {
-  padding: 0 16px;
+  padding-inline: 16px;
 
   @include respond-to(">=m") {
-    padding: 0;
+    padding-inline: 0;
   }
 
   &__col {
