@@ -362,7 +362,6 @@ query {
     align-items: center;
     justify-content: center;
     text-align: center;
-    max-width: 650px;
 
     h5 {
       color: var(--color-ver2-primary-turquoise);
@@ -371,6 +370,10 @@ query {
 
     h2 {
       font-size: 54px;
+    }
+
+    p {
+      max-width: 650px;
     }
   }
 
