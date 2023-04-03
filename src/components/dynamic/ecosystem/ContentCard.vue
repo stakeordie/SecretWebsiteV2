@@ -10,7 +10,7 @@
     </div>
     <div class="content-card__body">
       <h4>{{ data.title }}</h4>
-      <p>{{ data.description }}</p>
+      <p v-if="data.description">{{ data.description }}</p>
     </div>
   </CardWrapper>
 </template>

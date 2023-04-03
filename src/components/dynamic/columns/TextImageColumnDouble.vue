@@ -138,7 +138,7 @@ export default {
     },
     content_alignment: {
       type: String,
-      required: true,
+      required: true
     }
   },
   computed: {
@@ -176,13 +176,13 @@ export default {
 
 .text-image-column-double {
   width: 100%;
-  padding: 0 16px;
+  padding-inline: 16px;
   display: grid;
   gap: 26px;
   place-items: var(--align-items);
 
   @include respond-to(">=m") {
-    padding: 0;
+    padding-inline: 0;
     grid-template-columns: repeat(2, 1fr);
   }
 

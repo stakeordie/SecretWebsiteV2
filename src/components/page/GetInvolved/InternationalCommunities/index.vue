@@ -15,13 +15,10 @@
     <!-- Filter-->
     <column class="spacer-s ">
       <block class="international-communities__card-grid">
-        <h5>Join</h5>
-        <card-grid-v3
-          header="International Communities"
-          title="International Communities"
-          collection="internationalCommunities"
-          :pageSize="16"
-          :isPaginated="false"
+        <Ecosystem
+          collection="Communities"
+          padding_bottom="none"
+          padding_top="none"
         />
       </block>
     </column>
@@ -50,9 +47,10 @@
 </template>
 
 <script>
-import CardGridV3 from "@/components/cards/CardGridV3.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+
 export default {
-  components: { CardGridV3 }
+  components: { Ecosystem }
 };
 </script>
 

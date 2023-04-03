@@ -271,11 +271,6 @@ query {
 
 .learn-article {
   background-color: var(--bg-dynamic-page);
-  $padding-sizes: ("none", "small", "medium", "large");
-  --p-none: 0px;
-  --p-small: 26px;
-  --p-medium: 64px;
-  --p-large: 96px;
 
   &__wrapper {
     margin-top: var(--dynamic-top-margin, 0px);
@@ -320,25 +315,6 @@ query {
   main.--flare-page {
     padding-top: 0;
     position: relative;
-  }
-
-  @each $name in $padding-sizes {
-    .#{$name} {
-      &-top {
-        padding-top: var(--p-#{$name});
-      }
-      &-bottom {
-        padding-bottom: var(--p-#{$name});
-      }
-    }
-    .m-#{$name} {
-      &-top {
-        margin-top: var(--p-#{$name});
-      }
-      &-bottom {
-        margin-bottom: var(--p-#{$name});
-      }
-    }
   }
 }
 </style>

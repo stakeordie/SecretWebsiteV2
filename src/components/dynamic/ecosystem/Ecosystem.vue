@@ -1,7 +1,7 @@
 <template>
   <div class="ecosystem" :class="containerStyles">
     <div class="ecosystem__header">
-      <h5>Explore</h5>
+      <h5>{{ ecosystemEyebrow }}</h5>
       <h2>{{ headers.title }}</h2>
       <p>{{ headers.subtitle }}</p>
       <filters
@@ -73,7 +73,8 @@ export default {
         Tools: "Tools",
         Exchanges: "Exchanges",
         Contributors: "Contributors",
-        Partners: "Partners"
+        Partners: "Partners",
+        Communities: "Communities"
       }
     };
   },
@@ -115,6 +116,7 @@ export default {
       const data = headers.find(item =>
         item.node.title.toLowerCase().includes(element)
       );
+
       return {
         title: String(data?.node.title || this.collection),
         subtitle: String(data?.node.subtitle || this.collection)
@@ -124,6 +126,7 @@ export default {
       const component = {
         Dapps: "ContentCard",
         Tools: "ContentCard",
+        Communities: "ContentCard",
         Exchanges: "ImageTitleCard",
         Contributors: "ImageTitleCard",
         Partners: "ImageCard"
@@ -139,6 +142,9 @@ export default {
         "ecosystem-columns": this.collection === this.comp.Contributors,
         "partners-columns": this.collection === this.comp.Partners
       };
+    },
+    ecosystemEyebrow() {
+      return this.collection === this.comp.Communities ? "Join" : "Explore";
     }
   },
   methods: {
@@ -343,6 +349,10 @@ query {
 
   * {
     margin: 0;
+  }
+
+  @include respond-to(">=m") {
+    padding-inline: 0;
   }
 
   &__header {

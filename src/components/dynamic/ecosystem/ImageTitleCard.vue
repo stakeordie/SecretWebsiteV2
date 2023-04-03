@@ -57,12 +57,11 @@ export default {
       border-radius: 10px;
       width: 64px;
       height: 64px;
-      background-color: var(--color-neutral-dark-mode-04);
       overflow: hidden;
 
       img {
         margin: auto;
-        object-fit: cover;
+        object-fit: contain;
         aspect-ratio: 1/1;
       }
     }

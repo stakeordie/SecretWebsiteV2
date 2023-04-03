@@ -15,11 +15,10 @@
     <!-- Tools -->
     <column class="spacer-s bg-black-gradient">
       <block>
-        <card-grid-partners
-          header="Partners"
-          title="Partners"
-          collection="ecosystemPartners"
-          :isPaginated="false"
+        <Ecosystem
+          collection="Partners"
+          padding_bottom="none"
+          padding_top="small"
         />
       </block>
     </column>
@@ -48,9 +47,10 @@
 </template>
 
 <script>
-import CardGridPartners from "@/components/page/Ecosystem/Partners/CardGridPartners.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+
 export default {
-  components: { CardGridPartners }
+  components: { Ecosystem }
 };
 </script>
 

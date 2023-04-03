@@ -79,10 +79,10 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  padding: 0 16px;
+  padding-inline: 16px;
 
   @include respond-to(">=m") {
-    padding: 0;
+    padding-inline: 0;
   }
 
   @include respond-to(">=l") {
