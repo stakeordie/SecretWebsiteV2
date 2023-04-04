@@ -26,6 +26,7 @@
           :text="paragraph"
           :align="paragraph_alignment"
           :color="component_colors ? component_colors.body_color : ''"
+          :isExternalLink="is_external_link"
         />
         <DynamicButtons
           v-if="buttons"
@@ -139,6 +140,11 @@ export default {
     content_alignment: {
       type: String,
       required: true
+    },
+    is_external_link: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

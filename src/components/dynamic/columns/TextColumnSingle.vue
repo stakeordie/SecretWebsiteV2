@@ -23,6 +23,7 @@
         :text="paragraph"
         :align="paragraph_alignment"
         :color="component_colors ? component_colors.body_color : ''"
+        :isExternalLink="is_external_link"
       />
       <CtaButton v-if="button" v-bind="button" />
     </div>
@@ -105,6 +106,11 @@ export default {
     component_colors: {
       type: Object,
       required: false
+    },
+    is_external_link: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

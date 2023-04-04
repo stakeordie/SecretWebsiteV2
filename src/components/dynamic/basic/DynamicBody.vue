@@ -4,6 +4,7 @@
     :source="text"
     class="dynamic-body"
     :style="[textAlignment, bodyColor]"
+    :anchorAttributes="anchorAttributes"
   />
 </template>
 
@@ -23,6 +24,11 @@ export default {
       type: String,
       required: false,
       default: "var(--color-neutral-dark-mode-05)"
+    },
+    isExternalLink: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -42,6 +48,12 @@ export default {
       const color = this.color;
       return {
         "--text-color": color ? color : defaultColor
+      };
+    },
+    anchorAttributes() {
+      return {
+        target: this.isExternalLink ? "_blank" : "_self",
+        rel: "nofollow"
       };
     }
   }
