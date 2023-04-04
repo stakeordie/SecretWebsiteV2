@@ -51,6 +51,7 @@
             :text="second_paragraph"
             :align="second_paragraph_alignment"
             :color="component_colors ? component_colors.body_color : ''"
+            :isExternalLink="is_external_link"
           />
           <DynamicButtons
             v-if="second_paragraph_buttons"
@@ -173,6 +174,11 @@ export default {
     component_colors: {
       type: Object,
       required: false
+    },
+    is_external_link: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
