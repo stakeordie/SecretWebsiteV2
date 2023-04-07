@@ -14,11 +14,10 @@
 
     <column id="dapps" class="spacer-s bg-black-gradient">
       <block>
-        <CardGridV3
-          title="Secret DApps"
-          header="Secret DApps"
-          collection="dApps"
-          :isPaginated="false"
+        <Ecosystem
+          collection="Dapps"
+          padding_bottom="none"
+          padding_top="small"
         />
       </block>
     </column>
@@ -74,9 +73,10 @@
 </template>
 
 <script>
-import CardGridV3 from "@/components/cards/CardGridV3.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+
 export default {
-  components: { CardGridV3 }
+  components: { Ecosystem }
 };
 </script>
 

@@ -2,7 +2,7 @@
   <SimpleLayout>
     <template #header v-if="showHeader || showAlertBar">
       <AlertBar v-if="showAlertBar" />
-      <HeaderMegaMenuV2 v-if="showHeader" />
+      <HeaderMegaMenu v-if="showHeader" />
     </template>
 
     <SwirlTop :swirlSpecial="swirlSpecial" />
@@ -41,7 +41,7 @@ import FooterLegal from "@/components/layout/FooterLegal.vue";
 import SwirlTop from "@/components/layout/SwirlTop.vue";
 import SwirlBottom from "@/components/layout/SwirlBottom.vue";
 import AlertBar from "@/components/layout/AlertBar.vue";
-import HeaderMegaMenuV2 from "@/components/layout/HeaderMegaMenuV2.vue";
+import HeaderMegaMenu from "@/components/layout/HeaderMegaMenu.vue";
 import CookiesAlertBar from "@/components/layout/CookiesAlertBar.vue";
 
 export default {
@@ -52,7 +52,7 @@ export default {
     SwirlTop,
     SwirlBottom,
     AlertBar,
-    HeaderMegaMenuV2,
+    HeaderMegaMenu,
     CookiesAlertBar
   },
   data() {

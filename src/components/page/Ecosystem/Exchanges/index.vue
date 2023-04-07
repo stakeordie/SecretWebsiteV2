@@ -15,10 +15,10 @@
     <!-- Explore -->
     <column class="spacer-s ">
       <block>
-        <card-grid-exchanges
-          header="Exchanges"
-          title="Exchanges"
-          collection="exchanges"
+        <Ecosystem
+          collection="Exchanges"
+          padding_bottom="none"
+          padding_top="small"
         />
       </block>
     </column>
@@ -51,9 +51,10 @@
 
 <script>
 import EcosystemExperiencingIssues from "@/components/page/Ecosystem/Exchanges/EcosystemExperiencingIssues.vue";
-import CardGridExchanges from "@/components/page/Ecosystem/Exchanges/CardGridExchanges.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+
 export default {
-  components: { EcosystemExperiencingIssues, CardGridExchanges }
+  components: { EcosystemExperiencingIssues, Ecosystem }
 };
 </script>
 

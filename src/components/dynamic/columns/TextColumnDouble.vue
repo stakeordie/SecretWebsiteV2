@@ -51,6 +51,7 @@
             :text="second_paragraph"
             :align="second_paragraph_alignment"
             :color="component_colors ? component_colors.body_color : ''"
+            :isExternalLink="is_external_link"
           />
           <DynamicButtons
             v-if="second_paragraph_buttons"
@@ -173,6 +174,11 @@ export default {
     component_colors: {
       type: Object,
       required: false
+    },
+    is_external_link: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -197,10 +203,10 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .text-column-double {
-  padding: 0 16px;
+  padding-inline: 16px;
 
   @include respond-to(">=m") {
-    padding: 0;
+    padding-inline: 0;
   }
 
   &__col {

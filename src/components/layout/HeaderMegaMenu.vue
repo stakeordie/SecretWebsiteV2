@@ -505,14 +505,6 @@ export default {
       this.scrollPosition();
     }
   },
-
-  watch: {
-    $route: {
-      handler() {
-        this.activeMenu();
-      }
-    }
-  },
   beforeDestroy() {
     this.scrollPosition();
   }
