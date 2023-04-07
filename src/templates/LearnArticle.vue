@@ -30,8 +30,9 @@
             v-for="(component, index) in contentComponents"
             :key="index"
             :mode="columnMode(component.comp_name)"
-            :style="backgroundColor(component)"
+            :style="backgroundStyles(component)"
             class="learn-article__content empty-nav"
+            :class="bgImageClasses(component)"
           >
             <Block>
               <component :is="component.comp_name" v-bind="component" />
@@ -176,14 +177,45 @@ export default {
     columnMode(compName) {
       return compName === "custom-carousel" ? "full" : "normal";
     },
-    backgroundColor(comp) {
+    backgroundStyles(data) {
       const excludeComp = ["cta-button"];
-      if (excludeComp.includes(comp.comp_name)) return "";
+      if (excludeComp.includes(data.comp_name)) return {};
 
-      const defaultColor = "transparent";
+      return data.component_colors?.background_color ||
+        !data.component_colors ||
+        !data.component_colors?.background_image
+        ? this.backgroundColorStyles(data)
+        : this.backgroundImageStyles(data);
+    },
+    backgroundColorStyles(data) {
       const color =
-        comp.component_colors?.background_color || comp.background_color;
-      return { backgroundColor: color ? color : defaultColor };
+        data.component_colors?.background_color || data.background_color;
+      return color ? { backgroundColor: color } : {};
+    },
+    backgroundImageStyles(data) {
+      const { url } = data.component_colors.background_image;
+      return {
+        "--background-image": `url(${url})`
+      };
+    },
+    bgImageClasses(item) {
+      const hasImageClass = "has-bg-image";
+      const positions = {
+        left: "left",
+        center: "center",
+        right: "right",
+        full: "full"
+      };
+
+      if (!item.component_colors?.background_image) return [];
+
+      const {
+        background_image_position,
+        image_opacity
+      } = item.component_colors;
+      const size = positions[background_image_position] || positions.center;
+
+      return [hasImageClass, size, { opacity: image_opacity }];
     }
   },
   computed: {
@@ -281,6 +313,36 @@ query {
   }
 
   &__content {
+    position: relative;
+    z-index: 1;
+
+    &.has-bg-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--background-image);
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+    }
+
+    &.left::before {
+      background-position: left;
+    }
+    &.center::before {
+      background-position: center;
+    }
+    &.right::before {
+      background-position: right;
+    }
+    &.full::before {
+      background-position: center;
+      background-size: cover;
+    }
+    &.opacity::before {
+      opacity: 0.3;
+    }
+
     .content > .box {
       display: grid;
       gap: 42px;
