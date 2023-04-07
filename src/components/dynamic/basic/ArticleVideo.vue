@@ -80,13 +80,13 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 0 16px;
+  padding-inline: 16px;
   width: 100%;
   max-width: 710px;
   margin-inline: auto;
 
   @include respond-to(">=m") {
-    padding: 0;
+    padding-inline: 0;
   }
 
   iframe,

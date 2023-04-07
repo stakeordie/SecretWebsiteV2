@@ -28,7 +28,6 @@
 @import "pages/ecosystem-pages-v2";
 @import "pages/get-involved";
 
-
 @import "@lkmx/flare/src/functions/respond-to";
 
 $accent-colors: (
@@ -43,6 +42,8 @@ $accent-colors: (
   "gray",
   "blog-announcement"
 );
+
+$padding-sizes: ("none", "small", "medium", "large");
 
 :root {
   --f-header-text-color: white;
@@ -80,6 +81,11 @@ $accent-colors: (
 
   --card-hover-transform-right-2: translate(12px, -12px);
   --card-hover-shadow-right-2: -16px 16px 0 0;
+
+  --p-none: 0px;
+  --p-small: 26px;
+  --p-medium: 64px;
+  --p-large: 96px;
 }
 
 ::selection {
@@ -101,9 +107,8 @@ $accent-colors: (
   }
 }
 
-
-@media screen and (max-device-width: 480px){
-  body{
+@media screen and (max-device-width: 480px) {
+  body {
     -webkit-text-size-adjust: none;
   }
 }
@@ -111,7 +116,7 @@ $accent-colors: (
 body {
   * {
     box-sizing: border-box;
-}
+  }
   &.body-init {
     opacity: 0;
   }
@@ -147,35 +152,44 @@ body {
 }
 
 .simple-layout {
-  &.ecosystem-funding, &.learn-article {
+  &.ecosystem-funding,
+  &.learn-article {
     .swirl-wrapper {
       opacity: 0;
     }
   }
 
   &.index {
-    main { padding-top: 52px; }
+    main {
+      padding-top: 52px;
+    }
   }
   &:not(.index)
-   :not(.about-secret-tokens-bridges)
-   :not(.about-secret-tokens)
-   :not(.about-secret-bridges)
-   :not(.about-secret-daos)
-   :not(.about-secret-gaming)
-   :not(.about-secret-finance)
-   :not(.about-secret-nfts)
-   :not(.about-faq)
-   :not(.about-secret-contracts)
-   :not(.get-involved-become-secret-agent)
-   :not(.learn-portal)
-   :not(.learn-subpage) 
-   {
-    main { padding-top: 44px; }
-   }
+    :not(.about-secret-tokens-bridges)
+    :not(.about-secret-tokens)
+    :not(.about-secret-bridges)
+    :not(.about-secret-daos)
+    :not(.about-secret-gaming)
+    :not(.about-secret-finance)
+    :not(.about-secret-nfts)
+    :not(.about-faq)
+    :not(.about-secret-contracts)
+    :not(.get-involved-become-secret-agent)
+    :not(.learn-portal)
+    :not(.learn-subpage) {
+    main {
+      padding-top: 44px;
+    }
+  }
   // TODO Lets try to make this for all pages that requires to handle this.
   // We should be able to mark them as "pages-with-heros" or something.
-  &.about-secret-tokens-bridges, &.about-secret-finance, &.about-secret-nfts, &.about-secret-contracts{
-    main { padding-top: 0; }
+  &.about-secret-tokens-bridges,
+  &.about-secret-finance,
+  &.about-secret-nfts,
+  &.about-secret-contracts {
+    main {
+      padding-top: 0;
+    }
   }
   main {
     @include respond-to("<=s") {
@@ -207,12 +221,6 @@ ol {
     }
   }
 }
-
-// ul {
-//   li {
-//     list-style: disc;
-//   }
-// }
 
 ul {
   padding-left: var(--f-gutter);
@@ -346,31 +354,26 @@ button,
   }
 }
 
-
 // -----BUTTON-----
 
-.btn-bigger{
-    padding: 22px 0 !important;
-    background-color: var(--color-neutral-dark-mode-04);
-    border-radius: var(--f-gutter-s);
+.btn-bigger {
+  padding: 22px 0 !important;
+  background-color: var(--color-neutral-dark-mode-04);
+  border-radius: var(--f-gutter-s);
 
-    font-family: var(--f-default-text-font) !important;
-    font-size: var(--paragraph-font-size-big) !important;
-    font-weight: 700;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
+  font-family: var(--f-default-text-font) !important;
+  font-size: var(--paragraph-font-size-big) !important;
+  font-weight: 700;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
 
-    cursor: pointer;
+  cursor: pointer;
 
-
-
-    &:hover{
-      background-color: var(--color-neutral-dark-mode-01);
-      color: var(--color-neutral-dark-mode-06);
-    }
+  &:hover {
+    background-color: var(--color-neutral-dark-mode-01);
+    color: var(--color-neutral-dark-mode-06);
   }
-
-
+}
 
 a {
   color: var(--theme-links-default);
@@ -396,7 +399,8 @@ p {
   color: var(--theme-card-text-color);
 }
 
-input:not(.button), textarea {
+input:not(.button),
+textarea {
   border-radius: var(--f-gutter-xs);
   padding: var(--f-gutter-xs) var(--f-gutter);
 
@@ -464,7 +468,6 @@ input:not(.button), textarea {
     &:last-child {
       .box {
         display: flex;
-        // flex-direction: column;
         justify-content: flex-end;
 
         @include respond-to("<=m") {
@@ -691,35 +694,35 @@ input:not(.button), textarea {
   }
 }
 
-
-
-
 // TEMP FIX TO INCONCISTENT HEADINGS IN ABOUT PAGE
 .--flare-frame {
-    .content {
-        .box {
-            
-            .card-about-content {
-                &.homogenize-headings{
-                    
-                    h3, h4 {
-                        font-size: 28px;
-                        width: 90%;
-                        line-height: 36px;
-                    }
-                }
-            }
+  .content {
+    .box {
+      .card-about-content {
+        &.homogenize-headings {
+          h3,
+          h4 {
+            font-size: 28px;
+            width: 90%;
+            line-height: 36px;
+          }
         }
+      }
     }
+  }
 }
 .--flare-frame {
   &.bg-black {
-    background: #0E1216;
+    background: #0e1216;
   }
   &.bg-black-gradient {
-    background: linear-gradient(180deg, rgba(21, 26, 32, 0) 0%, #151A20 30.31%);
+    background: linear-gradient(180deg, rgba(21, 26, 32, 0) 0%, #151a20 30.31%);
     @include respond-to("<=s") {
-      background: linear-gradient(180deg, rgba(21, 26, 32, 0) 2%, #151A20 10.31%);       
+      background: linear-gradient(
+        180deg,
+        rgba(21, 26, 32, 0) 2%,
+        #151a20 10.31%
+      );
     }
   }
 }
@@ -752,5 +755,24 @@ $accent-colors: ("Article", "Podcast", "Video");
 .supported-wallets {
   @include respond-to(">=l") {
     --spacer-s: 36px;
+  }
+}
+
+@each $name in $padding-sizes {
+  .#{$name} {
+    &-top {
+      padding-top: var(--p-#{$name});
+    }
+    &-bottom {
+      padding-bottom: var(--p-#{$name});
+    }
+  }
+  .m-#{$name} {
+    &-top {
+      margin-top: var(--p-#{$name});
+    }
+    &-bottom {
+      margin-bottom: var(--p-#{$name});
+    }
   }
 }

@@ -15,11 +15,10 @@
     <!-- Tools -->
     <column class="spacer-s bg-black-gradient">
       <block>
-        <card-grid-contributors
-          header="Contributors"
-          title="Contributors"
-          collection="ecosystemContributors"
-          :isPaginated="false"
+        <Ecosystem
+          collection="Contributors"
+          padding_bottom="none"
+          padding_top="small"
         />
       </block>
     </column>
@@ -48,10 +47,10 @@
 </template>
 
 <script>
-import CardGridContributors from "@/components/page/Ecosystem/Contributors/CardGridContributors.vue";
+import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
 
 export default {
-  components: { CardGridContributors }
+  components: { Ecosystem }
 };
 </script>
 
