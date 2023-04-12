@@ -1,5 +1,5 @@
 <template>
-  <div class="cookies-alert" v-if="isOpen">
+  <div v-if="isOpen" class="cookies-alert">
     <div class="cookies-alert-content">
       <p class="text">
         We use cookies to improve your website experience and never collect
@@ -22,34 +22,39 @@
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
+  },
+  mounted() {
+    this.validateIsOpen();
   },
   methods: {
     validateIsOpen() {
       if (!process.isClient) return;
       const localData = localStorage.getItem("allowCookies");
-      const isEnabled = localData === "true";
-      const isDisabled = localData === "false";
+      // discomment this code when enabling tracking again
+      // const isEnabled = localData === "true";
+      // const isDisabled = localData === "false";
       this.isOpen = Boolean(!localData);
 
-      if (isEnabled) {
-        this.$ga.enable();
-        window.enableHotjar();
-        window.enableTwitter();
-      } else if (isDisabled) {
-        this.$ga.disable();
-      }
+      // if (isEnabled) {
+      //   this.$ga.enable();
+      //   window.enableHotjar();
+      //   window.enableTwitter();
+      // } else if (isDisabled) {
+      //   this.$ga.disable();
+      // }
+
+      //remove this two lines when enabling trtacking again
+      window.enableHotjar();
+      window.enableTwitter();
     },
     closeAlert(state = false) {
       if (!process.isClient) return;
       localStorage.setItem("allowCookies", String(state));
       this.validateIsOpen();
-    }
+    },
   },
-  mounted() {
-    this.validateIsOpen();
-  }
 };
 </script>
 

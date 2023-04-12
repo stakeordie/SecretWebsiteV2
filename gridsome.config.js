@@ -1,10 +1,3 @@
-// This is where project configuration and plugin options are located.
-// Learn more: https://gridsome.org/docs/config
-
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
-const path = require("path");
-
 const i18nPlugin = {
   use: "gridsome-plugin-i18n",
   options: {
@@ -129,10 +122,9 @@ module.exports = {
       use: "@gridsome/plugin-google-analytics",
       options: {
         id: "UA-173950488-3",
-        disabled: true
+        disabled: false //set to true when enable all cookie tracking
       },
     },
-    //   ...optionalPlugins
   ],
   templates: {
     GhostPost: "/blog/:slug",
