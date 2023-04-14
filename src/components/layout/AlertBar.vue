@@ -6,7 +6,7 @@
       class="alert-content"
       :style="textColor"
     />
-    <button @click="closeAlert" class="close-alert">
+    <button class="close-alert" @click="closeAlert">
       <img src="/img/icons/icon-menu-close.svg" alt="close" loading="lazy" />
     </button>
   </div>
@@ -16,8 +16,32 @@
 export default {
   data() {
     return {
-      isAlertOpen: false
+      isAlertOpen: false,
     };
+  },
+  computed: {
+    alertMessage() {
+      return this.$static.alertBar.edges[0].node;
+    },
+    textColor() {
+      const color = this.alertMessage.text_color
+        ? this.alertMessage.text_color
+        : "var(--theme-fg)";
+      return { "--alert-text-color": color };
+    },
+    backgroundColor() {
+      const color = this.alertMessage.background_color
+        ? this.alertMessage.background_color
+        : "var(--theme-alert-bg-color)";
+      return { "--alert-background-color": color };
+    },
+  },
+  mounted() {
+    this.validateIsOpen();
+    this.headerHeights();
+  },
+  updated() {
+    this.headerHeights();
   },
   methods: {
     validateIsOpen() {
@@ -44,34 +68,10 @@ export default {
       document.body.style.setProperty("--header-height", `${headerHeight}px`);
       document.body.style.setProperty(
         "--all-headers-height",
-        `${allHeaderHeight}px`
+        `${allHeaderHeight}px`,
       );
-    }
-  },
-  computed: {
-    alertMessage() {
-      return this.$static.alertBar.edges[0].node;
     },
-    textColor() {
-      const color = this.alertMessage.text_color
-        ? this.alertMessage.text_color
-        : "var(--theme-fg)";
-      return { "--alert-text-color": color };
-    },
-    backgroundColor() {
-      const color = this.alertMessage.background_color
-        ? this.alertMessage.background_color
-        : "var(--theme-alert-bg-color)";
-      return { "--alert-background-color": color };
-    }
   },
-  mounted() {
-    this.validateIsOpen();
-    this.headerHeights();
-  },
-  updated() {
-    this.headerHeights();
-  }
 };
 </script>
 

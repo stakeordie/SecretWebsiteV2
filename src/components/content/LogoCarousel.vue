@@ -3,7 +3,7 @@
     <block>
       <div class="logo-carousel__container">
         <h6>Supported by</h6>
-        <infinite-slide-bar duration="150s">
+        <InfiniteSlideBar duration="150s">
           <div
             v-for="(investor, index) in secretInvestors"
             :key="index"
@@ -15,7 +15,7 @@
               loading="lazy"
             />
           </div>
-        </infinite-slide-bar>
+        </InfiniteSlideBar>
       </div>
     </block>
   </column>
@@ -26,7 +26,7 @@ import { uppercaseAllFirstLetter } from "@/utils";
 import InfiniteSlideBar from "vue-infinite-slide-bar";
 export default {
   components: {
-    InfiniteSlideBar
+    InfiniteSlideBar,
   },
   data() {
     return {
@@ -55,8 +55,8 @@ export default {
         { image: "/img/investors/investor-SCRTLabs.png" },
         { image: "/img/investors/investor-Shima.png" },
         { image: "/img/investors/investor-Skynet.png" },
-        { image: "/img/investors/investor-Skyvision.png" }
-      ]
+        { image: "/img/investors/investor-Skyvision.png" },
+      ],
     };
   },
   methods: {
@@ -65,8 +65,8 @@ export default {
       return uppercaseAllFirstLetter(title)
         .split("-")
         .join(" ");
-    }
-  }
+    },
+  },
 };
 </script>
 

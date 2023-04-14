@@ -4,7 +4,9 @@
       <div class="learn-carousel__header">
         <div class="learn-carousel__header__description">
           <h3>{{ title }}</h3>
-          <p v-if="subtitle">{{ subtitle }}</p>
+          <p v-if="subtitle">
+            {{ subtitle }}
+          </p>
         </div>
         <div class="learn-carousel__header__controls">
           <button class="theme padding-small control" @click="scroll('left')">
@@ -25,9 +27,9 @@
         </div>
       </div>
       <div
-        class="items learn-carousel__item"
         v-if="dynamic_learn_article_group"
         ref="learn_carousel"
+        class="items learn-carousel__item"
       >
         <CarouselCard
           v-for="(element,
@@ -51,15 +53,20 @@
 import CarouselCard from "@/components/dynamic/cards/CarouselCard.vue";
 
 export default {
+  components: {
+    CarouselCard,
+  },
   props: {
     dynamic_learn_article_group: Object,
     title: String,
     subtitle: String,
     card_image: Object,
-    searchDataset: Object
+    searchDataset: Object,
   },
-  components: {
-    CarouselCard
+  computed: {
+    carouselData() {
+      return dynamic_learn_article_group.dynamic_learn_articles;
+    },
   },
   methods: {
     scroll(direction = "right") {
@@ -69,13 +76,8 @@ export default {
       } else {
         carouselBox.scrollLeft -= 390;
       }
-    }
+    },
   },
-  computed: {
-    carouselData() {
-      return dynamic_learn_article_group.dynamic_learn_articles;
-    }
-  }
 };
 </script>
 
