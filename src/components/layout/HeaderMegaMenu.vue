@@ -771,10 +771,10 @@ query {
 
       &.is-closed {
         .close,
-        .navigation__content__search {
+        .navigation__search {
           display: none;
         }
-        .navigation__content__search {
+        .navigation__search {
           @include respond-to(">l") {
             display: grid;
           }
