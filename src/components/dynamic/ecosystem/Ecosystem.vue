@@ -17,8 +17,8 @@
       :class="gridStyles"
     >
       <component
-        v-for="(item, index) in filteredData"
         :is="componentName"
+        v-for="(item, index) in filteredData"
         :key="index"
         v-bind="bindProps(item)"
       />
@@ -50,20 +50,21 @@ export default {
   props: {
     collection: {
       type: String,
-      required: true
+      required: true,
     },
     padding_top: {
       type: String,
-      required: true
+      required: true,
     },
     padding_bottom: {
       type: String,
-      required: true
+      required: true,
     },
     background_color: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "",
+    },
   },
   data() {
     return {
@@ -74,8 +75,8 @@ export default {
         Exchanges: "Exchanges",
         Contributors: "Contributors",
         Partners: "Partners",
-        Communities: "Communities"
-      }
+        Communities: "Communities",
+      },
     };
   },
   computed: {
@@ -87,7 +88,7 @@ export default {
     },
     collectionData() {
       return [...this.$static[this.collection].edges]
-        .map(it => it.node)
+        .map((it) => it.node)
         .sort((a, b) => {
           const titleA = a.title.toLowerCase();
           const titleB = b.title.toLowerCase();
@@ -97,7 +98,7 @@ export default {
     categories() {
       const excludeCategories = {
         Contributors: "Contributors",
-        Partners: "Partners"
+        Partners: "Partners",
       };
 
       if (excludeCategories[this.collection]) {
@@ -113,13 +114,13 @@ export default {
     headers() {
       const headers = [...this.$static.gridHeaders.edges];
       const element = this.collection.toLowerCase();
-      const data = headers.find(item =>
-        item.node.title.toLowerCase().includes(element)
+      const data = headers.find((item) =>
+        item.node.title.toLowerCase().includes(element),
       );
 
       return {
         title: String(data?.node.title || this.collection),
-        subtitle: String(data?.node.subtitle || this.collection)
+        subtitle: String(data?.node.subtitle || this.collection),
       };
     },
     componentName() {
@@ -129,7 +130,7 @@ export default {
         Communities: "ContentCard",
         Exchanges: "ImageTitleCard",
         Contributors: "ImageTitleCard",
-        Partners: "ImageCard"
+        Partners: "ImageCard",
       };
 
       return component[this.collection] || component.Partners;
@@ -140,12 +141,12 @@ export default {
           this.collection === this.comp.Dapps ||
           this.collection === this.comp.Tools,
         "ecosystem-columns": this.collection === this.comp.Contributors,
-        "partners-columns": this.collection === this.comp.Partners
+        "partners-columns": this.collection === this.comp.Partners,
       };
     },
     ecosystemEyebrow() {
       return this.collection === this.comp.Communities ? "Join" : "Explore";
-    }
+    },
   },
   methods: {
     filterData(value) {
@@ -159,8 +160,8 @@ export default {
       }
 
       return props;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,85 +1,80 @@
 <template>
   <transition name="slide-megaheader">
-    <header class="mega-header" v-show="!scrollingDown">
+    <header v-show="!scrollingDown" class="mega-header">
       <!-- // first block -->
-      <div class="mega-header__wrapper">
-        <div class="mega-header__wrapper__content">
-          <div class="logo-bar" :class="burger">
-            <div class="logo-bar__content__image">
-              <img
-                src="/img/icons/icon-menu.svg"
-                alt="close icon"
-                class="menu"
-                @click.prevent="openMenuFromMobile"
-              />
-              <img
-                src="/img/icons/icon-close.svg"
-                alt="close icon"
-                class="close"
-                @click.prevent="openMenuFromMobile"
-              />
+      <!-- <div class="mega-header__wrapper"> -->
+      <div class="mega-header__content">
+        <div class="navigation" :class="burger">
+          <div class="navigation__image">
+            <img
+              src="/img/icons/icon-menu.svg"
+              alt="close icon"
+              class="menu"
+              @click.prevent="openMenuFromMobile"
+            />
+            <img
+              src="/img/icons/icon-close.svg"
+              alt="close icon"
+              class="close"
+              @click.prevent="openMenuFromMobile"
+            />
+            <div class="secret-logo">
               <g-link to="/">
                 <img
-                  @click="linkCloseMenu"
                   src="/img/icons/new-secret-logo.svg"
                   alt="secret network logo"
                   class="logo"
+                  @click="linkCloseMenu"
                 />
               </g-link>
             </div>
-
-            <div class="logo-bar__content__menu">
-              <ul class="nav">
-                <li
-                  class="nav__content"
-                  :class="nav.title.toLowerCase().replace(/\s/g, '-')"
-                  v-for="(nav, index) in megaMenuItems"
-                  :key="index"
-                  @click="nav.is_dropdown ? toggleMegaMenu(index) : null"
-                >
-                  <a
-                    v-if="!nav.is_dropdown"
-                    :href="nav.path"
-                    class="link"
-                    @click="closeNav"
-                  >
-                    {{ nav.title }}
-                  </a>
-                  <span v-else class="link">
-                    {{ nav.title }}
-                  </span>
-                  <img
-                    v-show="nav.is_dropdown"
-                    class="nav__content__chevron"
-                    src="/img/icons/icon-chevron-down.svg"
-                    alt="arrow down icon"
-                  />
-                </li>
-              </ul>
-            </div>
-            <div class="logo-bar__content__searchbar">
-              <div
-                class="logo-bar--searchbar search-trigger search"
-                @click="searchTrigger"
-              >
-                <img src="/img/icons/search-icon.svg" alt="" />
-                <p>Search</p>
-              </div>
-            </div>
           </div>
-          <!-- nav items HEADINGS DESKTOP -->
+
+          <div class="navigation__menu">
+            <ul class="nav">
+              <li
+                v-for="(nav, index) in megaMenuItems"
+                :key="index"
+                class="nav__content"
+                @click="nav.is_dropdown ? toggleMegaMenu(index) : null"
+              >
+                <a
+                  v-if="!nav.is_dropdown"
+                  :href="nav.path"
+                  class="link"
+                  @click="closeNav"
+                >
+                  {{ nav.title }}
+                </a>
+                <span v-else class="link">
+                  {{ nav.title }}
+                </span>
+                <img
+                  v-show="nav.is_dropdown"
+                  class="nav__content__chevron"
+                  src="/img/icons/icon-chevron-down.svg"
+                  alt="arrow down icon"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="navigation__search" @click="searchTrigger">
+            <img src="/img/icons/search-icon.svg" alt="Search" loading="lazy" />
+          </div>
         </div>
+        <!-- nav items HEADINGS DESKTOP -->
       </div>
+      <!-- </div> -->
 
       <!-- expanded -->
-      <div class="mega-header__wrapper__expanded" v-if="megaMenuIsOpen">
-        <div class="mega-header__wrapper__expanded__content">
+      <div v-if="megaMenuIsOpen" class="mega-header__expanded">
+        <div class="mega-header__expanded__content">
           <div class="nav__expanded">
             <ul
-              class="nav__expanded__content"
-              :class="{ hidden__submenu: subMenuIndex != index }"
               v-for="(nav, index) in megaMenuItems"
               :key="index"
+              class="nav__expanded__content"
+              :class="{ hidden__submenu: subMenuIndex != index }"
             >
               <div class="nav__expanded__content__titles">
                 <div
@@ -113,31 +108,34 @@
               <li
                 class="nav__expanded__content__item"
                 :class="{
-                  hidden__submenu: subMenuIndex != index
+                  hidden__submenu: subMenuIndex != index,
                 }"
               >
                 <div
+                  v-for="(sec, indexSec) in nav.nav_items"
+                  :key="indexSec"
                   class="nav__expanded__content__item__cards"
                   :class="{
                     firtsEcoSub:
                       sec.sub_category.toLowerCase() ===
                       'Ecosystem'.toLowerCase(),
                     lastEcoSub:
-                      sec.sub_category.toLowerCase() === 'Bridges'.toLowerCase()
+                      sec.sub_category.toLowerCase() ===
+                      'Bridges'.toLowerCase(),
                   }"
-                  v-for="(sec, indexSec) in nav.nav_items"
-                  :key="indexSec"
                 >
                   <span
                     v-if="sec.sub_category != ''"
                     class="nav__expanded__content__section"
-                    >{{ sec.sub_category }}
+                  >
+                    {{ sec.sub_category }}
                     <hr />
                   </span>
                   <span
                     v-else
                     class="nav__expanded__content__section emptytitle"
-                    >-
+                  >
+                    -
                     <hr />
                   </span>
                   <template
@@ -145,8 +143,8 @@
                   >
                     <div
                       v-if="secItem.nav_item"
-                      class="nav__expanded__content__container"
                       :key="indexItem"
+                      class="nav__expanded__content__container"
                     >
                       <g-link
                         v-if="secItem.nav_item.display_on_header"
@@ -157,8 +155,8 @@
                         "
                       >
                         <div
-                          @click="linkCloseMenu"
                           class="nav__expanded__content__item__desc"
+                          @click="linkCloseMenu"
                         >
                           <div class="nav__expanded__content__item__img">
                             <ResponsiveImage
@@ -201,14 +199,16 @@
           </div>
           <div class="nav__social-media">
             <div class="nav__social-media__content">
-              <p class="title">Connect with Us:</p>
+              <p class="title">
+                Connect with Us:
+              </p>
               <div class="nav__social-media__icon-content">
                 <a
                   href="https://forum.scrt.network/"
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="forums"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img
                     src="/img/icons/message-circle.svg"
@@ -223,7 +223,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="discord"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img src="/img/icons/discord.svg" alt="discord image" />
                   <span>Discord</span>
@@ -235,7 +235,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="telegram"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img src="/img/icons/telegram.svg" alt="telegram image" />
                   <span>Telegram</span>
@@ -247,7 +247,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="twitter"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img src="/img/icons/twitter.svg" alt="twitter image" />
                   <span>Twitter</span>
@@ -259,7 +259,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="youtube"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img src="/img/icons/youtube.svg" alt="youtube image" />
                   <span>Youtube</span>
@@ -271,7 +271,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   alt="instagram"
-                  v-on:click="linkCloseMenu"
+                  @click="linkCloseMenu"
                 >
                   <img
                     src="/img/icons/icon-social-instagram.svg"
@@ -285,10 +285,10 @@
         </div>
       </div>
       <div
-        v-on:click="linkCloseMenu"
-        class="mega-header__overlay"
         v-if="megaMenuIsOpen"
-      ></div>
+        class="mega-header__overlay"
+        @click="linkCloseMenu"
+      />
     </header>
   </transition>
 </template>
@@ -301,11 +301,36 @@ export default {
       alertIsOpen: true,
       scrollingDown: false,
       columns: [],
-      subMenuIndex: -1
+      subMenuIndex: -1,
     };
   },
+  computed: {
+    chevron() {
+      return this.megaMenuIsOpen ? "arrow-up" : "arrow-down";
+    },
+    burger() {
+      return this.megaMenuIsOpen ? "is-opened" : "is-closed";
+    },
+    megaMenuItems() {
+      const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
+      const content = neWArray.edges.map((it) => it.node.nav_groups);
+      this.setColumns(content[0]);
+      this.mapNavArray(this.columns);
+      return this.columns;
+    },
+  },
+  mounted() {
+    this.resizeWindow();
+    this.megaMenuColumns();
+    if (process.isClient) {
+      this.scrollPosition();
+    }
+  },
+  beforeDestroy() {
+    this.scrollPosition();
+  },
   methods: {
-    scrollPosition(e) {
+    scrollPosition() {
       let lastScrollTop = 0;
       window.addEventListener(
         "scroll",
@@ -320,7 +345,7 @@ export default {
             lastScrollTop = st <= 0 ? 0 : st;
           }
         },
-        false
+        false,
       );
     },
     resizeWindow() {
@@ -334,7 +359,7 @@ export default {
     },
     megaMenuColumns() {
       const footer = document.querySelector("footer");
-      const columns = this.columns.filter(item => item.nav_items.length);
+      const columns = this.columns.filter((item) => item.nav_items.length);
       const style = `--scrt-megamenu-columns:${columns.length}`;
       footer.setAttribute("style", style);
     },
@@ -359,10 +384,10 @@ export default {
       const navEl = document.querySelectorAll(".nav__content");
       const arrow = document.querySelectorAll(".nav__content__chevron");
       if (active) {
-        navEl.forEach(el => {
+        navEl.forEach((el) => {
           el.classList.remove("activeNav");
         });
-        arrow.forEach(el => {
+        arrow.forEach((el) => {
           el.classList.remove("arrow-up");
         });
         navEl[index].classList.add("activeNav");
@@ -402,10 +427,10 @@ export default {
 
       this.subMenuIndex = -1;
       body.classList.remove("freezed");
-      navEl.forEach(el => {
+      navEl.forEach((el) => {
         el.classList.remove("activeNav");
       });
-      arrow.forEach(el => {
+      arrow.forEach((el) => {
         el.classList.remove("arrow-up");
       });
     },
@@ -414,11 +439,11 @@ export default {
       this.$router.push("/about/get-scrt");
     },
     mapNavArray(array) {
-      array.forEach(c => {
+      array.forEach((c) => {
         const subCategories = {};
         const navItems = [];
 
-        c.nav_items.forEach(item => {
+        c.nav_items.forEach((item) => {
           const subCategory = item.sub_category;
 
           if (!subCategories[subCategory]) {
@@ -435,12 +460,12 @@ export default {
 
             navItems.push({
               sub_category: subCategory,
-              sub_category_nav_item: firstArray
+              sub_category_nav_item: firstArray,
             });
 
             navItems.push({
               sub_category: "",
-              sub_category_nav_item: secondArray
+              sub_category_nav_item: secondArray,
             });
           } else if (subCategory === "Contact Us") {
             const firstArray = items.slice(0, 3);
@@ -449,22 +474,22 @@ export default {
 
             navItems.push({
               sub_category: subCategory,
-              sub_category_nav_item: firstArray
+              sub_category_nav_item: firstArray,
             });
 
             navItems.push({
               sub_category: "",
-              sub_category_nav_item: secondArray
+              sub_category_nav_item: secondArray,
             });
 
             navItems.push({
               sub_category: "",
-              sub_category_nav_item: thirdArray
+              sub_category_nav_item: thirdArray,
             });
           } else {
             navItems.push({
               sub_category: subCategory,
-              sub_category_nav_item: items
+              sub_category_nav_item: items,
             });
           }
         });
@@ -480,34 +505,8 @@ export default {
     },
     setColumns(content) {
       this.columns = content;
-    }
-  },
-
-  computed: {
-    chevron() {
-      return this.megaMenuIsOpen ? "arrow-up" : "arrow-down";
     },
-    burger() {
-      return this.megaMenuIsOpen ? "is-opened" : "is-closed";
-    },
-    megaMenuItems() {
-      const neWArray = JSON.parse(JSON.stringify(this.$static.navHeader));
-      const content = neWArray.edges.map(it => it.node.nav_groups);
-      this.setColumns(content[0]);
-      this.mapNavArray(this.columns);
-      return this.columns;
-    }
   },
-  mounted() {
-    this.resizeWindow();
-    this.megaMenuColumns();
-    if (process.isClient) {
-      this.scrollPosition();
-    }
-  },
-  beforeDestroy() {
-    this.scrollPosition();
-  }
 };
 </script>
 
@@ -560,6 +559,7 @@ query {
 <style lang="scss">
 @import "@/sass/_text.scss";
 @import "@lkmx/flare/src/functions/_respond-to.scss";
+
 :root {
   --mega-header-space: 16px;
   --mega-header-space-l: 24px;
@@ -592,6 +592,7 @@ query {
   --mega-header-line-height: var(--f-h6-line-height);
   --paragraph-font-weight-big: 300;
 }
+
 .mega-header {
   position: fixed;
   left: 0;
@@ -604,124 +605,438 @@ query {
     flex-direction: column;
     align-items: center;
   }
-  &__wrapper {
-    height: 100%;
-    width: 100%;
+
+  &__content {
     background-color: var(--mega-headerbackground);
+    height: 68px;
+    width: 100%;
     justify-content: center;
     display: flex;
-    @include respond-to("<=m") {
+
+    .navigation {
       width: 100%;
+      display: grid;
+      grid-template-columns: 130px 1fr 24px;
+      align-items: center;
+      gap: 16px;
+      padding-inline: 16px;
+
+      @include respond-to("<=l") {
+        grid-template-columns: 1fr 24px;
+        padding: 0 var(--f-gutter);
+        gap: 0;
+      }
+
+      @include respond-to(">=xl") {
+        max-width: 1440px;
+      }
+
+      @media screen and (min-width: 2560px) {
+        max-width: 1840px;
+      }
+
+      &__image {
+        padding: var(--mega-header-padding-logo) 0;
+
+        @include respond-to("<=l") {
+          display: grid;
+          grid-template-columns: var(--mega-header-grid-image-content);
+          justify-content: space-around;
+          align-content: center;
+        }
+
+        .secret-logo {
+          display: flex;
+          justify-content: center;
+          height: 100%;
+
+          @include respond-to("<=l") {
+          }
+
+          a {
+            .logo {
+              width: 100%;
+              height: 100%;
+              justify-self: center;
+
+              @include respond-to("<=l") {
+                width: 130px;
+              }
+            }
+            @include respond-to("<=l") {
+              display: grid;
+              justify-content: center;
+            }
+            &:visited {
+              color: inherit;
+              background-color: inherit;
+            }
+            &:active {
+              color: inherit;
+              background-color: inherit;
+            }
+          }
+        }
+
+        .close,
+        .search,
+        .menu {
+          width: var(--mega-header-space-l);
+          height: var(--mega-header-space-l);
+          align-self: center;
+          @include respond-to(">l") {
+            display: none;
+          }
+          cursor: pointer;
+        }
+      }
+
+      &__menu {
+        display: grid;
+        height: 100%;
+
+        @include respond-to("<=l") {
+          display: none;
+        }
+
+        .nav {
+          display: grid;
+          grid-auto-flow: column;
+          padding: 0;
+          margin-bottom: 0;
+
+          &__content {
+            display: flex;
+            gap: var(--mega-header-gap-nav);
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s ease;
+            margin-bottom: 0;
+            user-select: none;
+
+            &:hover,
+            &.activeNav {
+              .link {
+                color: var(--color-neutral-dark-mode-05);
+              }
+            }
+
+            @include respond-to("<=m") {
+              padding: var(--f-gutter);
+            }
+
+            .link {
+              margin-bottom: 0;
+              width: fit-content;
+              color: var(--color-analog-primary-white);
+              font-family: var(--f-default-headers-font);
+              font-weight: 600;
+
+              &:is(a) {
+                display: grid;
+                place-items: center;
+                align-self: stretch;
+                width: 100%;
+              }
+            }
+            &__chevron {
+              transition: 0.2s ease;
+              transform: rotate(0);
+
+              &.arrow-up {
+                transform: rotate(180deg);
+              }
+            }
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      &__search {
+        display: grid;
+        cursor: pointer;
+        place-items: center;
+
+        @include respond-to("<xl") {
+          display: none;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &.is-closed {
+        .close,
+        .navigation__search {
+          display: none;
+        }
+        .navigation__search {
+          @include respond-to(">l") {
+            display: grid;
+          }
+        }
+      }
+
+      &.is-opened {
+        .menu {
+          display: none;
+        }
+        .close {
+          display: unset;
+          @include respond-to(">l") {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  &__expanded {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: var(--mega-header-background-nav-expanded);
+    border-radius: 0px 0px 10px 10px;
+
+    @include respond-to("<=l") {
+      position: absolute;
+      top: 67px;
+      left: 0;
+      width: 100%;
+      scrollbar-width: none;
+      overflow-y: scroll;
+      overflow: auto;
+      scroll-behavior: smooth;
+      height: calc(100vh - (67px + var(--ab-height)));
+      padding-bottom: 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
     &__content {
       width: 100%;
       display: grid;
+      background-color: var(--mega-header-background-nav-expanded);
+      padding-bottom: var(--f-gutter);
+
       @include respond-to(">=xl") {
         max-width: 1440px;
+      }
+      @include respond-to("<=l") {
+        padding-bottom: 0;
       }
       @media screen and (min-width: 2560px) {
         max-width: 1840px;
       }
-      .logo-bar {
+      @include respond-to("<=l") {
+        width: 100%;
+      }
+    }
+    .nav {
+      &__expanded {
         display: grid;
-        grid-template-columns: 150px 1fr auto auto;
-        grid-auto-flow: column;
-        align-items: center;
+        grid-auto-flow: row;
+        background-color: var(--mega-header-background-nav-expanded);
 
         @include respond-to("<=l") {
-          grid-template-columns: 1fr 24px;
-          padding: 0 var(--f-gutter);
-        }
-        &.is-closed {
-          .close,
-          .search {
-            display: none;
-          }
-          .search {
-            @include respond-to(">l") {
-              display: grid;
-            }
-          }
-        }
-        &.is-opened {
-          .menu {
-            display: none;
-          }
-          .close {
-            display: unset;
-            @include respond-to(">l") {
-              display: none;
-            }
-          }
-          .search {
-            @include respond-to(">m") {
-              display: grid;
-            }
-          }
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 160px;
         }
         &__content {
-          &__image {
-            padding: var(--mega-header-padding-logo) var(--f-gutter);
-            @include respond-to("<=l") {
-              display: grid;
-              grid-template-columns: var(--mega-header-grid-image-content);
-              padding-left: 0;
-              padding-right: 0;
-              justify-content: space-around;
-              align-content: center;
-            }
-            a {
-              .logo {
-                width: 129px;
-                height: 58px;
-                justify-self: center;
-              }
-              @include respond-to("<=l") {
-                display: grid;
-                justify-content: center;
-              }
-              &:visited {
-                color: inherit;
-                background-color: inherit;
-              }
-              &:active {
-                color: inherit;
-                background-color: inherit;
-              }
-            }
-            .close,
-            .search,
-            .menu {
-              width: var(--mega-header-space-l);
-              height: var(--mega-header-space-l);
-              align-self: center;
-              @include respond-to(">l") {
-                display: none;
-              }
-              cursor: pointer;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          height: fit-content;
+          gap: 20px;
+          padding-top: 20px;
+          &__chevron {
+            transition: 0.2s ease;
+            transform: rotate(0);
+            &.arrow_up {
+              transform: rotate(180deg);
             }
           }
-          &__menu {
-            display: grid;
-            height: 100%;
+          &.hidden__submenu {
+            padding: 0px;
           }
-          &__searchbar {
-            display: grid;
-            cursor: pointer;
-            padding-right: var(--f-gutter);
-
-            @include respond-to("<xl") {
-              justify-content: start;
-              width: 100%;
+          @include respond-to("<=l") {
+            padding-top: 0px;
+          }
+          &__titles {
+            background: black;
+            @include respond-to(">l") {
               display: none;
-              padding: 0;
+            }
+            &__content {
+              display: flex;
+              padding: 20px;
+              justify-content: space-between;
+              cursor: pointer;
+
+              &:hover {
+                opacity: 0.7;
+              }
+
+              @mixin nameStyles {
+                display: flex;
+                gap: 12.36px;
+                color: #ffffff;
+
+                h6 {
+                  margin: 0;
+                  font-size: 18px;
+                }
+                .spc_learn {
+                  margin: 0;
+                  font-size: 18px;
+                  color: green;
+                  font-family: var(--f-h6-text-font);
+                  font-weight: var(--f-h6-text-weight);
+                  color: var(--f-h6-text-color);
+                  line-height: var(--f-h6-line-height);
+                }
+              }
+              &__name {
+                @include nameStyles();
+              }
+
+              &.content-link {
+                justify-content: flex-start;
+                @include nameStyles();
+
+                &:visited {
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+          &__list {
+            display: none;
+          }
+          &__title {
+            padding: var(--f-gutter);
+            font-weight: 600;
+            margin-bottom: 0;
+            @include respond-to(">m") {
+              display: none;
+            }
+          }
+          &__section {
+            font-size: 18px;
+            font-family: var(--f-default-headers-font);
+            font-weight: 500;
+            color: #b2bfcd;
+            padding: 20px;
+            hr {
+              display: block;
+              width: 100%;
+              height: 2px;
+              background: rgba(48, 60, 74, 1);
+              margin: 24px 0px 0px 0px;
+            }
+            &.emptytitle {
+              color: var(--mega-header-background-nav-expanded);
+            }
+          }
+          &__container {
+            &:hover {
+              border-radius: 10px;
+              background-color: #303c4a;
             }
           }
 
-          &__btnSrct {
+          &__item {
             display: grid;
-
+            gap: 37px;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 0;
+            @include respond-to("<=m") {
+              display: flex;
+              flex-direction: column;
+              padding: var(--mega-header-padding-expaded-item-mobile);
+              height: fit-content;
+            }
             @include respond-to("<=l") {
+              padding: var(--mega-header-padding-expaded-item-mobile);
+            }
+
+            &__cards {
+              &.firtsEcoSub {
+                @include respond-to(">=l") {
+                  grid-row: 1 / 3;
+                }
+              }
+              &.lastEcoSub {
+                @include respond-to(">=l") {
+                  grid-row: 1 / 3;
+                  grid-column: 3/4;
+                }
+              }
+            }
+            &__link {
+              color: var(--mega-header-color-nav-exanded) !important;
+              line-height: var(--mega-header-line-height-nav-expanded);
+              font-weight: 400;
+              font-size: var(--mega-header-text-size-nav-expanded);
+              &:hover {
+                color: var(--mega-header-color-nav-exanded-hover) !important;
+                height: var(--mega-header-space-l);
+              }
+              @include respond-to("<=m") {
+                line-height: var(--mega-header-line-height);
+              }
+            }
+            &__textcontainer {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+            }
+            &__desc {
+              display: flex;
+              align-items: center;
+              gap: 12.08px;
+              padding: 16px;
+
+              &__title {
+                font-weight: 500;
+                font-size: 18px;
+                font-family: var(--f-default-headers-font);
+                color: #fff;
+                line-height: 24px;
+              }
+              &__descr {
+                font-family: var(--f-default-headers-font);
+                font-weight: normal;
+                font-size: 16px;
+                color: #b2bfcd;
+                @include respond-to("<=l") {
+                  display: none;
+                }
+              }
+            }
+
+            &__img {
+              align-self: flex-start;
+              img {
+                width: 24px;
+                height: 24px;
+              }
+            }
+
+            &.hidden__submenu {
+              display: none;
+            }
+          }
+          &__btnSrct {
+            position: fixed;
+            bottom: 83px;
+            right: 16px;
+            @include respond-to(">=xl") {
               display: none;
             }
             button {
@@ -736,7 +1051,6 @@ query {
               &:hover {
                 background: #d7dde5;
               }
-
               img {
                 width: 24px;
                 height: 24px;
@@ -752,432 +1066,70 @@ query {
             }
           }
         }
-        &--searchbar {
-          display: grid;
-          align-items: center;
-          grid-auto-flow: column;
-          gap: var(--mega-header-gap-searchbar);
-          padding: var(--mega-header-padding-searchbar);
-          border-radius: var(--mega-header-border-searchbar);
-          background-color: var(--color-neutral-dark-mode-03);
-          p {
-            min-width: var(--mega-header-width-searchbar);
-            margin-bottom: 0;
-
-            @include respond-to("<=l") {
-              width: 100%;
-              display: none;
-            }
-          }
-          @include respond-to("<=l") {
-            background-color: var(--mega-headerbackground);
-            padding: 0;
-          }
-          img {
-            @include respond-to("<=l") {
-              width: 24px;
-              height: auto;
-            }
-          }
-        }
       }
-      .nav {
+
+      &__social-media {
         display: grid;
-        grid-auto-flow: column;
-        padding: 0 var(--f-gutter);
-        margin-bottom: 0;
-        @include respond-to("<=l") {
-          grid-auto-flow: row;
-          grid-template-columns: 1fr;
-          padding: 0;
-          display: none;
-        }
-        &__content {
-          display: flex;
-          gap: var(--mega-header-gap-nav);
-          height: 100%;
-          align-items: center;
-          justify-content: center;
-          transition: 0.2s ease;
-          margin-bottom: 0;
-          user-select: none;
-
-          &:hover,
-          &.activeNav {
-            .link {
-              color: var(--color-neutral-dark-mode-05);
-            }
-          }
-
-          @include respond-to("<=m") {
-            padding: var(--f-gutter);
-          }
-
-          .link {
-            margin-bottom: 0;
-            width: fit-content;
-            color: var(--color-analog-primary-white);
-            font-family: var(--f-default-headers-font);
-            font-weight: 600;
-
-            &:is(a) {
-              display: grid;
-              place-items: center;
-              align-self: stretch;
-              width: 100%;
-            }
-          }
-          &__chevron {
-            transition: 0.2s ease;
-            transform: rotate(0);
-
-            &.arrow-up {
-              transform: rotate(180deg);
-            }
-          }
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-    }
-    &__expanded {
-      height: 100%;
-      width: 100%;
-      justify-content: center;
-      display: flex;
-      background-color: var(--mega-header-background-nav-expanded);
-      border-radius: 0px 0px 10px 10px;
-
-      @include respond-to("<=l") {
-        position: absolute;
-        top: 67px;
-        left: 0;
-        width: 100%;
-        scrollbar-width: none;
-        overflow-y: scroll;
-        overflow: auto;
-        scroll-behavior: smooth;
-        height: calc(100vh - (67px + var(--ab-height)));
-        padding-bottom: 0;
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-      &__content {
-        width: 100%;
-        display: grid;
+        justify-content: end;
         background-color: var(--mega-header-background-nav-expanded);
-        padding-bottom: var(--f-gutter);
-
-        @include respond-to(">=xl") {
-          max-width: 1440px;
-        }
+        padding: 0 16px;
+        padding-top: 11px;
         @include respond-to("<=l") {
-          padding-bottom: 0;
+          justify-content: space-around;
+          padding: 20px;
+          background-color: var(--mega-headerbackground);
+          width: 100vw;
+          bottom: 0;
+          position: fixed;
         }
-        @media screen and (min-width: 2560px) {
-          max-width: 1840px;
+        @include respond-to(">l") {
+          display: none;
         }
-        @include respond-to("<=l") {
-          width: 100%;
-        }
-      }
-      .nav {
-        &__expanded {
-          display: grid;
-          grid-auto-flow: row;
-          background-color: var(--mega-header-background-nav-expanded);
-
+        .title {
+          color: var(--mega-header-color-social-medial-hover);
           @include respond-to("<=l") {
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 160px;
-          }
-          &__content {
-            padding: 0;
-            margin: 0;
-            display: grid;
-            height: fit-content;
-            gap: 20px;
-            padding-top: 20px;
-            &__chevron {
-              transition: 0.2s ease;
-              transform: rotate(0);
-              &.arrow_up {
-                transform: rotate(180deg);
-              }
-            }
-            &.hidden__submenu {
-              padding: 0px;
-            }
-            @include respond-to("<=l") {
-              padding-top: 0px;
-            }
-            &__titles {
-              background: black;
-              @include respond-to(">l") {
-                display: none;
-              }
-              &__content {
-                display: flex;
-                padding: 20px;
-                justify-content: space-between;
-                cursor: pointer;
-
-                &:hover {
-                  opacity: 0.7;
-                }
-
-                @mixin nameStyles {
-                  display: flex;
-                  gap: 12.36px;
-                  color: #ffffff;
-
-                  h6 {
-                    margin: 0;
-                    font-size: 18px;
-                  }
-                  .spc_learn {
-                    margin: 0;
-                    font-size: 18px;
-                    color: green;
-                    font-family: var(--f-h6-text-font);
-                    font-weight: var(--f-h6-text-weight);
-                    color: var(--f-h6-text-color);
-                    line-height: var(--f-h6-line-height);
-                  }
-                }
-                &__name {
-                  @include nameStyles();
-                }
-
-                &.content-link {
-                  justify-content: flex-start;
-                  @include nameStyles();
-
-                  &:visited {
-                    color: #ffffff;
-                  }
-                }
-              }
-            }
-            &__list {
-              display: none;
-            }
-            &__title {
-              padding: var(--f-gutter);
-              font-weight: 600;
-              margin-bottom: 0;
-              @include respond-to(">m") {
-                display: none;
-              }
-            }
-            &__section {
-              font-size: 18px;
-              font-family: var(--f-default-headers-font);
-              font-weight: 500;
-              color: #b2bfcd;
-              padding: 20px;
-              hr {
-                display: block;
-                width: 100%;
-                height: 2px;
-                background: rgba(48, 60, 74, 1);
-                margin: 24px 0px 0px 0px;
-              }
-              &.emptytitle {
-                color: var(--mega-header-background-nav-expanded);
-              }
-            }
-            &__container {
-              &:hover {
-                border-radius: 10px;
-                background-color: #303c4a;
-              }
-            }
-
-            &__item {
-              display: grid;
-              gap: 37px;
-              grid-template-columns: repeat(3, 1fr);
-              margin-bottom: 0;
-              @include respond-to("<=m") {
-                display: flex;
-                flex-direction: column;
-                padding: var(--mega-header-padding-expaded-item-mobile);
-                height: fit-content;
-              }
-              @include respond-to("<=l") {
-                padding: var(--mega-header-padding-expaded-item-mobile);
-              }
-
-              &__cards {
-                &.firtsEcoSub {
-                  @include respond-to(">=l") {
-                    grid-row: 1 / 3;
-                  }
-                }
-                &.lastEcoSub {
-                  @include respond-to(">=l") {
-                    grid-row: 1 / 3;
-                    grid-column: 3/4;
-                  }
-                }
-              }
-              &__link {
-                color: var(--mega-header-color-nav-exanded) !important;
-                line-height: var(--mega-header-line-height-nav-expanded);
-                font-weight: 400;
-                font-size: var(--mega-header-text-size-nav-expanded);
-                &:hover {
-                  color: var(--mega-header-color-nav-exanded-hover) !important;
-                  height: var(--mega-header-space-l);
-                }
-                @include respond-to("<=m") {
-                  line-height: var(--mega-header-line-height);
-                }
-              }
-              &__textcontainer {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-              }
-              &__desc {
-                display: flex;
-                align-items: center;
-                gap: 12.08px;
-                padding: 16px;
-
-                &__title {
-                  font-weight: 500;
-                  font-size: 18px;
-                  font-family: var(--f-default-headers-font);
-                  color: #fff;
-                  line-height: 24px;
-                }
-                &__descr {
-                  font-family: var(--f-default-headers-font);
-                  font-weight: normal;
-                  font-size: 16px;
-                  color: #b2bfcd;
-                  @include respond-to("<=l") {
-                    display: none;
-                  }
-                }
-              }
-
-              &__img {
-                align-self: flex-start;
-                img {
-                  width: 24px;
-                  height: 24px;
-                }
-              }
-
-              &.hidden__submenu {
-                display: none;
-              }
-            }
-            &__btnSrct {
-              position: fixed;
-              bottom: 83px;
-              right: 16px;
-              @include respond-to(">=xl") {
-                display: none;
-              }
-              button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0px 16px;
-                background-color: var(--color-analog-primary-white);
-                border-radius: 10px;
-                gap: 6px;
-                padding: 10px 16px;
-                &:hover {
-                  background: #d7dde5;
-                }
-                img {
-                  width: 24px;
-                  height: 24px;
-                }
-                p {
-                  margin: 0;
-                  color: var(--color-analog-primary-black);
-                  font-family: var(--f-default-headers-font);
-                  font-size: 16px;
-                  font-weight: bold;
-                  white-space: nowrap;
-                }
-              }
-            }
-          }
-        }
-
-        &__social-media {
-          display: grid;
-          justify-content: end;
-          background-color: var(--mega-header-background-nav-expanded);
-          padding: 0 16px;
-          padding-top: 11px;
-          @include respond-to("<=l") {
-            justify-content: space-around;
-            padding: 20px;
-            background-color: var(--mega-headerbackground);
-            width: 100vw;
-            bottom: 0;
-            position: fixed;
-          }
-          @include respond-to(">l") {
             display: none;
           }
-          .title {
-            color: var(--mega-header-color-social-medial-hover);
-            @include respond-to("<=l") {
-              display: none;
-            }
+        }
+        p,
+        a {
+          margin-bottom: 0;
+          font-family: var(--f-default-headers-font);
+          font-weight: var(--paragraph-font-weight-big);
+          img {
+            color: var(--mega-header-color-social-media-icon);
           }
-          p,
+          span {
+            color: var(--mega-header-color-social-medial);
+          }
+        }
+        &__content {
+          display: grid;
+          grid-auto-flow: column;
+          gap: var(--f-gutter);
+
+          @include respond-to("<=l") {
+            padding-right: 0;
+            justify-content: space-around;
+            width: 100vw;
+          }
+        }
+        &__icon-content {
           a {
-            margin-bottom: 0;
-            font-family: var(--f-default-headers-font);
-            font-weight: var(--paragraph-font-weight-big);
-            img {
-              color: var(--mega-header-color-social-media-icon);
-            }
-            span {
-              color: var(--mega-header-color-social-medial);
-            }
-          }
-          &__content {
             display: grid;
             grid-auto-flow: column;
-            gap: var(--f-gutter);
-
-            @include respond-to("<=l") {
-              padding-right: 0;
-              justify-content: space-around;
-              width: 100vw;
+            gap: var(--mega-header-gap-social-media);
+            height: 24px;
+            display: grid;
+            align-content: center;
+            line-height: var(--mega-header-line-height);
+            &:hover {
+              color: var(--mega-header-color-social-medial-hover);
             }
-          }
-          &__icon-content {
-            a {
-              display: grid;
-              grid-auto-flow: column;
-              gap: var(--mega-header-gap-social-media);
+            span {
               height: 24px;
-              display: grid;
-              align-content: center;
-              line-height: var(--mega-header-line-height);
-              &:hover {
-                color: var(--mega-header-color-social-medial-hover);
-              }
-              span {
-                height: 24px;
-                @include respond-to("<=l") {
-                  display: none;
-                }
+              @include respond-to("<=l") {
+                display: none;
               }
             }
           }

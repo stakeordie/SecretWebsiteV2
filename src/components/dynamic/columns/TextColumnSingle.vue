@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      :class="['text-column-single', widthSize, paddingTop, paddingBottom]"
       :id="titleId"
+      :class="['text-column-single', widthSize, paddingTop, paddingBottom]"
     >
       <DynamicImage v-if="image" :image="image" />
       <DynamicEyebrowTitle
@@ -26,6 +26,7 @@
         :isExternalLink="is_external_link"
       />
       <CtaButton v-if="button" v-bind="button" />
+      <DynamicFooter :title="footer_title" :links="footer_links" />
     </div>
   </div>
 </template>
@@ -37,6 +38,7 @@ import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.
 import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
+import DynamicFooter from "@/components/dynamic/basic/DynamicFooter.vue";
 
 export default {
   components: {
@@ -44,74 +46,99 @@ export default {
     DynamicImage,
     DynamicEyebrowTitle,
     DynamicTitle,
-    DynamicBody
+    DynamicBody,
+    DynamicFooter,
   },
   props: {
     paragraph_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_title_alignment: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_title_weight: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_alignment: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     is_anchor: {
       type: Boolean,
-      required: false
+      required: false,
     },
     width: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     navigation_level: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_top: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_bottom: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     button: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     component_colors: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     is_external_link: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
+    footer_title: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    footer_links: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   computed: {
     titleId() {
@@ -128,8 +155,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    }
-  }
+    },
+  },
 };
 </script>
 

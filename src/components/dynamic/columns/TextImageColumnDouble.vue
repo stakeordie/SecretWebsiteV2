@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      class="text-image-column-double"
       :id="titleId"
+      class="text-image-column-double"
       :class="containerStyles"
       :style="contentAlignment"
     >
@@ -33,6 +33,7 @@
           :buttons="buttons"
           :position="buttons_position"
         />
+        <DynamicFooter :title="footer_title" :links="footer_links" />
       </div>
       <div class="col-2">
         <ResponsiveImage v-if="image" :src="image" />
@@ -51,6 +52,7 @@ import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.
 import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
+import DynamicFooter from "@/components/dynamic/basic/DynamicFooter.vue";
 
 export default {
   components: {
@@ -58,94 +60,122 @@ export default {
     DynamicImage,
     DynamicTitle,
     DynamicEyebrowTitle,
-    DynamicBody
+    DynamicBody,
+    DynamicFooter,
   },
   props: {
     paragraph_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_title_alignment: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_title_weight: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     width: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     image_description: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     image_position: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     is_anchor: {
       type: Boolean,
-      required: false
+      required: false,
     },
     navigation_level: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_top: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_bottom: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     buttons: {
       type: Array,
-      required: false
+      required: false,
+      default: () => [],
     },
     buttons_position: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     paragraph_image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     paragraph_alignment: {
       type: String,
-      required: true
+      required: true,
     },
     component_colors: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     content_alignment: {
       type: String,
-      required: true
+      required: true,
     },
     is_external_link: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
+    footer_title: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    footer_links: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   computed: {
     titleId() {
@@ -164,16 +194,16 @@ export default {
       const alignment = {
         top: "start",
         center: "center",
-        bottom: "end"
+        bottom: "end",
       };
 
       return {
         "--align-items": alignment[this.content_alignment] || alignment.center,
         "--text-order": !isImageLeft ? 1 : 2,
-        "--image-order": isImageLeft ? 1 : 2
+        "--image-order": isImageLeft ? 1 : 2,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
