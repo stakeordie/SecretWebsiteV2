@@ -38,8 +38,8 @@
             :position="first_buttons_position"
           />
           <DynamicFooter
-            :title="second_footer_title"
-            :links="second_footer_links"
+            :title="first_footer_title"
+            :links="first_footer_links"
           />
         </div>
         <div class="text-column-double__col-2">
