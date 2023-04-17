@@ -15,6 +15,8 @@ module.exports = {
     "vue/require-prop-type-constructor": "off",
     "vue/no-side-effects-in-computed-properties": "warn",
     "no-unused-vars": "error",
+    "vue/attribute-hyphenation": "off",
+    "vue/prop-name-casing": "off",
     "vue/max-attributes-per-line": ["error", {
       singleline: {
         max: 3

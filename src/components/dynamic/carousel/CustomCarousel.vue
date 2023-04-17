@@ -25,11 +25,11 @@
         </button>
       </div>
     </div>
-    <div class="cards-content" ref="custom_carousel">
+    <div ref="custom_carousel" class="cards-content">
       <CardWrapper
-        class="card"
         v-for="(card, index) in cards"
         :key="index"
+        class="card"
         :url="card.url"
         :externalLink="card.is_external_link"
       >
@@ -38,7 +38,9 @@
           :src="card.image"
           class="card__image"
         />
-        <h4 v-if="card.title" class="card__title">{{ card.title }}</h4>
+        <h4 v-if="card.title" class="card__title">
+          {{ card.title }}
+        </h4>
         <p v-if="card.description" class="card__text">
           {{ card.description }}
         </p>
@@ -53,39 +55,41 @@ import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 import { sizes } from "@/utils";
 
 export default {
+  components: {
+    CardWrapper,
+    DynamicTitle,
+  },
   props: {
     title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     title_weight: {
       type: String,
-      required: true
+      required: true,
     },
     title_alignment: {
       type: String,
-      required: true
+      required: true,
     },
     padding_top: {
       type: String,
-      required: true
+      required: true,
     },
     padding_bottom: {
       type: String,
-      required: true
+      required: true,
     },
     cards: {
       type: Array,
-      required: true
+      required: true,
     },
     component_colors: {
       type: Object,
-      required: false
-    }
-  },
-  components: {
-    CardWrapper,
-    DynamicTitle
+      required: false,
+      default: () => {},
+    },
   },
   computed: {
     containerPaddings() {
@@ -93,9 +97,9 @@ export default {
       const bottom = sizes[this.padding_bottom];
       return [
         `${top ? top : sizes.small}-top`,
-        `${bottom ? bottom : sizes.small}-bottom`
+        `${bottom ? bottom : sizes.small}-bottom`,
       ];
-    }
+    },
   },
   methods: {
     scroll(direction = "right") {
@@ -106,8 +110,8 @@ export default {
       } else {
         carousel.scrollLeft -= 300;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -9,15 +9,15 @@
     <Column mode="full" class="learn-article__wrapper">
       <Block>
         <Swirl v-if="topSwirl" :data="topSwirl" align="top" />
-        <component v-if="hero" :is="hero.comp_name" v-bind="hero" />
+        <component :is="hero.comp_name" v-if="hero" v-bind="hero" />
 
         <Column v-if="hasAnchors" class="learn-article__content">
           <Block>
             <NavMenu :data="anchorList" />
             <div>
               <component
-                v-for="(component, index) in contentComponents"
                 :is="component.comp_name"
+                v-for="(component, index) in contentComponents"
                 :key="index"
                 v-bind="component"
               />
@@ -74,13 +74,14 @@ import Swirl from "@/components/dynamic/basic/Swirl.vue";
 import CustomCarousel from "@/components/dynamic/carousel/CustomCarousel.vue";
 import CustomTable from "@/components/dynamic/table/CustomTable.vue";
 import Ecosystem from "@/components/dynamic/ecosystem/Ecosystem.vue";
+import InfiniteCarousel from "@/components/dynamic/carousel/InfinteCarousel.vue";
 
 import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
   canonicalTag,
-  removeCharacters
+  removeCharacters,
 } from "@/utils";
 
 export default {
@@ -108,24 +109,81 @@ export default {
     CustomCarousel,
     DefaultLayout,
     CustomTable,
-    Ecosystem
+    Ecosystem,
+    InfiniteCarousel,
   },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData)
+      link: canonicalTag(this.getMetaData),
     };
   },
   data() {
     return {
-      anchorList: []
+      anchorList: [],
     };
+  },
+  computed: {
+    hasAnchors() {
+      return [...this.contentComponents].some((item) => item.is_anchor);
+    },
+    carousel() {
+      return this.$context.components.find(
+        (item) => item.comp_name === "carousel",
+      );
+    },
+    contentComponents() {
+      return this.$context.components.filter(
+        (item) =>
+          item.comp_name !== "carousel" && item.comp_name !== "article-hero",
+      );
+    },
+    getMetaData() {
+      return pageMetaData(this.$page, this.$context.route);
+    },
+    hero() {
+      return this.$context.heroComponent;
+    },
+    topSwirl() {
+      return this.$context.swirls?.top_swirl || {};
+    },
+    bottomSwirl() {
+      return this.$context.swirls?.bottom_swirl || {};
+    },
+    pageBackground() {
+      const defaultColor = "var(--theme-bg)";
+      const color = this.$context.backgroundColor || defaultColor;
+      return {
+        "--bg-dynamic-page": color,
+      };
+    },
+    topMargin() {
+      const { navigation, alertBar } = this.$context.display;
+      const alertBarValue = "var(--ab-height)";
+      const headerValue = "var(--header-height, 68px)";
+      const value = navigation ? headerValue : alertBar ? alertBarValue : "0px";
+      return {
+        "--dynamic-top-margin": value,
+      };
+    },
+  },
+  watch: {
+    $route: {
+      handler(to) {
+        addScrollSmooth(to);
+        setTimeout(() => this.getAnchors(), 500);
+      },
+      immediate: true,
+    },
+  },
+  mounted() {
+    this.getAnchors();
   },
   methods: {
     getAnchors() {
       this.anchorList = [];
-      const anchors = this.contentComponents.filter(item => item.is_anchor);
+      const anchors = this.contentComponents.filter((item) => item.is_anchor);
       let lastFirstLevelId = null;
       let lastSecondLevelId = null;
       const navLevels = {
@@ -134,7 +192,7 @@ export default {
         third: 3,
         fourth: 4,
         fifth: 5,
-        sixth: 6
+        sixth: 6,
       };
 
       if (!anchors.length) return;
@@ -147,7 +205,7 @@ export default {
           id: title ? removeCharacters(title) : "",
           parentId: "",
           nested: [],
-          isOpen: true
+          isOpen: true,
         };
 
         if (data.navLevel === navLevels.first || index === 0) {
@@ -175,7 +233,8 @@ export default {
       child.nested.push(data);
     },
     columnMode(compName) {
-      return compName === "custom-carousel" ? "full" : "normal";
+      const fullWidth = ["custom-carousel", "infinite-carousel"];
+      return fullWidth.includes(compName) ? "full" : "normal";
     },
     backgroundStyles(data) {
       const excludeComp = ["cta-button"];
@@ -195,7 +254,7 @@ export default {
     backgroundImageStyles(data) {
       const { url } = data.component_colors.background_image;
       return {
-        "--background-image": `url(${url})`
+        "--background-image": `url(${url})`,
       };
     },
     bgImageClasses(item) {
@@ -204,76 +263,20 @@ export default {
         left: "left",
         center: "center",
         right: "right",
-        full: "full"
+        full: "full",
       };
 
       if (!item.component_colors?.background_image) return [];
 
       const {
         background_image_position,
-        image_opacity
+        image_opacity,
       } = item.component_colors;
       const size = positions[background_image_position] || positions.center;
 
       return [hasImageClass, size, { opacity: image_opacity }];
-    }
+    },
   },
-  computed: {
-    hasAnchors() {
-      return [...this.contentComponents].some(item => item.is_anchor);
-    },
-    carousel() {
-      return this.$context.components.find(
-        item => item.comp_name === "carousel"
-      );
-    },
-    contentComponents() {
-      return this.$context.components.filter(
-        item =>
-          item.comp_name !== "carousel" && item.comp_name !== "article-hero"
-      );
-    },
-    getMetaData() {
-      return pageMetaData(this.$page, this.$context.route);
-    },
-    hero() {
-      return this.$context.heroComponent;
-    },
-    topSwirl() {
-      return this.$context.swirls?.top_swirl || {};
-    },
-    bottomSwirl() {
-      return this.$context.swirls?.bottom_swirl || {};
-    },
-    pageBackground() {
-      const defaultColor = "var(--theme-bg)";
-      const color = this.$context.backgroundColor || defaultColor;
-      return {
-        "--bg-dynamic-page": color
-      };
-    },
-    topMargin() {
-      const { navigation, alertBar } = this.$context.display;
-      const alertBarValue = "var(--ab-height)";
-      const headerValue = "var(--header-height, 68px)";
-      const value = navigation ? headerValue : alertBar ? alertBarValue : "0px";
-      return {
-        "--dynamic-top-margin": value
-      };
-    }
-  },
-  mounted() {
-    this.getAnchors();
-  },
-  watch: {
-    $route: {
-      handler(to) {
-        addScrollSmooth(to);
-        setTimeout(() => this.getAnchors(), 500);
-      },
-      immediate: true
-    }
-  }
 };
 </script>
 
@@ -357,6 +360,10 @@ query {
       .content > .box {
         grid-template-columns: 1fr;
         padding-block: 0;
+      }
+
+      &[class*="mode-full"] .content > .box {
+        padding: 0;
       }
     }
 

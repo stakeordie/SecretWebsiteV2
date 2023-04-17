@@ -767,7 +767,9 @@ $accent-colors: ("Article", "Podcast", "Video");
       padding-bottom: var(--p-#{$name});
     }
   }
-  .m-#{$name} {
+  .m-#{$name},
+  a.m-#{$name},
+  button.m-#{$name} {
     &-top {
       margin-top: var(--p-#{$name});
     }
