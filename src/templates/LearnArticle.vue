@@ -234,7 +234,6 @@ export default {
     },
     columnMode(compName) {
       const fullWidth = ["custom-carousel", "infinite-carousel"];
-      console.log(fullWidth.includes(compName) ? "full" : "normal", compName);
       return fullWidth.includes(compName) ? "full" : "normal";
     },
     backgroundStyles(data) {

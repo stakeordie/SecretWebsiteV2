@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      :class="['text-column-double', paddingTop, paddingBottom]"
       :id="titleId(main_title)"
+      :class="['text-column-double', paddingTop, paddingBottom]"
     >
       <DynamicEyebrowTitle
         v-if="eyebrow_title"
@@ -37,6 +37,10 @@
             :buttons="first_paragraph_buttons"
             :position="first_buttons_position"
           />
+          <DynamicFooter
+            :title="first_footer_title"
+            :links="first_footer_links"
+          />
         </div>
         <div class="text-column-double__col-2">
           <DynamicImage v-if="second_image" :image="second_image" />
@@ -58,6 +62,10 @@
             :buttons="second_paragraph_buttons"
             :position="second_buttons_position"
           />
+          <DynamicFooter
+            :title="second_footer_title"
+            :links="second_footer_links"
+          />
         </div>
       </div>
     </div>
@@ -71,6 +79,7 @@ import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.
 import DynamicImage from "@/components/dynamic/basic/DynamicImage.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
+import DynamicFooter from "@/components/dynamic/basic/DynamicFooter.vue";
 
 export default {
   components: {
@@ -78,108 +87,149 @@ export default {
     DynamicImage,
     DynamicTitle,
     DynamicEyebrowTitle,
-    DynamicBody
+    DynamicBody,
+    DynamicFooter,
   },
   props: {
     main_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     main_title_alignment: {
       type: String,
       required: false,
-      default: "left"
+      default: "left",
     },
     main_title_weight: {
       type: String,
       required: false,
-      default: "H2"
+      default: "H2",
     },
     eyebrow_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     is_anchor: {
       type: Boolean,
-      required: false
+      required: false,
     },
     navigation_level: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     width: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     first_paragraph_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     first_paragraph: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     second_paragraph_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     second_paragraph: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     first_paragraph_buttons: {
       type: Array,
-      required: false
+      required: false,
+      default: null,
     },
     first_buttons_position: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     second_paragraph_buttons: {
       type: Array,
-      required: false
+      required: false,
+      default: null,
     },
     second_buttons_position: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     first_image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     second_image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     padding_top: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_bottom: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     first_paragraph_alignment: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     second_paragraph_alignment: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     component_colors: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     is_external_link: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
+    first_footer_title: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    first_footer_links: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    second_footer_title: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    second_footer_links: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   computed: {
     paddingTop() {
@@ -189,13 +239,13 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    }
+    },
   },
   methods: {
     titleId(title) {
       return title ? removeCharacters(title) : "";
-    }
-  }
+    },
+  },
 };
 </script>
 

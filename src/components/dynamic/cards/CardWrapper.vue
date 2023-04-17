@@ -5,10 +5,10 @@
     :target="externalLink ? '_blank' : '_self'"
     :rel="externalLink ? 'noopener noreferrer' : ''"
   >
-    <slot></slot>
+    <slot />
   </a>
-  <component v-else :is="element ? element : 'article'">
-    <slot></slot>
+  <component :is="element ? element : 'article'" v-else>
+    <slot />
   </component>
 </template>
 
@@ -17,17 +17,18 @@ export default {
   props: {
     url: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     externalLink: {
       type: Boolean,
-      required: false
+      required: false,
     },
     element: {
       type: String,
       required: false,
-      default: "article"
-    }
-  }
+      default: "article",
+    },
+  },
 };
 </script>
