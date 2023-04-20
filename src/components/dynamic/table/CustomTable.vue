@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerStyles" v-if="table">
+  <div v-if="table" :class="containerStyles">
     <table>
       <thead>
         <tr>
@@ -21,10 +21,10 @@
           >
             <span class="header">{{ tableHeaders[index].name }}</span>
             <div class="cell" :class="{ 'has-image': item.image }">
-              <div class="image" v-if="item.image">
+              <div v-if="item.image" class="image">
                 <ResponsiveImage :src="item.image" />
               </div>
-              <div class="info" v-if="item.value || item.second_value">
+              <div v-if="item.value || item.second_value" class="info">
                 <CardWrapper
                   v-if="item.value"
                   :url="item.is_value_link ? item.value_url : ''"
@@ -61,23 +61,24 @@ export default {
   props: {
     table: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     padding_top: {
       type: String,
-      required: true
+      required: true,
     },
     padding_bottom: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       weights: {
-        normal: 600,
-        bold: 700
-      }
+        normal: 500,
+        bold: 600,
+      },
     };
   },
   computed: {
@@ -92,36 +93,36 @@ export default {
       const paddingBottom = sizes[this.padding_bottom] || sizes.small;
 
       return [`${paddingTop}-top`, `${paddingBottom}-bottom`];
-    }
+    },
   },
   methods: {
     headerStyles({ text_weight = "normal", text_color = "" }) {
       const defaultColor = "var(--color-neutral-dark-mode-05)";
 
       return {
-        "--headers-weight": this.weights[text_weight] || weights.normal,
-        "--headers-color": text_color || defaultColor
+        "--headers-weight": this.weights[text_weight] || this.weights.normal,
+        "--headers-color": text_color || defaultColor,
       };
     },
     textStyles({
       text_color = "",
       text_alignment = "left",
-      text_weight = 700
+      text_weight = 500,
     }) {
       const defaultColor = "var(--color-analog-primary-white)";
       const align = {
         left: "left",
         center: "center",
-        right: "right"
+        right: "right",
       };
 
       return {
         "--text-color": text_color || defaultColor,
         "--text-alignment": align[text_alignment] || align.left,
-        "--text-weight": this.weights[text_weight] || weights.normal
+        "--text-weight": this.weights[text_weight] || this.weights.normal,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
