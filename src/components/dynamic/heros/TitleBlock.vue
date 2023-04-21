@@ -6,8 +6,8 @@
   >
     <block>
       <div
-        class="hero-content"
         v-if="content"
+        class="hero-content"
         :class="[paddingTop, paddingBottom]"
       >
         <div class="hero-content__message">
@@ -20,16 +20,16 @@
           </h5>
 
           <component
+            :is="defaultTitle"
             v-if="content.title"
             class="hero-content__message__title"
-            :is="defaultTitle"
             :class="[titlePosition, titleWeight]"
           >
             {{ content.title }}
           </component>
           <vue-markdown
-            class="hero-content__message__body"
             v-if="content.body"
+            class="hero-content__message__body"
             :source="content.body"
           />
         </div>
@@ -45,10 +45,12 @@ export default {
     image: {
       type: Object,
       required: false,
+      default: null,
     },
     image_height: {
       type: String,
       required: false,
+      default: "",
     },
     content_position: {
       type: String,
