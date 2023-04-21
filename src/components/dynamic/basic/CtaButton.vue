@@ -1,6 +1,6 @@
 <template>
   <div class="cta-button" :style="buttonStyles">
-    <a
+    <ButtonWrapper
       v-if="!is_event_button"
       class="button"
       :class="margins"
@@ -12,9 +12,14 @@
       <span class="button__text">
         {{ title }}
       </span>
-    </a>
+    </ButtonWrapper>
     <ClientOnly v-else>
-      <button :id="buttonId" class="button">
+      <button
+        :id="url ? buttonId : ''"
+        :disabled="url ? false : true"
+        class="button"
+        :class="margins"
+      >
         <ResponsiveImage v-if="icon" :src="icon" class="button__icon" />
         <span class="button__text">
           {{ title }}
@@ -26,8 +31,10 @@
 
 <script>
 import { generateUUID, sizes } from "@/utils";
+import ButtonWrapper from "@/components/dynamic/basic/CtaWrapper.vue";
 
 export default {
+  components: { ButtonWrapper },
   props: {
     title: {
       type: String,
@@ -173,7 +180,12 @@ export default {
     width: fit-content;
     height: 46px;
 
-    &:hover {
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
       background-color: var(--button-hover);
 
       .button__icon,
