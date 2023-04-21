@@ -31,54 +31,58 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     url: {
       type: String,
-      required: true
+      required: true,
     },
     margin_top: {
       type: String,
-      required: true
+      required: true,
     },
     margin_bottom: {
       type: String,
-      required: true
+      required: true,
     },
     button_position: {
       type: String,
-      required: true
+      required: true,
     },
     icon: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     background_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     text_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     is_external_link: {
       type: Boolean,
       required: true,
-      default: false
+      default: false,
     },
     is_event_button: {
       type: Boolean,
       required: true,
-      default: false
+      default: false,
     },
     event_id: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "",
+    },
   },
   data() {
     return {
-      buttonId: generateUUID()
+      buttonId: generateUUID(),
     };
   },
   computed: {
@@ -86,7 +90,7 @@ export default {
       const alignment = {
         left: "flex-start",
         center: "center",
-        right: "flex-end"
+        right: "flex-end",
       };
       const color = this.background_color;
       const buttonColor = color || "var(--theme-card-button-bg)";
@@ -98,14 +102,17 @@ export default {
         "--text-color": textColor,
         "--button-color": buttonColor,
         "--button-hover": buttonHover,
-        "--button-alignment": align
+        "--button-alignment": align,
       };
     },
     margins() {
       const top = sizes[this.margin_top] || sizes.none;
       const bottom = sizes[this.margin_bottom] || sizes.none;
       return [`m-${top}-top`, `m-${bottom}-bottom`];
-    }
+    },
+  },
+  mounted() {
+    this.addEventScript();
   },
   methods: {
     addEventScript() {
@@ -129,7 +136,7 @@ export default {
           setTimeout(() => window.open(redirectUrl, "_self"), 500);
         };
 
-        ga(tracker => {
+        ga((tracker) => {
           clientId = tracker.get("clientId");
         });
 
@@ -139,14 +146,11 @@ export default {
           googleAnalyticsClientId: clientId,
           modal: true,
           modalTriggerElementId: this.buttonId,
-          onOrderComplete: exampleCallback
+          onOrderComplete: exampleCallback,
         });
       }, 500);
-    }
+    },
   },
-  mounted() {
-    this.addEventScript();
-  }
 };
 </script>
 

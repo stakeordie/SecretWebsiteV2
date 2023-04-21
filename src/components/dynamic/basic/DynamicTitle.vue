@@ -1,9 +1,9 @@
 <template>
   <component
+    :is="titleHeader"
     v-if="title"
     id="main_title"
     class="dynamic-title"
-    :is="titleHeader"
     :class="[titlePosition, titleAlignment]"
     :style="titleColor"
   >

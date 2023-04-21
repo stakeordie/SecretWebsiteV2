@@ -12,7 +12,7 @@
       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
       allowfullscreen
     />
-    <figcaption class="img-caption" v-if="caption" :style="bodyColor">
+    <figcaption v-if="caption" class="img-caption" :style="bodyColor">
       {{ caption }}
     </figcaption>
   </figure>
@@ -25,28 +25,34 @@ export default {
   props: {
     video: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     caption: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_top: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_bottom: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     youtube_video_url: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     component_colors: {
       type: Object,
-      required: false
-    }
+      required: false,
+      default: null,
+    },
   },
   computed: {
     paddingTop() {
@@ -66,10 +72,10 @@ export default {
       const defaultColor = "var(--color-analog-secondary-light-gray);";
       const color = this.component_colors?.body_color;
       return {
-        "--text-color": color ? color : defaultColor
+        "--text-color": color ? color : defaultColor,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

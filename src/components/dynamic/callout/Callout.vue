@@ -15,7 +15,7 @@
           {{ item.message }}
         </p>
         <div class="learn-callout__content__buttons">
-          <div v-for="(cta, index) in item.cta" :key="index">
+          <div v-for="(cta, idx) in item.cta" :key="idx">
             <btn
               class="text-center no-arrow"
               :class="cta.isMain ? 'main-btn' : ''"

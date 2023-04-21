@@ -13,50 +13,57 @@ export default {
   props: {
     text: {
       type: String,
-      required: true
+      required: true,
     },
     align: {
       type: String,
       required: false,
-      default: "left"
+      default: "left",
     },
     color: {
       type: String,
       required: false,
-      default: "var(--color-neutral-dark-mode-05)"
+      default: "var(--color-neutral-dark-mode-05)",
     },
     isExternalLink: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     textAlignment() {
       const alignments = {
         left: "left",
         center: "center",
-        right: "right"
+        right: "right",
       };
-      const position = alignments[this.align];
+
+      const margins = {
+        left: "0",
+        center: "0 auto",
+        right: "0 0 0 auto",
+      };
+
       return {
-        "--text-alignment": position ? position : alignments.left
+        "--text-alignment": alignments[this.align] || alignments.left,
+        "--image-alignment": margins[this.align] || margins.left,
       };
     },
     bodyColor() {
       const defaultColor = "var(--color-neutral-dark-mode-05)";
       const color = this.color;
       return {
-        "--text-color": color ? color : defaultColor
+        "--text-color": color || defaultColor,
       };
     },
     anchorAttributes() {
       return {
         target: this.isExternalLink ? "_blank" : "_self",
-        rel: "nofollow"
+        rel: "nofollow",
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -70,6 +77,7 @@ export default {
     p,
     ul,
     li {
+      text-align: var(--text-alignment);
       color: var(--text-color);
       font-size: 16px;
       line-height: 30px;
@@ -77,6 +85,10 @@ export default {
       @include respond-to(">=m") {
         font-size: 20px;
       }
+    }
+
+    img {
+      margin: var(--image-alignment);
     }
   }
 }
