@@ -6,7 +6,7 @@
         v-for="(item, index) in links"
         :key="index"
         :url="item.url"
-        :externalLink="item.externalLink"
+        :externalLink="item.is_external_link"
       >
         <ResponsiveImage :src="item.image" />
       </CardWrapper>
