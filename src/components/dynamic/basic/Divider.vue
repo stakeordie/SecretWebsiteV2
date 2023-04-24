@@ -1,6 +1,6 @@
 <template>
   <div :class="[paddingTop, paddingBottom]" :style="dividerColor">
-    <div class="divider"></div>
+    <div class="divider" />
   </div>
 </template>
 
@@ -11,20 +11,24 @@ export default {
   props: {
     padding_top: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_bottom: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     background_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     divider_color: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "",
+    },
   },
   computed: {
     paddingTop() {
@@ -39,8 +43,8 @@ export default {
       const defaultColor = "var(--color-neutral-gray-08)";
       const color = this.divider_color;
       return { "--divider-color": color ? color : defaultColor };
-    }
-  }
+    },
+  },
 };
 </script>
 

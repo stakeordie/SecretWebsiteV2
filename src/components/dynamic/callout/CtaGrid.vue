@@ -41,12 +41,13 @@
             ? item.preconfiged_cta.cta.button.link
             : item.custom_cta.button.link
         "
-        >{{
+      >
+        {{
           !item.create_custom
             ? item.preconfiged_cta.cta.button.text
             : item.custom_cta.button.text
-        }}</btn
-      >
+        }}
+      </btn>
     </div>
   </section>
 </template>
@@ -63,14 +64,14 @@ export default {
       ctaGroupColumns: "",
     };
   },
+  beforeMount() {
+    this.getCtaContent();
+  },
   methods: {
     getCtaContent() {
       this.ctaGroup = this.ctas;
       this.ctaGroupColumns = this.ctaGroup.length;
     },
-  },
-  beforeMount() {
-    this.getCtaContent();
   },
 };
 </script>

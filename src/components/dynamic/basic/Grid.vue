@@ -14,7 +14,7 @@
       <div v-if="data.image" class="grid-card__image">
         <ResponsiveImage :src="data.image" />
       </div>
-      <div class="grid-card__info" v-if="data.title || data.description">
+      <div v-if="data.title || data.description" class="grid-card__info">
         <span v-if="data.title" class="grid-card__info__title">
           {{ data.title }}
         </span>
@@ -31,42 +31,44 @@ import { sizes } from "@/utils";
 import CardWrapper from "@/components/dynamic/cards/CardWrapper.vue";
 
 export default {
+  components: {
+    CardWrapper,
+  },
   props: {
     padding_top: {
       type: String,
-      required: true
+      required: true,
     },
     padding_bottom: {
       type: String,
-      required: true
+      required: true,
     },
     grid_columns_mobile: {
       type: String,
-      required: true
+      required: true,
     },
     grid_columns_tablet: {
       type: String,
-      required: true
+      required: true,
     },
     grid_columns_desktop: {
       type: String,
-      required: true
+      required: true,
     },
     grid_card: {
       type: Array,
-      required: true
+      required: true,
     },
     cta_button: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     component_colors: {
       type: Object,
-      required: false
-    }
-  },
-  components: {
-    CardWrapper
+      required: false,
+      default: null,
+    },
   },
   computed: {
     containerPaddings() {
@@ -74,7 +76,7 @@ export default {
       const bottomSize = sizes[this.padding_bottom];
       return [
         `${topSize ? topSize : sizes.none}-top`,
-        `${bottomSize ? bottomSize : sizes.small}-bottom`
+        `${bottomSize ? bottomSize : sizes.small}-bottom`,
       ];
     },
     gridStyles() {
@@ -84,13 +86,13 @@ export default {
         three: 3,
         four: 4,
         five: 5,
-        six: 6
+        six: 6,
       };
 
       return {
         "--mobile-columns": columns[this.grid_columns_mobile] || columns.one,
         "--tablet-columns": columns[this.grid_columns_tablet] || columns.three,
-        "--desktop-columns": columns[this.grid_columns_desktop] || columns.five
+        "--desktop-columns": columns[this.grid_columns_desktop] || columns.five,
       };
     },
     textColor() {
@@ -98,10 +100,10 @@ export default {
       const defaultText = "var(--color-neutral-dark-mode-05)";
       return {
         "--title-color": this.component_colors?.title_color || defaultTitle,
-        "--text-color": this.component_colors?.body_color || defaultText
+        "--text-color": this.component_colors?.body_color || defaultText,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

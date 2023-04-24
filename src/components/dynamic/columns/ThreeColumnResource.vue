@@ -6,8 +6,12 @@
         :color="eyebrow_color"
         :title="eyebrow_title"
       />
-      <h4 v-if="title">{{ title }}</h4>
-      <p v-if="subtitle">{{ subtitle }}</p>
+      <h4 v-if="title">
+        {{ title }}
+      </h4>
+      <p v-if="subtitle">
+        {{ subtitle }}
+      </p>
     </div>
     <div class="column-resource__content">
       <ThreeColumnCard
@@ -25,39 +29,44 @@ import { sizes } from "@/utils";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 
 export default {
+  components: {
+    ThreeColumnCard,
+    DynamicEyebrowTitle,
+  },
   props: {
     title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_title: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     eyebrow_color: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     subtitle: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     cta_cards: {
       type: Array,
-      required: false
+      required: false,
+      default: () => [],
     },
     padding_top: {
       type: String,
-      required: true
+      required: true,
     },
     padding_bottom: {
       type: String,
-      required: true
-    }
-  },
-  components: {
-    ThreeColumnCard,
-    DynamicEyebrowTitle
+      required: true,
+    },
   },
   computed: {
     paddingTop() {
@@ -67,8 +76,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    }
-  }
+    },
+  },
 };
 </script>
 
