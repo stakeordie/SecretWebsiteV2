@@ -1,6 +1,6 @@
 <template>
   <section class="page-developer-questions">
-    <div class="learn-callout" v-if="!custom_callout_box">
+    <div v-if="!custom_callout_box" class="learn-callout">
       <div class="learn-callout__image">
         <ResponsiveImage :src="preconfiged_callout_box.callout_box.image" />
       </div>
@@ -15,26 +15,30 @@
           {{ preconfiged_callout_box.callout_box.cta_text }}
         </p>
         <div class="learn-callout__content__buttons">
-          <div v-for="(button, index) in preconfiged_callout_box.callout_box.button" :key="index">
+          <div
+            v-for="(button, index) in preconfiged_callout_box.callout_box
+              .button"
+            :key="index"
+          >
             <btn
               class="text-center no-arrow"
               :class="button.is_primary ? 'main-btn' : ''"
               :url="button.link"
             >
               <ResponsiveImage
-                classes="special-icon"
                 v-if="button.icon"
+                classes="special-icon"
                 :src="button.icon"
               />
-              {{ button.text }}</btn
-            >
+              {{ button.text }}
+            </btn>
           </div>
         </div>
       </div>
     </div>
-    <div class="learn-callout" v-if="custom_callout_box">
+    <div v-if="custom_callout_box" class="learn-callout">
       <div class="learn-callout__image">
-        <ResponsiveImage 
+        <ResponsiveImage
           v-if="calloutBoxCustom.image"
           :src="calloutBoxCustom.image"
         />
@@ -61,8 +65,8 @@
                 :src="button.icon"
                 classes="special-icon"
               />
-              {{ button.text }}</btn
-            >
+              {{ button.text }}
+            </btn>
           </div>
         </div>
       </div>
@@ -76,10 +80,13 @@ export default {
     preconfiged_callout_box: Object,
     custom_callout_box: Object,
   },
-  data: function () {
+  data: function() {
     return {
       calloutBox: "",
     };
+  },
+  beforeMount() {
+    this.calloutItems();
   },
   methods: {
     calloutItems() {
@@ -87,9 +94,6 @@ export default {
       this.calloutBoxCustom = this.custom_callout_box;
       return this.calloutBox;
     },
-  },
-  beforeMount() {
-    this.calloutItems();
   },
 };
 </script>

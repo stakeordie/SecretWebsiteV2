@@ -9,7 +9,7 @@
           <ResponsiveImage v-if="image" :src="image" high-quality />
         </div>
 
-        <div class="content-hero col-2" v-if="content">
+        <div v-if="content" class="content-hero col-2">
           <div class="content-hero__header">
             <DynamicEyebrowTitle
               v-if="content.eyebrow_title"
@@ -54,33 +54,35 @@ export default {
     DynamicButtons,
     DynamicEyebrowTitle,
     DynamicCustomTitle,
-    DynamicBody
+    DynamicBody,
   },
   props: {
     image: {
       type: Object,
-      required: true
+      required: true,
     },
     image_position: {
       type: String,
-      required: true
+      required: true,
     },
     content: {
       type: Object,
-      required: true
+      required: true,
     },
     sizes: {
       type: Object,
-      required: true
+      required: true,
     },
     buttons: {
       type: Array,
-      required: false
+      required: false,
+      default: null,
     },
     buttons_position: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "",
+    },
   },
   computed: {
     imagePosition() {
@@ -93,8 +95,8 @@ export default {
     paddingBottom() {
       const size = sizes[this.sizes.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
-    }
-  }
+    },
+  },
 };
 </script>
 

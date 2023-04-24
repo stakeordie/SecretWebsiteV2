@@ -1,7 +1,7 @@
 <template>
   <figure class="article-image" :class="[paddingTop, paddingBottom]">
     <ResponsiveImage :src="image" classes="learn-post__img" />
-    <figcaption class="img-caption" v-if="caption" :style="bodyColor">
+    <figcaption v-if="caption" class="img-caption" :style="bodyColor">
       {{ caption }}
     </figcaption>
   </figure>
@@ -14,26 +14,28 @@ export default {
   props: {
     image: {
       type: Object,
-      required: true
+      required: true,
     },
     caption: {
       type: String,
-      required: false
+      required: false,
+      default: "",
     },
     padding_top: {
       type: String,
       required: false,
-      default: sizes.none
+      default: sizes.none,
     },
     padding_bottom: {
       type: String,
       required: false,
-      default: sizes.small
+      default: sizes.small,
     },
     component_colors: {
       type: Object,
-      required: false
-    }
+      required: false,
+      default: null,
+    },
   },
   computed: {
     paddingTop() {
@@ -48,10 +50,10 @@ export default {
       const defaultColor = "var(--color-analog-secondary-light-gray)";
       const color = this.component_colors?.body_color;
       return {
-        "--text-color": color ? color : defaultColor
+        "--text-color": color ? color : defaultColor,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -52,33 +52,35 @@ export default {
     DynamicButtons,
     DynamicBody,
     DynamicEyebrowTitle,
-    DynamicTitle
+    DynamicTitle,
   },
   props: {
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: null,
     },
     image_position: {
       type: String,
-      required: true
+      required: true,
     },
     hero_height: {
       type: String,
-      required: true
+      required: true,
     },
     content: {
       type: Object,
-      required: true
+      required: true,
     },
     sizes: {
       type: Object,
-      required: true
+      required: true,
     },
     buttons: {
       type: Array,
-      required: false
-    }
+      required: false,
+      default: null,
+    },
   },
   computed: {
     containerStyles() {
@@ -89,7 +91,7 @@ export default {
       return [
         `${paddingTop || sizes.none}-top`,
         `${paddingBottom || sizes.small}-bottom`,
-        { "background-full": isFullImage }
+        { "background-full": isFullImage },
       ];
     },
     imagePosition() {
@@ -97,12 +99,12 @@ export default {
         left: "image-left",
         center: "image-center",
         right: "image-right",
-        full: "image-full"
+        full: "image-full",
       };
       const position = imagePositions[this.image_position];
       return position || imagePositions.right;
-    }
-  }
+    },
+  },
 };
 </script>
 

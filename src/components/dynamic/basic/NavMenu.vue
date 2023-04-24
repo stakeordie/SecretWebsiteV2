@@ -1,5 +1,5 @@
 <template>
-  <nav class="learn-anchors" v-if="data.length">
+  <nav v-if="data.length" class="learn-anchors">
     <span class="learn-anchors__title">Quick menu</span>
     <div
       v-for="(first, index) in data"
@@ -35,9 +35,9 @@
         </button>
       </div>
       <div
+        v-for="(second, id) in first.nested"
         v-show="first.isOpen"
-        v-for="(second, index) in first.nested"
-        :key="index"
+        :key="id"
         class="parent-control"
         :class="`parent-${second.parentId}`"
       >
@@ -55,12 +55,12 @@
             @click="second.isOpen = !second.isOpen"
           >
             <img
+              v-show="second.nested.length !== 0"
               :class="
                 second.isOpen
                   ? 'anchor__control--is-open'
                   : 'anchor__control--is-closed'
               "
-              v-show="second.nested.length !== 0"
               src="/img/icons/chev-learn.svg"
               alt="Arrow up"
               loading="lazy"
@@ -68,9 +68,9 @@
           </button>
         </div>
         <div
+          v-for="(third, idx) in second.nested"
           v-show="second.isOpen"
-          v-for="(third, index) in second.nested"
-          :key="index"
+          :key="idx"
           class="parent-control"
           :class="`parent-${third.parentId}`"
         >
@@ -92,7 +92,10 @@
 <script>
 export default {
   props: {
-    data: Array,
+    data: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
