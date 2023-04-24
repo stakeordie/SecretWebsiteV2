@@ -61,7 +61,7 @@ export default {
       required: false,
       default: null,
     },
-    background_color: {
+    button_color: {
       type: String,
       required: false,
       default: "",
@@ -99,7 +99,7 @@ export default {
         center: "center",
         right: "flex-end",
       };
-      const color = this.background_color;
+      const color = this.button_color;
       const buttonColor = color || "var(--theme-card-button-bg)";
       const buttonHover = color || "var(--color-neutral-dark-mode-02)";
       const textColor = this.text_color || "var(--color-analog-primary-white)";
