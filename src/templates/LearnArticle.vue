@@ -237,8 +237,6 @@ export default {
       return fullWidth.includes(compName) ? "full" : "normal";
     },
     backgroundStyles(data) {
-      const excludeComp = ["cta-button"];
-      if (excludeComp.includes(data.comp_name)) return {};
 
       return data.component_colors?.background_color ||
         !data.component_colors ||
