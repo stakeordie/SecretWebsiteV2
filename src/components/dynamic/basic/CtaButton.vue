@@ -42,7 +42,8 @@ export default {
     },
     url: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     margin_top: {
       type: String,

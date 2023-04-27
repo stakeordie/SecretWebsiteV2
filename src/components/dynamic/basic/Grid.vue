@@ -14,7 +14,11 @@
       <div v-if="data.image" class="grid-card__image">
         <ResponsiveImage :src="data.image" />
       </div>
-      <div v-if="data.title || data.description" class="grid-card__info">
+      <div
+        v-if="data.title || data.description"
+        class="grid-card__info"
+        :style="textAlignment(data)"
+      >
         <span v-if="data.title" class="grid-card__info__title">
           {{ data.title }}
         </span>
@@ -104,6 +108,20 @@ export default {
       };
     },
   },
+  methods: {
+    textAlignment({ title_alignment = "left", body_alignment = "left" }) {
+      const alignment = {
+        left: "left",
+        center: "center",
+        right: "right",
+      };
+
+      return {
+        "--title-alignment": alignment[title_alignment] || alignment.left,
+        "--body-alignment": alignment[body_alignment] || alignment.left,
+      };
+    },
+  },
 };
 </script>
 
@@ -156,6 +174,7 @@ export default {
         line-height: 30px;
         color: var(--title-color);
         word-break: break-word;
+        text-align: var(--title-alignment);
 
         @include respond_to(">=l") {
           font-size: 22px;
@@ -170,6 +189,7 @@ export default {
         line-height: 150%;
         color: var(--text-color);
         word-break: break-word;
+        text-align: var(--body-alignment);
       }
     }
   }

@@ -5,6 +5,7 @@
         <section class="hero-wrapper" :class="containerStyles">
           <ResponsiveImage
             v-if="image"
+            class="hero-bg"
             :imageClass="imagePosition"
             :src="image"
             high-quality
@@ -143,7 +144,7 @@ export default {
     padding: 0;
   }
 
-  .responsive-image {
+  .hero-bg.responsive-image {
     position: absolute;
     z-index: 0;
     height: 100%;
