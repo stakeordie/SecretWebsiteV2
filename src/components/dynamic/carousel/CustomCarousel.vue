@@ -32,6 +32,7 @@
         class="card"
         :url="card.url"
         :externalLink="card.is_external_link"
+        :style="textAlignment(card)"
       >
         <ResponsiveImage
           v-if="card.image"
@@ -110,6 +111,18 @@ export default {
       } else {
         carousel.scrollLeft -= 300;
       }
+    },
+    textAlignment({ title_alignment = "left", body_alignment = "left" }) {
+      const alignment = {
+        left: "left",
+        center: "center",
+        right: "right",
+      };
+
+      return {
+        "--title-alignment": alignment[title_alignment] || alignment.left,
+        "--body-alignment": alignment[body_alignment] || alignment.left,
+      };
     },
   },
 };
@@ -222,11 +235,13 @@ export default {
         margin: 0;
         word-break: break-word;
         color: var(--color-analog-primary-white);
+        text-align: var(--title-alignment);
       }
 
       &__text {
         margin: 0;
         word-break: break-word;
+        text-align: var(--body-alignment);
       }
     }
   }
