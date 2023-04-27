@@ -17,13 +17,10 @@
         :alignment="main_title_alignment"
         :color="component_colors ? component_colors.title_color : ''"
       />
-      <div class="text-column-double__col">
-        <div class="text-column-double__col-1">
+      <div class="text-column-double__content" :style="titlesAlignment">
+        <div class="col-1">
           <DynamicImage v-if="first_image" :image="first_image" />
-          <h4
-            v-if="first_paragraph_title"
-            class="text-column-double__col__title"
-          >
+          <h4 v-if="first_paragraph_title" class="title">
             {{ first_paragraph_title }}
           </h4>
           <DynamicBody
@@ -42,12 +39,9 @@
             :links="first_footer_links"
           />
         </div>
-        <div class="text-column-double__col-2">
+        <div class="col-2">
           <DynamicImage v-if="second_image" :image="second_image" />
-          <h4
-            v-if="second_paragraph_title"
-            class="text-column-double__col__title"
-          >
+          <h4 v-if="second_paragraph_title" class="title">
             {{ second_paragraph_title }}
           </h4>
           <DynamicBody
@@ -230,6 +224,16 @@ export default {
       required: false,
       default: () => [],
     },
+    first_title_alignment: {
+      type: String,
+      required: false,
+      default: "left",
+    },
+    second_title_alignment: {
+      type: String,
+      required: false,
+      default: "left",
+    },
   },
   computed: {
     paddingTop() {
@@ -239,6 +243,20 @@ export default {
     paddingBottom() {
       const size = sizes[this.padding_bottom];
       return size ? `${size}-bottom` : "small-bottom";
+    },
+    titlesAlignment() {
+      const first = this.first_title_alignment;
+      const second = this.second_title_alignment;
+      const alignment = {
+        left: "left",
+        center: "center",
+        right: "right",
+      };
+
+      return {
+        "--first-title-alignment": alignment[first] || alignment.left,
+        "--first-title-alignment": alignment[second] || alignment.left,
+      };
     },
   },
   methods: {
@@ -259,7 +277,7 @@ export default {
     padding-inline: 0;
   }
 
-  &__col {
+  &__content {
     width: 100%;
     display: grid;
     gap: 26px;
@@ -267,6 +285,15 @@ export default {
 
     @include respond-to(">=m") {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .col {
+      &-1 .title {
+        text-align: var(--first-title-alignment);
+      }
+
+      &-2 .title {
+        text-align: var(--second-title-alignment);
+      }
     }
   }
 }
