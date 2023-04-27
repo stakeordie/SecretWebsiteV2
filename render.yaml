@@ -210,6 +210,9 @@ services:
         source: /upgrade-complete-secret-contracts-live-mainnet/
         destination: /blog/upgrade-complete-secret-contracts-live-mainnet
       - type: redirect
+        source: /secret-surge
+        destination: /secret-surge_a
+      - type: redirect
         source: /blog/notice-su
         destination: /blog/notice-successful-resolution-of-xapic-vulnerability
       - type: redirect
