@@ -255,7 +255,7 @@ export default {
 
       return {
         "--first-title-alignment": alignment[first] || alignment.left,
-        "--first-title-alignment": alignment[second] || alignment.left,
+        "--second-title-alignment": alignment[second] || alignment.left,
       };
     },
   },
