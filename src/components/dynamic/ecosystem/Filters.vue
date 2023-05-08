@@ -2,26 +2,27 @@
   <div class="filters">
     <div class="filters__search">
       <input
+        v-model="search"
         class="search"
         type="text"
         placeholder="Search"
-        v-model="search"
-        @input="filterData()"
+        @input="filterData(true)"
       />
     </div>
-    <div class="filters__chips" v-if="categories.length">
+    <div v-if="categories.length" class="filters__chips">
       <span class="title">Filter:</span>
       <div class="chips">
         <label
-          :for="category"
           v-for="(category, index) of categories"
           :key="index"
+          :for="category"
         >
           <input
             :id="category"
-            type="checkbox"
-            :value="category"
             v-model="checkedCategories"
+            :value="category"
+            type="checkbox"
+            @change="filterData()"
           />
           <span>{{ formatName(category) }}</span>
         </label>
@@ -35,35 +36,49 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     collections: {
       type: Array,
-      required: true
+      required: true,
     },
     categories: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       search: "",
       checkedCategories: [],
-      filteredData: [...this.collections]
+      filteredData: [...this.collections],
     };
   },
+  watch: {
+    filteredData() {
+      this.emitData();
+    },
+  },
+  mounted() {
+    this.emitData();
+  },
   methods: {
-    filterData() {
+    filterData(fromInput = false) {
       const searchValue = this.search.toLowerCase();
 
+      if (fromInput) {
+        this.resetCheck();
+      } else {
+        this.resetSearch();
+      }
+
       if (this.checkedCategories.length) {
-        this.filteredData = [...this.collections].filter(item =>
-          item.types.some(tag => this.checkedCategories.includes(tag.name))
+        this.filteredData = [...this.collections].filter((item) =>
+          item.types.some((tag) => this.checkedCategories.includes(tag.name)),
         );
       } else {
-        this.filteredData = [...this.collections].filter(item =>
-          item.title.toLowerCase().includes(searchValue)
+        this.filteredData = [...this.collections].filter((item) =>
+          item.title.toLowerCase().includes(searchValue),
         );
       }
     },
@@ -80,26 +95,10 @@ export default {
         this.checkedCategories = [];
       }
     },
-    onInput() {
-      this.resetCheck();
-      this.filterData();
-    },
     emitData() {
       this.$emit("filterData", this.filteredData);
-    }
-  },
-  mounted() {
-    this.emitData();
-  },
-  watch: {
-    checkedCategories() {
-      this.resetSearch();
-      this.filterData();
     },
-    filteredData() {
-      this.emitData();
-    }
-  }
+  },
 };
 </script>
 

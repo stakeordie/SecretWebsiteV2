@@ -2,10 +2,10 @@
   <default-layout class="learn-subpage">
     <column
       v-for="(component, index) in $context.components"
+      :key="index"
       class="bg-black-gradient learn-subpage__content"
       :class="[`comp-name__${component.comp_name}`]"
       :mode="getColumnMode(component.comp_name)"
-      :key="index"
     >
       <block>
         <component :is="component.comp_name" v-bind="component">
@@ -31,7 +31,7 @@ import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
-  canonicalTag
+  canonicalTag,
 } from "@/utils";
 import Carousel from "@/components/dynamic/carousel/Carousel.vue";
 import LearnHeader from "@/components/dynamic/heros/LearnHeader.vue";
@@ -47,35 +47,35 @@ export default {
     OptionalCalloutBox,
     Callout,
     CtaGrid,
-    CardSearch
+    CardSearch,
   },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData)
+      link: canonicalTag(this.getMetaData),
     };
+  },
+  computed: {
+    getMetaData() {
+      return pageMetaData(this.$page, this.$context.route);
+    },
+  },
+  watch: {
+    $route: {
+      handler(to) {
+        addScrollSmooth(to);
+      },
+      immediate: true,
+    },
   },
   methods: {
     getColumnMode(compName) {
       return compName === "carousel" || compName === "learn-header"
         ? "full"
         : "normal";
-    }
+    },
   },
-  computed: {
-    getMetaData() {
-      return pageMetaData(this.$page, this.$context.route);
-    }
-  },
-  watch: {
-    $route: {
-      handler(to, from) {
-        addScrollSmooth(to);
-      },
-      immediate: true
-    }
-  }
 };
 </script>
 
