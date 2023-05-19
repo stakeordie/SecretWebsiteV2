@@ -1,6 +1,6 @@
 <template>
-  <column>
-    <block>
+  <Column>
+    <Block>
       <section
         class="double-column-image-hero"
         :class="[imagePosition, paddingTop, paddingBottom]"
@@ -38,8 +38,8 @@
           <DynamicButtons :buttons="buttons" :position="buttons_position" />
         </div>
       </section>
-    </block>
-  </column>
+    </Block>
+  </Column>
 </template>
 
 <script>
@@ -48,6 +48,7 @@ import DynamicButtons from "@/components/dynamic/basic/DynamicButtons.vue";
 import DynamicCustomTitle from "@/components/dynamic/basic/DynamicCustomTitle.vue";
 import DynamicEyebrowTitle from "@/components/dynamic/basic/DynamicEyebrowTitle.vue";
 import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
+import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 
 export default {
   components: {
@@ -55,6 +56,7 @@ export default {
     DynamicEyebrowTitle,
     DynamicCustomTitle,
     DynamicBody,
+    DynamicTitle,
   },
   props: {
     image: {
