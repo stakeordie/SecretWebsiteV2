@@ -2,6 +2,7 @@
   <section v-if="cards" class="custom-carousel" :class="containerPaddings">
     <div class="header">
       <DynamicTitle
+        v-if="title"
         :title="title"
         :alignment="title_alignment"
         :weight="title_weight"
