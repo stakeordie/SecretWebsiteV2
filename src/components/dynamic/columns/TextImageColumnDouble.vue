@@ -229,12 +229,20 @@ export default {
   }
 
   .col-1 {
-    order: var(--text-order);
+    order: 2;
+
+    @include respond-to(">=m") {
+      order: var(--text-order);
+    }
   }
 
   .col-2 {
-    order: var(--image-order);
+    order: 1;
     padding: 16px;
+
+    @include respond-to(">=m") {
+      order: var(--image-order);
+    }
 
     p {
       font-size: 16px;
