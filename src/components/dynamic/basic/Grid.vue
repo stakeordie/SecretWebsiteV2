@@ -10,19 +10,23 @@
       :url="data.url"
       :externalLink="data.is_external_link"
       class="grid-card"
+      :class="imageAlignment(data.image_alignment)"
     >
       <div v-if="data.image" class="grid-card__image">
         <ResponsiveImage :src="data.image" />
       </div>
-      <div
-        v-if="data.title || data.description"
-        class="grid-card__info"
-        :style="textAlignment(data)"
-      >
-        <span v-if="data.title" class="grid-card__info__title">
-          {{ data.title }}
-        </span>
-        <span v-if="data.description" class="grid-card__info__description">
+      <div v-if="data.title || data.description" class="grid-card__info">
+        <DynamicTitle
+          v-if="data.title"
+          :title="data.title"
+          :weight="data.title_size"
+          :alignment="data.title_alignment"
+        />
+        <span
+          v-if="data.description"
+          class="grid-card__info__description"
+          :style="textAlignment(data.body_alignment)"
+        >
           {{ data.description }}
         </span>
       </div>
@@ -33,10 +37,12 @@
 <script>
 import { sizes } from "@/utils";
 import CardWrapper from "@/components/dynamic/cards/CardWrapper.vue";
+import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
 
 export default {
   components: {
     CardWrapper,
+    DynamicTitle,
   },
   props: {
     padding_top: {
@@ -109,7 +115,7 @@ export default {
     },
   },
   methods: {
-    textAlignment({ title_alignment = "left", body_alignment = "left" }) {
+    textAlignment(body_alignment = "left") {
       const alignment = {
         left: "left",
         center: "center",
@@ -117,9 +123,18 @@ export default {
       };
 
       return {
-        "--title-alignment": alignment[title_alignment] || alignment.left,
         "--body-alignment": alignment[body_alignment] || alignment.left,
       };
+    },
+    imageAlignment(image_alignment) {
+      const positions = {
+        "top-left": "image-top-left",
+        "top-center": "image-top-center",
+        "top-right": "image-top-right",
+        "left-to-text": "image-left-to-text",
+        "right-to-text": "image-right-to-text",
+      };
+      return positions[image_alignment] || positions["top-center"];
     },
   },
 };
@@ -157,7 +172,37 @@ export default {
     &__image {
       width: 100%;
       display: flex;
-      justify-content: center;
+    }
+
+    &.image {
+      @mixin horizontalImage {
+        align-items: flex-start;
+        .grid-card__image {
+          flex-shrink: 0;
+          max-width: 48px;
+        }
+      }
+
+      &-top-left .grid-card__image {
+        justify-content: flex-start;
+      }
+
+      &-top-center .grid-card__image {
+        justify-content: center;
+      }
+
+      &-top-right .grid-card__image {
+        justify-content: flex-end;
+      }
+
+      &-left-to-text {
+        @include horizontalImage();
+        flex-direction: row;
+      }
+      &-right-to-text {
+        @include horizontalImage();
+        flex-direction: row-reverse;
+      }
     }
 
     &__info {
@@ -166,18 +211,9 @@ export default {
       text-align: center;
       gap: 8px;
 
-      &__title {
-        font-family: "Montserrat";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 30px;
-        color: var(--title-color);
-        word-break: break-word;
-        text-align: var(--title-alignment);
-
-        @include respond_to(">=l") {
-          font-size: 22px;
+      ::v-deep {
+        .dynamic-title {
+          margin: 0;
         }
       }
 
