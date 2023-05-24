@@ -31,7 +31,7 @@ export default {
     color: {
       type: String,
       required: false,
-      default: "--color-analog-primary-white"
+      default: "var(--color-analog-primary-white)"
     }
   },
   computed: {
@@ -57,7 +57,7 @@ export default {
       return { "title-25": this.weight === "H2.5" };
     },
     titleColor() {
-      const defaultColor = "--color-analog-primary-white";
+      const defaultColor = "var(--color-analog-primary-white)";
       const color = this.color;
       return {
         "--title-color": color ? color : defaultColor
