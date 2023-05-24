@@ -1,7 +1,7 @@
 <template>
   <div
     class="grid-container"
-    :style="[gridStyles, textColor]"
+    :style="[gridStyles, textColor, cardBackground]"
     :class="containerPaddings"
   >
     <CardWrapper
@@ -79,6 +79,16 @@ export default {
       required: false,
       default: null,
     },
+    card_background_color: {
+      type: String,
+      required: false,
+      default: "transparent",
+    },
+    card_background_hover_color: {
+      type: String,
+      required: false,
+      default: "var(--color-neutral-dark-mode-04)",
+    },
   },
   computed: {
     containerPaddings() {
@@ -111,6 +121,16 @@ export default {
       return {
         "--title-color": this.component_colors?.title_color || defaultTitle,
         "--text-color": this.component_colors?.body_color || defaultText,
+      };
+    },
+    cardBackground() {
+      const defaultBackground = "transparent";
+      const defaultHover = "var(--color-neutral-dark-mode-04)";
+
+      return {
+        "--card-background-color":
+          this.card_background_color || defaultBackground,
+        "--card-hover-color": this.card_background_hover_color || defaultHover,
       };
     },
   },
@@ -164,9 +184,10 @@ export default {
     padding: 12px;
     border-radius: 8px;
     transition: 0.5s;
+    background: var(--card-background-color);
 
     &:is(a):hover {
-      background-color: var(--color-neutral-dark-mode-04);
+      background-color: var(--card-hover-color);
     }
 
     &__image {
