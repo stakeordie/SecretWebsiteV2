@@ -32,7 +32,7 @@ export default {
   },
   watch: {
     $route: {
-      handler(to, from) {
+      handler(to) {
         addScrollSmooth(to);
       },
       immediate: true,

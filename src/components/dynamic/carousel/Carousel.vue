@@ -32,8 +32,7 @@
         class="items learn-carousel__item"
       >
         <CarouselCard
-          v-for="(element,
-          index) in dynamic_learn_article_group.dynamic_learn_articles"
+          v-for="(element, index) in dynamic_learn_article_group.dynamic_learn_articles"
           :key="index"
           :data="element"
         />

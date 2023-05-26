@@ -5,11 +5,11 @@
       <h3>Primary</h3>
       <div class="colors-grid">
         <div
-          class="color-card primary"
           v-for="(color, index) in analogPrimaryColors"
           :key="index"
+          class="color-card primary"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -21,11 +21,11 @@
       <h3>Secondary</h3>
       <div class="colors-grid">
         <div
-          class="color-card"
           v-for="(color, index) in analogSecondaryColors"
           :key="index"
+          class="color-card"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -37,11 +37,11 @@
       <h3>Tertiary</h3>
       <div class="colors-grid">
         <div
-          class="color-card"
           v-for="(color, index) in analogTertiaryColors"
           :key="index"
+          class="color-card"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -54,11 +54,11 @@
       <h3>Primary</h3>
       <div class="colors-grid">
         <div
-          class="color-card primary"
           v-for="(color, index) in analogPrimaryColors"
           :key="index"
+          class="color-card primary"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -70,11 +70,11 @@
       <h3>Secondary</h3>
       <div class="colors-grid">
         <div
-          class="color-card"
           v-for="(color, index) in highKeySecondaryColors"
           :key="index"
+          class="color-card"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -86,11 +86,11 @@
       <h3>Tertiary</h3>
       <div class="colors-grid">
         <div
-          class="color-card"
           v-for="(color, index) in highKeyTertiaryColors"
           :key="index"
+          class="color-card"
         >
-          <div class="color" :style="{ background: color.hex }"></div>
+          <div class="color" :style="{ background: color.hex }" />
           <div>
             <p>{{ color.hex }}</p>
             <p>{{ color.rgb }}</p>
@@ -103,7 +103,7 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       analogPrimaryColors: [
         {

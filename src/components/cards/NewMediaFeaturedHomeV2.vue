@@ -1,14 +1,17 @@
 <template>
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
-      <h5 class="featured-media-header__title">Other MEDIA</h5>
+      <h5 class="featured-media-header__title">
+        Other MEDIA
+      </h5>
       <div class="featured-media-header__btns">
         <btn
           class="link-arrow"
           style="justify-content: right"
           url="/media/features"
-          >VIEW ALL</btn
         >
+          VIEW ALL
+        </btn>
       </div>
     </div>
     <div class="items">
@@ -33,35 +36,16 @@ export default {
   props: {
     url: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: "",
+    },
   },
 
   data() {
     return {
-      mediaItems: []
+      mediaItems: [],
     };
   },
-
-  methods: {
-    scroll_left() {
-      let content = document.querySelector(
-        ".new-media-featured > .--flare-block > .content > .box"
-      );
-      content.scrollLeft -= 390;
-    },
-    scroll_right() {
-      let content = document.querySelector(
-        ".new-media-featured > .--flare-block > .content > .box"
-      );
-      content.scrollLeft += 390;
-    },
-
-    onFilterApplied(filters) {
-      this.appliedFilters = filters;
-    }
-  },
-
   computed: {
     filterMediaItems() {
       return this.$static.mediaEntries.edges.map(({ node: it }) => {
@@ -69,11 +53,29 @@ export default {
           type: it.type,
           title: it.title,
           url: it.link,
-          picture: it.cover_image
+          picture: it.cover_image,
         };
       });
-    }
-  }
+    },
+  },
+  methods: {
+    scroll_left() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box",
+      );
+      content.scrollLeft -= 390;
+    },
+    scroll_right() {
+      let content = document.querySelector(
+        ".new-media-featured > .--flare-block > .content > .box",
+      );
+      content.scrollLeft += 390;
+    },
+
+    onFilterApplied(filters) {
+      this.appliedFilters = filters;
+    },
+  },
 };
 </script>
 
