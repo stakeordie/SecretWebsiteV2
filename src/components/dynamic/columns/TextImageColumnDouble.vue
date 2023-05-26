@@ -36,10 +36,29 @@
         <DynamicFooter :title="footer_title" :links="footer_links" />
       </div>
       <div class="col-2">
-        <ResponsiveImage v-if="image" :src="image" />
-        <p v-if="image_description">
+        <template v-if="image">
+          <ResponsiveImage v-if="validateFile()" :src="image" />
+          <video v-else-if="validateFile('video')" controls>
+            <source :src="image.url" type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+        </template>
+        <template v-else-if="video_url">
+          <iframe
+            v-if="youtubeUrl"
+            :src="youtubeUrl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+            allowfullscreen
+          />
+          <p v-else class="wrong-url">
+            Wrong url, make sure the url is from Youtube.
+          </p>
+        </template>
+        <figcaption v-if="image_description">
           {{ image_description }}
-        </p>
+        </figcaption>
       </div>
     </div>
   </div>
@@ -176,6 +195,11 @@ export default {
       required: false,
       default: () => [],
     },
+    video_url: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     titleId() {
@@ -202,6 +226,35 @@ export default {
         "--text-order": !isImageLeft ? 1 : 2,
         "--image-order": isImageLeft ? 1 : 2,
       };
+    },
+    youtubeUrl() {
+      const { host, pathname, searchParams } = new URL(this.video_url);
+      const hosts = [
+        {
+          host: "www.youtube.com",
+          getParams: () => searchParams.get("v"),
+        },
+        {
+          host: "youtu.be",
+          getParams: () => pathname.slice(1),
+        },
+      ];
+      const data = hosts.find((item) => item.host === host);
+      return data ? `https://www.youtube.com/embed/${data.getParams()}` : null;
+    },
+  },
+  methods: {
+    /**
+     * @param file string must be "image" or "video"
+     */
+    validateFile(file = "image") {
+      const extension = String(this.image.ext).toLowerCase();
+      const media = {
+        image: [".jpeg", ".jpg", ".png", ".gif", ".svg", ".tiff", ".ico"],
+        video: [".mpeg", ".mp4", ".quicktime", ".wmv", ".avi", ".flv"],
+      };
+      const files = [...(media[file] || [])];
+      return files.includes(extension);
     },
   },
 };
@@ -239,12 +292,24 @@ export default {
   .col-2 {
     order: 1;
     padding: 16px;
+    width: 100%;
 
     @include respond-to(">=m") {
       order: var(--image-order);
     }
 
-    p {
+    iframe,
+    video {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    p.wrong-url {
+      padding: 16px;
+      text-align: center;
+    }
+
+    figcaption {
       font-size: 16px;
       color: var(--color-neutral-dark-mode-05);
       text-align: center;

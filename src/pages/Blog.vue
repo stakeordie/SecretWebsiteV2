@@ -24,7 +24,7 @@
 
     <Column class="blog-all-posts">
       <Block>
-        <BlogFilter :tags="tags" id="left" @filter-applied="onFilterApplied" />
+        <BlogFilter id="left" :tags="tags" @filter-applied="onFilterApplied" />
         <section class="all-posts">
           <BlogPosts :posts="filteredPosts" />
         </section>

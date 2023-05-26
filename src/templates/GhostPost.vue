@@ -14,16 +14,20 @@
     <section class="blog-post">
       <section class="blog-post-excerpt">
         <p
+          v-if="$page.post.primary_tag"
           class="tag"
           :class="`accent-` + $page.post.primary_tag.name"
           tag
-          v-if="$page.post.primary_tag"
         >
           {{ $page.post.primary_tag.name }}
         </p>
 
-        <h1 class="title">{{ $page.post.title }}</h1>
-        <p class="description">{{ $page.post.description }}</p>
+        <h1 class="title">
+          {{ $page.post.title }}
+        </h1>
+        <p class="description">
+          {{ $page.post.description }}
+        </p>
         <g-image
           class="cover-image"
           onerror="this.onerror=null;this.src='../blog-cover.jpg';"
@@ -34,7 +38,8 @@
         />
         <BlogAuthor :post="$page.post" includeShareButtons />
       </section>
-      <div class="post-content" v-html="postContent"></div>
+      <!-- eslint-disable-next-line -->
+      <div class="post-content" v-html="postContent" />
     </section>
 
     <!-- swirl -->
@@ -77,7 +82,6 @@ export default {
     };
   },
   computed: {
-    
     coverImage() {
       if (this.$page.post.feature_image) {
         const urlSplit = this.$page.post.feature_image.split(":");
@@ -90,7 +94,7 @@ export default {
     postContent() {
       const transformedPost = this.$page.post.content.replace(
         /src="\//g,
-        'src="https://ghost.scrt.network/'
+        'src="https://ghost.scrt.network/',
       );
       return transformedPost;
     },
@@ -115,13 +119,16 @@ export default {
       };
     },
   },
+  mounted() {
+    this.getMetaInfoLength();
+  },
   methods: {
     getMetaInfoLength() {
       const metadataContainerEl = document.querySelectorAll(
-        ".kg-bookmark-metadata"
+        ".kg-bookmark-metadata",
       );
       setTimeout(() => {
-        for (const [i, meta] of metadataContainerEl.entries()) {
+        for (const [, meta] of metadataContainerEl.entries()) {
           const metaLength = meta.innerText.length;
           if (metaLength >= 32) {
             meta.classList.add("row-mode");
@@ -129,9 +136,6 @@ export default {
         }
       }, 500);
     },
-  },
-  mounted() {
-    this.getMetaInfoLength();
   },
 };
 </script>

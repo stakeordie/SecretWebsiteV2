@@ -21,7 +21,7 @@ export default {
     weight: {
       type: String,
       required: false,
-      default: "H2"
+      default: "H4"
     },
     alignment: {
       type: String,
@@ -37,7 +37,7 @@ export default {
   computed: {
     titleHeader() {
       if (!this.weight || this.weight === "") {
-        return "H1";
+        return "H4";
       } else if (this.weight === "H2.5") {
         return "H2";
       } else {
