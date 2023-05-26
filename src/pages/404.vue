@@ -32,9 +32,9 @@
             Find out why Secret Network is a first-of-its-kind, open-source
             blockchain that provides data privacy by default.
           </p>
-          <btn class="text-center" url="/about/about-secret-network"
-            >Go to page</btn
-          >
+          <btn class="text-center" url="/about/about-secret-network">
+            Go to page
+          </btn>
         </card-minimal>
       </block>
 
@@ -45,7 +45,9 @@
             Lean about the applications, validators, contributors and elements
             that make the Network come together.
           </p>
-          <btn class="text-center" url="/ecosystem/overview">Go to page</btn>
+          <btn class="text-center" url="/ecosystem/overview">
+            Go to page
+          </btn>
         </card-minimal>
       </block>
 
@@ -56,7 +58,9 @@
             Use Secret Contracts to build decentralized applications with
             improved usability and explore new frontiers in web3.
           </p>
-          <btn class="text-center" url="/developers">Go to page</btn>
+          <btn class="text-center" url="/developers">
+            Go to page
+          </btn>
         </card-minimal>
       </block>
 
@@ -67,7 +71,9 @@
             Stay up to date about news, announcements and relevant information
             about Secret Network.
           </p>
-          <btn class="text-center" url="/blog">Go to page</btn>
+          <btn class="text-center" url="/blog">
+            Go to page
+          </btn>
         </card-minimal>
       </block>
 
@@ -79,9 +85,12 @@
             a dreamer, there are many ways for you to contribute to Secret
             Network.
           </p>
-          <btn class="text-center" url="/get-involved/international-communities"
-            >Go to page</btn
+          <btn
+            class="text-center"
+            url="/get-involved/international-communities"
           >
+            Go to page
+          </btn>
         </card-minimal>
       </block>
 
@@ -92,7 +101,9 @@
             Explore featured articles, podcast episodes and videos to learn more
             about the Network.
           </p>
-          <btn class="text-center" url="/media/features">Go to page</btn>
+          <btn class="text-center" url="/media/features">
+            Go to page
+          </btn>
         </card-minimal>
       </block>
     </column>
@@ -228,8 +239,8 @@ export default {
   components: { CardMinimal },
   metaInfo() {
     return {
-      title: "Page Not Found"
+      title: "Page Not Found",
     };
-  }
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/blog/${post.slug}`"  class="blog-card">
+  <a :href="`/blog/${post.slug}`" class="blog-card">
     <div class="blog-card__content">
       <div class="image">
         <g-image
@@ -9,7 +9,12 @@
           alt="Blog"
           loading="lazy"
         />
-        <g-image v-else src="/blog-cover.jpg" alt="Blog" loading="lazy" />
+        <g-image 
+          v-else
+          src="/blog-cover.jpg"
+          alt="Blog"
+          loading="lazy"
+        />
       </div>
       <h5 class="title">{{ post.title }}</h5>
     </div>

@@ -2,7 +2,7 @@
   <CardWrapper :url="data.url" externalLink class="content-card">
     <div class="content-card__header">
       <ResponsiveImage v-if="data.picture" :src="data.picture" />
-      <div class="tags" v-if="data.types.length">
+      <div v-if="data.types.length" class="tags">
         <span v-for="(category, id) in data.types" :key="id">
           {{ formatCategory(category.name) }}
         </span>
@@ -10,7 +10,9 @@
     </div>
     <div class="content-card__body">
       <h4>{{ data.title }}</h4>
-      <p v-if="data.description">{{ data.description }}</p>
+      <p v-if="data.description">
+        {{ data.description }}
+      </p>
     </div>
   </CardWrapper>
 </template>
@@ -23,14 +25,14 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     formatCategory(category = "") {
       return category.includes("_") ? category.replace("_", " ") : category;
-    }
-  }
+    },
+  },
 };
 </script>
 
