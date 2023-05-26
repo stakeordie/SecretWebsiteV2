@@ -6,10 +6,12 @@
       </Block>
     </Column>
     <Column
+      v-for="(component, index) in $context.components"
+      :key="index"
       class="bg-black-gradient learn-subpage__content"
       :class="[
         component.comp_name === 'carousel-group' ? 'horizontal-slider' : '',
-        'comp-name__' + component.comp_name
+        'comp-name__' + component.comp_name,
       ]"
       :mode="
         component.comp_name === 'carousel-group' ||
@@ -17,10 +19,8 @@
           ? 'full'
           : 'normal'
       "
-      v-for="(component, index) in $context.components"
-      :key="index"
     >
-      <Block class="">
+      <Block>
         <component :is="component.comp_name" v-bind="component">
           {{ component.content ? component.content : "" }}
         </component>
@@ -44,7 +44,7 @@ import {
   addScrollSmooth,
   pageMetaData,
   metaDataArray,
-  canonicalTag
+  canonicalTag,
 } from "@/utils";
 import CarouselGroup from "@/components/dynamic/carousel/CarouselGroup.vue";
 import LearnHeader from "@/components/dynamic/heros/LearnHeader.vue";
@@ -62,28 +62,28 @@ export default {
     Callout,
     CtaGrid,
     DynamicBreadcrumb,
-    DefaultLayout
+    DefaultLayout,
   },
   metaInfo() {
     return {
       title: this.getMetaData.title,
       meta: metaDataArray(this.getMetaData),
-      link: canonicalTag(this.getMetaData)
+      link: canonicalTag(this.getMetaData),
     };
   },
   computed: {
     getMetaData() {
       return pageMetaData(this.$page, this.$context.route);
-    }
+    },
   },
   watch: {
     $route: {
-      handler(to, from) {
+      handler(to) {
         addScrollSmooth(to);
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 

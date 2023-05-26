@@ -9,7 +9,7 @@
         class="header__title"
         :color="component_colors ? component_colors.title_color : ''"
       />
-      <div class="header__controls">
+      <div v-if="!hide_scroll_arrows" class="header__controls">
         <button @click="scroll('left')">
           <img
             src="/img/icons/icon-circle-left.svg"
@@ -40,9 +40,11 @@
           :src="card.image"
           class="card__image"
         />
-        <h4 v-if="card.title" class="card__title">
-          {{ card.title }}
-        </h4>
+        <DynamicTitle
+          :title="card.title"
+          :alignment="card.title_alignment"
+          :weight="card.title_size"
+        />
         <p v-if="card.description" class="card__text">
           {{ card.description }}
         </p>
@@ -90,7 +92,12 @@ export default {
     component_colors: {
       type: Object,
       required: false,
-      default: () => {},
+      default: null,
+    },
+    hide_scroll_arrows: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   computed: {
@@ -113,7 +120,7 @@ export default {
         carousel.scrollLeft -= 300;
       }
     },
-    textAlignment({ title_alignment = "left", body_alignment = "left" }) {
+    textAlignment({ body_alignment = "left" }) {
       const alignment = {
         left: "left",
         center: "center",
@@ -121,7 +128,6 @@ export default {
       };
 
       return {
-        "--title-alignment": alignment[title_alignment] || alignment.left,
         "--body-alignment": alignment[body_alignment] || alignment.left,
       };
     },
@@ -143,6 +149,7 @@ export default {
     align-items: center;
     gap: 26px;
     padding: 0 var(--f-gutter-l);
+    min-height: 44px;
 
     @include respond-to(">=s") {
       flex-direction: row;
@@ -232,18 +239,17 @@ export default {
         margin-bottom: 8px;
       }
 
-      &__title {
-        margin: 0;
-        word-break: break-word;
-        color: var(--color-analog-primary-white);
-        text-align: var(--title-alignment);
-      }
-
       &__text {
         margin: 0;
         word-break: break-word;
         text-align: var(--body-alignment);
       }
+    }
+  }
+
+  ::v-deep {
+    .dynamic-title {
+      margin: 0;
     }
   }
 }

@@ -12,7 +12,9 @@
 
       <div class="about-secret-network-hero__content">
         <div class="about-secret-network-hero__content__header">
-          <h4 class="about-secret-network__eyebrow">About SECRET NETWORK</h4>
+          <h4 class="about-secret-network__eyebrow">
+            About SECRET NETWORK
+          </h4>
           <h1 class="about-secret-network-hero__content__header__h1">
             Powering Web3 Privacy
           </h1>
@@ -30,7 +32,9 @@
               class="list-icon"
               loading="lazy"
             />
-            <p class="list-info">Privacy-preserving smart contracts</p>
+            <p class="list-info">
+              Privacy-preserving smart contracts
+            </p>
           </div>
           <div class="list-item">
             <img
@@ -59,8 +63,8 @@
           class="text-center no-arrow about-secret-network__btn"
           url="../../ecosystem/dapps"
         >
-          EXPLORE OUR ECOSYSTEM</btn
-        >
+          EXPLORE OUR ECOSYSTEM
+        </btn>
       </div>
     </section>
 
@@ -68,8 +72,12 @@
       <div class="about-content">
         <div class="about-secret-network-essential__intro">
           <div class="about-secret-network-essential__intro__header">
-            <h4 class="about-secret-network__eyebrow">ESSENTIAL FOR WEB3</h4>
-            <h2 class="intro__title">Why we need privacy</h2>
+            <h4 class="about-secret-network__eyebrow">
+              ESSENTIAL FOR WEB3
+            </h4>
+            <h2 class="intro__title">
+              Why we need privacy
+            </h2>
           </div>
           <p class="intro__p">
             Ethereum’s big innovation was to put smart contracts on the
@@ -100,7 +108,9 @@
     <section class="about-secret-network-cases">
       <div class="about-secret-network-cases__header">
         <div class="header">
-          <h4 class="about-secret-network__eyebrow">USE CASES</h4>
+          <h4 class="about-secret-network__eyebrow">
+            USE CASES
+          </h4>
           <h2 class="about-secret-network-header__h2">
             The possibilities Secret Contracts unlock
           </h2>
@@ -115,11 +125,11 @@
 
       <div class="about-secret-network-cases__content">
         <div
-          class="about-secret-network-cases__content__topic"
           v-for="(item, index) in material"
           :key="index"
+          class="about-secret-network-cases__content__topic"
         >
-          <img :src="item.imageUrl" alt="" loading="lazy"/>
+          <img :src="item.imageUrl" alt="" loading="lazy" />
           <div class="about-secret-network-cases__title">
             <h5>{{ item.eyebrow }}</h5>
             <h3>{{ item.title }}</h3>
@@ -145,10 +155,12 @@
         >
           <div class="header-left">
             <div class="header">
-              <h4 class="about-secret-network__eyebrow">TECHNOLOGY</h4>
-              <h2 class="">How Secret Contracts work</h2>
+              <h4 class="about-secret-network__eyebrow">
+                TECHNOLOGY
+              </h4>
+              <h2>How Secret Contracts work</h2>
             </div>
-            <p class="">
+            <p>
               Secret Network is the first blockchain with privacy-preserving
               smart contracts. This makes it possible to build apps that are
               decentralized and permissionless—yet private.
@@ -160,7 +172,9 @@
                   alt="Rust logo"
                   loading="lazy"
                 />
-                <h6 class="logos_item__p">Coded in Rust</h6>
+                <h6 class="logos_item__p">
+                  Coded in Rust
+                </h6>
               </div>
               <div class="logos__item item2">
                 <img
@@ -168,12 +182,14 @@
                   alt="Wasm logo"
                   loading="lazy"
                 />
-                <h6 class="logos_item__p">Compiled with WASM</h6>
+                <h6 class="logos_item__p">
+                  Compiled with WASM
+                </h6>
               </div>
             </div>
             <btn class="center-text no-arrow ctas-button" url="../../graypaper">
-              Read the GrayPaper</btn
-            >
+              Read the GrayPaper
+            </btn>
           </div>
           <div class="header-right">
             <img
@@ -188,11 +204,11 @@
           class="about-secret-network-technology__content tech-n-vision__content"
         >
           <div
-            class="about-secret-network-technology__content__item tech-n-vision__content__item"
             v-for="(item, index) in technology"
             :key="index"
+            class="about-secret-network-technology__content__item tech-n-vision__content__item"
           >
-            <img :src="item.imageUrl" alt="Technology icon" loading="lazy"/>
+            <img :src="item.imageUrl" alt="Technology icon" loading="lazy" />
             <div class="item-description">
               <h4>{{ item.title }}</h4>
               <p class="item-text">
@@ -209,8 +225,12 @@
         <div class="about-secret-network-vision__header tech-n-vision__header">
           <div class="header-left">
             <div class="header">
-              <h4 class="about-secret-network__eyebrow">OUR VISION</h4>
-              <h2 class="">Building to become the Web3 privacy hub</h2>
+              <h4 class="about-secret-network__eyebrow">
+                OUR VISION
+              </h4>
+              <h2 class="">
+                Building to become the Web3 privacy hub
+              </h2>
             </div>
             <p class="">
               How we’re optimizing for interoperability, scalability, and
@@ -230,11 +250,11 @@
           class="about-secret-network-vision__content tech-n-vision__content"
         >
           <div
-            class="about-secret-network-vision__content__item tech-n-vision__content__item"
             v-for="(item, index) in vision"
             :key="index"
+            class="about-secret-network-vision__content__item tech-n-vision__content__item"
           >
-            <img :src="item.imageUrl" alt="" loading="lazy"/>
+            <img :src="item.imageUrl" alt="" loading="lazy" />
             <div class="item-description">
               <h4>{{ item.title }}</h4>
               <p class="">
@@ -293,22 +313,24 @@
           class="center-text no-arrow ctas-button"
           url="../../ecosystem/contributors"
         >
-          VIEW ALL CONTRIBUTORS</btn
-        >
+          VIEW ALL CONTRIBUTORS
+        </btn>
         <btn
           class="center-text no-arrow ctas-button"
           url="../../ecosystem/partners"
         >
-          VIEW ALL PARTNERS</btn
-        >
+          VIEW ALL PARTNERS
+        </btn>
       </div>
     </section>
 
     <section class="about-secret-network-mission spacer-s">
       <div class="about-content">
         <div class="about-secret-network-mission__header">
-          <h4 class="about-secret-network__eyebrow">OUR MISSION</h4>
-          <h2 class="">Privacy is a human right <span>& necessity</span></h2>
+          <h4 class="about-secret-network__eyebrow">
+            OUR MISSION
+          </h4>
+          <h2>Privacy is a human right <span>& necessity</span></h2>
         </div>
         <p class="">
           We believe the decentralized web—powered by blockchain technology—has

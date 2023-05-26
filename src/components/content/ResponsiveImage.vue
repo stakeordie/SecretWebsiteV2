@@ -17,19 +17,23 @@ export default {
   props: {
     src: {
       type: Object,
-      required: true
+      required: true,
     },
     classes: {
-      required: false
+      type: String,
+      required: false,
+      default: "",
     },
     imageClass: {
-      required: false
+      type: String,
+      required: false,
+      default: "",
     },
     highQuality: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     altName() {
@@ -48,11 +52,11 @@ export default {
       const imageSpecs = [
         { size: "thumbnail", media: "(max-width: 350px)" },
         { size: "small", media: "(max-width: 768px)" },
-        { size: "medium", media: "(max-width: 1199px)" }
+        { size: "medium", media: "(max-width: 1199px)" },
       ];
 
       const images = imageSpecs
-        .map(spec => {
+        .map((spec) => {
           const format = formats[spec.size];
           return format ? { url: format.url, media: spec.media } : null;
         })
@@ -71,8 +75,8 @@ export default {
     },
     imgClass() {
       return this.imageClass ? this.imageClass : "";
-    }
-  }
+    },
+  },
 };
 </script>
 

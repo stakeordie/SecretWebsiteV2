@@ -75,7 +75,7 @@ function setDefaultTheme() {
   body.setAttribute("theme", theme.trim());
 }
 
-export default function (Vue, { router, head, isClient, appOptions }) {
+export default function (Vue, { router, head, appOptions }) {
   openGraph.forEach((item) => head.meta.push(item));
 
   // Set default layout as a global component
@@ -120,8 +120,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component("Summit", Summit);
 
   //External Libraries
-  Vue.component("typical", typical);
-  Vue.component("i18n", i18n);
+  Vue.component("Typical", typical);
+  Vue.component("I18n", i18n);
   Vue.component("DeployTemp", DeployTemp);
 
   Vue.use(Flare);
