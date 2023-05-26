@@ -71,6 +71,7 @@ export default {
 .dynamic-title {
   font-family: "Montserrat";
   color: var(--title-color);
+  word-break: break-word;
 
   &.title-25:is(h2) {
     font-size: var(--f-h2_5-text-size);
