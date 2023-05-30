@@ -1,7 +1,7 @@
 <template>
   <div
     class="grid-container"
-    :style="[gridStyles, textColor, cardBackground]"
+    :style="[gridStyles, cardBackground]"
     :class="containerPaddings"
   >
     <CardWrapper
@@ -21,14 +21,14 @@
           :title="data.title"
           :weight="data.title_size"
           :alignment="data.title_alignment"
+          :color="component_colors ? component_colors.title_color : ''"
         />
-        <span
+        <DynamicBody
           v-if="data.description"
-          class="grid-card__info__description"
-          :style="textAlignment(data.body_alignment)"
-        >
-          {{ data.description }}
-        </span>
+          :text="data.description"
+          :align="data.body_alignment"
+          :color="component_colors ? component_colors.body_color : ''"
+        />
       </div>
     </CardWrapper>
   </div>
@@ -38,11 +38,13 @@
 import { sizes } from "@/utils";
 import CardWrapper from "@/components/dynamic/cards/CardWrapper.vue";
 import DynamicTitle from "@/components/dynamic/basic/DynamicTitle.vue";
+import DynamicBody from "@/components/dynamic/basic/DynamicBody.vue";
 
 export default {
   components: {
     CardWrapper,
     DynamicTitle,
+    DynamicBody,
   },
   props: {
     padding_top: {
@@ -115,14 +117,6 @@ export default {
         "--desktop-columns": columns[this.grid_columns_desktop] || columns.five,
       };
     },
-    textColor() {
-      const defaultTitle = "var(--color-neutral-dark-mode-06)";
-      const defaultText = "var(--color-neutral-dark-mode-05)";
-      return {
-        "--title-color": this.component_colors?.title_color || defaultTitle,
-        "--text-color": this.component_colors?.body_color || defaultText,
-      };
-    },
     cardBackground() {
       const defaultBackground = "transparent";
       const defaultHover = "var(--color-neutral-dark-mode-04)";
@@ -135,17 +129,6 @@ export default {
     },
   },
   methods: {
-    textAlignment(body_alignment = "left") {
-      const alignment = {
-        left: "left",
-        center: "center",
-        right: "right",
-      };
-
-      return {
-        "--body-alignment": alignment[body_alignment] || alignment.left,
-      };
-    },
     imageAlignment(image_alignment) {
       const positions = {
         "top-left": "image-top-left",
@@ -236,17 +219,20 @@ export default {
         .dynamic-title {
           margin: 0;
         }
-      }
 
-      &__description {
-        font-family: "Hind";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 150%;
-        color: var(--text-color);
-        word-break: break-word;
-        text-align: var(--body-alignment);
+        .dynamic-body {
+          p,
+          ul,
+          li {
+            line-height: 24px;
+            font-size: 16px;
+            word-break: break-word;
+          }
+
+          :last-child {
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
