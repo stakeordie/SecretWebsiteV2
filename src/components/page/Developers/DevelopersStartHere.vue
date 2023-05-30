@@ -1,7 +1,11 @@
 <template>
   <section class="page-developers">
-    <h3 class="page-developers__sub-title">START HERE</h3>
-    <h1 class="page-developers__title">Dive in with Secret Pathways</h1>
+    <h3 class="page-developers__sub-title">
+      START HERE
+    </h3>
+    <h1 class="page-developers__title">
+      Dive in with Secret Pathways
+    </h1>
     <p class="page-developers__text">
       Pick your pathway and get ramped up to start building. We curated a list
       of resources to suit each developer’s journey to coding genius.

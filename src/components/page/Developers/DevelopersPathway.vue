@@ -1,9 +1,9 @@
 <template>
   <section class="page-developer-pathway">
     <div
-      class="page-developer-pathway__inside"
       v-for="(path, index) in sectionContent"
       :key="index"
+      class="page-developer-pathway__inside"
     >
       <div class="page-developer-pathway__description">
         <h6 v-if="path.node.subtitle">
@@ -13,7 +13,7 @@
         <p>{{ path.node.description }}</p>
       </div>
       <div class="page-developer-pathway__content">
-        <div v-for="(resource, index) in path.node.resource" :key="index">
+        <div v-for="(resource, idx) in path.node.resource" :key="idx">
           <ul class="page-developer-pathway__content__box">
             <a :href="resource.cta_url">
               <li class="page-developer-pathway__content__box__item">
@@ -55,6 +55,9 @@ export default {
       sectionContent: [],
     };
   },
+  mounted() {
+    this.getSectionContent();
+  },
   methods: {
     getSectionContent() {
       this.sectionContent = this.$static.developerPadthways.edges.filter(
@@ -68,9 +71,6 @@ export default {
         }
       );
     },
-  },
-  mounted() {
-    this.getSectionContent();
   },
 };
 </script>

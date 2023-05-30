@@ -15,13 +15,15 @@
           <btn
             class="text-center no-arrow"
             url="https://docs.scrt.network/secret-network-documentation/development/getting-started"
-            >GET STARTED</btn
           >
+            GET STARTED
+          </btn>
           <btn
             class="text-center no-arrow join"
             url="https://discord.gg/PzdQ9bfvcX"
-            >Join our Dev Community</btn
           >
+            Join our Dev Community
+          </btn>
         </div>
       </div>
     </div>
@@ -34,10 +36,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {};
-</script>
 
 <style lang="scss">
 @import "@lkmx/flare/src/functions/respond-to";

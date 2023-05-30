@@ -1,109 +1,109 @@
 <template>
-  <column mode="full" class="developers-page">
-    <column class="page-developers__hero-container">
-      <block>
-        <developers-hero />
-      </block>
-    </column>
+  <Column mode="full" class="developers-page">
+    <Column class="page-developers__hero-container">
+      <Block>
+        <DevelopersHero />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-features />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <DevelopersFeatures />
+      </Block>
+    </Column>
 
-    <column mode="full">
-      <block>
-        <developers-university />
-      </block>
-    </column>
+    <Column mode="full">
+      <Block>
+        <DevelopersUniversity />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-start-here />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <DevelopersStartHere />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-pathway pathId="1" />
-        <developers-pathway pathId="2" />
-        <developers-pathway pathId="3" />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <DevelopersPathway pathId="1" />
+        <DevelopersPathway pathId="2" />
+        <DevelopersPathway pathId="3" />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-help-new-devs />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <Developers-help-new-devs />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-card-resources />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <Developers-card-resources />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-advanced />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <Developers-advanced />
+      </Block>
+    </Column>
 
-    <column>
-      <block>
-        <developers-funding />
-      </block>
-    </column>
+    <Column>
+      <Block>
+        <Developers-funding />
+      </Block>
+    </Column>
 
-    <column class="page-developers__dev-questions">
-      <block>
-        <developers-questions />
-      </block>
-    </column>
+    <Column class="page-developers__dev-questions">
+      <Block>
+        <Developers-questions />
+      </Block>
+    </Column>
 
     <!-- Controlls  -->
-    <column number="2" class="page-developers__horizontal-scroll">
-      <block>
+    <Column number="2" class="page-developers__horizontal-scroll">
+      <Block>
         <h3>Cool stuff others built (on Secret)</h3>
-      </block>
-      <block class="justify-right">
-        <scroll-horizontal />
-      </block>
-    </column>
+      </Block>
+      <Block class="justify-right">
+        <ScrollHorizontal />
+      </Block>
+    </Column>
 
     <!-- Horizontal Scroll -->
-    <column
+    <Column
       class="page-developers__cool-stuff spacer-s horizontal-slider"
       mode="full"
     >
-      <block>
-        <developers-cool-stuff />
-      </block>
-    </column>
+      <Block>
+        <Developers-cool-stuff />
+      </Block>
+    </Column>
 
     <!-- General CTAs -->
-    <column class="spacer-s" number="2" number-m="2" number-s="1">
-      <block>
-        <general-ctas id="get-started"></general-ctas>
-      </block>
-      <block>
-        <general-ctas id="join-the-community"></general-ctas>
-      </block>
-    </column>
+    <Column class="spacer-s" number="2" number-m="2" number-s="1">
+      <Block>
+        <GeneralCtas id="get-started" />
+      </Block>
+      <Block>
+        <GeneralCtas id="join-the-community" />
+      </Block>
+    </Column>
 
     <!-- swirl -->
-    <column class="developers__swirl__bottom" mode="full">
-      <block>
+    <Column class="developers__swirl__bottom" mode="full">
+      <Block>
         <img
           class="get-scrt__align-img"
           src="/img/icons/swirl-dev-blue-bottom.svg"
           alt="Blue swirl bottom graphic"
           loading="lazy"
         />
-      </block>
-    </column>
-  </column>
+      </Block>
+    </Column>
+  </Column>
 </template>
 
 <script>
@@ -133,8 +133,8 @@ export default {
     DevelopersFunding,
     DevelopersCoolStuff,
     DevelopersUniversity,
-    ScrollHorizontal
-  }
+    ScrollHorizontal,
+  },
 };
 </script>
 
