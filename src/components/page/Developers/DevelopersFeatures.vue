@@ -1,11 +1,13 @@
 <template>
   <section class="page-developer__features">
-    <h1 class="page-developer__features__title">{{ sectionTitle }}</h1>
+    <h1 class="page-developer__features__title">
+      {{ sectionTitle }}
+    </h1>
     <div class="page-developer__features__reasons">
       <div
-        class="page-developer__features__reasons__reason"
         v-for="(item, index) in reasons"
         :key="index"
+        class="page-developer__features__reasons__reason"
       >
         <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
         <h6>{{ item.title }}</h6>

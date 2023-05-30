@@ -1,11 +1,13 @@
 <template>
   <section class="page-developer-resources">
-    <h6 class="page-developer-resources__title">Resources</h6>
+    <h6 class="page-developer-resources__title">
+      Resources
+    </h6>
     <div class="page-developer-resources__cards">
       <a
-        class="page-developer-resources__cards__card"
         v-for="(item, index) in material"
         :key="index"
+        class="page-developer-resources__cards__card"
         :href="item.url"
         target="_blank"
         rel="noopener noreferrer"
