@@ -3,6 +3,7 @@ export const sizes = {
   small: "small",
   medium: "medium",
   large: "large",
+  "extra-large": "extra-large",
 };
 
 export const replaceWithSpace = (string = "") => string.replace(/[^A-Z0-9]+/ig, " ");
