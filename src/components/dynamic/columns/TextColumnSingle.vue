@@ -160,27 +160,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
-.learn-article__content {
-  .text-column-single {
-    width: 100%;
-    padding-inline: 16px;
+.text-column-single {
+  width: 100%;
+  padding-inline: 16px;
 
-    @include respond-to(">=m") {
-      padding-inline: 0;
-    }
-
-    &.standard {
-      max-width: 800px;
-    }
+  @include respond-to(">=m") {
+    padding-inline: 0;
   }
 
-  &.empty-nav {
-    .text-column-single {
-      margin-inline: auto;
-    }
+  &.standard {
+    max-width: 800px;
   }
+}
+
+.learn-article__content.empty-nav .text-column-single {
+  margin-inline: auto;
 }
 </style>

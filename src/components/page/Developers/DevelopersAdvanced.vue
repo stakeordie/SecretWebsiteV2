@@ -1,11 +1,13 @@
 <template>
   <section class="page-developer-advanced">
-    <h6 class="page-developer-advanced__title">Advanced resources</h6>
+    <h6 class="page-developer-advanced__title">
+      Advanced resources
+    </h6>
     <div class="page-developer-advanced__cards">
       <div
-        class="page-developer-advanced__cards__box"
         v-for="(item, index) in material"
         :key="index"
+        class="page-developer-advanced__cards__box"
       >
         <a :href="item.url" class="page-developer-advanced__cards__box__card">
           <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
