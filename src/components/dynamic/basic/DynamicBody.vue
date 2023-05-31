@@ -52,9 +52,8 @@ export default {
     },
     bodyColor() {
       const defaultColor = "var(--color-neutral-dark-mode-05)";
-      const color = this.color;
       return {
-        "--text-color": color || defaultColor,
+        "--text-color": this.color || defaultColor,
       };
     },
     anchorAttributes() {
@@ -71,14 +70,16 @@ export default {
 @import "@lkmx/flare/src/functions/_respond-to.scss";
 
 .dynamic-body {
-  text-align: var(--text-alignment);
-
   ::v-deep {
+    * {
+      text-align: var(--text-alignment);
+      color: var(--text-color);
+    }
+
     p,
     ul,
     li {
       text-align: var(--text-alignment);
-      color: var(--text-color);
       font-size: 16px;
       line-height: 30px;
 

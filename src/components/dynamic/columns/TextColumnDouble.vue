@@ -2,7 +2,7 @@
   <div>
     <div
       :id="titleId(main_title)"
-      :class="['text-column-double', paddingTop, paddingBottom]"
+      :class="['text-column-double', containerStyles]"
     >
       <DynamicEyebrowTitle
         v-if="eyebrow_title"
@@ -236,13 +236,14 @@ export default {
     },
   },
   computed: {
-    paddingTop() {
-      const size = sizes[this.padding_top];
-      return size ? `${size}-top` : "none-top";
-    },
-    paddingBottom() {
-      const size = sizes[this.padding_bottom];
-      return size ? `${size}-bottom` : "small-bottom";
+    containerStyles() {
+      const topSize = sizes[this.padding_top];
+      const bottomSize = sizes[this.padding_bottom];
+      return [
+        `${topSize || sizes.none}-top`,
+        `${bottomSize || sizes.small}-bottom`,
+        this.width === "wide" ? "wide" : "standard",
+      ];
     },
     titlesAlignment() {
       const first = this.first_title_alignment;
@@ -296,15 +297,13 @@ export default {
       }
     }
   }
+
+  &.standard {
+    max-width: 800px;
+  }
 }
 
-::v-deep {
-  .learn-article__content {
-    &.empty-nav {
-      .text-column-double {
-        margin-inline: auto;
-      }
-    }
-  }
+.learn-article__content.empty-nav .text-column-double {
+  margin-inline: auto;
 }
 </style>

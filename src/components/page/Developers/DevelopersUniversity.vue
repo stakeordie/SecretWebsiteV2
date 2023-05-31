@@ -9,7 +9,9 @@
         />
       </div>
       <div class="secret-university__info">
-        <h5 class="secret-university__info__title">SECRET UNIVERSITY</h5>
+        <h5 class="secret-university__info__title">
+          SECRET UNIVERSITY
+        </h5>
         <h4 class="secret-university__info__subtitle">
           Jumpstart Your Secret Dev Journey
         </h4>
@@ -79,7 +81,6 @@
       padding: 16px 26px;
 
       @include respond-to(">=m") {
-        /* padding: 16px; */
         align-items: flex-start;
         text-align: left;
       }

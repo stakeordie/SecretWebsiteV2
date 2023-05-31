@@ -29,8 +29,8 @@
                 alt="Discord logo"
                 loading="lazy"
               />
-              Join our Discord</btn
-            >
+              Join our Discord
+            </btn>
           </div>
           <div
             class="page-developer-questions__banner__content__buttons__dark-button"
@@ -44,8 +44,9 @@
                 src="/img/icons/icon-social-forum.svg"
                 alt="Messages icon"
                 loading="lazy"
-              />Post on forums</btn
-            >
+              />
+              Post on forums
+            </btn>
           </div>
         </div>
       </div>
