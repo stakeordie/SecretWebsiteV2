@@ -2,7 +2,7 @@
   <div
     class="grid-container"
     :style="[gridStyles, cardBackground]"
-    :class="containerPaddings"
+    :class="containerStyles"
   >
     <CardWrapper
       v-for="(data, index) in grid_card"
@@ -91,14 +91,19 @@ export default {
       required: false,
       default: "var(--color-neutral-dark-mode-04)",
     },
+    width: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
-    containerPaddings() {
+    containerStyles() {
       const topSize = sizes[this.padding_top];
       const bottomSize = sizes[this.padding_bottom];
       return [
-        `${topSize ? topSize : sizes.none}-top`,
-        `${bottomSize ? bottomSize : sizes.small}-bottom`,
+        `${topSize || sizes.none}-top`,
+        `${bottomSize || sizes.small}-bottom`,
+        this.width === "wide" ? "wide" : "standard",
       ];
     },
     gridStyles() {
@@ -157,6 +162,10 @@ export default {
 
   @include respond_to(">=l") {
     grid-template-columns: repeat(var(--desktop-columns), 1fr);
+  }
+
+  &.standard {
+    max-width: 800px;
   }
 
   .grid-card {
@@ -236,5 +245,9 @@ export default {
       }
     }
   }
+}
+
+.learn-article__content.empty-nav .grid-container {
+  margin-inline: auto;
 }
 </style>
