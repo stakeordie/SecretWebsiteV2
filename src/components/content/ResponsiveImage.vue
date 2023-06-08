@@ -37,6 +37,7 @@ export default {
   },
   computed: {
     altName() {
+      if (!this.src.name) return "";
       const name = replaceWithSpace(this.src.name.split(".")[0]);
       return uppercaseAllFirstLetter(name);
     },
