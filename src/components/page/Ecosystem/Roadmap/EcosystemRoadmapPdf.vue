@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       pdfUrl:
-        "https://ik.imagekit.io/secretnetwork/images/Secret_Ecosystem_Roadmap_Dec_2022_4639cc3ce9_wQaJuCkEr.pdf?updated_at=2022-12-15T18:10:48.096Z",
+        "https://ik.imagekit.io/secretnetwork/images/q2ecoroadmap_f58442a67b_S5-OUCMla.pdf",
     };
   },
   computed: {
