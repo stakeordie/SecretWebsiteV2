@@ -183,7 +183,6 @@ export default {
     }
 
     &__image {
-      width: 100%;
       display: flex;
     }
 
