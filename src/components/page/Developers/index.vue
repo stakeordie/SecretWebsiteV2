@@ -49,6 +49,12 @@
         <Developers-advanced />
       </Block>
     </Column>
+    
+    <Column>
+      <Block>
+        <Developers-pass />
+      </Block>
+    </Column>
 
     <Column>
       <Block>
@@ -118,6 +124,7 @@ import DevelopersQuestions from "@/components/page/Developers/DevelopersQuestion
 import DevelopersFunding from "@/components/page/Developers/DevelopersFunding.vue";
 import DevelopersCoolStuff from "@/components/cards/DevelopersCoolStuff.vue";
 import DevelopersUniversity from "@/components/page/Developers/DevelopersUniversity.vue";
+import DevelopersPass from "@/components/page/Developers/DevelopersPass.vue";
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 
 export default {
@@ -134,6 +141,7 @@ export default {
     DevelopersCoolStuff,
     DevelopersUniversity,
     ScrollHorizontal,
+    DevelopersPass,
   },
 };
 </script>
