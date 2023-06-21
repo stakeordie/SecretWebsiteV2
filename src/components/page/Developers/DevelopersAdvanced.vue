@@ -1,29 +1,22 @@
 <template>
   <section class="page-developer-advanced">
-    <h6 class="page-developer-advanced__title">
-      Advanced resources
-    </h6>
-    <div class="page-developer-advanced__cards">
+    <h6 class="page-developer-advanced__title">Advanced resources</h6>
+    <div class="page-developer-advanced__card-list">
       <div
         v-for="(item, index) in material"
         :key="index"
         class="page-developer-advanced__cards__box"
       >
-        <a :href="item.url" class="page-developer-advanced__cards__box__card">
-          <img :src="item.imageUrl" :alt="item.title" loading="lazy" />
-          <div class="page-developer-advanced__cards__box__card__content">
-            <h6>{{ item.title }}</h6>
-            <p>{{ item.description }}</p>
-            <btn class="link-arrow" :url="item.url">{{ item.urlTitle }}</btn>
-          </div>
-        </a>
+        <developer-resource-card :cardInfo="item" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import DeveloperResourceCard from "@/components/dynamic/cards/DeveloperResourceCard.vue";
 export default {
+  components: { DeveloperResourceCard },
   data() {
     return {
       material: [
@@ -33,8 +26,7 @@ export default {
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
           urlTitle: "View guide",
-          url:
-            "https://docs.scrt.network/secret-network-documentation/node-runners",
+          url: "https://docs.scrt.network/secret-network-documentation/node-runners",
         },
         {
           imageUrl: "/img/developers/icon-features-file.svg",
@@ -42,8 +34,7 @@ export default {
           description:
             "Learn how to set up and run an IBC relayer to facilitate communication with the wider Cosmos ecosystem.",
           urlTitle: "View template",
-          url:
-            "https://docs.scrt.network/secret-network-documentation/node-runners/ibc-relayers",
+          url: "https://docs.scrt.network/secret-network-documentation/node-runners/ibc-relayers",
         },
       ],
     };
@@ -51,66 +42,42 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-advanced {
-  margin: 72px 0;
+  padding: calc(26px - 16px) 0px calc(64px - 16px) 0px;
+  display: flex;
+  flex-direction: column;
 
-  &__title {
-    font-family: montserrat;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: var(--f-h5-text-size);
-    color: var(--color-neutral-dark-mode-05);
-    line-height: 24px;
-    padding: var(--f-gutter) 0;
-
-    @include respond-to("<=s") {
-      font-size: var(--f-h6-text-size);
-    }
+  @include respond-to("<=m") {
+    padding-bottom: 0px;
+    padding-top: 0px;
   }
 
-  &__cards {
+  &__title {
+    padding: var(--f-gutter) 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-neutral-dark-mode-05);
+    line-height: 16px;
+    font-size: 18px;
+    margin: 0px;
+  }
+
+  &__card-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 26px;
+    padding: 16px 0px;
 
     @include respond-to("<=m") {
       grid-template-columns: 1fr 1fr;
+      padding: 16px 0px;
     }
 
     @include respond-to("<=xs") {
       grid-template-columns: 1fr;
-    }
-    &__box {
-      &__card {
-        display: grid;
-        grid-template-columns: 24px 1fr;
-        grid-gap: 10px;
-        border-radius: 10px;
-        padding: var(--f-gutter);
-
-        &:hover {
-          background: var(--color-neutral-dark-mode-04);
-        }
-
-        &__content {
-          h6 {
-            font-size: var(--f-h5-text-size);
-            font-family: var(--f-default-headers-font);
-            color: white;
-          }
-          p {
-            font-size: var(--f-default-text-size);
-          }
-
-          .link-arrow {
-            padding: 0;
-            margin-top: 0%;
-          }
-        }
-      }
     }
   }
 }
