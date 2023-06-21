@@ -1036,9 +1036,7 @@ query {
             position: fixed;
             bottom: 83px;
             right: 16px;
-            @include respond-to(">=xl") {
-              display: none;
-            }
+            display: none;
             button {
               display: flex;
               justify-content: center;
