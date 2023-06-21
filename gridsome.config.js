@@ -91,6 +91,7 @@ module.exports = {
           "service-website", //
           "developer-pathway", //
           "scrt-buying-option", //
+          "upcoming-event", //
         ],
         localizedTypes: [],
         singleTypes: [

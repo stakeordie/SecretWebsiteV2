@@ -26,12 +26,15 @@
         <h3>Featured</h3>
       </block>
       <block class="justify-right">
-        <scroll-horizontal />
+        <scroll-horizontal sliderId="featured-media"/>
       </block>
     </column>
 
     <!-- All Media -->
-    <column class="new-media-featured spacer-s horizontal-slider" mode="full">
+    <column 
+      class="new-media-featured spacer-s horizontal-slider-featured-media" 
+      mode="full"
+    >
       <block>
         <new-media-featured />
       </block>
