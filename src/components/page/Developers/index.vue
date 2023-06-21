@@ -68,13 +68,13 @@
         <h3>Cool stuff others built (on Secret)</h3>
       </Block>
       <Block class="justify-right">
-        <ScrollHorizontal />
+        <ScrollHorizontal sliderId="cool-stuff"/>
       </Block>
     </Column>
 
     <!-- Horizontal Scroll -->
     <Column
-      class="page-developers__cool-stuff spacer-s horizontal-slider"
+      class="page-developers__cool-stuff spacer-s horizontal-slider-cool-stuff"
       mode="full"
     >
       <Block>

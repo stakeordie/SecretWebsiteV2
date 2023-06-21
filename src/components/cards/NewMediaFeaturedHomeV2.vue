@@ -1,9 +1,9 @@
 <template>
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
-      <h5 class="featured-media-header__title">
+      <h4 class="featured-media-header__title">
         Other MEDIA
-      </h5>
+      </h4>
       <div class="featured-media-header__btns">
         <btn
           class="link-arrow"
@@ -98,7 +98,7 @@ $accent-colors: (Article, Podcast, Video);
     justify-content: space-between;
 
     &__title {
-      color: var(--color-neutral-dark-mode-05);
+      color: var(--color-neutral-dark-mode-06);
       text-transform: uppercase;
       margin: 0;
     }
