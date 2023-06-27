@@ -1,7 +1,7 @@
 <template>
   <column mode="full" class="home-page">
     <!-- Home Hero-->
-    <column class="new-home__cover " mode="full">
+    <column class="new-home__cover" mode="full">
       <block class="new-home__cover__full-w">
         <new-home-hero />
       </block>
@@ -10,31 +10,31 @@
     <!-- Logo Carousel -->
     <logo-carousel />
 
-    <column class=" spacer-s ">
+    <column class="spacer-s">
       <block>
         <new-home-contracts />
       </block>
     </column>
 
     <!-- Controlls  -->
-    <column number="2" class="page-developers__horizontal-scroll ">
+    <column number="2" class="page-developers__horizontal-scroll">
       <block class="new-home__block-header">
         <h4>Apps live on mainnet</h4>
       </block>
       <block class="justify-right">
-        <scroll-horizontal />
+        <scroll-horizontal sliderId="cool-stuff" />
       </block>
     </column>
 
     <!-- Horizontal Scroll -->
-    <column class="page-developers__cool-stuff  horizontal-slider" mode="full">
+    <column class="page-developers__cool-stuff horizontal-slider-cool-stuff" mode="full">
       <block>
         <developers-cool-stuff />
       </block>
     </column>
 
     <column>
-      <block style="text-align:center" class="new-home__side-spacer">
+      <block style="text-align: center" class="new-home__side-spacer">
         <btn class="no-arrow new-home__slider-btn" url="../ecosystem/dapps">
           Explore the Ecosystem
         </btn>
@@ -54,7 +54,7 @@
     </column>
 
     <!-- Blog cards -->
-    <column class=" new-home__bg">
+    <column class="new-home__bg">
       <block>
         <new-blog-posts class="latest-blog-cards" />
       </block>
@@ -64,6 +64,26 @@
     <column class="new-home__bg__bottom space-top new-home__block-header">
       <block>
         <new-media-featured-home-v2 />
+      </block>
+    </column>
+
+    <!-- Upcoming Events - Controls -->
+    <column v-if="showUpcomingEvent" number="2" class="new-home__bg space-top">
+      <block>
+        <h4>Upcoming Events</h4>
+      </block>
+      <block class="justify-right">
+        <scroll-horizontal sliderId="upcoming-events"/>
+      </block>
+    </column>
+
+     <!-- Horizontal Scroll -->
+    <column 
+      v-if="showUpcomingEvent"
+      class="new-home__bg__bottom page-developers__upcoming-events horizontal-slider-upcoming-events"
+    >
+      <block>
+        <upcoming-events />
       </block>
     </column>
 
@@ -98,6 +118,7 @@ import NewMediaFeaturedHomeV2 from "@/components/cards/NewMediaFeaturedHomeV2.vu
 import ScrollHorizontal from "@/components/content/ScrollHorizontal.vue";
 import DevelopersCoolStuff from "@/components/cards/DevelopersCoolStuff.vue";
 import NewBlogPosts from "@/components/blog/NewBlogPosts.vue";
+import UpcomingEvents from "@/components/page/Home/UpcomingEvents.vue";
 
 export default {
   components: {
@@ -109,7 +130,11 @@ export default {
     NewMediaFeaturedHomeV2,
     ScrollHorizontal,
     DevelopersCoolStuff,
-    NewBlogPosts
+    NewBlogPosts,
+    UpcomingEvents,
+  },
+  data: {
+    showUpcomingEvent: false,
   }
 };
 </script>

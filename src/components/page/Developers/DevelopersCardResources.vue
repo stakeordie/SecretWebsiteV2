@@ -66,7 +66,7 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .page-developer-resources {
-  margin: 60px 0;
+  padding: calc(64px - 16px) 0px calc(64px - 16px) 0px;
   &__title {
     font-family: montserrat;
     text-transform: uppercase;

@@ -1,10 +1,10 @@
 <template>
-  <div class="actions">
-    <button class="theme padding-small control" @click="scroll_left">
+  <div class="slider__container">
+    <button class="action_slider theme padding-small control no-margin-bottom" @click="scroll_left">
       <img src="/img/icons/icon-circle-left.svg" alt="left" loading="lazy" />
     </button>
 
-    <button class="theme padding-small control" @click="scroll_right">
+    <button class="action_slider theme padding-small control no-margin-bottom" @click="scroll_right">
       <img src="/img/icons/icon-circle-right.svg" alt="right" loading="lazy" />
     </button>
   </div>
@@ -12,16 +12,22 @@
 
 <script>
 export default {
+  props: {
+    sliderId: {
+      type: String,
+      require: true,
+    },
+  },
   methods: {
     scroll_left() {
       let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
+        `.horizontal-slider-${this.sliderId} > .--flare-block > .content > .box`,
       );
       content.scrollLeft -= 390;
     },
     scroll_right() {
       let content = document.querySelector(
-        ".horizontal-slider > .--flare-block > .content > .box"
+        `.horizontal-slider-${this.sliderId} > .--flare-block > .content > .box`,
       );
       content.scrollLeft += 390;
     },
