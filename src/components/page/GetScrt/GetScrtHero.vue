@@ -276,11 +276,18 @@ export default {
               border-radius: 0 0 26px 26px;
               min-width: 127px;
               max-width: 127px;
-              overflow: scroll;
               max-height: 180px;
+              overflow-y: scroll;
+              scrollbar-width: thin;
+              scrollbar-color: var(--color-neutral-dark-mode-06) transparent;
 
               &::-webkit-scrollbar {
-                display: none;
+                width: 3px;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: var(--color-neutral-dark-mode-06);
+                border-radius: 26px;
               }
 
               & .vs__dropdown-option {

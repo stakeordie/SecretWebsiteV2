@@ -172,7 +172,7 @@ export default {
 
   .button {
     display: flex;
-    background-color: var(--button-color);
+    background: var(--button-color);
     gap: var(--f-gutter-xs);
     align-items: center;
     padding: 10px 26px;

@@ -109,6 +109,7 @@ export default {
   padding: var(--f-gutter);
   display: grid;
   grid-template-columns: 1fr;
+  align-items: center;
   gap: 54px;
   min-height: 55vh;
 
