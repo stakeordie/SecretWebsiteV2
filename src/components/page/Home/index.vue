@@ -61,14 +61,14 @@
     </column>
 
     <!-- Home featured media -->
-    <column class="new-home__bg space-top new-home__block-header">
+    <column class="new-home__bg__bottom space-top new-home__block-header">
       <block>
         <new-media-featured-home-v2 />
       </block>
     </column>
 
     <!-- Upcoming Events - Controls -->
-    <column number="2" class="new-home__bg space-top">
+    <column v-if="showUpcomingEvent" number="2" class="new-home__bg space-top">
       <block>
         <h4>Upcoming Events</h4>
       </block>
@@ -78,7 +78,10 @@
     </column>
 
      <!-- Horizontal Scroll -->
-    <column class="new-home__bg__bottom page-developers__upcoming-events horizontal-slider-upcoming-events">
+    <column 
+      v-if="showUpcomingEvent"
+      class="new-home__bg__bottom page-developers__upcoming-events horizontal-slider-upcoming-events"
+    >
       <block>
         <upcoming-events />
       </block>
@@ -130,6 +133,9 @@ export default {
     NewBlogPosts,
     UpcomingEvents,
   },
+  data: {
+    showUpcomingEvent: false,
+  }
 };
 </script>
 
