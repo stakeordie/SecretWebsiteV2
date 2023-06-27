@@ -82,6 +82,24 @@
       }
     }
   }
+
+  &__upcoming-events {
+    .content {
+      .box {
+        overflow-x: scroll;
+        max-width: 98vw;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+
+        padding-left: 0;
+        padding-right: 0;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .developers {

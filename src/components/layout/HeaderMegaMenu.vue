@@ -41,6 +41,7 @@
                 <a
                   v-if="!nav.is_dropdown"
                   :href="nav.path"
+                  :target="nav.is_external_link ? '_blank' : '_self'"
                   class="link"
                   @click="closeNav"
                 >
@@ -519,6 +520,7 @@ query {
           title
           id
           is_dropdown
+          is_external_link
           path
           icon {
             url
@@ -1036,9 +1038,7 @@ query {
             position: fixed;
             bottom: 83px;
             right: 16px;
-            @include respond-to(">=xl") {
-              display: none;
-            }
+            display: none;
             button {
               display: flex;
               justify-content: center;

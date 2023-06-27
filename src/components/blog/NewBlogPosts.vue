@@ -1,7 +1,7 @@
 <template>
   <section class="new-blog">
     <div class="new-blog__header">
-      <h5>BLOG POSTS</h5>
+      <h4>BLOG POSTS</h4>
       <a href="/blog">
         <span>VIEW ALL</span>
         <img
@@ -98,8 +98,8 @@ export default {
     justify-content: space-between;
     gap: 16px;
 
-    h5 {
-      color: var(--color-neutral-dark-mode-05);
+    h4 {
+      color: var(--color-neutral-dark-mode-06);
       text-transform: uppercase;
       flex: 1;
       margin: 0;

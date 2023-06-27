@@ -105,6 +105,7 @@ export default {
         margin-right: 64px;
         overflow: hidden;
         display: flex;
+        width: auto;
 
         @include respond-to(">=m") {
           gap: 96px;
