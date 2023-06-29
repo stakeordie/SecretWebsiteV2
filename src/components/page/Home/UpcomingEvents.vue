@@ -10,7 +10,7 @@
             alt="Blog"
             loading="lazy"
           />
-          <div class="card-element__date">
+          <div class="date">
             <h6>
               {{ event.start_date_day }} at
               {{ formatDateTime(event.start_date_hour) }} UTC
@@ -23,7 +23,10 @@
               }}
             </h6>
           </div>
-          <h3>{{ capitalize(event.name) }}</h3>
+          <h3 class="name">{{ event.name }}</h3>
+          <h6 v-if="event.location" class="location">
+            {{ event.location }}
+          </h6>
           <p>{{ event.description }}</p>
         </div>
         <a
@@ -49,14 +52,6 @@ export default {
     },
   },
   methods: {
-    capitalize(str) {
-      return str
-        .split(" ")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    },
     formatDateTime(dateTimeStr) {
       const [hours, minutes] = dateTimeStr.split(":");
       return `${hours}:${minutes}`;
@@ -77,6 +72,7 @@ export default {
           end_date_hour
           name
           description
+          location
           button_text
           is_external_link
           link
@@ -94,68 +90,70 @@ export default {
 <style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/respond-to";
 
-.upcoming-event {
-  &__container {
-    white-space: nowrap;
-    display: inline-flex;
-    gap: var(--f-gutter-l);
+.upcoming-event__container {
+  white-space: nowrap;
+  display: inline-flex;
+  gap: var(--f-gutter-l);
 
-    &::-webkit-scrollbar {
-      display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--f-gutter-l);
+    padding: var(--f-gutter);
+    border-radius: var(--f-radius);
+    overflow: hidden;
+    background: var(--theme-card-bg-default);
+    transition: 0.2s ease;
+    max-width: 382px;
+    width: 100%;
+    white-space: normal;
+    vertical-align: top;
+    position: relative;
+    flex-shrink: 0;
+
+    * {
+      margin: 0;
     }
 
-    .card-element {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: var(--f-gutter-l);
-      padding: var(--f-gutter);
-      border-radius: var(--f-radius);
-      overflow: hidden;
-      background: var(--theme-card-bg-default);
-      transition: 0.2s ease;
-      max-width: 382px;
-      width: 100%;
-      white-space: normal;
-      vertical-align: top;
-      position: relative;
-      flex-shrink: 0;
-
-      * {
-        margin: 0;
+    &:hover {
+      background: var(--color-neutral-dark-mode-04);
+      button {
+        border: 1px solid white;
       }
+    }
 
-      &:hover {
-        background: var(--color-neutral-dark-mode-04);
-        button {
-          border: 1px solid white;
-        }
-      }
-
+    &__content {
       img {
         border-radius: var(--f-gutter-s);
-        object-fit: cover;
         width: 100%;
         height: 206px;
         margin-bottom: 26px;
       }
-
-      &__date {
+      .date {
         display: flex;
-        h6 {
-          color: var(--theme-card-text-color);
-        }
+        color: var(--theme-card-text-color);
+        text-transform: uppercase;
       }
-
+      .name {
+        text-transform: capitalize;
+      }
+      .location{
+        text-transform: uppercase;
+        color: var(--color-neutral-dark-mode-05);
+      }
       p {
         margin-top: 10px;
       }
-
-      button {
-        width: 100%;
-        padding: 15px 0px;
-        background-color: var(--color-neutral-dark-mode-04);
-      }
+    }
+    button {
+      width: 100%;
+      padding: 15px 0px;
+      background-color: var(--color-neutral-dark-mode-04);
     }
   }
 }
