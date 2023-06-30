@@ -201,11 +201,17 @@ services:
         source: /secret-markets-front-running-prevention/
         destination: /blog/secret-markets-front-running-prevention
       - type: redirect
+        source: /discord
+        destination: https://discord.gg/secret-network-360051864110235648
+      - type: redirect
         source: /upgrade-complete-secret-contracts-live-mainnet/
         destination: /blog/upgrade-complete-secret-contracts-live-mainnet
       - type: redirect
         source: /secret-surge
         destination: /secret-surge_a
+      - type: redirect
+        source: /chat
+        destination: https://discord.gg/secret-network-360051864110235648
       - type: redirect
         source: /blog/notice-su
         destination: /blog/notice-successful-resolution-of-xapic-vulnerability
