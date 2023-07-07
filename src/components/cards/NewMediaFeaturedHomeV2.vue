@@ -237,10 +237,6 @@ query {
           }
         }
         is_featured
-        external_media_source {
-          name
-          link
-        }
       }
     }
   }
