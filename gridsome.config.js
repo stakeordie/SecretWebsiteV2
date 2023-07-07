@@ -80,7 +80,6 @@ module.exports = {
           "exchange", //
           "international-community", //
           "card-grid-header", //
-          "committee", //
           "nav-item", //
           "page", //
           "service-bot", //
