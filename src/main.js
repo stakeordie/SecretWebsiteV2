@@ -26,7 +26,6 @@ import HeroTitle from "@/components/content/HeroTitle.vue";
 import HeroMixed from "@/components/content/HeroMixed.vue";
 import HeroMixedCms from "@/components/content/HeroMixedCms.vue";
 import CardSimple from "@/components/cards/CardSimple.vue";
-import CommitteesCms from "@/components/cards/CommitteesCms.vue";
 import Btn from "@/components/content/Btn.vue";
 import Colors from "~/components/cards/Colors.vue";
 import ContentNavigatorDocs from "@/components/content/ContentNavigatorDocs.vue";
@@ -94,7 +93,6 @@ export default function (Vue, { router, head, appOptions }) {
   Vue.component("EcosystemTools", EcosystemTools);
   Vue.component("BecomeSecretAgent", BecomeSecretAgent);
   Vue.component("InternationalCommunities", InternationalCommunities);
-  Vue.component("CommitteesCms", CommitteesCms);
   Vue.component("Btn", Btn);
   Vue.component("Colors", Colors);
   Vue.component("ContentNavigatorDocs", ContentNavigatorDocs);
