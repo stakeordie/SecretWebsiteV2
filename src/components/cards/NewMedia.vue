@@ -116,7 +116,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia(sort: { by: "order", order: ASC }) {
+  mediaEntries: allStrapiExternalMedia(sort: { by: "createdAt", order: DESC }) {
     edges {
       node {
         id: id
