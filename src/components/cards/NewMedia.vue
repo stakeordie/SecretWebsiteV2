@@ -41,7 +41,7 @@
             class="item"
             :class="`accent-${media.category}`"
           >
-            <a :href="media.url">
+            <a :href="media.url" target="blank">
               <ResponsiveImage :src="media.picture" />
               <p class="type">{{ media.category }}</p>
               <h6>{{ media.title }}</h6>
@@ -116,7 +116,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia(sort: { by: "createdAt", order: DESC }) {
+  mediaEntries: allStrapiExternalMedia(sort: { by: "release_date", order: DESC }) {
     edges {
       node {
         id: id
