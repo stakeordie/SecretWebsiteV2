@@ -26,7 +26,7 @@ export default {
           description:
             "The full guide to run your own node, become a Secret validator, and earn rewards while securing the network.",
           urlTitle: "View guide",
-          url: "https://docs.scrt.network/secret-network-documentation/node-runners",
+          url: "https://docs.scrt.network/secret-network-documentation/infrastructure/setting-up-a-node-validator",
         },
         {
           imageUrl: "/img/developers/icon-features-file.svg",
