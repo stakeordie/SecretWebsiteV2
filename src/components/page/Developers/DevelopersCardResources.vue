@@ -33,7 +33,7 @@ export default {
           title: "Tutorials",
           description: `Get started with our smart contract tutorials and community-created guides.`,
           urlTitle: "View tutorials",
-          url: `https://docs.scrt.network/secret-network-documentation/development/secret-by-example`,
+          url: `https://docs.scrt.network/secret-network-documentation/development/example-contracts/guides-tutorials`,
         },
         {
           imageUrl: "/img/developers/icon-resources-check.svg",
