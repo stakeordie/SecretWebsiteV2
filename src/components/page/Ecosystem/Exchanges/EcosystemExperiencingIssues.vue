@@ -11,11 +11,8 @@
       <h3>Experiencing issues?</h3>
 
       <div class="ecosystem-report-issue__content__btns">
-        <btn class="no-arrow" url="https://linktr.ee/SCRTSupport"
-          >RePORT AN ISSUE</btn
-        >
-        <btn class="no-arrow" url="../service-status"
-          >Check Exchange Status</btn
+        <btn class="no-arrow" url="https://forms.monday.com/forms/43125a4be6281ed487b0ef2a7c76a251?r=use1"
+          >REPORT AN ISSUE</btn
         >
       </div>
     </div>
