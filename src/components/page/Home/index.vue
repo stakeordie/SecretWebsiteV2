@@ -55,14 +55,14 @@
 
     <!-- Blog cards -->
     <column class="new-home__bg">
-      <block>
+      <block class="no-padding">
         <new-blog-posts class="latest-blog-cards" />
       </block>
     </column>
 
     <!-- Home featured media -->
     <column class="new-home__bg__bottom space-top new-home__block-header">
-      <block>
+      <block class="no-padding">
         <new-media-featured-home-v2 />
       </block>
     </column>

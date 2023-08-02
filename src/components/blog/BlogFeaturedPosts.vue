@@ -145,7 +145,7 @@ export default {
     display: flex;
     overflow-x: auto;
     flex-wrap: nowrap;
-    gap: 16px;
+    gap: 26px;
     scroll-behavior: smooth;
     padding-right: 16px;
     padding-left: 16px;
@@ -170,7 +170,10 @@ export default {
 
     ::v-deep {
       .blog-card {
-        max-width: 400px;
+        min-width: 350px;
+        @include respond-to("<=s") {
+         min-width: 100%;
+        } 
       }
     }
   }

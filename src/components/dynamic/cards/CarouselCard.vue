@@ -41,14 +41,17 @@ export default {
     background: var(--theme-card-bg-default);
     transition: 0.2s ease;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 22px;
     min-width: 340px;
     width: calc(100vw - 32px);
     white-space: normal;
     display: grid;
-    gap: 10px;
-    padding: var(--f-gutter);
     scroll-snap-align: center;
+
+    img {
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+    }
 
     @media screen and (min-width: 450px) {
       width: 400px;
@@ -72,6 +75,7 @@ export default {
       display: grid;
       gap: 8px;
       text-align: left;
+      padding: var(--f-gutter);
 
       &__header {
         display: grid;
@@ -86,7 +90,7 @@ export default {
           font-weight: 700;
           font-size: 16px;
           line-height: 24px;
-          color: #fbc998;
+          color: #B2BFCD;
           display: flex;
           align-items: center;
           letter-spacing: 1px;

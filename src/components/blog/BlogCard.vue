@@ -16,9 +16,11 @@
           loading="lazy"
         />
       </div>
-      <h5 class="title">{{ post.title }}</h5>
     </div>
-    <BlogAuthor :post="post" />
+    <div class="blog-card__body">
+      <h5 class="title">{{ post.title }}</h5>
+      <BlogAuthor :post="post" />
+    </div>
   </a>
 </template>
 
@@ -40,53 +42,44 @@ export default {
 @import "@lkmx/flare/src/functions/respond-to";
 
 .blog-card {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
-  border-radius: var(--f-radius);
+  border-radius: 22px;
   background: var(--color-neutral-dark-mode-03);
-  transition: 0.3s ease-in-out;
-  padding: var(--f-gutter);
   cursor: pointer;
-  width: 100%;
-  flex-shrink: 0;
-  scroll-snap-align: center;
-
-  @include respond-to(">=s") {
-    height: 100%;
-  }
 
   &:hover {
+    transition: 0.3s ease-in-out;
     background: var(--color-neutral-dark-mode-04);
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
     .image {
-      border-radius: 10px;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
       width: 100%;
       overflow: hidden;
-      aspect-ratio: 16/9;
-
-      @include respond-to(">=s") {
-        max-height: 200px;
-      }
 
       img {
-        object-fit: cover;
-        height: 100%;
+        object-fit: fill;
+        height: 222px;
         width: 100%;
       }
     }
+  }
 
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--f-gutter);
+    padding: var(--f-gutter);
     .title {
       margin-bottom: 0;
       color: #ffffff;
       font-size: 16px;
+      min-height: 48px;
     }
   }
 }
