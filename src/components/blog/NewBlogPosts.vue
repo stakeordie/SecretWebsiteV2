@@ -1,9 +1,9 @@
 <template>
   <section class="new-blog">
     <div class="new-blog__header">
-      <h4>BLOG POSTS</h4>
+      <h4>Blog Posts</h4>
       <a href="/blog">
-        <span>VIEW ALL</span>
+        <span>view all</span>
         <img
           src="/img/icons/icon-arrow-right-light.svg"
           alt="Arrow left"
@@ -87,20 +87,20 @@ export default {
   display: flex;
   flex-direction: column;
   padding: var(--f-gutter);
-  gap: var(--f-gutter);
 
   @include respond-to(">=s") {
     padding: 0;
   }
-
+  
   &__header {
     display: flex;
     justify-content: space-between;
     gap: 16px;
+    padding: 16px;
+    align-items: center;
 
     h4 {
       color: var(--color-neutral-dark-mode-06);
-      text-transform: uppercase;
       flex: 1;
       margin: 0;
     }
@@ -108,15 +108,19 @@ export default {
     a {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       margin-top: 0;
       justify-content: right;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 16px;
 
       span {
+        padding: 10px 0px 10px 0px;
         font-family: hind;
-        font-size: 14px;
+        font-size: 16px;
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 700;
         letter-spacing: 1px;
         color: var(--theme-links-default);
         transform: translateY(2px);
@@ -124,8 +128,8 @@ export default {
       }
 
       img {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
       }
 
       &:hover {
@@ -138,7 +142,7 @@ export default {
 
   &__container {
     display: grid;
-    gap: var(--f-gutter-l);
+    gap: 26px;
     align-items: start;
     justify-items: center;
 
