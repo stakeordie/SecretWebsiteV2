@@ -55,8 +55,8 @@ export default {
   img {
     border-top-left-radius: 22px;
     border-top-right-radius: 22px;
-    height: 222px;
-    object-fit: fill;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
   &__body {

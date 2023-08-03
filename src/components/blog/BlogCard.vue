@@ -9,12 +9,7 @@
           alt="Blog"
           loading="lazy"
         />
-        <g-image 
-          v-else
-          src="/blog-cover.jpg"
-          alt="Blog"
-          loading="lazy"
-        />
+        <g-image v-else src="/blog-cover.jpg" alt="Blog" loading="lazy" />
       </div>
     </div>
     <div class="blog-card__body">
@@ -32,9 +27,9 @@ export default {
   props: {
     post: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -63,8 +58,8 @@ export default {
       overflow: hidden;
 
       img {
-        object-fit: fill;
-        height: 222px;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
         width: 100%;
       }
     }
