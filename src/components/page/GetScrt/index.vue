@@ -1,6 +1,6 @@
 <template>
   <column mode="full" class="get-scrt-page">
-    <column class=" get-scrt__cover">
+    <column class="get-scrt__cover">
       <block>
         <get-scrt-hero />
       </block>
@@ -115,32 +115,7 @@
 
     <column>
       <block>
-        <div class="get-scrt__text-block">
-          <h5>BUY SCRT</h5>
-          <h3 class="h3-scrt-logo">
-            <span>Where to get</span>
-            <img
-              src="/img/icons/getscrt-filled-icon.svg"
-              alt="Secret logo"
-              loading="lazy"
-            />
-            <span>SCRT</span>
-          </h3>
-          <p class=" get-scrt__p">
-            Here are the different ways to get SCRT, from beginner to pro. Note:
-            what methods you can use depend on your jurisdiction (i.e. the
-            country you live in).
-          </p>
-        </div>
-
-        <get-scrt-buy class="" pathId="1" />
-        <p class="get-scrt__p-small ">
-          *Not Available in the U.S. See <a href="#">this article</a> for
-          guidance on how to get SCRT in the U.S.
-        </p>
-        <get-scrt-buy pathId="2" />
-        <get-scrt-buy-by-groups class="get-scrt__exchanges" pathId="3" />
-        <get-scrt-buy pathId="4" />
+        <get-scrt-buy />
       </block>
     </column>
 
@@ -171,7 +146,6 @@
 <script>
 import GetScrtHero from "@/components/page/GetScrt/GetScrtHero.vue";
 import GetScrtBuy from "@/components/page/GetScrt/GetScrtBuy.vue";
-import GetScrtBuyByGroups from "@/components/page/GetScrt/GetScrtBuyByGroups.vue";
 import GetScrtQuestions from "@/components/page/GetScrt/GetScrtQuestions.vue";
 import GetScrtWallets from "@/components/page/GetScrt/GetScrtWallets.vue";
 import GetScrtConvertSscrtV2 from "@/components/page/GetScrt/GetScrtConvertSscrtV2.vue";
@@ -180,11 +154,10 @@ export default {
   components: {
     GetScrtHero,
     GetScrtBuy,
-    GetScrtBuyByGroups,
     GetScrtQuestions,
     GetScrtWallets,
     GetScrtConvertSscrtV2
-  }
+  },
 };
 </script>
 
