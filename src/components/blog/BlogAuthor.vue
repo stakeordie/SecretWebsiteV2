@@ -87,13 +87,13 @@ export default {
 
   .author-info {
     display: flex;
-    gap: var(--f-gutter);
+    gap: 12px;
     align-items: center;
 
     &__img {
-      width: 44px;
-      height: 44px;
-      border-radius: 100px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
     }
 
     &__content {
@@ -104,6 +104,7 @@ export default {
         font-family: var(--f-default-text-font);
         line-height: 20px;
         margin: 0;
+        font-weight: 500;
         font-size: 14px;
         color: var(--color-neutral-dark-mode-05);
       }
