@@ -1,38 +1,33 @@
 <template>
   <div class="new-media-featured-home-v2">
     <div class="featured-media-header">
-      <h4 class="featured-media-header__title">
-        Other MEDIA
-      </h4>
-      <div class="featured-media-header__btns">
-        <btn
-          class="link-arrow"
-          style="justify-content: right"
-          url="/media/features"
-        >
-          VIEW ALL
-        </btn>
-      </div>
+      <h4 class="featured-media-header__title">Other Media</h4>
+      <a href="/media/features" class="view-all">
+        <span>view all</span>
+        <img
+          src="/img/icons/icon-arrow-right-light.svg"
+          alt="Arrow left"
+          loading="lazy"
+        />
+      </a>
     </div>
-    <div class="items">
-      <div
-        v-for="(media, index) in filterMediaItems"
-        :key="index"
-        class="item"
-        :class="`accent-${media.type}-v2`"
-      >
-        <a :href="media.url">
-          <ResponsiveImage :src="media.picture" />
-          <p class="type">{{ media.type }}</p>
-          <h6>{{ media.title }}</h6>
-        </a>
+    <div class="media-featured-items-list">
+      <div v-for="(media, index) in filterMediaItems" :key="index">
+        <media-featured
+          :url="media.url"
+          :pictureSrc="media.picture"
+          :category="media.type"
+          :title="media.title"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import MediaFeatured from "@/components/cards/MediaFeatured.vue";
 export default {
+  components: { MediaFeatured },
   props: {
     url: {
       type: String,
@@ -83,12 +78,10 @@ export default {
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: (Article, Podcast, Video);
-
 .new-media-featured-home-v2 {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+
   @include respond-to("<=s") {
     padding: var(--f-gutter);
   }
@@ -96,40 +89,39 @@ $accent-colors: (Article, Podcast, Video);
   .featured-media-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: var(--f-gutter);
 
     &__title {
-      color: var(--color-neutral-dark-mode-06);
+      color: var(--color-neutral-dark-mode-05);
       text-transform: uppercase;
       margin: 0;
+      font-weight: 600;
     }
 
-    &__btns {
-      @include respond-to("<=s") {
-        display: flex;
-      }
+    .view-all {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-transform: uppercase;
+      font-family: hind;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 0;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px 0px;
+      line-height: 16px;
 
-      .btn {
-        font-family: hind;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 1px;
-        padding: 0;
-        cursor: pointer;
-
-        span {
-          transition: 0.2s ease-in-out;
-        }
-
-        &:hover {
-          & span {
-            color: var(--color-newBrand-blue-01);
-          }
-        }
+      img {
+        width: 16px;
+        height: 16px;
       }
     }
   }
 
-  .items {
+  .media-featured-items-list {
     display: grid;
     gap: var(--f-gutter-l);
 
@@ -139,67 +131,6 @@ $accent-colors: (Article, Podcast, Video);
 
     @include respond-to(">=l") {
       grid-template-columns: repeat(3, 1fr);
-    }
-
-    .item {
-      display: grid;
-      padding: var(--f-gutter);
-      border-radius: var(--f-gutter-s);
-      background: var(--color-neutral-dark-mode-03);
-      transition: 0.2s ease;
-      cursor: pointer;
-
-      a {
-        display: grid;
-        width: 100%;
-        height: fit-content;
-
-        img {
-          border-radius: var(--f-gutter-s);
-          height: 180px;
-          width: 100%;
-          object-fit: cover;
-
-          @include respond-to("m") {
-            height: 144px;
-          }
-        }
-
-        .type {
-          margin-top: var(--f-gutter-s);
-          margin-bottom: 0;
-          line-height: 24px;
-          text-transform: uppercase;
-          font-weight: 600;
-          width: 100%;
-          white-space: normal;
-        }
-
-        h6 {
-          margin-bottom: 0;
-          color: var(--color-analog-primary-white);
-          width: 100%;
-          white-space: normal;
-
-          @include respond-to("<=m") {
-            font-size: 14px;
-          }
-        }
-      }
-
-      @each $name, $color in $accent-colors {
-        &.accent-#{$name}-v2 {
-          &:hover {
-            background: var(--color-neutral-dark-mode-04);
-            box-shadow: none;
-          }
-
-          .type {
-            color: var(--accent-#{$name}-v2);
-            letter-spacing: 1px;
-          }
-        }
-      }
     }
   }
 }
@@ -315,7 +246,8 @@ $accent-colors: (Article, Podcast, Video);
         height: fit-content;
 
         img {
-          border-radius: var(--f-gutter-s);
+          border-top-left-radius: 22px;
+          border-top-right-radius: 22px;
           width: inherit;
           max-height: 200px;
           min-height: 200px;
@@ -323,7 +255,6 @@ $accent-colors: (Article, Podcast, Video);
         }
 
         .type {
-          margin-top: var(--f-gutter-s);
           margin-bottom: 0;
           line-height: 24px;
           text-transform: uppercase;
