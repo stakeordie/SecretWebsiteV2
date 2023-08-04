@@ -63,13 +63,13 @@ export default {
   methods: {
     scroll_left() {
       let content = document.querySelector(
-        ".media-featured > .--flare-block > .content > .box"
+        ".media-featured > .--flare-block > .content > .box",
       );
       content.scrollLeft -= 390;
     },
     scroll_right() {
       let content = document.querySelector(
-        ".media-featured > .--flare-block > .content > .box"
+        ".media-featured > .--flare-block > .content > .box",
       );
       content.scrollLeft += 390;
     },
@@ -81,21 +81,9 @@ export default {
 
   computed: {
     coolStuff() {
-      const coolStuffArr = this.$static.coolStuff.edges.map((it) => {
+      return this.$static.coolStuff.edges.map((it) => {
         return it.node;
       });
-      coolStuffArr.sort(function (a, b) {
-        let titleA = a.title.toLowerCase();
-        let titleB = b.title.toLowerCase();
-        if (titleA < titleB) {
-          return -1;
-        }
-        if (titleA > titleB) {
-          return 1;
-        }
-        return 0;
-      });
-      return coolStuffArr;
     },
   },
 };
@@ -103,7 +91,7 @@ export default {
 
 <static-query>
   query {
-    coolStuff: allStrapiCoolStuff {
+    coolStuff: allStrapiCoolStuff (sort: { by: "cta_title", order: ASC }) {
       edges {
         node {
           id

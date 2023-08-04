@@ -1,24 +1,21 @@
 <template>
-  <div>
-    <div class="items horizontal-slider">
-      <div
-        v-for="(media, index) in filterMediaItems"
-        :key="index"
-        class="item"
-        :class="`accent-${media.type}`"
-      >
-        <a :href="media.url">
-          <ResponsiveImage :src="media.picture" />
-          <p class="type">{{ media.type }}</p>
-          <h6>{{ media.title }}</h6>
-        </a>
-      </div>
+  <div class="media-featured-list horizontal-slider">
+    <div v-for="(media, index) in filterMediaItems" :key="index">
+      <media-featured
+        :url="media.url"
+        :pictureSrc="media.picture"
+        :category="media.type"
+        :title="media.title"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import MediaFeatured from "@/components/cards/MediaFeatured.vue";
+
 export default {
+  components: { MediaFeatured },
   props: {
     url: {
       type: String,
@@ -35,13 +32,13 @@ export default {
   methods: {
     scroll_left() {
       let content = document.querySelector(
-        ".new-media-featured > .--flare-block > .content > .box"
+        ".new-media-featured > .--flare-block > .content > .box",
       );
       content.scrollLeft -= 390;
     },
     scroll_right() {
       let content = document.querySelector(
-        ".new-media-featured > .--flare-block > .content > .box"
+        ".new-media-featured > .--flare-block > .content > .box",
       );
       content.scrollLeft += 390;
     },
@@ -94,10 +91,6 @@ query {
           }
         }
         is_featured
-        external_media_source {
-          name
-          link
-        }
       }
     }
   }
@@ -109,22 +102,19 @@ query {
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
 
-$accent-colors: (Article, Podcast, Video);
-
 .new-media-featured {
   position: relative;
 
   .content {
     .box {
       overflow-x: scroll;
-      max-width: 98vw;
       scrollbar-width: none;
       scroll-behavior: smooth;
       @include respond-to("<=m") {
-        max-width: 97vw;
+        max-width: 100vw;
       }
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 16px;
+      padding-right: 16px;
 
       @include respond-to(">=l") {
         padding-left: 3vw;
@@ -148,74 +138,19 @@ $accent-colors: (Article, Podcast, Video);
     }
   }
 
-  .items {
+  .media-featured-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
     white-space: nowrap;
-    display: inline-flex;
-    gap: var(--f-gutter-l);
+    grid-gap: 22px;
+
+    @include respond-to(">=s") {
+      grid-auto-columns: 350px;
+    }
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    .item {
-      display: grid;
-      padding: var(--f-gutter);
-      border-radius: var(--f-gutter-s);
-      background: var(--color-analog-primary-black);
-      height: 340px;
-      width: 350px;
-      transition: 0.2s ease;
-      cursor: pointer;
-
-      &:hover {
-        transform: none;
-      }
-
-      a {
-        display: grid;
-        width: 100%;
-        height: fit-content;
-
-        img {
-          border-radius: var(--f-gutter-s);
-          width: inherit;
-          max-height: 200px;
-          min-height: 200px;
-          object-fit: cover;
-        }
-
-        .type {
-          margin-top: var(--f-gutter-s);
-          margin-bottom: 0;
-          line-height: 24px;
-          text-transform: uppercase;
-          font-weight: 600;
-          width: 100%;
-          white-space: normal;
-        }
-
-        h6 {
-          margin-bottom: 0;
-          color: var(--color-analog-primary-white);
-          width: 100%;
-          white-space: normal;
-        }
-      }
-
-      @each $name, $color in $accent-colors {
-        &.accent-#{$name} {
-          background: var(--color-neutral-dark-mode-03);
-          &:hover {
-            background: var(--color-neutral-dark-mode-04);
-            box-shadow: none;
-          }
-
-          .type {
-            color: var(--accent-#{$name}-v2);
-            letter-spacing: 1px;
-          }
-        }
-      }
     }
   }
 }

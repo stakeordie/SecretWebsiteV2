@@ -34,18 +34,17 @@
       <div class="media-items">
         <h3>Media</h3>
 
-        <div class="items">
+        <div class="media-items-list">
           <div
             v-bind:key="`${media.title}`"
             v-for="media in filteredCategories"
-            class="item"
-            :class="`accent-${media.category}`"
           >
-            <a :href="media.url">
-              <ResponsiveImage :src="media.picture" />
-              <p class="type">{{ media.category }}</p>
-              <h6>{{ media.title }}</h6>
-            </a>
+            <media-featured
+              :url="media.url"
+              :pictureSrc="media.picture"
+              :category="media.category"
+              :title="media.title"
+            />
           </div>
         </div>
       </div>
@@ -54,7 +53,10 @@
 </template>
 
 <script>
+import MediaFeatured from "@/components/cards/MediaFeatured.vue";
+
 export default {
+  components: { MediaFeatured },
   props: {
     url: {
       type: String,
@@ -99,7 +101,7 @@ export default {
         return this.mediaItems;
       }
       return this.mediaItems.filter((it) =>
-        this.selectedCategories.includes(it.category)
+        this.selectedCategories.includes(it.category),
       );
     },
   },
@@ -116,7 +118,7 @@ export default {
 
 <static-query>
 query {
-  mediaEntries: allStrapiExternalMedia(sort: { by: "order", order: ASC }) {
+  mediaEntries: allStrapiExternalMedia(sort: { by: "release_date", order: DESC }) {
     edges {
       node {
         id: id
@@ -144,10 +146,6 @@ query {
           }
         }
         is_featured
-        external_media_source {
-          name
-          link
-        }
       }
     }
   }
@@ -157,43 +155,6 @@ query {
 <style lang="scss">
 @import "../../sass/functions/theme";
 @import "@lkmx/flare/src/functions/respond-to";
-
-$accent-colors: ("Article", "Podcast", "Video");
-
-.featured-media {
-  .content {
-    .box {
-      overflow-x: scroll;
-      max-width: 98vw;
-      padding-left: 1rem;
-      padding-right: 1rem;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
-
-  .items {
-    white-space: nowrap;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .item {
-      transition: 0.2s ease;
-      cursor: pointer;
-      display: inline-block;
-      width: 350px;
-      white-space: normal;
-      vertical-align: top;
-      margin-right: var(--f-gutter-l);
-      border-radius: var(--f-radius);
-      padding: var(--f-gutter);
-    }
-  }
-}
 
 .new-all-media {
   display: grid;
@@ -209,79 +170,21 @@ $accent-colors: ("Article", "Podcast", "Video");
       text-transform: capitalize;
     }
 
-    .items {
+    .media-items-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--f-gutter);
+      grid-template-columns: 1fr;
+      gap: 22px;
 
-      @include respond-to("<=xxl") {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      @include respond-to("<=l") {
+      @include respond-to(">=m") {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      @include respond-to("<=xs") {
-        grid-template-columns: 1fr;
+      @include respond-to(">=l") {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .item {
-        display: grid;
-        padding: var(--f-gutter);
-        border-radius: var(--f-gutter-s);
-        background: var(--color-neutral-dark-mode-03);
-        height: 300px;
-        transition: 0.2s ease;
-        cursor: pointer;
-
-        &:hover {
-          transform: none;
-        }
-
-        a {
-          display: grid;
-          width: 100%;
-          height: fit-content;
-
-          img {
-            border-radius: var(--f-gutter-s);
-            width: 100%;
-            object-fit: cover;
-            height: 150px;
-          }
-
-          .type {
-            margin-top: var(--f-gutter-s);
-            margin-bottom: 0;
-            line-height: 24px;
-            text-transform: uppercase;
-            font-weight: 600;
-            width: 100%;
-            white-space: normal;
-          }
-
-          h6 {
-            margin-bottom: 0;
-            color: var(--color-analog-primary-white);
-            width: 100%;
-            white-space: normal;
-          }
-        }
-
-        @each $name, $color in $accent-colors {
-          &.accent-#{$name} {
-            &:hover {
-              background: var(--color-neutral-dark-mode-04);
-              box-shadow: none;
-            }
-
-            .type {
-              color: var(--accent-#{$name}-v2);
-              letter-spacing: 1px;
-            }
-          }
-        }
+      @include respond-to(">=xxxl") {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   }
