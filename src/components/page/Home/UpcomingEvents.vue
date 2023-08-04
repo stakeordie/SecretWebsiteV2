@@ -63,7 +63,7 @@ export default {
 
 <static-query>
   query {
-    upcomingEvent: allStrapiUpcomingEvent(sortBy: "start_date_day", order: ASC) {
+    upcomingEvent: allStrapiUpcomingEvent(sortBy: "start_date_day", order: DESC) {
       edges {
         node {
           id
@@ -126,6 +126,7 @@ export default {
       width: 100%;
       aspect-ratio: 16 / 9;
       margin-bottom: 9px;
+      object-fit: cover;
     }
 
     &__body {
