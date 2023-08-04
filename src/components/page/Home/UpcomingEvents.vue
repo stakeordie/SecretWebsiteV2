@@ -2,40 +2,41 @@
   <section>
     <div class="items horizontal-slider upcoming-event__container">
       <div class="card-element" v-for="event in upcomingEvents" :key="event.id">
-        <div class="card-element__content">
-          <g-image
-            v-if="event.cover_image.url"
-            :src="event.cover_image.url"
-            onerror="this.onerror=null;this.src='/blog-cover.jpg';"
-            alt="Blog"
-            loading="lazy"
-          />
-          <div class="date">
-            <h6>
-              {{ event.start_date_day }} at
-              {{ formatDateTime(event.start_date_hour) }} UTC
-              {{
-                event.end_date_day
-                  ? `- ${event.end_date_day} at ${formatDateTime(
-                      event.end_date_hour,
-                    )}`
-                  : ""
-              }}
-            </h6>
+        <g-image
+          v-if="event.cover_image.url"
+          :src="event.cover_image.url"
+          onerror="this.onerror=null;this.src='/blog-cover.jpg';"
+          alt="Blog"
+          loading="lazy"
+        />
+        <div class="card-element__body">
+          <div class="card-element__body__content">
+            <div>
+              <span>{{ event.start_date_day }}</span>
+              <span v-if="event.start_date_hour">
+                at {{ formatDateTime(event.start_date_hour) }} UTC</span
+              >
+              <span v-if="event.end_date_day"> - {{event.end_date_day}}</span>
+              <span v-if="event.end_date_hour">
+                at {{ formatDateTime(event.end_date_hour) }} UTC
+              </span>
+              <h5>{{ event.name }}</h5>
+              <span v-if="event.location" class="location">
+                {{ event.location }}
+              </span>
+            </div>
+            <p>{{ event.description }}</p>
           </div>
-          <h3 class="name">{{ event.name }}</h3>
-          <h6 v-if="event.location" class="location">
-            {{ event.location }}
-          </h6>
-          <p>{{ event.description }}</p>
+          <div class="card-element__body__footer">
+            <a
+              :href="event.link"
+              :target="event.is_external_link ? '_blank' : '_self'"
+              :rel="event.is_external_link ? 'noopener noreferrer' : ''"
+            >
+              <button>{{ event.button_text }}</button>
+            </a>
+          </div>
         </div>
-        <a
-          :href="event.link"
-          :target="event.is_external_link ? '_blank' : '_self'"
-          :rel="event.is_external_link ? 'noopener noreferrer' : ''"
-        >
-          <button>{{ event.button_text }}</button>
-        </a>
       </div>
     </div>
   </section>
@@ -93,29 +94,22 @@ export default {
 .upcoming-event__container {
   white-space: nowrap;
   display: inline-flex;
-  gap: var(--f-gutter-l);
+  gap: 26px;
 
   &::-webkit-scrollbar {
     display: none;
   }
 
   .card-element {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--f-gutter-l);
-    padding: var(--f-gutter);
-    border-radius: var(--f-radius);
+    border-radius: 24px;
     overflow: hidden;
     background: var(--theme-card-bg-default);
     transition: 0.2s ease;
     max-width: 382px;
     width: 100%;
-    white-space: normal;
     vertical-align: top;
     position: relative;
     flex-shrink: 0;
-
     * {
       margin: 0;
     }
@@ -126,34 +120,41 @@ export default {
         border: 1px solid white;
       }
     }
-
-    &__content {
-      img {
-        border-radius: var(--f-gutter-s);
-        width: 100%;
-        height: 206px;
-        margin-bottom: 26px;
-      }
-      .date {
-        display: flex;
-        color: var(--theme-card-text-color);
-        text-transform: uppercase;
-      }
-      .name {
-        text-transform: capitalize;
-      }
-      .location{
-        text-transform: uppercase;
-        color: var(--color-neutral-dark-mode-05);
-      }
-      p {
-        margin-top: 10px;
-      }
-    }
-    button {
+    img {
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
       width: 100%;
-      padding: 15px 0px;
-      background-color: var(--color-neutral-dark-mode-04);
+      aspect-ratio: 16 / 9;
+      margin-bottom: 9px;
+    }
+
+    &__body {
+      padding: 16px;
+      white-space: normal;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        span {
+          color: var(--theme-card-text-color);
+          font-size: 14px;
+          height: 20px;
+          font-family: "Hind";
+        }
+        span {
+          color: var(--color-neutral-dark-mode-05);
+        }
+      }
+      &__footer {
+        button {
+          width: 100%;
+          padding: 10px 0px;
+          background-color: var(--color-neutral-dark-mode-04);
+        }
+      }
     }
   }
 }
