@@ -92,6 +92,10 @@ export default {
     align-items: center;
     padding: var(--f-gutter);
 
+    @include respond-to("<=s") {
+      padding: 16px 0px;
+    }
+
     &__title {
       color: var(--color-neutral-dark-mode-05);
       text-transform: uppercase;

@@ -5,6 +5,7 @@
 }
 
 .simple-layout {
+
   &.index,
   &.new-index-test,
   &.index-v2 {
@@ -19,6 +20,7 @@
       font-size: 54px;
       line-height: 60px;
       font-family: var(--f-default-headers-font);
+
       @include respond-to("<=xs") {
         font-size: 40px;
         line-height: 46px;
@@ -53,6 +55,7 @@
         }
       }
     }
+
     @include respond-to(">=xxxl") {
       top: -80px;
     }
@@ -72,6 +75,7 @@
     @include respond-to("<=s") {
       height: 140px;
     }
+
     @include respond-to("<=s") {
       position: relative;
     }
@@ -120,9 +124,11 @@
       background-position: bottom;
       background-size: cover;
     }
+
     @include respond-to("<=s") {
       height: 140px;
     }
+
     @include respond-to("<=s") {
       position: relative;
     }
@@ -153,6 +159,7 @@
 
     &__full-w {
       overflow: hidden;
+
       & .box {
         margin: 0 auto !important;
         padding: 0;
@@ -187,6 +194,18 @@
 
     & h4 {
       color: var(--color-neutral-light-mode-03);
+    }
+  }
+
+  &__upcoming-events {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & h4 {
+      margin: 0;
+      color: var(--color-neutral-dark-mode-05);
+      text-transform: uppercase;
     }
   }
 
