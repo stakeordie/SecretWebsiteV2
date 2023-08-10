@@ -2,37 +2,34 @@
   <section>
     <div class="items horizontal-slider upcoming-event__container">
       <div class="card-element" v-for="event in upcomingEvents" :key="event.id">
-        <div class="card-element__content">
-          <g-image
-            v-if="event.cover_image.url"
-            :src="event.cover_image.url"
-            onerror="this.onerror=null;this.src='/blog-cover.jpg';"
-            alt="Blog"
-            loading="lazy"
-          />
-          <div class="card-element__date">
-            <h6>
-              {{ event.start_date_day }} at
-              {{ formatDateTime(event.start_date_hour) }} UTC
-              {{
-                event.end_date_day
-                  ? `- ${event.end_date_day} at ${formatDateTime(
-                      event.end_date_hour,
-                    )}`
-                  : ""
-              }}
-            </h6>
+        <g-image
+          v-if="event.cover_image.url"
+          :src="event.cover_image.url"
+          onerror="this.onerror=null;this.src='/blog-cover.jpg';"
+          alt="Blog"
+          loading="lazy"
+        />
+        <div class="card-element__body">
+          <div class="card-element__body__content">
+            <div>
+              <span>{{ event.event_date }}</span>
+              <h5>{{ event.name }}</h5>
+              <span v-if="event.location" class="location">
+                {{ event.location }}
+              </span>
+            </div>
+            <p>{{ event.description }}</p>
           </div>
-          <h3>{{ capitalize(event.name) }}</h3>
-          <p>{{ event.description }}</p>
+          <div class="card-element__body__footer">
+            <a
+              :href="event.link"
+              :target="event.is_external_link ? '_blank' : '_self'"
+              :rel="event.is_external_link ? 'noopener noreferrer' : ''"
+            >
+              <button>{{ event.button_text }}</button>
+            </a>
+          </div>
         </div>
-        <a
-          :href="event.link"
-          :target="event.is_external_link ? '_blank' : '_self'"
-          :rel="event.is_external_link ? 'noopener noreferrer' : ''"
-        >
-          <button>{{ event.button_text }}</button>
-        </a>
       </div>
     </div>
   </section>
@@ -49,14 +46,6 @@ export default {
     },
   },
   methods: {
-    capitalize(str) {
-      return str
-        .split(" ")
-        .map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
-    },
     formatDateTime(dateTimeStr) {
       const [hours, minutes] = dateTimeStr.split(":");
       return `${hours}:${minutes}`;
@@ -67,16 +56,15 @@ export default {
 
 <static-query>
   query {
-    upcomingEvent: allStrapiUpcomingEvent(sortBy: "start_date_day", order: ASC) {
+    upcomingEvent: allStrapiUpcomingEvent(sortBy: "order", order: ASC) {
       edges {
         node {
           id
-          start_date_day (format: "D MMM YY")
-          start_date_hour
-          end_date_day (format: "D MMM YY")
-          end_date_hour
+          event_date
+          order
           name
           description
+          location
           button_text
           is_external_link
           link
@@ -94,67 +82,72 @@ export default {
 <style lang="scss" scoped>
 @import "@lkmx/flare/src/functions/respond-to";
 
-.upcoming-event {
-  &__container {
-    white-space: nowrap;
-    display: inline-flex;
-    gap: var(--f-gutter-l);
+.upcoming-event__container {
+  white-space: nowrap;
+  display: inline-flex;
+  gap: 26px;
 
-    &::-webkit-scrollbar {
-      display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-element {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--theme-card-bg-default);
+    transition: 0.2s ease;
+    max-width: 382px;
+    width: 100%;
+    vertical-align: top;
+    * {
+      margin: 0;
     }
-
-    .card-element {
+    &:hover {
+      background: var(--color-neutral-dark-mode-04);
+      button {
+        border: 1px solid white;
+      }
+    }
+    img {
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    &__body {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: var(--f-gutter-l);
-      padding: var(--f-gutter);
-      border-radius: var(--f-radius);
-      overflow: hidden;
-      background: var(--theme-card-bg-default);
-      transition: 0.2s ease;
-      max-width: 382px;
-      width: 100%;
+      gap: 24px;
+      padding: 16px;
       white-space: normal;
-      vertical-align: top;
-      position: relative;
-      flex-shrink: 0;
-
-      * {
-        margin: 0;
-      }
-
-      &:hover {
-        background: var(--color-neutral-dark-mode-04);
-        button {
-          border: 1px solid white;
-        }
-      }
-
-      img {
-        border-radius: var(--f-gutter-s);
-        object-fit: cover;
-        width: 100%;
-        height: 206px;
-        margin-bottom: 26px;
-      }
-
-      &__date {
+      height: 100%;
+      &__content {
         display: flex;
-        h6 {
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 10px;
+        span {
           color: var(--theme-card-text-color);
+          font-size: 14px;
+          height: 20px;
+          font-family: "Hind";
+        }
+        span {
+          color: var(--color-neutral-dark-mode-05);
         }
       }
-
-      p {
-        margin-top: 10px;
-      }
-
-      button {
-        width: 100%;
-        padding: 15px 0px;
-        background-color: var(--color-neutral-dark-mode-04);
+      &__footer {
+        margin-top: auto;
+        button {
+          width: 100%;
+          padding: 10px 0px;
+          background-color: var(--color-neutral-dark-mode-04);
+        }
       }
     }
   }

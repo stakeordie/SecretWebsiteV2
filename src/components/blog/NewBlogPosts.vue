@@ -24,12 +24,12 @@ export default {
   components: { BlogCard },
   data() {
     return {
-      latestPost: []
+      latestPost: [],
     };
   },
   methods: {
     filterlatestPost() {
-      const posts = [...this.$static.posts.edges].map(x => x.node);
+      const posts = [...this.$static.posts.edges].map((x) => x.node);
       const hiddenTag = "hidden";
       const defaultImage = "https://scrt.network/blog-cover.jpg";
 
@@ -38,15 +38,15 @@ export default {
           const hiddenData = tags.find(({ slug }) => slug === hiddenTag);
           return !Boolean(hiddenData);
         })
-        .map(data => ({
+        .map((data) => ({
           ...data,
-          feature_image: data.feature_image || defaultImage
+          feature_image: data.feature_image || defaultImage,
         }));
-    }
+    },
   },
   mounted() {
     this.filterlatestPost();
-  }
+  },
 };
 </script>
 
@@ -91,7 +91,7 @@ export default {
   @include respond-to(">=s") {
     padding: 0;
   }
-  
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -99,10 +99,14 @@ export default {
     padding: 16px;
     align-items: center;
 
+    @include respond-to("<=s") {
+      padding: 16px 0px;
+    }
+
     h4 {
-      color: var(--color-neutral-dark-mode-06);
-      flex: 1;
+      color: var(--color-neutral-dark-mode-05);
       margin: 0;
+      text-transform: uppercase;
     }
 
     a {
