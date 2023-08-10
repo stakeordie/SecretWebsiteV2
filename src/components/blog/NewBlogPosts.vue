@@ -104,9 +104,9 @@ export default {
     }
 
     h4 {
-      color: var(--color-neutral-dark-mode-06);
-      flex: 1;
+      color: var(--color-neutral-dark-mode-05);
       margin: 0;
+      text-transform: uppercase;
     }
 
     a {

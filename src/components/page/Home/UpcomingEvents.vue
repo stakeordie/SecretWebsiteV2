@@ -12,14 +12,7 @@
         <div class="card-element__body">
           <div class="card-element__body__content">
             <div>
-              <span>{{ event.start_date_day }}</span>
-              <span v-if="event.start_date_hour">
-                at {{ formatDateTime(event.start_date_hour) }} UTC</span
-              >
-              <span v-if="event.end_date_day"> - {{event.end_date_day}}</span>
-              <span v-if="event.end_date_hour">
-                at {{ formatDateTime(event.end_date_hour) }} UTC
-              </span>
+              <span>{{ event.event_date }}</span>
               <h5>{{ event.name }}</h5>
               <span v-if="event.location" class="location">
                 {{ event.location }}
@@ -63,14 +56,12 @@ export default {
 
 <static-query>
   query {
-    upcomingEvent: allStrapiUpcomingEvent(sortBy: "start_date_day", order: DESC) {
+    upcomingEvent: allStrapiUpcomingEvent(sortBy: "order", order: ASC) {
       edges {
         node {
           id
-          start_date_day (format: "D MMM YY")
-          start_date_hour
-          end_date_day (format: "D MMM YY")
-          end_date_hour
+          event_date
+          order
           name
           description
           location
@@ -101,6 +92,10 @@ export default {
   }
 
   .card-element {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-shrink: 0;
     border-radius: 24px;
     overflow: hidden;
     background: var(--theme-card-bg-default);
@@ -108,12 +103,9 @@ export default {
     max-width: 382px;
     width: 100%;
     vertical-align: top;
-    position: relative;
-    flex-shrink: 0;
     * {
       margin: 0;
     }
-
     &:hover {
       background: var(--color-neutral-dark-mode-04);
       button {
@@ -125,19 +117,19 @@ export default {
       border-top-right-radius: 22px;
       width: 100%;
       aspect-ratio: 16 / 9;
-      margin-bottom: 9px;
       object-fit: cover;
     }
-
     &__body {
-      padding: 16px;
-      white-space: normal;
       display: flex;
       flex-direction: column;
       gap: 24px;
+      padding: 16px;
+      white-space: normal;
+      height: 100%;
       &__content {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         gap: 10px;
         span {
           color: var(--theme-card-text-color);
@@ -150,6 +142,7 @@ export default {
         }
       }
       &__footer {
+        margin-top: auto;
         button {
           width: 100%;
           padding: 10px 0px;
