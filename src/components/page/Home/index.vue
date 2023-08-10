@@ -27,7 +27,10 @@
     </column>
 
     <!-- Horizontal Scroll -->
-    <column class="page-developers__cool-stuff horizontal-slider-cool-stuff" mode="full">
+    <column
+      class="page-developers__cool-stuff horizontal-slider-cool-stuff"
+      mode="full"
+    >
       <block>
         <developers-cool-stuff />
       </block>
@@ -61,25 +64,22 @@
     </column>
 
     <!-- Home featured media -->
-    <column class="new-home__bg__bottom space-top new-home__block-header">
+    <column class="new-home__bg space-top new-home__block-header">
       <block class="no-padding">
         <new-media-featured-home-v2 />
       </block>
     </column>
 
     <!-- Upcoming Events - Controls -->
-    <column v-if="showUpcomingEvent" number="2" class="new-home__bg space-top">
-      <block>
-        <h4>Upcoming Events</h4>
-      </block>
-      <block class="justify-right">
-        <scroll-horizontal sliderId="upcoming-events"/>
-      </block>
+    <column class="new-home__bg space-top">
+      <div class="new-home__upcoming-events">
+        <h4>Upcoming Events:</h4>
+        <scroll-horizontal sliderId="upcoming-events" />
+      </div>
     </column>
 
-     <!-- Horizontal Scroll -->
-    <column 
-      v-if="showUpcomingEvent"
+    <!-- Horizontal Scroll -->
+    <column
       class="new-home__bg__bottom page-developers__upcoming-events horizontal-slider-upcoming-events"
     >
       <block>
@@ -133,9 +133,6 @@ export default {
     NewBlogPosts,
     UpcomingEvents,
   },
-  data: {
-    showUpcomingEvent: false,
-  }
 };
 </script>
 
