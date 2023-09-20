@@ -31,7 +31,6 @@ export default {
   data() {
     return {
       secretInvestors: [
-        { image: "/img/investors/investor-Alameda.png" },
         { image: "/img/investors/investor-Arca.png" },
         { image: "/img/investors/investor-Arkstream.png" },
         { image: "/img/investors/investor-Arrington.png" },
